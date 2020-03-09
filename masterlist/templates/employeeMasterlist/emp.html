@@ -31,7 +31,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                     <a href="{% url 'masterlist_dl'%}"> <u>Export Employee Masterlist</u></a>
                     <a href="{% url 'employeeMasterlist-new' %}" style="float:right"><u>Add New Employee</u></a>
                 </div>
-                    <table id="vtable" class="display" style="width:100%" data-server-side="true" data-ajax="https://fmsjxmtsi.herokuapp.com/api/empmasterlist/">
+                    <table id="vtable" class="display" style="width:100%" data-server-side="true" data-ajax="/api/masterlist/?format=datatables">
                     <thead>
                         <tr>
                             <th>Employee ID:</th>
@@ -74,7 +74,7 @@ $(document).ready(function() {
         "serverSide": true,
         "scrollX": true,
         "ajax": {
-            "url":"https://fmsjxmtsi.herokuapp.com/api/empmasterlist/",
+            "url":"/api/masterlist/?format=datatables",
             "type":"POST"
             },
         "columns": [

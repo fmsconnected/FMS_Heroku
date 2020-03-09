@@ -46,7 +46,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                     <a href="{% url 'vehicleMasterlist_history' %}" style="float:right" class="mr-3"><u>Vehicle Masterlist History</u></a>
                 </div>
                     <div style="overflow-x:auto;">
-                    <table id="vtable" class="table table-striped table-bordered" style="width:100%" data-server-side="true" data-ajax="https://fmsjxmtsi.herokuapp.com/api/masterlist/">
+                    <table id="vtable" class="table table-striped table-bordered" style="width:100%" data-server-side="true" data-ajax="/api/masterlist/?format=datatables">
                     <thead>
                         <tr>
                             <th>Activity No</th>
@@ -112,7 +112,7 @@ $(document).ready(function() {
         "scrollX": true,
         // "ajax": "/api/masterlist/?format=datatables",
         "ajax": {
-            "url":"https://fmsjxmtsi.herokuapp.com/api/masterlist/",
+            "url":"/api/masterlist/?format=datatables",
             "type":"POST"
             },
         "columns": [
