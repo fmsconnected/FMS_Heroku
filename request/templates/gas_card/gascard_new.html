@@ -1,0 +1,327 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script>
+function gascard(card) {
+  var i;
+  var x = document.getElementsByClassName("gas");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(card).style.display = "block";  
+}
+</script>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3 align="center"><b>Gas Card Request</b></h3>&nbsp;
+    </div>
+</div>
+ <div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button" onclick="gascard('Gas Card Request')">Gas Card Request</button>
+    <button class="w3-bar-item w3-button" onclick="gascard('Approved Process')">Approved Process</button>
+    <button class="w3-bar-item w3-button" onclick="gascard('OutBound Process')">Outbound Process</button>
+    <button class="w3-bar-item w3-button" onclick="gascard('Inbound Process')">Inbound Process</button>
+    <button class="w3-bar-item w3-button" onclick="gascard('Fleet Card Releasing')">Fleet Card Releasing</button>
+</div>
+<form method="POST" action="{% url 'gas_submit' %}">
+{% csrf_token %}
+    <div id="Gas Card Request" class="w3-container gas">
+    <fieldset>
+        <legend align="left">Gas Card Request Details</legend><br>
+        <div style="display: flex; justify-content: flex-end">
+        <div class="col-sm-4">
+            <label>Date Application Received</label>
+            <input type="Date" name="date_app" id="date_app" class="form-control">
+        </div>
+        </div>
+        <div class="col-sm-4">
+            <label>Application Type</label>
+            <select name="app_type" id="app_type" class="form-control">
+                <option value="">--------</option>
+                <option value="Daily">Daily</option>
+                <option value="Transfer Accountability">Transfer Accountability</option>
+                <option value="Cancel - Disposal of Vehicle">Cancel - Disposal of Vehicle</option>
+                <option value="Cancel - Resignation of User">Cancel - Resignation of User</option>
+                <option value="Replacement - Damage">Replacement - Damage</option>
+                <option value="Replacement - Lose">Replacement - Lose</option>
+                <option value="Others - Adjust Credit Limit">Others - Adjust Credit Limit</option>
+                <option value="Others - Change of Product Restriction">Others - Change of Product Restriction</option>
+                <option value="Others - Update Cost Center">Others - Update Cost Center</option>
+            </select>
+        </div>
+        <div class="col-sm-4">
+            <label>Fleet Card Provider</label>
+            <select name="fleet_card" id="fleet_card" class="form-control">
+                <option value="">---------</option>
+                <option value="Petron">Petron</option>
+                <option value="Shell">Shell</option>
+            </select>
+        </div>
+        <div class="col-sm-4">
+            <label>Fleet Card Type</label>
+                <select name="fleet_card_type" id="fleet_card_type" class="form-control">
+                    <option value="">-------</option>
+                    <option value="Single">Single</option>
+                    <option value="Driver">Driver</option>
+                    <option value="Vehicle">Vehicle</option>
+                    <option value="Dual Card">Dual Card</option>
+                </select>
+        </div>
+
+        <div class="col-sm-4">
+            <label>Fuel Limit Amount</label>
+            <input type="Text" name="fuel_amount" id="fuel_amount" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>Fuel Limit Quantity</label>
+            <input type="Text" name="fuel_quantity" id="fuel_quantity" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>Product Restrictions</label>
+            <select name="products_restriction" id="products_restriction" class="form-control">
+                    <option value="">-------</option>
+                    <option value="S - Super Only">S - Super Only</option>
+                    <option value="U - Super Unleaded Only">U - Super Unleaded Only</option>
+                    <option value="R - Regular Only">R - Regular Only</option>
+                    <option value="X - Velocity">X - Velocity</option>
+                    <option value="D - Diesoline Only">D - Diesoline Only</option>
+                    <option value="L - Lubricant Only">L - Lubricant Only</option>
+                    <option value="V - Service Only">V - Service Only</option>
+                    <option value="C - Convenience store items, sundries, accesories">C - Convenience store items, sundries, accesories</option>
+                </select>
+        </div>
+    <br><br>
+    </fieldset>
+    <hr>
+    <fieldset>
+        <legend align="left">Requisitioner Details</legend>
+        <div class="col-sm-4">
+            <label>Requisitioner Employee ID</label>
+            <input name="req_emp_id" id="req_emp_id" list="emp_list" class="form-control" required>
+            <datalist id="emp_list">               
+            {% for empid in elist %}
+              <option data-value="{{ empid.Employee_Id }} | {{ empid.First_name }} | {{ empid.Last_name }} | {{ empid.Cost_center }}" value="{{ empid.Employee_Id }}">
+              </option>
+            {% endfor %}
+            </datalist>
+        </div>
+        <div class="col-sm-4">
+            <label>Requisitioner First Name</label>
+            <input type="Text" name="r_fname" id="r_fname" class="form-control" readonly>
+        </div>
+        <div class="col-sm-4">
+            <label>Requisitioner Last Name</label>
+            <input type="Text" name="r_lname" id="r_lname" class="form-control" readonly>
+        </div>
+        <div class="col-sm-4">
+            <label>Requisitioner Cost Center</label>
+            <input type="Text" name="r_costcenter" id="r_costcenter" class="form-control" readonly>
+        </div>
+        <div class="col-sm-4">
+            <label>Requisitioner Title</label>
+            <input type="Text" name="r_title" id="r_title" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>ATD Number</label>
+            <input type="Text" name="atd_no" id="atd_no" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>Temporary ATD Number</label>
+            <input type="Text" name="temp_atd" id="temp_atd" class="form-control">
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend align="left">For New Employee Only</legend>
+        <div class="col-sm-4">
+            <label>New Employee ID</label>
+            <input type="Text" name="new_empId" id="new_empId" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>New First Name</label>
+            <input type="Text" name="new_fname" id="new_fname" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>New Last Name</label>
+            <input type="Text" name="new_lname" id="new_lname" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>New Employee Cost Center</label>
+            <input type="Text" name="new_costcenter" id="new_costcenter" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>Temporary ATD Number</label>
+            <input type="Text" name="new_tempATD" id="new_tempATD" class="form-control">
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend align="left">For Transfer of Accountability</legend>
+        <div class="col-sm-4">
+            <label>New Assignee </label>
+            <input type="Text" name="new_assignee" id="new_assignee" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>Cost Center Code</label>
+            <input type="Text" name="cost_code" id="cost_code" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>GCR Cancellation</label>
+            <input type="Text" name="gcr_cancel" id="gcr_cancel" class="form-control">
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend align="left">Vehicle Details</legend>
+        <div class="col-sm-4">
+            <label>Plate Number</label>
+            <input name="plate_no" id="plate_no" list="v_list" class="form-control" required>
+            <datalist id="v_list">               
+            {% for vlist in vlist %}
+              <option data-value="{{ vlist.PLATE_NO }} | {{ vlist.CS_NO }} | {{ vlist.MODEL }} | {{ vlist.BRAND }} | {{vlist.VEHICLE_MAKE }} "value="{{ vlist.PLATE_NO }}">
+              </option>
+            {% endfor %}
+            </datalist>
+        </div>
+        <div class="col-sm-4">
+            <label>Conduction Sticker</label>
+            <input type="Text" name="c_sticker" id="c_sticker" class="form-control" readonly>
+        </div>
+        <div class="col-sm-4">
+            <label>Vehicle Model Year</label>
+            <input type="Text" name="v_model" id="v_model" class="form-control" readonly>
+        </div>
+        <div class="col-sm-4">
+            <label>Vehicle Brand</label>
+            <input type="Text" name="v_brand" id="v_brand" class="form-control" readonly>
+        </div>
+        <div class="col-sm-4">
+            <label>Vehicle Make</label>
+            <input type="Text" name="v_make" id="v_make" class="form-control" readonly>
+        </div>
+        <div class="col-sm-4">
+            <label>Vehicle Fuel Type</label>
+            <input type="Text" name="v_fueltype" id="v_fueltype" class="form-control">
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend align="left">New Vehicle Details</legend>
+        <div class="col-sm-4">
+            <label>Plate Number</label>
+            <input type="Text" name="new_plate_no" id="new_plate_no" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>Conduction Sticker</label>
+            <input type="Text" name="new_cs" id="new_cs" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>Vehicle Model Year</label>
+            <input type="Text" name="new_model" id="new_model" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>Vehicle Brand</label>
+            <input type="Text" name="new_brand" id="new_brand" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>Vehicle Make</label>
+            <input type="Text" name="new_make" id="new_make" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>Vehicle Fuel Type</label>
+            <input type="Text" name="new_fueltype" id="new_fueltype" class="form-control">
+        </div>
+    </fieldset>
+    <div class="card-footer">
+      <button type="submit" class="button">SUBMIT</butoon>
+    </div>
+    </div>
+    <div id="Approved Process" class="w3-container gas" style="display:none">
+    <fieldset>
+        <legend align="left">Approved Process</legend>
+        <div class="col-sm-6">
+            <label>Approved By</label>
+            <select name="approved_by" id="approved_by" class="form-control">
+                <option value="">-------</option>
+                <option value="Ser Roy Perluval Dela Cruz">Ser Roy Perluval Dela Cruz</option>
+                <option value="Shyla Marie Taboon">Shyla Marie Taboon</option>
+            </select>
+        </div>
+    </fieldset>
+    <div class="card-footer">
+        <button type="submit" class="button">UPDATE</butoon>
+    </div>
+    </div>
+    <div id="OutBound Process" class="w3-container gas" style="display:none">
+    <fieldset>
+        <legend align="left">Outbound Process</legend>
+        <div class="col-sm-6">
+            <label>Date Submitted Application</label>
+            <input type="Date" name="date_sumitted_app" id="date_sumitted_app" class="form-control">
+        </div>
+    </fieldset>
+    <div class="card-footer">
+        <button type="submit" class="button">UPDATE</butoon>
+    </div>
+    </div>
+    <div id="Inbound Process" class="w3-container gas" style="display:none">
+    <fieldset>
+        <legend align="left">Inbound Process</legend>
+        <div class="col-sm-6">
+            <label>Date Received Fleet Card</label>
+            <input type="Date" name="date_recieved_fleet" id="date_recieved_fleet" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Fleet Card Number</label>
+                <input type="Text" name="fleet_card_no" id="fleet_card_no" class="form-control">
+            </div>
+    </fieldset>
+    <div class="card-footer">
+        <button type="submit" class="button">UPDATE</butoon>
+    </div>
+    </div>
+    <div id="Fleet Card Releasing" class="w3-container gas" style="display:none">
+    <fieldset>
+        <legend align="left">Fleet Card Releasing</legend>
+        <div class="col-sm-6">
+            <label>Fleet Card Released Date</label>
+            <input type="Text" name="fleet_card_release" id="fleet_card_release" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Person Releases Fleet Card</label>
+            <input type="Text" name="person_release_card" id="person_release_card" class="form-control">
+        </div>
+        <input type="Text" name="gcr_sla" id="gcr_sla" class="form-control" value="10" hidden>
+    </fieldset>
+    <div class="card-footer">
+        <button type="submit" class="button">UPDATE</button>
+    </div>
+    </div>
+</div>
+</form>
+
+<!--for employee auto-fill-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$('#req_emp_id').on('change', function () {
+    var value = $('#req_emp_id').val();
+    var val = ($('#emp_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#req_emp_id').val(parts[0]);
+    $('#r_fname').val(parts[1]);
+    $('#r_lname').val(parts[2]);
+    $('#r_costcenter').val(parts[3]);
+});
+</script>
+
+<script>
+$('#plate_no').on('change', function () {
+    var value = $('#plate_no').val();
+    var val = ($('#v_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#plate_no').val(parts[0]);
+    $('#c_sticker').val(parts[1]);
+    $('#v_model').val(parts[2]);
+    $('#v_brand').val(parts[3]);
+    $('#v_make').val(parts[4]);
+});
+</script>
+{% endblock %}

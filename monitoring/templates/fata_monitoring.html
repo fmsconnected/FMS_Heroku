@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script>
+  function FATAmonitoring(Fata) {
+    var i;
+    var x = document.getElementsByClassName("FATA");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    document.getElementById(Fata).style.display = "block";  
+  }
+  </script>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header"><b>FATA Monitoring</b></h3>&nbsp;
+    </div>
+</div>
+<div class="w3-bar w3-black">
+  <button class="w3-bar-item w3-button" onclick="FATAmonitoring('New FATA Monitoring')">New FATA Monitoring</button>
+  <button class="w3-bar-item w3-button" onclick="FATAmonitoring('Inbound Process')">Inbound Process</button>
+  <button class="w3-bar-item w3-button" onclick="FATAmonitoring('OutBound Process')">OutBound Process</button>
+</div>
+<form method="POST">
+{% csrf_token %}
+  <div id="New FATA Monitoring" class="w3-container FATA">
+    <fieldset>
+    <legend align="left">FATA Details</legend><br>
+    <div class="col-sm-4">
+        <label>FATA Number:</label>
+      {{ form.Fata_no }}
+    </div>
+
+    <div class="col-sm-4">
+        <label>Date Of Transfer:</label>
+        {{ form.Date_transfer }}
+    </div>
+    <div class="col-sm-4">
+        <label>Date Received:</label>
+        {{ form.Date_received }}
+    </div>
+    <br><br>
+    </fieldset>
+    <hr>
+    <fieldset>
+    <legend align="left">FATA Vehicle Details</legend><br>
+    <div class="col-sm-4">
+        <label>Plate Number:</label>
+        {{ form.Plate_no }}
+    </div>
+
+    <div class="col-sm-4">
+        <label>Vehicle Make:</label>
+        {{ form.Vehicle_make }}
+    </div>
+
+    <div class="col-sm-4">
+        <label>Vehicle Brand:</label>
+        {{ form.Vehicle_brand }}
+    </div>
+    <div class="col-sm-4">
+        <label>Certificate Of Registrations Name:</label>
+        {{ form.Certificate_of_Reg }}
+    </div>
+    <div class="col-sm-4">
+        <label>Vehicle Model Year:</label>
+        {{ form.Vehicle_model }}
+    </div>
+    <br>
+    </fieldset>
+    <fieldset>
+    <legend align="left">Transferor Details</legend><br>
+    <div class="col-sm-4">
+        <label>Transferor Employee ID:</label>
+      {{ form.Transferor_employee }}
+    </div>
+
+    <div class="col-sm-4">
+        <label>Transferor First Name:</label>
+        {{ form.Transferor_Fname }}
+    </div>
+    <div class="col-sm-4">
+        <label>Transferor Last Name:</label>
+        {{ form.Transferor_Lname }}
+    </div>
+    <br><br>
+    </fieldset>
+    <br>
+    <fieldset>
+    <legend align="left">FATA Recepient Details</legend><br>
+    <div class="col-sm-4">
+        <label>Recepient Employee ID:</label>
+      {{ form.Recipient_Employee }}
+    </div>
+
+    <div class="col-sm-4">
+        <label>Recepient First Name:</label>
+        {{ form.Recipient_Fname }}
+    </div>
+    <div class="col-sm-4">
+        <label>Recepient Last Name:</label>
+        {{ form.Recipient_Lname }}
+    </div>
+    <br><br>
+    </fieldset>
+        <div class="card-footer">
+            <button type="submit" class="button">SUBMIT</butoon>
+        </div>
+  </div>
+
+
+  <div id="OutBound Process" class="w3-container FATA" style="display:none">
+    <fieldset>
+      <legend align="left">Document Routing 2</legend>
+    <div class="col-sm-6">
+        <label>Date Endorsed to Globe:</label>
+        {{ form.Date_endorsed_Globe }}
+    </div>
+
+    <div class="col-sm-6">
+        <label>Date Endorsed to Innove:</label>
+        {{ form.Date_endorsed_Innove }}
+        </div>
+    <div class="col-sm-6">
+        <label>Clearing of Accountability:</label>
+        {{ form.Clearing_accountability }}
+    </div>
+    </fieldset>
+        <div class="card-footer">
+            <button type="submit" class="button">UPDATE</butoon>
+        </div>
+  </div>
+
+<div id="Inbound Process" class="w3-container FATA" style="display:none">
+  <fieldset>
+  <legend align="left">Document Routing 1</legend>
+  <div class="col-sm-6">
+      <label>Globe Fixed Asset Recepient:</label>
+      {{ form.Globe_fixed_asset }}
+  </div>
+  <div class="col-sm-6">
+      <label>Innove Fixed Asser Recepient:</label>
+      {{ form.Innove_fixed_asset }}
+  </div>
+  </fieldset>
+        <div class="card-footer">
+            <button type="submit" class="button">UPDATE</butoon>
+        </div>
+</div>
+</form>
+{% endblock %}

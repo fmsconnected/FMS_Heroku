@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script>
+function carrequest(car) {
+  var i;
+  var x = document.getElementsByClassName("request");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(car).style.display = "block";  
+}
+</script>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header"><b>Car Rental Request</b></h3>&nbsp;
+    </div>
+</div>
+ <div class="w3-bar w3-black">
+  <button class="w3-bar-item w3-button" onclick="carrequest('Car Rental Request')">Car Rental Request</button>
+  <button class="w3-bar-item w3-button" onclick="carrequest('OutBound Process')">Outbound Process</button>
+  <button class="w3-bar-item w3-button" onclick="carrequest('Approved Process')">Approved Process</button>
+</div>
+<form method="POST">
+{% csrf_token %}
+  <div id="Car Rental Request" class="w3-container request">
+    <fieldset>
+      <legend align="left">Assignee Details</legend><br>
+      <div style="display: flex; justify-content: flex-end">
+      <div class="col-sm-4">
+          <label>Employee ID</label>
+        {{ form.A_Employee_Id }}
+      </div>
+      </div>
+      <br><br>
+      <div class="col-sm-4">
+          <label>Date Received</label>
+          {{ form.Date_received }}
+      </div>
+      <div class="col-sm-4">
+          <label>First Name</label>
+          {{ form.Assignee_Fname}}
+      </div>
+      <div class="col-sm-4">
+          <label>Last Name</label>
+        {{ form.Assignee_Lname }}
+      </div>
+
+      <div class="col-sm-4">
+          <label>Contact Number</label>
+          {{ form.Assignee_No }}
+      </div>
+      <div class="col-sm-4">
+          <label>Company</label>
+          {{ form.Assignee_Company }}
+      </div>
+      <div class="col-sm-4">
+          <label>Band</label>
+        {{ form.Assignee_band }}
+      </div>
+      <div class="col-sm-4">
+          <label>Department</label>
+          {{ form.Assignee_Dept }}
+      </div>
+      <div class="col-sm-4">
+          <label>Cost Center</label>
+          {{ form.Assignee_Cost }}
+      </div>
+      <div class="col-sm-4">
+          <label>Division</label>
+        {{ form.Assignee_Div }}
+      </div>
+      <div class="col-sm-4">
+          <label>Location</label>
+          {{ form.Assignee_Loc }}
+      </div>
+      <div class="col-sm-4">
+          <label>Section</label>
+          {{ form.Assignee_Section }}
+      </div>
+      <div class="col-sm-4">
+          <label>Designation</label>
+          {{ form.Assignee_Designation }}
+      </div>
+      <div class="col-sm-4">
+          <label>ATD</label>
+          {{ form.Assignee_ATD }}
+      </div>
+    <br><br>
+    </fieldset>
+    <hr>
+    <fieldset>
+    <legend align="left">Car Rental Request Details</legend>
+    <div class="col-sm-4">
+        <label>Vendor Name</label>
+        {{ form.Vendor_name }}
+    </div>
+    <div class="col-sm-4">
+        <label>Date</label>
+        {{ form.Date }}
+    </div>
+    <div class="col-sm-4">
+        <label>Up to</label>
+        {{ form.Up_to }}
+    </div>
+    <div class="col-sm-4">
+        <label>Time</label>
+        {{ form.Time }}
+    </div>
+    <div class="col-sm-4">
+        <label>Place of Delivery</label>
+        {{ form.Place_of_del }}
+    </div>
+    <div class="col-sm-4">
+        <label>Type of Rental</label>
+        {{ form.type_rental }}
+    </div>
+    <div class="col-sm-4">
+        <label>Cost Center</label>
+        {{ form.Cost_center }}
+    </div>
+    <div class="col-sm-4">
+        <label>Rental Period</label>
+        {{ form.Rental_period }}
+    </div>
+    <div class="col-sm-4">
+        <label>Destination</label>
+        {{ form.Destination }}
+    </div>
+    <div class="col-sm-4">
+        <label>Delivery Date</label>
+        {{ form.Delivery_date}}
+    </div>
+    <div class="col-sm-4">
+        <label>End User</label>
+        {{ form.End_user }}
+    </div>
+    </fieldset>
+    <div class="card-footer">
+      <button type="submit" class="button">PROCEED</butoon>
+    </div>
+    <br><br><br>
+  </div>
+
+  <div id="OutBound Process" class="w3-container request" style="display:none">
+    <fieldset>
+      <legend align="left">Vehicle Details</legend>
+    <div class="col-sm-6">
+      <label>Type of Vehicle</label>
+      {{ form.Type_of_vehicle }}
+    </div>
+    <div class="col-sm-6">
+      <label>Plate Number</label>
+      {{ form.Plate_no }}
+    </div>
+    </fieldset>
+
+    <div class="card-footer">
+      <button type="submit" class="button">UPDATE</button>
+    </div>
+  </div>
+
+<div id="Approved Process" class="w3-container request" style="display:none">
+  <fieldset>
+  <legend align="left">Approval Process</legend>
+  <div class="col-sm-6">
+      <label>Immediate Supervisor</label>
+      {{ form.Immediate_supervisor }}
+  </div>
+  <div class="col-sm-6">
+      {{ form.CR_SLA }}
+  </div>
+  </fieldset>
+  <div class="card-footer">
+    <button type="submit" class="button">UPDATE</button>
+  </div>
+</div>
+</form>
+{% endblock %}

@@ -1,0 +1,220 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script>
+function carrequest(car) {
+  var i;
+  var x = document.getElementsByClassName("request");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(car).style.display = "block";  
+}
+</script>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3 align="center"><b>Car Rental Request</b></h3>&nbsp;
+    </div>
+</div>
+ <div class="w3-bar w3-black">
+  <button class="w3-bar-item w3-button" onclick="carrequest('Car Rental Request')">Car Rental Request</button>
+  <button class="w3-bar-item w3-button" onclick="carrequest('OutBound Process')">Outbound Process</button>
+  <button class="w3-bar-item w3-button" onclick="carrequest('Approved Process')">Approved Process</button>
+</div>
+<form method="POST" action="{% url 'carrequest_submit' %}">
+{% csrf_token %}
+  <div id="Car Rental Request" class="w3-container request">
+    <fieldset>
+      <legend align="left">Assignee Details</legend><br>
+      <div style="display: flex; justify-content: flex-end">
+      <div class="col-sm-4">
+          <label>Employee ID</label>
+          <input name="emp_id" id="emp_id" list="emp_list" class="form-control" required>
+            <datalist id="emp_list">               
+            {% for empid in emplist %}
+              <option data-value="{{ empid.Employee_Id }} | {{ empid.First_name }} | {{ empid.Last_name }} | {{ empid.Company }} | {{ empid.Band }} | {{empid.Department }} | {{ empid.Cost_center }} | {{ empid.Division }} | {{ empid.Location }} | {{empid.Section}} " value="{{ empid.Employee_Id }}">
+              </option>
+            {% endfor %}
+            </datalist>
+      </div>
+      </div>
+      <br><br>
+      <div class="col-sm-4">
+          <label>Date Received</label>
+          <input type="Date" name="date_received" id="date_received" class="form-control" required>
+      </div>
+      <div class="col-sm-4">
+          <label>First Name</label>
+          <input type="text" name="fname" id="fname" class="form-control" readonly>
+      </div>
+      <div class="col-sm-4">
+          <label>Last Name</label>
+          <input type="text" name="lname" id="lname" class="form-control" readonly>
+      </div>
+
+      <div class="col-sm-4">
+          <label>Contact Number</label>
+          <input type="text" name="cnumber" id="cnumber" class="form-control">
+      </div>
+      <div class="col-sm-4">
+          <label>Company</label>
+          <input type="text" name="company" id="company" class="form-control" readonly>
+      </div>
+      <div class="col-sm-4">
+          <label>Band</label>
+          <input type="text" name="band" id="band" class="form-control" readonly>
+      </div>
+      <div class="col-sm-4">
+          <label>Department</label>
+          <input type="text" name="dept" id="dept" class="form-control" readonly>
+      </div>
+      <div class="col-sm-4">
+          <label>Cost Center</label>
+          <input type="text" name="cost" id="cost" class="form-control" readonly>
+      </div>
+      <div class="col-sm-4">
+          <label>Division</label>
+          <input type="text" name="div" id="div" class="form-control" readonly>
+      </div>
+      <div class="col-sm-4">
+          <label>Location</label>
+          <input type="text" name="loc" id="loc" class="form-control" readonly>
+      </div>
+      <div class="col-sm-4">
+          <label>Section</label>
+          <input type="text" name="section" id="section" class="form-control" readonly>
+      </div>
+      <div class="col-sm-4">
+          <label>Designation</label>
+          <input type="text" name="designation" id="designation" class="form-control" readonly>
+      </div>
+      <div class="col-sm-4">
+          <label>ATD</label>
+          <input type="text" name="atd" id="atd" class="form-control">
+      </div>
+    <br><br>
+    </fieldset>
+    <hr>
+    <fieldset>
+    <legend align="left">Car Rental Request Details</legend>
+    <div class="col-sm-4">
+        <label>Vendor Name</label>
+        <input type="text" name="vname" id="vname" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Date</label>
+        <input type="Date" name="date" id="date" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Up to</label>
+        <input type="text" name="up_to" id="up_to" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Time</label>
+        <input type="Time" name="time" id="time" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Place of Delivery</label>
+        <input type="text" name="del_place" id="del_place" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Type of Rental</label>
+        <select class="form-control" name="type_rental" id="type_rental">
+          <option value="">-------</option>
+          <option value="Daily">Daily</option>
+          <option value="Monthly">Monthly</option>
+        </select>
+    </div>
+    <div class="col-sm-4">
+        <label>Cost Center</label>
+        <input type="text" name="costcenter" id="costcenter" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Rental Period</label>
+        <input type="text" name="rent_period" id="rent_period" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Destination</label>
+        <input type="text" name="destination" id="destination" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Delivery Date</label>
+        <input type="Date" name="del_date" id="del_date" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>End User</label>
+        <input type="text" name="end_user" id="end_user" class="form-control">
+    </div>
+    </fieldset>
+    <div class="card-footer">
+      <button type="submit" class="button">PROCEED</butoon>
+    </div>
+    <br><br><br>
+  </div>
+
+  <div id="OutBound Process" class="w3-container request" style="display:none">
+    <fieldset>
+      <legend align="left">Vehicle Details</legend>
+    <div class="col-sm-6">
+      <label>Type of Vehicle</label>
+      <select class="form-control" name="vehicle_type" id="vehicle_type">
+        <option value="">----------</option>
+        <option value="Sedan">Sedan</option>
+        <option value="SUV">SUV</option>
+        <option value="Van">Van</option>
+      </select>
+    </div>
+    <div class="col-sm-6">
+      <label>Plate Number</label>
+      <input type="text" name="plate_no" id="plate_no" class="form-control">
+    </div>
+    </fieldset>
+
+    <div class="card-footer">
+      <button type="submit" class="button">UPDATE</button>
+    </div>
+  </div>
+
+<div id="Approved Process" class="w3-container request" style="display:none">
+  <fieldset>
+  <legend align="left">Approval Process</legend>
+  <div class="col-sm-6">
+      <label>Immediate Supervisor</label>
+      <select class="form-control" name="supervisor" id="supervisor">
+        <option value="">----------</option>
+        <option value="Ser Roy Dela Cruz">Ser Roy Dela Cruz</option>
+        <option value="Adolfo Carlos Umali">Adolfo Carlos Umali</option>
+      </div>
+  <div class="col-sm-6">
+      <input type="text" name="cr_sla" id="cr_sla" value="2" hidden class="form-control">
+  </div>
+  </fieldset>
+  <div class="card-footer">
+    <button type="submit" class="button">UPDATE</button>
+  </div>
+</div>
+</form>
+
+<!--for employee auto-fill-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$('#emp_id').on('change', function () {
+    var value = $('#emp_id').val();
+    var val = ($('#emp_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#emp_id').val(parts[0]);
+    $('#fname').val(parts[1]);
+    $('#lname').val(parts[2]);
+    $('#company').val(parts[3]);
+    $('#band').val(parts[4]);
+    $('#dept').val(parts[5]);
+    $('#cost').val(parts[6]);
+    $('#div').val(parts[7]);
+    $('#loc').val(parts[8])
+    $('#section').val(parts[9]);
+});
+</script>
+
+
+{% endblock %}

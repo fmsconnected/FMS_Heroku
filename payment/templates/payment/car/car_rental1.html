@@ -1,0 +1,214 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<script src="https://code.jquery.com/jquery-1.8.3.js"></script>
+<script src="https://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" />
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3 ><b>Car Rental Payment</b></h3>&nbsp;
+    </div>
+
+<form method="POST" action="{% url 'Car_submit' %}">
+{% csrf_token %}
+<input type="text" name="SLA" id="SLA" value="15" hidden />
+<input type="text" name="date" id="date" hidden />
+    <div class="col-sm-4">
+        <label>Bill Date</label>
+        <input type="date" name="Bdate" id="Bdate" class="form-control" required>
+    </div>
+    <div class="col-sm-4">
+        <label>Assignee Employee ID</label>
+        <input name="Eid" id="Eid" list="emp_list" class="form-control" required>
+            <datalist id="emp_list">               
+            {% for emp_id in e_list %}
+              <option data-value="{{ emp_id.Employee_Id }} | {{ emp_id.First_name }} | {{ emp_id.Last_name }} | {{ emp_id.Company }} | {{ emp_id.Cost_center }}" value="{{ emp_id.Employee_Id }}">
+              </option>
+            {% endfor %}
+            </datalist>
+    </div>
+    <div class="col-sm-4">
+        <label>Employee First Name</label>
+        <input type="text" name="Efm" id="Efm" class="form-control" readonly>
+    </div>
+    <div class="col-sm-4">
+        <label>Employee Last Name</label>
+        <input type="text" name="Elm" id="Elm" class="form-control" readonly>
+    </div>
+    <div class="col-sm-4">
+        <label>Assignee Company</label>
+        <input type="text" name="Acom" id="Acom" class="form-control" readonly>
+    </div>
+    <div class="col-sm-4">
+        <label>Assignee Cost Center</label>
+        <input type="text" name="Acost" id="Acost" class="form-control" readonly>
+    </div>
+   
+    <div class="col-sm-4">
+        <label>Other Assignee First Name</label>
+        <input type="Ofname" name="Ofname" id="Ofname" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Other Assignee Last Name</label>
+        <input type="text" name="Olname" id="Olname" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Other Assignee Cost Center</label>
+        <input type="text" name="Ocost" id="Ocost" class="form-control">
+        
+    </div>
+    <div class="col-sm-4">
+        <label>Provider</label>
+        <input type="text" name="car_provider" id="car_provider" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>SQA Number</label>
+        <input type="text" name="sqa_number" id="sqa_number" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>RFP Number</label>
+        <input type="text" name="rfp_no2" id="rfp_no2" class="form-control">
+        <br>
+    </div>
+
+    <div class="col-sm-3">
+        <label>Plate Number</label>
+        <input name="Pnumber" id="Pnumber" list="vehicle_list" class="form-control" required>
+            <datalist id="vehicle_list">               
+            {% for plate in v_list %}
+              <option data-value="{{ plate.PLATE_NO }} | {{ plate.MODEL }} | {{ plate.BRAND }} | {{ plate.VEHICLE_MAKE }}" value="{{ plate.PLATE_NO }}"></option>
+            {% endfor %}
+            </datalist>
+    </div>
+    <div class="col-sm-3">
+        <label>Vehicle Model</label>
+        <input type="text" name="Vmodel" id="Vmodel" class="form-control" readonly>
+    </div>
+    <div class="col-sm-3">
+        <label>Vehicle Brand</label>
+        <input type="text" name="Vbrand" id="Vbrand" class="form-control" readonly>
+    </div>
+    <div class="col-sm-3">
+        <label>Vehicle Make</label>
+        <input type="text" name="Vmake" id="Vmake" class="form-control" readonly>
+    </div>
+
+    <!-- <h4><u>Rental Details</u></h4> -->
+    <div class="col-sm-3">
+        <label>Date Delivered Vehicle</label>
+        <input type="date" name="Ddelivered" id="Ddelivered" class="form-control">
+    </div>
+    <div class="col-sm-3">
+        <label>Start of Rental</label>
+        <input  type="Date" name="Srental" id="Srental" class="form-control">
+    </div>
+    <div class="col-sm-3">
+        <label>End of Rental</label>
+        <input  type="Date" name="Erental" id="Erental" class="form-control">
+    </div>
+   <!--  <div class="col-sm-3">
+        <label>Rental Duration:</label>
+        <input  type="text" name="Rduration" id="Rduration" class="form-control" readonly>
+    </div> -->
+
+<!--     <H4><u>Expense Details</u></H4>-->
+    <div class="col-sm-3">
+        <label>Rental Cost</label>
+        <input type="Number" name="Rcost" id="Rcost" placeholder="0" class="form-control" onkeyup="add()"/>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group">
+        <label>Gasoline Cost</label>
+        <input type="Number" name="Gcost" id="Gcost" placeholder="0" class="form-control" onkeyup="add()"/>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group">
+        <label>Toll Fee</label>
+        <input type="Number" name="Tfee" id="Tfee" placeholder="0" class="form-control" onkeyup="add()"/>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group">
+        <label>Parking Fee</label>
+        <input type="Number" name="Pfee" id="Pfee" placeholder="0" class="form-control" onkeyup="add()"/>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group">
+        <label>Delivery Fee</label>
+        <input type="Number" name="Dfee" id="Dfee" placeholder="0" class="form-control" onkeyup="add()"/>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group">
+        <label>Driver Fee</label>
+        <input type="Number" name="Driverfee" id="Driverfee" placeholder="0" class="form-control" onkeyup="add()"/>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group">
+        <label>Meal Cost</label>
+        <input type="Number" name="M_cost" id="M_cost" placeholder="0" class="form-control" onkeyup="add()"/>
+        <br>
+        </div>
+    </div>
+    <div class="col-sm-12" align="right">
+        <div class="form-group">
+        <label><b>Total Expenses: &nbsp;&nbsp;₱</b></label>
+        <input align="right" style="width: 150px; text-transform:" type="text" name="Total" id="Total" onclick="add()" placeholder="0" class="text-center" readonly>    
+        </div>
+    </div>
+
+    </div>
+    <div class="card-footer">
+        <button type="submit" class="button">PROCEED</button><button class="button" type="reset" value="Reset">CLEAR FIELDS</button>
+    </div>
+</form>
+
+<!---Autocompute number-->
+<script>
+    function add(){
+        var a = Number(document.getElementById("Rcost").value);
+        var b = Number(document.getElementById("Gcost").value);
+        var c = Number(document.getElementById("Tfee").value);
+        var d = Number(document.getElementById("Pfee").value);
+        var e = Number(document.getElementById("Dfee").value);
+        var f = Number(document.getElementById("Driverfee").value);
+        var g = Number(document.getElementById("M_cost").value);
+        var result = a + b + c + d + e + f + g;
+
+        document.getElementById("Total").value = result;
+    }
+</script>
+<!--for employee auto-fill-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$('#Eid').on('change', function () {
+    var value = $('#Eid').val();
+    var val = ($('#emp_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#Eid').val(parts[0]);
+    $('#Efm').val(parts[1]);
+    $('#Elm').val(parts[2]);
+    $('#Acom').val(parts[3]);
+    $('#Acost').val(parts[4]);
+});
+</script>
+<!--for vehicle auto-fill-->
+<script>
+$('#Pnumber').on('change', function () {
+    var value = $('#Pnumber').val();
+    var val = ($('#vehicle_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#Pnumber').val(parts[0]);
+    $('#Vmodel').val(parts[1]);
+    $('#Vbrand').val(parts[2]);
+    $('#Vmake').val(parts[3]);
+});
+</script>
+
+{% endblock %}

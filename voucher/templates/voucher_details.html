@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header">Expense Voucher Details</h3>
+    </div>
+</div>
+
+<br>
+
+<table width="90%" class="table table-bordered table-hover" border="2px">
+    <tr>
+        <th width="25%">Activity ID: </th><td width="25%">{{ object.Activity_id }}</td>
+        <th width="25%">Date Initiated:</th><td width="25%">{{ object.date_initiated }}</td>
+    </tr>
+    <tr>
+        <th>SLA:</th><td>{{ object.EVO_SLA}}/Days</td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Employee ID:</th><td>{{ object.employee_id }}</td>
+        <th>Employee Name: </th> <td>{{ object.employee_fname }} {{ object.employee_lname }}</td>
+    </tr>
+    <tr>
+        <th>Employee Group: </th> <td>{{ object.employee_group }}</td>
+        <th>Cost Center Code</th> <td>{{ object.employee_cost }}</td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>New Employee ID:</th><td>{{ object.new_employee_id }}</td>
+        <th>New Employee Name: </th> <td>{{ object.new_employee_fname }} {{ object.new_employee_lname }}</td>
+    </tr>
+    <tr>
+        <th>New Employee Group: </th> <td>{{ object.new_employee_group }}</td>
+        <th>New Cost Center</th> <td>{{ object.new_employee_cost }}</td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Fleet Area: </th> <td>{{ object.fleet_area }}</td>
+        <th>Date Received Voucher:</th> <td>{{ object.received_voucher }}</td>
+    </tr> 
+    <tr>
+        <th>Transaction Type:</th><td>{{ object.trans_type }}</td>
+        <th>Voucher Number:</th><td>{{ object.voucher_no }}</td>
+    </tr>
+    <tr>
+        <th>Indicated Voucher Amount: </th> <td>{{ object.voucher_amount }}</td>
+        <th>Voucher Type</th><td>{{ object.voucher_type}}</td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Fuel Amount:</th><td>{{ object.fuel_amount }}</td>
+        <th>Fuel Products:</th><td>{{ object.fuel_products }}</td>
+    </tr>
+    <tr>
+        <th>Fuel Liters: </th> <td>{{ object.fuel_liters }}</td>
+        <th></th> <td></td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Service Amount: </th> <td>{{ object.service_amount }}</td>
+        <th>Work Order Number:</th> <td>{{ object.work_order }}</td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Plate Number:</th><td>{{ object.plate_number }}</td>
+        <th>Odometer Reading Start:</th><td>{{ object.odometer_start }}</td>
+    </tr>
+    <tr>
+        <th>Odometer Reading End:</th><td>{{ object.odometer_end }}</td>
+        <th>Vehicle Brand:</th><td>{{ object.v_brand }}</td>
+    </tr>
+    <tr>
+        <th>Vehicle Make:</th><td>{{ object.v_make }}</td>
+        <th>Vehicle Fuel Type:</th><td>{{ object.v_fuel_type }}</td>
+    </tr>
+    <tr>
+        <th>Vehicle Model Year:</th><td>{{ object.v_model }}</td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>New Plate Number:</th><td>{{ object.new_plate_number }}</td>
+        <th>New Odometer Reading Start:</th><td>{{ object.new_odometer_start }}</td>
+    </tr>
+    <tr>
+        <th>New Odometer Reading End:</th><td>{{ object.new_odometer_end }}</td>
+        <th>New Vehicle Brand:</th><td>{{ object.new_v_brand }}</td>
+    </tr>
+    <tr>
+        <th>New Vehicle Make:</th><td>{{ object.new_v_make }}</td>
+        <th>New Vehicle Fuel Type:</th><td>{{ object.new_v_fuel_type }}</td>
+    </tr>
+    <tr>
+        <th>New Vehicle Model Year:</th><td>{{ object.new_v_model }}</td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>GT Admin:</th><td>{{ object.gt_admin }}</td>
+        <th>Approval Date:</th><td>{{ object.approval_date }}</td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Immediate Supervisor:</th> <td>{{ object.immediate_supervisor }}</td>
+        <th>Approval Date</th><td>{{ object.im_approval_date}}</td>
+    </tr>
+    <tr>
+        <th>Voucher Documents Attached List</th><td>{{ object.voucher_docs1}} {{ object.voucher_docs2 }} {{ object.voucher_docs3 }}</td>
+        <th>Voucher Remarks</th><td>{{ object.voucher_remarks }}</td>
+    </tr>
+    <tr>
+        <th>Date Forwarded Voucher to Accounting:</th><td>{{ object.voucher_forwarded }}</td>
+        <th></th><td></td>
+    </tr>
+</table>
+    <div class="card-footer">
+      <a href="{% url 'voucher_update' object.id %}" class="button">UPDATE</a><a href="{% url 'voucher_list' %}" class='button'>CLOSE</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script>
+function vrepair(repair) {
+  var i;
+  var x = document.getElementsByClassName("vr");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(repair).style.display = "block";  
+}
+</script>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3><b>Vehicle Repair Payment</b></h3>&nbsp;
+    </div>
+</div>
+ <div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button" onclick="vrepair('Vehicle Repair Payment')">Vehicle Repair Payment</button>
+    <button class="w3-bar-item w3-button" onclick="vrepair('Outbound Process')">Outbound Process Tab</button>
+    </div>
+<form method="POST" action="{% url 'vehiclerepair_payment_submit' %}">
+{% csrf_token %}
+    <div id="Vehicle Repair Payment" class="w3-container vr">
+    <fieldset>
+        <legend align="left">Requisitioner Details</legend><br>
+        <div style="display: flex; justify-content: flex-end">
+        <div class="col-sm-6">
+            <label>Request Date</label>
+            <input type="Date" name="request_date" id="request_date" class="form-control" required>
+        </div>
+        </div>
+        <div class="col-sm-6">
+            <label>Employee ID</label>
+            <input name="emp_id" id="emp_id" list="emp_list" class="form-control" required>
+            <datalist id="emp_list">               
+            {% for emp_id in emplist %}
+              <option data-value="{{ emp_id.Employee_Id }} | {{ emp_id.Cost_center }} | {{ emp_id.First_name }} | {{ emp_id.Last_name }} | {{ emp_id.Company }} | {{ emp_id.Department }} | {{ emp_id.Group }}" value="{{ emp_id.Employee_Id }}">
+              </option>
+            {% endfor %}
+            </datalist>
+        </div>
+        <div class="col-sm-6">
+            <label>Cost Center Code</label>
+            <input type="text" name="cost_center" id="cost_center" class="form-control" readonly>
+        </div>
+        <div class="col-sm-6">
+            <label>First Name</label>
+            <input type="text" name="fname" id="fname" class="form-control" readonly>
+        </div>
+        <div class="col-sm-6">
+            <label>Last Name</label>
+            <input type="text" name="lname" id="lname" class="form-control" readonly>
+        </div>
+        <div class="col-sm-6">
+            <label>Contact Number</label>
+            <input type="text" name="c_no" id="c_no" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Company</label>
+            <input type="text" name="company" id="company" class="form-control" readonly>
+        </div>
+        <div class="col-sm-6">
+            <label>Department</label>
+            <input type="text" name="department" id="department" class="form-control" readonly>
+        </div>
+        <div class="col-sm-6">
+            <label>Group/Section</label>
+            <input type="text" name="group" id="group" class="form-control" readonly>
+        </div>
+    <br><br>
+    </fieldset>
+    <hr>
+    <fieldset>
+    <legend align="left">Vehicle Details</legend>
+        
+        <div class="col-sm-6">
+            <label>Plate No.</label>
+            <input name="plate_no" id="plate_no" list="v_list" class="form-control">
+            <datalist id="v_list">               
+            {% for vehiclelist in vlist %}
+              <option data-value="{{ vehiclelist.PLATE_NO }} | {{ vehiclelist.BRAND }} | {{ vehiclelist.ENGINE_NO }} | {{ vehiclelist.MODEL }} | {{ vehiclelist.VEHICLE_MAKE }} | {{ vehiclelist.CHASSIS_NO }} | {{ vehiclelist.BAND_LEVEL }} | {{ vehiclelist.CS_NO }} | {{ vehiclelist.EQUIPMENT_NO }}" value="{{ vehiclelist.PLATE_NO }}">
+              </option>
+            {% endfor %}
+            </datalist>
+        </div>
+        
+        <div class="col-sm-6">
+            <label>Vehicle Brand</label>
+            <input type="text" name="v_brand" id="v_brand" class="form-control" readonly>
+        </div>
+        <div class="col-sm-6">
+            <label>Engine</label>
+            <input type="text" name="engine" id="engine" class="form-control" readonly>
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Model Year</label>
+            <input type="text" name="v_model" id="v_model" class="form-control" readonly>
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Make</label>
+            <input type="text" name="v_make" id="v_make" class="form-control" readonly>
+        </div>
+        <div class="col-sm-6">
+            <label>Chassis</label>
+            <input type="text" name="chassis" id="chassis" class="form-control" readonly>
+        </div>
+        <div class="col-sm-6">
+            <label>Band</label>
+            <input type="text" name="v_band" id="v_band" class="form-control" readonly>
+        </div>
+        <div class="col-sm-6">
+            <label>Conduction Stikers</label>
+            <input type="text" name="cs_no" id="cs_no" class="form-control" readonly>
+        </div>
+        <div class="col-sm-6">
+            <label>Equipment Number</label>
+            <input type="text" name="eq_no" id="eq_no" class="form-control" readonly>
+        </div>
+        <div class="col-sm-6">
+            <label>RFP Number</label>
+            <input type="text" name="rfp_no" id="rfpno" class="form-control">
+        </div>
+    </fieldset>
+    <div class="card-footer">
+      <button type="submit" class="button">SUBMIT</button>
+    </div>
+    </div>
+    <div id="Outbound Process" class="w3-container vr" style="display:none">
+    <fieldset>
+        <legend align="left">Repair Details</legend>
+        <div class="col-sm-6">
+            <label>Provider</label>
+            <input type="text" name="dealer" id="dealer" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Amount</label>
+            <input type="Number" name="amount" id="amount" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Type Of Service</label>
+            <input type="text" name="service_type" id="service_type" class="form-control">
+            <!-- <select name="service_type" id="service_type" class="form-control">
+                <option value="">---------</option>
+                <option value="Corrective Maitenance">Corrective Maitenance</option>
+                <option value="Preventive">Preventive</option>
+                <option value="Tires">Tires</option>
+                <option value="Battery">Battery</option>
+                <option value="Others">Others</option>
+            </select> -->
+        </div>
+        <div class="col-sm-6">
+            <label>Invoice Number</label>
+            <input type="text" name="invoice_num" id="invoice_num" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Invoice Date</label>
+            <input type="date" name="invoice_date" id="invoice_date" class="form-control">
+        </div>
+    </fieldset>
+    <div class="card-footer">
+        <button type="submit" class="button">UPDATE</butoon>
+    </div>
+    </div>
+</div>
+</form>
+
+<!--for employee auto-fill-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$('#emp_id').on('change', function () {
+    var value = $('#emp_id').val();
+    var val = ($('#emp_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#emp_id').val(parts[0]);
+    $('#cost_center').val(parts[1]);
+    $('#fname').val(parts[2]);
+    $('#lname').val(parts[3]);
+    $('#company').val(parts[4]);
+    $('#department').val(parts[5]);
+    $('#group').val(parts[6]);
+});
+</script>
+<!--for vehicle auto-fill-->
+<script>
+$('#plate_no').on('change', function () {
+    var value = $('#plate_no').val();
+    var val = ($('#v_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#plate_no').val(parts[0]);
+    $('#v_brand').val(parts[1]);
+    $('#engine').val(parts[2]);
+    $('#v_model').val(parts[3]);
+    $('#v_make').val(parts[4]);
+    $('#chassis').val(parts[5]);
+    $('#v_band').val(parts[6]);
+    $('#cs_no').val(parts[7]);
+    $('#eq_no').val(parts[8]);
+});
+</script>
+{% endblock %}

@@ -1,0 +1,202 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<script src="https://code.jquery.com/jquery-1.8.3.js"></script>
+<script src="https://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" />
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3 class="page-header"><b>Car Rental Payment Update</b></h3>&nbsp;
+    </div>
+
+<form method="POST" action="{% url 'Car_update' object.id %}">
+{% csrf_token %}
+    <div class="col-sm-4">
+      <label>Bill Date:</label>
+      <input style= "text-transform:" type="date" name="Bdate" id="Bdate" class="form-control" value="{{ object.Bill_date }}">
+    </div>
+    <div class="col-sm-4">
+      <label>Assignee Employee ID</label>
+      <input style= "text-transform:" type="text" name="Eid" id="Eid" class="form-control" value="{{ object.Employee_id }}">
+    </div>
+    <div class="col-sm-4">
+      <label>Employee First Name:</label>
+      <input style= "text-transform:" type="text" name="Efm" id="Efm" class="form-control" value="{{ object.F_name }}">
+    </div>
+    <div class="col-sm-4">
+      <label>Employee Last Name:</label>
+      <input style="text-transform:" type="text" name="Elm" id="Elm" class="form-control" value="{{ object.L_name }}">
+    </div>
+    <div class="col-sm-4">
+      <label>Assignee Company:</label>
+      <input style="text-transform:" type="text" name="Acom" id="Acom" class="form-control" value="{{ object.Assignee_company }}">
+    </div>
+    <div class="col-sm-4">
+      <label>Assignee Cost Center:</label>
+      <input style="text-transform:" type="text" name="Acost" id="Acost" class="form-control" value="{{ object.Cost_center }}">
+    </div>
+
+    <div class="col-sm-4">
+      <label>Other Assignee First Name:</label>
+      <input style="text-transform:" type="text" name="Ofname" id="Ddate" class="form-control" value="{{ object.O_Fname }}">
+    </div>
+    <div class="col-sm-4">
+      <label>Other Assignee Last Name:</label>
+      <input style="text-transform:" type="text" name="Olname" id="Olname" class="form-control" value="{{ object.O_Lname }}">
+    </div>
+    <div class="col-sm-4">
+      <label>Other Assignee Cost Center:</label>
+      <input style="text-transform:" type="text" name="Ocost" id="Ocost" class="form-control" value="{{ object.O_cost_center }}">
+      <br>
+    </div>
+
+    <div class="col-sm-3">
+      <label>Plate Number:</label>
+      <input style="text-transform:" type="text" name="Pnumber" id="Ddate" class="form-control" value="{{ object.Plate_no }}">
+    </div>
+    <div class="col-sm-3">
+      <label>Vehicle Provider:</label>
+      <input style="text-transform:" type="text" name="Vprovider" id="Vprovider" class="form-control" value="{{ object.V_provider }}">
+    </div>
+    <div class="col-sm-3">
+      <label>Vehicle Brand:</label>
+      <input style="text-transform:" type="text" name="Vbrand" id="Vbrand" class="form-control" value="{{ object.V_brand }}">
+    </div>
+    <div class="col-sm-3">
+      <label>Vehicle Make:</label>
+      <input style="text-transform:" type="text" name="Vmake" id="Vmake" class="form-control" value="{{ object.V_make }}">
+    </div>
+
+    <!-- <h4><u>Rental Details</u></h4> -->
+    <div class="col-sm-3">
+      <label>Date Delivered Vehicle:</label>
+      <input style="text-transform:" type="date" name="Ddelivered" id="Ddelivered" class="form-control" value="{{ object.D_vehicle}}">
+    </div>
+    <div class="col-sm-3">
+      <label>Start of Rental:</label>
+      <input style="text-transform:" type="text" name="Startrental" id="Startrental" class="form-control" value="{{ object.S_rental }}">
+    </div>
+    <div class="col-sm-3">
+      <label>End of Rental:</label>
+      <input style="text-transform:" type="text" name="Endrental" id="Endrental" class="form-control" value="{{ object.E_rental }}">
+    </div>
+    <div class="col-sm-3">
+      <label>Rental Duration:</label>
+      <input style="text-transform:" type="text" name="Rentduration" id="Rentduration" class="form-control" value="{{ object.R_duration }}" readonly>
+    </div>
+
+    <!--     <H4><u>Expense Details</u></H4>-->
+    <div class="col-sm-3">
+      <div class="form-group">
+      <label>Rental Cost:</label>
+      <input style="text-transform:" type="Number" name="Rcost" id="Rentcost" placeholder="0" class="form-control" onkeyup="add()" value="{{ object.R_Cost }}" />
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+      <label>Gasoline Cost:</label>
+      <input style="text-transform:" type="Number" name="Gcost" id="Gascost" placeholder="0" class="form-control" onkeyup="add()" value="{{ object.G_cost }}" />
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+      <label>Toll Fee:</label>
+      <input style="text-transform:" type="Number" name="Tfee" id="Tollfee" placeholder="0" class="form-control" onkeyup="add()" value="{{ object.T_fee }}" />
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+      <label>Parking Fee:</label>
+      <input style="text-transform:" type="Number" name="Pfee" id="Parkingfee" placeholder="0" class="form-control" onkeyup="add()" value="{{ object.P_fee }}" />
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+      <label>Delivery Fee:</label>
+      <input style="text-transform:" type="Number" name="Dfee" id="Delfee" placeholder="0" class="form-control" onkeyup="add()" value="{{ object.Del_fee }}" />
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+      <label>Driver Fee:</label>
+      <input style="text-transform:" type="Number" name="Driverfee" id="Drifee" placeholder="0" class="form-control" onkeyup="add()" value="{{ object.Dri_fee }}" />
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+      <label>Meal Cost:</label>
+      <input style="text-transform:" type="Number" name="M_cost" id="Mealcost" placeholder="0" class="form-control" onkeyup="add()" value="{{ object.M_cost }}" />
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+      <label>Other Expenses:</label>
+      <input style="text-transform:" type="Number" name="Other_exp" id="Otherexp" placeholder="0" class="form-control" onkeyup="add()" value="{{ object.O_expenses }}" />
+      </div><br>
+    </div>
+    <div class="col-sm-12" align="right">
+      <div class="form-group">
+      <label>VAT:</label>
+       <input align="right" style="width: 150px; text-transform:" type="text" name="Vat" id="Vat" readonly value="{{ object.VAT }}">    
+      </div>
+    </div>
+    <div class="col-sm-12" align="right">
+      <div class="form-group">
+      <label>Total Expenses:</label>
+       <input align="right" style="width: 150px; text-transform:" type="text" name="Total" id="TotalExp" onclick="add()" readonly value="{{ object.T_expenses }}">    
+      </div>
+    </div>
+
+</div>
+    <div class="card-footer">
+        <button type="submit" class="button">PROCEED</button><button 
+       class="button" type="reset" value="Reset">CLEAR FIELDS</button>
+    </div>
+</form>
+
+<!---Autocompute number-->
+<script>
+    function add(){
+        var a = Number(document.getElementById("Rcost").value);
+        var b = Number(document.getElementById("Gcost").value);
+        var c = Number(document.getElementById("Tfee").value);
+        var d = Number(document.getElementById("Pfee").value);
+        var e = Number(document.getElementById("Dfee").value);
+        var f = Number(document.getElementById("Driverfee").value);
+        var g = Number(document.getElementById("M_cost").value);
+        var result = a + b + c + d + e + f + g;
+
+        document.getElementById("Total").value = result;
+    }
+</script>
+<!--for employee auto-fill-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$('#Eid').on('change', function () {
+    var value = $('#Eid').val();
+    var val = ($('#emp_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#Eid').val(parts[0]);
+    $('#Efm').val(parts[1]);
+    $('#Elm').val(parts[2]);
+    $('#Acom').val(parts[3]);
+    $('#Acost').val(parts[4]);
+});
+</script>
+<!--for vehicle auto-fill-->
+<script>
+$('#Pnumber').on('change', function () {
+    var value = $('#Pnumber').val();
+    var val = ($('#vehicle_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#Pnumber').val(parts[0]);
+    $('#Vmodel').val(parts[1]);
+    $('#Vbrand').val(parts[2]);
+    $('#Vmake').val(parts[3]);
+});
+</script>
+
+{% endblock %}
+

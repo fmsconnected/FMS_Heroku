@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3 class="page-header"><b>FATA Monitoring List</b></h3>
+    </div>
+</div>
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'fata_export'%}" style="float: left"><u><b>Export FATA Data</b></u></a>
+                    <a href="{% url 'Monitoring_new' %}" style="float:right"><u><b>Add FATA monitoring</b></u>&nbsp; &nbsp;</a>
+                    <a href="{% url 'Monitoring_history' %}" style="float:right" class="mr-3"><u><b>FATA monitoring History</b></u>&nbsp; &nbsp;</a>
+                </div>                         
+                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity No:</th>
+                            <th>FATA No.:</th>
+                            <th>Date Transfered:</th>
+                            <th>Date Received:</th>
+                            <th>Plate No:</th>
+                            <th>Vehicle Make:</th>
+                            <th>Transferor Name:</th>
+                            <th>Recepient Name:</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for Fata_monitoring in object_list %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'Monitoring_details' Fata_monitoring.id %}"><u>{{ Fata_monitoring.Activity_id }}</u></a></td>
+                            <td>{{ Fata_monitoring.Fata_no }}</td>
+                            <td>{{ Fata_monitoring.Date_transfer }}</td>
+                            <td>{{ Fata_monitoring.Date_received }}</td>
+                            <td>{{ Fata_monitoring.Plate_no }}</td>
+                            <td>{{ Fata_monitoring.Vehicle_make }}</td>
+                            <td>{{ Fata_monitoring.Transferor_Fname }} {{ Fata_monitoring.Transferor_Lname }}</td>
+                            <td>{{ Fata_monitoring.Recipient_Fname }} {{ Fata_monitoring.Recipient_Lname }}</td>
+                            <form action="{% url 'Monitoring_delete' Fata_monitoring.id %}" method="POST">
+                                {% csrf_token %}
+                                <td><button title= "Delete"  class="btn btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
+                            </form>
+                           
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+    <!-- /.row -->
+{% endblock %}
+
+

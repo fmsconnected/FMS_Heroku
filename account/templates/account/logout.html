@@ -1,0 +1,151 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>FLEET Management</title>
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'vendors/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no,user-scalable=0"/>
+    
+    <meta name="description" content="nodes.js is a nodes/particles animation useable for backgrounds">
+    <meta name="keywords" content="nodes, animation, particlees, web, html5, canvas, backgorund">
+
+    <style type="text/css">
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            font-family: 'Arial';
+            font-size: 14px;
+            line-height: 20px;
+            color: white;
+            background: black;
+        }
+
+        .a,
+        .a:visited {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .a:hover {
+        }
+
+        .btn,
+        a.btn,
+        a.btn:visited {
+            text-decoration: none;
+            color: 255,255,255,0.3;
+            display: inline-block;
+            cursor: pointer;
+            border: 1px solid #c1c1c1;
+            border-bottom: 2px solid #c1c1c1;
+            padding: 5px; border-radius: 2px;
+            transition: all 250ms;
+            font-size: 15px;
+        }
+
+        .btn:hover {
+            box-shadow: 0px 0px 12px 0px rgba(255,255,255, 0.5);
+            background: rgba(255,255,255,0.3);
+        }
+
+        .mainBox {
+            width: 700px;
+            display: inline-block;
+            border-radius: 2px;
+            background: rgba(255,255,255,0.2);
+            margin-top: 200px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .mainBox {
+                width: 300px;
+            }
+        }
+
+        @media only screen and (max-height: 700px) {
+            .mainBox {
+                margin-top: 50px;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+<!-- <nodes.js embedding> -->
+    <script type="text/javascript" src="{% static 'nodes/js/nodes.js' %}"></script>
+    <script type="text/javascript">
+        var nodesjs = new NodesJs({
+            id: 'nodes',
+            width: window.innerWidth,
+            height: window.innerHeight,
+            particleSize: 2,
+            lineSize: 1,
+            particleColor: [255, 255, 255, 0.3],
+            lineColor: [255, 255, 255],
+            backgroundFrom: [10, 25, 100],
+            backgroundTo: [25, 50, 150],
+            backgroundDuration: 4000,
+            nobg: false,
+            number: window.hasOwnProperty('orientation') ? 30: 100,
+            speed: 15
+        });
+    </script>
+    <div style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%;">
+        <canvas id="nodes"></canvas>
+    </div>
+    <!-- </nodes.js embedding> -->
+
+    <script type="text/javascript">
+        window.onresize = function () {
+            nodesjs.setWidth(window.innerWidth);
+            nodesjs.setHeight(window.innerHeight);
+        };
+    </script>
+<div style="position: relative; z-index: 100;">
+    <form class="form-signin" method="POST">
+    {% csrf_token %}
+        <div style="text-align: center; font-family: 'Arial';">
+            <div class="mainBox">
+                <div style="font-size: 30px; margin-bottom: 5px; margin-top: 10px; position: relative; display: inline-block; margin-bottom: 10px;"><b>
+                    FLEET MANAGEMENT SYSTEM<b></div>
+                <div style="background: rgba(0,0,0, 0.75); margin-bottom: 25px; text-align: left; padding: 5px; overflow">
+                <img src="{% static 'images/fleet.jpg' %}" />
+                </div>
+
+                <div style="padding: 0px; text-align: left;">
+                    <h2><center>You have been logged out!</center></h2>
+                    <p><center>Click button below to login again.</center></p>
+                    <br><center><a href="{% url 'login' %}" class="btn btn-lg btn-primary" style="width:150px;float:center" title="Login" type="submit">LOGIN</a></center>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+
+</html>

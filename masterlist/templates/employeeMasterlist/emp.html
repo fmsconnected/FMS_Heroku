@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+</style>
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3><b>Employee MasterList</b></h3>
+    </div>
+</div>
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'masterlist_dl'%}"> <u>Export Employee Masterlist</u></a>
+                    <a href="{% url 'employeeMasterlist-new' %}" style="float:right"><u>Add New Employee</u></a>
+                </div>
+                    <table id="vtable" class="display" style="width:100%" data-server-side="true" data-ajax="/api/empmasterlist/?format=datatables">
+                    <thead>
+                        <tr>
+                            <th>Employee ID:</th>
+                            <th>Company:</th>
+                            <th>Employee Last Name:</th>
+                            <th>Employee First Name</th>
+                            <th>Employee Middle Name</th>
+                            <th>Employee Suffix</th>
+                            <th>Band</th>
+                            <th>Cost Center</th>
+                            <th>DIV code</th>
+                            <th>Group</th>
+                            <th>Division</th>
+                            <th>Department</th>
+                            <th>Section</th>
+                            <th>Unit</th>
+                            <th>Sub Unit</th>
+                            <th>IS ID</th>
+                            <th>IS Last Name</th>
+                            <th>IS First Name</th>
+                            <th>Location</th>
+                            <th>Area</th>
+                            <th>Area2</th>
+                            <th>Benefit</th>
+                        </tr>
+                    </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+
+{% endblock %}
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+    var table = $('#vtable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "scrollX": true,
+        "scrollY": true,
+        "ajax": {
+            "url":"/api/empmasterlist/?format=datatables",
+            "type":"POST"
+            },
+        "columns": [
+            { 
+            "data": "Employee_Id",
+            },
+            {"data":"Company"},
+            {"data":"Last_name"},
+            {"data":"First_name"},
+            {"data":"Middle_name"},
+            {"data":"Suffix"},
+            {"data":"Cost_center"},
+            {"data":"Band"},
+            {"data":"DIV_code"},
+            {"data":"Group"},
+            {"data":"Division"},
+            {"data":"Department"},
+            {"data":"Section"},
+            {"data":"Unit"},
+            {"data":"Sub_unit"}, 
+            {"data":"IS_ID"},
+            {"data":"IS_lastname"},
+            {"data":"IS_firstname"},
+            {"data":"Location"},
+            {"data":"Area"},
+            {"data":"Area2"},
+            {"data":"Benefit"},
+        ]
+
+    });
+    $('#vtable').on( 'click', 'tr', function () {
+        if ( $(this).hasClass('selected') ) {
+            $(this).removeClass('selected');
+        }
+        else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    } );
+});
+</script>
+
+{% endblock %}
+<!-- // "render": function(data, type, row, meta, id){
+            // if(type === 'display'){
+            //     // data = '<a href="/VehicleMasterlist/New/ {{ data.id }}">' + data + '</a>';
+            //     data = '<a href="{%url 'vehicle_details' id.id %}">' + data + '</a>';
+            //     }
+            // return data;
+            // }
+ -->
+
+

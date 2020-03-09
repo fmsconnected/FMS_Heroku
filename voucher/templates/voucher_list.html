@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3 class="page-header"><b>Expense Voucher List</b></h3>
+    </div>
+</div>
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'voucher_export'%}" style="float: left"> <u><b>Export Voucher Data</b></u></a>
+                    <a href="{% url 'voucher_new' %}" style="float:right"><u><b>Add New Voucher</b></u>&nbsp; &nbsp;</a>
+                    <a href="{% url 'voucher_history' %}" style="float:right" class="mr-3"><u><b>Voucher History</b></u></a>
+                </div>                         
+                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity No:</th>
+                            <th>Assignee Full Name.:</th>
+                            <th>Plate Number:</th>
+                            <th>Voucher Number:</th>
+                            <th>SLA Working Days:</th>
+                            <th>Date Intiated:</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for expense_voucher in object_list %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'voucher_details' expense_voucher.id %}"><u>{{ expense_voucher.Activity_id }}</u></a></td>
+                            <td>{{ expense_voucher.employee_fname }}{{ expense_voucher.employee_lname }}</td>
+                            <td>{{ expense_voucher.plate_number }}</td>
+                            <td>{{ expense_voucher.voucher_no }}</td>
+                            <td>{{ expense_voucher.EVO_SLA }}</td>
+                            <td>{{ expense_voucher.date_initiated }}</td>
+                            <form action="{% url 'voucher_delete' expense_voucher.id %}" method="POST">
+                                {% csrf_token %}
+                                <td><button title= "Delete"  class="btn btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
+                            </form>
+                           
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+    <!-- /.row -->
+{% endblock %}
+
+

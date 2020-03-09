@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="page-header">Gas Card Request Details</h2>
+    </div>
+</div>
+
+<br>
+
+<table width="90%" class="table table-bordered table-hover" border="2px">
+    <tr>
+        <th width="25%">Activity ID </th><td width="25%">{{ object.Activity_id }}</td>
+        <th width="25%">Date Initiated</th><td width="25%">{{ object.date_initiated }}</td>
+    </tr>
+    <tr>
+        <th>SLA:</th><td>{{ object.GCR_SLA}}/Days</td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Date Application Received</th><td>{{ object.date_received }}</td>
+        <th>Application Type </th> <td>{{ object.application_type }}</td>
+    </tr>
+    <tr>
+        <th>Fleet Card Provider </th> <td>{{ object.fleet_provider }}</td>
+        <th>Fleet Card Type </th> <td>{{ object.fleetcard_type }}</td>
+    </tr>
+    <tr>
+        <th>Fuel Limit Amount</th> <td>{{ object.fuel_limit_amount }}</td>
+        <th>Fuel Limit Quantity</th> <td>{{ object.fuel_limit_quantity }}</td>
+    </tr>
+    <tr>
+        <th>Products Restriction </th> <td>{{ object.products_restriction }}</td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Requisitioner Employee ID </th> <td>{{ object.req_employee_id }}</td>
+        <th>Requisitioner Name</th> <td>{{ object.req_fname }} {{ object.req_lname }}</td>
+    </tr> 
+    <tr>
+        <th>Requisitioner Title</th><td>{{ object.req_title }}</td>
+        <th>Requisitioner Cost Center</th><td>{{ object.req_cost_center }}</td>
+    </tr>
+    <tr>
+        <th>ATD Number </th> <td>{{ object.atd_no }}</td>
+        <th>Temporary ATD Number</th><td>{{ object.temporary_atd}}</td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>New Employee ID </th> <td>{{ object.new_emp_id }}</td>
+        <th>New Employee Name </th> <td>{{ object.new_emp_fname }} {{ object.new_emp_lname }}</td>
+    </tr>
+    <tr>
+        <th>New Employee Cost Center</th> <td>{{ object.new_emp_cost }}</td>
+        <th>New Employee Temporary ATD Number</th> <td>{{ object.new_temp_atd }}</td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>New Assignee </th> <td>{{ object.new_assignee }}</td>
+        <th>New Cost Center Code </th> <td>{{ object.cost_center_code }}</td>
+    </tr>
+    <tr>
+        <th>GCR Cancellation</th> <td>{{ object.cancellation }}</td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Plate Number</th><td>{{ object.plate_no }}</td>
+        <th>Conductions Sticker</th><td>{{ object.con_sticker }}</td>
+    </tr>
+    <tr>
+        <th>Vehicle Model Year </th> <td>{{ object.model_year }}</td>
+        <th>Vehicle Brand </th> <td>{{ object.brand }}</td>
+    </tr>
+    <tr>
+        <th>Vehicle Make </th> <td>{{ object.make }}</td>
+        <th>Vehicle Fuel Type</th> <td>{{ object.fuel_type }}</td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>New Vehicle Plate Number</th><td>{{ object.new_plate_no }}</td>
+        <th>New Vehicle Conductions Sticker</th><td>{{ object.new_cond_sticker }}</td>
+    </tr>
+    <tr>
+        <th>New Vehicle Model Year:</th><td>{{ object.new_model_year }}</td>
+        <th>New Vehicle Brand: </th> <td>{{ object.new_vbrand }}</td>
+    </tr>
+    <tr>
+        <th>New Vehicle Make </th> <td>{{ object.new_vmake }}</td>
+        <th>New Vehicle Fuel Type </th> <td>{{ object.new_vfuel_type }}</td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Approved By</th> <td>{{ object.approved_by }}</td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Date Submitted</th> <td>{{ object.date_summitted }}</td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Date Received Fleet Card</th> <td>{{ object.fleet_received }}</td>
+        <th>Fleet Card Number</th> <td>{{ object.fleet_card_no }}</td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Fleet Card Release Date</th><td>{{ object.fleet_date_release }}</td>
+        <th>Person Release Fleet Card</th><td>{{ object.person_release }}</td>
+    </tr>
+
+</table>
+    <div class="card-footer">
+      <a href="{% url 'gascard_update' object.id %}" class="button">UPDATE</a><a href="{% url 'gascard_list' %}" class='button'>CLOSE</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<!-- {% comment %} <script type="text/javascript">
+  $(function () {
+    // Delete book buttons
+    $(".delete-carrequest").each(function () {
+      $(this).modalForm({formURL: $(this).data('id')});
+    });
+
+  });
+</script> {% endcomment %} -->
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h2><b>Gas Card Request History</b></h2>
+    </div>
+</div>
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'gascard_list' %}" style="float: left"><u><b>Back to Gas Card Data</b></u></a>
+                    
+                </div>                         
+                <!-- <table id="bootstrap-data-table-export"a class="table table-striped table-bordered"> -->
+                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity ID</th>
+                            <th>Requisitioner Name</th>
+                            <th>Plate Number</th>
+                            <th>Fleet Card Provider</th>
+                            <th>SLA</th>
+                            <th>Date Initiated</th>
+                            <th>History Date</th>
+                            <th>History Type</th>
+                            <th>History User</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for h in object %}
+                        <tr class="odd gradeX">
+                            <td><u>{{ h.Activity_id }}</u></td>
+                            <td>{{ h.req_fname }} {{ h.req_lname }}</td>
+                            <td>{{ h.plate_no }}</td>
+                            <td>{{ h.fleet_provider }}</td>
+                            <td>{{ h.GCR_SLA }}/Days</td>
+                            <td>{{ h.date_initiated }}</td>
+                            <td>{{h.history_date}}</td>
+                  
+                            {% if h.history_type == '+' %}
+                                <td style="color: green;">Created</td>
+                            {% elif h.history_type == '-' %}
+                                <td style="color: red;">Deleted</td>
+                            {% else %}
+                                <td style="color: blue;">Edited</td>
+                            {% endif %}
+                            <td>{{h.history_user}}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+    <!-- /.row -->
+
+{% endblock %}

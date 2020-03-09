@@ -1,0 +1,364 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3 class="page-header"><b>Vehicle Registration List </b></h3>
+    </div>
+</div>
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <p style="float:right">Select Month Registrations </p>
+                    <select style="float:right" onchange="checkOption()" id="month">
+                        <optgroup label="Registration Label">
+                            <option value="-">------</option>
+                            <option value="1">January (1)</option>
+                            <option value="2">Febuary (2)</option>
+                            <option value="3">March (3)</option>
+                            <option value="4">April (4)</option>
+                            <option value="5">May (5)</option>
+                            <option value="6">June (6)</option>
+                            <option value="7">July (7)</option>
+                            <option value="8">August (8)</option>
+                            <option value="9">September (9)</option>
+                            <option value="0">October (0)</option>
+                        </optgroup>
+                    </select>
+                </div>                         
+                <table id="bootstrap-data-table-export"a class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Activity No:</th>
+                            <th>No.:</th>
+                            <th>Plate Number:</th>
+                            <th>Conductions Sticker No.:</th>
+                            <th>CR Name:</th>
+                            <th>Model:</th>
+                            <th>Brand:</th>
+                            <th>Vehicle Type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="plate1">
+                        {% for Vmaster in reg1 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'vehicle-details' Vmaster.id %}"><u>{{ Vmaster.Activity_Id }}</u></a></td>
+                            <td>{{ Vmaster.NO }}</td>
+                            <td>{{ Vmaster.PLATE_NO }}</td>
+                            <td>{{ Vmaster.CS_NO }}</td>
+                            <td>{{ Vmaster.CR_NAME }}</td>
+                            <td>{{ Vmaster.MODEL }}</td>
+                            <td>{{ Vmaster.BRAND }}</td>
+                            <td>{{ Vmaster.VEHICLE_TYPE }}</td>
+                            <form action="{% url 'vehicleMasterlist_delete' Vmaster.id %}" method="POST">
+                                {% csrf_token %}
+                                <td><button title= "Delete"  class="btn btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
+                            </form>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tbody id="plate2">
+                        {% for Vmaster in reg2 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'vehicle-details' Vmaster.id %}"><u>{{ Vmaster.Activity_Id }}</u></a></td>
+                            <td>{{ Vmaster.No }}</td>
+                            <td>{{ Vmaster.PLATE_NO }}</td>
+                            <td>{{ Vmaster.CS_NO }}</td>
+                            <td>{{ Vmaster.CR_NAME }}</td>
+                            <td>{{ Vmaster.MODEL }}</td>
+                            <td>{{ Vmaster.BRAND }}</td>
+                            <td>{{ Vmaster.VEHICLE_TYPE }}</td>
+                            <form action="{% url 'vehicleMasterlist_delete' Vmaster.id %}" method="POST">
+                                {% csrf_token %}
+                                <td><button title= "Delete"  class="btn btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
+                            </form>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tbody id="plate3">
+                        {% for Vmaster in reg3 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'vehicle-details' Vmaster.id %}"><u>{{ Vmaster.Activity_Id }}</u></a></td>
+                            <td>{{ Vmaster.No }}</td>
+                            <td>{{ Vmaster.PLATE_NO }}</td>
+                            <td>{{ Vmaster.CS_NO }}</td>
+                            <td>{{ Vmaster.CR_NAME }}</td>
+                            <td>{{ Vmaster.MODEL }}</td>
+                            <td>{{ Vmaster.BRAND }}</td>
+                            <td>{{ Vmaster.VEHICLE_TYPE }}</td>
+                            <form action="{% url 'vehicleMasterlist_delete' Vmaster.id %}" method="POST">
+                                {% csrf_token %}
+                                <td><button title= "Delete"  class="btn btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
+                            </form>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tbody id="plate4">
+                        {% for Vmaster in reg4 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'vehicle-details' Vmaster.id %}"><u>{{ Vmaster.Activity_Id }}</u></a></td>
+                            <td>{{ Vmaster.No }}</td>
+                            <td>{{ Vmaster.PLATE_NO }}</td>
+                            <td>{{ Vmaster.CS_NO }}</td>
+                            <td>{{ Vmaster.CR_NAME }}</td>
+                            <td>{{ Vmaster.MODEL }}</td>
+                            <td>{{ Vmaster.BRAND }}</td>
+                            <td>{{ Vmaster.VEHICLE_TYPE }}</td>
+                            <form action="{% url 'vehicleMasterlist_delete' Vmaster.id %}" method="POST">
+                                {% csrf_token %}
+                                <td><button title= "Delete"  class="btn btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
+                            </form>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tbody id="plate5">
+                        {% for Vmaster in reg5 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'vehicle-details' Vmaster.id %}"><u>{{ Vmaster.Activity_Id }}</u></a></td>
+                            <td>{{ Vmaster.No }}</td>
+                            <td>{{ Vmaster.PLATE_NO }}</td>
+                            <td>{{ Vmaster.CS_NO }}</td>
+                            <td>{{ Vmaster.CR_NAME }}</td>
+                            <td>{{ Vmaster.MODEL }}</td>
+                            <td>{{ Vmaster.BRAND }}</td>
+                            <td>{{ Vmaster.VEHICLE_TYPE }}</td>
+                            <form action="{% url 'vehicleMasterlist_delete' Vmaster.id %}" method="POST">
+                                {% csrf_token %}
+                                <td><button title= "Delete"  class="btn btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
+                            </form>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tbody id="plate6">
+                        {% for Vmaster in reg6 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'vehicle-details' Vmaster.id %}"><u>{{ Vmaster.Activity_Id }}</u></a></td>
+                            <td>{{ Vmaster.No }}</td>
+                            <td>{{ Vmaster.PLATE_NO }}</td>
+                            <td>{{ Vmaster.CS_NO }}</td>
+                            <td>{{ Vmaster.CR_NAME }}</td>
+                            <td>{{ Vmaster.MODEL }}</td>
+                            <td>{{ Vmaster.BRAND }}</td>
+                            <td>{{ Vmaster.VEHICLE_TYPE }}</td>
+                            <form action="{% url 'vehicleMasterlist_delete' Vmaster.id %}" method="POST">
+                                {% csrf_token %}
+                                <td><button title= "Delete"  class="btn btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
+                            </form>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tbody id="plate7">
+                        {% for Vmaster in reg7 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'vehicle-details' Vmaster.id %}"><u>{{ Vmaster.Activity_Id }}</u></a></td>
+                            <td>{{ Vmaster.No }}</td>
+                            <td>{{ Vmaster.PLATE_NO }}</td>
+                            <td>{{ Vmaster.CS_NO }}</td>
+                            <td>{{ Vmaster.CR_NAME }}</td>
+                            <td>{{ Vmaster.MODEL }}</td>
+                            <td>{{ Vmaster.BRAND }}</td>
+                            <td>{{ Vmaster.VEHICLE_TYPE }}</td>
+                            <form action="{% url 'vehicleMasterlist_delete' Vmaster.id %}" method="POST">
+                                {% csrf_token %}
+                                <td><button title= "Delete"  class="btn btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
+                            </form>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tbody id="plate8">
+                        {% for Vmaster in reg8 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'vehicle-details' Vmaster.id %}"><u>{{ Vmaster.Activity_Id }}</u></a></td>
+                            <td>{{ Vmaster.No }}</td>
+                            <td>{{ Vmaster.PLATE_NO }}</td>
+                            <td>{{ Vmaster.CS_NO }}</td>
+                            <td>{{ Vmaster.CR_NAME }}</td>
+                            <td>{{ Vmaster.MODEL }}</td>
+                            <td>{{ Vmaster.BRAND }}</td>
+                            <td>{{ Vmaster.VEHICLE_TYPE }}</td>
+                            <form action="{% url 'vehicleMasterlist_delete' Vmaster.id %}" method="POST">
+                                {% csrf_token %}
+                                <td><button title= "Delete"  class="btn btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
+                            </form>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tbody id="plate9">
+                        {% for Vmaster in reg9 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'vehicle-details' Vmaster.id %}"><u>{{ Vmaster.Activity_Id }}</u></a></td>
+                            <td>{{ Vmaster.No }}</td>
+                            <td>{{ Vmaster.PLATE_NO }}</td>
+                            <td>{{ Vmaster.CS_NO }}</td>
+                            <td>{{ Vmaster.CR_NAME }}</td>
+                            <td>{{ Vmaster.MODEL }}</td>
+                            <td>{{ Vmaster.BRAND }}</td>
+                            <td>{{ Vmaster.VEHICLE_TYPE }}</td>
+                            <form action="{% url 'vehicleMasterlist_delete' Vmaster.id %}" method="POST">
+                                {% csrf_token %}
+                                <td><button title= "Delete"  class="btn btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
+                            </form>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tbody id="plate0">
+                        {% for Vmaster in reg0 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'vehicle-details' Vmaster.id %}"><u>{{ Vmaster.Activity_Id }}</u></a></td>
+                            <td>{{ Vmaster.No }}</td>
+                            <td>{{ Vmaster.PLATE_NO }}</td>
+                            <td>{{ Vmaster.CS_NO }}</td>
+                            <td>{{ Vmaster.CR_NAME }}</td>
+                            <td>{{ Vmaster.MODEL }}</td>
+                            <td>{{ Vmaster.BRAND }}</td>
+                            <td>{{ Vmaster.VEHICLE_TYPE }}</td>
+                            <form action="{% url 'vehicleMasterlist_delete' Vmaster.id %}" method="POST">
+                                {% csrf_token %}
+                                <td><button title= "Delete"  class="btn btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
+                            </form>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+</div>
+
+<script>
+function checkOption(){
+    var dropDown = document.getElementById("month");
+    var index = dropDown.options[dropDown.selectedIndex].value;
+    
+    if(index === "1"){
+        document.body.appendChild(plate2);
+        document.body.appendChild(plate3);
+        document.body.appendChild(plate4);
+        document.body.appendChild(plate5);
+        document.body.appendChild(plate6);
+        document.body.appendChild(plate7);
+        document.body.appendChild(plate8);
+        document.body.appendChild(plate9);
+        document.body.appendChild(plate0);
+    }
+    else if(index ==="2"){
+        document.body.appendChild(plate1);
+        document.body.appendChild(plate3);
+        document.body.appendChild(plate4);
+        document.body.appendChild(plate5);
+        document.body.appendChild(plate6);
+        document.body.appendChild(plate7);
+        document.body.appendChild(plate8);
+        document.body.appendChild(plate9);
+        document.body.appendChild(plate0);
+    }   
+    else if(index ==="3"){
+        document.body.appendChild(plate1);
+        document.body.appendChild(plate2);
+        document.body.appendChild(plate4);
+        document.body.appendChild(plate5);
+        document.body.appendChild(plate6);
+        document.body.appendChild(plate7);
+        document.body.appendChild(plate8);
+        document.body.appendChild(plate9);
+        document.body.appendChild(plate0);
+    }
+    else if(index ==="4"){
+        document.body.appendChild(plate1);
+        document.body.appendChild(plate2);
+        document.body.appendChild(plate3);
+        document.body.appendChild(plate5);
+        document.body.appendChild(plate6);
+        document.body.appendChild(plate7);
+        document.body.appendChild(plate8);
+        document.body.appendChild(plate9);
+        document.body.appendChild(plate0);
+    }
+    else if(index.value =="5"){
+        document.body.appendChild(plate1);
+        document.body.appendChild(plate2);
+        document.body.appendChild(plate3);
+        document.body.appendChild(plate4);
+        document.body.appendChild(plate6);
+        document.body.appendChild(plate7);
+        document.body.appendChild(plate8);
+        document.body.appendChild(plate9);
+        document.body.appendChild(plate0);   
+    }
+    else if(index.value =="6"){
+        document.body.appendChild(plate1);
+        document.body.appendChild(plate2);
+        document.body.appendChild(plate3);
+        document.body.appendChild(plate4);
+        document.body.appendChild(plate5);
+        document.body.appendChild(plate7);
+        document.body.appendChild(plate8);
+        document.body.appendChild(plate9);
+        document.body.appendChild(plate0);
+    }
+    else if(index.value =="7"){
+        document.body.appendChild(plate1);
+        document.body.appendChild(plate2);
+        document.body.appendChild(plate3);
+        document.body.appendChild(plate4);
+        document.body.appendChild(plate5);
+        document.body.appendChild(plate6);
+        document.body.appendChild(plate8);
+        document.body.appendChild(plate9);
+        document.body.appendChild(plate0);
+    }
+    else if(index.value =="8"){
+        document.body.appendChild(plate1);
+        document.body.appendChild(plate2);
+        document.body.appendChild(plate3);
+        document.body.appendChild(plate4);
+        document.body.appendChild(plate5);
+        document.body.appendChild(plate6);
+        document.body.appendChild(plate7);
+        document.body.appendChild(plate9);
+        document.body.appendChild(plate0);
+    }
+    else if(dropDown.value =="9"){
+        document.body.appendChild(plate1);
+        document.body.appendChild(plate2);
+        document.body.appendChild(plate3);
+        document.body.appendChild(plate4);
+        document.body.appendChild(plate5);
+        document.body.appendChild(plate6);
+        document.body.appendChild(plate7);
+        document.body.appendChild(plate8);
+        document.body.appendChild(plate0);
+    }
+    else if(dropDown.value =="0"){
+        document.body.appendChild(plate2);
+        document.body.appendChild(plate3);
+        document.body.appendChild(plate4);
+        document.body.appendChild(plate5);
+        document.body.appendChild(plate6);
+        document.body.appendChild(plate7);
+        document.body.appendChild(plate8);
+        document.body.appendChild(plate9);
+        document.body.appendChild(plate1);
+    }
+    else{
+        document.body.appendChild(plate2);
+        document.body.appendChild(plate3);
+        document.body.appendChild(plate4);
+        document.body.appendChild(plate5);
+        document.body.appendChild(plate6);
+        document.body.appendChild(plate7);
+        document.body.appendChild(plate8);
+        document.body.appendChild(plate9);
+        document.body.appendChild(plate1);
+    }
+}
+</script>
+{% endblock %}
+
+

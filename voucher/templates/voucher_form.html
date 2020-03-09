@@ -1,0 +1,264 @@
+{% extends 'base.html' %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script>
+function expensevoucher(expe) {
+  var i;
+  var x = document.getElementsByClassName("voucher");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(expe).style.display = "block";  
+}
+</script>
+
+<!--for employee auto-fill-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+$('#emp_id').on('change', function () {
+    var value = $('#emp_id').val();
+    var val = ($('#emp_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#emp_id').val(parts[0]);
+    $('#emp_fname').val(parts[1]);
+    $('#emp_lname').val(parts[2]);
+});
+</script>
+-->
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header"><b>Expense Voucher</b></h3>&nbsp;
+    </div>
+</div>
+ <div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button" onclick="expensevoucher('Expense Voucher')">Expense Voucher Request</button>
+    <button class="w3-bar-item w3-button" onclick="expensevoucher('Approval Process')">Approval Process</button>
+    <button class="w3-bar-item w3-button" onclick="expensevoucher('Inbound Process')">Inbound Process</button>
+    </div>
+<form method="POST">
+{% csrf_token %}
+    <div id="Expense Voucher" class="w3-container voucher">
+    <fieldset>
+        <legend align="left">Employee Details</legend><br>
+        
+        <div class="col-sm-6">
+            <label>Employee ID</label>
+            {{ form.employee_id }}
+            
+        </div>
+        <div class="col-sm-6">
+            <label>Employee First Name:</label>
+            {{ form.employee_fname}}
+        </div>
+        <div class="col-sm-6">
+            <label>Employee Last Name</label>
+            {{ form.employee_lname }}
+        </div>
+        <div class="col-sm-6">
+            <label>Employee Group</label>
+            {{ form.employee_group }}
+        </div>
+        
+        <div class="col-sm-6">
+            <label>Cost Center</label>
+            {{ form.employee_cost }}
+        </div>
+    <br><br>
+    </fieldset>
+    <fieldset>
+    <legend align="left">New Employee Details</legend>
+        <div class="col-sm-6">
+            <label>New Employee ID</label>
+            {{ form.new_employee_id }}
+        </div>
+        <div class="col-sm-6">
+            <label>New Employee First Name:</label>
+            {{ form.new_employee_fname}}
+        </div>
+        <div class="col-sm-6">
+            <label>New Employee Last Name</label>
+            {{ form.new_employee_lname }}
+        </div>
+        <div class="col-sm-6">
+            <label>New Employee Group</label>
+            {{ form.new_employee_group }}
+        </div>
+        <div class="col-sm-6">
+            <label>New Cost Center</label>
+            {{ form.new_employee_cost }}
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend align="left">Voucher Details</legend>
+        <div class="col-sm-6">
+            <label>Fleet Area</label>
+            {{ form.fleet_area }}
+        </div>
+        <div class="col-sm-6">
+            <label>Date Received Voucher:</label>
+            {{ form.received_voucher}}
+        </div>
+        <div class="col-sm-6">
+            <label>Transaction Type</label>
+            {{ form.trans_type }}
+        </div>
+        <div class="col-sm-6">
+            <label>Voucher Number</label>
+            {{ form.voucher_no }}
+        </div>
+        <div class="col-sm-6">
+            <label>Indicated Voucher Amount</label>
+            {{ form.voucher_amount }}
+        </div>
+        <div class="col-sm-6">
+            <label>Voucher Type</label>
+            {{ form.voucher_type }}
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend align="left">Fuel Voucher Details</legend>
+        <div class="col-sm-6">
+            <label>Fuel Amount</label>
+            {{ form.fuel_amount }}
+        </div>
+        <div class="col-sm-6">
+            <label>Fuel Products:</label>
+            {{ form.fuel_products}}
+        </div>
+        <div class="col-sm-6">
+            <label>Fuel Liters</label>
+            {{ form.fuel_liters }}
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend align="left">Service Voucher Details</legend>
+        <div class="col-sm-6">
+            <label>Service Amount</label>
+            {{ form.service_amount }}
+        </div>
+        <div class="col-sm-6">
+            <label>Work Order Number:</label>
+            {{ form.work_order}}
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend align="left">Vehicle Details</legend>
+        <div class="col-sm-6">
+            <label>Plate Number</label>
+            {{ form.plate_number }}
+        </div>
+        <div class="col-sm-6">
+            <label>Odometer Reading Start:</label>
+            {{ form.odometer_start}}
+        </div>
+        <div class="col-sm-6">
+            <label>Odometer Reading End</label>
+            {{ form.odometer_end }}
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Brand</label>
+            {{ form.v_brand }}
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Make</label>
+            {{ form.v_make }}
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Fuel Type</label>
+            {{ form.v_fuel_type }}
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Model Year</label>
+            {{ form.v_model }}
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend align="left">New Vehicle Details</legend>
+        <div class="col-sm-6">
+            <label>New Plate Number</label>
+            {{ form.new_plate_number }}
+        </div>
+        <div class="col-sm-6">
+            <label>New Odometer Reading Start:</label>
+            {{ form.new_odometer_start}}
+        </div>
+        <div class="col-sm-6">
+            <label>New Odometer Reading End</label>
+            {{ form.new_odometer_end }}
+        </div>
+        <div class="col-sm-6">
+            <label>New Vehicle Brand</label>
+            {{ form.new_v_brand }}
+        </div>
+        <div class="col-sm-6">
+            <label>New Vehicle Make</label>
+            {{ form.new_v_make }}
+        </div>
+        <div class="col-sm-6">
+            <label>New Vehicle Fuel Type</label>
+            {{ form.new_v_fuel_type }}
+        </div>
+        <div class="col-sm-6">
+            <label>New Vehicle Model Year</label>
+            {{ form.new_v_model }}
+        </div>
+    </fieldset>
+    <div class="card-footer">
+      <button type="submit" class="button">SUBMIT</button>
+    </div>
+    </div>
+    <div id="Approval Process" class="w3-container voucher" style="display:none">
+    <fieldset>
+        <legend align="left">GT Admin</legend>
+        <div class="col-sm-6">
+            <label>GT Admin:</label>
+            {{ form.gt_admin }}
+        </div>
+        <div class="col-sm-6">
+            <label>Approval Date:</label>
+            {{ form.approval_date }}
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend align="left">Immediate Supervisor</legend>
+        <div class="col-sm-6">
+            <label>Immediate Supervisor:</label>
+            {{ form.immediate_supervisor }}
+        </div>
+        <div class="col-sm-6">
+            <label>Approval Date:</label>
+            {{ form.im_approval_date }}
+        </div>
+    </fieldset>
+    <div class="card-footer">
+        <button type="submit" class="button">UPDATE</button>
+    </div>
+    </div>
+    <div id="Inbound Process" class="w3-container voucher" style="display:none">
+    <fieldset>
+        <legend align="left">VOucher Routing</legend>
+        <div class="col-sm-4">
+            <label>Voucher Documents Attached List:</label>
+            {{ form.voucher_docs1 }}
+            {{ form.voucher_docs2 }}
+            {{ form.voucher_docs3 }}
+        </div>
+        <div class="col-sm-4">
+            <label>Voucher Remarks:</label>
+            {{ form.voucher_remarks }}
+        </div>
+        <div class="col-sm-4">
+            <label>Date Forwarded Voucher to Accounting:</label>
+            {{ form.voucher_forwarded }}
+        </div>
+    {{ form.EVO_SLA}}
+    </fieldset>
+    <div class="card-footer">
+        <button type="submit" class="button">UPDATE</button>
+    </div>
+    </div>
+</div>
+</form>
+{% endblock %}

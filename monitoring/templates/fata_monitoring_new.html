@@ -1,0 +1,206 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script>
+  function FATAmonitoring(Fata) {
+    var i;
+    var x = document.getElementsByClassName("FATA");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    document.getElementById(Fata).style.display = "block";  
+  }
+  </script>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header"><b>FATA Monitoring</b></h3>&nbsp;
+    </div>
+</div>
+<div class="w3-bar w3-black">
+  <button class="w3-bar-item w3-button" onclick="FATAmonitoring('New FATA Monitoring')">New FATA Monitoring</button>
+  <button class="w3-bar-item w3-button" onclick="FATAmonitoring('Inbound Process')">Inbound Process</button>
+  <button class="w3-bar-item w3-button" onclick="FATAmonitoring('OutBound Process')">OutBound Process</button>
+</div>
+<form method="POST" action="{% url 'Monitoring_submit' %}">
+{% csrf_token %}
+  <div id="New FATA Monitoring" class="w3-container FATA">
+    <fieldset>
+    <legend align="left">FATA Details</legend><br>
+    <div class="col-sm-4">
+        <label>FATA Number:</label>
+        <input type="text" name="Fata_no" id="Fata_no" class="form-control">
+    </div>
+
+    <div class="col-sm-4">
+        <label>Date Of Transfer:</label>
+        <input type="Date" name="Date_transfer" id="Date_transfer" class="form-control" required>
+    </div>
+    <div class="col-sm-4">
+        <label>Date Received:</label>
+        <input type="Date" name="Date_received" id="Date_received" class="form-control" required>
+    </div>
+    <br><br>
+    </fieldset>
+    <hr>
+    <fieldset>
+    <legend align="left">FATA Vehicle Details</legend><br>
+    <div class="col-sm-4">
+        <label>Plate Number:</label>
+        <input name="Plate_no" id="Plate_no" list="v_list" class="form-control" required>
+          <datalist id="v_list">               
+          {% for v_id in v_list %}
+            <option data-value="{{ v_id.PLATE_NO }} | {{ v_id.VEHICLE_MAKE }} | {{ v_id.BRAND }} | {{ v_id.MODEL }}" value="{{ v_id.PLATE_NO }}">
+            </option>
+          {% endfor %}
+          </datalist>
+    </div>
+
+    <div class="col-sm-4">
+        <label>Vehicle Make:</label>
+        <input type="Text" name="v_make" id="v_make" class="form-control" readonly>
+    </div>
+
+    <div class="col-sm-4">
+        <label>Vehicle Brand:</label>
+        <input type="Text" name="v_brand" id="v_brand" class="form-control" readonly>
+    </div>
+    <div class="col-sm-4">
+        <label>Certificate Of Registrations Name:</label>
+        <input type="Text" name="Certificate_of_Reg" id="Certificate_of_Reg" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Vehicle Model Year:</label>
+        <input type="Text" name="v_model" id="v_model" class="form-control" readonly>
+    </div>
+    <br>
+    </fieldset>
+    <fieldset>
+    <legend align="left">Transferor Details</legend><br>
+    <div class="col-sm-4">
+        <label>Transferor Employee ID:</label>
+        <input name="Transferor_employee" id="Transferor_employee" list="emp" class="form-control">
+        <datalist id="emp">               
+          {% for empid in e_list %}
+            <option data-value="{{ empid.Employee_Id }} | {{ empid.First_name }} | {{ empid.Last_name }}" value="{{ empid.Employee_Id }}">
+            </option>
+          {% endfor %}
+          </datalist>
+    </div>
+
+    <div class="col-sm-4">
+        <label>Transferor First Name:</label>
+        <input type="Text" name="Transferor_Fname" id="Transferor_Fname" class="form-control" readonly>
+    </div>
+    <div class="col-sm-4">
+        <label>Transferor Last Name:</label>
+        <input type="Text" name="Transferor_Lname" id="Transferor_Lname" class="form-control" readonly>
+    </div>
+    <br><br>
+    </fieldset>
+    <br>
+    <fieldset>
+    <legend align="left">FATA Recepient Details</legend><br>
+    <div class="col-sm-4">
+      <label>Recepient Employee ID:</label>
+      <input type="Text" name="Recipient_Employee" id="Recipient_Employee" list="emplist" class="form-control">
+      <datalist id="emplist">               
+          {% for eid in e_list %}
+            <option data-value="{{ eid.Employee_Id }} | {{ eid.First_name }} | {{ eid.Last_name }}" value="{{ eid.Employee_Id }}">
+            </option>
+          {% endfor %}
+          </datalist>
+    </div>
+    <div class="col-sm-4">
+      <label>Recepient First Name:</label>
+      <input type="Text" name="Recipient_Fname" id="Recipient_Fname" class="form-control" readonly>
+    </div>
+    <div class="col-sm-4">
+      <label>Recepient Last Name:</label>
+      <input type="Text" name="Recipient_Lname" id="Recipient_Lname" class="form-control" readonly>
+    </div>
+    <br><br>
+    </fieldset>
+        <div class="card-footer">
+            <button type="submit" class="button">SUBMIT</butoon>
+        </div>
+  </div>
+
+  <div id="OutBound Process" class="w3-container FATA" style="display:none">
+    <fieldset>
+      <legend align="left">Document Routing 2</legend>
+    <div class="col-sm-6">
+        <label>Date Endorsed to Globe:</label>
+        <input type="Date" name="Date_endorsed_Globe" id="Date_endorsed_Globe" class="form-control">
+    </div>
+
+    <div class="col-sm-6">
+        <label>Date Endorsed to Innove:</label>
+        <input type="Date" name="Date_endorsed_Innove" id="Date_endorsed_Innove" class="form-control">
+        </div>
+    <div class="col-sm-6">
+        <label>Clearing of Accountability:</label>
+        <input type="Text" name="Clearing_accountability" id="Clearing_accountability" class="form-control">
+    </div>
+    </fieldset>
+        <div class="card-footer">
+            <button type="submit" class="button">UPDATE</butoon>
+        </div>
+  </div>
+
+<div id="Inbound Process" class="w3-container FATA" style="display:none">
+  <fieldset>
+  <legend align="left">Document Routing 1</legend>
+  <div class="col-sm-6">
+      <label>Globe Fixed Asset Recepient:</label>
+      <input type="Text" name="Globe_fixed_asset" id="Globe_fixed_asset" class="form-control">
+  </div>
+  <div class="col-sm-6">
+      <label>Innove Fixed Asser Recepient:</label>
+      <input type="Text" name="Innove_fixed_asset" id="Innove_fixed_asset" class="form-control">
+  </div>
+  </fieldset>
+        <div class="card-footer">
+            <button type="submit" class="button">UPDATE</butoon>
+        </div>
+</div>
+</form>
+
+<!--for employee auto-fill-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$('#Transferor_employee').on('change', function () {
+    var value = $('#Transferor_employee').val();
+    var val = ($('#emp [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#Transferor_employee').val(parts[0]);
+    $('#Transferor_Fname').val(parts[1]);
+    $('#Transferor_Lname').val(parts[2]);
+});
+</script>
+<script>
+$('#Recipient_Employee').on('change', function () {
+    var value = $('#Recipient_Employee').val();
+    var val = ($('#emplist [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#Recipient_Employee').val(parts[0]);
+    $('#Recipient_Fname').val(parts[1]);
+    $('#Recipient_Lname').val(parts[2]);
+});
+</script>
+<!--for vehicle auto-fill-->
+<script>
+$('#Plate_no').on('change', function () {
+    var value = $('#Plate_no').val();
+    var val = ($('#v_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#Plate_no').val(parts[0]);
+    $('#v_make').val(parts[1]);
+    $('#v_brand').val(parts[2]);
+    $('#v_model').val(parts[3]);
+});
+</script>
+{% endblock %}

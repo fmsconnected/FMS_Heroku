@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+{% comment %} <script type="text/javascript">
+  $(function () {
+    // Delete book buttons
+    $(".delete-carrequest").each(function () {
+      $(this).modalForm({formURL: $(this).data('id')});
+    });
+
+  });
+</script> {% endcomment %}
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+<div class="breadcrumbs">
+    <div class="col-sm-14">
+        <h3><b>Vehicle Repair Payment</h3>
+    </div>
+</div>
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'vehiclerepair_payment_export' %}" style="float:left"><u><b>Export Vehicle Data</b></u></a>
+                    <a href="{% url 'vehiclerepair_payment_new' %}" style="float:right"><u><b>Add Vehicle Repair Payment</b></u>&nbsp; &nbsp;</a>
+                    <a href="{% url 'vehicle_repair_history' %}" style="float:right" class="mr-3"><u><b>Vehicle Repair Payment History</b></u></a>
+                </div>                         
+                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity ID</th>
+                            <th>Request Date</th>
+                            <th>Employee ID</th>
+                            <th>Cost Center</th>
+                            <th>Full Name</th>
+                            <th>Contact No.</th>
+                            <th>Company</th>
+                            <th>Department</th>
+                            <th>Group Section</th>
+                            <th>Plate No.</th>
+                            <th>Brand</th>
+                            <th>Engine</th>
+                            <th>Make</th>
+                            <th>Model</th>
+                            <th>Chassis</th>
+                            <th>Band</th>
+                            <th>Conduction Sticker</th>
+                            <th>Equipment No.</th>
+                            <th>Dealership</th>
+                            <th>Amount</th>
+                            <th>Service Type</th>
+                            <th>Date Initiated</th>
+                            <th>RFP Number</th>
+                            <th>Invoice Number</th>
+                            <th>Invoice Date</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for vrp in object_list %}
+                        <tr class="odd gradeX">
+                            <td><a href="{%url 'vehicle_repair_details' vrp.id %}">{{ vrp.Activity_id }}</a></td>
+                            <td>{{ vrp.request_date }}</td>
+                            <td>{{ vrp.employee }}</td>
+                            <td>{{ vrp.cost_center }}</td>
+                            <td>{{ vrp.first_name }} {{vrp.last_name}}</td>
+                            <td>{{ vrp.contact_no}}</td>
+                            <td>{{ vrp.company }}</td>
+                            <td>{{ vrp.department }}</td>
+                            <td>{{ vrp.group_section }}</td>
+                            <td>{{ vrp.plate_no }}</td>
+                            <td>{{ vrp.v_brand}}</td>
+                            <td>{{ vrp.engine}}</td>
+                            <td>{{ vrp.v_make }}</td>
+                            <td>{{ vrp.v_model }}</td>
+                            <td>{{ vrp.chassis }}</td>
+                            <td>{{ vrp.band }}</td>
+                            <td>{{ vrp.cond_sticker}}</td>
+                            <td>{{ vrp.equipment_no }}</td>
+                            <td>{{ vrp.dealership }}</td>
+                            <td>{{ vrp.amount }}</td>
+                            <td>{{ vrp.service_type }}</td>
+                            <td>{{ vrp.date_initiated}}</td>
+                            <td>{{ vrp.rfp_no }}</td>
+                            <td>{{ vrp.invoice_num }}</td>
+                            <td>{{ vrp.invoice_date }}</td>
+                            <form action="{% url 'vehiclerepair_payment_delete' vrp.id %}" method="POST">
+                                {% csrf_token %}
+                                <td><button title= "Delete" class="btn btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
+                            </form>
+                           
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+    <!-- /.row -->
+{% endblock %}
+
+

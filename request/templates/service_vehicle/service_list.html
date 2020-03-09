@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3><b>Service Vehicle Request</b></h3>
+    </div>
+</div>
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'service_export' %}" style="float:left "><u><b>Export Service Data</b></u></a>
+                    <a href="{% url 'service_new' %}" style="float:right "><u><b>Add Service Vehicle</b></u> &nbsp; &nbsp;</a>
+                    <a href="{% url 'service_history' %}" style="float:right " class="mr-3"><u><b>Service Vehicle History</b></u></a>
+                </div>                         
+                <!-- <table id="bootstrap-data-table-export" class="table table-striped table-bordered"> -->
+                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity ID</th>
+                            <th>Requisitioner Name</th>
+                            <th>Plate Number</th>
+                            <th>Conduction Sticker Number</th>
+                            <th>SLA</th>
+                            <th>Date Initiated</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for service_vehicle in object_list %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'service_details' service_vehicle.id %}"><u>{{ service_vehicle.Activity_id }}</u></a></td>
+                            <td>{{ service_vehicle.req_fname }} {{ service_vehicle.req_lname }}</td>
+                            <td>{{ service_vehicle.E_plate_no }}</td>
+                            <td>{{ service_vehicle.vehicle_CS_no }}</td>
+                            <td>{{ service_vehicle.SVV_SLA }}/Days</td>
+                            <td>{{ service_vehicle.date_initiated }}</td>
+                            <form action="{% url 'service_delete' service_vehicle.id %}" method="POST">
+                                {% csrf_token %}
+                                <td><button title= "Delete" class="btn btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
+                            </form>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+    <!-- /.row -->
+
+{% endblock %}

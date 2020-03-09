@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col-md-10" center>
+    <div class="card">
+    <div class="card-header">
+        <h3 class="page-header"><b><u>Update Vehicle Release and OR Date </b></h3>
+    </div>
+
+<form method="POST" action="">
+{% csrf_token %}
+  <div class="col-sm-6">
+    <label>Plate Number:</label>{{form.PLATE_NO}}
+  </div>
+  <div class="col-sm-6">
+    <label>Conduction Sticker Number:</label>{{form.CS_NO}}
+  </div>
+  <div class="col-sm-6">
+    <label>CR Name:</label>{{form.CR_NAME}}
+  </div>
+  <div class="col-sm-6">
+    <label >Ending:</label>{{form.PLATE_ENDING}}
+  </div>
+  <div class="col-sm-6">
+    <label>Model:</label>{{form.MODEL}}
+  </div>
+  <div class="col-sm-6">
+    <label>Brand:</label>{{form.BRAND}}
+  </div>
+  <div class="col-sm-6">
+    <label>Vehicle Make</label>{{form.VEHICLE_MAKE}}
+  </div>
+  <div class="col-sm-6">
+    <label>Engine_No:</label>{{form.ENGINE_NO}}
+  </div>
+  <div class="col-sm-6">
+    <label>Vehicle Type</label>{{form.VEHICLE_TYPE}}
+  </div>
+  <div class="col-sm-6">
+    <label>Plate Number Release Date</label>{{form.PLATE_NUMBER_RELEASE_DATE}}
+  </div>
+  <div class="col-sm-6">
+    <label>Original OR Date</label>{{form.ORIGINAL_OR_DATE}}
+  </div>
+</div>
+</div>
+<div class="col-lg-12">
+    <button class="button" type="submit">UPDATE</button><a href="{% url 'vehicle-list' %}" class="button">CLOSE</a>
+</div>
+</form>
+</div>
+{% endblock %}

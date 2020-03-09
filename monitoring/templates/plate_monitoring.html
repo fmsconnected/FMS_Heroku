@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3 class="page-header"><b>Plate Monitoring</b></h3>
+    </div>
+</div>
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <h6>Plate Monitoring Table</h6>
+                </div>                         
+                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Plate No</th>
+                            <th>CS No</th>
+                            <th>Model</th>
+                            <th>Brand</th>
+                            <th>Vehicle Make</th>
+                            <th>Last Name</th>
+                            <th>First Name</th>
+                            <th>Date Acquired</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for object in plate_monitoring %}
+                        <tr class="odd gradeX">
+                            <td>{{ object.PLATE_NO }}</td>
+                            <td><u><a href="{% url 'vehicle-update' object.id %}">{{ object.CS_NO }}</a></u></td>
+                            <td>{{ object.MODEL }}</td>
+                            <td>{{ object.BRAND }}</td>
+                            <td>{{ object.VEHICLE_MAKE }}</td>
+                            <td>{{ object.ASSIGNEE_LAST_NAME }}</td>
+                            <td>{{ object.ASSIGNEE_FIRST_NAME }}</td>
+                            <td>{{ object.ACQ_DATE }}</td>
+                           
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+    <!-- /.row -->
+{% endblock %}
+
+

@@ -1,0 +1,474 @@
+{% extends 'base.html' %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script>
+function servicevehicle(service) {
+  var i;
+  var x = document.getElementsByClassName("vehicle");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  document.getElementById(service).style.display = "block";
+}
+</script>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3><b>Service Vehicle Request</b></h3>&nbsp;
+    </div>
+</div>
+ <div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button" onclick="servicevehicle('Service Vehicle Request')">Service Vehicle Request</button>
+    <button class="w3-bar-item w3-button" onclick="servicevehicle('Immediate Supervisor Approval')">Immediate Supervisor Approval</button>
+    <button class="w3-bar-item w3-button" onclick="servicevehicle('Vehicle Leasing Details')">Vehicle Leasing Details</button>
+    </div>
+<form method="POST" action="{% url 'service_submit' %}">
+{% csrf_token %}
+    <div id="Service Vehicle Request" class="w3-container vehicle">
+    <fieldset>
+        <legend align="left">Requisitioner Details</legend><br>
+
+        <!-- <div class="col-sm-6">
+            <label>Requisitioner Employee ID:</label>
+            {{ form.req_employee_id }}
+        </div> -->
+        <div class="col-sm-6">
+            <label>Requisitioner Employee ID</label>
+            <input type="text" name="req_employee_id" id="req_employee_id" list="emp_list" class="form-control" required>
+            <datalist id="emp_list">               
+            {% for emp_id in emplist %}
+              <option data-value="{{ emp_id.Employee_Id }} | {{ emp_id.Last_name }} | {{ emp_id.First_name }}" value="{{ emp_id.Employee_Id }}">
+              </option>
+            {% endfor %}
+            </datalist>
+        </div>
+
+
+        <!-- <div class="col-sm-6">
+            <label>Request Received Date</label>
+            {{ form.request_date }}
+        </div> -->
+        <div class="col-sm-6">
+            <label>Request Received Date</label>
+            <input style= "text-transform:" type="date" name="request_date" id="request_date" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>Requisitioner Last Name:</label>
+            {{ form.req_lname}}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Requisitioner Last Name</label>
+            <input style= "text-transform:" type="text" name="req_lname" id="req_lname" class="form-control" readonly>
+        </div>
+
+
+        <!-- <div class="col-sm-6">
+            <label>Requisitioner First Name</label>
+            {{ form.req_fname }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Requisitioner First Name</label>
+            <input style= "text-transform:" type="text" name="req_fname" id="req_fname" class="form-control" readonly>
+        </div>
+
+    <br><br>
+    </fieldset>
+    <hr>
+    <fieldset>
+        <legend align="left">Assignee Details</legend>
+
+        <!-- <div class="col-sm-4">
+            <label>Assignee Employee ID:</label>
+            {{ form.assignee_employee_id }}
+        </div> -->
+        <div class="col-sm-4">
+            <label>Assignee Employee ID</label>
+            <input type="text" name="assignee_employee_id" id="assignee_employee_id" list="elist" class="form-control">
+            <datalist id="elist">               
+            {% for emp_id in emplist %}
+              <option data-value="{{ emp_id.Employee_Id }} | {{ emp_id.Group }} | {{ emp_id.First_name }} | {{ emp_id.Last_name }} | {{ emp_id.Cost_center }} | {{ emp_id.Section }} | {{ emp_id.Location }}" value="{{ emp_id.Employee_Id }}">
+              </option>
+            {% endfor %}
+            </datalist>
+        </div>
+        <!-- <div class="col-sm-4">
+            <label>Assignee Group:</label>
+            {{ form.assignee_group }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>Assignee Group</label>
+            <input style= "text-transform:" type="text" name="Assignee_Group" id="Assignee_Group" class="form-control" readonly>
+        </div>
+
+        <!-- <div class="col-sm-4">
+            <label>Assignee First Name:</label>
+            {{ form.assignee_fname }}
+        </div> -->
+        <div class="col-sm-4">
+            <label>Assignee First Name</label>
+            <input style= "text-transform:" type="text" name="assignee_fname" id="assignee_fname" class="form-control" readonly>
+        </div>
+
+        <!-- <div class="col-sm-4">
+            <label>Assignee Last Name:</label>
+            {{ form.assignee_lname }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>Assignee Last  Name</label>
+            <input style= "text-transform:" type="text" name="assignee_lname" id="assignee_lname" class="form-control" readonly>
+        </div>
+
+        <!-- <div class="col-sm-4">
+            <label>Assignee Cost Center:</label>
+            {{ form.assignee_costcenter }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>Assignee Cost Center</label>
+            <input style= "text-transform:" type="text" name="assignee_costcenter" id="assignee_costcenter" class="form-control" readonly>
+        </div>
+
+        <!-- <div class="col-sm-4">
+            <label>Assignee Section:</label>
+            {{ form.assignee_section }}
+        </div> -->
+        <div class="col-sm-4">
+            <label>Assignee Section</label>
+            <input style= "text-transform:" type="text" name="assignee_section" id="assignee_section" class="form-control" readonly>
+        </div>
+
+        <!-- <div class="col-sm-4">
+            <label>Assignee Location:</label>
+            {{ form.assignee_location }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>Assignee Location</label>
+            <input style= "text-transform:" type="text" name="assignee_location" id="assignee_location" class="form-control" readonly>
+        </div>
+
+        <!-- <div class="col-sm-4">
+            <label>Assignee ATD:</label>
+            {{ form.assignee_atd }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>Assignee ATD</label>
+            <input style= "text-transform:" type="text" name="assignee_atd" id="assignee_atd" class="form-control">
+        </div>
+
+    </fieldset>
+    <fieldset>
+    <legend align="left">For New Employee Only</legend>
+        <!-- <div class="col-sm-4">
+            <label>New Employee ID:</label>
+            {{ form.new_employee_id }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>New Employee ID</label>
+            <input style= "text-transform:" type="text" name="new_employee_id" id="new_employee_id" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-4">
+            <label>New Employee First Name:</label>
+            {{ form.new_employee_fname }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>New Employee First Name</label>
+            <input style= "text-transform:" type="text" name="new_employee_fname" id="new_employee_fname" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-4">
+            <label>New Employee Last Name:</label>
+            {{ form.new_employee_lname }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>New Employee Last Name</label>
+            <input style= "text-transform:" type="text" name="new_employee_lname" id="new_employee_lname" class="form-control">
+        </div>
+
+
+        <!-- <div class="col-sm-4">
+            <label>New Employee Cost Center:</label>
+            {{ form.new_employee_cost }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>New Employee Cost Center</label>
+            <input style= "text-transform:" type="text" name="new_employee_cost" id="new_employee_cost" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-4">
+            <label>Temporary ATD Number:</label>
+            {{ form.new_temporary_atd }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>Temporary ATD Number</label>
+            <input style= "text-transform:" type="number" name="new_temporary_atd" id="new_temporary_atd" class="form-control">
+        </div>
+
+    </fieldset>
+    <fieldset>
+    <legend align="left">Request Details</legend>
+        <!-- <div class="col-sm-4">
+            <label>Preferred Vehicle Type :</label>
+            {{ form.prefered_vehicle }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>Preferred Vehicle Type</label>
+            <select class="form-control" name="prefered_vehicle" id="prefered_vehicle">
+                <option>-------</option>
+                <option value="Sedan">Sedan</option>
+                <option value="SUV">SUV</option>
+                <option value="Pick up 4x2">Pick up 4x2</option>
+                <option value="Pick up 4x4">Pick up 4x4</option>
+
+                
+            </select>
+        </div>
+
+        <div class="col-sm-4">
+            <label>Justification</label>
+            <input style= "text-transform:" type="text" name="justification" id="justification" class="form-control">
+        </div>
+
+
+    </fieldset>
+    <fieldset>
+    <legend align="left">Existing Assignee Unit</legend>
+        <!-- <div class="col-sm-4">
+            <label>Plate Number:</label>
+            {{ form.E_plate_no }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>Plate Number</label>
+            <input style= "text-transform:" type="text" name="E_plate_no" id="E_plate_no" list="v_list" class="form-control" required>
+            <datalist id="v_list">               
+            {% for v_id in vlist %}
+              <option data-value="{{ v_id.PLATE_NO }} | {{ v_id.CS_NO }} | {{ v_id.MODEL }} | {{ v_id.BRAND }} | {{ v_id.VEHICLE_MAKE }} | {{ v_id.VEHICLE_TYPE }}" value="{{ v_id.PLATE_NO }}">
+              </option>
+            {% endfor %}
+            </datalist>
+        </div>
+
+        <!-- <div class="col-sm-4">
+            <label>Conduction Sticker:</label>
+            {{ form.E_con_sticker }}
+        </div> -->
+        <div class="col-sm-4">
+            <label>Conduction Sticker Number</label>
+            <input style= "text-transform:" type="text" name="E_con_sticker" id="E_con_sticker" class="form-control" readonly>
+        </div>
+
+
+        <!-- <div class="col-sm-4">
+            <label>Vehicle Model Year:</label>
+            {{ form.E_model_year }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>Vehicle Model Year</label>
+            <input style= "text-transform:" type="number" name="E_model_year" id="E_model_year" class="form-control" readonly>
+        </div>
+
+        <!-- <div class="col-sm-4">
+            <label>Vehicle Brand:</label>
+            {{ form.E_brand }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>Vehicle Brand</label>
+            <input style= "text-transform:" type="text" name="E_brand" id="E_brand" class="form-control" readonly>
+        </div>
+
+        <!-- <div class="col-sm-4">
+            <label>Vehicle Make:</label>
+            {{ form.E_make }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>Vehicle Make</label>
+            <input style= "text-transform:" type="text" name="E_make" id="E_make" class="form-control" readonly>
+        </div>
+
+        <!-- <div class="col-sm-4">
+            <label>Vehicle Type:</label>
+            {{ form.E_type }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>Vehicle Type</label>
+            <input style= "text-transform:" type="text" name="E_type" id="E_type" class="form-control" readonly>
+        </div>
+
+    </fieldset>
+    <div class="card-footer">
+      <button type="submit" class="button">SUBMIT</button>
+    </div>
+    </div>
+    <div id="Immediate Supervisor Approval" class="w3-container vehicle" style="display:none">
+    <fieldset>
+        <legend align="left">Immediate Supervisor Approval</legend>
+        <!-- <div class="col-sm-6">
+            <label>Approved By:</label>
+            {{ form.approved_by }}
+        </div> -->
+        <div class="col-sm-4">
+            <label>Approved By</label>
+            <input style= "text-transform:" type="text" name="approved_by" id="approved_by" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>Approved Date:</label>
+            {{ form.approved_date }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>Approved Date</label>
+            <input style= "text-transform:" type="date" name="approved_date" id="approved_date" class="form-control">
+        </div>
+
+    </fieldset>
+    <div class="card-footer">
+        <button type="submit" class="button">UPDATE</butoon>
+    </div>
+    </div>
+    <div id="Vehicle Leasing Details" class="w3-container vehicle" style="display:none">
+    <fieldset>
+        <legend align="left">Vehicle Leasing Details</legend>
+        <!-- <div class="col-sm-4">
+            <label>Vehicle Provider:</label>
+            {{ form.vehicle_provider }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>Vehicle Provider</label>
+            <input style= "text-transform:" type="date" name="vehicle_provider" id="vehicle_provider" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-4">
+            <label>Service Vehicle Plate Number:</label>
+            {{ form.vehicle_plate_no }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>Service Vehicle Plate Number</label>
+            <input style= "text-transform:" type="text" name="vehicle_plate_no" id="vehicle_plate_no" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-4">
+            <label>Service Vehicle CS Number:</label>
+            {{ form.vehicle_CS_no }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>Service Vehicle CS Number</label>
+            <input style= "text-transform:" type="number" name="vehicle_CS_no" id="vehicle_CS_no" class="form-control">
+        </div>
+
+
+        <!-- <div class="col-sm-4">
+            <label>Service Vehicle Model Year:</label>
+            {{ form.vehicle_model }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>Service Vehicle Model Year</label>
+            <input style= "text-transform:" type="number" name="vehicle_model" id="vehicle_model" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-4">
+            <label>Service Vehicle Brand:</label>
+            {{ form.vehicle_brand }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>Service Vehicle Brand</label>
+            <input style= "text-transform:" type="text" name="vehicle_brand" id="vehicle_brand" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-4">
+            <label>Service Vehicle Make:</label>
+            {{ form.vehicle_make }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>Service Vehicle Make</label>
+            <input style= "text-transform:" type="text" name="vehicle_make" id="vehicle_make" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-4">
+            <label>Service Vehicle Fuel Type:</label>
+            {{ form.vehicle_fuel_type }}
+        </div> -->
+
+        <div class="col-sm-4">
+            <label>Service Vehicle Fuel Type</label>
+            <input style= "text-transform:" type="text" name="vehicle_fuel_type" id="vehicle_fuel_type" class="form-control">
+        </div>
+
+    </fieldset>
+    <input style= "text-transform:" type="text" name="svv_sla" id="svv_sla" value="60" hidden>
+
+    <div class="card-footer">
+        <button type="submit" class="button">UPDATE</button>
+    </div>
+    </div>
+</div>
+</form>
+
+
+<!--for employee auto-fill-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$('#req_employee_id').on('change', function () {
+    var value = $('#req_employee_id').val();
+    var val = ($('#emp_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#req_employee_id').val(parts[0]);
+    $('#req_lname').val(parts[1]);
+    $('#req_fname').val(parts[2]);
+});
+</script>
+<!---for Assignee Employee autofill-->
+<script>
+$('#assignee_employee_id').on('change', function () {
+    var value = $('#assignee_employee_id').val();
+    var val = ($('#elist [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#assignee_employee_id').val(parts[0]);
+    $('#Assignee_Group').val(parts[1]);
+    $('#assignee_fname').val(parts[2]);
+    $('#assignee_lname').val(parts[3]);
+    $('#assignee_costcenter').val(parts[4]);
+    $('#assignee_section').val(parts[5]);
+    $('#assignee_location').val(parts[6]);
+});
+</script>
+<!---for Vehicle autofill-->
+<script>
+$('#E_plate_no').on('change', function () {
+    var value = $('#E_plate_no').val();
+    var val = ($('#v_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#E_plate_no').val(parts[0]);
+    $('#E_con_sticker').val(parts[1]);
+    $('#E_model_year').val(parts[2]);
+    $('#E_brand').val(parts[3]);
+    $('#E_make').val(parts[4]);
+    $('#E_type').val(parts[5]);
+});
+</script>
+{% endblock %}

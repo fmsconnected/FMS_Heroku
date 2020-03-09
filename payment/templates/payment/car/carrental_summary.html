@@ -1,0 +1,334 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-1.8.3.js"></script>
+<script src="https://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" />
+
+<!--Java date computation-->
+<script>
+    $(document).ready(function() {
+      
+    $( "#Startrental,#Endrental" ).datepicker({
+    changeMonth: true,
+    changeYear: true,
+    firstDay: 1,
+    dateFormat: 'yy/mm/dd',
+    })
+
+    $( "#Startrental" ).datepicker({ dateFormat: 'yy/mm/dd' });
+    $( "#Endrental" ).datepicker({ dateFormat: 'yy/mm/dd' });
+
+    $('#Endrental').change(function() {
+        var start = $('#Startrental').datepicker('getDate');
+        var end   = $('#Endrental').datepicker('getDate');
+
+    if (start<end) {
+        var days   = (end - start)/1000/60/60/24;
+    $('#Rentduration').val(days);
+    }
+    else {
+      $('#Startrental').val("");
+      $('#Endrental').val("");
+      $('#Rentduration').val("");
+    }
+    }); //end change function
+    }); //end ready
+
+</script>
+<!--Java Autofill date-->
+<script>
+    function getDate() {
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth()+1; //January is 0!
+      var yyyy = today.getFullYear();
+
+      if(dd<10) {
+          dd = '0'+dd
+      } 
+
+      if(mm<10) {
+          mm = '0'+mm
+      } 
+
+      today = yyyy + '-' + mm + '-' + dd;
+      console.log(today);
+      document.getElementById("date").value = today;
+    }
+
+
+    window.onload = function() {
+      getDate();
+    };
+
+</script>
+<script>
+    function add(){
+    var a,b,c,d,e,f,g,h,i;
+        a=Number(document.getElementById("Rentcost").value);
+        b=Number(document.getElementById("Gascost").value);
+        c=Number(document.getElementById("Tollfee").value);
+        d=Number(document.getElementById("Parkingfee").value);
+        e=Number(document.getElementById("Delfee").value);
+        f=Number(document.getElementById("Drifee").value);
+        g=Number(document.getElementById("Mealcost").value);
+        h=Number(document.getElementById("Otherexp").value);
+        i= a + b + c + d + e + f + g + h;
+        document.getElementById("TotalExp").value= i;
+    }
+</script>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="page-header">Car Rental Payment Details</h2>
+    </div>
+</div>
+
+<br>
+
+<table width="90%" class="table table-bordered table-hover" border="2px">
+    <tr>
+      <th width="25%">Activity ID: </th><td width="25%">{{ object.Activity_id }}</td>
+      <th width="25%">Invoice No: </th><td width="25%">{{ object.I_number }}</td>
+    </tr>
+    <tr>
+        <th>SLA</th><td>{{ object.C_SLA }}/Days</td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+      <th>Billing Date:</th><td>{{ object.Bill_date }}</td>
+      <th>Assignee Employee ID: </th> <td>{{ object.Employee_id }}</td>
+    </tr>
+    <tr>
+      <th>Employee First Name: </th> <td>{{ object.F_name }}</td>
+      <th>Employee Last Name: </th> <td>{{ object.L_name }}</td>
+    </tr>
+    <tr>
+      <th>Assignee Company:</th> <td>{{ object.Assignee_company }}</td>
+      <th>Assignee Cost Center:</th> <td>{{ object.Cost_center }}</td>
+    </tr>
+    <tr>
+      <th>Other Assignee First Name: </th> <td>{{ object.O_Fname }}</td>
+      <th>Other Assignee Last Name:</th> <td>{{ object.O_Lname }}</td>
+    </tr>
+    <tr>
+      <th>Other Assignee Cost Center: </th> <td>{{ object.O_cost_center }}</td>
+      <th>Plate Number: </th> <td>{{ object.Plate_no }}</td>
+    </tr>
+    <tr>
+      <th>Vehicle Brand: </th> <td>{{ object.V_brand }}</td>
+    </tr>
+    <tr>
+      <th>Vehicle Make: </th> <td>{{ object.V_make }}</td>
+      <th>Date Delivered Vehicle:: </th> <td>{{ object.D_vehicle}}</td>
+    </tr>
+    <tr>
+      <th>Start of Rental:</th> <td>{{ object.S_rental }}</td>
+      <th>End of Rental: </th> <td>{{ object.E_rental }}</td>
+    </tr>
+    <tr>
+      <th>Rental Duration: </th> <td>{{ object.R_duration }}-Days</td>
+      <th>Rental Cost:</th> <td>{{ object.R_Cost }}</td>
+    </tr>
+    <tr>
+      <th>Gasoline Cost:</th> <td>{{ object.G_cost }}</td>
+      <th>Toll Fee:</th> <td>{{ object.T_fee }}</td>
+    </tr>
+    <tr>
+      <th>Parking Fee: </th> <td>{{ object.P_fee }}</td>
+      <th>Delivery Fee:</th> <td>{{ object.Del_fee }}</td>
+    </tr>
+    <tr>
+      <th>Driver Fee:</th> <td>{{ object.Dri_fee }}</td>
+      <th>Meal Cost: </th> <td>{{ object.M_cost }}</td>
+    </tr>
+    <tr>
+
+      <th>Other Expenses:</th> <td>{{ object.O_expenses }}</td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+        <tr>
+        <th></th><td></td>
+        <th>VAT:</th><td>{{object.VAT}}</td>
+    </tr> 
+    <tr>
+        <th></th><td></td>
+        <th>Total Expenses:</th><td>₱  {{ object.T_expenses }}</td>
+    </tr>    
+</table>
+    <div class="card-footer">
+      <a data-toggle="modal" data-target="#updateModal" class="button">UPDATE</a>
+    </div>
+
+<!--Update Modal--->
+<form method="POST" action="{% url 'Car_update' object.id %}">
+{% csrf_token %}
+  <div class="modal fade bd-example-modal-lg" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="page-header">Update Car Rental</h2>
+        </div>
+        <div class="modal-body">
+        <div class="tab-content">
+        <div class="row">
+              <div class="col-sm-4">
+                  <label>Bill Date</label>
+                  <input style= "text-transform:" type="date" name="Bdate" id="Bdate" class="form-control" value="{{ object.Bill_date }}" readonly>
+              </div>
+              <div class="col-sm-4">
+                  <label>Assignee Employee ID</label>
+                  <input style= "text-transform:" type="text" name="Eid" id="Eid" class="form-control" value="{{ object.Employee_id }}" readonly>
+              </div>
+              <div class="col-sm-4">
+                  <label>Employee First Name</label>
+                  <input style= "text-transform:" type="text" name="Efm" id="Efm" class="form-control" value="{{ object.F_name }}" readonly>
+              </div>
+              <div class="col-sm-4">
+                  <label>Employee Last Name</label>
+                  <input style="text-transform:" type="text" name="Elm" id="Elm" class="form-control" value="{{ object.L_name }}" readonly>
+              </div>
+              <div class="col-sm-4">
+                  <label>Assignee Company</label>
+                  <input style="text-transform:" type="text" name="Acom" id="Acom" class="form-control" value="{{ object.Assignee_company }}" readonly>
+              </div>
+              <div class="col-sm-4">
+                  <label>Assignee Cost Center</label>
+                  <input style="text-transform:" type="text" name="Acost" id="Acost" class="form-control" value="{{ object.Cost_center }}" readonly>
+              </div>
+             
+              <div class="col-sm-4">
+                  <label>Other Assignee First Name</label>
+                  <input style="text-transform:" type="text" name="Ofname" id="Ddate" class="form-control" value="{{ object.O_Fname }}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Other Assignee Last Name</label>
+                  <input style="text-transform:" type="text" name="Olname" id="Olname" class="form-control" value="{{ object.O_Lname }}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Other Assignee Cost Center</label>
+                  <input style="text-transform:" type="text" name="Ocost" id="Ocost" class="form-control" value="{{ object.O_cost_center }}">
+                  <br>
+              </div>
+
+              <div class="col-sm-3">
+                  <label>Plate Number</label>
+                  <input style="text-transform:" type="text" name="Pnumber" id="Ddate" class="form-control" value="{{ object.Plate_no }}" readonly>
+              </div>
+              <div class="col-sm-3">
+                  <label>Vehicle Provider</label>
+                  <input style="text-transform:" type="text" name="Vprovider" id="Vprovider" class="form-control" value="{{ object.V_provider }}" readonly>
+              </div>
+              <div class="col-sm-3">
+                  <label>Vehicle Brand</label>
+                  <input style="text-transform:" type="text" name="Vbrand" id="Vbrand" class="form-control" value="{{ object.V_brand }}" readonly>
+              </div>
+              <div class="col-sm-3">
+                  <label>Vehicle Make</label>
+                  <input style="text-transform:" type="text" name="Vmake" id="Vmake" class="form-control" value="{{ object.V_make }}" readonly>
+              </div>
+
+              <!-- <h4><u>Rental Details</u></h4> -->
+              <div class="col-sm-3">
+                  <label>Date Delivered Vehicle</label>
+                  <input style="text-transform:" type="date" name="Ddelivered" id="Ddelivered" class="form-control" value="{{ object.D_vehicle}}" readonly>
+              </div>
+              <div class="col-sm-3">
+                  <label>Start of Rental</label>
+                  <input style="text-transform:" type="text" name="Startrental" id="Startrental" class="form-control" value="{{ object.S_rental }}" readonly>
+              </div>
+              <div class="col-sm-3">
+                  <label>End of Rental</label>
+                  <input style="text-transform:" type="text" name="Endrental" id="Endrental" class="form-control" value="{{ object.E_rental }}" readonly>
+              </div>
+              <div class="col-sm-3">
+                  <label>Rental Duration</label>
+                  <input style="text-transform:" type="text" name="Rentduration" id="Rentduration" class="form-control" value="{{ object.R_duration }}" readonly>
+              </div>
+
+          <!--     <H4><u>Expense Details</u></H4>-->
+              <div class="col-sm-3">
+                  <div class="form-group">
+                  <label>Rental Cost</label>
+                  <input style="text-transform:" type="Number" name="Rentcost" id="Rentcost" placeholder="0" class="form-control" onkeyup="add()" value="{{ object.R_Cost }}" />
+                  </div>
+              </div>
+              <div class="col-sm-3">
+                  <div class="form-group">
+                  <label>Gasoline Cost</label>
+                  <input style="text-transform:" type="Number" name="Gascost" id="Gascost" placeholder="0" class="form-control" onkeyup="add()" value="{{ object.G_cost }}" />
+                  </div>
+              </div>
+              <div class="col-sm-3">
+                  <div class="form-group">
+                  <label>Toll Fee</label>
+                  <input style="text-transform:" type="Number" name="Tollfee" id="Tollfee" placeholder="0" class="form-control" onkeyup="add()" value="{{ object.T_fee }}" />
+                  </div>
+              </div>
+              <div class="col-sm-3">
+                  <div class="form-group">
+                  <label>Parking Fee</label>
+                  <input style="text-transform:" type="Number" name="Parkingfee" id="Parkingfee" placeholder="0" class="form-control" onkeyup="add()" value="{{ object.P_fee }}" />
+                  </div>
+              </div>
+              <div class="col-sm-3">
+                  <div class="form-group">
+                  <label>Delivery Fee</label>
+                  <input style="text-transform:" type="Number" name="Delfee" id="Delfee" placeholder="0" class="form-control" onkeyup="add()" value="{{ object.Del_fee }}" />
+                  </div>
+              </div>
+              <div class="col-sm-3">
+                  <div class="form-group">
+                  <label>Driver Fee</label>
+                  <input style="text-transform:" type="Number" name="Drifee" id="Drifee" placeholder="0" class="form-control" onkeyup="add()" value="{{ object.Dri_fee }}" />
+                  </div>
+              </div>
+              <div class="col-sm-3">
+                  <div class="form-group">
+                  <label>Meal Cost</label>
+                  <input style="text-transform:" type="Number" name="Mealcost" id="Mealcost" placeholder="0" class="form-control" onkeyup="add()" value="{{ object.M_cost }}" />
+                  </div>
+              </div>
+              <div class="col-sm-3">
+                  <div class="form-group">
+                  <label>Other Expenses</label>
+                  <input style="text-transform:" type="Number" name="Otherexp" id="Otherexp" placeholder="0" class="form-control" onkeyup="add()" value="{{ object.O_expenses }}" />
+                  </div><br>
+              </div>
+              <div class="col-sm-12" align="right">
+                  <div class="form-group">
+                  <label>VAT</label>
+                   <input align="right" style="width: 150px; text-transform:" type="text" name="Vat" id="Vat" readonly value="{{ object.VAT }}">    
+                  </div>
+              </div>
+              <div class="col-sm-12" align="right">
+                  <div class="form-group">
+                  <label>Total Expenses</label>
+                   <input align="right" style="width: 150px; text-transform:" type="text" name="TotalExp" id="TotalExp" onclick="add()" readonly value="{{ object.T_expenses }}">    
+                  </div>
+              </div>
+
+        </div>
+        <br><br>
+        <div class="col-lg-12">
+            <button class="button" type="submit">PROCEED</button>    
+        </div>
+            <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+
+{% endblock %}

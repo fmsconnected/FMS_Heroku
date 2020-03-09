@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script>
+function vehiclereport(motor) {
+  var i;
+  var x = document.getElementsByClassName("report");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(motor).style.display = "block";  
+}
+</script>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header"><b>Motor Vehicle Accident Report</b></h3>&nbsp;
+    </div>
+</div>
+ <div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button" onclick="vehiclereport('Motor Vehicle Accident Report')">Motor Vehicle Accident Report</button>
+    <button class="w3-bar-item w3-button" onclick="vehiclereport('Inbound Process')">Inbound Process</button>
+    <button class="w3-bar-item w3-button" onclick="vehiclereport('Outbound Process')">Outbound Process</button>
+    </div>
+<form method="POST" action="{% url 'report_submit' %}">
+{% csrf_token %}
+    <div id="Motor Vehicle Accident Report" class="w3-container report">
+    <fieldset>
+        <legend align="left">Motor Vehicle Accident Report</legend><br>
+        <div class="col-sm-6">
+            <label>MVAR Recieved Date</label>
+            <input name="mvar_date" type="date" id="mvar_date" class="form-control" required/>
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Accident Type</label>
+            <input name="acc_type" type="text" id="acc_type" class="form-control"/>
+        </div>
+        <div class="col-sm-6">
+            <label>Supporting Documents Attached</label>
+            <input name="supp_docs" type="text" id="supp_docs" class="form-control"/>
+        </div>
+    <br><br>
+    </fieldset>
+    <fieldset>
+    <legend align="left">Vehicle Details</legend>
+        <div class="col-sm-6">
+            <label>Plate Number</label>
+            <input name="plate_number" id="plate_number" list="v_list" class="form-control" required/>
+            <datalist id="v_list">               
+            {% for v_id in vlist %}
+              <option data-value="{{ v_id.PLATE_NO }} | {{ v_id.MODEL }} | {{ v_id.VEHICLE_MAKE }} | {{ v_id.CS_NO }}" value="{{ v_id.PLATE_NO }}">
+              </option>
+            {% endfor %}
+            </datalist>
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Model Year</label>
+            <input name="v_model" type="text" id="v_model" class="form-control" readonly />
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Make</label>
+            <input name="v_make" type="text" id="v_make" class="form-control" readonly/>
+        </div>
+        <div class="col-sm-6">
+            <label>Conduction Sticker</label>
+            <input name="c_sticker" type="text" id="c_sticker" class="form-control" readonly/>
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend align="left">Assignee Details</legend>
+        <div class="col-sm-6">
+            <label>Assignee Employee ID</label>
+            <input name="a_emp_id" id="a_emp_id" list="emp_list" class="form-control"/>
+            <datalist id="emp_list">               
+            {% for emp_id in elist %}
+              <option data-value="{{ emp_id.Employee_Id }} | {{ emp_id.First_name }} | {{ emp_id.Last_name }} | {{ emp_id.Company }} | {{ emp_id.Group }} | {{ emp_id.Division }} | {{ emp_id.Department }}" value="{{ emp_id.Employee_Id }}">
+              </option>
+            {% endfor %}
+            </datalist>
+        </div>
+        <div class="col-sm-6">
+            <label>Assignee First Name</label>
+            <input name="a_emp_fname" type="text" id="a_emp_fname" class="form-control" readonly/>
+        </div>
+        <div class="col-sm-6">
+            <label>Assignee Last Name</label>
+            <input name="a_emp_lname" type="text" id="a_emp_lname" class="form-control" readonly/>
+        </div>
+        <div class="col-sm-6">
+            <label>Assignee Contact Number</label>
+            <input name="a_emp_number" type="text" id="a_emp_number" class="form-control"/>
+        </div>
+        <div class="col-sm-6">
+            <label>Company</label>
+            <input name="a_emp_company" type="text" id="a_emp_company" class="form-control" readonly/>
+        </div>
+        <div class="col-sm-6">
+            <label>Assignee Group</label>
+            <input name="a_emp_group" type="text" id="a_emp_group" class="form-control" readonly/>
+        </div>
+        <div class="col-sm-6">
+            <label>Assignee Division</label>
+            <input name="a_emp_div" type="text" id="a_emp_div" class="form-control" readonly/>
+        </div>
+        <div class="col-sm-6">
+            <label>Assignee Department</label>
+            <input name="a_emp_dept" type="text" id="a_emp_dept" class="form-control" readonly/>
+            <br><hr>
+        </div>
+        <div class="col-sm-6">
+            <label>Assignee Immediate Supervisor Employee ID</label>
+            <input name="ai_emp_id" type="text" id="ai_emp_id" class="form-control"/>
+        </div>
+        <div class="col-sm-6">
+            <label>Assignee Immediate Supervisor Employee First Name</label>
+            <input name="ai_emp_fname" type="text" id="ai_emp_fname" class="form-control"/>
+        </div>
+        <div class="col-sm-6">
+            <label>Assignee Immediate Supervisor Employee Last Name</label>
+            <input name="ai_emp_lname" type="text" id="ai_emp_lname" class="form-control"/>
+        </div>
+    </fieldset>
+    <div class="card-footer">
+      <button type="submit" class="button">SUBMIT</button>
+    </div>
+    </div>
+    <div id="Inbound Process" class="w3-container report" style="display:none">
+    <fieldset>
+        <legend align="left">Accident Processing 1</legend>
+        <div class="col-sm-6">
+            <label>Inform Assignee of Vehicle Inspection:</label>
+            <input name="inform_inspection" type="text" id="inform_inspection" class="form-control"/>
+        </div>
+        <div class="col-sm-6">
+            <label>Date of Vehicle Inspection:</label>
+            <input name="date_inspection" type="date" id="date_inspection" class="form-control"/>
+        </div>
+        <div class="col-sm-6">
+            <label>Inspection Remarks:</label>
+            <input name="inspection_remarks" type="text" id="inspection_remarks" class="form-control"/>
+        </div>
+    </fieldset>
+    <div class="card-footer">
+        <button type="submit" class="button">UPDATE</button>
+    </div>
+    </div>
+    <div id="Outbound Process" class="w3-container report" style="display:none">
+    <fieldset>
+        <legend align="left">Carnap Claim Processing 1</legend>
+        <div class="col-sm-6">
+            <label>Date Filed Alarm Sheet at PNP TMG:</label>
+            <input name="date_filed" type="date" id="date_filed" class="form-control"/>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend align="left">Accident Processing 2</legend>
+        <div class="col-sm-6">
+            <label>Date Received Certificateof Non-Recovery:</label>
+            <input name="date_received" type="date" id="date_received" class="form-control"/>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend align="left">Insurance Processing 1</legend>
+        <div class="col-sm-6">
+            <label>Date Forward Documents to Insurance Company:</label>
+            <input name="date_forward" type="date" id="date_forward" class="form-control"/>
+        </div>
+    </fieldset>
+    <input name="MVAR_SLA" type="text" id="MVAR_SLA" value="5" hidden/>
+    <div class="card-footer">
+        <button type="submit" class="button">UPDATE</button>
+    </div>
+    </div>
+</div>
+</form>
+
+<!--for employee auto-fill-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+$('#plate_number').on('change', function () {
+    var value = $('#plate_number').val();
+    var val = ($('#v_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#plate_number').val(parts[0]);
+    $('#v_model').val(parts[1]);
+    $('#v_make').val(parts[2]);
+    $('#c_sticker').val(parts[3]);
+});
+</script>
+
+<script type="text/javascript">
+$('#a_emp_id').on('change', function () {
+    var value = $('#a_emp_id').val();
+    var val = ($('#emp_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#a_emp_id').val(parts[0]);
+    $('#a_emp_fname').val(parts[1]);
+    $('#a_emp_lname').val(parts[2]);
+    $('#a_emp_company').val(parts[3]);
+    $('#a_emp_group').val(parts[4]);
+    $('#a_emp_div').val(parts[5]);
+    $('#a_emp_dept').val(parts[6]);
+});
+</script>
+
+{% endblock %}

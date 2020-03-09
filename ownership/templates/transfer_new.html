@@ -1,0 +1,661 @@
+{% extends 'base.html' %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script>
+function transferownership(trans) {
+  var i;
+  var x = document.getElementsByClassName("ownership");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  document.getElementById(trans).style.display = "block";
+}
+</script>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h2 align="center"><b>Transfer of Ownership</b></h2>&nbsp;
+    </div>
+</div>
+ <div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button" onclick="transferownership('Transfer of Ownership')">Transfer of Ownership</button>
+    <button class="w3-bar-item w3-button" onclick="transferownership('Deed of Sale Creation')">Deed of Sale Creation</button>
+    <button class="w3-bar-item w3-button" onclick="transferownership('Outbound Process')">Outbound Process</button>
+    <!-- <button class="w3-bar-item w3-button" onclick="transferownership('Inbound Process')">Inbound Process</button> -->
+    <button class="w3-bar-item w3-button" onclick="transferownership('TOO Completion')">TOO Completion</button>
+    </div>
+<form method="POST" action="{% url 'ownership_submit' %}">
+{% csrf_token %}
+    <div id="Transfer of Ownership" class="w3-container ownership">
+    <fieldset>
+        <legend align="left">Requisitioner Details</legend><br>
+        <!-- <div class="col-sm-6">
+            <label>Date Application Received</label>
+            {{ form.date_application }}
+        </div> -->
+        <div style="display: flex; justify-content: flex-end">
+        <div class="col-sm-6">
+            <label>Date Application Received:</label>
+            <input style= "text-transform:" type="date" name="date_application" id="date_application" class="form-control" required>
+        </div>
+        </div>
+        <!-- <div class="col-sm-6">
+            <label>Requisitioner Employee ID:</label>
+            {{ form.req_employee_id }}
+        </div> -->
+        <div class="col-sm-6">
+            <label>Requisitioner Employee ID:</label>
+            <input name="req_employee_id" id="req_employee_id" list="emp_list" class="form-control" required>
+            <datalist id="emp_list">               
+            {% for emp_id in e_list %}
+              <option data-value="{{ emp_id.Employee_Id }} | {{ emp_id.Last_name}} | {{ emp_id.First_name }} | {{ emp_id.Band }} | {{ emp_id.Cost_center }} | {{ emp_id.Last_name}}" value="{{ emp_id.Employee_Id }}">
+              </option>
+            {% endfor %}
+            </datalist>
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>Requisitioner Last Name:</label>
+            {{ form.req_Lname }} -->
+
+        <div class="col-sm-6">
+            <label>Requisitioner Last Name:</label>
+            <input style= "text-transform:" type="text" name="req_Lname" id="req_Lname" class="form-control" readonly>
+        </div>
+
+
+        <!-- <div class="col-sm-6">
+            <label>Requisitioner First Name:</label>
+            {{ form.req_Fname }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Requisitioner First Name:</label>
+            <input style= "text-transform:" type="text" name="req_Fname" id="req_Fname" class="form-control" readonly>
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>Requisitioner Band:</label>
+            {{ form.req_band }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Requisitioner Band:</label>
+            <input style= "text-transform:" type="text" name="req_band" id="req_band" class="form-control" readonly>
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>Requisitioner Cost Center:</label>
+            {{ form.req_cost}}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Requisitioner Cost Center:</label>
+            <input style= "text-transform:" type="text" name="req_cost" id="req_cost" class="form-control" readonly>
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>Requisitioner Title</label>
+            {{ form.req_title }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Requisitioner Title:</label>
+            <input style= "text-transform:" type="text" name="req_title" id="req_title" class="form-control">
+        </div>
+    <br><br>
+    </fieldset>
+    <hr>
+    <fieldset>
+        <legend align="left">Vehicle Details</legend>
+
+        <!-- <div class="col-sm-6">
+            <label>Plate Number:</label>
+            {{ form.plate_no }}
+        </div> -->
+        <div class="col-sm-6">
+            <label>Plate Number:</label>
+            <input name="plate_no" id="plate_no" list="vehicle_list" class="form-control" required>
+            <datalist id="vehicle_list">               
+            {% for plate in v_list %}
+              <option data-value="{{ plate.PLATE_NO }} | {{ plate.CS_NO }} | {{ plate.MODEL }} | {{ plate.BRAND }}| {{ plate.VEHICLE_MAKE }}" value="{{ plate.PLATE_NO }}"></option>
+            {% endfor %}
+            </datalist>
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>Conduction Sticker:</label>
+            {{ form.cond_sticker }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Conduction Sticker:</label>
+            <input style= "text-transform:" type="text" name="cond_sticker" id="cond_sticker" class="form-control" readonly>
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>Vehicle Model Year:</label>
+            {{ form.vehicle_model }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Vehicle Model Year:</label>
+            <input style= "text-transform:" type="number" name="vehicle_model" id="vehicle_model" class="form-control" readonly>
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>Vehicle Brand:</label>
+            {{ form.vehicle_brand }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Vehicle Brand:</label>
+            <input style= "text-transform:" type="text" name="Vehicle_Brand" id="Vehicle_Brand" class="form-control" readonly>
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>Vehicle Make:</label>
+            {{ form.vehicle_make }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Vehicle Make:</label>
+            <input style= "text-transform:" type="text" name="vehicle_make" id="vehicle_make" class="form-control" readonly>
+        </div>
+
+    </fieldset>
+    <fieldset>
+    <legend align="left">Vendor and Vendee Details</legend>
+        <!-- <div class="col-sm-6">
+            <label>Vendor:</label>
+            {{ form.vendor }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Vendor:</label>
+            <select class="form-control" name="Vendor" id="Vendor">
+                <option value="">----------</option>
+                <option value="Globe Telecome">Globe Telecome</option>
+                <option value="Innove">Innove</option>
+                <option value="Bayantel Communication">Bayantel Communication</option>
+            </select>
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>Other Vendor Name:</label>
+            {{ form.vendor_name }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Other Vendor Name:</label>
+            <input style= "text-transform:" type="text" name="Other_Vendor_Name" id="Other_Vendor_Name" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>Vendee Employee ID:</label>
+            {{ form.v_employee_id }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Vendee Employee ID:</label>
+            <input style= "text-transform:" type="text" name="v_employee_id" id="v_employee_id" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>Vendee First Name:</label>
+            {{ form.v_fname }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Vendee First Name:</label>
+            <input style= "text-transform:" type="text" name="v_fname" id="v_fname" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>Vendee Last Name:</label>
+            {{ form.v_lname }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Vendee Last Name:</label>
+            <input style= "text-transform:" type="text" name="v_lname" id="v_lname" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>Vendee Band:</label>
+            {{ form.v_band }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Vendee Band:</label>
+            <input style= "text-transform:" type="text" name="v_band" id="v_band" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>TOO Purpose:</label>
+            {{ form.purpose }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>TOO Purpose:</label>
+            <select name="TOO_Purpose" id="TOO_Purpose" class="form-control">
+                <option value="">----------</option>
+                <option value="Deceased">Deceased</option>
+                <option value="Early Availment">Early Availment</option>
+                <option value="End of Car Plan">End of Car Plan</option>
+                <option value="FSSV Availment">FSSV Availment</option>
+                <option value="Promotion">Promotion</option>
+                <option value="Resigned">Resigned</option>
+                <option value="Shift from Non-Sales to Sales">Shift from Non-Sales to Sales</option>
+                <option value="Shift from Sales to Non-Sales">Shift from Sales to Non-Sales</option>
+                <option value="Winning Bidder">Winning Bidder</option>
+
+            </select>
+        </div>
+
+    </fieldset>
+    <div class="card-footer">
+      <button type="submit" class="button">SUBMIT</button>
+    </div>
+    </div>
+    <div id="Deed of Sale Creation" class="w3-container ownership" style="display:none">
+    <fieldset>
+        <legend align="left">Deed of Sale Creation 1</legend>
+        <!-- <div class="col-sm-6">
+            <label>Transfer Fee:</label>
+            {{ form.transfer_fee }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Transfer Fee:</label>
+            <input style= "text-transform:" type="number" name="transfer_fee" id="transfer_fee" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>Document Completed Date:</label>
+            {{ form.doc_date_completed }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Document Completed Date:</label>
+            <input style= "text-transform:" type="date" name="doc_date_completed" id="doc_date_completed" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>Date Created Deed of Sale:</label>
+            {{ form.deedofsale_date }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Date Created Deed of Sales:</label>
+            <input style= "text-transform:" type="date" name="deedofsale_date" id="deedofsale_date" class="form-control">
+        </div>
+
+    </fieldset>
+    <fieldset>
+        <legend align="left">Official Receipt Routing</legend>
+        <!-- <div class="col-sm-6">
+            <label>Confirmation Status:</label>
+            {{ form.confirmation_status }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Confirmation Status:</label>
+            <select name="confirmation_status" id="confirmation_status" class="form-control">
+                <option value="">----------</option>
+                <option value="Final Pay">Final Pay</option>
+                <option value="Confirmed">Confirmed</option>
+            </select>
+        </div>
+        <!-- <div class="col-sm-6">
+            <label>Date OR Emailed to Casher:</label>
+            {{ form.emailed_to_casher }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Date OR Emailed to Cashier:</label>
+            <input style= "text-transform:" type="date" name="emailed_to_casher" id="emailed_to_casher" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>Date OR Received from Casher:</label>
+            {{ form.received_from_casher }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Date OR Received from Cashier:</label>
+            <input style= "text-transform:" type="date" name="received_from_casher" id="received_from_casher" class="form-control">
+        </div>
+
+    </fieldset>
+    <fieldset>
+        <legend align="left">Deed of Sale Creation 2</legend>
+        <!-- <div class="col-sm-6">
+            <label>Signed Deed of Sale Completed Date:</label>
+            {{ form.deed_signed }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Signed Deed Of Sale Completed Date:</label>
+            <input style= "text-transform:" type="date" name="deed_signed" id="deed_signed" class="form-control">
+        </div>
+
+    </fieldset>
+    <div class="card-footer">
+        <button type="submit" class="button">UPDATE</button>
+    </div>
+    </div>
+    <div id="Outbound Process" class="w3-container ownership" style="display:none">
+    <fieldset>
+        <legend align="left">Documents Routing 1</legend>
+        <!-- <div class="col-sm-6">
+            <label>Date Routed to JD/ECS:</label>
+            {{ form.routed_to_jd }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Date Routed to JD/ECS:</label>
+            <input style= "text-transform:" type="date" name="routed_to_jd" id="routed_to_jd" class="form-control">
+        </div>
+
+
+        <!-- <div class="col-sm-6">
+            <label>Date Approved By JD/ECS:</label>
+            {{ form.approved_by_jd }}
+        </div> -->
+        <div class="col-sm-6">
+            <label>Date Approved by JD/ECS:</label>
+            <input style= "text-transform:" type="date" name="approved_by_jd" id="approved_by_jd" class="form-control">
+        </div>
+
+
+        <!-- <div class="col-sm-6">
+            <label>Date Return to Fleet Admin Assistant:</label>
+            {{ form.return_fleet_admin }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Date Return to Fleet Admin Assistant:</label>
+            <input style= "text-transform:" type="date" name="return_fleet_admin" id="return_fleet_admin" class="form-control">
+        </div>
+
+
+    </fieldset>
+    <fieldset>
+        <legend align="left">Documents Routing 2</legend>
+        <!-- <div class="col-sm-6">
+            <label>Date Forwarded to Liason Officer:</label>
+            {{ form.forwarded_to_liason }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Date Forwarded to Liason Officer:</label>
+            <input style= "text-transform:" type="date" name="forwarded_to_liason" id="forwarded_to_liason" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>Date Notarized:</label>
+            {{ form.date_notarized }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Date Notarized:</label>
+            <input style= "text-transform:" type="date" name="date_notarized" id="date_notarized" class="form-control">
+        </div>
+
+    </fieldset>
+    <fieldset>
+        <legend align="left">Documents Routing 3</legend>
+        <!-- <div class="col-sm-6">
+            <label>Date Endorsed to Insurance Company:</label>
+            {{ form.endorosed_to_insurance }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Date Endorsed to Insurance Company:</label>
+            <input style= "text-transform:" type="date" name="endorosed_to_insurance" id="endorosed_to_insurance" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>Date Received Pull-out of OR/CR:</label>
+            {{ form.date_pulled }}
+        </div> -->
+        <div class="col-sm-6">
+            <label>Date Received Pull-Out of OR/CR:</label>
+            <input style= "text-transform:" type="date" name="requested_for_pullout" id="requested_for_pullout" class="form-control">
+        </div>
+
+
+        <!-- <div class="col-sm-6">
+            <label>Date Pulled OR/CR:</label>
+            {{ form.date_pulled }}
+        </div> -->
+
+        <!-- <div class="col-sm-6">
+            <label>Date Pulled OR/CR:</label>
+            <input style= "text-transform:" type="date" name="date_pulled" id="date_pulled" class="form-control">
+        </div> -->
+
+
+    </fieldset>
+    <!-- <fieldset> -->
+        <!-- <legend align="left">Insurance Processing</legend> -->
+        <!-- <div class="col-sm-6">
+            <label>Date Return Endorsed to Fleet Admin:</label>
+            {{ form.return_endorsementfleet }}
+        </div> -->
+
+        <!-- <div class="col-sm-6">
+            <label>Date Return Endorsed to Fleet Admin:</label>
+            <input style= "text-transform:" type="date" name="return_endorsementfleet" id="return_endorsementfleet" class="form-control">
+        </div> -->
+
+        <!-- <div class="col-sm-6">
+            <label>Date Forwarded to Fleet Liason for TMG:</label>
+            {{ form.forwarded_fleet_liason }}
+        </div> -->
+
+      <!--   <div class="col-sm-6">
+            <label>Date Forwarded to Fleet Liason for TMG:</label>
+            <input style= "text-transform:" type="date" name="forwarded_fleet_liason" id="forwarded_fleet_liason" class="form-control">
+        </div> -->
+
+
+    <!-- </fieldset> -->
+    <fieldset>
+        <legend align="left">TMG Processing</legend>
+        <!-- <div class="col-sm-6">
+            <label>TMG Date IN:</label>
+            {{ form.tmg_date_in }} -->
+
+        <div class="col-sm-6">
+            <label>TMG Sched:</label>
+            <input style= "text-transform:" type="date" name="tmg_date_in" id="tmg_date_in" class="form-control">
+        </div>
+
+
+        <!-- <div class="col-sm-6">
+            <label>TMG Date Out:</label>
+            {{ form.tmg_date_out }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>TMG Location:</label>
+            <select name="tmg_location" id="tmg_location" class="form-control">
+                <option value="">----------</option>
+                <option value="Caloocan">Caloocan City</option>
+                <option value="Pasay">Pasay City</option>
+            </select>
+
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>TMG Date Return to Fleet Liason:</label>
+            {{ form.tmg_date_return }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>TMG Released:</label>
+            <input style= "text-transform:" type="date" name="tmg_date_return" id="tmg_date_return" class="form-control">
+        </div>
+
+        
+
+
+    </fieldset>
+    <fieldset>
+        <legend align="left">LTO Processing</legend>
+        <!-- <div class="col-sm-6">
+            <label>LTO Date In:</label>
+            {{ form.lto_date_in }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>LTO Date In:</label>
+            <input style= "text-transform:" type="date" name="lto_date_in" id="tmg_date_out" class="form-control">
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>LTO Date Out:</label>
+            {{ form.lto_date_out }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>LTO Date Out:</label>
+            <input style= "text-transform:" type="date" name="lto_date_out" id="lto_date_out" class="form-control">
+        </div>
+
+
+        <div class="col-sm-6">
+            <label>LTO Location:</label>
+            <select name="lto_location" id="lto_location" class="form-control">
+                <option value="">----------</option>
+                <option value="Makati">Makati</option>
+                <option value="Manila East">Manila East</option>
+                <option value="Manila West">Manila West</option>
+                <option value="Manila South">Manila South</option>
+                <option value="Manila North">Manila North</option>
+                <option value="Navotas">Navotas</option>
+                <option value="Aguinaldo">Aguinaldo</option>
+                <option value="Las Pinas">Las Pinas</option>
+                <option value="Muntinlupa">Muntinlupa</option>
+                <option value="Paranaque">Paranaque</option>
+                <option value="Quezon City">Quezon City</option>
+                <option value="Taguig">Taguig</option>
+                <option value="Pasay">Pasay</option>
+                <option value="Novaliches">Novaliches</option>
+                <option value="Pasig">Pasig</option>
+                <option value="Caloocan">Caloocan</option>
+                <option value="Marikina">Marikina</option>
+                <option value="Mandaluyong">Mandaluyong</option>
+                <option value="San Juan">San Juan</option>
+                <option value="Diliman">Diliman</option>
+                <option value="Others">Others</option>
+
+            </select>
+
+        </div>
+
+        <!-- <div class="col-sm-6">
+            <label>LTO Date Return to Fleet Liason:</label>
+            {{ form.lto_date_return }}
+        </div> -->
+
+        <!-- <div class="col-sm-6">
+            <label>LTO Date Return to Fleet Liason:</label>
+            <input style= "text-transform:" type="date" name="lto_date_return" id="lto_date_return" class="form-control">
+        </div> -->
+
+    </fieldset>
+    <div class="card-footer">
+        <button type="submit" class="button">UPDATE</button>
+    </div>
+    </div>
+    <div id="Inbound Process" class="w3-container ownership" style="display:none">
+    <!-- <fieldset> -->
+        <!-- <legend align="left">Return Of Documents</legend> -->
+        <!-- <div class="col-sm-6">
+            <label>Date Documents Return:</label>
+            {{ form.date_docs_return }}
+        </div> -->
+
+        <!-- <div class="col-sm-6">
+            <label>Date Documents Return:</label>
+            <input style= "text-transform:" type="date" name="date_docs_return" id="date_docs_return" class="form-control">
+        </div> -->
+
+
+    <!-- </fieldset> -->
+    <div class="card-footer">
+        <button type="submit" class="button">UPDATE</button>
+    </div>
+    </div>
+    <div id="TOO Completion" class="w3-container ownership" style="display:none">
+    <fieldset>
+        <legend align="left">Transfer Of Ownership Completion (NCR) </legend>
+        <!-- <div class="col-sm-6">
+            <label>Date Transfer Completed:</label>
+            {{ form.date_transfered_completed }}
+        </div> -->
+
+        <div class="col-sm-6">
+            <label>Date Received:</label>
+            <input style= "text-transform:" type="date" name="date_transfered_completed" id="date_transfered_completed" class="form-control">
+        </div>
+
+        <div class="col-sm-6">
+            <label>Received By:</label>
+            <input style= "text-transform:" type="text" name="received_by" id="received_by" class="form-control" >
+        </div>
+
+    </fieldset>
+    <fieldset>
+        <legend align="left">Transfer Of Ownership Completion (Visayas/Mindanao) </legend>
+        <!-- <div class="col-sm-6">
+            <label>Date Transfer Completed for Visayas/Mindanao:</label>
+            {{ form.date_comletion_vismin }}
+        </div> -->
+        <div class="col-sm-6">
+            <label>Date Transfer Completed for Visayas/Mindanao:</label>
+            <input style= "text-transform:" type="date" name="date_comletion_vismin" id="date_comletion_vismin" class="form-control">
+        </div>
+
+    </fieldset>
+    <input style= "text-transform:" type="text" name="TOO_SLA" id="TOO_SLA" value="30" hidden class="form-control">
+    <div class="card-footer">
+        <button type="submit" class="button">UPDATE</button>
+    </div>
+    </div>
+</div>
+</form>
+
+<!--for employee auto-fill-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$('#req_employee_id').on('change', function () {
+    var value = $('#req_employee_id').val();
+    var val = ($('#emp_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#req_employee_id').val(parts[0]);
+    $('#req_Lname').val(parts[1]);
+    $('#req_Fname').val(parts[2]);
+    $('#req_band').val(parts[3]);
+    $('#req_cost').val(parts[4]);
+    $('#received_by').val(parts[5]);
+});
+</script>
+<!--for vehicle auto-fill-->
+<script>
+$('#plate_no').on('change', function () {
+    var value = $('#plate_no').val();
+    var val = ($('#vehicle_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#plate_no').val(parts[0]);
+    $('#cond_sticker').val(parts[1]);
+    $('#vehicle_model').val(parts[2]);
+    $('#Vehicle_Brand').val(parts[3]);
+    $('#vehicle_make').val(parts[4]);
+});
+</script>
+{% endblock %}

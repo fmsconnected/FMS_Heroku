@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<!-- {% comment %} <script type="text/javascript">
+  $(function () {
+    // Delete book buttons
+    $(".delete-carrequest").each(function () {
+      $(this).modalForm({formURL: $(this).data('id')});
+    });
+
+  });
+</script> {% endcomment %} -->
+
+
+<!-- <div class="modal fade" tabindex="-1" role="dialog" id="modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div> -->
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3><b>Car Rental Request</b></h3>
+    </div>
+</div>
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'carrequest_export' %}" style="float:left"><u><b>Export Car Rental Data </b></u></a>
+                    <a href="{% url 'car_request' %}"style="float:right "><u><b>Add Car Rental Request</b></u>&nbsp;&nbsp;</a>
+                    <a href="{% url 'carrequest_history' %}"style="float:right" class="mr-3"><u><b>Car Rental Request History</b></u></a>
+                </div>                         
+                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity ID</th>
+                            <th>Assignee Full Name</th>
+                            <th>Plate Number</th>
+                            <th>SLA</th>
+                            <th>Date Initiated</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for CarRentalRequest in object_list %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'carrequest_details' CarRentalRequest.id %}"><u>{{ CarRentalRequest.Activity_id }}</u></a></td>
+                            <td>{{ CarRentalRequest.Assignee_Fname }} {{ CarRentalRequest.Assignee_Lname }}</td>
+                            <td>{{ CarRentalRequest.Plate_no }}</td>
+                            <td>{{ CarRentalRequest.CR_SLA }}/Days</td>
+                            <td>{{ CarRentalRequest.Date_initiated }}</td>
+                            <form action="{% url 'carrequest_delete' CarRentalRequest.id %}" method="POST">
+                                {% csrf_token %}
+                                <td><button title= "Delete" class="btn btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
+                            </form>
+                            <!-- {% comment %} <td><button type="button" class="delete-carrequest btn btn-sm btn-danger" data-id="{% url 'carrequest_delete' CarRentalRequest.id %}"><span class="fa fa-trash"></span></button></td> {% endcomment %} -->
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+    <!-- /.row -->
+
+{% endblock %}

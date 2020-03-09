@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script>
+function servicevehicle(service) {
+  var i;
+  var x = document.getElementsByClassName("vehicle");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(service).style.display = "block";  
+}
+</script>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header"><b>Service Vehicle Request</b></h3>&nbsp;
+    </div>
+</div>
+ <div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button" onclick="servicevehicle('Service Vehicle Request')">Service Vehicle Request</button>
+    <button class="w3-bar-item w3-button" onclick="servicevehicle('Immediate Supervisor Approval')">Immediate Supervisor Approval</button>
+    <button class="w3-bar-item w3-button" onclick="servicevehicle('Vehicle Leasing Details')">Vehicle Leasing Details</button>
+    </div>
+<form method="POST">
+{% csrf_token %}
+    <div id="Service Vehicle Request" class="w3-container vehicle">
+    <fieldset>
+        <legend align="left">Requisitioner Details</legend><br>
+        
+        <div class="col-sm-6">
+            <label>Requisitioner Employee ID</label>
+            {{ form.req_employee_id }}
+        </div>
+        
+        <div class="col-sm-6">
+            <label>Request Received Date</label>
+            {{ form.request_date }}
+        </div>
+        <div class="col-sm-6">
+            <label>Requisitioner Last Name</label>
+            {{ form.req_lname}}
+        </div>
+        <div class="col-sm-6">
+            <label>Requisitioner First Name</label>
+            {{ form.req_fname }}
+        </div>
+    <br><br>
+    </fieldset>
+    <hr>
+    <fieldset>
+        <legend align="left">Assignee Details</legend>
+        
+        <div class="col-sm-4">
+            <label>Assignee Employee ID</label>
+            {{ form.assignee_employee_id }}
+        </div>
+        
+        <div class="col-sm-4">
+            <label>Assignee Group</label>
+            {{ form.assignee_group }}
+        </div>
+        <div class="col-sm-4">
+            <label>Assignee First Name</label>
+            {{ form.assignee_fname }}
+        </div>
+        <div class="col-sm-4">
+            <label>Assignee Last Name</label>
+            {{ form.assignee_lname }}
+        </div>
+        <div class="col-sm-4">
+            <label>Assignee Cost Center</label>
+            {{ form.assignee_costcenter }}
+        </div>
+        <div class="col-sm-4">
+            <label>Assignee Section</label>
+            {{ form.assignee_section }}
+        </div>
+        <div class="col-sm-4">
+            <label>Assignee Location</label>
+            {{ form.assignee_location }}
+        </div>
+        <div class="col-sm-4">
+            <label>Assignee ATD</label>
+            {{ form.assignee_atd }}
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend align="left">For New Employee Only</legend>
+        <div class="col-sm-4">
+            <label>New Employee ID</label>
+            {{ form.new_employee_id }}
+        </div>
+        <div class="col-sm-4">
+            <label>New Employee First Name</label>
+            {{ form.new_employee_fname }}
+        </div>
+        <div class="col-sm-4">
+            <label>New Employee Last Name</label>
+            {{ form.new_employee_lname }}
+        </div>
+        <div class="col-sm-4">
+            <label>New Employee Cost Center</label>
+            {{ form.new_employee_cost }}
+        </div>
+        <div class="col-sm-4">
+            <label>Temporary ATD Number</label>
+            {{ form.new_temporary_atd }}
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend align="left">Request Details</legend>
+        <div class="col-sm-4">
+            <label>Preferred Vehicle Type </label>
+            {{ form.prefered_vehicle }}
+        </div>
+        <div class="col-sm-4">
+            <label>Justification</label>
+            {{ form.justification }}
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend align="left">Existing Assignee Unit</legend>
+        <div class="col-sm-4">
+            <label>Plate Number</label>
+            {{ form.E_plate_no }}
+        </div>
+        <div class="col-sm-4">
+            <label>Conduction Sticker</label>
+            {{ form.E_con_sticker }}
+        </div>
+        <div class="col-sm-4">
+            <label>Vehicle Model Year</label>
+            {{ form.E_model_year }}
+        </div>
+        <div class="col-sm-4">
+            <label>Vehicle Brand</label>
+            {{ form.E_brand }}
+        </div>
+        <div class="col-sm-4">
+            <label>Vehicle Make</label>
+            {{ form.E_make }}
+        </div>
+        <div class="col-sm-4">
+            <label>Vehicle Type</label>
+            {{ form.E_type }}
+        </div>
+    </fieldset>
+    <div class="card-footer">
+      <button type="submit" class="button">SUBMIT</button>
+    </div>
+    </div>
+    <div id="Immediate Supervisor Approval" class="w3-container vehicle" style="display:none">
+    <fieldset>
+        <legend align="left">Immediate Supervisor Approval</legend>
+        <div class="col-sm-6">
+            <label>Approved By</label>
+            {{ form.approved_by }}
+        </div>
+        <div class="col-sm-6">
+            <label>Approved Date</label>
+            {{ form.approved_date }}
+        </div>
+    </fieldset>
+    <div class="card-footer">
+        <button type="submit" class="button">UPDATE</butoon>
+    </div>
+    </div>
+    <div id="Vehicle Leasing Details" class="w3-container vehicle" style="display:none">
+    <fieldset>
+        <legend align="left">Vehicle Leasing Details</legend>
+        <div class="col-sm-4">
+            <label>Vehicle Provider</label>
+            {{ form.vehicle_provider }}
+        </div>
+        <div class="col-sm-4">
+            <label>Service Vehicle Plate Number</label>
+            {{ form.vehicle_plate_no }}
+        </div>
+        <div class="col-sm-4">
+            <label>Service Vehicle CS Number</label>
+            {{ form.vehicle_CS_no }}
+        </div>
+        <div class="col-sm-4">
+            <label>Service Vehicle Model Year</label>
+            {{ form.vehicle_model }}
+        </div>
+        <div class="col-sm-4">
+            <label>Service Vehicle Brand</label>
+            {{ form.vehicle_brand }}
+        </div>
+        <div class="col-sm-4">
+            <label>Service Vehicle Make</label>
+            {{ form.vehicle_make }}
+        </div>
+        <div class="col-sm-4">
+            <label>Service Vehicle Fuel Type</label>
+            {{ form.vehicle_fuel_type }}
+        </div>
+    </fieldset>
+    {{ form.SVV_SLA}}
+    <div class="card-footer">
+        <button type="submit" class="button">UPDATE</button>
+    </div>
+    </div>
+</div>
+</form>
+{% endblock %}

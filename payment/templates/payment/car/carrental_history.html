@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block content %}
+<script type="text/javascript">
+  $(function () {
+    // Delete book buttons
+    $(".delete-carrequest").each(function () {
+      $(this).modalForm({formURL: $(this).data('id')});
+    });
+
+  });
+</script>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3><b>Car Rental Payment History</b></h3>
+    </div>
+</div>
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'carrental_list' %}" style="float:left"><u><b>Back to Car Rental Data</b></u></a>
+                </div>                         
+                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity ID</th>
+                            <th>Assignee Full Name</th>
+                            <th>Assignee Cost Center</th>
+                            <th>Billing Date</th>
+                            <th>Plate Number</th>
+                            <th>SLA</th>
+                            <th>Date Initiated</th>
+                            <th>History Date</th>
+                            <th>History Type</th>
+                            <th>History User</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for h in object %}
+                        <tr class="odd gradeX">
+                            <td><u>{{ h.Activity_id }}</u></td>
+                            <td>{{ h.F_name }} {{ h.L_name }}</td>
+                            <td>{{ h.Cost_center }}</td>
+                            <td>{{ h.Bill_date }}</td>
+                            <td>{{ h.Plate_no }}</td>
+                            <td>{{ h.C_SLA }}/Days</td>
+                            <td>{{ h.Date_initiated }}</td>
+                            <td>{{h.history_date}}</td>
+                  
+                            {% if h.history_type == '+' %}
+                                <td style="color: green;">Created</td>
+                            {% elif h.history_type == '-' %}
+                                <td style="color: red;">Deleted</td>
+                            {% else %}
+                                <td style="color: blue;">Edited</td>
+                            {% endif %}
+                            <td>{{h.history_user}}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+    <!-- /.row -->
+{% endblock %}
+
+

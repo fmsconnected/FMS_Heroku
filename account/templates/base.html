@@ -1,0 +1,185 @@
+{% load static %}
+{% load i18n staticfiles %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Fleet Managements</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-icon.png">
+
+    <link rel="stylesheet" href="{% static 'vendors/bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/themify-icons/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/flag-icon-css/css/flag-icon.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/selectFX/css/cs-skin-elastic.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/jqvmap/dist/jqvmap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    
+    <!---Data table Horizontal scroll-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">
+
+            <!-- #######################################
+                 ########### DATA TABLE CSS ############
+                 #######################################   -->  
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: center;
+  padding: 8px;
+}
+form label{
+  font-weight:bold;
+}
+div.dataTables_wrapper {
+        width: 1300px;
+        margin: 0 auto;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+</style>
+
+<!-- <style type="text/css">
+  div.dataTables_wrapper {
+        width: 1300px;
+        margin: 0 auto;
+    }
+</style> -->
+<style type="text/css">
+table.table {
+  width: auto;
+  
+}
+</style>
+
+<!-- <style type="text/css">
+form label{
+  font-weight:bold;
+} 
+</style>
+ -->
+</head>
+
+<body>
+    <!-- Left Panel -->
+
+    {% include 'partial/_left.html' %}
+
+    <!-- Left Panel -->
+
+    <!-- Header-->
+
+    {% include 'partial/_header.html' %}
+
+        <!-- Header-->
+
+    <!--Right Panel-->
+        <div id="page-wrapper">
+            {% if messages %}
+                <div class="alert alert-warning">
+                <div class="container">
+                {% for message in messages %}
+                    {{ message }}<br/>
+                {% endfor %}
+                </div>
+                </div>
+            {% endif %}
+            {% block content %}
+            
+            {% endblock %}
+        </div>
+     <!-- Right Panel -->
+
+    <!--Jquery -->
+    <script src="{% static 'vendors/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'vendors/popper.js/dist/umd/popper.min.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendors/chart.js/dist/Chart.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/widgets.js' %}"></script>
+    <script src="{% static 'vendors/jqvmap/dist/jquery.vmap.min.js' %}"></script>
+    <script src="{% static 'vendors/jqvmap/examples/js/jquery.vmap.sampledata.js' %}"></script>
+    <script src="{% static 'vendors/jqvmap/dist/maps/jquery.vmap.world.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'vendors/jszip/dist/jszip.min.js' %}"></script>
+    <script src="{% static 'vendors/pdfmake/build/pdfmake.min.js' %}"></script>
+    <script src="{% static 'vendors/pdfmake/build/vfs_fonts.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-buttons/js/buttons.colVis.min.js' %}"></script>
+    <script src="{% static 'assets/js/init-scripts/data-table/datatables-init.js' %}"></script>
+    <script src="{% static 'vendors/jquery-validation/dist/jquery.validate.min.js' %}"></script>
+
+    <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+    <!-- You can alternatively load the minified version -->
+    <script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>
+
+    <!---Data table Horizontal scroll-->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
+
+<script>
+    (function($) {
+        "use strict";
+
+        jQuery('#vmap').vectorMap({
+            map: 'world_en',
+            backgroundColor: null,
+            color: '#ffffff',
+            hoverOpacity: 0.7,
+            selectedColor: '#1de9b6',
+            enableZoom: true,
+            showTooltip: true,
+            values: sample_data,
+            scaleColors: ['#1de9b6', '#03a9f5'],
+            normalizeFunction: 'polynomial'
+        });
+    })(jQuery);
+</script>
+            <!-- #######################################
+                 ########### DATA TABLE JS #############
+                 #######################################   -->  
+
+<script type="text/javascript">
+    $(document).ready(function() {
+    $('#example').DataTable( {
+        "scrollX": true,
+    } );
+} );
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+    var table = $('#example').DataTable();
+ 
+    $('#example tbody').on( 'click', 'tr', function () {
+        if ( $(this).hasClass('selected') );
+        else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    } );
+} );
+</script>
+
+     {% block extra_js %}{% endblock %}
+</body>
+
+</html>

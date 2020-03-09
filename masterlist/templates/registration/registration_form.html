@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3 class="page-header"><b>Vehicle Registration</b></h3>&nbsp;
+    </div>
+
+<form method="POST" action="">
+{% csrf_token %}
+ 
+    <div class="col-sm-4">
+        <label>Plate Number:</label>{{ form.PLATE_NO }}
+    </div>
+    <div class="col-sm-4">
+        <label>Conduction Sticker Number:</label>{{ form.CS_NO }}
+    </div>
+    <div class="col-sm-4">
+        <label>CR Name:</label>{{ form.CR_NAME }}
+    </div>
+    <div class="col-sm-4">
+        <label >Ending:</label><span id="Ending" >{{ form.ENDING }}</span>
+    </div>
+    <div class="col-sm-4">
+        <label>Model:</label>{{ form.MODEL }}
+    </div>
+    <div class="col-sm-4">
+        <label>Brand:</label>{{ form.BRAND }}
+    </div>
+    <div class="col-sm-4">
+        <label>Vehicle Make:</label>{{ form.VEHICLE_MAKE }}
+    </div>
+    <div class="col-sm-4">
+        <label>Engine Number:</label>{{ form.ENGINE_NO }}
+    </div>
+    <div class="col-sm-4">
+        <label>MV File Number:</label>{{ form.MV_FILE_NO }}
+    </div>
+    <div class="col-sm-4">
+        <label>Vehicle Type:</label>{{ form.VEHICLE_TYPE }}
+    </div>
+    <div class="col-sm-4">
+        <label>Vehicle Category:</label>{{ form.VEHICLE_CATEGORY }}
+    </div>
+    <div class="col-sm-4">
+        <label>Employee Id:</label>{{ form.Employee_Id }}
+    </div>
+    <div class="col-sm-4">
+        <label>Band Level:</label>{{ form.BAND_LEVEL }}
+    </div>
+    <div class="col-sm-4">
+        <label>Benefit Group:</label>{{ form.BENEFIT_GROUP }}
+    </div>
+    <div class="col-sm-4">
+        <label>Cost Center:</label>{{ form.COST_CENTER }}
+    </div>
+    <div class="col-sm-4">
+        <label>Group:</label>{{ form.GROUP }}
+    </div>
+    <div class="col-sm-4">
+        <label>Division:</label>{{ form.DIVISION }}
+    </div>
+    <div class="col-sm-4">
+        <label>Department:</label>{{ form.DEPARTMENT }}
+    </div>
+    <div class="col-sm-4">
+        <label>Section:</label>{{ form.SECTION }}
+    </div>
+    <div class="col-sm-4">
+        <label>IS (Employee ID):</label>{{ form.IS_ID }}
+    </div>
+    <div class="col-sm-4">
+        <label>IS (Firstname):</label>{{ form.IS_FIRSTNAME }}
+    </div>
+    <div class="col-sm-4">
+        <label>IS (Lastname):</label>{{ form.IS_LASTNAME }}
+    </div>
+    <div class="col-sm-4">
+        <label>Location:</label>{{ form.LOCATION }}
+    </div>
+    <div class="col-sm-4">
+        <label>Aquisition_date:</label>{{ form.ACQ_DATE }}
+    </div>
+        <div class="col-sm-4">
+        <label>Aquisition Cost:</label>{{ form.ACQ_COST }}
+    </div>
+    <div class="col-sm-4">
+        <label>Asset No:</label>{{ form.ASSET_NO }}
+    </div>
+    <div class="col-sm-4">
+        <label>PO No:</label>{{ form.PO_NO }}
+    </div>
+    <div class="col-sm-4">
+        <label>Equipment No:</label>{{ form.EQUIPMENT_NO }}
+    </div><!-- 
+    <div class="col-sm-4">
+        <label>Latest Registration Date:</label>{{ form.Latest_registration }}
+    </div>
+    <div class="col-sm-4">
+        <label>Lates Remark:</label>{{ form.Lates_remark }}
+    </div>
+    <div class="col-sm-4">
+        <label>Last Name Assignee:</label>{{ form.Lname_assignee }}
+    </div>
+    <div class="col-sm-4">
+        <label>First Name Assignee:</label>{{ form.Fname_assignee }}
+    </div> -->
+</div>
+    <div class="card-footer">
+        <button type="submit" class="button">PROCEED</a></button><button 
+       class="button" type="reset" value="Reset">CLEAR FIELDS</button>
+    </div>
+
+</form>
+{% endblock %}

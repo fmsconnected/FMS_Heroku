@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script>
+function vrepair(repair) {
+  var i;
+  var x = document.getElementsByClassName("vr");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(repair).style.display = "block";  
+}
+</script>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3><b>Vehicle Repair Payment's</b></h3>&nbsp;
+    </div>
+</div>
+ <div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button" onclick="vrepair('Vehicle Repair Payment')">Vehicle Repair Payment</button>
+    <button class="w3-bar-item w3-button" onclick="vrepair('Outbound Process')">Outbound Process</button>
+    </div>
+<form method="POST">
+{% csrf_token %}
+    <div id="Vehicle Repair Payment" class="w3-container vr">
+    <fieldset>
+        <legend align="left">Requisitioner Details</legend><br>
+        <div style="display: flex; justify-content: flex-end">
+        <div class="col-sm-6">
+            <label>Request Date</label>
+            {{ form.request_date }}
+        </div>
+        </div>
+        <div class="col-sm-6">
+            <label>Employee ID</label>
+            {{ form.employee }}
+        </div>
+        <div class="col-sm-6">
+            <label>Cost Center Code</label>
+            {{ form.cost_center }}
+        </div>
+        <div class="col-sm-6">
+            <label>First Name:</label>
+            {{ form.first_name }}
+        </div>
+        <div class="col-sm-6">
+            <label>Last Name</label>
+            {{ form.last_name }}
+        </div>
+        <div class="col-sm-6">
+            <label>Contact Number</label>
+            {{ form.contact_no }}
+        </div>
+        <div class="col-sm-6">
+            <label>Company</label>
+            {{ form.company }}
+        </div>
+        <div class="col-sm-6">
+            <label>Department</label>
+            {{ form.department }}
+        </div>
+        <div class="col-sm-6">
+            <label>Group/Section</label>
+            {{ form.group_section }}
+        </div>
+    <br><br>
+    </fieldset>
+    <hr>
+    <fieldset>
+    <legend align="left">Vehicle Details</legend>
+        
+        <div class="col-sm-6">
+            <label>Plate Number</label>
+            {{ form.plate_no }}
+        </div>
+        
+        <div class="col-sm-6">
+            <label>Vehicle Brand</label>
+            {{ form.v_brand }}
+        </div>
+        <div class="col-sm-6">
+            <label>Engine</label>
+            {{ form.engine }}
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Model Year</label>
+            {{ form.v_model }}
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Make</label>
+            {{ form.v_make}}
+        </div>
+        <div class="col-sm-6">
+            <label>Chassis</label>
+            {{ form.chassis }}
+        </div>
+        <div class="col-sm-6">
+            <label>Band</label>
+            {{ form.band }}
+        </div>
+        <div class="col-sm-6">
+            <label>Conduction Stikers</label>
+            {{ form.cond_sticker }}
+        </div>
+        <div class="col-sm-6">
+            <label>Equipment Number</label>
+            {{ form.equipment_no }}
+        </div>
+        <div class="col-sm-6">
+            <label>RFP Number</label>
+            {{ form.rfp_no }}
+    </fieldset>
+    <div class="card-footer">
+      <button type="submit" class="button">UPDATE</button>
+    </div>
+    </div>
+    <div id="Outbound Process" class="w3-container vr" style="display:none">
+    <fieldset>
+        <legend align="left">Repair Details</legend>
+        <div class="col-sm-6">
+            <label>Provider</label>
+            {{ form.dealership }}
+        </div>
+        <div class="col-sm-6">
+            <label>Amount:</label>
+            {{ form.amount }}
+        </div>
+        <div class="col-sm-6">
+            <label>Type Of Service</label>
+            {{ form.service_type }}
+        </div>
+        <div class="col-sm-6">
+            <label>Invoice Number</label>
+            {{ form.invoice_num }}
+        </div>
+        <div class="col-sm-6">
+            <label>Invoice Date</label>
+            {{ form.invoice_date }}
+        </div>
+    </fieldset>
+    <div class="card-footer">
+        <button type="submit" class="button">UPDATE</button>
+    </div>
+    </div>
+</div>
+</form>
+{% endblock %}

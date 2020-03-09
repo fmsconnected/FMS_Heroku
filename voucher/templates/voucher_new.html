@@ -1,0 +1,305 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script>
+function expensevoucher(expe) {
+  var i;
+  var x = document.getElementsByClassName("voucher");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(expe).style.display = "block";  
+}
+</script>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header"><b>Expense Voucher</b></h3>&nbsp;
+    </div>
+</div>
+ <div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button" onclick="expensevoucher('Expense Voucher')">Expense Voucher Request</button>
+    <button class="w3-bar-item w3-button" onclick="expensevoucher('Approval Process')">Approval Process</button>
+    <button class="w3-bar-item w3-button" onclick="expensevoucher('Inbound Process')">Inbound Process</button>
+    </div>
+<form method="POST" action="{% url 'voucher_submit' %}">
+{% csrf_token %}
+    <div id="Expense Voucher" class="w3-container voucher">
+    <fieldset>
+        <legend align="left">Employee Details</legend><br>
+        
+        <div class="col-sm-6">
+            <label>Employee ID</label>
+            <input name="employee_id" id="employee_id" list="elist" class="form-control" required>
+            <datalist id="elist">               
+            {% for eid in employee_list %}
+              <option data-value="{{ eid.Employee_Id }} | {{ eid.First_name }} | {{ eid.Last_name }} | {{ eid.Group }} | {{ eid.Cost_center }}" value="{{ eid.Employee_Id }}">
+              </option>
+            {% endfor %}
+            </datalist>
+        </div>
+        <div class="col-sm-6">
+            <label>Employee First Name:</label>
+            <input type="text" name="employee_fname" id="employee_fname" class="form-control" readonly>
+        </div>
+        <div class="col-sm-6">
+            <label>Employee Last Name</label>
+            <input type="text" name="employee_lname" id="employee_lname" class="form-control" readonly>
+        </div>
+        <div class="col-sm-6">
+            <label>Employee Group</label>
+            <input type="text" name="employee_group" id="employee_group" class="form-control" readonly>
+        </div>
+        
+        <div class="col-sm-6">
+            <label>Cost Center</label>
+            <input type="text" name="employee_cost" id="employee_cost" class="form-control" readonly>
+        </div>
+    <br><br>
+    </fieldset>
+    <fieldset>
+    <legend align="left">New Employee Details</legend>
+        <div class="col-sm-6">
+            <label>New Employee ID</label>
+            <input type="text" name="new_employee_id" id="new_employee_id" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>New Employee First Name:</label>
+            <input type="text" name="new_employee_fname" id="new_employee_fname" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>New Employee Last Name</label>
+            <input type="text" name="new_employee_lname" id="new_employee_lname" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>New Employee Group</label>
+            <input type="text" name="new_employee_group" id="new_employee_group" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>New Cost Center</label>
+            <input type="text" name="new_employee_cost" id="new_employee_cost" class="form-control">
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend align="left">Voucher Details</legend>
+        <div class="col-sm-6">
+            <label>Fleet Area</label>
+            <select name="fleet_area" id="fleet_area" class="form-control">
+                <option value="">--------</option>
+                <option value="The Globe Tower">The Globe Tower</option>
+                <option value="Visayas-Mindanao">Visayas-Mindanao</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label>Date Received Voucher:</label>
+            <input type="Date" name="date_recieved_voucher" id="date_recieved_voucher" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Transaction Type</label>
+            <select name="trans_type" id="trans_type" class="form-control">
+                <option value="">---------</option>
+                <option value="Gas Reimbursements">Gas Reimbursements</option>
+                <option value="Car Parts Replacement">Car Parts Replacement</option>
+                <option value="GR and CPR">GR and CPR</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label>Voucher Number</label>
+            <input type="text" name="voucher_no" id="voucher_no" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Indicated Voucher Amount</label>
+            <input type="text" name="voucher_amount" id="voucher_amount" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Voucher Type</label>
+            <input type="text" name="voucher_type" id="voucher_type" class="form-control">
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend align="left">Fuel Voucher Details</legend>
+        <div class="col-sm-6">
+            <label>Fuel Amount</label>
+            <input type="text" name="fuel_amount" id="fuel_amount" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Fuel Products:</label>
+            <input type="text" name="fuel_products" id="fuel_products" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Fuel Liters</label>
+            <input type="text" name="fuel_liters" id="fuel_liters" class="form-control">
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend align="left">Service Voucher Details</legend>
+        <div class="col-sm-6">
+            <label>Service Amount</label>
+            <input type="text" name="service_amount" id="service_amount" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Work Order Number:</label>
+            <input type="text" name="workorder_no" id="workorder_no" class="form-control">
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend align="left">Vehicle Details</legend>
+        <div class="col-sm-6">
+            <label>Plate Number</label>
+            <input name="plate_no" id="plate_no" list="vlist" class="form-control" required>
+            <datalist id="vlist">               
+            {% for vid in vehicle_list %}
+              <option data-value="{{ vid.PLATE_NO }} | {{ vid.BRAND }} | {{ vid.VEHICLE_MAKE }} | {{ vid.MODEL }}" value="{{ vid.PLATE_NO }}">
+              </option>
+            {% endfor %}
+            </datalist>
+        </div>
+        <div class="col-sm-6">
+            <label>Odometer Reading Start:</label>
+            <input type="text" name="odometer_start" id="odometer_start" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Odometer Reading End</label>
+            <input type="text" name="odometer_end" id="odometer_end" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Brand</label>
+            <input type="text" name="v_brand" id="v_brand" class="form-control" readonly>
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Make</label>
+            <input type="text" name="v_make" id="v_make" class="form-control" readonly>
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Fuel Type</label>
+            <input type="text" name="v_fuel_type" id="v_fuel_type" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Model Year</label>
+            <input type="text" name="v_model" id="v_model" class="form-control" readonly>
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend align="left">New Vehicle Details</legend>
+        <div class="col-sm-6">
+            <label>New Plate Number</label>
+            <input type="text" name="new_plate_no" id="new_plate_no" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>New Odometer Reading Start:</label>
+            <input type="text" name="new_odometer_start" id="new_odometer_start" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>New Odometer Reading End</label>
+            <input type="text" name="new_odometer_end" id="new_odometer_end" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>New Vehicle Brand</label>
+            <input type="text" name="new_v_brand" id="new_v_brand" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>New Vehicle Make</label>
+            <input type="text" name="new_v_make" id="new_v_make" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>New Vehicle Fuel Type</label>
+            <input type="text" name="new_vfuel_type" id="new_vfuel_type" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>New Vehicle Model Year</label>
+            <input type="text" name="new_vmodel" id="new_vmodel" class="form-control">
+        </div>
+    </fieldset>
+    <div class="card-footer">
+      <button type="submit" class="button">SUBMIT</button>
+    </div>
+    </div>
+    <div id="Approval Process" class="w3-container voucher" style="display:none">
+    <fieldset>
+        <legend align="left">GT Admin</legend>
+        <div class="col-sm-6">
+            <label>GT Admin:</label>
+            <select name="gt_admin" id="gt_admin" class="form-control">
+                <option value="">---------</option>
+                <option value="Approved">Approved</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label>Approval Date:</label>
+            <input type="Date" name="approval_date" id="approval_date" class="form-control">
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend align="left">Immediate Supervisor</legend>
+        <div class="col-sm-6">
+            <label>Immediate Supervisor:</label>
+            <select name="imm_supervisor" id="imm_supervisor" class="form-control">
+                <option value="">----------</option>
+                <option value="Ser Roy Dela Cruz">Ser Roy Dela Cruz</option>
+                <option value="Adolfo Carlos Umali">Adolfo Carlos Umali</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label>Approval Date:</label>
+            <input type="text" name="im_approval_date" id="im_approval_date" class="form-control">
+        </div>
+    </fieldset>
+    <div class="card-footer">
+        <button type="submit" class="button">UPDATE</button>
+    </div>
+    </div>
+    <div id="Inbound Process" class="w3-container voucher" style="display:none">
+    <fieldset>
+        <legend align="left">VOucher Routing</legend>
+        <div class="col-sm-4">
+            <label>Voucher Documents Attached List:</label>
+            <input type="text" name="voucher_docs1" id="voucher_docs1" class="form-control">
+            <input type="text" name="voucher_docs2" id="voucher_docs2" class="form-control">
+            <input type="text" name="voucher_docs3" id="voucher_docs3" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>Voucher Remarks:</label>
+            <input type="text" name="voucher_remarks" id="voucher_remarks" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>Date Forwarded Voucher to Accounting:</label>
+            <input type="Date" name="date_forward_voucher" id="date_forward_voucher" class="form-control">
+        </div>
+    <input type="text" name="evo_sla" id="evo_sla" value="3" hidden class="form-control">
+    </fieldset>
+    <div class="card-footer">
+        <button type="submit" class="button">UPDATE</button>
+    </div>
+    </div>
+</div>
+</form>
+
+<!--for employee auto-fill-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$('#employee_id').on('change', function () {
+    var value = $('#employee_id').val();
+    var val = ($('#elist [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#employee_id').val(parts[0]);
+    $('#employee_fname').val(parts[1]);
+    $('#employee_lname').val(parts[2]);
+    $('#employee_group').val(parts[3]);
+    $('#employee_cost').val(parts[4]);
+});
+</script>
+
+<script>
+$('#plate_no').on('change', function () {
+    var value = $('#plate_no').val();
+    var val = ($('#vlist [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#plate_no').val(parts[0]);
+    $('#v_brand').val(parts[1]);
+    $('#v_make').val(parts[2]);
+    $('#v_model').val(parts[3]);
+});
+</script>
+
+{% endblock %}

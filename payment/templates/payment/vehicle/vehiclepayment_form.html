@@ -1,0 +1,272 @@
+{% extends 'base.html' %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script>
+  function vehiclePayment(cityName) {
+    var i;
+    var x = document.getElementsByClassName("vehicle");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    document.getElementById(cityName).style.display = "block";
+  }
+  </script>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3 align="center"><b>New Vehicle Payments</b></h3>&nbsp;
+    </div>
+</div>
+<div class="w3-bar w3-black">
+  <button class="w3-bar-item w3-button" onclick="vehiclePayment('New vehicle Payment')"><u>New vehicle Payment</u></button>
+  <button class="w3-bar-item w3-button" onclick="vehiclePayment('OutBound Process')"><u>OutBound Process</u></button>
+  <button class="w3-bar-item w3-button" onclick="vehiclePayment('Inbound Process')"><u>Inbound Process</u></button>
+</div>
+<form method="POST" action="{% url 'Vehicle_submit' %}">
+{% csrf_token %}
+  <div id="New vehicle Payment" class="w3-container vehicle">
+    <fieldset>
+    <legend align="left">Purchase Order Details</legend><br>
+    <div class="col-sm-4">
+        <label>Assignee Employee ID</label>
+        <input name="a_emp_id" id="a_emp_id" list="emp_list" class="form-control" required>
+            <datalist id="emp_list">               
+            {% for empid in elist %}
+              <option data-value="{{ empid.Employee_Id }} | {{ empid.First_name }} | {{ empid.Last_name }}" value="{{ empid.Employee_Id }}">
+              </option>
+            {% endfor %}
+            </datalist>
+    </div>
+
+    <div class="col-sm-4">
+        <label>Employee First Name</label>
+        <input style= "text-transform:" type="text" name="emp_fname" id="emp_fname" class="form-control" readonly>
+    </div>
+    <div class="col-sm-4">
+        <label>Employee Last Name</label>
+        <input style= "text-transform:" type="text" name="emp_lname" id="emp_lname" class="form-control" readonly>
+    </div>
+    <div class="col-sm-4">
+        <label>RFP No.</label>
+        <input style= "text-transform:" type="text" name="rfp" id="rfp" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Invoice No.</label>
+        <input style= "text-transform:" type="text" name="invno" id="invno" class="form-control">
+    </div>
+
+    <br><br>
+    </fieldset>
+    <hr>
+    <fieldset>
+    <legend align="left">Vehicle Details</legend><br>
+    <div class="col-sm-4">
+        <label>Delivery Date</label>
+        <input style= "text-transform:" type="date" name="Delivery_Date" id="Delivery_Date" class="form-control">
+    </div>
+
+    <div class="col-sm-4">
+        <label>Plate Number</label>
+        <input name="Plate_Number" id="Plate_Number" list="vehicle_list" class="form-control">
+            <datalist id="vehicle_list">               
+            {% for vid in vlist %}
+              <option data-value="{{ vid.PLATE_NO }} | {{ vid.MODEL }} | {{ vid.BRAND }} | {{ vid.MAKE }} | {{ vid.dealer }} | {{ vid.EQUIPMENT_NO }} | {{ vid.ASSET_NO }} | {{ vid.SAP_PR }} | {{ vid.Unit_MATDOC }} | {{ vid.dealer_name }}" value="{{ vid.PLATE_NO }}">
+              </option>
+            {% endfor %}
+            </datalist>
+    </div>
+    <div class="col-sm-4">
+        <label>Model Year</label>
+        <input style= "text-transform:" type="number" name="Model_Year" id="Model_Year" class="form-control" readonly>
+    </div>
+
+    <div class="col-sm-4">
+        <label>Brand</label>
+        <input style= "text-transform:" type="text" name="Brand" id="Brand" class="form-control" readonly>
+    </div>
+
+    <div class="col-sm-4">
+        <label>Make</label>
+        <input style= "text-transform:" type="text" name="Make" id="Make" class="form-control" readonly>
+    </div>
+
+    <div class="col-sm-4">
+        <label>Dealer</label>
+        <input style= "text-transform:" type="text" name="Dealer" id="Dealer" class="form-control" readonly>
+    </div>
+    <div class="col-sm-4">
+        <label>Equipment Number</label>
+        <input style= "text-transform:" type="text" name="equip_no" id="equip_no" class="form-control" readonly>
+    </div>
+    <div class="col-sm-4">
+        <label>Asset Number</label>
+        <input style= "text-transform:" type="text" name="asset_no" id="asset_no" class="form-control" readonly>
+    </div>
+    <div class="col-sm-4">
+        <label>SAP PR Number</label>
+        <input style= "text-transform:" type="text" name="sap_no" id="sap_no" class="form-control" readonly>
+    </div>
+    <div class="col-sm-4">
+        <label>Mat Doc Number</label>
+        <input style= "text-transform:" type="text" name="mat_number" id="mat_number" class="form-control" readonly>
+    </div>
+    <div class="col-sm-4">
+        <label>Dealer Name</label>
+        <input style= "text-transform:" type="text" name="Dealer_name" id="Dealer_name" class="form-control" readonly>
+    </div>
+
+    </fieldset>
+    <div class="card-footer">
+      <button type="submit" class="button">PROCEED</button>
+    </div>
+    <br><br><br>
+  </div>
+
+  <div id="OutBound Process" class="w3-container vehicle" style="display:none">
+    <fieldset>
+      <legend align="left">Document Routing 1</legend>
+
+    <div class="col-sm-6">
+        <label>Date Received LTO Documents:</label>
+        <input style= "text-transform:" type="date" name="Date_Received_LTO_Documents" id="Date_Received_LTO_Documents" class="form-control">
+    </div>
+
+    <!-- <div class="col-sm-6">
+        <label>Plate Number:</label>
+        {{ form.Docs_plate_no }}
+        </div> -->
+    <div class="col-sm-6">
+        <label>Plate Number</label>
+        <input style= "text-transform:" type="number" name="Docs_plate_no" id="Docs_plate_no" class="form-control">
+    </div>
+
+    <!-- <div class="col-sm-6">
+        <label>LTO PrintOut Sticker Fields:</label>
+        {{ form.LTO_stickers }}
+    </div> -->
+    <div class="col-sm-6">
+        <label>MV File Number</label>
+        <input style= "text-transform:" type="text" name="LTO_stickers" id="LTO_stickers" class="form-control">
+    </div>
+
+
+    <!-- <div class="col-sm-6">
+        <label>Sticker Fields:</label>
+        {{ form.Sticker_fields }}
+        <br>
+    </div> -->
+    <div class="col-sm-6">
+        <label>Sticker Fields</label>
+        <input style= "text-transform:" type="text" name="Sticker_Fields" id="Sticker_Fields" class="form-control">
+    </div>
+
+  </fieldset>
+  <fieldset>
+    <legend align="left">Payment Details</legend>
+
+    <!-- <div class="col-sm-6">
+        <label>Date Transmitted Initial SOA to Accounting:</label>
+        {{ form.Date_initial }}
+    </div> -->
+    <div class="col-sm-6">
+        <label>Date Transmitted Initial SQA to Accounting</label>
+        <input style= "text-transform:" type="date" name="Date_initial" id="Date_initial" class="form-control">
+    </div>
+
+    <!-- <div class="col-sm-6">
+        <label>Precent of first Payments:</label>
+        {{ form.First_payment }}
+    </div> -->
+    <div class="col-sm-6">
+        <label>Percent of first Payments</label>
+        <input style= "text-transform:" type="number" name="First_payment" id="First_payment" class="form-control">
+    </div>
+
+    <!-- <div class="col-sm-6">
+        <label>LTO Charges:</label>
+        {{ form.LTO_charges }}
+    </div> -->
+    <div class="col-sm-6">
+        <label>LTO Charges</label>
+        <input style= "text-transform:" type="number" name="LTO_Charges" id="LTO_Charges" class="form-control">
+    </div>
+
+    <!-- <div class="col-sm-6">
+        <label>Outstanding Balance:</label>
+        {{ form.Outstanding_balance }}
+        <br>
+    </div> -->
+    <div class="col-sm-6">
+        <label>Outstanding Balance</label>
+        <input style= "text-transform:" type="number" name="Outstanding_Balance" id="Outstanding_Balance" class="form-control">
+    </div>
+
+    </fieldset>
+    <div class="card-footer">
+      <button type="submit" class="button">UPDATE</button>
+    </div>
+  </div>
+
+<div id="Inbound Process" class="w3-container vehicle" style="display:none">
+  <fieldset>
+  <legend align="left">Document Routing 2</legend>
+  <!-- <div class="col-sm-6">
+      <label>Date Transmitted Final SOA:</label>
+      {{ form.Date_final }}
+  </div> -->
+  <div class="col-sm-6">
+      <label>Date Transmitted Final SQA</label>
+      <input style= "text-transform:" type="date" name="Date_final" id="Date_final" class="form-control">
+  </div>
+
+  <!-- <div class="col-sm-6">
+      <label>Routing Remarks:</label>
+      {{ form.Routing_remarks }}
+  </div> -->
+  <div class="col-sm-6">
+      <label>Routing Remarks</label>
+      <input style= "text-transform:" type="text" name="Routing_Remarks" id="Routing_Remarks" class="form-control">
+  </div>
+
+  <div class="col-sm-6">
+      <input style= "text-transform:" type="text" name="v_sla" id="v_sla" class="form-control" value="15" hidden>
+  </div>
+  </fieldset>
+      <div class="card-footer">
+      <button type="submit" class="button">UPDATE</button>
+    </div>
+</div>
+</form>
+
+<!--for employee auto-fill-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$('#a_emp_id').on('change', function () {
+    var value = $('#a_emp_id').val();
+    var val = ($('#emp_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#a_emp_id').val(parts[0]);
+    $('#emp_fname').val(parts[1]);
+    $('#emp_lname').val(parts[2]);
+});
+</script>
+<script>
+$('#Plate_Number').on('change', function () {
+    var value = $('#Plate_Number').val();
+    var val = ($('#vehicle_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#Plate_Number').val(parts[0]);
+    $('#Model_Year').val(parts[1]);
+    $('#Brand').val(parts[2]);
+    $('#Make').val(parts[3]);
+    $('#Dealer').val(parts[4]);
+    $('#equip_no').val(parts[5]);
+    $('#asset_no').val(parts[6]);
+    $('#sap_no').val(parts[7]);
+    $('#mat_number').val(parts[8]);
+    $('#Dealer_name').val(parts[9]);
+
+});
+</script>
+{% endblock %}

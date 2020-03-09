@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Right Panel -->
+
+<div id="right-panel" class="right-panel">
+
+    <div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1><b>Dashboard</b></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content mt-3">
+        <div class="col-lg-3 col-md-3">
+            <div class="social-box github">
+                <b>Payment</b>
+                <i class="fa fa-laptop"></i>
+                <ul>
+                    <li>
+                        <span class="count">40</span>
+                        <span>Total of SLA Pending</span>
+                    </li>
+                    <li>
+                        <span>Please Update Me!</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-3 col-md-3">
+            <div class="social-box github">
+            <b>Request</b>
+                <i class="fa fa-send"></i>
+                <ul>
+                    <li>
+                        <span class="count">40</span>
+                        <span>Total of SLA Pending</span>
+                    </li>
+                    <li>
+                        <span>Please Update Me!</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3">
+            <div class="social-box github">
+            <b>Report</b>
+                <i class="fa fa-file"></i>
+                <ul>
+                    <li>
+                        <span class="count">40</span>
+                        <span>Total of SLA Pending</span>
+                    </li>
+                    <li>
+                        <span>Please Update Me!</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3">
+            <div class="social-box github">
+            <b>Monitoring</b>
+                <i class="fa fa-folder"></i>
+                <ul>
+                    <li>
+                        <span class="count">40</span>
+                        <span>Total of SLA Pending</span>
+                    </li>
+                    <li>
+                        <span>Please Update Me!</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3">
+            <div class="social-box github">
+            <b>Voucher</b>
+                <i class="fa fa-id-card"></i>
+                <ul>
+                    <li>
+                        <span class="count">40</span>
+                        <span>Total of SLA Pending</span>
+                    </li>
+                    <li>
+                        <span>Please Update Me!</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3">
+            <div class="social-box github">
+            <b>Ownership</b>
+                <i class="fa fa-user"></i>
+                <ul>
+                    <li>
+                        <span class="count">40</span>
+                        <span>Total of SLA Pending</span>
+                    </li>
+                    <li>
+                        <span>Please Update Me!</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="social-box github">
+            <b>Masterlist</b>
+                <i class="fa fa-folder-open"></i>
+                <ul>
+                    <li>
+                        <span class="count">40</span>
+                        <span>Total of SLA Pending</span>
+                    </li>
+                    <li>
+                        <span>Please Update Me!</span>
+                    </li>
+                </ul>
+            </div>
+            <!--/social-box-->
+        </div>
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h4 class="card-title mb-0">Traffic</h4>
+                            <div class="small text-muted">October 2017</div>
+                        </div>
+                        <!--/.col-->
+                        <div class="col-sm-8 hidden-sm-down">
+                            <button type="button" class="btn btn-primary float-right bg-flat-color-1"><i class="fa fa-cloud-download"></i></button>
+                            <div class="btn-toolbar float-right" role="toolbar" aria-label="Toolbar with button groups">
+                                <div class="btn-group mr-3" data-toggle="buttons" aria-label="First group">
+                                    <label class="btn btn-outline-secondary">
+                                        <input type="radio" name="options" id="option1"> Day
+                                    </label>
+                                    <label class="btn btn-outline-secondary active">
+                                        <input type="radio" name="options" id="option2" checked=""> Month
+                                    </label>
+                                    <label class="btn btn-outline-secondary">
+                                        <input type="radio" name="options" id="option3"> Year
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.col-->
+                    </div>
+                    <!--/.row-->
+                    <div class="chart-wrapper mt-4">
+                        <canvas id="trafficChart" style="height:200px;" height="200"></canvas>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div> <!-- .content -->
+</div><!-- /#right-panel -->
+
+{% endblock %}

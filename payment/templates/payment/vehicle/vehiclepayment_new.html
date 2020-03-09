@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script>
+  function vehiclePayment(cityName) {
+    var i;
+    var x = document.getElementsByClassName("vehicle");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    document.getElementById(cityName).style.display = "block";  
+  }
+  </script>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3 ><b>New Vehicle Payment</b></h3>&nbsp;
+    </div>
+</div>
+<div class="w3-bar w3-black">
+  <button class="w3-bar-item w3-button" onclick="vehiclePayment('New vehicle Payment')"><u>New Vehicle Payment Bar</u></button>
+  <button class="w3-bar-item w3-button" onclick="vehiclePayment('OutBound Process')"><u>OutBound Process Tab</u></button>
+  <button class="w3-bar-item w3-button" onclick="vehiclePayment('Inbound Process')"><u>Inbound Process Tab</u></button>
+</div>
+<form method="POST">
+{% csrf_token %}
+  <div id="New vehicle Payment" class="w3-container vehicle">
+    <fieldset>
+    <legend align="left">Purchase Order Details</legend><br>
+    <div class="col-sm-4">
+        <label>Assignee Employee ID</label>
+      {{ form.A_employee_ID }}
+    </div>
+
+    <div class="col-sm-4">
+        <label>Employee First Name</label>
+        {{ form.E_First_name }}
+    </div>
+    <div class="col-sm-4">
+        <label>Employee Last Name</label>
+        {{ form.E_Last_name }}
+    </div>
+    <div class="col-sm-4">
+        <label>RFP No.</label>
+        {{ form.rfp_number }}
+    </div>
+    <div class="col-sm-4">
+        <label>Invoice No. </label>
+        {{ form.invoice_number }}
+    </div>    
+
+    <br><br>
+    </fieldset>
+    <hr>
+    <fieldset>
+    <legend align="left">Vehicle Details</legend><br>
+    <div class="col-sm-4">
+        <label>Vehicle Delivery Date:</label>
+        {{ form.V_deliverDate }}
+    </div>
+
+    <div class="col-sm-4">
+        <label>Vehicle Plate Number</label>
+        {{ form.Plate_no }}
+    </div>
+
+    <div class="col-sm-4">
+        <label>Vehicle Model Year</label>
+        {{ form.V_model }}
+    </div>
+    <div class="col-sm-4">
+        <label>Vehicle Brand</label>
+        {{ form.V_brand }}
+    </div>
+    <div class="col-sm-4">
+        <label>Vehicle Make</label>
+        {{ form.V_make }}
+    </div>
+    <div class="col-sm-4">
+        <label>Vehicle Dealer</label>
+        {{ form.V_dealer }}
+    </div>
+    <div class="col-sm-4">
+        <label>Equipment Number</label>
+        {{ form.equip_no }}
+    </div>
+    <div class="col-sm-4">
+        <label>Asset Number</label>
+        {{ form.asset_no }}
+    </div>
+    <div class="col-sm-4">
+        <label>SAP PR Number</label>
+        {{ form.sap_no }}
+    </div>
+    <div class="col-sm-4">
+        <label>Mat Doc Number</label>
+        {{ form.mat_no }}
+    </div>
+    <div class="col-sm-4">
+        <label>Dealer Name</label>
+        {{ form.Dealer_name }}
+    </div>
+
+    </fieldset>
+    <div class="card-footer">
+      <button type="submit" class="button">PROCEED</button>
+    </div>
+    <br><br><br>
+  </div>
+
+  <div id="OutBound Process" class="w3-container vehicle" style="display:none">
+    <fieldset>
+      <legend align="left">Document Routing 1</legend>
+    <div class="col-sm-6">
+        <label>Date Received LTO Documents</label>
+        {{ form.LTO_documents }}
+    </div>
+
+    <div class="col-sm-6">
+        <label>Plate Number</label>
+        {{ form.Docs_plate_no }}
+        </div>
+    <div class="col-sm-6">
+        <label>LTO PrintOut Sticker Fields</label>
+        {{ form.LTO_stickers }}
+    </div>
+    <div class="col-sm-6">
+        <label>Sticker Fields</label>
+        {{ form.Sticker_fields }}
+        <br>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend align="left">Payment Details</legend>
+    <div class="col-sm-6">
+        <label>Date Transmitted Initial SOA to Accounting</label>
+        {{ form.Date_initial }}
+    </div>
+    <div class="col-sm-6">
+        <label>Percent of First Payment</label>
+        {{ form.First_payment }}
+    </div>
+    <div class="col-sm-6">
+        <label>LTO Charges</label>
+        {{ form.LTO_charges }}
+    </div>
+    <div class="col-sm-6">
+        <label>Outstanding Balance</label>
+        {{ form.Outstanding_balance }}
+        <br>
+    </div>
+    </fieldset>
+    <div class="card-footer">
+      <button type="submit" class="button">UPDATE</button>
+    </div>
+  </div>
+
+<div id="Inbound Process" class="w3-container vehicle" style="display:none">
+  <fieldset>
+  <legend align="left">Document Routing 2</legend>
+  <div class="col-sm-6">
+      <label>Date Transmitted Final SOA</label>
+      {{ form.Date_final }}
+  </div>
+  <div class="col-sm-6">
+      <label>Routing Remarks</label>
+      {{ form.Routing_remarks }}
+  </div>
+  <div class="col-sm-6">
+    {{ form.V_SLA }}
+  </div>
+  </fieldset>
+      <div class="card-footer">
+      <button type="submit" class="button">UPDATE</button>
+    </div>
+</div>
+</form>
+{% endblock %}

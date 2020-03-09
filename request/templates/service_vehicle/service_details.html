@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header">Service Vehicle Request Details</h3>
+    </div>
+</div>
+
+<br>
+
+<table width="90%" class="table table-bordered table-hover" border="2px">
+    <tr>
+        <th width="25%">Activity ID </th><td width="25%">{{ object.Activity_id }}</td>
+        <th width="25%">Date Initiated</th><td width="25%">{{ object.date_initiated }}</td>
+    </tr>
+    <tr>
+        <th>SLA</th><td>{{ object.SVV_SLA}}/Days</td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Request Received Date</th><td>{{ object.request_date }}</td>
+        <th>Requisitioner Employee ID </th> <td>{{ object.req_employee_id }}</td>
+    </tr>
+    <tr>
+        <th>Requisitioner Name </th> <td>{{ object.req_fname }} {{ object.req_lname }}</td>
+        <th></th> <td></td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Assignee Employee ID </th> <td>{{ object.assignee_employee_id }}</td>
+        <th>Assignee Name</th> <td>{{ object.assignee_fname }} {{ object.assignee_lname }}</td>
+    </tr> 
+    <tr>
+        <th>Assignee Group</th><td>{{ object.assignee_group }}</td>
+        <th>Assignee Cost Center</th><td>{{ object.assignee_costcenter }}</td>
+    </tr>
+    <tr>
+        <th>Assignee Section </th> <td>{{ object.assignee_section }}</td>
+        <th>Assignee Location</th><td>{{ object.assignee_location}}</td>
+    </tr>
+    <tr>
+        <th>Assignee ATD</th><td>{{ object.assignee_atd }}</td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>New Employee ID </th> <td>{{ object.new_employee_id }}</td>
+        <th>New Employee Name </th> <td>{{ object.new_employee_fname }} {{ object.new_employee_lname }}</td>
+    </tr>
+    <tr>
+        <th>New Employee Cost Center</th> <td>{{ object.new_employee_cost }}</td>
+        <th>New Employee Temporary ATD Number</th> <td>{{ object.new_temporary_atd }}</td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Prefered Vehicle Type</th> <td>{{ object.prefered_vehicle }}</td>
+        <th>Justification</th> <td>{{ object.justification }}</td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Plate Number</th><td>{{ object.E_plate_no }}</td>
+        <th>Conductions Sticker</th><td>{{ object.E_con_sticker }}</td>
+    </tr>
+    <tr>
+        <th>Vehicle Model Year </th> <td>{{ object.E_model_year }}</td>
+        <th>Vehicle Brand </th> <td>{{ object.E_brand }}</td>
+    </tr>
+    <tr>
+        <th>Vehicle Make </th> <td>{{ object.E_make }}</td>
+        <th>Vehicle Type</th> <td>{{ object.E_type }}</td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Approved By</th><td>{{ object.approved_by }}</td>
+        <th>Approved Date</th><td>{{ object.approved_date }}</td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Vehicle Provider</th><td>{{ object.vehicle_provider }}</td>
+        <th>Service Vehicle Plate No</th><td>{{ object.vehicle_plate_no }}</td>
+    </tr>
+    <tr>
+        <th>Service Vehicle CS No</th><td>{{ object.vehicle_CS_no }}</td>
+        <th>Service Vehicle Model</th><td>{{ object.vehicle_model }}</td>
+    </tr>
+    <tr>
+        <th>Service Vehicle Brand</th><td>{{ object.vehicle_brand }}</td>
+        <th>Service Vehicle Make</th><td>{{ object.vehicle_make }}</td>
+    </tr>
+    <tr>
+        <th>Service Vehicle Fuel Type</th> <td>{{ object.vehicle_fuel_type }}</td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+
+</table>
+    <div class="card-footer">
+      <a href="{% url 'service_update' object.id %}" class="button">UPDATE</a><a href="{% url 'service_list' %}" class='button'>CLOSE</a>
+    </div>
+{% endblock %}

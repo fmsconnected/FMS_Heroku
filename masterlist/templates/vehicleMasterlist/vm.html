@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+</style>
+
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3><b>Vehicle MasterList</b></h3>
+    </div>
+</div>
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                  <a href="{% url 'vehiclelist_export' %}"> <u>Export VehicleList </u></a>
+                    <a href="{% url 'vehicle_new' %}" style="float:right"><u>Add Vehicle Masterlist</u></a>
+                    <a href="{% url 'vehicleMasterlist_history' %}" style="float:right" class="mr-3"><u>Vehicle Masterlist History</u></a>
+                    
+                </div>
+                <!-- <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%"> -->
+                    <table id="example" class="display nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity No</th>
+                            <th>NO</th>
+                            <th>Plate Number</th>
+                            <th>Conductions Sticker No.:</th>
+                            <th>CR Name:</th>
+                            <th>Plate Ending</th>
+                            <th>Registration Month</th>
+                            <th>Model</th>
+                            <th>Brand</th>
+                            <th>Vehicle Make</th>
+                            <th>Engine No</th>
+                            <th>Chassis No</th>
+                            <th>MV file No</th>
+                            <th>Vehicle Type</th>
+                            <th>Assignee Last Name</th>
+                            <th>Assignee First Name</th>
+                            <th>Vehicle Category</th>
+                            <th>Band Level</th>
+                            <th>Benefit Group</th>
+                            <th>Cost Center</th>
+                            <th>Group</th>
+                            <th>Division</th>
+                            <th>Department</th>
+                            <th>Section</th>
+                            <th>Is Id</th>
+                            <th>IS Last Name</th>
+                            <th>IS First Name</th>
+                            <th>Location</th>
+                            <th>Original OR Date</th>
+                            <th>Acq Date</th>
+                            <th>Acq Cost</th>
+                            <th>Asset No</th>
+                            <th>Equipment No</th>
+                            <th>PO No</th>
+                            <th>Plate No release Date</th>
+                            <th>Employee ID</th>
+                            <th></th>
+                        </tr>
+                        
+                    </thead>
+                    <tbody>
+                        {% for Vmaster in object_list %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'vehicle_details' Vmaster.id %}"><u>{{ Vmaster.Activity_Id }}</u></a></td>
+                            <td>{{ Vmaster.NO }}</td>
+                            <td>{{ Vmaster.PLATE_NO }}</td>
+                            <td>{{ Vmaster.CS_NO }}</td>
+                            <td>{{ Vmaster.CR_NAME }}</td>
+                            <td>{{ Vmaster.PLATE_ENDING }}</td>
+                            <td>{{ Vmaster.REGISTRATION_MONTH }}</td>
+                            <td>{{ Vmaster.MODEL }}</td>
+                            <td>{{ Vmaster.BRAND }}</td>
+                            <td>{{ Vmaster.VEHICLE_MAKE }}</td>
+                            <td>{{ Vmaster.ENGINE_NO }}</td>
+                            <td>{{ Vmaster.CHASSIS_NO }}</td>
+                            <td>{{ Vmaster.MV_FILE_NO }}</td>
+                            <td>{{ Vmaster.VEHICLE_TYPE }}</td>
+                            <td>{{ Vmaster.ASSIGNEE_LAST_NAME }}</td>
+                            <td>{{ Vmaster.ASSIGNEE_FIRST_NAME }}</td>
+                            <td>{{ Vmaster.VEHICLE_CATEGORY }}</td>
+                            <td>{{ Vmaster.BAND_LEVEL }}</td>
+                            <td>{{ Vmaster.BENEFIT_GROUP }}</td>
+                            <td>{{ Vmaster.COST_CENTER }}</td>
+                            <td>{{ Vmaster.GROUP }}</td>
+                            <td>{{ Vmaster.DIVISION }}</td>
+                            <td>{{ Vmaster.DEPARTMENT }}</td>
+                            <td>{{ Vmaster.SECTION }}</td>
+                            <td>{{ Vmaster.IS_ID }}</td>
+                            <td>{{ Vmaster.IS_LAST_NAME }}</td>
+                            <td>{{ Vmaster.IS_FIRST_NAME }}</td>
+                            <td>{{ Vmaster.LOCATION }}</td>
+                            <td>{{ Vmaster.ORIGINAL_OR_DATE }}</td>
+                            <td>{{ Vmaster.ACQ_DATE }}</td>
+                            <td>{{ Vmaster.ACQ_COST }}</td>
+                            <td>{{ Vmaster.ASSET_NO }}</td>
+                            <td>{{ Vmaster.EQUIPMENT_NO }}</td>
+                            <td>{{ Vmaster.PO_NO }}</td>
+                            <td>{{ Vmaster.PLATE_NUMBER_RELEASE_DATE }}</td>
+                            <td>{{ Vmaster.Employee }}</td>
+                            <form action="{% url 'vehicleMasterlist_delete' Vmaster.id %}" method="POST">
+                                {% csrf_token %}
+                                <td><button title= "Delete"  class="btn btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
+                            </form>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+    <div class="pagination">
+    <span class="step-links">
+        {% if objects_list.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ objects_list.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ objects_list.number }} of {{ objects_list.paginator.num_pages }}.
+        </span>
+
+        {% if objects_list.has_next %}
+            <a href="?page={{ objects_list.next_page_number }}">next</a>
+            <a href="?page={{ objects_list.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+    </div>
+</div><!-- .content -->
+{% endblock %}

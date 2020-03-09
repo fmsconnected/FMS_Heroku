@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3 align="center"><b>Employee MasterList</b></h3>&nbsp;
+    </div>
+<form method="POST">
+{% csrf_token %}
+    <div class="col-sm-4">
+        <label>Company:</label>{{ form.Company }}
+    </div>
+    <div class="col-sm-4">
+        <label>Employee ID</label>{{ form.Employee_Id }}
+    </div>
+    <div class="col-sm-4">
+        <label>Last Name:</label>{{ form.Last_name }}
+    </div>
+    <div class="col-sm-4">
+        <label>First Name:</label>{{ form.First_name }}
+    </div>
+        <div class="col-sm-4">
+        <label>Middle Name:</label>{{ form.Middle_name }}
+    </div>
+    <div class="col-sm-4">
+        <label>Name Suffix:</label>{{ form.Suffix }}
+    </div>
+    <div class="col-sm-4">
+        <label>External Role Title:</label>{{ form.External_role }}
+    </div>
+   
+    <div class="col-sm-4">
+        <label>Job Category:</label>{{ form.Job_category }}
+    </div>
+    <div class="col-sm-4">
+        <label>Hiring Date:</label>{{ form.Hiring_date }}
+    </div>
+    <div class="col-sm-4">
+        <label>Tenure:</label>{{ form.Tenure }}
+    </div>
+
+    <div class="col-sm-4">
+        <label>Band:</label>{{ form.Band }}
+    </div>
+    <div class="col-sm-4">
+        <label>Cost Center:</label>{{ form.Cost_center }}
+    </div>
+    <div class="col-sm-4">
+        <label>Div Code:</label>{{ form.DIV_code }}
+    </div>
+    <div class="col-sm-4">
+        <label>Group:</label>{{ form.Group }}
+    </div>
+    <div class="col-sm-4">
+        <label>Division:</label>{{ form.Division }}
+    </div>
+    <div class="col-sm-4">
+        <label>Department:</label>{{ form.Department }}
+    </div>
+    <div class="col-sm-4">
+        <label>Section:</label>{{ form.Section }}
+    </div>
+    <div class="col-sm-4">
+        <label>Unit:</label>{{ form.Unit }}
+    </div>
+    <div class="col-sm-4">
+        <label>Sub Unit:</label>{{ form.Sub_unit }}
+    </div>
+    <div class="col-sm-4">
+        <label>IS ID:</label>{{ form.IS_ID }}
+    </div>
+    <div class="col-sm-4">
+        <label>IS Last Name:</label>{{ form.IS_lastname }}
+    </div>
+    <div class="col-sm-4">
+        <label>IS First Name:</label>{{ form.IS_firstname }}
+    </div>
+    <div class="col-sm-4">
+        <label>Location:</label>{{ form.Location }}
+    </div>
+    <div class="col-sm-4">
+        <label>Area:</label>{{ form.Area }}
+    </div>
+    <div class="col-sm-4">
+        <label>Area 2:</label>{{ form.Area2 }}
+    </div>
+    <div class="col-sm-4">
+        <label>Benefit Group:</label>{{ form.Benefit }}
+    </div>
+
+</div>
+    <div class="card-footer">
+        <button type="submit" class="button">PROCEED</a></button><button 
+       class="button" type="reset" value="Reset">CLEAR ALL FIELDS</button>
+    </div>
+
+</form>
+{% endblock %}
