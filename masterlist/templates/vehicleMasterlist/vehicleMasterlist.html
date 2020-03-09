@@ -108,10 +108,11 @@ tr:nth-child(even){background-color: #f2f2f2}
 $(document).ready(function() {
     var table = $('#vtable').DataTable({
         "serverSide": true,
+        "processing": true,
         "scrollX": true,
         // "ajax": "/api/masterlist/?format=datatables",
         "ajax": {
-            "url":"/api/empmasterlist/?format=datatables",
+            "url":"https://fmsjxmtsi.herokuapp.com/api/masterlist/",
             "type":"POST"
             },
         "columns": [
