@@ -72,9 +72,9 @@ $(document).ready(function() {
     var table = $('#vtable').DataTable({
         "processing": true,
         "serverSide": true,
-
+        "scrollX": true,
         "ajax": {
-            "url":"/api/empmasterlist/?format=datatables",
+            "url":"/api/empmasterlist/",
             "type":"GET"
             },
         "columns": [
