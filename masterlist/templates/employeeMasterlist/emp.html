@@ -74,13 +74,11 @@ $(document).ready(function() {
         "serverSide": true,
         "scrollX": true,
         "ajax": {
-            "url":"/api/empmasterlist/",
-            "type":"GET"
+            "Content-Type:":"/api/empmasterlist/",
+            "X-HTTP-Method-Override":"GET"
             },
         "columns": [
-            { 
-            "data":"Employee_Id",
-            },
+            {"data":"Employee_Id"},
             {"data":"Company"},
             {"data":"Last_name"},
             {"data":"First_name"},
