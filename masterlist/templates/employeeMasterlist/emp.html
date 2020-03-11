@@ -74,8 +74,9 @@ $(document).ready(function() {
         "serverSide": true,
         "scrollX": true,
         "ajax": {
-            "url":"/api/empmasterlist/",
-            "type":"GET"
+            "Authorization": "Bearer 125c7980-6cd1-40a5-99eb-b6e0ae43255b",
+            "Content-Type:":"/api/empmasterlist/",
+            "X-HTTP-Method-Override":"GET"
             },
         "columns": [
             {"data":"Employee_Id"},
