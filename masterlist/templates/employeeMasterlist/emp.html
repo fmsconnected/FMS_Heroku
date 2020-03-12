@@ -70,6 +70,7 @@ tr:nth-child(even){background-color: #f2f2f2}
 <script>
 $(document).ready(function() {
     var table = $('#vtable').DataTable({
+        $.fn.dataTable.ext.errMode = 'throw';
         "processing": true,
         "serverSide": true,
         "scrollX": true,
