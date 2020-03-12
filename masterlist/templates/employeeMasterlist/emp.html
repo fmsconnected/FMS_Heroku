@@ -74,7 +74,10 @@ $(document).ready(function() {
         "processing": true,
         "serverSide": true,
         "scrollX": true,
-        "ajax": "/api/masterlist/?format=datatables",
+        "ajax":{
+            "URL":"/api/empmasterlist/?format=datatables",
+            "Type":"POST"
+        },
         // "ajax": {
         //     "Authorization":"Bearer 125c7980-6cd1-40a5-99eb-b6e0ae43255b",
         //     "Content-Type:":"/api/empmasterlist/",
