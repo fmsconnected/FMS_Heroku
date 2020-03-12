@@ -110,12 +110,12 @@ $(document).ready(function() {
         "serverSide": true,
         "processing": true,
         "scrollX": true,
-        // "ajax": "/api/masterlist/?format=datatables",
-        "ajax": {
-            "Authorization":"Bearer 125c7980-6cd1-40a5-99eb-b6e0ae43255b",
-            "Content-Type:":"/api/masterlist/",
-            "X-HTTP-Method-Override":"POST"
-            },
+        "ajax": "/api/masterlist/?format=datatables",
+        // "ajax": {
+        //     "Authorization":"Bearer 125c7980-6cd1-40a5-99eb-b6e0ae43255b",
+        //     "Content-Type:":"/api/masterlist/",
+        //     "X-HTTP-Method-Override":"POST"
+        //     },
         "columns": [
             { 
             "data": "Activity_Id",
