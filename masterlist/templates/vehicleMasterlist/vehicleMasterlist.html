@@ -111,24 +111,22 @@ $(document).ready(function() {
         "processing": true,
         "scrollX": true,
         "ajax": {
-            "URL":"/api/masterlist/",
-            "Type":"POST"
+            URL:"/api/masterlist/",
+            type:"POST"
             },
         // "ajax": {
         //     "Authorization":"Bearer 125c7980-6cd1-40a5-99eb-b6e0ae43255b",
         //     "Content-Type:":"/api/masterlist/",
         //     "X-HTTP-Method-Override":"POST"
         //     },
+        // "render": function(data, type, row, meta){
+        //     if(type === 'display'){
+        //         data = '<a href="/VehicleMasterlist/Details/ '+ data + '">' + data + '</a>';
+        //         }
+        //     return data;
+        //     }
         "columns": [
-            { 
-            "dataSrc": "Activity_Id",
-            "render": function(data, type, row, meta){
-            if(type === 'display'){
-                data = '<a href="/VehicleMasterlist/Details/ '+ data + '">' + data + '</a>';
-                }
-            return data;
-            }
-            },
+            {"dataSrc": "Activity_Id"},
             {"dataSrc":"NO"},
             {"dataSrc":"PLATE_NO"},
             {"dataSrc":"CS_NO"},
