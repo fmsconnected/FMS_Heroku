@@ -107,13 +107,12 @@ tr:nth-child(even){background-color: #f2f2f2}
 $(document).ready(function() {
     // $.fn.dataTable.ext.errMode = 'throw';
     var table = $('#vtable').DataTable({
-        "serverSide": true,
         "processing": true,
         "scrollX": true,
         "ajax": {
             "URL":"/api/masterlist/?format=datatables",
-            "dataSrc":"columns",
-            "Type":"POST"
+            "Type":"POST",
+            "dataSrc":""
             },
         // "ajax": {
         //     "Authorization":"Bearer 125c7980-6cd1-40a5-99eb-b6e0ae43255b",
