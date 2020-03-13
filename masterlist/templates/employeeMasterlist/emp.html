@@ -31,11 +31,11 @@ tr:nth-child(even){background-color: #f2f2f2}
                     <a href="{% url 'masterlist_dl'%}"> <u>Export Employee Masterlist</u></a>
                     <a href="{% url 'employeeMasterlist-new' %}" style="float:right"><u>Add New Employee</u></a>
                 </div>
-                    <table id="vtable" class="display" style="width:100%" data-server-side="true" data-ajax="/api/empmasterlist/">
+                    <table id="vtable" class="display" style="width:100%" data-server-side="true" data-ajax="/api/empmasterlist/?format=datatables">
                     <thead>
                         <tr>
                             <th>Employee ID</th>
-                            <th>Company</th>
+                            <th>Company:</th>
                             <th>Employee Last Name</th>
                             <th>Employee First Name</th>
                             <th>Employee Middle Name</th>
@@ -75,8 +75,9 @@ $(document).ready(function() {
         "serverSide": true,
         "scrollX": true,
         "ajax":{
-            URL:"/api/empmasterlist/",
-            Type:"POST"
+            "URL":"/api/empmasterlist/?format=datatables",
+            "dataSrc":"data",
+            "Type":"POST"
         },
         // "ajax": {
         //     "Authorization":"Bearer 125c7980-6cd1-40a5-99eb-b6e0ae43255b",
@@ -84,28 +85,28 @@ $(document).ready(function() {
         //     "X-HTTP-Method-Override":"POST"
         //     },
         "columns": [
-            {"dataSrc":"Employee_Id"},
-            {"dataSrc":"Company"},
-            {"dataSrc":"Last_name"},
-            {"dataSrc":"First_name"},
-            {"dataSrc":"Middle_name"},
-            {"dataSrc":"Suffix"},
-            {"dataSrc":"Cost_center"},
-            {"dataSrc":"Band"},
-            {"dataSrc":"DIV_code"},
-            {"dataSrc":"Group"},
-            {"dataSrc":"Division"},
-            {"dataSrc":"Department"},
-            {"dataSrc":"Section"},
-            {"dataSrc":"Unit"},
-            {"dataSrc":"Sub_unit"}, 
-            {"dataSrc":"IS_ID"},
-            {"dataSrc":"IS_lastname"},
-            {"dataSrc":"IS_firstname"},
-            {"dataSrc":"Location"},
-            {"dataSrc":"Area"},
-            {"dataSrc":"Area2"},
-            {"dataSrc":"Benefit"},
+            {"data":"Employee_Id"},
+            {"data":"Company"},
+            {"data":"Last_name"},
+            {"data":"First_name"},
+            {"data":"Middle_name"},
+            {"data":"Suffix"},
+            {"data":"Cost_center"},
+            {"data":"Band"},
+            {"data":"DIV_code"},
+            {"data":"Group"},
+            {"data":"Division"},
+            {"data":"Department"},
+            {"data":"Section"},
+            {"data":"Unit"},
+            {"data":"Sub_unit"}, 
+            {"data":"IS_ID"},
+            {"data":"IS_lastname"},
+            {"data":"IS_firstname"},
+            {"data":"Location"},
+            {"data":"Area"},
+            {"data":"Area2"},
+            {"data":"Benefit"},
         ]
 
     });
