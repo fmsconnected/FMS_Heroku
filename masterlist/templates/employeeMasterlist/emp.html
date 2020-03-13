@@ -31,7 +31,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                     <a href="{% url 'masterlist_dl'%}"> <u>Export Employee Masterlist</u></a>
                     <a href="{% url 'employeeMasterlist-new' %}" style="float:right"><u>Add New Employee</u></a>
                 </div>
-                    <table id="vtable" class="display" style="width:100%" data-server-side="true" data-ajax="/api/empmasterlist/?format=datatables">
+                    <table id="vtable" class="display" style="width:100%" data-server-side="true" data-ajax="/api/empmasterlist/">
                     <thead>
                         <tr>
                             <th>Employee ID</th>
