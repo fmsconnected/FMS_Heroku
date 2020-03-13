@@ -72,7 +72,6 @@ $(document).ready(function() {
     // $.fn.dataTable.ext.errMode = 'throw';
     var table = $('#vtable').DataTable({
         "processing": true,
-        "scrollX": true,
         "ajax":{
             "URL":"/api/empmasterlist/?format=datatables",
             "Type":"POST",
