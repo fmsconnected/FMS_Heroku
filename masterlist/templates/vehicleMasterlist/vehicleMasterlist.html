@@ -112,7 +112,7 @@ $(document).ready(function() {
         "scrollX": true,
         "ajax": {
             "URL":"/api/masterlist/?format=datatables",
-            // "Type":"POST",
+            "Type":"GET",
             // "dataSrc":"columns"
             "dataSrc": function ( json ) {
                 for ( var i=0, ien=json.data.length ; i<ien ; i++ ) {

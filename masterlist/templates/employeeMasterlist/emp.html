@@ -77,7 +77,7 @@ $(document).ready(function() {
         "ajax":{
             "URL":"/api/empmasterlist/?format=datatables",
             // "dataSrc":"columns"
-            // "Type":"POST"
+            "Type":"GET",
             "dataSrc": function ( json ) {
                 for ( var i=0, ien=json.data.length ; i<ien ; i++ ) {
                 json.data[i][0] = '<a href="/message/'+json.data[i][0]+'>View message</a>';
