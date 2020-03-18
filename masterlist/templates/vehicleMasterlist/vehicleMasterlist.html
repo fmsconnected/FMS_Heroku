@@ -112,13 +112,13 @@ $(document).ready(function() {
         "scrollX": true,
         "ajax": {
             "URL":"/api/masterlist/?format=datatables",
-            "Type":"GET",
-            // "dataSrc":"columns"
+            "Type":"POST",
             "dataSrc": function ( json ) {
                 for ( var i=0, ien=json.data.length ; i<ien ; i++ ) {
-                json.data[i][0] = '<a href="/message/'+json.data[i][0]+'>View message</a>';
+                    json.data[i][0] = '<a href="/message/'+json.data[i][0]+'>View message</a>';
+                    }
+                return json.data;
                 }
-            return json.data;
             }
             },
         // "ajax": {
