@@ -40,7 +40,7 @@ class EmployeeMasterlist(models.Model):
 def increment_Activity_Id():
 	last_in = VehicleMasterList.objects.all().order_by('id').last()
 	if not last_in:
-	    return 'VML' + str(datetime.datetime.today().strftime('%Y')) + '-' + '000000'
+	    return 'VML' + str(datetime.datetime.today().strftime('%Y')) + '-' + '000001'
 	in_id = last_in.Activity_Id
 	in_int = int(in_id[8:])
 	new_in_int = in_int + 1

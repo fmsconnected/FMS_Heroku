@@ -79,7 +79,7 @@ class Vmasterlist(forms.ModelForm):
             self.fields['PO_NO'].required = False
             self.fields['SAP_PR'].required = False
             self.fields['Vehicle_IVN_no'].required = False
-            self.fields['asset_no'].required = False
+            self.fields['ASSET_NO'].required = False
             self.fields['Unit_MATDOC'].required = False
             self.fields['dealer'].required = False
             self.fields['dealer_name'].required = False
