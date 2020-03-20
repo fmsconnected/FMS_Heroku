@@ -104,7 +104,7 @@
 
     </fieldset>
     <div class="card-footer">
-      <button type="submit" class="button">PROCEED</button>
+      <button type="submit" class="button">PROCEED</button><a href="{% url 'Vehicle_list' %}" type="button" class="btn">CLOSE</a>
     </div>
     <br><br><br>
   </div>
@@ -122,7 +122,7 @@
         {{ form.Docs_plate_no }}
         </div>
     <div class="col-sm-6">
-        <label>LTO PrintOut Sticker Fields</label>
+        <label>MV File Number</label>
         {{ form.LTO_stickers }}
     </div>
     <div class="col-sm-6">

@@ -56,16 +56,24 @@
       <th>Equipment No</th> <td>{{ object.equipment_no }}</td>
     </tr>
     <tr>
-      <th>Dealership</th> <td>{{ object.dealership }}</td>
+      <th>RFP Number</th><td>{{ object.rfp_no }}</td>
       <th>Engine Number</th> <td>{{ object.engine }}</td>
+    </tr>
+    <tr>
+      <th>Provider</th> <td>{{ object.dealership }}</td>
+      <th>Invoice Number</th> <td>{{ object.invoice_number2 }}</td>
     </tr>
     <tr>
       <th>Service Type</th> <td>{{ object.service_type }}</td>
       <th>Amount</th> <td>{{ object.amount }}</td>
+    </tr>
+    <tr>
+      <th>Invoice Date</th><td>{{ object.invoice_date }}</td>
+      <th></th><td></td>
     </tr>  
 </table>
     <div class="card-footer">
-      <a href="{% url 'vehiclerepair_payment_udpate' object.id %}" class="button" style="color:white">UPDATE</a>
+      <a href="{% url 'vehiclerepair_payment_udpate' object.id %}" class="button" style="color:white">UPDATE</a><a href="{% url 'vehiclerepair_payment' %}" type="button" class="btn">CLOSE</a>
     </div>
 
 {% endblock %}
