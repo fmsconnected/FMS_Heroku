@@ -53,7 +53,7 @@
                             <td>{{ Fuel_supplier.Date_forwarded }}</td>
                             <form action="{% url 'Fuel_delete' Fuel_supplier.id %}" method="POST">
                                 {% csrf_token %}
-                                <td><button title= "Delete"  class="btn btn-danger btn-sm" type="submit" name="button">
+                                <td><button title= "Delete"  class="btn-danger btn-sm" type="submit" name="button">
                                 <span class="fa fa-trash"></span>
                                 </button></td>
                             </form>

@@ -41,7 +41,7 @@
                             <td>{{ Vehicle_Repair.date_initiated }}</td>
                             <td><form action="{% url 'repair_delete' Vehicle_Repair.id %}" method="POST">
                                 {% csrf_token %}
-                                <button title= "Delete" class="btn btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button>
+                                <button title= "Delete" class="btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button>
                             </form></td>
                         </tr>
                         {% endfor %}

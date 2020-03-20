@@ -119,7 +119,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                             <td>{{ Vmaster.Employee }}</td>
                             <form action="{% url 'vehicleMasterlist_delete' Vmaster.id %}" method="POST">
                                 {% csrf_token %}
-                                <td><button title= "Delete"  class="btn btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
+                                <td><button title= "Delete"  class="btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
                             </form>
                         </tr>
                         {% endfor %}

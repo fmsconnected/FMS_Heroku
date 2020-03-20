@@ -41,7 +41,7 @@
                             <td>{{ service_vehicle.date_initiated }}</td>
                             <form action="{% url 'service_delete' service_vehicle.id %}" method="POST">
                                 {% csrf_token %}
-                                <td><button title= "Delete" class="btn btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
+                                <td><button title= "Delete" class="btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
                             </form>
                         </tr>
                         {% endfor %}
