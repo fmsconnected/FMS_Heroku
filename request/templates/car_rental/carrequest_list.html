@@ -1,28 +1,11 @@
 {% extends 'base.html' %}
-{% load widget_tweaks %}
 {% block content %}
 
-<!-- {% comment %} <script type="text/javascript">
-  $(function () {
-    // Delete book buttons
-    $(".delete-carrequest").each(function () {
-      $(this).modalForm({formURL: $(this).data('id')});
-    });
-
-  });
-</script> {% endcomment %} -->
-
-
-<!-- <div class="modal fade" tabindex="-1" role="dialog" id="modal">
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content"></div>
   </div>
-</div> -->
-<style type="text/css">
-    th{
-        text-align: center;
-    }
-</style>
+</div>
 
 <div class="breadcrumbs">
     <div class="col-sm-12">
@@ -59,20 +42,34 @@
                             <td>{{ CarRentalRequest.Plate_no }}</td>
                             <td>{{ CarRentalRequest.CR_SLA }}/Days</td>
                             <td>{{ CarRentalRequest.Date_initiated }}</td>
-                            <form action="{% url 'carrequest_delete' CarRentalRequest.id %}" method="POST">
-                                {% csrf_token %}
-                                <td><button title= "Delete" class="btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
-                            </form>
-                            <!-- {% comment %} <td><button type="button" class="delete-carrequest btn btn-sm btn-danger" data-id="{% url 'carrequest_delete' CarRentalRequest.id %}"><span class="fa fa-trash"></span></button></td> {% endcomment %} -->
+                            <td>
+                                <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'carrequest_delete' CarRentalRequest.pk %}">
+                                <span class="fa fa-trash"></span>
+                                </button>
+                            </td>
                         </tr>
                         {% endfor %}
                     </tbody>
-                    </table>
+                </table>
                 </div>
             </div>
         </div>
     </div><!-- .animated -->
 </div><!-- .content -->
     <!-- /.row -->
-
 {% endblock %}
+
+{% block extrascripts %}
+<script type="text/javascript">
+  $(function() {
+    // Delete book buttons
+    $("#example").on('mouseover', '.delete-inventory', function() {
+      $(this).modalForm({
+        formURL: $(this).data('id')
+      });
+    });
+
+  });
+</script>
+{% endblock extrascripts %}
+

@@ -1,23 +1,22 @@
-{% extends 'base.html' %}
 {% load widget_tweaks %}
-{% block content %}
 
 <form method="post" action="">
   {% csrf_token %}
 
   <div class="modal-header">
+    <h3 class="modal-title">Delete Service Vehicle Request</h3>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
 
-  <div class="modal-body">
-    <p>Are you sure you want to delete this Item?</p>
+  <div class="modal-body" style="word-break: break-all;">
+    <p class="delete-text"><h6>Are you sure you want to delete the Service Vehicle Request? </h6>
+      <b>{{ service_vehicle.Activity_id }}</b></p>
   </div>
 
   <div class="modal-footer">
-    <button type="submit" class="btn btn-danger">Delete</button>
+    <button type="submit" class="delete-btn btn-danger rounded">Delete</button>
   </div>
 
 </form>
-{% endblock %}

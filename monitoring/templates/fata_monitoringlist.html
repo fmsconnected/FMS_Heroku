@@ -5,6 +5,12 @@
         text-align: center;
     }
 </style>
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
 <div class="breadcrumbs">
     <div class="col-sm-12">
         <h3 class="page-header"><b>FATA Monitoring List</b></h3>
@@ -46,10 +52,11 @@
                             <td>{{ Fata_monitoring.Vehicle_make }}</td>
                             <td>{{ Fata_monitoring.Transferor_Fname }} {{ Fata_monitoring.Transferor_Lname }}</td>
                             <td>{{ Fata_monitoring.Recipient_Fname }} {{ Fata_monitoring.Recipient_Lname }}</td>
-                            <form action="{% url 'Monitoring_delete' Fata_monitoring.id %}" method="POST">
-                                {% csrf_token %}
-                                <td><button title= "Delete"  class="btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
-                            </form>
+                            <td>
+                                <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'Monitoring_delete' Fata_monitoring.pk %}">
+                                <span class="fa fa-trash"></span>
+                                </button>
+                            </td>
                            
                         </tr>
                         {% endfor %}
@@ -62,5 +69,22 @@
 </div><!-- .content -->
     <!-- /.row -->
 {% endblock %}
+
+
+{% block extrascripts %}
+<script type="text/javascript">
+  $(function() {
+    // Delete book buttons
+    $("#example").on('mouseover', '.delete-inventory', function() {
+      $(this).modalForm({
+        formURL: $(this).data('id')
+      });
+    });
+
+  });
+</script>
+{% endblock extrascripts %}
+
+
 
 

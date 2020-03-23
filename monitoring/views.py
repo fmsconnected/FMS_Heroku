@@ -90,7 +90,7 @@ class monitoringDetails(DetailView):
 	
 class monitoringDeleteView(BSModalDeleteView):
     model = Fata_monitoring
-    template_name = 'monitoring/fata_monitoring_delete.html'
+    template_name = 'fata_monitoring_delete.html'
     success_message = 'Success: Item was deleted.'
     success_url = reverse_lazy('Monitoring_list')
 

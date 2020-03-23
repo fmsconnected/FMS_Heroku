@@ -1,17 +1,5 @@
 {% extends 'base.html' %}
-{% load widget_tweaks %}
 {% block content %}
-
-<!-- {% comment %} <script type="text/javascript">
-  $(function () {
-    // Delete book buttons
-    $(".delete-carrequest").each(function () {
-      $(this).modalForm({formURL: $(this).data('id')});
-    });
-
-  });
-</script> {% endcomment %} -->
-
 
 <div class="modal fade" tabindex="-1" role="dialog" id="modal">
   <div class="modal-dialog" role="document">
@@ -34,8 +22,7 @@
                     <a href="{% url 'gas_export' %}" style="float: left"><u><b>Export Gas Card Data</b></u></a>
                     <a href="{% url 'gascard_new' %}" style="float:right "><u><b>Add Gas Card Request</b></u>&nbsp; &nbsp;</a>
                     <a href="{% url 'gascard_history' %}" style="float:right " class="mr-3"><u><b>Gas Card Request History</b></u></a>
-                </div>                         
-                <!-- <table id="bootstrap-data-table-export"a class="table table-striped table-bordered"> -->
+                </div>
                 <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                     <thead>
                         <tr>
@@ -63,10 +50,11 @@
                             <td>{{ Gas_card.fleet_card_no }}</td>
                             <td>{{ Gas_card.GCR_SLA }}/Days</td>
                             <td>{{ Gas_card.date_initiated }}</td>
-                            <form action="{% url 'gascard_delete' Gas_card.id %}" method="POST">
-                                {% csrf_token %}
-                                <td><button title= "Delete" class="btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
-                            </form>
+                            <td>
+                                <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'gascard_delete' Gas_card.pk %}">
+                                <span class="fa fa-trash"></span>
+                                </button>
+                            </td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -77,5 +65,19 @@
     </div><!-- .animated -->
 </div><!-- .content -->
     <!-- /.row -->
-
 {% endblock %}
+
+
+{% block extrascripts %}
+<script type="text/javascript">
+  $(function() {
+    // Delete book buttons
+    $("#example").on('mouseover', '.delete-inventory', function() {
+      $(this).modalForm({
+        formURL: $(this).data('id')
+      });
+    });
+
+  });
+</script>
+{% endblock extrascripts %}

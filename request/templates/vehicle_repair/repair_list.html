@@ -6,6 +6,11 @@
         text-align: center;
     }
 </style>
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
 
 <div class="breadcrumbs">
     <div class="col-sm-12">
@@ -22,8 +27,7 @@
                     <a href="{% url 'repair_export' %}" style="float: left"><u><b>Export Vehicle Data</b></u> </a>
                     <a href="{% url 'repair_new' %}" style="float:right"><u><b>Add Vehicle Repair</b></u>&nbsp;&nbsp;&nbsp;</a>
                     <a href="{% url 'repair_history' %}" style="float:right" class="mr-3"><u><b>Vehicle Repair History</b></u></a>
-                </div>                         
-                <!-- <table id="bootstrap-data-table-export"a class="table table-striped table-bordered"> -->
+                </div>
                 <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                     <thead>
                         <tr>
@@ -45,10 +49,12 @@
                             <td>{{ Vehicle_Repair.work_order1 }}</td>
                             <td>{{ Vehicle_Repair.VRR_SLA }}/Days</td>
                             <td>{{ Vehicle_Repair.date_initiated }}</td>
-                            <td><form action="{% url 'repair_delete' Vehicle_Repair.id %}" method="POST">
-                                {% csrf_token %}
-                                <button title= "Delete" class="btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button>
-                            </form></td>
+                            <td>
+                                <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'repair_delete' Vehicle_Repair.pk %}">
+                                <span class="fa fa-trash"></span>
+                                </button>
+                            </td>
+
                         </tr>
                         {% endfor %}
                     </tbody> 
@@ -60,5 +66,19 @@
 </div><!-- .content -->
     <!-- /.row -->
 {% endblock %}
+
+{% block extrascripts %}
+<script type="text/javascript">
+  $(function() {
+    // Delete book buttons
+    $("#example").on('mouseover', '.delete-inventory', function() {
+      $(this).modalForm({
+        formURL: $(this).data('id')
+      });
+    });
+
+  });
+</script>
+{% endblock extrascripts %}
 
 
