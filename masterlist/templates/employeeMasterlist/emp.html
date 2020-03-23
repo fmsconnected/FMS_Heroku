@@ -72,10 +72,11 @@ $(document).ready(function() {
     // $.fn.dataTable.ext.errMode = 'throw';
     var table = $('#vtable').DataTable({
         "processing": true,
-        // "serverSide": true,
+        "serverSide": true,
         "scrollX": true,
         "ajax":{
             "URL":"https://fmsjxmtsi.herokuapp.com/api/empmasterlist/",
+            // "URL":"/api/masterlist/?format=datatables",
             "Type":"GET",
             "dataSrc":"data",
             "xhrFields": {
