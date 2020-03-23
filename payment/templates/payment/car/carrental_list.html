@@ -1,14 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-<script type="text/javascript">
-  $(function () {
-    // Delete book buttons
-    $(".delete-carrequest").each(function () {
-      $(this).modalForm({formURL: $(this).data('id')});
-    });
-
-  });
-</script>
 
 <div class="modal fade" tabindex="-1" role="dialog" id="modal">
   <div class="modal-dialog" role="document">
@@ -62,10 +53,11 @@
                             <td>{{ CarRental.car_provider}} </td>
                             <td>{{ CarRental.sqa_number}} </td>
                             <td>{{ CarRental.rfp_no2 }}</td>
-                            <form action="{% url 'carrental_delete' CarRental.id %}" method="POST">
-                                {% csrf_token %}
-                                <td><button title= "Delete" class="btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
-                            </form>
+                            <td>
+                                <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'carrental_delete' CarRental.pk %}">
+                                <span class="fa fa-trash"></span>
+                                </button>
+                            </td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -78,4 +70,17 @@
     <!-- /.row -->
 {% endblock %}
 
+{% block extrascripts %}
+<script type="text/javascript">
+  $(function() {
+    // Delete book buttons
+    $("#example").on('mouseover', '.delete-inventory', function() {
+      $(this).modalForm({
+        formURL: $(this).data('id')
+      });
+    });
+
+  });
+</script>
+{% endblock extrascripts %}
 

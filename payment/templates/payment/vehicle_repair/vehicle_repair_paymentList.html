@@ -2,17 +2,6 @@
 {% load widget_tweaks %}
 {% block content %}
 
-{% comment %} <script type="text/javascript">
-  $(function () {
-    // Delete book buttons
-    $(".delete-carrequest").each(function () {
-      $(this).modalForm({formURL: $(this).data('id')});
-    });
-
-  });
-</script> {% endcomment %}
-
-
 <div class="modal fade" tabindex="-1" role="dialog" id="modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content"></div>
@@ -94,10 +83,11 @@
                             <td>{{ vrp.rfp_no }}</td>
                             <td>{{ vrp.invoice_num }}</td>
                             <td>{{ vrp.invoice_date }}</td>
-                            <form action="{% url 'vehiclerepair_payment_delete' vrp.id %}" method="POST">
-                                {% csrf_token %}
-                                <td><button title= "Delete" class="btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
-                            </form>
+                            <td>
+                                <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'vehiclerepair_payment_delete' vrp.pk %}">
+                                <span class="fa fa-trash"></span>
+                                </button>
+                            </td>
                            
                         </tr>
                         {% endfor %}
@@ -111,4 +101,17 @@
     <!-- /.row -->
 {% endblock %}
 
+{% block extrascripts %}
+<script type="text/javascript">
+  $(function() {
+    // Delete book buttons
+    $("#example").on('mouseover', '.delete-inventory', function() {
+      $(this).modalForm({
+        formURL: $(this).data('id')
+      });
+    });
+
+  });
+</script>
+{% endblock extrascripts %}
 

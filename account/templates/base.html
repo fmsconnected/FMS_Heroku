@@ -99,13 +99,14 @@ table.table {
 
     <!--Jquery -->
     <script src="{% static 'vendors/jquery/dist/jquery.min.js' %}"></script>
-    <script src="{% static 'vendors/popper.js/dist/umd/popper.min.js' %}"></script>
-    <script src="{% static 'vendors/bootstrap/dist/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'vendors/chart.js/dist/Chart.bundle.min.js' %}"></script>
-    <script src="{% static 'assets/js/widgets.js' %}"></script>
-    <script src="{% static 'vendors/jqvmap/dist/jquery.vmap.min.js' %}"></script>
-    <script src="{% static 'vendors/jqvmap/examples/js/jquery.vmap.sampledata.js' %}"></script>
-    <script src="{% static 'vendors/jqvmap/dist/maps/jquery.vmap.world.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+    <!-- MODAL -->
+    <script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <!-- You can alternatively load the minified version -->
+    <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
     <script src="{% static 'vendors/datatables.net/js/jquery.dataTables.min.js' %}"></script>
     <script src="{% static 'vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
     <script src="{% static 'vendors/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
@@ -116,17 +117,20 @@ table.table {
      --><script src="{% static 'vendors/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
     <script src="{% static 'vendors/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
     <script src="{% static 'vendors/datatables.net-buttons/js/buttons.colVis.min.js' %}"></script>
+    <script src="{% static 'assets/js/init-scripts/data-table/datatables-init.js' %}"></script>
+    <script src="{% static 'vendors/jquery-validation/dist/jquery.validate.min.js' %}"></script>
     <!-- <script src="{% static 'assets/js/init-scripts/data-table/datatables-init.js' %}"></script>
      --><script src="{% static 'vendors/jquery-validation/dist/jquery.validate.min.js' %}"></script>
 
     <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
     <!-- You can alternatively load the minified version -->
     <script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>
-
-    <!---Data table Horizontal scroll-->
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
+
+    <script src="{% static 'plugins/datatables/jquery.dataTables.min.js' %}"></script>
+
 
 <script>
     (function($) {
@@ -172,8 +176,9 @@ table.table {
 } );
 </script>
 
-
      {% block extra_js %}{% endblock %}
+     {% block extrascripts %}
+     {% endblock extrascripts %}
 </body>
 
 </html>

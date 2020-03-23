@@ -28,12 +28,12 @@ from bootstrap_modal_forms.generic import (
                                            )
 
 class CarListView(ListView):
-	model = CarRental
-	template_name = 'payment/car/carrental_list.html'
-	
+    model = CarRental
+    template_name = 'payment/car/carrental_list.html'
+    
 class CarRentalDetailView(DetailView):
-	model = CarRental
-	template_name = 'payment/car/carrental_summary.html'
+    model = CarRental
+    template_name = 'payment/car/carrental_summary.html'
 
 def Carrentalpayment(request):
     def dispatch(self, *args, **kwargs):
@@ -81,15 +81,15 @@ def Carrental_submit(request):
         sqa_number = request.POST.get('sqa_number')
         rfp_no2 = request.POST.get('rfp_no2')
 
-		#############################
-		######Date calculator########
-		#############################
+        #############################
+        ######Date calculator########
+        #############################
 
         d1 = datetime.datetime.strptime(S_rental, '%Y-%m-%d')
         d2 = datetime.datetime.strptime(E_rental, '%Y-%m-%d')
         Rduration = (d2 - d1)
-		
-		
+        
+        
 
         saveto_CRP = CarRental(Bill_date=Bill_date, Employee_id=employee_id, L_name=lastname, F_name=firstname,
             Assignee_company=Ass_company, Cost_center=Cost_center, O_Fname=Other_assigneeFM, O_Lname=Other_assigneeLM,
@@ -137,9 +137,9 @@ def Carrental_update(request, pk):
         sqa_number = request.POST.get('sqa_number')
         rfp_no2 = request.POST.get('rfp_no2')
 
-		#############################
-		######Date calculator########
-		#############################
+        #############################
+        ######Date calculator########
+        #############################
 
         d1 = datetime.datetime.strptime(S_rental, '%Y-%m-%d').date()
         d2 = datetime.datetime.strptime(E_rental, '%Y-%m-%d').date()
@@ -156,7 +156,7 @@ def Carrental_update(request, pk):
 
 class carrentalDeleteView(BSModalDeleteView):
     model = CarRental
-    template_name = 'payment/carrental_delete.html'
+    template_name = 'payment/car/carrental_delete.html'
     success_message = 'Success: Item was deleted.'
     success_url = reverse_lazy('carrental_list')
 
@@ -167,10 +167,10 @@ def carrentalHistoryView(request):
        return render(request, 'payment/car/carrental_history.html', context={'object': obj})
 
 def rent(request):
-	emp = EmployeeMasterlist.objects.all()
-	vechicle = VehicleMasterList.objects.all()
-	return render(request, 'payment/car_rental.html', {'title': 'CarRental - Create New Car Rental Request', 'emp': emp, 
-	'vechicle': vechicle})
+    emp = EmployeeMasterlist.objects.all()
+    vechicle = VehicleMasterList.objects.all()
+    return render(request, 'payment/car_rental.html', {'title': 'CarRental - Create New Car Rental Request', 'emp': emp, 
+    'vechicle': vechicle})
 
 def vehiclecreate(request):
     def dispatch(self, *args, **kwargs):
@@ -220,12 +220,12 @@ def vehicle_submit(request):
         return HttpResponseRedirect('/Payment/Vehicle/')
 
 class VehicleListView(ListView):
-	model = VehiclePayment
-	template_name = 'payment/vehicle/vehicle_list.html'
+    model = VehiclePayment
+    template_name = 'payment/vehicle/vehicle_list.html'
 
 class VehicleDetailView(DetailView):
-	model = VehiclePayment
-	template_name = 'payment/vehicle/vehiclepayment_summary.html'
+    model = VehiclePayment
+    template_name = 'payment/vehicle/vehiclepayment_summary.html'
 
 class VehicleUpdateView(SuccessMessageMixin, UpdateView):
     model = VehiclePayment
@@ -233,12 +233,12 @@ class VehicleUpdateView(SuccessMessageMixin, UpdateView):
     template_name = 'payment/vehicle/vehiclepayment_new.html'
 
     def get_success_message(self, cleaned_data):
-    	print(cleaned_data)
-    	return "New Vehicle Payment's Update Successfully!"
+        print(cleaned_data)
+        return "New Vehicle Payment's Update Successfully!"
 
 class VehicleDeleteView(BSModalDeleteView):
     model = VehiclePayment
-    template_name = 'vehicle/vehicle_delete.html'
+    template_name = 'payment/vehicle/vehicle_delete.html'
     success_message = 'Success: Item was deleted.'
     success_url = reverse_lazy('Vehicle_list')
 
@@ -247,14 +247,14 @@ def VehicleHistoryView(request):
        obj = VehiclePayment.history.all()
 
        return render(request, 'payment/vehicle/vehicle_history.html', context={'object': obj})
-			
+            
 class FuelDetailView(DetailView):
-	model = Fuel_supplier
-	template_name = 'payment/fuel/fuel_supplierSummary.html'
+    model = Fuel_supplier
+    template_name = 'payment/fuel/fuel_supplierSummary.html'
 
 class FuelListView(ListView):
-	model = Fuel_supplier
-	template_name = 'payment/fuel/fuel_supplierList.html'
+    model = Fuel_supplier
+    template_name = 'payment/fuel/fuel_supplierList.html'
 
 class FuelCreateView(SuccessMessageMixin, CreateView):
     model = Fuel_supplier
@@ -262,8 +262,8 @@ class FuelCreateView(SuccessMessageMixin, CreateView):
     template_name = 'payment/fuel/fuel_supplier.html'
 
     def get_success_message(self, cleaned_data):
-    	print(cleaned_data)
-    	return "Fuel Supplier Has been Created!"
+        print(cleaned_data)
+        return "Fuel Supplier Has been Created!"
 
 class FuelUpdateView(SuccessMessageMixin, UpdateView):
     model = Fuel_supplier
@@ -271,12 +271,12 @@ class FuelUpdateView(SuccessMessageMixin, UpdateView):
     template_name = 'payment/fuel/fuel_supplier.html'
 
     def get_success_message(self, cleaned_data):
-    	print(cleaned_data)
-    	return "Fuel Supplier Update Successfully!"
+        print(cleaned_data)
+        return "Fuel Supplier Update Successfully!"
 
 class FuelDeleteView(BSModalDeleteView):
     model = Fuel_supplier
-    template_name = 'fuel/fuel_supplier_delete.html'
+    template_name = 'payment/fuel/fuel_supplier_delete.html'
     success_message = 'Success: Item was deleted.'
     success_url = reverse_lazy('Fuel_supplierList')
 
@@ -303,7 +303,7 @@ class vrepairDetailView(DetailView):
 
 class vrepairDeleteView(BSModalDeleteView):
     model = Vehicle_Repair_payment
-    template_name = 'vehicle_repair/vehicle_repair_delete.html'
+    template_name = 'payment/vehicle_repair/vehicle_repair_delete.html'
     success_message = 'Success: Item was deleted.'
     success_url = reverse_lazy('vehiclerepair_payment')
 
@@ -555,15 +555,15 @@ def fuel_excel(request):
 
     columns = [
     'Date Received',
-	'Fuel Provider',
-	'Bill Date',
-	'Current Amount',
-	'Outstanding Amount',
-	'Payee',
-	'Attached',
-	'Payment Deadline',
-	'Date Forwarded',
-	'Date Initiated',
+    'Fuel Provider',
+    'Bill Date',
+    'Current Amount',
+    'Outstanding Amount',
+    'Payee',
+    'Attached',
+    'Payment Deadline',
+    'Date Forwarded',
+    'Date Initiated',
     ]
     row_num = 1
 
@@ -576,16 +576,16 @@ def fuel_excel(request):
         # ordate = car.ORIGINAL_OR_DATE.strftime('%m/%d/%Y')
         # platerelease = car.PLATE_NUMBER_RELEASE_DATE.strftime('%m/%d/%Y')
         row = [
-				fuel.SOA_Date_received,
-				fuel.Fuel_provider,
-				fuel.SOA_billdate,
-				fuel.SOA_current_amount,
-				fuel.SOA_outstanding_amount,
-				fuel.Payee,
-				fuel.SOA_attached,
-				fuel.Payment_deadline,
-				fuel.Date_forwarded,
-				fuel.Date_initiated,
+                fuel.SOA_Date_received,
+                fuel.Fuel_provider,
+                fuel.SOA_billdate,
+                fuel.SOA_current_amount,
+                fuel.SOA_outstanding_amount,
+                fuel.Payee,
+                fuel.SOA_attached,
+                fuel.Payment_deadline,
+                fuel.Date_forwarded,
+                fuel.Date_initiated,
         ]
         
         for col_num, cell_value in enumerate(row, 1):
@@ -678,8 +678,6 @@ def vrepair_excel(request):
 
     workbook.save(response)
     return response
-
-
 
 
 

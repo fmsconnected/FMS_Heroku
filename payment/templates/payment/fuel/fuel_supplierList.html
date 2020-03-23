@@ -1,15 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<script type="text/javascript">
-  $(function () {
-    // Delete book buttons
-    $(".delete-carrequest").each(function () {
-      $(this).modalForm({formURL: $(this).data('id')});
-    });
-
-  });
-</script>
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
 
 <div class="breadcrumbs">
     <div class="col-sm-12">
@@ -35,7 +31,7 @@
                             <th>Oustanding Balance</th>
                             <th>SLA</th>
                             <th>Date Initiated</th>
-                            <th>Deadline</th>
+                            <th>Deadline:</th>
                             <th>Completed Date</th>
                             <th></th>
                         </tr>
@@ -51,12 +47,11 @@
                             <td>{{ Fuel_supplier.Date_initiated }}</td>
                             <td>{{ Fuel_supplier.Payment_deadline }}</td>
                             <td>{{ Fuel_supplier.Date_forwarded }}</td>
-                            <form action="{% url 'Fuel_delete' Fuel_supplier.id %}" method="POST">
-                                {% csrf_token %}
-                                <td><button title= "Delete"  class="btn-danger btn-sm" type="submit" name="button">
+                            <td>
+                                <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'Fuel_delete' Fuel_supplier.pk %}">
                                 <span class="fa fa-trash"></span>
-                                </button></td>
-                            </form>
+                                </button>
+                            </td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -68,5 +63,18 @@
 </div><!-- .content -->
     <!-- /.row -->
 {% endblock %}
+{% block extrascripts %}
+<script type="text/javascript">
+  $(function() {
+    // Delete book buttons
+    $("#example").on('mouseover', '.delete-inventory', function() {
+      $(this).modalForm({
+        formURL: $(this).data('id')
+      });
+    });
+
+  });
+</script>
+{% endblock extrascripts %}
 
 
