@@ -15,12 +15,12 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h3 align="center"><b>New Vehicle Payments</b></h3>&nbsp;
+        <h3 align="center"><b>New Vehicle Payment</b></h3>&nbsp;
     </div>
 </div>
 <div class="w3-bar w3-black">
-  <button class="w3-bar-item w3-button" onclick="vehiclePayment('New vehicle Payment')"><u>New vehicle Payment</u></button>
-  <button class="w3-bar-item w3-button" onclick="vehiclePayment('OutBound Process')"><u>OutBound Process</u></button>
+  <button class="w3-bar-item w3-button" onclick="vehiclePayment('New vehicle Payment')"><u>New Vehicle Payment</u></button>
+  <button class="w3-bar-item w3-button" onclick="vehiclePayment('OutBound Process')"><u>Outbound Process</u></button>
   <button class="w3-bar-item w3-button" onclick="vehiclePayment('Inbound Process')"><u>Inbound Process</u></button>
 </div>
 <form method="POST" action="{% url 'Vehicle_submit' %}">
@@ -48,11 +48,11 @@
         <input style= "text-transform:" type="text" name="emp_lname" id="emp_lname" class="form-control" readonly>
     </div>
     <div class="col-sm-4">
-        <label>RFP No.</label>
+        <label>RFP Number</label>
         <input style= "text-transform:" type="text" name="rfp" id="rfp" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>Invoice No.</label>
+        <label>Invoice Number</label>
         <input style= "text-transform:" type="text" name="invno" id="invno" class="form-control">
     </div>
 
@@ -118,7 +118,7 @@
 
     </fieldset>
     <div class="card-footer">
-      <button type="submit" class="button">PROCEED</button><a href="{% url 'Vehicle_list' %}" type="button" class="btn">CLOSE</a>
+      <button type="submit" class="button">PROCEED</button><a href="{% url 'Vehicle_list' %}" type="button" class="btn">CLOSE</a><button type="Reset" class="btn">CLEAR ALL</button>
     </div>
     <br><br><br>
   </div>
@@ -128,7 +128,7 @@
       <legend align="left">Document Routing 1</legend>
 
     <div class="col-sm-6">
-        <label>Date Received LTO Documents:</label>
+        <label>Date Received LTO Documents</label>
         <input style= "text-transform:" type="date" name="Date_Received_LTO_Documents" id="Date_Received_LTO_Documents" class="form-control">
     </div>
 
@@ -170,7 +170,7 @@
         {{ form.Date_initial }}
     </div> -->
     <div class="col-sm-6">
-        <label>Date Transmitted Initial SQA to Accounting</label>
+        <label>Date Transmitted Initial SOA to Accounting</label>
         <input style= "text-transform:" type="date" name="Date_initial" id="Date_initial" class="form-control">
     </div>
 
@@ -179,7 +179,7 @@
         {{ form.First_payment }}
     </div> -->
     <div class="col-sm-6">
-        <label>Percent of first Payments</label>
+        <label>Percent of First Payment</label>
         <input style= "text-transform:" type="number" name="First_payment" id="First_payment" class="form-control">
     </div>
 
@@ -204,7 +204,7 @@
 
     </fieldset>
     <div class="card-footer">
-      <button type="submit" class="button">UPDATE</button>
+      <button type="submit" class="button">PROCEED</button>
     </div>
   </div>
 
@@ -216,7 +216,7 @@
       {{ form.Date_final }}
   </div> -->
   <div class="col-sm-6">
-      <label>Date Transmitted Final SQA</label>
+      <label>Date Transmitted Final SOA</label>
       <input style= "text-transform:" type="date" name="Date_final" id="Date_final" class="form-control">
   </div>
 
@@ -234,7 +234,7 @@
   </div>
   </fieldset>
       <div class="card-footer">
-      <button type="submit" class="button">UPDATE</button>
+      <button type="submit" class="button">PROCEED</button>
     </div>
 </div>
 </form>

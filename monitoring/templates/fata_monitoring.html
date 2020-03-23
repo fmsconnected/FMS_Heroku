@@ -23,7 +23,7 @@
 <div class="w3-bar w3-black">
   <button class="w3-bar-item w3-button" onclick="FATAmonitoring('New FATA Monitoring')">New FATA Monitoring</button>
   <button class="w3-bar-item w3-button" onclick="FATAmonitoring('Inbound Process')">Inbound Process</button>
-  <button class="w3-bar-item w3-button" onclick="FATAmonitoring('OutBound Process')">OutBound Process</button>
+  <button class="w3-bar-item w3-button" onclick="FATAmonitoring('OutBound Process')">Outbound Process</button>
 </div>
 <form method="POST">
 {% csrf_token %}
@@ -36,7 +36,7 @@
     </div>
 
     <div class="col-sm-4">
-        <label>Date Of Transfer:</label>
+        <label>Date of Transfer:</label>
         {{ form.Date_transfer }}
     </div>
     <div class="col-sm-4">
@@ -139,11 +139,11 @@
   <fieldset>
   <legend align="left">Document Routing 1</legend>
   <div class="col-sm-6">
-      <label>Globe Fixed Asset Recepient:</label>
+      <label>Globe Fixed Asset Recipient:</label>
       {{ form.Globe_fixed_asset }}
   </div>
   <div class="col-sm-6">
-      <label>Innove Fixed Asser Recepient:</label>
+      <label>Innove Fixed Asser Recipient:</label>
       {{ form.Innove_fixed_asset }}
   </div>
   </fieldset>

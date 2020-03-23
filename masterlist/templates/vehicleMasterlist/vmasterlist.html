@@ -22,15 +22,15 @@ $('#emp_id').on('change', function () {
 <form method="POST" action="{% url 'vehicleMasterlist_submit' %}">
 {% csrf_token %}
     <div class="col-sm-4">
-        <label>Plate Number:</label>
+        <label>Plate Number</label>
         <input type="text" name="plate_no" id="plate_no" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>Conduction Sticker Number:</label>
+        <label>Conduction Sticker Number</label>
         <input type="text" name="cs" id="cs" class="form-control" required>
     </div>
     <div class="col-sm-4">
-        <label>CR Name:</label>
+        <label>CR Name</label>
         <select name="cr_name" class="form-control">
             <option value="">--------</option>
             <option value="Globe">GLOBE</option>
@@ -38,11 +38,11 @@ $('#emp_id').on('change', function () {
         </select>
     </div>
     <div class="col-sm-4">
-        <label>Model:</label>
+        <label>Model</label>
         <input type="text" name="model" id="model" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>Brand:</label>
+        <label>Brand</label>
         <select name="cars" class="form-control">
             <option value="">--------</option>
             <option value="Honda">Honda</option>
@@ -86,27 +86,27 @@ $('#emp_id').on('change', function () {
         </select>
     </div>
     <div class="col-sm-4">
-        <label>Vehicle Make:</label>
+        <label>Vehicle Make</label>
         <input type="text" name="vmake" id="vmake" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>Engine Number:</label>
+        <label>Engine Number</label>
         <input type="text" name="eng_no" id="eng_no" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>MV File Number:</label>
+        <label>MV File Number</label>
         <input type="text" name="mvfile" id="mvfile" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>Vehicle Type:</label>
+        <label>Vehicle Type</label>
         <input type="text" name="vtype" id="vtype" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>Vehicle Category:</label>
+        <label>Vehicle Category</label>
         <input type="text" name="vcat" id="vcat" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>Employee Id:</label>
+        <label>Employee Id</label>
         <input name="emp_id" id="emp_id" class="form-control" list="emp_list">
             <datalist id="emp_list">               
             {% for emp_id in elist %}
@@ -116,63 +116,63 @@ $('#emp_id').on('change', function () {
             </datalist>
     </div>
     <div class="col-sm-4">
-        <label>Band Level:</label>
+        <label>Band Level</label>
         <input type="text" name="band" id="band" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>Band Benefit:</label>
+        <label>Band Benefit</label>
         <input type="text" name="benefit" id="benefit" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>Cost Center:</label>
+        <label>Cost Center</label>
         <input type="text" name="cost" id="cost" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>Group:</label>
+        <label>Group</label>
         <input type="text" name="group" id="group" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>Division:</label>
+        <label>Division</label>
         <input type="text" name="div" id="div" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>Department:</label>
+        <label>Department</label>
         <input type="text" name="dept" id="dept" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>Section:</label>
+        <label>Section</label>
         <input type="text" name="sec" id="sec" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>IS (Employee ID):</label>
+        <label>IS (Employee ID)</label>
         <input type="text" name="is_emp" id="is_emp" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>IS (Firstname):</label>
+        <label>IS (Firstname)</label>
         <input type="text" name="is_fname" id="is_fname" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>IS (Lastname):</label>
+        <label>IS (Lastname)</label>
         <input type="text" name="is_lname" id="is_lname" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>Location:</label>
+        <label>Location</label>
         <input type="text" name="loc" id="loc" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>Aquisition_date:</label>
+        <label>Aquisition_date</label>
         <input type="date" name="aqui_date" id="aqui_date" class="form-control">
     </div>
         <div class="col-sm-4">
-        <label>Aquisition Cost:</label>
+        <label>Aquisition Cost</label>
         <input type="text" name="aqui_cost" id="aqui_cost" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>Asset No:</label>
+        <label>Asset Number</label>
         <input type="text" name="asset" id="asset" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>PO No:</label>
+        <label>PO Number</label>
         <input type="text" name="po_no" id="po_no" class="form-control">
     </div>
     <div class="col-sm-4">
@@ -180,7 +180,7 @@ $('#emp_id').on('change', function () {
         <input type="text" name="sap_pr" id="sap_pr" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>Vehicle IVN No</label>
+        <label>Vehicle IVN Number</label>
         <input type="text" name="ivn_no" id="ivn_no" class="form-control">
     </div>
     <div class="col-sm-4">
@@ -188,7 +188,7 @@ $('#emp_id').on('change', function () {
         <input type="text" name="mathdoc" id="mathdoc" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>Equipment No</label>
+        <label>Equipment Number</label>
         <input type="text" name="eq_no" id="eq_no" class="form-control">
     </div>
     <div class="col-sm-4">
@@ -200,10 +200,10 @@ $('#emp_id').on('change', function () {
         <input type="text" name="dealer_name" id="dealer_name" class="form-control">
     </div>
     <div class="col-sm-4">
-        <label>Plate Release Date:</label>
+        <label>Plate Release Date</label>
         <input type="date" name="plate_date" id="plate_date" class="form-control">
     </div><div class="col-sm-4">
-        <label>Original OR Date:</label>
+        <label>Original OR Date</label>
         <input type="date" name="or_date" id="or_date" class="form-control">
     </div>
 </div>

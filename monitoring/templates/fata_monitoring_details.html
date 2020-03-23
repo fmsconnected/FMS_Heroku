@@ -18,42 +18,42 @@
         <th></th><td></td>
     </tr>
     <tr>
-      <th width="25%">FATA Number: </th><td width="25%">{{ object.Fata_no }}</td>
-      <th width="25%">Date Of Transfer:</th><td width="25%">{{ object.Date_transfer }}</td>
+      <th width="25%">FATA Number </th><td width="25%">{{ object.Fata_no }}</td>
+      <th width="25%">Date Of Transfer</th><td width="25%">{{ object.Date_transfer }}</td>
     </tr>
     <tr>
-      <th>Date Received:</th><td>{{ object.Date_received }}</td>
-      <th>Plate Number: </th> <td>{{ object.Plate_no }}</td>
+      <th>Date Received</th><td>{{ object.Date_received }}</td>
+      <th>Plate Number </th> <td>{{ object.Plate_no }}</td>
     </tr>
     <tr>
-      <th>Vehicle Make: </th> <td>{{ object.Vehicle_make }}</td>
-      <th>Vehicle Brand: </th> <td>{{ object.Vehicle_brand }}</td>
+      <th>Vehicle Make </th> <td>{{ object.Vehicle_make }}</td>
+      <th>Vehicle Brand </th> <td>{{ object.Vehicle_brand }}</td>
     </tr>
     <tr>
-      <th>Vehicle Model:</th> <td>{{ object.Vehicle_model }}</td>
-      <th>Certificate Of Registrations Name:</th> <td>{{ object.Certificate_of_Reg }}</td>
+      <th>Vehicle Model</th> <td>{{ object.Vehicle_model }}</td>
+      <th>Certificate Of Registrations Name</th> <td>{{ object.Certificate_of_Reg }}</td>
     </tr>
     <tr>
-      <th>Transferor Name: </th> <td>{{ object.Transferor_Fname }} {{ object.Transferor_Lname }}</td>
-      <th>Recipient Name:</th> <td>{{ object.Recipient_Fname }} {{ object.Recipient_Lname}}</td>
+      <th>Transferor Name </th> <td>{{ object.Transferor_Fname }} {{ object.Transferor_Lname }}</td>
+      <th>Recipient Name</th> <td>{{ object.Recipient_Fname }} {{ object.Recipient_Lname}}</td>
     </tr>
     <tr>
-      <th>Date Endorsed Globe:</th><td>{{ object.Date_endorsed_Globe }}</td>
-      <th>Date Endorsed Innove:</th><td>{{ object.Date_endorsed_Innove }}</td>
+      <th>Date Endorsed Globe</th><td>{{ object.Date_endorsed_Globe }}</td>
+      <th>Date Endorsed Innove</th><td>{{ object.Date_endorsed_Innove }}</td>
     </tr>
     <tr>
-      <th>Clearing Accountability:</th><td>{{ object.Clearing_accountability }}</td>
-      <th>Globe fixed Asset: </th> <td>{{ object.Globe_fixed_asset }}</td>
+      <th>Clearing Accountability</th><td>{{ object.Clearing_accountability }}</td>
+      <th>Globe fixed Asset </th> <td>{{ object.Globe_fixed_asset }}</td>
     </tr>
     <tr>
-      <th>Innove fixed Asset:</th><td>{{ object.Innove_fixed_asset }}</td>
+      <th>Innove fixed Asset</th><td>{{ object.Innove_fixed_asset }}</td>
       <th></th> <td></td>
     </tr>
     
 
 </table>
     <div class="card-footer">
-      <a href="{% url 'Monitoring_update' object.id %}" class="button" style="color:white">UPDATE</a><a href="{% url 'Monitoring_list' %}" class="btn">CLOSE</a>
+      <a href="{% url 'Monitoring_update' object.id %}" class="button" style="colorwhite">UPDATE</a><a href="{% url 'Monitoring_list' %}" class="btn">CLOSE</a>
     </div>
 
 {% endblock %}

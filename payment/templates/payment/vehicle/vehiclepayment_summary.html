@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
+
 <div class="row">
     <div class="col-lg-12">
         <h2 class="page-header">Vehicle Payment Details</h2>
@@ -11,8 +12,8 @@
 
 <table width="90%" class="table table-bordered table-hover" border="5px">
   <tr>
-      <th>SLA:</th><td>{{ object.V_SLA }}/Days</td>
-      <th>Date Initiated:</th><td>{{ object.Date_initiated }}</td>
+      <th>SLA</th><td>{{ object.V_SLA }}/Days</td>
+      <th>Date Initiated</th><td>{{ object.Date_initiated}}</td>
   </tr>
     <tr>
       <th width="25%">Activity ID </th><td width="25%">{{ object.Activity_id }}</td>
@@ -31,7 +32,7 @@
       <th>Invoice Number </th> <td>{{ object.invoice_number }}</td>
     </tr>
     <tr>
-      <th>Vehicle Delivery Date </th> <td>{{ object.V_deliverDate }}</td>
+      <th>Vehicle Delivery Date </th> <td>{{ object.V_deliverDate}}</td>
       <th>Conduction Sticker or Plate Number </th> <td>{{ object.V_plateNo }}</td>
     </tr>
     <tr>
@@ -64,8 +65,8 @@
       <th>Sticker Fields </th> <td>{{ object.Sticker_fields }}</td>
     </tr>
     <tr>
-      <th>Date Transmitted Initial SOA to Accounting:</th><td>{{ object.Date_initial }}</td>
-      <th>Percent of First Payment:</th> <td>{{ object.First_payment }}</td>
+      <th>Date Transmitted Initial SOA to Accounting</th><td>{{ object.Date_initial }}</td>
+      <th>Percent of First Payment</th> <td>{{ object.First_payment }}</td>
     </tr>
     <tr>
       <th>LTO Charges</th> <td>{{ object.LTO_charges }}</td>
