@@ -45,7 +45,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                     <a href="{% url 'vehicle_new' %}" style="float:right"><u>Add Vehicle Masterlist</u></a>
                     <a href="{% url 'vehicleMasterlist_history' %}" style="float:right" class="mr-3"><u>Vehicle Masterlist History</u></a>
                 </div>
-                    <table id="vtable" class="table table-striped table-bordered" style="width:100%" data-server-side="true" data-ajax="https://fmsjxmtsi.herokuapp.com/api/empmasterlist/">
+                    <table id="vtable" class="table table-striped table-bordered" style="width:100%" data-server-side="true" data-ajax="/api/masterlist/?format=datatables">
                     <thead>
                         <tr>
                             <th>Activity No</th>
@@ -108,16 +108,17 @@ $(document).ready(function() {
     // $.fn.dataTable.ext.errMode = 'throw';
     var table = $('#vtable').DataTable({
         "processing": true,
-        "serverSide": true,
+        "serverSide": false,
         "scrollX": true,
         "ajax": {
-            "URL":"https://fmsjxmtsi.herokuapp.com/api/masterlist/",
-            // "URL":"/api/masterlist/?format=datatables",
-            "Type":"GET",
-            "dataSrc":"data",
-            "xhrFields": {
-                "withCredentials": true
-            }
+            URL:"https://fmsjxmtsi.herokuapp.com/api/masterlist/",
+            // "url": "/api/masterlist/?format=datatables",
+            type: 'POST',
+            dataType: 'json',
+            dataSrc: ''
+            // "xhrFields": {
+            //     "withCredentials": true
+            // }
             // "dataSrc": function ( json ) {
             //     for ( var i=0, ien=json.data.length ; i<ien ; i++ ) {
             //         json.data[i][0] = '<a href="/message/'+json.data[i][0]+'>View message</a>';
