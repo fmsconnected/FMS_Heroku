@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+<style type="text/css">
+  th {
+    text-align: middle;
+  }
+</style>
 
 
 <div class="row">
@@ -109,6 +114,7 @@
     </tr>
 </table>
     <div class="card-footer">
-      <a href="{% url 'report_update' object.id %}" class="button">UPDATE</a><a href="{% url 'report_list' %}" class="btn">CLOSE</a>
+      <a href="{% url 'report_update' object.id %}" class="button">UPDATE</a>
+      <a href="{% url 'report_list' %}" class="btn">CLOSE</a>
     </div>
 {% endblock %}

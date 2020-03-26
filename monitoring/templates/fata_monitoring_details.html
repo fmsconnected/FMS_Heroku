@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<style type="text/css">
+  th {
+    text-align: middle;
+  }
+</style>
 
 <div class="col-md-12">
     <div class="card">
@@ -53,7 +58,8 @@
 
 </table>
     <div class="card-footer">
-      <a href="{% url 'Monitoring_update' object.id %}" class="button" style="colorwhite">UPDATE</a><a href="{% url 'Monitoring_list' %}" class="btn">CLOSE</a>
+      <a href="{% url 'Monitoring_update' object.id %}" class="button" style="colorwhite">UPDATE</a>
+      <a href="{% url 'Monitoring_list' %}" class="btn">CLOSE</a>
     </div>
 
 {% endblock %}

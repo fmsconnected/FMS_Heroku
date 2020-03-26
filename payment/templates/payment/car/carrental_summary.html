@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+<style type="text/css">
+  th {
+    text-align: middle;
+  }
+</style>
 
 <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
 <script src="https://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
@@ -165,7 +170,8 @@
     </tr>    
 </table>
     <div class="card-footer">
-      <a data-toggle="modal" data-target="#updateModal" class="button">UPDATE</a><a href="{% url 'carrental_list' %}" type="button" class="btn">CLOSE</a> 
+      <a data-toggle="modal" data-target="#updateModal" class="button">UPDATE</a>
+      <a href="{% url 'carrental_list' %}" type="button" class="btn">CLOSE</a> 
     </div>
 
 <!--Update Modal--->
@@ -319,7 +325,8 @@
         </div>
         <br><br>
         <div class="col-lg-12">
-            <button class="button" type="submit">PROCEED</button><a href="{% url 'carrental_list' %}" type="button" class="btn">CLOSE</a>    
+            <button class="button" type="submit">PROCEED</button>
+            <a href="{% url 'carrental_list' %}" type="button" class="btn">CLOSE</a>    
         </div>
             <div class="modal-footer">
           </div>
