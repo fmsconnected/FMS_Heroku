@@ -5,6 +5,12 @@
         text-align: center;
     }
 </style>
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
 <div class="breadcrumbs">
     <div class="col-sm-12">
         <h3><b>Transfer Of Ownership</b></h3>
@@ -44,14 +50,15 @@
                             <td>{{ Ownership.cond_sticker }}</td>
                             <td>{{ Ownership.TOO_SLA }}/Days</td>
                             <td>{{ Ownership.date_initiated }}</td>
-                            <form action="{% url 'ownership_delete' Ownership.id %}" method="POST">
-                                {% csrf_token %}
-                                <td><button title= "Delete" class="btn-danger btn-sm" type="submit" name="button"><span class="fa fa-trash"></span></button></td>
-                            </form> 
+                            <td>
+                                <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'ownership_delete' Ownership.pk %}">
+                                <span class="fa fa-trash"></span>
+                                </button>
+                            </td>
                         </tr>
                         {% endfor %}
                     </tbody>
-                    </table>
+                </table>
                 </div>
             </div>
         </div>
@@ -60,4 +67,16 @@
     <!-- /.row -->
 {% endblock %}
 
+{% block extrascripts %}
+<script type="text/javascript">
+  $(function() {
+    // Delete book buttons
+    $("#example").on('mouseover', '.delete-inventory', function() {
+      $(this).modalForm({
+        formURL: $(this).data('id')
+      });
+    });
 
+  });
+</script>
+{% endblock extrascripts %}
