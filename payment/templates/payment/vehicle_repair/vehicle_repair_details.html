@@ -5,80 +5,81 @@
     text-align: middle;
   }
 </style>
-<div class="row">
-    <div class="col-lg-12">
-        <h2 class="page-header">Vehicle Repair Payment Details</h2>
+
+<div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h3>Vehicle Repair Payment Details</h3>
     </div>
-</div>
 
 <br>
 
-<table width="90%" class="table table-bordered table-hover" border="5px">
+<table width="90%" class="table table-bordered table-hover" border="2px">
   <tr>
-      <th>Activity ID</th><td>{{ object.Activity_id }}/Days</td>
-      <th>Date Initiated</th><td>{{ object.date_initiated }}</td>
+    <th width="25%" >Activity ID</th><td width="25%" >{{ object.Activity_id }}/Days</td>
+    <th width="25%" >Date Initiated</th><td width="25%" >{{ object.date_initiated }}</td>
   </tr>
-    <tr>
-      <th></th><td></td>
-      <th></th><td></td>
-    </tr>
-    <tr>
-      <th>Repair Date </th><td>{{ object.request_date }}</td>
-      <th>Assignee Employee ID</th><td>{{ object.employee }}</td>
-    </tr>
-    <tr>
-      <th>Assignee Full Name </th> <td>{{ object.first_name }} {{ object.last_name }}</td>
-      <th>Assignee Contact Number</th><td>{{ object.contact_no }}</td>
-      
-    </tr>
-    <tr>
-      <th>Company </th> <td>{{ object.company }}</td>
-      <th>Department</th> <td>{{ object.department }}</td>
-    </tr>
-    <tr>
-      <th>Group Section</th> <td>{{ object.group_section }}</td>
-      <th></th><td></td>
-    </tr>
-    <tr>
-      <th></th><td></td>
-      <th></th><td></td>
-    </tr>
-    <tr>
-      <th>Plate Number</th> <td>{{ object.plate_no }}</td>
-      <th>Brand </th> <td>{{ object.v_brand }}</td>
-    </tr>
-    <tr>
-      <th>Make</th><td>{{ object.v_make }}</td>
-      <th>Model</th><td>{{ object.v_model }}</td>
-    </tr>
-    <tr>
-      <th>Chassis</th><td>{{ object.chassis }}</td>
-      <th>Band</th> <td>{{ object.band }}</td>
-    </tr>
-    <tr>
-      <th>Conduction Sticker</th><td>{{ object.cond_sticker }}</td>
-      <th>Equipment Number</th> <td>{{ object.equipment_no }}</td>
-    </tr>
-    <tr>
-      <th>RFP Number</th><td>{{ object.rfp_no }}</td>
-      <th>Engine Number</th> <td>{{ object.engine }}</td>
-    </tr>
-    <tr>
-      <th>Provider</th> <td>{{ object.dealership }}</td>
-      <th>Invoice Number</th> <td>{{ object.invoice_number2 }}</td>
-    </tr>
-    <tr>
-      <th>Service Type</th> <td>{{ object.service_type }}</td>
-      <th>Amount</th> <td>{{ object.amount }}</td>
-    </tr>
-    <tr>
-      <th>Invoice Date</th><td>{{ object.invoice_date }}</td>
-      <th></th><td></td>
-    </tr>  
+  <tr>
+    <th></th><td></td>
+    <th></th><td></td>
+  </tr>
+  <tr>
+    <th>Repair Date </th><td>{{ object.request_date }}</td>
+    <th>Assignee Employee ID</th><td>{{ object.employee }}</td>
+  </tr>
+  <tr>
+    <th>Assignee Full Name </th> <td>{{ object.first_name }} {{ object.last_name }}</td>
+    <th>Assignee Contact Number</th><td>{{ object.contact_no }}</td>
+    
+  </tr>
+  <tr>
+    <th>Company </th> <td>{{ object.company }}</td>
+    <th>Department</th> <td>{{ object.department }}</td>
+  </tr>
+  <tr>
+    <th>Group Section</th> <td>{{ object.group_section }}</td>
+    <th></th><td></td>
+  </tr>
+  <tr>
+    <th></th><td></td>
+    <th></th><td></td>
+  </tr>
+  <tr>
+    <th>Plate Number</th> <td>{{ object.plate_no }}</td>
+    <th>Brand </th> <td>{{ object.v_brand }}</td>
+  </tr>
+  <tr>
+    <th>Make</th><td>{{ object.v_make }}</td>
+    <th>Model</th><td>{{ object.v_model }}</td>
+  </tr>
+  <tr>
+    <th>Chassis</th><td>{{ object.chassis }}</td>
+    <th>Band</th> <td>{{ object.band }}</td>
+  </tr>
+  <tr>
+    <th>Conduction Sticker</th><td>{{ object.cond_sticker }}</td>
+    <th>Equipment Number</th> <td>{{ object.equipment_no }}</td>
+  </tr>
+  <tr>
+    <th>RFP Number</th><td>{{ object.rfp_no }}</td>
+    <th>Engine Number</th> <td>{{ object.engine }}</td>
+  </tr>
+  <tr>
+    <th>Provider</th> <td>{{ object.dealership }}</td>
+    <th>Invoice Number</th> <td>{{ object.invoice_number2 }}</td>
+  </tr>
+  <tr>
+    <th>Service Type</th> <td>{{ object.service_type }}</td>
+    <th>Amount</th> <td>{{ object.amount }}</td>
+  </tr>
+  <tr>
+    <th>Invoice Date</th><td>{{ object.invoice_date }}</td>
+    <th></th><td></td>
+  </tr>  
 </table>
-    <div class="card-footer">
-      <a href="{% url 'vehiclerepair_payment_udpate' object.id %}" class="button" style="color:white">UPDATE</a>
-      <a href="{% url 'vehiclerepair_payment' %}" type="button" class="btn">CLOSE</a>
-    </div>
+  <div class="card-footer">
+    <a href="{% url 'vehiclerepair_payment_udpate' object.id %}" class="button">UPDATE</a>
+    <a href="{% url 'vehiclerepair_payment' %}" type="button" class="btn">CLOSE</a>
+  </div>
 
 {% endblock %}
