@@ -107,8 +107,8 @@ tr:nth-child(even){background-color: #f2f2f2}
 $(document).ready(function() {
     // $.fn.dataTable.ext.errMode = 'throw';
     var table = $('#vtable').DataTable({
-        "processing": true,
-        "serverSide": false,
+        // "processing": true,
+        "serverSide": true,
         "scrollX": true,
         "deferRender": true
         "ajax": "//fmsjxmtsi.herokuapp.com/api/masterlist/"
