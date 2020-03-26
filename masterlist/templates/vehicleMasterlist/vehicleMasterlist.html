@@ -106,16 +106,25 @@ tr:nth-child(even){background-color: #f2f2f2}
 
 $(document).ready(function() {
     // $.fn.dataTable.ext.errMode = 'throw';
+    var api_url = 'https://fmsjxmtsi.herokuapp.com/api/empmasterlist/'
+    var key = 'AIzaSyCIwZ6PWRgzSq3W-9tK4z8rzkt_tOy5nz4'
+
     var table = $('#vtable').DataTable({
         "processing": true,
         "serverSide": false,
         "scrollX": true,
         "ajax": {
-            // "URL":"https://fmsjxmtsi.herokuapp.com/api/masterlist/",
-            "url": "/api/masterlist/?format=datatables",
-            "type": "POST",
+            "url": "api_url + "?key=" + key + " &q=" + $( this ).text()",
+            "contentType": "application/json",
             "dataType": "json",
-            "dataSrc": ""
+            success: function(result){
+                console.log(result);
+            }
+            // "URL":"https://fmsjxmtsi.herokuapp.com/api/masterlist/",
+            // "url": "/api/masterlist/?format=datatables",
+            // "type": "POST",
+            // "dataType": "json",
+            // "dataSrc": ""
             // "xhrFields": {
             //     "withCredentials": true
             // }
