@@ -70,23 +70,17 @@ tr:nth-child(even){background-color: #f2f2f2}
 {% block extra_js %}
 <script>
 $(document).ready(function() {
-    // $.fn.dataTable.ext.errMode = 'throw';
-    var api_url = 'https://fmsjxmtsi.herokuapp.com/api/empmasterlist/'
-    var key = 'AIzaSyCIwZ6PWRgzSq3W-9tK4z8rzkt_tOy5nz4'
-
+    // $.fn.dataTable.ext.errMode = 'throw';\
+    // var key = 'AIzaSyCIwZ6PWRgzSq3W-9tK4z8rzkt_tOy5nz4'
     var table = $('#vtable').DataTable({
         "processing": true,
         "serverSide": false,
         "scrollX": true,
-        "ajax":{
-            "url": "api_url + "?key=" + key + " &q=" + $( this ).text()",
-            "contentType": "application/json",
-            "dataType": "json",
-            success: function(result){
-                console.log(result);
-            }
+        "deferRender": true
+        "ajax":"//fmsjxmtsi.herokuapp.com/api/empmasterlist/"
+        // {
             // "URL":"https://fmsjxmtsi.herokuapp.com/api/empmasterlist/",
-            // url: "/api/empmasterlist/?format=datatables",
+            // "url": "/api/empmasterlist/?format=datatables",
             // "type": "POST",
             // "dataType": "json",
             // "dataSrc": ""
@@ -99,7 +93,7 @@ $(document).ready(function() {
             //     }
             //     return json.data;
             // }
-        },
+        // },
         // "ajax": {
         //     "Authorization":"Bearer 125c7980-6cd1-40a5-99eb-b6e0ae43255b",
         //     "Content-Type:":"/api/empmasterlist/",
