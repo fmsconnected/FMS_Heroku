@@ -74,10 +74,13 @@ $(document).ready(function() {
     // var key = 'AIzaSyCIwZ6PWRgzSq3W-9tK4z8rzkt_tOy5nz4'
     var table = $('#vtable').DataTable({
         // "processing": true,
-        "serverSide": true,
+        "stateSave": true,
+        "paging": true,
+        "cache": false,
+        "serverSide": false,
         "scrollX": true,
         "deferRender": true,
-        "ajax":'//fmsjxmtsi.herokuapp.com/api/empmasterlist/'
+        "ajax":"//fmsjxmtsi.herokuapp.com/api/empmasterlist/"
         // {
             // "URL":"https://fmsjxmtsi.herokuapp.com/api/empmasterlist/",
             // "url": "/api/empmasterlist/?format=datatables",

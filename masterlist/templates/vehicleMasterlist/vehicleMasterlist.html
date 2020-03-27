@@ -108,10 +108,13 @@ $(document).ready(function() {
     // $.fn.dataTable.ext.errMode = 'throw';
     var table = $('#vtable').DataTable({
         // "processing": true,
-        "serverSide": true,
+        "stateSave": true,
+        "paging": true,
+        "cache": false,
+        "serverSide": false,
         "scrollX": true,
         "deferRender": true,
-        "ajax": '//fmsjxmtsi.herokuapp.com/api/masterlist/'
+        "ajax": "//fmsjxmtsi.herokuapp.com/api/masterlist/"
         // {
             // "URL":"https://fmsjxmtsi.herokuapp.com/api/masterlist/",
             // "url": "/api/masterlist/?format=datatables",
