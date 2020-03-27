@@ -50,7 +50,7 @@ def increment_Activity_Id():
 def increment_NO():
 	last_in = VehicleMasterList.objects.all().order_by('id').last()
 	if not last_in:
-	    return '000000'
+	    return '000001'
 	in_id = last_in.NO
 	in_int = int(in_id[0:])
 	new_in_int = in_int + 1
