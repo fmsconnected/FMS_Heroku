@@ -31,7 +31,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                     <a href="{% url 'masterlist_dl'%}"> <u>Export Employee Masterlist</u></a>
                     <a href="{% url 'employeeMasterlist-new' %}" style="float:right"><u>Add New Employee</u></a>
                 </div>
-                    <table id="vtable" class="display" style="width:100%" data-server-side="true" data-ajax="//fmsjxmtsi.herokuapp.com/api/empmasterlist/">
+                    <table id="vtable" class="display" style="width:100%" data-server-side="false" data-ajax="//fmsjxmtsi.herokuapp.com/api/empmasterlist/">
                     <thead>
                         <tr>
                             <th>Employee ID</th>
@@ -80,13 +80,12 @@ $(document).ready(function() {
         "serverSide": false,
         "scrollX": true,
         "deferRender": true,
-        "ajax": "//fmsjxmtsi.herokuapp.com/api/empmasterlist/",
-        // {
-            // "URL":"https://fmsjxmtsi.herokuapp.com/api/empmasterlist/",
+        "ajax": {
+            "URL":"//fmsjxmtsi.herokuapp.com/api/empmasterlist/",
             // "url": "/api/empmasterlist/?format=datatables",
-            // "type": "POST",
-            // "dataType": "json",
-            // "dataSrc": ""
+            "type": "POST",
+            "dataType": "json",
+            "dataSrc": ""
             // "xhrFields": {
             //     "withCredentials": true
             // }
@@ -96,7 +95,7 @@ $(document).ready(function() {
             //     }
             //     return json.data;
             // }
-        // },
+        },
         // "ajax": {
         //     "Authorization":"Bearer 125c7980-6cd1-40a5-99eb-b6e0ae43255b",
         //     "Content-Type:":"/api/empmasterlist/",
