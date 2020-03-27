@@ -45,7 +45,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                     <a href="{% url 'vehicle_new' %}" style="float:right"><u>Add Vehicle Masterlist</u></a>
                     <a href="{% url 'vehicleMasterlist_history' %}" style="float:right" class="mr-3"><u>Vehicle Masterlist History</u></a>
                 </div>
-                    <table id="vtable" class="table table-striped table-bordered" style="width:100%" data-server-side="false" data-ajax="//fmsjxmtsi.herokuapp.com/api/masterlist/">
+                    <table id="vtable" class="table table-striped table-bordered" style="width:100%" data-server-side="false" data-ajax="/api/masterlist/?format=datatables">
                     <thead>
                         <tr>
                             <th>Activity No</th>
@@ -107,7 +107,7 @@ tr:nth-child(even){background-color: #f2f2f2}
 $(document).ready(function() {
     // $.fn.dataTable.ext.errMode = 'throw';
     var table = $('#vtable').DataTable({
-        "processing": true,
+        // "processing": true,
         // "stateSave": true,
         // "paging": true,
         // "cache": false,
@@ -115,11 +115,9 @@ $(document).ready(function() {
         "scrollX": true,
         "deferRender": true,
         "ajax": {
-            "URL":"//fmsjxmtsi.herokuapp.com/api/masterlist/",
-            // "url": "/api/masterlist/?format=datatables",
+            // "URL":"//fmsjxmtsi.herokuapp.com/api/masterlist/",
+            "url": "/api/masterlist/?format=datatables",
             "type": "POST",
-            "dataType": "json",
-            "dataSrc": ""
             // "xhrFields": {
             //     "withCredentials": true
             // }

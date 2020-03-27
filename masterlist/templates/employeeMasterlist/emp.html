@@ -31,7 +31,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                     <a href="{% url 'masterlist_dl'%}"> <u>Export Employee Masterlist</u></a>
                     <a href="{% url 'employeeMasterlist-new' %}" style="float:right"><u>Add New Employee</u></a>
                 </div>
-                    <table id="vtable" class="display" style="width:100%" data-server-side="false" data-ajax="//fmsjxmtsi.herokuapp.com/api/empmasterlist/">
+                    <table id="vtable" class="display" style="width:100%" data-server-side="false" data-ajax="/api/empmasterlist/?format=datatables">
                     <thead>
                         <tr>
                             <th>Employee ID</th>
@@ -73,7 +73,7 @@ $(document).ready(function() {
     // $.fn.dataTable.ext.errMode = 'throw';\
     // var key = 'AIzaSyCIwZ6PWRgzSq3W-9tK4z8rzkt_tOy5nz4'
     var table = $('#vtable').DataTable({
-        "processing": true,
+        // "processing": true,
         // "stateSave": true,
         // "paging": true,
         // "cache": false,
@@ -81,11 +81,9 @@ $(document).ready(function() {
         "scrollX": true,
         "deferRender": true,
         "ajax": {
-            "URL":"//fmsjxmtsi.herokuapp.com/api/empmasterlist/",
-            // "url": "/api/empmasterlist/?format=datatables",
+            // "URL":"//fmsjxmtsi.herokuapp.com/api/empmasterlist/",
+            "url": "/api/empmasterlist/?format=datatables",
             "type": "POST",
-            "dataType": "json",
-            "dataSrc": ""
             // "xhrFields": {
             //     "withCredentials": true
             // }
