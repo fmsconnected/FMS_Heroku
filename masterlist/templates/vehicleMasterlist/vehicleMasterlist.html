@@ -107,13 +107,13 @@ tr:nth-child(even){background-color: #f2f2f2}
 $(document).ready(function() {
     // $.fn.dataTable.ext.errMode = 'throw';
     var table = $('#vtable').DataTable({
-        // "processing": true,
+        "processing": true,
         // "stateSave": true,
         // "paging": true,
         // "cache": false,
         "serverSide": false,
         "scrollX": true,
-        // "deferRender": true,
+        "deferRender": true,
         "ajax": {
             "URL":"//fmsjxmtsi.herokuapp.com/api/masterlist/",
             // "url": "/api/masterlist/?format=datatables",
