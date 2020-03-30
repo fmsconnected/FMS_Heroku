@@ -206,22 +206,7 @@ def employeeMasterlistHistoryView(request):
 class vreg_details(DetailView):
     model = VehicleMasterList
     template_name = 'vehicleMasterlist/vreg_details.html'
-
-# def registration(request):
-#     model = VehicleMasterList
-#     reg1 = VehicleMasterList.objects.filter(PLATE_ENDING="1")
-#     reg2 = VehicleMasterList.objects.filter(PLATE_ENDING="2")
-#     reg3 = VehicleMasterList.objects.filter(PLATE_ENDING="3")
-#     reg4 = VehicleMasterList.objects.filter(PLATE_ENDING="4")
-#     reg5 = VehicleMasterList.objects.filter(PLATE_ENDING="5")
-#     reg6 = VehicleMasterList.objects.filter(PLATE_ENDING="6")
-#     reg7 = VehicleMasterList.objects.filter(PLATE_ENDING="7")
-#     reg8 = VehicleMasterList.objects.filter(PLATE_ENDING="8")
-#     reg9 = VehicleMasterList.objects.filter(PLATE_ENDING="9")
-#     reg0 = VehicleMasterList.objects.filter(PLATE_ENDING="0")
-#     return render(request, 'registration/registration.html', {'title': 'Vehicle - Vehicle Filter', 'reg1': reg1,'reg2': reg2, 'reg3': reg3,
-#     'reg4': reg4, 'reg5': reg5, 'reg6': reg6, 'reg7': reg7, 'reg8': reg8, 'reg9': reg9, 'reg0': reg0})
-
+    
 def vehicle_bayan(request):
     context = {
             'bayan_list': VehicleMasterList.objects.filter(CR_NAME__contains="BAYANTEL")

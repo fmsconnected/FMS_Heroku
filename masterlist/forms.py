@@ -201,19 +201,6 @@ class Vmaster(forms.ModelForm):
             ]
 
             widgets = {
-                  # 'PLATE_NO': forms.TextInput(attrs={'class':'form-control','readonly':'true'}),
-                  # 'Conduction_Sticker': forms.TextInput(attrs={'class':'form-control','readonly':'true'}),
-                  # 'Remarks': forms.TextInput(attrs={'class':'form-control','readonly':'true'}),
-                  # 'CR_name': forms.TextInput(attrs={'class':'form-control','readonly':'true'}),
-                  # 'Ending': forms.TextInput(attrs={'class':'form-control','readonly':'true'}),
-                  # 'Model': forms.TextInput(attrs={'class':'form-control','readonly':'true'}),
-                  # 'Brand': forms.Select(attrs={'class':'form-control','readonly':'true'}),
-                  # 'Vehicle_make': forms.TextInput(attrs={'class':'form-control','readonly':'true'}),
-                  # 'Engine_No': forms.TextInput(attrs={'class':'form-control','readonly':'true'}),
-                  # 'MV_file_no': forms.TextInput(attrs={'class':'form-control','readonly':'true'}),
-                  # 'vehicle_type': forms.TextInput(attrs={'class':'form-control','readonly':'true'}),
-                  # 'original_OR_date': forms.TextInput(attrs={'class':'form-control','type':'date'}),
-                  # 'plateNo_release': forms.TextInput(attrs={'class':'form-control','type':'date'})
 
                   'PLATE_NO': forms.TextInput(attrs={'class':'form-control'}),
                   'CS_NO': forms.TextInput(attrs={'class':'form-control'}),

@@ -105,34 +105,14 @@ tr:nth-child(even){background-color: #f2f2f2}
 <script>
 
 $(document).ready(function() {
-    // $.fn.dataTable.ext.errMode = 'throw';
     var table = $('#vtable').DataTable({
-        // "processing": true,
-        // "stateSave": true,
-        // "paging": true,
-        // "cache": false,
         "serverSide": false,
         "scrollX": true,
         "deferRender": true,
         "ajax": {
-            // "URL":"//fmsjxmtsi.herokuapp.com/api/masterlist/",
             "url": "/api/masterlist/?format=datatables",
-            "type": "POST",
-            // "xhrFields": {
-            //     "withCredentials": true
-            // }
-            // "dataSrc": function ( json ) {
-            //     for ( var i=0, ien=json.data.length ; i<ien ; i++ ) {
-            //         json.data[i][0] = '<a href="/message/'+json.data[i][0]+'>View message</a>';
-            //         }
-            //     return json.data;
-            //     }
+            "type": "POST"
             },
-        // "ajax": {
-        //     "Authorization":"Bearer 125c7980-6cd1-40a5-99eb-b6e0ae43255b",
-        //     "Content-Type:":"/api/masterlist/",
-        //     "X-HTTP-Method-Override":"POST"
-        //     },
         "columns": [
             { 
             "data": "Activity_Id",

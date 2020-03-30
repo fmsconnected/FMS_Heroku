@@ -70,35 +70,14 @@ tr:nth-child(even){background-color: #f2f2f2}
 {% block extra_js %}
 <script>
 $(document).ready(function() {
-    // $.fn.dataTable.ext.errMode = 'throw';\
-    // var key = 'AIzaSyCIwZ6PWRgzSq3W-9tK4z8rzkt_tOy5nz4'
     var table = $('#vtable').DataTable({
-        // "processing": true,
-        // "stateSave": true,
-        // "paging": true,
-        // "cache": false,
         "serverSide": false,
         "scrollX": true,
         "deferRender": true,
         "ajax": {
-            // "URL":"//fmsjxmtsi.herokuapp.com/api/empmasterlist/",
             "url": "/api/empmasterlist/?format=datatables",
-            "type": "POST",
-            // "xhrFields": {
-            //     "withCredentials": true
-            // }
-            // "dataSrc": function ( json ) {
-            //     for ( var i=0, ien=json.data.length ; i<ien ; i++ ) {
-            //         json.data[i][0] = '<a href="/message/'+json.data[i][0]+'>View message</a>';
-            //     }
-            //     return json.data;
-            // }
+            "type": "POST"
         },
-        // "ajax": {
-        //     "Authorization":"Bearer 125c7980-6cd1-40a5-99eb-b6e0ae43255b",
-        //     "Content-Type:":"/api/empmasterlist/",
-        //     "X-HTTP-Method-Override":"POST"
-        //     },
         "columns": [
             {"data":"Employee_Id"},
             {"data":"Company"},
@@ -138,13 +117,6 @@ $(document).ready(function() {
 </script>
 
 {% endblock %}
-<!-- // "render": function(data, type, row, meta, id){
-            // if(type === 'display'){
-            //     // data = '<a href="/VehicleMasterlist/New/ {{ data.id }}">' + data + '</a>';
-            //     data = '<a href="{%url 'vehicle_details' id.id %}">' + data + '</a>';
-            //     }
-            // return data;
-            // }
- -->
+
 
 
