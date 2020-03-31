@@ -37,6 +37,7 @@
                             <th>Conduction Sticker Number</th>
                             <th>SLA</th>
                             <th>Date Initiated</th>
+                            <th>Date Deadline</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -49,6 +50,7 @@
                             <td>{{ service_vehicle.vehicle_CS_no }}</td>
                             <td>{{ service_vehicle.SVV_SLA }}/Days</td>
                             <td>{{ service_vehicle.date_initiated }}</td>
+                            <td bgcolor="red">{{ service_vehicle.Deadline }}</td>
                             <td>
                                 <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'service_delete' service_vehicle.pk %}">
                                 <span class="fa fa-trash"></span>

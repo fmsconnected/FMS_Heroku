@@ -35,6 +35,7 @@
                             <th>Fleet Card Number</th>
                             <th>SLA</th>
                             <th>Date Initiated</th>
+                            <th>Date Deadline</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -50,6 +51,7 @@
                             <td>{{ Gas_card.fleet_card_no }}</td>
                             <td>{{ Gas_card.GCR_SLA }}/Days</td>
                             <td>{{ Gas_card.date_initiated }}</td>
+                            <td bgcolor="red">{{ Gas_card.Deadline }}</td>
                             <td>
                                 <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'gascard_delete' Gas_card.pk %}">
                                 <span class="fa fa-trash"></span>

@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 import datetime
-from datetime import date
+from datetime import date,timedelta
 from masterlist.models import EmployeeMasterlist,VehicleMasterList
 # History
 from simple_history.models import HistoricalRecords
@@ -66,6 +66,18 @@ class CarRentalRequest(models.Model):
 	CR_SLA = models.CharField(max_length=10, null=True, blank=True)
 	Date_initiated = models.DateField(auto_now=True, blank=True)
 	history = HistoricalRecords()
+	Deadline = models.DateTimeField()
+
+	def save(self, *args, **kwargs):
+		if self.Deadline is None:
+			now = datetime.datetime.today()
+			num_days = 0
+			while num_days < 2:
+				now = now + timedelta(days=1)
+				if now.isoweekday() not in [6,7]:
+					num_days+=1
+			self.Deadline = now
+		super().save(*args, **kwargs)
 
 	def __str__(self):
 		return self.Activity_id
@@ -167,6 +179,18 @@ class Gas_card(models.Model):
 	date_initiated = models.DateField(auto_now=True, blank=True)
 	GCR_SLA = models.CharField(max_length=20, null=True, blank=True)
 	history = HistoricalRecords()
+	Deadline = models.DateTimeField()
+
+	def save(self, *args, **kwargs):
+		if self.Deadline is None:
+			now = datetime.datetime.today()
+			num_days = 0
+			while num_days < 10:
+				now = now + timedelta(days=1)
+				if now.isoweekday() not in [6,7]:
+					num_days+=1
+			self.Deadline = now
+		super().save(*args, **kwargs)
 
 	def __str__(self):
 		return self.Activity_id
@@ -254,6 +278,19 @@ class service_vehicle(models.Model):
 	SVV_SLA = models.CharField(max_length=10, null=True, blank=True)
 	date_initiated = models.DateField(auto_now=True, null=True)
 	history = HistoricalRecords()
+	Deadline = models.DateTimeField()
+
+	def save(self, *args, **kwargs):
+		if self.Deadline is None:
+			now = datetime.datetime.today()
+			num_days = 0
+			while num_days < 60:
+				now = now + timedelta(days=1)
+				if now.isoweekday() not in [6,7]:
+					num_days+=1
+			self.Deadline = now
+		super().save(*args, **kwargs)
+
 
 	def __str__(self):
 		return self.Activity_id
@@ -340,6 +377,18 @@ class Vehicle_Repair(models.Model):
 	VRR_SLA = models.CharField(max_length=10, null=True, blank=True)
 	date_initiated = models.DateField(auto_now=True, null=True, blank=True)
 	history = HistoricalRecords()
+	Deadline = models.DateTimeField()
+
+	def save(self, *args, **kwargs):
+		if self.Deadline is None:
+			now = datetime.datetime.today()
+			num_days = 0
+			while num_days < 30:
+				now = now + timedelta(days=1)
+				if now.isoweekday() not in [6,7]:
+					num_days+=1
+			self.Deadline = now
+		super().save(*args, **kwargs)
 
 	def __str__(self):
 		return self.Activity_id

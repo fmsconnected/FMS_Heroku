@@ -37,6 +37,7 @@
                             <th>CS Number</th>
                             <th>SLA</th>
                             <th>Date Initiated</th>
+                            <th>Date Deadline</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -50,6 +51,7 @@
                             <td>{{ Ownership.cond_sticker }}</td>
                             <td>{{ Ownership.TOO_SLA }}/Days</td>
                             <td>{{ Ownership.date_initiated }}</td>
+                            <td bgcolor="red">{{ VehiclePayment.Deadline }}</td>
                             <td>
                                 <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'ownership_delete' Ownership.pk %}">
                                 <span class="fa fa-trash"></span>

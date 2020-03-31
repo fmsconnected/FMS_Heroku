@@ -37,6 +37,7 @@
                             <th>Work Order Number</th>
                             <th>SLA</th>
                             <th>Date Initiated</th>
+                            <th>Date Deadline</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -49,6 +50,7 @@
                             <td>{{ Vehicle_Repair.work_order1 }}</td>
                             <td>{{ Vehicle_Repair.VRR_SLA }}/Days</td>
                             <td>{{ Vehicle_Repair.date_initiated }}</td>
+                            <td bgcolor="red">{{ Vehicle_Repair.Deadline }}</td>
                             <td>
                                 <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'repair_delete' Vehicle_Repair.pk %}">
                                 <span class="fa fa-trash"></span>

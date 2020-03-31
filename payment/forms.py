@@ -70,7 +70,6 @@ class FuelsupplierForm(forms.ModelForm):
 		self.fields['SOA_outstanding_amount'].required = False
 		self.fields['Payee'].required = False
 		self.fields['SOA_attached'].required = False
-		self.fields['Payment_deadline'].required = False
 		self.fields['Date_forwarded'].required = False
 		self.fields['F_SLA'].required = False
 
@@ -78,7 +77,7 @@ class FuelsupplierForm(forms.ModelForm):
 		model = Fuel_supplier
 		fields = [
 		'SOA_Date_received','Fuel_provider','SOA_billdate','SOA_current_amount','SOA_outstanding_amount'
-		,'Payee','SOA_attached','Payment_deadline','Date_forwarded','F_SLA'
+		,'Payee','SOA_attached','Date_forwarded','F_SLA'
 		]
 
 		CHOICES= (
@@ -95,7 +94,6 @@ class FuelsupplierForm(forms.ModelForm):
 		'SOA_outstanding_amount': forms.TextInput(attrs={'class':'form-control','type':'number'}),
 		'Payee': forms.Select(attrs={'class':'form-control','choices':'CHOICES'}),
 		'SOA_attached': forms.Textarea(attrs={'cols': 80, 'rows': 5}),
-		'Payment_deadline': forms.TextInput(attrs={'class':'form-control','type':'date'}),
 		'Date_forwarded': forms.TextInput(attrs={'class':'form-control','type':'date'}),
 		'F_SLA': forms.TextInput(attrs={'class':'form-control','type':'number','value':'15','hidden':'True'})
 		}

@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 import datetime
+from datetime import date,timedelta
 from masterlist.models import EmployeeMasterlist,VehicleMasterList
 # History
 from simple_history.models import HistoricalRecords
@@ -47,6 +48,18 @@ class vehicle_report(models.Model):
     date_initiated = models.DateField(auto_now=True, null=True)
     MVAR_SLA = models.CharField(max_length=10, null=True)
     history = HistoricalRecords()
+    Deadline = models.DateTimeField()
+
+    def save(self, *args, **kwargs):
+        if self.Deadline is None:
+            now = datetime.datetime.today()
+            num_days = 0
+            while num_days < 5:
+                now = now + timedelta(days=1)
+                if now.isoweekday() not in [6,7]:
+                    num_days+=1
+            self.Deadline = now
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.Activity_id

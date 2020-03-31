@@ -216,12 +216,11 @@ class Fuel_supplier(models.Model):
 	Payee = models.CharField(max_length=10, null=True, choices=PAYEE, blank=True)
 	SOA_attached = models.CharField(max_length=100, null=True, blank=True)
 	Date_initiated = models.DateField(auto_now=True, blank=True)
-	Payment_deadline = models.CharField(max_length=100, blank=True)
 	Date_forwarded = models.CharField(max_length=100, blank=True)
 	F_SLA = models.CharField(max_length=10, null=True, blank=True)
 	history = HistoricalRecords()
 	Deadline = models.DateTimeField()
-	
+
 	def save(self, *args, **kwargs):
 		if self.Deadline is None:
 			now = datetime.datetime.today()

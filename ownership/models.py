@@ -1,5 +1,6 @@
 from django.db import models
 import datetime
+from datetime import date,timedelta
 from django.urls import reverse
 from masterlist.models import VehicleMasterList
 # History
@@ -118,6 +119,18 @@ class Ownership(models.Model):
     date_initiated = models.DateField(auto_now=True, null=True, blank=True)
     date_received_by = models.CharField(max_length=100, null=True, blank=True)
     history = HistoricalRecords()
+    Deadline = models.DateTimeField()
+
+    def save(self, *args, **kwargs):
+        if self.Deadline is None:
+            now = datetime.datetime.today()
+            num_days = 0
+            while num_days < 30:
+                now = now + timedelta(days=1)
+                if now.isoweekday() not in [6,7]:
+                    num_days+=1
+            self.Deadline = now
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.Activity_id
