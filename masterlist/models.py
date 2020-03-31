@@ -151,7 +151,6 @@ class VehicleMasterList(models.Model):
 	leasing_remark = models.CharField(max_length=225, null=True, blank=True)
 	history = HistoricalRecords()
 
-
 	def __str__(self):
 		return self.PLATE_NO
 				
