@@ -34,6 +34,7 @@
                             <th>PO Number</th>
                             <th>SLA</th>
                             <th>Date Initiated</th>
+                            <th>Date Deadline</th>
                             <th>Equipment Number</th>
                             <th>Asset Number</th>
                             <th>Sap PR Number</th>
@@ -51,6 +52,7 @@
                             <td>{{ VehiclePayment.PO_no }}</td>
                             <td>{{ VehiclePayment.V_SLA }}/Days</td>
                             <td>{{ VehiclePayment.Date_initiated}}</td>
+                            <td bgcolor="red">{{ VehiclePayment.Deadline }}</td>
                             <td>{{ VehiclePayment.equip_no }}</td>
                             <td>{{ VehiclePayment.asset_no }}</td>
                             <td>{{ VehiclePayment.sap_no }}</td>

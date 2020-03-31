@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 import datetime
-from datetime import date
+from datetime import date,timedelta
 from masterlist.models import EmployeeMasterlist,VehicleMasterList
 # History
 from simple_history.models import HistoricalRecords
@@ -80,7 +80,19 @@ class CarRental(models.Model):
 	I_amount = models.CharField(max_length=100, null=True, blank=True)
 	R_purpose = models.CharField(max_length=100, null=True, blank=True)
 	C_SLA = models.CharField(max_length=10, null=True, blank=True)
+	Deadline = models.DateTimeField()
 	history = HistoricalRecords()
+
+	def save(self, *args, **kwargs):
+		if self.Deadline is None:
+			now = datetime.datetime.today()
+			num_days = 0
+			while num_days < 15:
+				now = now + timedelta(days=1)
+				if now.isoweekday() not in [6,7]:
+					num_days+=1
+			self.Deadline = now
+		super().save(*args, **kwargs)
 
 	def __str__(self):
 		return self.Activity_id
@@ -117,6 +129,7 @@ def increment_PO_no():
 	new_in_id = str(new_in_int).zfill(9)
 	return new_in_id
 
+
 class VehiclePayment(models.Model):
 	Activity_id = models.CharField(max_length=20, default=increment_Activity_id)
 	PO_no = models.CharField(max_length=100, default=increment_PO_no)
@@ -150,7 +163,18 @@ class VehiclePayment(models.Model):
 	sap_no = models.CharField(max_length=100, null=True, blank=True)
 	mat_no = models.CharField(max_length=100, null=True, blank=True)
 	Dealer_name = models.CharField(max_length=100, null=True, blank=True)
-
+	Deadline = models.DateTimeField()	
+	# Deadline = models.DateTimeField(default=get_default_Deadline)
+	def save(self, *args, **kwargs):
+		if self.Deadline is None:
+			now = datetime.datetime.today()
+			num_days = 0
+			while num_days < 15:
+				now = now + timedelta(days=1)
+				if now.isoweekday() not in [6,7]:
+					num_days+=1
+			self.Deadline = now
+		super().save(*args, **kwargs)
 
 	def __str__(self):
 		return self.Activity_id
@@ -196,6 +220,18 @@ class Fuel_supplier(models.Model):
 	Date_forwarded = models.CharField(max_length=100, blank=True)
 	F_SLA = models.CharField(max_length=10, null=True, blank=True)
 	history = HistoricalRecords()
+	Deadline = models.DateTimeField()
+	
+	def save(self, *args, **kwargs):
+		if self.Deadline is None:
+			now = datetime.datetime.today()
+			num_days = 0
+			while num_days < 15:
+				now = now + timedelta(days=1)
+				if now.isoweekday() not in [6,7]:
+					num_days+=1
+			self.Deadline = now
+		super().save(*args, **kwargs)
 
 	def __str__(self):
 		return self.Activity_id
