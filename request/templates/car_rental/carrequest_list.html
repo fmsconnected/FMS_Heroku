@@ -50,7 +50,7 @@
                             <td>{{ CarRentalRequest.Plate_no }}</td>
                             <td>{{ CarRentalRequest.CR_SLA }}/Days</td>
                             <td>{{ CarRentalRequest.Date_initiated }}</td>
-                            <td class="red">{{ CarRentalRequest.Deadline }}</td>
+                            <td>{{ CarRentalRequest.Deadline }}</td>
                             <td>
                                 <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'carrequest_delete' CarRentalRequest.pk %}">
                                 <span class="fa fa-trash"></span>
