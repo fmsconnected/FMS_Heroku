@@ -5,25 +5,21 @@
         text-align: center;
     }
 </style>
-<div class="modal fade" tabindex="-1" role="dialog" id="modal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content"></div>
-  </div>
-</div>
 
 <div class="breadcrumbs">
     <div class="col-sm-12">
-        <h3><b>Transfer of Ownership</b></h3>
+        <h3><b>Transfer Of Ownership</b></h3>
     </div>
 </div>
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active">Transfer of Ownership</a>
+    <a class="nav-link" href="{% url 'ownership_list' %}">Transfer of Ownership</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link " href="{% url 'toodeadline' %}">Coming Deadline</a>
+    <a class="nav-link active">Coming Deadline</a>
   </li>
 </ul>
+
 
 <div class="content mt-3">
     <div class="animated fadeIn">
@@ -60,12 +56,7 @@
                             <td>{{ Ownership.cond_sticker }}</td>
                             <td>{{ Ownership.TOO_SLA }}/Days</td>
                             <td>{{ Ownership.date_initiated }}</td>
-                            <td bgcolor="red">{{ Ownership.Deadline }}</td>
-                            <td>
-                                <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'ownership_delete' Ownership.pk %}">
-                                <span class="fa fa-trash"></span>
-                                </button>
-                            </td>
+                            <td class="red">{{ Ownership.Deadline }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -78,16 +69,3 @@
     <!-- /.row -->
 {% endblock %}
 
-{% block extrascripts %}
-<script type="text/javascript">
-  $(function() {
-    // Delete book buttons
-    $("#example").on('mouseover', '.delete-inventory', function() {
-      $(this).modalForm({
-        formURL: $(this).data('id')
-      });
-    });
-
-  });
-</script>
-{% endblock extrascripts %}

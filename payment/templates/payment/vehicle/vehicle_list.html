@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% load widget_tweaks %}
 {% block content %}
+<style type="text/css">
+#example td.red {
+     color: red;
+     font-weight: bold;
+}
+</style>
 
 <div class="modal fade" tabindex="-1" role="dialog" id="modal">
   <div class="modal-dialog modal-md" role="document">
@@ -8,13 +14,19 @@
   </div>
 </div>
 
-
 <div class="breadcrumbs">
     <div class="col-sm-14">
         <h3><b>New Vehicle Payment</b></h3>
     </div>
 </div>
-
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active">New Vehicle Payment</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'Vehicle_deadline' %}">Coming Deadline</a>
+  </li>
+</ul>
 <div class="content mt-3">
     <div class="animated fadeIn">
         <div class="row">

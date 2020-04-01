@@ -2,6 +2,8 @@ from django.shortcuts import render,HttpResponseRedirect,HttpResponse
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views import generic
 from openpyxl import Workbook
+import datetime
+from datetime import date, timedelta
 from django.urls import reverse_lazy
 from .models import (
    	Ownership,
@@ -96,6 +98,17 @@ def ownership_submit(request):
 		saveto_own.save()
 
 		return HttpResponseRedirect('/Ownership/Ownership/')
+def too_deadline(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    # dl = datetime.datetime.today() - timedelta(days=3)
+    dl = Ownership.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=1))
+    dl2 = Ownership.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=2))
+    dl3 = Ownership.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=3))
+    dl4 = Ownership.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=4))
+    dl5 = Ownership.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=5))
+    return  render(request, 'TOOdeadline.html',{'title':'TOO - TOO Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5})
+
 
 class ownershipUpdate(SuccessMessageMixin, UpdateView):
 	model = Ownership

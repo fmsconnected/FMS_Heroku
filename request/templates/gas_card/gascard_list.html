@@ -12,6 +12,14 @@
         <h2><b>Gas Card Request</b></h2>
     </div>
 </div>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active">Gas Card Request</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'gccdeadline' %}">Coming Deadline</a>
+  </li>
+</ul>
 
 <div class="content mt-3">
     <div class="animated fadeIn">
@@ -51,7 +59,7 @@
                             <td>{{ Gas_card.fleet_card_no }}</td>
                             <td>{{ Gas_card.GCR_SLA }}/Days</td>
                             <td>{{ Gas_card.date_initiated }}</td>
-                            <td bgcolor="red">{{ Gas_card.Deadline }}</td>
+                            <td class="red">{{ Gas_card.Deadline }}</td>
                             <td>
                                 <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'gascard_delete' Gas_card.pk %}">
                                 <span class="fa fa-trash"></span>

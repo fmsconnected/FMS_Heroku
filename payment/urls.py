@@ -18,7 +18,7 @@ from .views import (
 
 urlpatterns = [
 	path('Vehicle/', VehicleListView.as_view(), name = 'Vehicle_list'),
-	# path('Vehicle/New', VehicleCreateView.as_view(),name='Vehicle-new'),
+	path('Vehicle/Deadline', views.nvp_deadline,name='Vehicle_deadline'),
 	path('Vehicle/New', views.vehiclecreate, name='Vehicle-new'),
 	path('Vehicle/submit', views.vehicle_submit, name='Vehicle_submit'),
 	path('Vehicle/Detail/<int:pk>', VehicleDetailView.as_view(), name='Vehicle-summary'),
@@ -27,6 +27,7 @@ urlpatterns = [
 	path('Vehicle/History/', views.VehicleHistoryView, name='Vehicle_history'),
 	path('Vehicle/export', views.vehicle_excel, name='vehicle_export'),
 	path('Car/', CarListView.as_view(), name='carrental_list'),
+	path('Car/Deadline', views.car_deadline, name='cardeadline'),
 	path('Car/New', views.Carrentalpayment, name='Car-rental'),
 	path('Car/Submit', views.Carrental_submit, name='Car_submit'),
 	path('Car/Detail/<int:pk>', CarRentalDetailView.as_view(), name='Carrental_summary'),
@@ -35,6 +36,7 @@ urlpatterns = [
 	path('Car/History/', views.carrentalHistoryView, name='carrental_history'),
 	path('Car/export', views.car_excel, name = 'car_export'),
 	path('Fuel/', FuelListView.as_view(), name = 'Fuel_supplierList'),
+	path('Fuel/Deadline', views.fuel_deadline, name='fueldeadline'),
 	path('Fuel/New', FuelCreateView.as_view(), name='Fuel_supplierNew'),
 	path('Fuel/Update/<int:pk>', FuelUpdateView.as_view(), name='Fuel_update'),
 	path('Fuel/Detail/<int:pk>', FuelDetailView.as_view(), name='Fuel-summary'),

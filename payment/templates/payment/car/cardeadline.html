@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% block content %}
+<style type="text/css">
+#example td.red {
+     color: red;
+     font-weight: bold;
+}
+</style>
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3><b>Car Rental Payment</b></h3>
+    </div>
+</div>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'carrental_list' %}">Car Rental Payment</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Coming Deadline</a>
+  </li>
+</ul>
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'car_export' %}" style="float:left"><u><b>Export Car Rental Data</b></u></a>
+                    <a href="{% url 'Car-rental' %}" style="float:right"><u><b>Add Car Rental</b></u>&nbsp; &nbsp;</a>
+                    <a href="{% url 'carrental_history' %}" style="float:right" class="mr-3"><u><b>Car Rental History</b></u></a>
+                </div>                         
+                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity ID</th>
+                            <th>Assignee Full Name</th>
+                            <th>Assignee Cost Center</th>
+                            <th>Billing Date</th>
+                            <th>Plate Number</th>
+                            <th>SLA</th>
+                            <th>Date Initiated</th>
+                            <th>Date Deadline</th>
+                            <th>Provider</th>
+                            <th>SOA Number</th>
+                            <th>RFP Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cr in dl %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'Carrental_summary' cr.id %}">{{ cr.Activity_id }}</a></td>
+                            <td>{{ cr.F_name }} {{ cr.L_name }}</td>
+                            <td>{{ cr.Cost_center }}</td>
+                            <td>{{ cr.Bill_date }}</td>
+                            <td>{{ cr.Plate_no }}</td>
+                            <td>{{ cr.C_SLA }}/Days</td>
+                            <td>{{ cr.Date_initiated }}</td>
+                            <td class="red">{{ cr.Deadline }}</td>
+                            <td>{{ cr.car_provider}} </td>
+                            <td>{{ cr.sqa_number}} </td>
+                            <td>{{ cr.rfp_no2 }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for cr2 in dl2 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'Carrental_summary' cr2.id %}">{{ cr2.Activity_id }}</td>
+                            <td>{{ cr2.F_name }} {{ cr2.L_name }}</td>
+                            <td>{{ cr2.Cost_center }}</td>
+                            <td>{{ cr2.Bill_date }}</td>
+                            <td>{{ cr2.Plate_no }}</td>
+                            <td>{{ cr2.C_SLA }}/Days</td>
+                            <td>{{ cr2.Date_initiated }}</td>
+                            <td class="red">{{ cr2.Deadline }}</td>
+                            <td>{{ cr2.car_provider}} </td>
+                            <td>{{ cr2.sqa_number}} </td>
+                            <td>{{ cr2.rfp_no2 }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for cr3 in dl3 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'Carrental_summary' cr3.id %}">{{ cr3.Activity_id }}</td>
+                            <td>{{ cr3.F_name }} {{ cr3.L_name }}</td>
+                            <td>{{ cr3.Cost_center }}</td>
+                            <td>{{ cr3.Bill_date }}</td>
+                            <td>{{ cr3.Plate_no }}</td>
+                            <td>{{ cr3.C_SLA }}/Days</td>
+                            <td>{{ cr3.Date_initiated }}</td>
+                            <td class="red">{{ cr3.Deadline }}</td>
+                            <td>{{ cr3.car_provider}} </td>
+                            <td>{{ cr3.sqa_number}} </td>
+                            <td>{{ cr3.rfp_no2 }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for cr4 in dl4 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'Carrental_summary' cr4.id %}">{{ cr4.Activity_id }}</td>
+                            <td>{{ cr4.F_name }} {{ cr4.L_name }}</td>
+                            <td>{{ cr4.Cost_center }}</td>
+                            <td>{{ cr4.Bill_date }}</td>
+                            <td>{{ cr4.Plate_no }}</td>
+                            <td>{{ cr4.C_SLA }}/Days</td>
+                            <td>{{ cr4.Date_initiated }}</td>
+                            <td class="red">{{ cr4.Deadline }}</td>
+                            <td>{{ cr4.car_provider}} </td>
+                            <td>{{ cr4.sqa_number}} </td>
+                            <td>{{ cr4.rfp_no2 }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for cr5 in dl5 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'Carrental_summary' cr5.id %}">{{ cr5.Activity_id }}</td>
+                            <td>{{ cr5.F_name }} {{ cr5.L_name }}</td>
+                            <td>{{ cr5.Cost_center }}</td>
+                            <td>{{ cr5.Bill_date }}</td>
+                            <td>{{ cr5.Plate_no }}</td>
+                            <td>{{ cr5.C_SLA }}/Days</td>
+                            <td>{{ cr5.Date_initiated }}</td>
+                            <td class="red">{{ cr5.Deadline }}</td>
+                            <td>{{ cr5.car_provider}} </td>
+                            <td>{{ cr5.sqa_number}} </td>
+                            <td>{{ cr5.rfp_no2 }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+    <!-- /.row -->
+{% endblock %}

@@ -17,7 +17,14 @@
         <h3 class="page-header"><b>Vehicle Repair Request</b></h3>
     </div>
 </div>
-
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active">Vehicle Repair Request</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'vrpdeadline' %}">Coming Deadline</a>
+  </li>
+</ul>
 <div class="content mt-3">
     <div class="animated fadeIn">
         <div class="row">
@@ -50,7 +57,7 @@
                             <td>{{ Vehicle_Repair.work_order1 }}</td>
                             <td>{{ Vehicle_Repair.VRR_SLA }}/Days</td>
                             <td>{{ Vehicle_Repair.date_initiated }}</td>
-                            <td bgcolor="red">{{ Vehicle_Repair.Deadline }}</td>
+                            <td class="red">{{ Vehicle_Repair.Deadline }}</td>
                             <td>
                                 <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'repair_delete' Vehicle_Repair.pk %}">
                                 <span class="fa fa-trash"></span>

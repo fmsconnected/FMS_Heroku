@@ -12,6 +12,14 @@
         <h3><b>Fuel Supplier Payment List</b></h3>
     </div>
 </div>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active">Fuel Supplier Payment</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'fueldeadline' %}">Coming Deadline</a>
+  </li>
+</ul>
 <div class="content mt-3">
     <div class="animated fadeIn">
         <div class="row">
@@ -45,7 +53,7 @@
                             <td>{{ Fuel_supplier.SOA_outstanding_amount }}</td>
                             <td>{{ Fuel_supplier.F_SLA }}/Days</td>
                             <td>{{ Fuel_supplier.Date_initiated }}</td>
-                            <td bgcolor="Red">{{ Fuel_supplier.Deadline }}</td>
+                            <td class="red">{{ Fuel_supplier.Deadline }}</td>
                             <td>{{ Fuel_supplier.Date_forwarded }}</td>
                             <td>
                                 <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'Fuel_delete' Fuel_supplier.pk %}">

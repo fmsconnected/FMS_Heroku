@@ -6,9 +6,9 @@
     }
 </style>
 <div class="modal fade" tabindex="-1" role="dialog" id="modal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content"></div>
-  </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content"></div>
+    </div>
 </div>
 
 <div class="breadcrumbs">
@@ -16,7 +16,14 @@
         <h3><b>Motor Vehicle Accident Report List</b></h3>
     </div>
 </div>
-
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active">Report</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " href="{% url 'reportdeadline' %}">Coming Deadline</a>
+  </li>
+</ul>
 <div class="content mt-3">
     <div class="animated fadeIn">
         <div class="row">
@@ -49,7 +56,7 @@
                             <td>{{ vehicle_report.cond_sticker }}</td>
                             <td>{{ vehicle_report.MVAR_SLA }}</td>
                             <td>{{ vehicle_report.date_initiated }}</td>
-                            <td bgcolor="red">{{ Vehicle_Repair.Deadline }}</td>
+                            <td class="red">{{ vehicle_report.Deadline }}</td>
                             <td>
                                 <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'report_delete' vehicle_report.pk %}">
                                 <span class="fa fa-trash"></span>

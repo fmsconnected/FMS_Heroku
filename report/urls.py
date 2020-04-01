@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
 	path('Report/', views.reportListView.as_view(), name= 'report_list'),
+	path('Report/Deadline', views.report_deadline, name='reportdeadline'),
 	path('Report/New', views.report_new, name='report_new'),
 	path('Report/Submit', views.report_submit, name='report_submit'),
 	path('Report/Export', views.report_excel, name='report_export'),

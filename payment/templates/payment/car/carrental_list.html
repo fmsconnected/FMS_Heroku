@@ -13,7 +13,14 @@
         <h3><b>Car Rental Payment</b></h3>
     </div>
 </div>
-
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="{% url 'carrental_list' %}">Car Rental Payment</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'cardeadline' %}">Coming Deadline</a>
+  </li>
+</ul>
 <div class="content mt-3">
     <div class="animated fadeIn">
         <div class="row">
@@ -51,7 +58,7 @@
                             <td>{{ CarRental.Plate_no }}</td>
                             <td>{{ CarRental.C_SLA }}/Days</td>
                             <td>{{ CarRental.Date_initiated }}</td>
-                            <td bgcolor="Red">{{ CarRental.Deadline }}</td>
+                            <td class="red">{{ CarRental.Deadline }}</td>
                             <td>{{ CarRental.car_provider}} </td>
                             <td>{{ CarRental.sqa_number}} </td>
                             <td>{{ CarRental.rfp_no2 }}</td>

@@ -4,7 +4,7 @@ from openpyxl import Workbook
 from django.urls import reverse_lazy
 from django.views import generic
 import datetime
-from datetime import date
+from datetime import date, timedelta
 from .models import (
     CarRental,
     VehiclePayment,
@@ -30,7 +30,19 @@ from bootstrap_modal_forms.generic import (
 class CarListView(ListView):
     model = CarRental
     template_name = 'payment/car/carrental_list.html'
-    
+
+def car_deadline(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    # dl = datetime.datetime.today() - timedelta(days=3)
+    dl = CarRental.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=1))
+    dl2 = CarRental.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=2))
+    dl3 = CarRental.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=3))
+    dl4 = CarRental.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=4))
+    dl5 = CarRental.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=5))
+    return  render(request, 'payment/car/cardeadline.html',{'title':'Car - Car Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5})
+
+
 class CarRentalDetailView(DetailView):
     model = CarRental
     template_name = 'payment/car/carrental_summary.html'
@@ -247,6 +259,17 @@ def VehicleHistoryView(request):
        obj = VehiclePayment.history.all()
 
        return render(request, 'payment/vehicle/vehicle_history.html', context={'object': obj})
+def nvp_deadline(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    # dl = datetime.datetime.today() - timedelta(days=3)
+    dl = VehiclePayment.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=1))
+    dl2 = VehiclePayment.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=2))
+    dl3 = VehiclePayment.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=3))
+    dl4 = VehiclePayment.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=4))
+    dl5 = VehiclePayment.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=5))
+    return  render(request, 'payment/vehicle/vehicledeadline.html',{'title':'Vehicle - Vehicle Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5})
+
             
 class FuelDetailView(DetailView):
     model = Fuel_supplier
@@ -285,6 +308,18 @@ def FuelHistoryView(request):
        obj = Fuel_supplier.history.all()
 
        return render(request, 'payment/fuel/fuel_supplier_history.html', context={'object': obj})
+
+def fuel_deadline(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    # dl = datetime.datetime.today() - timedelta(days=3)
+    dl = Fuel_supplier.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=1))
+    dl2 = Fuel_supplier.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=2))
+    dl3 = Fuel_supplier.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=3))
+    dl4 = Fuel_supplier.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=4))
+    dl5 = Fuel_supplier.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=5))
+    return  render(request, 'payment/fuel/fueldeadline.html',{'title':'Fuel - Fuel Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5})
+
 
 class vrepair_payment(ListView):
     model = Vehicle_Repair_payment

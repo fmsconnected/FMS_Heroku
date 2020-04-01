@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h2><b>Gas Card Request Deadline</b></h2>
+    </div>
+</div>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'gascard_list' %}">Gas Card Request</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active">Coming Deadline</a>
+  </li>
+</ul>
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'gas_export' %}" style="float: left"><u><b>Export Gas Card Data</b></u></a>
+                    <a href="{% url 'gascard_new' %}" style="float:right "><u><b>Add Gas Card Request</b></u>&nbsp; &nbsp;</a>
+                    <a href="{% url 'gascard_history' %}" style="float:right " class="mr-3"><u><b>Gas Card Request History</b></u></a>
+                </div>
+                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity ID</th>
+                            <th>Requisitioner Name</th>
+                            <th>Plate Number</th>
+                            <th>Fleet Card Provider</th>
+                            <th>Cost Center</th>
+                            <th>Liter Limit</th>
+                            <th>Fleet Card Number</th>
+                            <th>SLA</th>
+                            <th>Date Initiated</th>
+                            <th>Date Deadline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for gcc in dl %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'gascard_details' gcc.id %}"><u>{{ gcc.Activity_id }}</u></a></td>
+                            <td>{{ gcc.req_fname }} {{ gcc.req_lname }}</td>
+                            <td>{{ gcc.plate_no }}</td>
+                            <td>{{ gcc.fleet_provider }}</td>
+                            <td>{{ gcc.cost_center_code }}</td>
+                            <td>{{ gcc.fuel_limit_quantity }}</td>
+                            <td>{{ gcc.fleet_card_no }}</td>
+                            <td>{{ gcc.GCR_SLA }}/Days</td>
+                            <td>{{ gcc.date_initiated }}</td>
+                            <td class="red">{{ gcc.Deadline }}</td>                        
+                        </tr>
+                        {% endfor %}
+                        {% for gcc2 in dl2 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'gascard_details' gcc2.id %}"><u>{{ gcc2.Activity_id }}</u></a></td>
+                            <td>{{ gcc2.req_fname }} {{ gcc2.req_lname }}</td>
+                            <td>{{ gcc2.plate_no }}</td>
+                            <td>{{ gcc2.fleet_provider }}</td>
+                            <td>{{ gcc2.cost_center_code }}</td>
+                            <td>{{ gcc2.fuel_limit_quantity }}</td>
+                            <td>{{ gcc2.fleet_card_no }}</td>
+                            <td>{{ gcc2.GCR_SLA }}/Days</td>
+                            <td>{{ gcc2.date_initiated }}</td>
+                            <td class="red">{{ gcc2.Deadline }}</td>                        
+                        </tr>
+                        {% endfor %}
+                        {% for gcc3 in dl3 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'gascard_details' gcc3.id %}"><u>{{ gcc3.Activity_id }}</u></a></td>
+                            <td>{{ gcc3.req_fname }} {{ gcc3.req_lname }}</td>
+                            <td>{{ gcc3.plate_no }}</td>
+                            <td>{{ gcc3.fleet_provider }}</td>
+                            <td>{{ gcc3.cost_center_code }}</td>
+                            <td>{{ gcc3.fuel_limit_quantity }}</td>
+                            <td>{{ gcc3.fleet_card_no }}</td>
+                            <td>{{ gcc3.GCR_SLA }}/Days</td>
+                            <td>{{ gcc3.date_initiated }}</td>
+                            <td class="red">{{ gcc3.Deadline }}</td>                        
+                        </tr>
+                        {% endfor %}
+                        {% for gcc4 in dl4 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'gascard_details' gcc4.id %}"><u>{{ gcc4.Activity_id }}</u></a></td>
+                            <td>{{ gcc4.req_fname }} {{ gcc4.req_lname }}</td>
+                            <td>{{ gcc4.plate_no }}</td>
+                            <td>{{ gcc4.fleet_provider }}</td>
+                            <td>{{ gcc4.cost_center_code }}</td>
+                            <td>{{ gcc4.fuel_limit_quantity }}</td>
+                            <td>{{ gcc4.fleet_card_no }}</td>
+                            <td>{{ gcc4.GCR_SLA }}/Days</td>
+                            <td>{{ gcc4.date_initiated }}</td>
+                            <td class="red">{{ gcc4.Deadline }}</td>                        
+                        </tr>
+                        {% endfor %}
+                        {% for gcc5 in dl5 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'gascard_details' gcc5.id %}"><u>{{ gcc5.Activity_id }}</u></a></td>
+                            <td>{{ gcc5.req_fname }} {{ gcc5.req_lname }}</td>
+                            <td>{{ gcc5.plate_no }}</td>
+                            <td>{{ gcc5.fleet_provider }}</td>
+                            <td>{{ gcc5.cost_center_code }}</td>
+                            <td>{{ gcc5.fuel_limit_quantity }}</td>
+                            <td>{{ gcc5.fleet_card_no }}</td>
+                            <td>{{ gcc5.GCR_SLA }}/Days</td>
+                            <td>{{ gcc5.date_initiated }}</td>
+                            <td class="red">{{ gcc5.Deadline }}</td>                        
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+    <!-- /.row -->
+{% endblock %}

@@ -1,142 +1,171 @@
 {% extends 'base.html' %}
 {% block content %}
 <!-- Right Panel -->
-
-<div id="right-panel" class="right-panel">
-    <div class="breadcrumbs">
-        <div class="col-xl-5">
-            <div class="page-header float-left">
-                <div class="page-title">
-                    <h1><b>Dashboard</b></h1>
-                </div>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script>
+  function dashboard(cityName) {
+    var i;
+    var x = document.getElementsByClassName("db");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    document.getElementById(cityName).style.display = "block";  
+  }
+  </script>
+<style type="text/css">
+    p{
+        color: #0A0200;
+    }
+</style>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 align="right"><b>Dashboard</b></h1>&nbsp;
+    </div>
+</div>
+    <div class="w3-bar w3-gray">
+        <button class="w3-bar-item w3-button" onclick="dashboard('Payment')">Payment Tab</button>
+        <button class="w3-bar-item w3-button" onclick="dashboard('Request')">Request Tab</button>
+        <button class="w3-bar-item w3-button" onclick="dashboard('Insurance')">Insurance Tab</button>
+        <button class="w3-bar-item w3-button" onclick="dashboard('Monitoring')">Monitoring Tab</button>
+        <button class="w3-bar-item w3-button" onclick="dashboard('TOO')">Tranfer of Ownership Tab</button>
+        <button class="w3-bar-item w3-button" onclick="dashboard('Masterlist')">Masterlist Tab</button>
+    </div>
+    <div id="Payment" class="w3-container db">
+        <div class="col-lg-4">
+            <div class="social-box github">
+                <b>New Vehicle Payment Monitoring</b>
+                <i class="fa fa-laptop">&nbsp;
+                    <p class="count">40</p>
+                    <p>Total Records</p>
+                    <p>Check Coming Deadline <b><a href="{% url 'Vehicle_deadline' %}">Click Me!</a></b></p>
+                </i>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="social-box github">
+            <b>Car Rental Payment Monitoring</b>
+                <i class="fa fa-laptop">
+                    <p class="count">40</p>
+                    <p>Total Records</p>
+                    <p>Check Coming Deadline <b><a href="{% url 'cardeadline' %}">Click Me!</a></b></p>
+                </i>
+            </div>
+        </div>
+        <div class="col-lg-4 ">
+            <div class="social-box github">
+            <b>Fuel Supplier Payment Monitoring</b>
+                <i class="fa fa-laptop">
+                    <p class="count">40</p>
+                    <p>Total Records</p>
+                    <p>Check Coming Deadline <b><a href="{% url 'fueldeadline' %}">Click Me!</a></b></p>
+                </i>
+            </div>
+        </div>
+        <div class="col-lg-4 ">
+            <div class="social-box github">
+            <b>Vehicle Repair Payment Monitoring</b>
+                <i class="fa fa-laptop">
+                    <p class="count">40</p>
+                    <p>Total Records</p>
+                </i>
             </div>
         </div>
     </div>
-    <div class="content mt-5">
-        <div class="col-lg-4">
+    <div id="Request" class="w3-container db" style="display:none">
+        <div class="col-lg-4 ">
             <div class="social-box github">
-                <b>Payment</b>
-                <i class="fa fa-laptop" style="color:#3FF712;"></i>
-                <ul>
-                    <li>
-                        <span class="count">40</span>
-                        <span>Total of SLA Pending</span>
-                    </li>
-                    <li>
-                        <span>Please Update Me!</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="social-box github">
-            <b>Request</b>
-                <i class="fa fa-send" style="color:#33F8E6"></i>
-                <ul>
-                    <li>
-                        <span class="count">40</span>
-                        <span>Total of SLA Pending</span>
-                    </li>
-                    <li>
-                        <span>Please Update Me!</span>
-                    </li>
-                </ul>
+            <b>Car Rental Request Monitoring</b>
+                <i class="fa fa-user">
+                    <p class="count">40</p>
+                    <p>Total Records</p>
+                    <p>Check Coming Deadline <b><a href="{% url 'crrdeadline' %}">Click Me!</a></b></p>
+                </i>
             </div>
         </div>
         <div class="col-lg-4 ">
             <div class="social-box github">
-            <b>Insurance</b>
-                <i class="fa fa-file" style="color:#F8FBFB"></i>
-                <ul>
-                    <li>
-                        <span class="count">40</span>
-                        <span>Total of SLA Pending</span>
-                    </li>
-                    <li>
-                        <span>Please Update Me!</span>
-                    </li>
-                </ul>
+            <b>Gas Card Request Monitoring</b>
+                <i class="fa fa-user">
+                    <p class="count">40</p>
+                    <p>Total Records</p>
+                    <p>Check Coming Deadline <b><a href="{% url 'gccdeadline' %}">Click Me!</a></b></p>
+                </i>
             </div>
         </div>
         <div class="col-lg-4 ">
             <div class="social-box github">
-            <b>Monitoring</b>
-                <i class="fa fa-folder" style="color:#F34415"></i>
-                <ul>
-                    <li>
-                        <span class="count">40</span>
-                        <span>Total of SLA Pending</span>
-                    </li>
-                    <li>
-                        <span>Please Update Me!</span>
-                    </li>
-                </ul>
+            <b>Service Vehicle Request Monitoring</b>
+                <i class="fa fa-user">
+                    <p class="count">40</p>
+                    <p>Total Records</p>
+                    <p>Check Coming Deadline <b><a href="{% url 'svrdeadline' %}">Click Me!</a></b></p>
+                </i>
             </div>
         </div>
         <div class="col-lg-4 ">
             <div class="social-box github">
-            <b>Ownership</b>
-                <i class="fa fa-user" style="color:#15B0F3"></i>
-                <ul>
-                    <li>
-                        <span class="count">40</span>
-                        <span>Total of SLA Pending</span>
-                    </li>
-                    <li>
-                        <span>Please Update Me!</span>
-                    </li>
-                </ul>
+            <b>Vehicle Repair Request Monitoring</b>
+                <i class="fa fa-user">
+                    <p class="count">40</p>
+                    <p>Total Records</p>
+                    <p>Check Coming Deadline <b><a href="{% url 'vrpdeadline' %}">Click Me!</a></b></p>
+                </i>
             </div>
         </div>
+    </div>
+    <div id="Insurance" class="w3-container db" style="display:none">
         <div class="col-lg-4 ">
             <div class="social-box github">
-            <b>Masterlist</b>
-                <i class="fa fa-folder-open" style="color:#E615F3"></i>
-                <ul>
-                    <li>
-                        <span class="count">40</span>
-                        <span>Total of SLA Pending</span>
-                    </li>
-                    <li>
-                        <span>Please Update Me!</span>
-                    </li>
-                </ul>
+            <b>Motor Vehicle Accendent Report</b>
+                <i class="fa fa-user">
+                    <p class="count">40</p>
+                    <p>Total Records</p>
+                    <p>Check Coming Deadline <b><a href="{% url 'reportdeadline' %}">Click Me!</a></b></p>
+                </i>
             </div>
-            <!--/social-box-->
         </div>
-        <!-- <div class="col-xl-12">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <h4 class="card-title mb-0">Traffic</h4>
-                            <div class="small text-muted">October 2017</div>
-                        </div>
-                        <div class="col-sm-8 hidden-sm-down">
-                            <button type="button" class="btn btn-primary float-right bg-flat-color-1"><i class="fa fa-cloud-download"></i></button>
-                            <div class="btn-toolbar float-right" role="toolbar" aria-label="Toolbar with button groups">
-                                <div class="btn-group mr-3" data-toggle="buttons" aria-label="First group">
-                                    <label class="btn btn-outline-secondary">
-                                        <input type="radio" name="options" id="option1"> Day
-                                    </label>
-                                    <label class="btn btn-outline-secondary active">
-                                        <input type="radio" name="options" id="option2" checked=""> Month
-                                    </label>
-                                    <label class="btn btn-outline-secondary">
-                                        <input type="radio" name="options" id="option3"> Year
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="chart-wrapper mt-4">
-                        <canvas id="trafficChart" style="height:200px;" height="200"></canvas>
-                    </div>
-
-                </div>
+    </div>
+    <div id="Monitoring" class="w3-container db" style="display:none">
+        <div class="col-lg-4 ">
+            <div class="social-box github">
+            <b>FATA Monitoring</b>
+                <i class="fa fa-user">
+                    <p class="count">40</p>
+                    <p>Total Records</p>
+                </i>
             </div>
-        </div> -->
-    </div> <!-- .content -->
-</div><!-- /#right-panel -->
-
+        </div>
+    </div>
+    <div id="TOO" class="w3-container db" style="display:none">
+        <div class="col-lg-4" align="center">
+            <div class="social-box github" align="center">
+            <b>Transfer of Ownership</b>
+                <i class="fa fa-user">
+                    <p class="count">40</p>
+                    <p>Total Records</p>
+                    <p>Check Coming Deadline <b><a href="{% url 'toodeadline' %}">Click Me!</a></b></p>
+                </i>
+            </div>
+        </div>
+    </div>
+    <div id="Masterlist" class="w3-container db" style="display:none">
+        <div class="col-lg-4 " align="center">
+            <div class="social-box github">
+            <b>Vehicle Masterlist</b>
+                <i class="fa fa-user">
+                    <p class="count">40</p>
+                    <p>Total Records</p>
+                </i>
+            </div>
+        </div>
+        <div class="col-lg-4 " align="center">
+            <div class="social-box github">
+            <b>Employee Masterlist</b>
+                <i class="fa fa-user">
+                    <p class="count">40</p>
+                    <p>Total Records</p>
+                </i>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -1,12 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="modal fade" tabindex="-1" role="dialog" id="modal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content"></div>
-  </div>
-</div>
-
 <div class="breadcrumbs">
     <div class="col-sm-12">
         <h3><b>Car Rental Request</b></h3>
@@ -14,10 +8,10 @@
 </div>
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active">Car Rental Request</a>
+    <a class="nav-link" href="{% url 'carrequest_list' %}">Car Rental Request</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{% url 'crrdeadline' %}">Coming Deadline</a>
+    <a class="nav-link active">Coming Deadline</a>
   </li>
 </ul>
 <div class="content mt-3">
@@ -39,23 +33,27 @@
                             <th>SLA</th>
                             <th>Date Initiated</th>
                             <th>Date Deadline</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for CarRentalRequest in object_list %}
+                        {% for crr in dl %}
                         <tr class="odd gradeX">
-                            <td><a href="{% url 'carrequest_details' CarRentalRequest.id %}"><u>{{ CarRentalRequest.Activity_id }}</u></a></td>
-                            <td>{{ CarRentalRequest.Assignee_Fname }} {{ CarRentalRequest.Assignee_Lname }}</td>
-                            <td>{{ CarRentalRequest.Plate_no }}</td>
-                            <td>{{ CarRentalRequest.CR_SLA }}/Days</td>
-                            <td>{{ CarRentalRequest.Date_initiated }}</td>
-                            <td class="red">{{ CarRentalRequest.Deadline }}</td>
-                            <td>
-                                <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'carrequest_delete' CarRentalRequest.pk %}">
-                                <span class="fa fa-trash"></span>
-                                </button>
-                            </td>
+                            <td><a href="{% url 'carrequest_details' crr.id %}"><u>{{ crr.Activity_id }}</u></a></td>
+                            <td>{{ crr.Assignee_Fname }} {{ crr.Assignee_Lname }}</td>
+                            <td>{{ crr.Plate_no }}</td>
+                            <td>{{ crr.CR_SLA }}/Days</td>
+                            <td>{{ crr.Date_initiated }}</td>
+                            <td class="red">{{ crr.Deadline }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for crr2 in dl2 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'carrequest_details' crr2.id %}"><u>{{ crr2.Activity_id }}</u></a></td>
+                            <td>{{ crr2.Assignee_Fname }} {{ crr2.Assignee_Lname }}</td>
+                            <td>{{ crr2.Plate_no }}</td>
+                            <td>{{ crr2.CR_SLA }}/Days</td>
+                            <td>{{ crr2.Date_initiated }}</td>
+                            <td class="red">{{ crr2.Deadline }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -68,17 +66,4 @@
     <!-- /.row -->
 {% endblock %}
 
-{% block extrascripts %}
-<script type="text/javascript">
-  $(function() {
-    // Delete book buttons
-    $("#example").on('mouseover', '.delete-inventory', function() {
-      $(this).modalForm({
-        formURL: $(this).data('id')
-      });
-    });
-
-  });
-</script>
-{% endblock extrascripts %}
 
