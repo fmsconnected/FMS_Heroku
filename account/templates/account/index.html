@@ -35,7 +35,7 @@
             <div class="social-box github">
                 <b>New Vehicle Payment Monitoring</b>
                 <i class="fa fa-laptop">&nbsp;
-                    <p class="count">40</p>
+                    <p class="count" style="font-size: 80%;">{{ count1 }}</p>
                     <p>Total Records</p>
                     <p>Check Coming Deadline <b><a href="{% url 'Vehicle_deadline' %}">Click Me!</a></b></p>
                 </i>
@@ -45,7 +45,7 @@
             <div class="social-box github">
             <b>Car Rental Payment Monitoring</b>
                 <i class="fa fa-laptop">
-                    <p class="count">40</p>
+                    <p class="count" style="font-size: 80%;">{{ count2 }}</p>
                     <p>Total Records</p>
                     <p>Check Coming Deadline <b><a href="{% url 'cardeadline' %}">Click Me!</a></b></p>
                 </i>
@@ -55,7 +55,7 @@
             <div class="social-box github">
             <b>Fuel Supplier Payment Monitoring</b>
                 <i class="fa fa-laptop">
-                    <p class="count">40</p>
+                    <p class="count" style="font-size: 80%;">{{ count3 }}</p>
                     <p>Total Records</p>
                     <p>Check Coming Deadline <b><a href="{% url 'fueldeadline' %}">Click Me!</a></b></p>
                 </i>
@@ -65,7 +65,7 @@
             <div class="social-box github">
             <b>Vehicle Repair Payment Monitoring</b>
                 <i class="fa fa-laptop">
-                    <p class="count">40</p>
+                    <p class="count" style="font-size: 80%;"> {{ count4 }}</p>
                     <p>Total Records</p>
                 </i>
             </div>
@@ -75,8 +75,8 @@
         <div class="col-lg-4 ">
             <div class="social-box github">
             <b>Car Rental Request Monitoring</b>
-                <i class="fa fa-user">
-                    <p class="count">40</p>
+                <i class="fa fa-send-o">
+                    <p class="count" style="font-size: 80%;">{{ count5 }}</p>
                     <p>Total Records</p>
                     <p>Check Coming Deadline <b><a href="{% url 'crrdeadline' %}">Click Me!</a></b></p>
                 </i>
@@ -85,8 +85,8 @@
         <div class="col-lg-4 ">
             <div class="social-box github">
             <b>Gas Card Request Monitoring</b>
-                <i class="fa fa-user">
-                    <p class="count">40</p>
+                <i class="fa fa-send-o">
+                    <p class="count" style="font-size: 80%;">{{ count6 }}</p>
                     <p>Total Records</p>
                     <p>Check Coming Deadline <b><a href="{% url 'gccdeadline' %}">Click Me!</a></b></p>
                 </i>
@@ -95,8 +95,8 @@
         <div class="col-lg-4 ">
             <div class="social-box github">
             <b>Service Vehicle Request Monitoring</b>
-                <i class="fa fa-user">
-                    <p class="count">40</p>
+                <i class="fa fa-send-o">
+                    <p class="count" style="font-size: 80%;"> {{ count7 }}</p>
                     <p>Total Records</p>
                     <p>Check Coming Deadline <b><a href="{% url 'svrdeadline' %}">Click Me!</a></b></p>
                 </i>
@@ -105,8 +105,8 @@
         <div class="col-lg-4 ">
             <div class="social-box github">
             <b>Vehicle Repair Request Monitoring</b>
-                <i class="fa fa-user">
-                    <p class="count">40</p>
+                <i class="fa fa-send-o">
+                    <p class="count" style="font-size: 80%;"> {{ count8 }}</p>
                     <p>Total Records</p>
                     <p>Check Coming Deadline <b><a href="{% url 'vrpdeadline' %}">Click Me!</a></b></p>
                 </i>
@@ -117,8 +117,8 @@
         <div class="col-lg-4 ">
             <div class="social-box github">
             <b>Motor Vehicle Accendent Report</b>
-                <i class="fa fa-user">
-                    <p class="count">40</p>
+                <i class="fa fa-file">
+                    <p class="count" style="font-size: 80%;"> {{ count9 }}</p>
                     <p>Total Records</p>
                     <p>Check Coming Deadline <b><a href="{% url 'reportdeadline' %}">Click Me!</a></b></p>
                 </i>
@@ -129,8 +129,8 @@
         <div class="col-lg-4 ">
             <div class="social-box github">
             <b>FATA Monitoring</b>
-                <i class="fa fa-user">
-                    <p class="count">40</p>
+                <i class="fa fa-folder-o">
+                    <p class="count" style="font-size: 80%;">{{ count10 }}</p>
                     <p>Total Records</p>
                 </i>
             </div>
@@ -141,7 +141,7 @@
             <div class="social-box github" align="center">
             <b>Transfer of Ownership</b>
                 <i class="fa fa-user">
-                    <p class="count">40</p>
+                    <p class="count" style="font-size: 80%;">{{ count11 }}</p>
                     <p>Total Records</p>
                     <p>Check Coming Deadline <b><a href="{% url 'toodeadline' %}">Click Me!</a></b></p>
                 </i>
@@ -152,8 +152,8 @@
         <div class="col-lg-4 " align="center">
             <div class="social-box github">
             <b>Vehicle Masterlist</b>
-                <i class="fa fa-user">
-                    <p class="count">40</p>
+                <i class="fa fa-folder-open-o">
+                    <p class="count" style="font-size: 80%;">{{ count12 }}</p>
                     <p>Total Records</p>
                 </i>
             </div>
@@ -161,11 +161,12 @@
         <div class="col-lg-4 " align="center">
             <div class="social-box github">
             <b>Employee Masterlist</b>
-                <i class="fa fa-user">
-                    <p class="count">40</p>
+                <i class="fa fa-folder-open-o">
+                    <p class="count" style="font-size: 80%;">{{ count13 }}</p>
                     <p>Total Records</p>
                 </i>
             </div>
         </div>
     </div>
 {% endblock %}
+

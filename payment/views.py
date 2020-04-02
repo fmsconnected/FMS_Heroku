@@ -34,7 +34,6 @@ class CarListView(ListView):
 def car_deadline(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
-    # dl = datetime.datetime.today() - timedelta(days=3)
     dl = CarRental.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=1))
     dl2 = CarRental.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=2))
     dl3 = CarRental.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=3))
@@ -174,9 +173,8 @@ class carrentalDeleteView(BSModalDeleteView):
 
 def carrentalHistoryView(request):
     if request.method == "GET":
-       obj = CarRental.history.all()
-
-       return render(request, 'payment/car/carrental_history.html', context={'object': obj})
+        obj = CarRental.history.all()
+        return render(request, 'payment/car/carrental_history.html', context={'object': obj})
 
 def rent(request):
     emp = EmployeeMasterlist.objects.all()
