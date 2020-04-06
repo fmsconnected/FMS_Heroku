@@ -164,7 +164,7 @@ class VehiclePayment(models.Model):
 	mat_no = models.CharField(max_length=100, null=True, blank=True)
 	Dealer_name = models.CharField(max_length=100, null=True, blank=True)
 	Deadline = models.DateTimeField()	
-	# Deadline = models.DateTimeField(default=get_default_Deadline)
+
 	def save(self, *args, **kwargs):
 		if self.Deadline is None:
 			now = datetime.datetime.today()
