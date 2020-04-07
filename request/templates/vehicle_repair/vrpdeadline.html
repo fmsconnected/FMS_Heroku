@@ -53,8 +53,8 @@
                             <td>{{ vrp.plate_no }}</td>
                             <td>{{ vrp.work_order1 }}</td>
                             <td>{{ vrp.VRR_SLA }}/Days</td>
-                            <td>{{ vrp.date_initiated }}</td>
-                            <td class="red">{{ vrp.Deadline }}</td>>
+                            <td>{{ vrp.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ vrp.Deadline | date:'D d M Y' }}</td>>
                         </tr>
                         {% endfor %}
                         {% for vrp2 in dl2 %}
@@ -64,8 +64,8 @@
                             <td>{{ vrp2.plate_no }}</td>
                             <td>{{ vrp2.work_order1 }}</td>
                             <td>{{ vrp2.VRR_SLA }}/Days</td>
-                            <td>{{ vrp2.date_initiated }}</td>
-                            <td class="red">{{ vrp2.Deadline }}</td>>
+                            <td>{{ vrp2.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ vrp2.Deadline | date:'D d M Y' }}</td>>
                         </tr>
                         {% endfor %}
                         {% for vrp3 in dl3 %}
@@ -75,8 +75,8 @@
                             <td>{{ vrp3.plate_no }}</td>
                             <td>{{ vrp3.work_order1 }}</td>
                             <td>{{ vrp3.VRR_SLA }}/Days</td>
-                            <td>{{ vrp3.date_initiated }}</td>
-                            <td class="red">{{ vrp3.Deadline }}</td>>
+                            <td>{{ vrp3.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ vrp3.Deadline | date:'D d M Y' }}</td>>
                         </tr>
                         {% endfor %}
                         {% for vrp4 in dl4 %}
@@ -86,8 +86,8 @@
                             <td>{{ vrp4.plate_no }}</td>
                             <td>{{ vrp4.work_order1 }}</td>
                             <td>{{ vrp4.VRR_SLA }}/Days</td>
-                            <td>{{ vrp4.date_initiated }}</td>
-                            <td class="red">{{ vrp4.Deadline }}</td>>
+                            <td>{{ vrp4.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ vrp4.Deadline | date:'D d M Y' }}</td>>
                         </tr>
                         {% endfor %}
                         {% for vrp5 in dl5 %}
@@ -97,8 +97,19 @@
                             <td>{{ vrp5.plate_no }}</td>
                             <td>{{ vrp5.work_order1 }}</td>
                             <td>{{ vrp5.VRR_SLA }}/Days</td>
-                            <td>{{ vrp5.date_initiated }}</td>
-                            <td class="red">{{ vrp5.Deadline }}</td>>
+                            <td>{{ vrp5.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ vrp5.Deadline | date:'D d M Y' }}</td>>
+                        </tr>
+                        {% endfor %}
+                        {% for vrp6 in dl6 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'repair_details' vrp6.id %}"><u>{{ vrp6.Activity_id }}</u></a></td>
+                            <td>{{ vrp6.first_name }} {{ vrp6.last_name }}</td>
+                            <td>{{ vrp6.plate_no }}</td>
+                            <td>{{ vrp6.work_order1 }}</td>
+                            <td>{{ vrp6.VRR_SLA }}/Days</td>
+                            <td>{{ vrp6.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ vrp6.Deadline | date:'D d M Y' }}</td>>
                         </tr>
                         {% endfor %}
                     </tbody> 

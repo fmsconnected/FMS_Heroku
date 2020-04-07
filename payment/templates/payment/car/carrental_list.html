@@ -55,8 +55,8 @@
                             <td>{{ CarRental.Bill_date }}</td>
                             <td>{{ CarRental.Plate_no }}</td>
                             <td>{{ CarRental.C_SLA }}/Days</td>
-                            <td>{{ CarRental.Date_initiated }}</td>
-                            <td>{{ CarRental.Deadline }}</td>
+                            <td>{{ CarRental.Date_initiated|date:'D d M Y' }}</td>
+                            <td>{{ CarRental.Deadline | date:'D d M Y'}}</td>
                             <td>{{ CarRental.car_provider}} </td>
                             <td>{{ CarRental.sqa_number}} </td>
                             <td>{{ CarRental.rfp_no2 }}</td>

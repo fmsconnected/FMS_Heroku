@@ -50,8 +50,8 @@
                             <td>{{ svr.E_plate_no }}</td>
                             <td>{{ svr.vehicle_CS_no }}</td>
                             <td>{{ svr.SVV_SLA }}/Days</td>
-                            <td>{{ svr.date_initiated }}</td>
-                            <td class="red">{{ svr.Deadline }}</td>
+                            <td>{{ svr.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ svr.Deadline | date:'D d M Y' }}</td>
                         </tr>
                         {% endfor %}
                         {% for svr2 in dl2 %}
@@ -61,8 +61,8 @@
                             <td>{{ svr2.E_plate_no }}</td>
                             <td>{{ svr2.vehicle_CS_no }}</td>
                             <td>{{ svr2.SVV_SLA }}/Days</td>
-                            <td>{{ svr2.date_initiated }}</td>
-                            <td class="red">{{ svr2.Deadline }}</td>
+                            <td>{{ svr2.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ svr2.Deadline | date:'D d M Y' }}</td>
                         </tr>
                         {% endfor %}
                         {% for svr3 in dl3 %}
@@ -72,8 +72,8 @@
                             <td>{{ svr3.E_plate_no }}</td>
                             <td>{{ svr3.vehicle_CS_no }}</td>
                             <td>{{ svr3.SVV_SLA }}/Days</td>
-                            <td>{{ svr3.date_initiated }}</td>
-                            <td class="red">{{ svr3.Deadline }}</td>
+                            <td>{{ svr3.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ svr3.Deadline | date:'D d M Y' }}</td>
                         </tr>
                         {% endfor %}
                         {% for svr4 in dl4 %}
@@ -83,8 +83,8 @@
                             <td>{{ svr4.E_plate_no }}</td>
                             <td>{{ svr4.vehicle_CS_no }}</td>
                             <td>{{ svr4.SVV_SLA }}/Days</td>
-                            <td>{{ svr4.date_initiated }}</td>
-                            <td class="red">{{ svr4.Deadline }}</td>
+                            <td>{{ svr4.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ svr4.Deadline | date:'D d M Y' }}</td>
                         </tr>
                         {% endfor %}
                         {% for svr5 in dl5 %}
@@ -94,8 +94,19 @@
                             <td>{{ svr5.E_plate_no }}</td>
                             <td>{{ svr5.vehicle_CS_no }}</td>
                             <td>{{ svr5.SVV_SLA }}/Days</td>
-                            <td>{{ svr5.date_initiated }}</td>
-                            <td class="red">{{ svr5.Deadline }}</td>
+                            <td>{{ svr5.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ svr5.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for svr6 in dl6 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'service_details' svr6.id %}"><u>{{ svr6.Activity_id }}</u></a></td>
+                            <td>{{ svr6.req_fname }} {{ svr6.req_lname }}</td>
+                            <td>{{ svr6.E_plate_no }}</td>
+                            <td>{{ svr6.vehicle_CS_no }}</td>
+                            <td>{{ svr6.SVV_SLA }}/Days</td>
+                            <td>{{ svr6.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ svr6.Deadline | date:'D d M Y' }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>

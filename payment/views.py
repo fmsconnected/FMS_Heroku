@@ -39,7 +39,8 @@ def car_deadline(request):
     dl3 = CarRental.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=3))
     dl4 = CarRental.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=4))
     dl5 = CarRental.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=5))
-    return  render(request, 'payment/car/cardeadline.html',{'title':'Car - Car Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5})
+    dl6 = CarRental.objects.filter(Deadline__date = datetime.datetime.today())
+    return  render(request, 'payment/car/cardeadline.html',{'title':'Car - Car Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5, 'dl6':dl6})
 
 
 class CarRentalDetailView(DetailView):
@@ -266,7 +267,8 @@ def nvp_deadline(request):
     dl3 = VehiclePayment.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=3))
     dl4 = VehiclePayment.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=4))
     dl5 = VehiclePayment.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=5))
-    return  render(request, 'payment/vehicle/vehicledeadline.html',{'title':'Vehicle - Vehicle Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5})
+    dl6 = VehiclePayment.objects.filter(Deadline__date = datetime.datetime.today())
+    return  render(request, 'payment/vehicle/vehicledeadline.html',{'title':'Vehicle - Vehicle Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5, 'dl6':dl6})
 
             
 class FuelDetailView(DetailView):
@@ -316,7 +318,8 @@ def fuel_deadline(request):
     dl3 = Fuel_supplier.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=3))
     dl4 = Fuel_supplier.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=4))
     dl5 = Fuel_supplier.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=5))
-    return  render(request, 'payment/fuel/fueldeadline.html',{'title':'Fuel - Fuel Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5})
+    dl6 = Fuel_supplier.objects.filter(Deadline__date = datetime.datetime.today())
+    return  render(request, 'payment/fuel/fueldeadline.html',{'title':'Fuel - Fuel Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5, 'dl6':dl6})
 
 
 class vrepair_payment(ListView):

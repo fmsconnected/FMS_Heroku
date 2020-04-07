@@ -107,7 +107,8 @@ def too_deadline(request):
     dl3 = Ownership.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=3))
     dl4 = Ownership.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=4))
     dl5 = Ownership.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=5))
-    return  render(request, 'TOOdeadline.html',{'title':'TOO - TOO Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5})
+    dl6 = Ownership.objects.filter(Deadline__date = datetime.datetime.today())
+    return  render(request, 'TOOdeadline.html',{'title':'TOO - TOO Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5, 'dl6':dl6})
 
 
 class ownershipUpdate(SuccessMessageMixin, UpdateView):

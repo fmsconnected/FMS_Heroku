@@ -55,8 +55,8 @@
                             <td>{{ vehicle_report.plate_number }}</td>
                             <td>{{ vehicle_report.cond_sticker }}</td>
                             <td>{{ vehicle_report.MVAR_SLA }}</td>
-                            <td>{{ vehicle_report.date_initiated }}</td>
-                            <td>{{ vehicle_report.Deadline }}</td>
+                            <td>{{ vehicle_report.date_initiated | date:'D d M Y'}}</td>
+                            <td>{{ vehicle_report.Deadline | date:'D d M Y'}}</td>
                             <td>
                                 <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'report_delete' vehicle_report.pk %}">
                                 <span class="fa fa-trash"></span>

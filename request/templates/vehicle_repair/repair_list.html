@@ -56,8 +56,8 @@
                             <td>{{ Vehicle_Repair.plate_no }}</td>
                             <td>{{ Vehicle_Repair.work_order1 }}</td>
                             <td>{{ Vehicle_Repair.VRR_SLA }}/Days</td>
-                            <td>{{ Vehicle_Repair.date_initiated }}</td>
-                            <td>{{ Vehicle_Repair.Deadline }}</td>
+                            <td>{{ Vehicle_Repair.date_initiated | date:'D d M Y'}}</td>
+                            <td>{{ Vehicle_Repair.Deadline | date:'D d M Y'}}</td>
                             <td>
                                 <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'repair_delete' Vehicle_Repair.pk %}">
                                 <span class="fa fa-trash"></span>

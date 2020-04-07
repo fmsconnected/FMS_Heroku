@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+| date:'D d M Y'{% extends 'base.html' %}
 {% block content %}
 
 <style type="text/css">
@@ -56,8 +56,8 @@
                             <td>{{ service_vehicle.E_plate_no }}</td>
                             <td>{{ service_vehicle.vehicle_CS_no }}</td>
                             <td>{{ service_vehicle.SVV_SLA }}/Days</td>
-                            <td>{{ service_vehicle.date_initiated }}</td>
-                            <td>{{ service_vehicle.Deadline }}</td>
+                            <td>{{ service_vehicle.date_initiated | date:'D d M Y'}}</td>
+                            <td>{{ service_vehicle.Deadline | date:'D d M Y'}}</td>
                             <td>
                                 <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'service_delete' service_vehicle.pk %}">
                                 <span class="fa fa-trash"></span>

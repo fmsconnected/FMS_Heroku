@@ -50,8 +50,8 @@
                             <td>{{ report.plate_number }}</td>
                             <td>{{ report.cond_sticker }}</td>
                             <td>{{ report.MVAR_SLA }}</td>
-                            <td>{{ report.date_initiated }}</td>
-                            <td class="red">{{ report.Deadline }}</td>
+                            <td>{{ report.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ report.Deadline | date:'D d M Y' }}</td>
                         </tr>
                         {% endfor %}
                         {% for report2 in dl2 %}
@@ -61,8 +61,8 @@
                             <td>{{ report2.plate_number }}</td>
                             <td>{{ report2.cond_sticker }}</td>
                             <td>{{ report2.MVAR_SLA }}</td>
-                            <td>{{ report2.date_initiated }}</td>
-                            <td bgcolor="red">{{ report2.Deadline }}</td>
+                            <td>{{ report2.date_initiated | date:'D d M Y' }}</td>
+                            <td bgcolor="red">{{ report2.Deadline | date:'D d M Y' }}</td>
                         </tr>
                         {% endfor %}
                         {% for report3 in dl3 %}
@@ -72,8 +72,8 @@
                             <td>{{ report3.plate_number }}</td>
                             <td>{{ report3.cond_sticker }}</td>
                             <td>{{ report3.MVAR_SLA }}</td>
-                            <td>{{ report3.date_initiated }}</td>
-                            <td bgcolor="red">{{ report3.Deadline }}</td>
+                            <td>{{ report3.date_initiated | date:'D d M Y' }}</td>
+                            <td bgcolor="red">{{ report3.Deadline | date:'D d M Y' }}</td>
                         </tr>
                         {% endfor %}
                         {% for report4 in dl4 %}
@@ -83,8 +83,8 @@
                             <td>{{ report4.plate_number }}</td>
                             <td>{{ report4.cond_sticker }}</td>
                             <td>{{ report4.MVAR_SLA }}</td>
-                            <td>{{ report4.date_initiated }}</td>
-                            <td bgcolor="red">{{ report4.Deadline }}</td>
+                            <td>{{ report4.date_initiated | date:'D d M Y' }}</td>
+                            <td bgcolor="red">{{ report4.Deadline | date:'D d M Y' }}</td>
                         </tr>
                         {% endfor %}
                         {% for report5 in dl5 %}
@@ -94,8 +94,19 @@
                             <td>{{ report5.plate_number }}</td>
                             <td>{{ report5.cond_sticker }}</td>
                             <td>{{ report5.MVAR_SLA }}</td>
-                            <td>{{ report5.date_initiated }}</td>
-                            <td bgcolor="red">{{ report5.Deadline }}</td>
+                            <td>{{ report5.date_initiated | date:'D d M Y' }}</td>
+                            <td bgcolor="red">{{ report5.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for report6 in dl6 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'report_details' report6.id %}"><u>{{ report6.Activity_id }}</u></a></td>
+                            <td>{{ report6.a_employee_fname }} {{ report6.a_employee_lname }}</td>
+                            <td>{{ report6.plate_number }}</td>
+                            <td>{{ report6.cond_sticker }}</td>
+                            <td>{{ report6.MVAR_SLA }}</td>
+                            <td>{{ report6.date_initiated | date:'D d M Y' }}</td>
+                            <td bgcolor="red">{{ report6.Deadline | date:'D d M Y' }}</td>
                         </tr>
                         {% endfor %}
 

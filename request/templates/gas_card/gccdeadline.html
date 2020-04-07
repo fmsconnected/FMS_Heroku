@@ -50,8 +50,8 @@
                             <td>{{ gcc.fuel_limit_quantity }}</td>
                             <td>{{ gcc.fleet_card_no }}</td>
                             <td>{{ gcc.GCR_SLA }}/Days</td>
-                            <td>{{ gcc.date_initiated }}</td>
-                            <td class="red">{{ gcc.Deadline }}</td>                        
+                            <td>{{ gcc.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ gcc.Deadline | date:'D d M Y' }}</td>                        
                         </tr>
                         {% endfor %}
                         {% for gcc2 in dl2 %}
@@ -64,8 +64,8 @@
                             <td>{{ gcc2.fuel_limit_quantity }}</td>
                             <td>{{ gcc2.fleet_card_no }}</td>
                             <td>{{ gcc2.GCR_SLA }}/Days</td>
-                            <td>{{ gcc2.date_initiated }}</td>
-                            <td class="red">{{ gcc2.Deadline }}</td>                        
+                            <td>{{ gcc2.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ gcc2.Deadline | date:'D d M Y' }}</td>                        
                         </tr>
                         {% endfor %}
                         {% for gcc3 in dl3 %}
@@ -78,8 +78,8 @@
                             <td>{{ gcc3.fuel_limit_quantity }}</td>
                             <td>{{ gcc3.fleet_card_no }}</td>
                             <td>{{ gcc3.GCR_SLA }}/Days</td>
-                            <td>{{ gcc3.date_initiated }}</td>
-                            <td class="red">{{ gcc3.Deadline }}</td>                        
+                            <td>{{ gcc3.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ gcc3.Deadline | date:'D d M Y' }}</td>                        
                         </tr>
                         {% endfor %}
                         {% for gcc4 in dl4 %}
@@ -92,8 +92,8 @@
                             <td>{{ gcc4.fuel_limit_quantity }}</td>
                             <td>{{ gcc4.fleet_card_no }}</td>
                             <td>{{ gcc4.GCR_SLA }}/Days</td>
-                            <td>{{ gcc4.date_initiated }}</td>
-                            <td class="red">{{ gcc4.Deadline }}</td>                        
+                            <td>{{ gcc4.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ gcc4.Deadline | date:'D d M Y' }}</td>                        
                         </tr>
                         {% endfor %}
                         {% for gcc5 in dl5 %}
@@ -106,8 +106,22 @@
                             <td>{{ gcc5.fuel_limit_quantity }}</td>
                             <td>{{ gcc5.fleet_card_no }}</td>
                             <td>{{ gcc5.GCR_SLA }}/Days</td>
-                            <td>{{ gcc5.date_initiated }}</td>
-                            <td class="red">{{ gcc5.Deadline }}</td>                        
+                            <td>{{ gcc5.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ gcc5.Deadline | date:'D d M Y' }}</td>                        
+                        </tr>
+                        {% endfor %}
+                        {% for gcc6 in dl6 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'gascard_details' gcc6.id %}"><u>{{ gcc6.Activity_id }}</u></a></td>
+                            <td>{{ gcc6.req_fname }} {{ gcc6.req_lname }}</td>
+                            <td>{{ gcc6.plate_no }}</td>
+                            <td>{{ gcc6.fleet_provider }}</td>
+                            <td>{{ gcc6.cost_center_code }}</td>
+                            <td>{{ gcc6.fuel_limit_quantity }}</td>
+                            <td>{{ gcc6.fleet_card_no }}</td>
+                            <td>{{ gcc6.GCR_SLA }}/Days</td>
+                            <td>{{ gcc6.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ gcc6.Deadline | date:'D d M Y' }}</td>                        
                         </tr>
                         {% endfor %}
                     </tbody>

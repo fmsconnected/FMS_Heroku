@@ -47,7 +47,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for Ownership in object_list %}
+                        {% for Ownership in dl %}
                         <tr class="odd gradeX">
                             <td><a href="{% url 'ownership_details' Ownership.id %}"><u>{{ Ownership.Activity_id }}</u></a></td>
                             <td>{{ Ownership.v_fname }} {{ Ownership.v_lname }}</td>
@@ -55,8 +55,68 @@
                             <td>{{ Ownership.plate_no }}</td>
                             <td>{{ Ownership.cond_sticker }}</td>
                             <td>{{ Ownership.TOO_SLA }}/Days</td>
-                            <td>{{ Ownership.date_initiated }}</td>
-                            <td class="red">{{ Ownership.Deadline }}</td>
+                            <td>{{ Ownership.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ Ownership.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for Ownership2 in dl2 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'ownership_details' Ownership2.id %}"><u>{{ Ownership2.Activity_id }}</u></a></td>
+                            <td>{{ Ownership2.v_fname }} {{ Ownership2.v_lname }}</td>
+                            <td>{{ Ownership2.req_Fname }} {{ Ownership2.req_Lname }}</td>
+                            <td>{{ Ownership2.plate_no }}</td>
+                            <td>{{ Ownership2.cond_sticker }}</td>
+                            <td>{{ Ownership2.TOO_SLA }}/Days</td>
+                            <td>{{ Ownership2.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ Ownership2.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for Ownership3 in dl3 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'ownership_details' Ownership3.id %}"><u>{{ Ownership3.Activity_id }}</u></a></td>
+                            <td>{{ Ownership3.v_fname }} {{ Ownership3.v_lname }}</td>
+                            <td>{{ Ownership3.req_Fname }} {{ Ownership3.req_Lname }}</td>
+                            <td>{{ Ownership3.plate_no }}</td>
+                            <td>{{ Ownership3.cond_sticker }}</td>
+                            <td>{{ Ownership3.TOO_SLA }}/Days</td>
+                            <td>{{ Ownership3.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ Ownership3.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for Ownership4 in dl4 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'ownership_details' Ownership4.id %}"><u>{{ Ownership4.Activity_id }}</u></a></td>
+                            <td>{{ Ownership4.v_fname }} {{ Ownership4.v_lname }}</td>
+                            <td>{{ Ownership4.req_Fname }} {{ Ownership4.req_Lname }}</td>
+                            <td>{{ Ownership4.plate_no }}</td>
+                            <td>{{ Ownership4.cond_sticker }}</td>
+                            <td>{{ Ownership4.TOO_SLA }}/Days</td>
+                            <td>{{ Ownership4.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ Ownership4.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for Ownership5 in dl5 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'ownership_details' Ownership5.id %}"><u>{{ Ownership5.Activity_id }}</u></a></td>
+                            <td>{{ Ownership5.v_fname }} {{ Ownership5.v_lname }}</td>
+                            <td>{{ Ownership5.req_Fname }} {{ Ownership5.req_Lname }}</td>
+                            <td>{{ Ownership5.plate_no }}</td>
+                            <td>{{ Ownership5.cond_sticker }}</td>
+                            <td>{{ Ownership5.TOO_SLA }}/Days</td>
+                            <td>{{ Ownership5.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ Ownership5.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for Ownership6 in dl6 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'ownership_details' Ownership6.id %}"><u>{{ Ownership6.Activity_id }}</u></a></td>
+                            <td>{{ Ownership6.v_fname }} {{ Ownership6.v_lname }}</td>
+                            <td>{{ Ownership6.req_Fname }} {{ Ownership6.req_Lname }}</td>
+                            <td>{{ Ownership6.plate_no }}</td>
+                            <td>{{ Ownership6.cond_sticker }}</td>
+                            <td>{{ Ownership6.TOO_SLA }}/Days</td>
+                            <td>{{ Ownership6.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ Ownership6.Deadline | date:'D d M Y' }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>

@@ -54,8 +54,8 @@
                             <td>{{ cr.Bill_date }}</td>
                             <td>{{ cr.Plate_no }}</td>
                             <td>{{ cr.C_SLA }}/Days</td>
-                            <td>{{ cr.Date_initiated }}</td>
-                            <td class="red">{{ cr.Deadline }}</td>
+                            <td>{{ cr.Date_initiated | date:'D d M Y'}}</td>
+                            <td class="red">{{ cr.Deadline |date:'D d M Y' }}</td>
                             <td>{{ cr.car_provider}} </td>
                             <td>{{ cr.sqa_number}} </td>
                             <td>{{ cr.rfp_no2 }}</td>
@@ -69,8 +69,8 @@
                             <td>{{ cr2.Bill_date }}</td>
                             <td>{{ cr2.Plate_no }}</td>
                             <td>{{ cr2.C_SLA }}/Days</td>
-                            <td>{{ cr2.Date_initiated }}</td>
-                            <td class="red">{{ cr2.Deadline }}</td>
+                            <td>{{ cr2.Date_initiated | date:'D d M Y'}}</td>
+                            <td class="red">{{ cr2.Deadline |date:'D d M Y' }}</td>
                             <td>{{ cr2.car_provider}} </td>
                             <td>{{ cr2.sqa_number}} </td>
                             <td>{{ cr2.rfp_no2 }}</td>
@@ -84,8 +84,8 @@
                             <td>{{ cr3.Bill_date }}</td>
                             <td>{{ cr3.Plate_no }}</td>
                             <td>{{ cr3.C_SLA }}/Days</td>
-                            <td>{{ cr3.Date_initiated }}</td>
-                            <td class="red">{{ cr3.Deadline }}</td>
+                            <td>{{ cr3.Date_initiated | date:'D d M Y'}}</td>
+                            <td class="red">{{ cr3.Deadline |date:'D d M Y' }}</td>
                             <td>{{ cr3.car_provider}} </td>
                             <td>{{ cr3.sqa_number}} </td>
                             <td>{{ cr3.rfp_no2 }}</td>
@@ -99,8 +99,8 @@
                             <td>{{ cr4.Bill_date }}</td>
                             <td>{{ cr4.Plate_no }}</td>
                             <td>{{ cr4.C_SLA }}/Days</td>
-                            <td>{{ cr4.Date_initiated }}</td>
-                            <td class="red">{{ cr4.Deadline }}</td>
+                            <td>{{ cr4.Date_initiated | date:'D d M Y'}}</td>
+                            <td class="red">{{ cr4.Deadline |date:'D d M Y' }}</td>
                             <td>{{ cr4.car_provider}} </td>
                             <td>{{ cr4.sqa_number}} </td>
                             <td>{{ cr4.rfp_no2 }}</td>
@@ -114,11 +114,26 @@
                             <td>{{ cr5.Bill_date }}</td>
                             <td>{{ cr5.Plate_no }}</td>
                             <td>{{ cr5.C_SLA }}/Days</td>
-                            <td>{{ cr5.Date_initiated }}</td>
-                            <td class="red">{{ cr5.Deadline }}</td>
+                            <td>{{ cr5.Date_initiated | date:'D d M Y'}}</td>
+                            <td class="red">{{ cr5.Deadline |date:'D d M Y' }}</td>
                             <td>{{ cr5.car_provider}} </td>
                             <td>{{ cr5.sqa_number}} </td>
                             <td>{{ cr5.rfp_no2 }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for cr6 in dl6 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'Carrental_summary' cr6.id %}">{{ cr6.Activity_id }}</td>
+                            <td>{{ cr6.F_name }} {{ cr6.L_name }}</td>
+                            <td>{{ cr6.Cost_center }}</td>
+                            <td>{{ cr6.Bill_date }}</td>
+                            <td>{{ cr6.Plate_no }}</td>
+                            <td>{{ cr6.C_SLA }}/Days</td>
+                            <td>{{ cr6.Date_initiated | date:'D d M Y'}}</td>
+                            <td class="red">{{ cr6.Deadline |date:'D d M Y' }}</td>
+                            <td>{{ cr6.car_provider}} </td>
+                            <td>{{ cr6.sqa_number}} </td>
+                            <td>{{ cr6.rfp_no2 }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>

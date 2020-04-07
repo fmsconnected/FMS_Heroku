@@ -59,7 +59,7 @@
                         {% for vrp in object_list %}
                         <tr class="odd gradeX">
                             <td><a href="{%url 'vehicle_repair_details' vrp.id %}">{{ vrp.Activity_id }}</a></td>
-                            <td>{{ vrp.request_date }}</td>
+                            <td>{{ vrp.request_date | date:'D d M Y'}}</td>
                             <td>{{ vrp.employee }}</td>
                             <td>{{ vrp.cost_center }}</td>
                             <td>{{ vrp.first_name }} {{vrp.last_name}}</td>
@@ -79,7 +79,7 @@
                             <td>{{ vrp.dealership }}</td>
                             <td>{{ vrp.amount }}</td>
                             <td>{{ vrp.service_type }}</td>
-                            <td>{{ vrp.date_initiated}}</td>
+                            <td>{{ vrp.date_initiated | date:'D d M Y'}}</td>
                             <td>{{ vrp.rfp_no }}</td>
                             <td>{{ vrp.invoice_num }}</td>
                             <td>{{ vrp.invoice_date }}</td>

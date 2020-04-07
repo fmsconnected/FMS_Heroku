@@ -51,8 +51,8 @@
                             <td>(₱){{ fl.SOA_current_amount }}</td>
                             <td>{{ fl.SOA_outstanding_amount }}</td>
                             <td>{{ fl.F_SLA }}/Days</td>
-                            <td>{{ fl.Date_initiated }}</td>
-                            <td class="red">{{ fl.Deadline }}</td>
+                            <td>{{ fl.Date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ fl.Deadline | date:'D d M Y' }}</td>
                             <td>{{ fl.Date_forwarded }}</td>
                         </tr>
                         {% endfor %}
@@ -63,8 +63,8 @@
                             <td>(₱){{ fl2.SOA_current_amount }}</td>
                             <td>{{ fl2.SOA_outstanding_amount }}</td>
                             <td>{{ fl2.F_SLA }}/Days</td>
-                            <td>{{ fl2.Date_initiated }}</td>
-                            <td class="red">{{ fl2.Deadline }}</td>
+                            <td>{{ fl2.Date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ fl2.Deadline | date:'D d M Y' }}</td>
                             <td>{{ fl2.Date_forwarded }}</td>
                         </tr>
                         {% endfor %}
@@ -75,8 +75,8 @@
                             <td>(₱){{ fl3.SOA_current_amount }}</td>
                             <td>{{ fl3.SOA_outstanding_amount }}</td>
                             <td>{{ fl3.F_SLA }}/Days</td>
-                            <td>{{ fl3.Date_initiated }}</td>
-                            <td class="red">{{ fl3.Deadline }}</td>
+                            <td>{{ fl3.Date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ fl3.Deadline | date:'D d M Y' }}</td>
                             <td>{{ fl3.Date_forwarded }}</td>
                         </tr>
                         {% endfor %}
@@ -87,8 +87,8 @@
                             <td>(₱){{ fl4.SOA_current_amount }}</td>
                             <td>{{ fl4.SOA_outstanding_amount }}</td>
                             <td>{{ fl4.F_SLA }}/Days</td>
-                            <td>{{ fl4.Date_initiated }}</td>
-                            <td class="red">{{ fl4.Deadline }}</td>
+                            <td>{{ fl4.Date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ fl4.Deadline | date:'D d M Y' }}</td>
                             <td>{{ fl4.Date_forwarded }}</td>
                         </tr>
                         {% endfor %}
@@ -99,9 +99,21 @@
                             <td>(₱){{ fl5.SOA_current_amount }}</td>
                             <td>{{ fl5.SOA_outstanding_amount }}</td>
                             <td>{{ fl5.F_SLA }}/Days</td>
-                            <td>{{ fl5.Date_initiated }}</td>
-                            <td class="red">{{ fl5.Deadline }}</td>
+                            <td>{{ fl5.Date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ fl5.Deadline | date:'D d M Y' }}</td>
                             <td>{{ fl5.Date_forwarded }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for fl6 in dl6 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'Fuel-summary' fl6.id %}">{{ fl6.Activity_id }}</a></td>
+                            <td>{{ fl6.Fuel_provider }} </td>
+                            <td>(₱){{ fl6.SOA_current_amount }}</td>
+                            <td>{{ fl6.SOA_outstanding_amount }}</td>
+                            <td>{{ fl6.F_SLA }}/Days</td>
+                            <td>{{ fl6.Date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ fl6.Deadline | date:'D d M Y' }}</td>
+                            <td>{{ fl6.Date_forwarded }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>

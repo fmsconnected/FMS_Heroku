@@ -122,7 +122,8 @@ def crr_deadline(request):
     # dl = datetime.datetime.today() - timedelta(days=3)
     dl = CarRentalRequest.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=1))
     dl2 = CarRentalRequest.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=2))
-    return  render(request, 'car_rental/crrdeadline.html',{'title':'Car Request - Car Request Deadline', 'dl':dl, 'dl2':dl2})
+    dl3 = CarRentalRequest.objects.filter(Deadline__date = datetime.datetime.today())
+    return  render(request, 'car_rental/crrdeadline.html',{'title':'Car Request - Car Request Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3})
 
 
 def car_request_excel(request):
@@ -329,7 +330,8 @@ def gcc_deadline(request):
     dl3 = Gas_card.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=3))
     dl4 = Gas_card.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=4))
     dl5 = Gas_card.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=5))
-    return  render(request, 'gas_card/gccdeadline.html',{'title':'Gas - Gas Card Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5})
+    dl6 = Gas_card.objects.filter(Deadline__date = datetime.datetime.today())
+    return  render(request, 'gas_card/gccdeadline.html',{'title':'Gas - Gas Card Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5, 'dl6':dl6})
 
 
 def gas_request_excel(request):
@@ -559,7 +561,8 @@ def svr_deadline(request):
     dl3 = service_vehicle.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=3))
     dl4 = service_vehicle.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=4))
     dl5 = service_vehicle.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=5))
-    return  render(request, 'service_vehicle/svrdeadline.html',{'title':'Service - Service vehicle Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5})
+    dl6 = service_vehicle.objects.filter(Deadline__date = datetime.datetime.today())
+    return  render(request, 'service_vehicle/svrdeadline.html',{'title':'Service - Service vehicle Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5, 'dl6':dl6})
 
 
 def service_request_excel(request):
@@ -778,7 +781,8 @@ def vrp_deadline(request):
     dl3 = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=3))
     dl4 = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=4))
     dl5 = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=5))
-    return  render(request, 'vehicle_repair/vrpdeadline.html',{'title':'Vehicle - Vehicle Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5})
+    dl6 = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today())
+    return  render(request, 'vehicle_repair/vrpdeadline.html',{'title':'Vehicle - Vehicle Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5, 'dl6':dl6})
 
 
 def repair_request_excel(request):

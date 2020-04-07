@@ -79,7 +79,14 @@ $(document).ready(function() {
             "type": "POST"
         },
         "columns": [
-            {"data":"Employee_Id"},
+            {"data":"Employee_Id",
+            "render": function(data, type, row, meta){
+                if(type === 'display'){
+                    data = '<a href="Detail/' + row.id + '">' + data + '</a>';
+                    }
+                return data;
+                }
+            },
             {"data":"Company"},
             {"data":"Last_name"},
             {"data":"First_name"},

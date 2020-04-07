@@ -42,8 +42,8 @@
                             <td>{{ crr.Assignee_Fname }} {{ crr.Assignee_Lname }}</td>
                             <td>{{ crr.Plate_no }}</td>
                             <td>{{ crr.CR_SLA }}/Days</td>
-                            <td>{{ crr.Date_initiated }}</td>
-                            <td class="red">{{ crr.Deadline }}</td>
+                            <td>{{ crr.Date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ crr.Deadline | date:'D d M Y' }}</td>
                         </tr>
                         {% endfor %}
                         {% for crr2 in dl2 %}
@@ -52,8 +52,18 @@
                             <td>{{ crr2.Assignee_Fname }} {{ crr2.Assignee_Lname }}</td>
                             <td>{{ crr2.Plate_no }}</td>
                             <td>{{ crr2.CR_SLA }}/Days</td>
-                            <td>{{ crr2.Date_initiated }}</td>
-                            <td class="red">{{ crr2.Deadline }}</td>
+                            <td>{{ crr2.Date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ crr2.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for crr3 in dl3 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'carrequest_details' crr3.id %}"><u>{{ crr3.Activity_id }}</u></a></td>
+                            <td>{{ crr3.Assignee_Fname }} {{ crr3.Assignee_Lname }}</td>
+                            <td>{{ crr3.Plate_no }}</td>
+                            <td>{{ crr3.CR_SLA }}/Days</td>
+                            <td>{{ crr3.Date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ crr3.Deadline | date:'D d M Y' }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>

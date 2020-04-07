@@ -63,8 +63,8 @@
                             <td>{{ VehiclePayment.Plate_no }}</td>
                             <td>{{ VehiclePayment.PO_no }}</td>
                             <td>{{ VehiclePayment.V_SLA }}/Days</td>
-                            <td>{{ VehiclePayment.Date_initiated }}</td>
-                            <td>{{ VehiclePayment.Deadline }}</td>
+                            <td>{{ VehiclePayment.Date_initiated | date:'D d M Y'}}</td>
+                            <td>{{ VehiclePayment.Deadline | date:'D d M Y'}}</td>
                             <td>{{ VehiclePayment.equip_no }}</td>
                             <td>{{ VehiclePayment.asset_no }}</td>
                             <td>{{ VehiclePayment.sap_no }}</td>

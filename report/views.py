@@ -109,7 +109,8 @@ def report_deadline(request):
     dl3 = vehicle_report.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=3))
     dl4 = vehicle_report.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=4))
     dl5 = vehicle_report.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=5))
-    return  render(request, 'reportdeadline.html',{'title':'Report - Report Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5})
+    dl6 = vehicle_report.objects.filter(Deadline__date = datetime.datetime.today())
+    return  render(request, 'reportdeadline.html',{'title':'Report - Report Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5, 'dl6':dl6})
 
 
 def report_excel(request):

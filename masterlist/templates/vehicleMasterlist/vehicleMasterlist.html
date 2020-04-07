@@ -48,7 +48,6 @@ tr:nth-child(even){background-color: #f2f2f2}
                     <table id="vtable" class="table table-striped table-bordered" style="width:100%" data-server-side="false" data-ajax="/api/masterlist/?format=datatables">
                     <thead>
                         <tr>
-                            <th></th>
                             <th>Activity No</th>
                             <th>NO</th>
                             <th>Plate Number</th>
@@ -115,19 +114,14 @@ $(document).ready(function() {
             "type": "POST"
             },
         "columns": [
-            {"data": null,
-            //     "mRender": function(data, type, row, full) {
-            //         return '<a href="/VehicleMasterlist/Details/'+ row.id + '">' + '<i class="fa fa-pencil-square-o" style="font-size:25px"></i>' + '</a>';
-            //     }
-            // },
+            {"data": "Activity_Id",
             "render": function(data, type, row, meta){
                 if(type === 'display'){
-                    data = '<a href="Details/' + row.id + '">' + '<i class="fa fa-pencil-square-o" style="font-size:25px"></i>' + '</a>';
+                    data = '<a href="Details/' + row.id + '">' + data + '</a>';
                     }
                 return data;
                 }
             },
-            {"data": "Activity_Id"},
             {"data":"NO"},
             {"data":"PLATE_NO"},
             {"data":"CS_NO"},

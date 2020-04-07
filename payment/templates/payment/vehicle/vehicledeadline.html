@@ -51,8 +51,8 @@
                             <td>{{ nvp.Plate_no }}</td>
                             <td>{{ nvp.PO_no }}</td>
                             <td>{{ nvp.V_SLA }}/Days</td>
-                            <td>{{ nvp.Date_initiated}}</td>
-                            <td class="red">{{ nvp.Deadline }}</td>
+                            <td>{{ nvp.Date_initiated | date:'D d M Y'}}</td>
+                            <td class="red">{{ nvp.Deadline | date:'D d M Y' }}</td>
                             <td>{{ nvp.equip_no }}</td>
                             <td>{{ nvp.asset_no }}</td>
                             <td>{{ nvp.sap_no }}</td>
@@ -67,8 +67,8 @@
                             <td>{{ nvp2.Plate_no }}</td>
                             <td>{{ nvp2.PO_no }}</td>
                             <td>{{ nvp2.V_SLA }}/Days</td>
-                            <td>{{ nvp2.Date_initiated}}</td>
-                            <td class="red">{{ nvp2.Deadline }}</td>
+                            <td>{{ nvp2.Date_initiated | date:'D d M Y'}}</td>
+                            <td class="red">{{ nvp2.Deadline | date:'D d M Y' }}</td>
                             <td>{{ nvp2.equip_no }}</td>
                             <td>{{ nvp2.asset_no }}</td>
                             <td>{{ nvp2.sap_no }}</td>
@@ -83,8 +83,8 @@
                             <td>{{ nvp3.Plate_no }}</td>
                             <td>{{ nvp3.PO_no }}</td>
                             <td>{{ nvp3.V_SLA }}/Days</td>
-                            <td>{{ nvp3.Date_initiated}}</td>
-                            <td class="red">{{ nvp3.Deadline }}</td>
+                            <td>{{ nvp3.Date_initiated | date:'D d M Y'}}</td>
+                            <td class="red">{{ nvp3.Deadline | date:'D d M Y' }}</td>
                             <td>{{ nvp3.equip_no }}</td>
                             <td>{{ nvp3.asset_no }}</td>
                             <td>{{ nvp3.sap_no }}</td>
@@ -99,8 +99,8 @@
                             <td>{{ nvp4.Plate_no }}</td>
                             <td>{{ nvp4.PO_no }}</td>
                             <td>{{ nvp4.V_SLA }}/Days</td>
-                            <td>{{ nvp4.Date_initiated}}</td>
-                            <td class="red">{{ nvp4.Deadline }}</td>
+                            <td>{{ nvp4.Date_initiated | date:'D d M Y'}}</td>
+                            <td class="red">{{ nvp4.Deadline | date:'D d M Y' }}</td>
                             <td>{{ nvp4.equip_no }}</td>
                             <td>{{ nvp4.asset_no }}</td>
                             <td>{{ nvp4.sap_no }}</td>
@@ -115,13 +115,29 @@
                             <td>{{ nvp5.Plate_no }}</td>
                             <td>{{ nvp5.PO_no }}</td>
                             <td>{{ nvp5.V_SLA }}/Days</td>
-                            <td>{{ nvp5.Date_initiated}}</td>
-                            <td class="red">{{ nvp5.Deadline }}</td>
+                            <td>{{ nvp5.Date_initiated | date:'D d M Y'}}</td>
+                            <td class="red">{{ nvp5.Deadline | date:'D d M Y' }}</td>
                             <td>{{ nvp5.equip_no }}</td>
                             <td>{{ nvp5.asset_no }}</td>
                             <td>{{ nvp5.sap_no }}</td>
                             <td>{{ nvp5.mat_no }}</td>
                             <td>{{ nvp5.Dealer_name}}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for nvp6 in dl6 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'Vehicle-summary' nvp6.id %}">{{ nvp6.Activity_id }}</a></td>
+                            <td>{{ nvp6.E_First_name }} {{ nvp6.E_Last_name }}</td>
+                            <td>{{ nvp6.Plate_no }}</td>
+                            <td>{{ nvp6.PO_no }}</td>
+                            <td>{{ nvp6.V_SLA }}/Days</td>
+                            <td>{{ nvp6.Date_initiated | date:'D d M Y'}}</td>
+                            <td class="red">{{ nvp6.Deadline | date:'D d M Y' }}</td>
+                            <td>{{ nvp6.equip_no }}</td>
+                            <td>{{ nvp6.asset_no }}</td>
+                            <td>{{ nvp6.sap_no }}</td>
+                            <td>{{ nvp6.mat_no }}</td>
+                            <td>{{ nvp6.Dealer_name}}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
