@@ -80,7 +80,7 @@ def requestsubmit(request):
         supervisor = request.POST.get('supervisor')
         cr_sla = request.POST.get('cr_sla')
 
-        saveto_req = CarRentalRequest(A_Employee=emp_id, Date_received = date_received,Assignee_Fname = fname,Assignee_Lname = lname,Assignee_No = cnumber,Assignee_Company = company,
+        saveto_req = CarRentalRequest(A_Employee = emp_id, Date_received = date_received,Assignee_Fname = fname,Assignee_Lname = lname,Assignee_No = cnumber,Assignee_Company = company,
                 Assignee_band = band,Assignee_Dept = dept,Assignee_Cost = cost,Assignee_Div = div,Assignee_Loc = loc,Assignee_Section = section,
                 Assignee_Designation = designation,Assignee_ATD = atd,Vendor_name = vname,Date = date,Up_to = up_to,Time = time,Place_of_del = del_place,
                 type_rental = type_rental,Cost_center = costcenter,Rental_period = rent_period,Destination = destination,Delivery_date = del_date,End_user = end_user,Type_of_vehicle = vehicle_type,
