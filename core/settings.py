@@ -96,11 +96,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
     'ENGINE':'django.db.backends.postgresql_psycopg2',
-        'NAME': 'fleet_9.5',
-        'USER': 'Fleet',
+        'NAME': 'fleet',
+        'USER': 'fleet',
         'PASSWORD': 'fleet',
         'HOST': 'localhost',
-        'PORT': '5434',
+        'PORT': '5433',
     }
 }
 
