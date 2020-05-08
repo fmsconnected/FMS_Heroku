@@ -92,7 +92,7 @@ class Vmasterlist(forms.ModelForm):
                   'VEHICLE_MAKE','ENGINE_NO','CHASSIS_NO','MV_FILE_NO','VEHICLE_TYPE','ASSIGNEE_LAST_NAME','ASSIGNEE_FIRST_NAME','VEHICLE_CATEGORY','Employee',
                   'BAND_LEVEL','BENEFIT_GROUP','COST_CENTER','GROUP','DIVISION','DEPARTMENT','SECTION','IS_ID','IS_LAST_NAME','IS_FIRST_NAME','LOCATION','ORIGINAL_OR_DATE',
                   'ACQ_DATE','ACQ_COST','ASSET_NO','EQUIPMENT_NO', 'SAP_PR','Vehicle_IVN_no','Unit_MATDOC','dealer',
-                  'dealer_name','PO_NO','PLATE_NUMBER_RELEASE_DATE','Last_Registration_Date','Smoke_Emission_Date','COC_Date','Remarks'
+                  'dealer_name','PO_NO','PLATE_NUMBER_RELEASE_DATE','Last_Registration_Date','Smoke_Emission_Date', 'COC_Date', 'Remarks', 'Status'
             ]
 
             Vbrand= (
@@ -134,6 +134,20 @@ class Vmasterlist(forms.ModelForm):
                   ('Volvo','Volvo'),
                   ('Saturn','Saturn'),
             )
+
+            status = (
+                  ('Emailed', 'Emailed'),
+                  ('Not Emailed', 'Not Emailed'),
+            )
+
+
+            remarks = (
+                  ('Without Last Registration Date','Without Last Registration Date'),
+                  ('Without Smoke Emission Date','Without Smoke Emission Date'),
+                  ('Without COC Date','Without COC Date'),
+                  ('Complete','Complete'),
+            )
+
 
             widgets = {
                   'PLATE_NO': forms.TextInput(attrs={'class':'form-control'}),
@@ -178,7 +192,8 @@ class Vmasterlist(forms.ModelForm):
                   'Last_Registration_Date': forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
                   'Smoke_Emission_Date': forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
                   'COC_Date': forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
-                  'Remarks': forms.TextInput(attrs={'class':'form-control'})
+                  'Remarks': forms.Select(attrs={'class':'form-control', 'choices':'remarks'}),
+                  'Status': forms.Select(attrs={'class':'form-control', 'choices':'status'})
             }     
 
 class Vmaster(forms.ModelForm):

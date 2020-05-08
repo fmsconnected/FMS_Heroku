@@ -30,6 +30,8 @@
                             <th>Last Name</th>
                             <th>First Name</th>
                             <th>Date Acquired</th>
+                            <th>Remarks</th>
+                            <th>Email Status</th>
                             
                         </tr>
                     </thead>
@@ -44,6 +46,8 @@
                             <td>{{ object.ASSIGNEE_LAST_NAME }}</td>
                             <td>{{ object.ASSIGNEE_FIRST_NAME }}</td>
                             <td>{{ object.ACQ_DATE }}</td>
+                            <td>{{ object.Remarks }}</td>    
+                            <td>{{ object.Status }}</td>  
                            
                         </tr>
                         {% endfor %}

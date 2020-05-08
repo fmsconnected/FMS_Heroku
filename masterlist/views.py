@@ -72,6 +72,8 @@ def VmasterlistCreate(request):
         dealer_name = request.POST.get('dealer_name')
         plate_date = request.POST.get('plate_date')
         or_date = request.POST.get('or_date')
+        remarks = request.POST.get('remarks')
+        status = request.POST.get('status')
         
         if or_date == '':
             or_date = None
@@ -126,7 +128,8 @@ def VmasterlistCreate(request):
             Employee=emp_save, BAND_LEVEL=band, BENEFIT_GROUP=benefit, COST_CENTER=cost, GROUP=group, DIVISION=div,
             DEPARTMENT=dept, SECTION=sec, IS_ID=is_emp, IS_FIRST_NAME=is_fname, IS_LAST_NAME=is_lname, LOCATION=loc,
             ACQ_DATE=aqui_date, ACQ_COST=aqui_cost, ASSET_NO=asset, PO_NO=po_no, PLATE_NUMBER_RELEASE_DATE=plate_date, ORIGINAL_OR_DATE=or_date,EQUIPMENT_NO=eq_no,
-            SAP_PR=sap_pr,Vehicle_IVN_no=ivn_no,Unit_MATDOC=mathdoc,dealer=dealer,dealer_name=dealer_name)
+            SAP_PR=sap_pr,Vehicle_IVN_no=ivn_no,Unit_MATDOC=mathdoc,dealer=dealer, dealer_name=dealer_name, Remarks=remarks, Status=status
+            )
         saveto_end.save()
 
     return HttpResponseRedirect('/Masterlist/VehicleMasterlist/')

@@ -102,6 +102,11 @@ class VehicleMasterList(models.Model):
             ('Without COC Date','Without COC Date'),
             ('Complete','Complete'),
             )
+
+	status = (
+			('Emailed', 'Emailed'),
+			('Not Emailed', 'Not Emailed'),
+		)
 	
 	Activity_Id  = models.CharField(max_length=100,null=True, default=increment_Activity_Id)
 	NO = models.CharField(max_length=100, null=True, default=increment_NO)
@@ -148,6 +153,7 @@ class VehicleMasterList(models.Model):
 	Smoke_Emission_Date = models.CharField(max_length=100, null=True, blank=True)
 	COC_Date = models.CharField(max_length=100, null=True, blank=True)
 	Remarks = models.CharField(max_length=100, null=True, blank=True, choices=remarks)
+	Status = models.CharField(max_length=20, null=True, blank=True, choices=status)
 	leasing_remark = models.CharField(max_length=225, null=True, blank=True)
 	history = HistoricalRecords()
 

@@ -207,6 +207,25 @@ $('#emp_id').on('change', function () {
         <label>Original OR Date</label>
         <input type="date" name="or_date" id="or_date" class="form-control">
     </div>
+    <div class="col-sm-4">
+        <label>Remarks</label>
+        <select name="remarks" id="remarks" class="form-control">
+            <option></option>
+            <option value="Without Last Registration Date">Without Last Registration Date</option>
+            <option value="Without Smoke Emission Date">Without Smoke Emission Date</option>
+            <option value="Without COC Date">Without COC Date</option>
+            <option value="Complete">Complete</option>
+        </select>
+    </div>
+    <div class="col-sm-4">
+        <label>Email Status</label>
+        <select class="form-control" name="status" required>
+            <option></option>
+            <option value="Emailed">Emailed</option>
+            <option value="Not Emailed">Not Emailed</option>
+        </select>
+        
+    </div>
 </div>
     <div class="card-footer">
         <button type="submit" class="button">PROCEED</button>
