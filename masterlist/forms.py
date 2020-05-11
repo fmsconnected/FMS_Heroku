@@ -136,8 +136,8 @@ class Vmasterlist(forms.ModelForm):
             )
 
             status = (
-                  ('Emailed', 'Emailed'),
-                  ('Not Emailed', 'Not Emailed'),
+                  ('Yes', 'Yes'),
+                  ('Not', 'Not'),
             )
 
 
@@ -145,6 +145,8 @@ class Vmasterlist(forms.ModelForm):
                   ('Without Last Registration Date','Without Last Registration Date'),
                   ('Without Smoke Emission Date','Without Smoke Emission Date'),
                   ('Without COC Date','Without COC Date'),
+                  ('No Smoke and COC', 'No Smoke and COC'),
+                  ('For Registration', 'For Registration'),
                   ('Complete','Complete'),
             )
 

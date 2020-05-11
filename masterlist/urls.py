@@ -46,6 +46,7 @@ urlpatterns = [
 	path('Vehicle/Leasing', views.vehicle_leasing, name='vehicle_leasing'),
 	path('Vehicle/Leasing/Export', views.vehicle_excel_leasing, name='leasing_export'),
 	# path('Vehicle/filter', views.registration, name='vehiclefilter'),
+	path('Leasing/', views.leasing, name='leasing_list')
 ]
 
 

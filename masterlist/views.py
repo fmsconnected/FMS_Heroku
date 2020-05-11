@@ -12,29 +12,37 @@ from django.views.generic import (
  )
 from .models import (
     EmployeeMasterlist,
-    VehicleMasterList
+    VehicleMasterList,
+    Leasing
     )
 from . forms import (
     EmpMasterlistForm,
     Vmasterlist,
-    Vmaster
+    Vmaster,
     )
 from bootstrap_modal_forms.generic import BSModalDeleteView
 
 from rest_framework import viewsets
 from rest_framework.response import Response
 # from .models import VehicleMasterList,
-from .serializers import vehicleSerializer, EmployeeSerializer
+from .serializers import (
+    vehicleSerializer, 
+    EmployeeSerializer,
+    leasingSerializer
+    )
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 
+
 def Vmastertables(request):
     return render(request, 'vehicleMasterlist/vehicleMasterlist.html')
+
 
 class vehicleViewSet(viewsets.ModelViewSet):
     queryset = VehicleMasterList.objects.filter(leasing_remark__isnull=True).order_by('id')
     serializer_class = vehicleSerializer
+
 
 def VmasterlistCreate(request):
     if request.method == 'POST':
@@ -205,6 +213,20 @@ def employeeMasterlistHistoryView(request):
        obj = EmployeeMasterlist.history.all()
 
        return render(request, 'employeeMasterlist/employeeMasterlist_history.html', context={'object': obj})
+
+
+ #######################################  
+##############  Leasing  ################
+ #######################################
+
+
+def leasing(request):
+    return render(request, 'leasing/leasing_list.html')
+
+class leasingViewSet(viewsets.ModelViewSet):
+    queryset = Leasing.objects.all().order_by('id')
+    serializer_class = leasingSerializer
+
 
 class vreg_details(DetailView):
     model = VehicleMasterList

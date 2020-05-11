@@ -254,7 +254,7 @@ function servicevehicle(service) {
 
         <div class="col-sm-4">
             <label>Plate Number</label>
-            <input style= "text-transform:" type="text" name="E_plate_no" id="E_plate_no" list="v_list" class="form-control" required>
+            <input style= "text-transform:" type="text" name="E_plate_no" id="E_plate_no" list="v_list" class="form-control">
             <datalist id="v_list">               
             {% for v_id in vlist %}
               <option data-value="{{ v_id.PLATE_NO }} | {{ v_id.CS_NO }} | {{ v_id.MODEL }} | {{ v_id.BRAND }} | {{ v_id.VEHICLE_MAKE }} | {{ v_id.VEHICLE_TYPE }}" value="{{ v_id.PLATE_NO }}">
@@ -269,7 +269,7 @@ function servicevehicle(service) {
         </div> -->
         <div class="col-sm-4">
             <label>Conduction Sticker Number</label>
-            <input style= "text-transform:" type="text" name="E_con_sticker" id="E_con_sticker" class="form-control" readonly>
+            <input style= "text-transform:" type="text" name="E_con_sticker" id="E_con_sticker" class="form-control">
         </div>
 
 
@@ -280,7 +280,7 @@ function servicevehicle(service) {
 
         <div class="col-sm-4">
             <label>Vehicle Model Year</label>
-            <input style= "text-transform:" type="number" name="E_model_year" id="E_model_year" class="form-control" readonly>
+            <input style= "text-transform:" type="number" name="E_model_year" id="E_model_year" class="form-control">
         </div>
 
         <!-- <div class="col-sm-4">
@@ -290,7 +290,7 @@ function servicevehicle(service) {
 
         <div class="col-sm-4">
             <label>Vehicle Brand</label>
-            <input style= "text-transform:" type="text" name="E_brand" id="E_brand" class="form-control" readonly>
+            <input style= "text-transform:" type="text" name="E_brand" id="E_brand" class="form-control" >
         </div>
 
         <!-- <div class="col-sm-4">
@@ -300,7 +300,7 @@ function servicevehicle(service) {
 
         <div class="col-sm-4">
             <label>Vehicle Make</label>
-            <input style= "text-transform:" type="text" name="E_make" id="E_make" class="form-control" readonly>
+            <input style= "text-transform:" type="text" name="E_make" id="E_make" class="form-control">
         </div>
 
         <!-- <div class="col-sm-4">
@@ -310,7 +310,7 @@ function servicevehicle(service) {
 
         <div class="col-sm-4">
             <label>Vehicle Type</label>
-            <input style= "text-transform:" type="text" name="E_type" id="E_type" class="form-control" readonly>
+            <input style= "text-transform:" type="text" name="E_type" id="E_type" class="form-control">
         </div>
 
     </fieldset>

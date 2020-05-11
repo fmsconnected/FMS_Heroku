@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+</style>
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3><b>Leasing MasterList Units</b></h3>
+    </div>
+</div>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">All Units</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'vehicle_bayantel' %}">Bayan</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'vehicle_teli' %}">TelicPhil</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link active" href="#">Leasing</a>
+  </li>
+</ul>
+<div class="content mt-3" >
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="#"> <u>Export Leasing </u></a>
+                    <a href="#" style="float:right"><u>Add Leasing</u></a>
+                    <a href="#" style="float:right" class="mr-3"><u>Leasing History</u></a>
+                </div>
+                    <table id="vtable" class="table table-striped table-bordered" style="width:100%" data-server-side="false" data-ajax="/api/leasingmasterlist/?format=datatables">
+                    <thead>
+                        <tr>
+                            <th>Activity Id</th>
+                            <th>Plate No</th>
+                            <th>Cs No</th>
+                            <th>Company Model</th>
+                            <th>Brand</th>
+                            <th>Vehicle Make</th>
+                            <th>Vehicle Type</th>
+                            <th>Last Name (ASSIGNEE)</th>
+                            <th>First Name (ASSIGNEE)</th>
+                            <th>Vehicle Catergory</th>
+                            <th>Cost Center</th>
+                            <th>ID No</th>
+                            <th>Band</th>
+                            <th>Group</th>
+                            <th>Division</th>
+                            <th>Department</th>
+                            <th>Section</th>
+                            <th>IS (EMPLOYEE ID)</th>
+                            <th>IS (LASTNAME)</th>
+                            <th>IS (FIRSTNAME)</th>
+                            <th>Location</th>
+                            <th>Are</th>
+                            <th>Acquisition date</th>
+                            <th>Remarks</th>
+                            <th>Acquisition cost</th>
+                            <th>Months 36</th>
+                            <th>Amount</th>
+                            <th>Date in</th>
+                            <th>Date out</th>
+                            <th>Months 24</th>
+                            <th>Amount/Vat EX</th>
+                            <th>Date in</th>
+                            <th>Date out</th>
+                            <th>Extension</th>
+                            <th>Amount</th>
+                            <th>Date in</th>
+                            <th>Date out</th>
+                            <th>Chasis no</th>
+                            <th>Engine no</th>
+                            <th>Contact No</th>
+                        </tr>
+                    </thead>
+                    </table>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+
+$(document).ready(function() {
+    var table = $('#vtable').DataTable({
+        "serverSide": false,
+        "scrollX": true,
+        "deferRender": true,
+        "ajax": {
+            "url": "/api/leasingmasterlist/?format=datatables",
+            "type": "POST"
+            },
+        "columns": [
+                {"data":"Activity_Id"},
+                {"data":"PLATE_NUMBER"},
+                {"data":"CS_NO"},
+                {"data":"COMPANY_MODEL"},
+                {"data":"BRAND"},
+                {"data":"VEHICLE_MAKE"}, 
+                {"data":"VEHICLE_TYPE"},
+                {"data":"LAST_NAME_ASSIGNEE"}, 
+                {"data":"FIRST_NAME_ASSIGNEE"}, 
+                {"data":"VEHICLE_CATEGORY"}, 
+                {"data":"COST_CENTER"}, 
+                {"data":"ID_NUMBER"}, 
+                {"data":"BAND"}, 
+                {"data":"GROUP"}, 
+                {"data":"DIVISION"}, 
+                {"data":"DEPARTMENT"}, 
+                {"data":"SECTION"},
+                {"data":"IS_EMPLOYEE_ID"}, 
+                {"data":"IS_LASTNAME"}, 
+                {"data":"IS_FIRSTNAME"}, 
+                {"data":"LOCATION"}, 
+                {"data":"AREA"}, 
+                {"data":"ACQUISITION_DATE"}, 
+                {"data":"remarks"},
+                {"data":"acquisition_cost"}, 
+                {"data":"months_36"}, 
+                {"data":"amount"}, 
+                {"data":"date_in_1"}, 
+                {"data":"date_out_1"}, 
+                {"data":"months_24"}, 
+                {"data":"amount_Vat_EX"}, 
+                {"data":"date_in_2"}, 
+                {"data":"date_out_2"}, 
+                {"data":"extension"}, 
+                {"data":"amount"}, 
+                {"data":"date_in_3"}, 
+                {"data":"date_out_3"}, 
+                {"data":"chasis_no"}, 
+                {"data":"engine_no"}, 
+                {"data":"CONTRACT_NUMBER"}
+
+        ]
+    });
+    $('#vtable').on( 'click', 'tr', function () {
+        if ( $(this).hasClass('selected') ) {
+            $(this).removeClass('selected');
+        }
+        else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    } );
+});
+</script>
+
+{% endblock %}
+
+
