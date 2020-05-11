@@ -196,7 +196,11 @@ body {font-family: Arial;}
                         </ul>
                     </li> -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="{% url 'ownership_list' %}" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user-o" style="color:#15B0F3"></i>Transfer of Ownership</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-folder-o" style="color:#F34415"></i>Transfer Of Ownership</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-folder-o" style="color:#F34415"></i><a href="{% url 'ownership_list' %}">Transfer of Ownership</a></li>
+                            <li><i class="menu-icon fa fa-folder-o" style="color:#F34415"></i><a href="{% url 'billing_list' %}">Billing</a></li>
+                        </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-folder-open-o" style="color:#E615F3"></i>Masterlist</a>

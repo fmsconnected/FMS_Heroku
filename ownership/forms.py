@@ -1,6 +1,8 @@
 from django import forms
-from .models import Ownership
-
+from .models import (
+    Ownership,
+    Billing
+    )
 
 
 
@@ -165,4 +167,29 @@ class ownershipForm(forms.ModelForm):
             'date_received_by' : forms.TextInput(attrs={'class': 'form-control'}),
             'TOO_SLA' : forms.TextInput(attrs={'class':'form-control','value':'30','hidden':'true'}),
 
+        }
+
+class billing_form(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(billing_form, self).__init__(*args, **kwargs)
+        self.fields['in_payment_of'].required = False
+        self.fields['soa_no'].required = False
+        self.fields['cost_center'].required = False
+        self.fields['date_bill'].required = False
+        self.fields['total_amount'].requred = False
+
+    class Meta:
+        model = Billing
+        fields = [
+            'ref_no', 'in_payment_of', 'soa_no', 'cost_center', 'date_bill', 'total_amount'
+        ]
+
+        widgets ={
+
+            'ref_no' : forms.TextInput(attrs={'class':'form-control'}),
+            'in_payment_of' : forms.TextInput(attrs={'class':'form-control'}),
+            'soa_no' : forms.TextInput(attrs={'class':'form-control'}),
+            'cost_center' : forms.TextInput(attrs={'class':'form-control'}),
+            'date_bill' : forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
+            'total_amount' : forms.TextInput(attrs={'class':'form-control', 'type':'number'}),
         }

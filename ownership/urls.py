@@ -12,4 +12,12 @@ urlpatterns = [
     path('Ownership/History/', views.ownershipHistoryView, name='ownership_history'),
     path('Ownership/Export', views.ownership_excel, name='ownership_export'),
 
+    path('Billing/new', views.billing.as_view(), name='billing_new'),
+    path('Billing/List', views.billing_list.as_view(), name='billing_list'),
+    path('Billing/Details/<int:pk>', views.billingDetails.as_view(), name='billing_details'),
+    path('Billing/Delete/<int:pk>', views.billingDeleteView.as_view(), name='billing_delete'),
+    path('Billing/History', views.billingHistoryView, name='billing_history'),
+    path('Billing/Update/<int:pk>', views.billingUpdate.as_view(), name='billing_update'),
+    path('Billing/Export', views.billing_excel, name='billing_expo')
+
     ]

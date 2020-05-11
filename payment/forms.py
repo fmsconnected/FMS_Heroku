@@ -1,6 +1,10 @@
 from django import forms
 from django.contrib.admin.widgets import FilteredSelectMultiple
-from .models import VehiclePayment,Fuel_supplier, Vehicle_Repair_payment
+from .models import (
+	VehiclePayment,
+	Fuel_supplier,
+	Vehicle_Repair_payment
+	)
 
 
 class VehiclePaymentform(forms.ModelForm):
@@ -107,6 +111,7 @@ class vrepair_form(forms.ModelForm):
 		self.fields['rfp_no'].required = False
 		self.fields['invoice_number2'].requred = False
 		self.fields['invoice_date'].required = False
+
 	class Meta:
 		model = Vehicle_Repair_payment
 		fields = ['request_date','employee','cost_center','first_name','last_name','contact_no','company',
@@ -148,5 +153,5 @@ class vrepair_form(forms.ModelForm):
 		'invoice_date': forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
 	}
 
-
+		
 

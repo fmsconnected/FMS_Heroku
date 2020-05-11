@@ -7,10 +7,12 @@ from datetime import date, timedelta
 from django.urls import reverse_lazy
 from .models import (
    	Ownership,
+   	Billing
 )
 from masterlist.models import EmployeeMasterlist,VehicleMasterList
 from . forms import (
-    ownershipForm
+    ownershipForm,
+    billing_form
 )
 from django.views.generic import (
                 				CreateView,
@@ -135,6 +137,50 @@ def ownershipHistoryView(request):
        obj = Ownership.history.all()
 
        return render(request, 'transfer_history.html', context={'object': obj})
+
+
+class billing(SuccessMessageMixin, CreateView):
+	model = Billing
+	form_class = billing_form
+	template_name = 'billing/billing_form.html'
+
+	def get_success_message(self, cleaned_data):
+		print(cleaned_data)
+		return "Billing Created Successfully!"
+
+
+class billing_list(ListView):
+	model = Billing
+	template_name = 'billing/billing_list.html'
+
+
+class billingDetails(DetailView):
+	model = Billing
+	template_name = 'billing/billing_details.html'
+
+
+class billingDeleteView(BSModalDeleteView):
+    model = Billing
+    template_name = 'billing/billing_delete.html'
+    success_message = 'Success: Item was deleted.'
+    success_url = reverse_lazy('billing_list')
+
+
+class billingUpdate(SuccessMessageMixin, UpdateView):
+	model = Billing
+	form_class = billing_form
+	template_name = 'billing/billing_form.html'
+
+	def get_success_message(self, cleaned_data):
+		print(cleaned_data)
+		return "Transfer of Ownership Updated Successfully!"
+
+def billingHistoryView(request):
+    if request.method == "GET":
+       obj = Billing.history.all()
+
+       return render(request, 'billing/billing_history.html', context={'object': obj})
+
 
 def ownership_excel(request):
     own_queryset = Ownership.objects.all()   
@@ -264,6 +310,51 @@ def ownership_excel(request):
 
     workbook.save(response)
     return response
+
+def billing_excel(request):
+    own_queryset = Billing.objects.all()   
+    response = HttpResponse(
+        content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    )
+    response['Content-Disposition'] = 'attachment; filename= Billing.xlsx'
+    workbook = Workbook()
+
+    worksheet = workbook.active
+    worksheet.title = 'Billing'
+
+    columns = [
+			'Reference No',
+            'SOA Number',
+            'In Payment Of',
+            'Cost Center',
+            'Date Of Bill',
+            'Total Amount'
+    ]
+    row_num = 1
+
+    for col_num, column_title in enumerate(columns, 1):
+        cell = worksheet.cell(row=row_num, column=col_num)
+        cell.value = column_title
+
+    for bill in own_queryset:
+        row_num += 1
+        row = [
+			bill.ref_no ,
+    		bill.in_payment_of ,
+    		bill.soa_no ,
+    		bill.cost_center ,
+    		bill.date_bill ,
+    		bill.total_amount 
+        ]
+        
+        for col_num, cell_value in enumerate(row, 1):
+            cell = worksheet.cell(row=row_num, column=col_num)
+            cell.value = cell_value
+
+    workbook.save(response)
+    return response
+
+
 
 
 

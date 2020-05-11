@@ -139,7 +139,21 @@ class Ownership(models.Model):
     def get_absolute_url(self):
         return reverse('ownership_list')
 
+class Billing(models.Model):
 
+    ref_no = models.CharField(max_length=100, null=True, blank=True)
+    in_payment_of = models.CharField(max_length=250, null=True, blank=True)
+    soa_no = models.CharField(max_length=100, null=True, blank=True)
+    cost_center = models.CharField(max_length=100, null=True, blank=True)
+    date_bill = models.DateField(auto_now=False, null=True, blank=True)
+    total_amount = models.CharField(max_length=100, null=True, blank=True)
+    history = HistoricalRecords()
+
+    def __str__(self):
+        return self.ref_no
+
+    def get_absolute_url(self):
+        return reverse('billing_list')
 
 
 		
