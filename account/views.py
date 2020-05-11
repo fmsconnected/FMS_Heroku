@@ -1,5 +1,9 @@
 from django.shortcuts import render
-from payment.models import CarRental,VehiclePayment,Fuel_supplier,Vehicle_Repair_payment
+from payment.models import (
+	CarRental,VehiclePayment,
+	Fuel_supplier,
+	Vehicle_Repair_payment
+	)
 from request.models import (
 		CarRentalRequest,
         Gas_card,
@@ -13,6 +17,7 @@ from monitoring.models import (
 )
 from ownership.models import (
    	Ownership,
+   	Billing
 )
 from masterlist.models import (
     EmployeeMasterlist,
@@ -35,5 +40,10 @@ def index(request):
 	count11 = Ownership.objects.count()
 	count12 = EmployeeMasterlist.objects.count()
 	count13 = VehicleMasterList.objects.count()
+	count14 = Billing.objects.count()
 	return render(request, 'account/index.html', {'title': 'FLEET','count1':count1, 'count2':count2,'count3':count3,'count4':count4
-		,'count5':count5, 'count6':count6, 'count7':count7, 'count8':count8, 'count9':count9, 'count10':count10, 'count11':count11, 'count12':count12, 'count13':count13})
+		,'count5':count5, 'count6':count6, 'count7':count7, 'count8':count8, 'count9':count9, 'count10':count10, 'count11':count11,
+		 'count12':count12, 'count13':count13, 'count14':count14})
+
+
+
