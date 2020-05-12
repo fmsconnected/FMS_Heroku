@@ -88,7 +88,7 @@ class Vmasterlist(forms.ModelForm):
             self.fields['dealer'].required = False
             self.fields['dealer_name'].required = False
             self.fields['PLATE_NUMBER_RELEASE_DATE'].required = False
-            self.fields['latest_remark'].required = False
+            self.fields['leasing_remark'].required = False
 
       class Meta:
             model = VehicleMasterList

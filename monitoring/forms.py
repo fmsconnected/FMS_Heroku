@@ -56,8 +56,10 @@ class reg_updateForm(forms.ModelForm):
         self.fields['Remarks'].required = True
     class Meta:
         model = VehicleMasterList
-        fields = ['Last_Registration_Date','Smoke_Emission_Date','COC_Date','Remarks'
-    ]
+        fields = ['Last_Registration_Date','Smoke_Emission_Date','COC_Date','Remarks', 'Status'
+        ]
+
+
         remarks = (
             ('Without Last Registration Date','Without Last Registration Date'),
             ('Without Smoke Emission Date','Without Smoke Emission Date'),
@@ -65,11 +67,18 @@ class reg_updateForm(forms.ModelForm):
             ('Complete','Complete')
             )
 
+
+        status = (
+            ('Yes', 'Yes'),
+            ('Not', 'Not'),
+            )
+
         widgets= {
         "Last_Registration_Date": forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
         "Smoke_Emission_Date": forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
         "COC_Date": forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
         "Remarks": forms.Select(attrs={'class':'form-control', 'choices':'remarks'}),
+        "Status" : forms.Select(attrs={'class':'form-control', 'choices':'status'}),
         }
 
 

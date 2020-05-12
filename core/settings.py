@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'ownership.apps.OwnershipConfig',
     'voucher.apps.VoucherConfig',
     'report.apps.ReportConfig',
+    'leasingmasterlist.apps.LeasingmasterlistConfig',
 
 ]
 

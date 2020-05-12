@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3 align="center"><b>Leasing Masterlist</b></h3>&nbsp;
+    </div>
+
+<form method="POST">
+{% csrf_token %}
+    <div class="w3-container">
+        <fieldset>
+            <div class="col-sm-4">
+                <label>Plate Number</label>
+                {{ form.PLATE_NUMBER }}
+            </div>
+            <div class="col-sm-4">
+                <label>Conduction Sticker Number</label>
+                {{ form.CS_NO }}
+            </div>
+            <div class="col-sm-4">
+                <label>Company</label>
+                {{ form.COMPANY }}
+            </div>
+            <div class="col-sm-4">
+                <label>Model</label>
+                {{ form.MODEL }}
+            </div>
+            <div class="col-sm-4">
+                <label>Brand</label>
+                {{ form.BRAND }}
+            </div>
+            <div class="col-sm-4">
+                <label>Vehicle Make</label>
+                {{ form.VEHICLE_MAKE }}
+            </div>
+            <div class="col-sm-4">
+                <label>Vehicle Type</label>
+                {{ form.VEHICLE_TYPE }}
+            </div>
+            <div class="col-sm-4">
+                <label>Last Name Assignee</label>
+                {{ form.LAST_NAME_ASSIGNEE }}
+            </div>
+            <div class="col-sm-4">
+                <label>First Name Assignee</label>
+                {{ form.FIRST_NAME_ASSIGNEE }}
+            </div>
+            <div class="col-sm-4">
+                <label>Vehicle Category</label>
+                {{ form.VEHICLE_CATEGORY }}
+            </div>
+            <div class="col-sm-4">
+                <label>Cost Center</label>
+                {{ form.COST_CENTER }}
+            </div>
+            <div class="col-sm-4">
+                <label>Id Number</label>
+                {{ form.ID_NUMBER }}
+            </div>
+            <div class="col-sm-4">
+                <label>Band</label>
+                {{ form.BAND }}
+            </div>
+            <div class="col-sm-4">
+                <label>Group</label>
+                {{ form.GROUP }}
+            </div>
+            <div class="col-sm-4">
+                <label>Division</label>
+                {{ form.DIVISION }}
+            </div>
+            <div class="col-sm-4">
+                <label>Department</label>
+                {{ form.DEPARTMENT }}
+            </div>
+            <div class="col-sm-4">
+                <label>Section</label>
+                {{ form.SECTION }}
+            </div>
+            <div class="col-sm-4">
+                <label>IS (Employee ID)</label>
+                {{ form.IS_EMPLOYEE_ID }}
+            </div>
+            <div class="col-sm-4">
+                <label>IS (Firstname)</label>
+                {{ form.IS_FIRSTNAME }}
+            </div>
+            <div class="col-sm-4">
+                <label>IS (Lastname)</label>
+                {{ form.IS_LASTNAME }}
+            </div>
+            <div class="col-sm-4">
+                <label>Location</label>
+                {{ form.LOCATION }}
+            </div>
+            <div class="col-sm-4">
+                <label>Area </label>
+                {{ form.AREA}}
+            </div>
+                <div class="col-sm-4">
+                <label>Aquisition Date</label>
+                {{ form.ACQUISITION_DATE }}
+            </div>
+            <div class="col-sm-4">
+                <label>Aquisition Cost</label>
+                {{ form.acquisition_cost}}
+            </div>
+    </fieldset>
+    </div>
+    <div class="w3-container">
+    <fieldset>
+        <legend align="left">36 Months</legend>
+            <div class="col-sm-3">
+                <label>36 Months</label>
+                {{ form.months_36 }}
+            </div>
+            <div class="col-sm-3">
+                <label>Amount</label>
+                {{ form.amount1 }}
+            </div>
+            <div class="col-sm-3">
+                <label>Date In</label>
+                {{ form.date_in_1 }}
+            </div>
+            <div class="col-sm-3">
+                <label>Date Out</label>
+                {{ form.date_out_1 }}
+            </div>
+    </fieldset>
+    </div>
+    <div class="w3-container">
+    <fieldset>
+        <legend align="left">24 Months</legend>
+            <div class="col-sm-3">
+                <label>24 Months</label>
+                {{ form.months_24 }}
+            </div>
+            <div class="col-sm-3">
+                <label>Amount/Vat_ex</label>
+                {{ form.amount_Vat_EX }}
+            </div> 
+            <div class="col-sm-3">
+                <label>Date In</label>
+                {{ form.date_in_2 }}
+            </div>
+            <div class="col-sm-3">
+                <label>Date Out</label>
+                {{ form.date_out_2}}
+            </div>
+            </fieldset>
+    </div>
+    <div class="w3-container">
+    <fieldset>
+        
+            <div class="col-sm-3">
+                <label>Extension</label>
+                {{ form.extension }}
+            </div>
+            <div class="col-sm-3">
+                <label>Amount</label>
+                {{ form.amount2}}
+            </div>
+            <div class="col-sm-3">
+                <label>Date In</label>
+                {{ form.date_in_3}}
+            </div>
+            <div class="col-sm-3">
+                <label>Date Out</label>
+                {{ form.date_out_3}}
+            </div>
+    </fieldset>
+    </div>
+    <div class="w3-container">
+    <fieldset>
+        
+            <div class="col-sm-4">
+                <label>Chasis Number</label>
+                {{ form.chasis_no}}
+            </div>
+            <div class="col-sm-4">
+                <label>Engine Number</label>
+                {{ form.engine_no}}
+            </div>
+            <div class="col-sm-4">
+                <label>Contract Number</label>
+                {{ form.CONTRACT_NUMBER}}
+            </div>
+            <div class="col-sm-7">
+                <label>Remarks</label>
+                {{ form.remarks }}
+            </div>
+    </fieldset>
+    </div>
+</div>
+    <div class="card-footer">
+        <button type="submit" class="button">PROCEED</button>
+        <button type="Reset" class="btnc">CLEAR ALL</button>
+        <a href="{% url 'leasing_list' %}" class="btn">CLOSE</a>
+    </div>
+
+</form>
+{% endblock %}

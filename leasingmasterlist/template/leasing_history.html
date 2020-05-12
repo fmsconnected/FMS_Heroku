@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3><b>Leasing MasterList History</b></h3>
+    </div>
+</div>
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'leasing_list'%}"><u>Back to Leasing Masterlist</u></a>
+                </div>                         
+                <!-- <table id="bootstrap-data-table-export"a class="table table-striped table-bordered"> -->
+                <table id="example" class="display nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity Id</th>
+                            <th>Plate No</th>
+                            <th>Cs No</th>
+                            <th>Company</th>
+                            <th>Model</th>
+                            <th>Brand</th>
+                            <th>Vehicle Make</th>
+                            <th>Vehicle Type</th>
+                            <th>Last Name (ASSIGNEE)</th>
+                            <th>First Name (ASSIGNEE)</th>
+                            <th>Vehicle Catergory</th>
+                            <th>Cost Center</th>
+                            <th>ID No</th>
+                            <th>Band</th>
+                            <th>Group</th>
+                            <th>Division</th>
+                            <th>Department</th>
+                            <th>Section</th>
+                            <th>IS (EMPLOYEE ID)</th>
+                            <th>IS (LASTNAME)</th>
+                            <th>IS (FIRSTNAME)</th>
+                            <th>Location</th>
+                            <th>Are</th>
+                            <th>Acquisition date</th>
+                            <th>Remarks</th>
+                            <th>Acquisition cost</th>
+                            <th>Months 36</th>
+                            <th>Amount</th>
+                            <th>Date in</th>
+                            <th>Date out</th>
+                            <th>Months 24</th>
+                            <th>Amount/Vat EX</th>
+                            <th>Date in</th>
+                            <th>Date out</th>
+                            <th>Extension</th>
+                            <th>Amount</th>
+                            <th>Date in</th>
+                            <th>Date out</th>
+                            <th>Chasis no</th>
+                            <th>Engine no</th>
+                            <th>Contact No</th>
+                            <th>History Date</th>
+                            <th>History Type</th>
+                            <th>History User</th>
+                
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for h in object %}
+                        <tr class="odd gradeX">
+                            <td>{{ h.Activity_Id }}</td>
+                            <td>{{ h.PLATE_NUMBER }}</td>
+                            <td>{{ h.CS_NO }}</td>
+                            <td>{{ h.COMPANY }}</td>
+                            <td>{{ h.MODEL }}</td>
+                            <td>{{ h.BRAND }}</td>
+                            <td>{{ h.VEHICLE_MAKE }}</td> 
+                            <td>{{ h.VEHICLE_TYPE }}</td>
+                            <td>{{ h.LAST_NAME_ASSIGNEE }}</td> 
+                            <td>{{ h.FIRST_NAME_ASSIGNEE }}</td> 
+                            <td>{{ h.VEHICLE_CATEGORY }}</td> 
+                            <td>{{ h.COST_CENTER }}</td> 
+                            <td>{{ h.ID_NUMBER }}</td> 
+                            <td>{{ h.BAND }}</td> 
+                            <td>{{ h.GROUP }}</td> 
+                            <td>{{ h.DIVISION }}</td> 
+                            <td>{{ h.DEPARTMENT }}</td> 
+                            <td>{{ h.SECTION }}</td>
+                            <td>{{ h.IS_EMPLOYEE_ID }}</td> 
+                            <td>{{ h.IS_LASTNAME }}</td> 
+                            <td>{{ h.IS_FIRSTNAME }}</td> 
+                            <td>{{ h.LOCATION }}</td> 
+                            <td>{{ h.AREA }}</td> 
+                            <td>{{ h.ACQUISITION_DATE }}</td> 
+                            <td>{{ h.remarks }}</td>
+                            <td>{{ h.acquisition_cost }}</td> 
+                            <td>{{ h.months_36 }}</td> 
+                            <td>{{ h.amount1 }}</td> 
+                            <td>{{ h.date_in_1 }}</td> 
+                            <td>{{ h.date_out_1 }}</td> 
+                            <td>{{ h.months_24 }}</td> 
+                            <td>{{ h.amount_Vat_EX }}</td> 
+                            <td>{{ h.date_in_2 }}</td> 
+                            <td>{{ h.date_out_2 }}</td> 
+                            <td>{{ h.extension }}</td> 
+                            <td>{{ h.amount2 }}</td> 
+                            <td>{{ h.date_in_3 }}</td> 
+                            <td>{{ h.date_out_3 }}</td> 
+                            <td>{{ h.chasis_no }}</td> 
+                            <td>{{ h.engine_no }}</td> 
+                            <td>{{ h.CONTRACT_NUMBER }}</td>
+                            <td>{{ h.history_date}}</td>
+                  
+                            {% if h.history_type == '+' %}
+                                <td style="color: green;">Created</td>
+                            {% elif h.history_type == '-' %}
+                                <td style="color: red;">Deleted</td>
+                            {% else %}
+                                <td style="color: blue;">Edited</td>
+                            {% endif %}
+                            <td>{{h.history_user}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+    <!-- /.row -->
+{% endblock %}
+
+

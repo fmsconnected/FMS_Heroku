@@ -25,6 +25,7 @@ from ajax_select import urls as ajax_select_urls
 from django.conf.urls import url, include
 from rest_framework import routers
 from masterlist import views
+# from leasingmasterlist import views
 
 admin.autodiscover()
 router = routers.DefaultRouter()
@@ -44,7 +45,10 @@ urlpatterns = [
     path('Ownership/', include('ownership.urls')),
     path('Voucher/', include('voucher.urls')),
     path('Report/', include('report.urls')),
+    # path('Leasing/', include('leasingmasterlist.urls')),
     path('', auth_views.LoginView.as_view(template_name='account/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='account/logout.html'), name='logout'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
