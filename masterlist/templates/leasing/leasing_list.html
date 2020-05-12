@@ -43,7 +43,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                 <div class="card-header">
                     <a href="#"> <u>Export Leasing </u></a>
                     <a href="{% url 'leasing_new' %}" style="float:right"><u>Add Leasing</u></a>
-                    <a href="#" style="float:right" class="mr-3"><u>Leasing History</u></a>
+                    <a href="{% url 'leasing_history' %}" style="float:right" class="mr-3"><u>Leasing History</u></a>
                 </div>
                     <table id="vtable" class="table table-striped table-bordered" style="width:100%" data-server-side="false" data-ajax="/api/leasingmasterlist/?format=datatables">
                     <thead>

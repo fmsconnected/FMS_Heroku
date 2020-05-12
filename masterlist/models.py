@@ -259,7 +259,8 @@ class Leasing(models.Model):
 	chasis_no= models.CharField(max_length=100, null=True, blank=True)
 	engine_no= models.CharField(max_length=100, null=True, blank=True)
 	CONTRACT_NUMBER= models.CharField(max_length=20, null=True, blank=True)
-
+	history = HistoricalRecords()
+	
 	def __str__(self):
 		return self.Activity_Id
 				

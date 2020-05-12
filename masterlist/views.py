@@ -247,6 +247,14 @@ class leasingDetailView(DetailView):
     model = Leasing
     template_name = 'leasing/leasing_details.html'
 
+
+def leasingHistoryView(request):
+    if request.method == "GET":
+       obj = Leasing.history.all()
+
+       return render(request, 'leasing/leasing_history.html', context={'object': obj})
+
+
 class vreg_details(DetailView):
     model = VehicleMasterList
     template_name = 'vehicleMasterlist/vreg_details.html'
