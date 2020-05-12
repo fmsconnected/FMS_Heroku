@@ -1,17 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-<script>
-function myFunction() {
-  var txt = document.getElementById("Plate_no")[0].value;
-            console.log(txt);
-  var res = txt.charAt(txt.length-1);
-  document.getElementById("Ending").innerHTML = res;
-}
-</script> -->
-
 <div class="col-md-12">
     <div class="card">
     <div class="card-header">
@@ -20,9 +9,6 @@ function myFunction() {
 
 <form method="POST">
 {% csrf_token %}
-<!--     {{ form.reg_month }}
-    {{ form.original_OR_date }}
-    {{ form.plateNo_release }} -->
     {{ form.PLATE_ENDING }}
     <div class="col-sm-4">
         <label>Plate Number</label>{{ form.PLATE_NO }}
@@ -129,6 +115,9 @@ function myFunction() {
     </div>
     <div class="col-sm-4">
         <label>Email Status</label>{{ form.Status }}
+    </div>
+    <div class="col-sm-4">
+        <label>Latest Remark's</label>{{ form.leasing_remark }}
     </div>
 </div>
     <div class="card-footer">

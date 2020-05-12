@@ -43,10 +43,13 @@ urlpatterns = [
 	path('Vehicle/Telicphil', views.vehicle_telicphil, name='vehicle_teli'),
 	path('Vehicle/Teli/Export', views.vehicle_excel_teli, name='vehicleteli_export'),
 	#####Vehicle Leasing#####
-	path('Vehicle/Leasing', views.vehicle_leasing, name='vehicle_leasing'),
-	path('Vehicle/Leasing/Export', views.vehicle_excel_leasing, name='leasing_export'),
+	# path('Vehicle/Leasing', views.vehicle_leasing, name='vehicle_leasing'),
+	# path('Vehicle/Leasing/Export', views.vehicle_excel_leasing, name='leasing_export'),
 	# path('Vehicle/filter', views.registration, name='vehiclefilter'),
-	path('Leasing/', views.leasing, name='leasing_list')
+	path('Leasing/', views.leasing, name='leasing_list'),
+	path('Leasing/New', views.leasingCreateView.as_view(), name='leasing_new'),
+	path('Leasing/Update/<int:pk>', views.leasingUpdateView.as_view(), name='leasing_update'),
+	path('Leasing/Details/<int:pk>', views.leasingDetailView.as_view(), name='leasing_details')
 ]
 
 

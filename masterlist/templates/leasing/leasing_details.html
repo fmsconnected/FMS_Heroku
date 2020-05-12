@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3>Leasing MasterList Details</h3>&nbsp;
+    </div>
+
+<table width="90%" class="table table-bordered table-hover" border="5px">
+  <tr>
+      <th width="20%">Plate Number</th><td width="30%">{{ object.PLATE_NUMBER }}</td>
+      <th width="20%">Conduction Sticker Number</th><td width="30%">{{ object.CS_NO }}</td>
+  </tr>
+    <tr>
+        <th>Model</th><td>{{ object.MODEL}}</td>
+        <th>Brand</th><td>{{ object.BRAND }}</td>
+    </tr>
+    <tr>
+      <th>Company</th><td>{{ object.COMPANY</td>
+      <th>Vehicle Make </th><td>{{ object.VEHICLE_MAKE }}</td>
+    </tr>
+    <tr>
+      <th>Last Name Assignee </th> <td>{{ object.LAST_NAME_ASSIGNEE }}</td>
+      <th>Vehicle Type</th><td>{{ object.VEHICLE_TYPE }}</td>
+    </tr>
+    <tr>
+      <th>Vehicle Category</th><td>{{ object.VEHICLE_CATEGORY }}</td>
+      <th>First Name Assignee </th> <td>{{ object.FIRST_NAME_ASSIGNEE }}</td>
+    </tr>
+    <tr>
+      <th>ID Number</th> <td>{{ object.ID_NUMBER }}</td>
+      <th>Cost Center </th> <td>{{ object.COST_CENTER }}</td>
+    </tr>
+    <tr>
+      <th>Group </th> <td>{{ object.GROUP }}</td>
+      <th>Band</th> <td>{{ object.BAND }}</td>
+    </tr>
+    <tr>
+      <th>Section</th><td>{{ object.SECTION }}</td>
+      <th>Division</th> <td>{{ object.DIVISION }}</td>
+    </tr>
+    <tr>
+      <th>Department</th><td>{{ object.DEPARTMENT }}</td>
+      <th>IS (FIRSTNAME)</th> <td>{{ object.IS_FIRSTNAME }}</td>
+    </tr>
+    <tr>
+      <th>IS (EMPLOYEE ID)</th><td>{{ object.IS_EMPLOYEE_ID }}</td>
+      <th>IS (LASTNAME)</th><td>{{ object.IS_LASTNAME }}</td>
+    </tr>
+    <tr>
+      <th>Area</th><td>{{ object.AREA }}</td>
+      <th>Location</th> <td>{{ object.LOCATION }}</td>
+    </tr>
+    <tr>
+      <th>Acquisition Cost</th><td>{{ object.acquisition_cost}}</td>
+      <th>Acquisition Date</th> <td>{{ object.ACQUISITION_DATE }}</td>
+    </tr>
+    <tr>
+      <th>Cost Center</th> <td>{{ object.COST_CENTER }}</td>
+      <th></th><td></td>
+    </tr>
+    <tr>
+      <th></th><td></td>
+      <th></th><td></td>
+    </tr>
+    <tr>
+      <th>36 months </th> <td>{{ object.months_36 }}</td>
+      <th>Amount</th> <td>{{ object.amount1 }}</td>
+    </tr>  
+    <tr>
+      <th>Date In </th> <td>{{ object.date_in_1 }}</td>
+      <th>Date Out</th> <td>{{ object.date_out_1 }}</td>
+    </tr>
+    <tr>
+      <th></th><td></td>
+      <th></th><td></td>
+    </tr>
+    <tr>
+      <th>24 months </th> <td>{{ object.months_24 }}</td>
+      <th>Amount/Vat_ex</th> <td>{{ object.amount_Vat_EX }}</td>
+    </tr>  
+    <tr>
+      <th>Date In </th> <td>{{ object.date_in_2 }}</td>
+      <th>Date Out</th> <td>{{ object.date_out_2 }}</td>
+    </tr>
+    <tr>
+      <th></th><td></td>
+      <th></th><td></td>
+    </tr>
+    <tr>
+      <th>Extension</th><td>{{ object.extension }}</td>
+      <th>Amount</th><td>{{ object.amount2 }}</td>
+    </tr>
+    <tr>
+      <th>Date In</th><td>{{ object.date_in_3 }}</td>
+      <th>Date Out </th> <td>{{ object.date_out_3 }}</td>
+    </tr>
+    <tr>
+      <th></th><td></td>
+      <th></th><td></td>
+    </tr>
+    <tr>
+      <th>Chasis Number</th><td>{{ object.chasis_no }}</td>
+      <th>Engine Number</th><td>{{ object.engine_no }}</td>
+    </tr>
+    <tr>
+      <th>Contract Number</th><td>{{ object.CONTRACT_NUMBER }}</td>
+      <th>Remarks </th> <td>{{ object.remarks }}</td>
+    </tr>
+
+</table>
+    <div class="card-footer">
+      <a href="{% url 'leasing_update' object.id %}" class="button" style="color:white">UPDATE</a>
+      <a href="{% url 'leasing_list'%}" class="btn" style="color:white">CLOSE</a>
+
+    </div>
+</div>
+</div>
+{% endblock %}

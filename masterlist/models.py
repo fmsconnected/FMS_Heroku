@@ -221,7 +221,8 @@ class Leasing(models.Model):
 	Activity_Id  = models.CharField(max_length=100,null=True, default=increment_Activity_Id)
 	PLATE_NUMBER = models.CharField(max_length=100, null=True, blank=True)
 	CS_NO= models.CharField(max_length=100, null=True, blank=True)
-	COMPANY_MODEL= models.CharField(max_length=100, null=True, blank=True)
+	COMPANY= models.CharField(max_length=100, null=True, blank=True)
+	MODEL = models.CharField(max_length=100, null=True, blank=True)
 	BRAND= models.CharField(max_length=100, null=True, blank=True, choices=Vbrand)
 	VEHICLE_MAKE= models.CharField(max_length=100, null=True, blank=True)
 	VEHICLE_TYPE= models.CharField(max_length=100, null=True, blank=True)
@@ -244,7 +245,7 @@ class Leasing(models.Model):
 	remarks= models.CharField(max_length=250, null=True, blank=True)
 	acquisition_cost= models.CharField(max_length=100, null=True, blank=True)
 	months_36= models.CharField(max_length=100, null=True, blank=True)
-	amount= models.CharField(max_length=100, null=True, blank=True)
+	amount1= models.CharField(max_length=100, null=True, blank=True)
 	date_in_1= models.CharField(max_length=100, null=True, blank=True)
 	date_out_1= models.CharField(max_length=100, null=True, blank=True)
 	months_24= models.CharField(max_length=100, null=True, blank=True)
@@ -252,7 +253,7 @@ class Leasing(models.Model):
 	date_in_2= models.CharField(max_length=100, null=True, blank=True)
 	date_out_2= models.CharField(max_length=100, null=True, blank=True)
 	extension= models.CharField(max_length=100, null=True, blank=True)
-	amount= models.CharField(max_length=100, null=True, blank=True)
+	amount2= models.CharField(max_length=100, null=True, blank=True)
 	date_in_3= models.CharField(max_length=100, null=True, blank=True)
 	date_out_3= models.CharField(max_length=100, null=True, blank=True)
 	chasis_no= models.CharField(max_length=100, null=True, blank=True)
@@ -263,7 +264,7 @@ class Leasing(models.Model):
 		return self.Activity_Id
 				
 	def get_absolute_url(self):
-		return reverse('#')
+		return reverse('leasing_list')
 
 
 

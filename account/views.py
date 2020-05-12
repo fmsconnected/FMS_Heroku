@@ -21,7 +21,8 @@ from ownership.models import (
 )
 from masterlist.models import (
     EmployeeMasterlist,
-    VehicleMasterList
+    VehicleMasterList,
+    Leasing
     )
 
 def index(request):
@@ -41,9 +42,10 @@ def index(request):
 	count12 = EmployeeMasterlist.objects.count()
 	count13 = VehicleMasterList.objects.count()
 	count14 = Billing.objects.count()
+	count15 = Leasing.objects.count()
 	return render(request, 'account/index.html', {'title': 'FLEET','count1':count1, 'count2':count2,'count3':count3,'count4':count4
 		,'count5':count5, 'count6':count6, 'count7':count7, 'count8':count8, 'count9':count9, 'count10':count10, 'count11':count11,
-		 'count12':count12, 'count13':count13, 'count14':count14})
+		 'count12':count12, 'count13':count13, 'count14':count14, 'count15':count15})
 
 
 

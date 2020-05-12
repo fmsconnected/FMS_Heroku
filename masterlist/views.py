@@ -19,6 +19,7 @@ from . forms import (
     EmpMasterlistForm,
     Vmasterlist,
     Vmaster,
+    leasing_form
     )
 from bootstrap_modal_forms.generic import BSModalDeleteView
 
@@ -82,6 +83,7 @@ def VmasterlistCreate(request):
         or_date = request.POST.get('or_date')
         remarks = request.POST.get('remarks')
         status = request.POST.get('status')
+        l_remark = request.POST.get('l_remark')
         
         if or_date == '':
             or_date = None
@@ -136,7 +138,7 @@ def VmasterlistCreate(request):
             Employee=emp_save, BAND_LEVEL=band, BENEFIT_GROUP=benefit, COST_CENTER=cost, GROUP=group, DIVISION=div,
             DEPARTMENT=dept, SECTION=sec, IS_ID=is_emp, IS_FIRST_NAME=is_fname, IS_LAST_NAME=is_lname, LOCATION=loc,
             ACQ_DATE=aqui_date, ACQ_COST=aqui_cost, ASSET_NO=asset, PO_NO=po_no, PLATE_NUMBER_RELEASE_DATE=plate_date, ORIGINAL_OR_DATE=or_date,EQUIPMENT_NO=eq_no,
-            SAP_PR=sap_pr,Vehicle_IVN_no=ivn_no,Unit_MATDOC=mathdoc,dealer=dealer, dealer_name=dealer_name, Remarks=remarks, Status=status
+            SAP_PR=sap_pr,Vehicle_IVN_no=ivn_no,Unit_MATDOC=mathdoc,dealer=dealer, dealer_name=dealer_name, Remarks=remarks, Status=status, leasing_remark=l_remark
             )
         saveto_end.save()
 
@@ -223,15 +225,33 @@ def employeeMasterlistHistoryView(request):
 def leasing(request):
     return render(request, 'leasing/leasing_list.html')
 
+
 class leasingViewSet(viewsets.ModelViewSet):
     queryset = Leasing.objects.all().order_by('id')
     serializer_class = leasingSerializer
 
 
+class leasingCreateView(CreateView):
+    model = Leasing
+    form_class = leasing_form
+    template_name = 'leasing/leasing_form.html'
+
+
+class leasingUpdateView(UpdateView):
+    model = Leasing
+    form_class = leasing_form
+    template_name = 'leasing/leasing_form.html'
+
+
+class leasingDetailView(DetailView):
+    model = Leasing
+    template_name = 'leasing/leasing_details.html'
+
 class vreg_details(DetailView):
     model = VehicleMasterList
     template_name = 'vehicleMasterlist/vreg_details.html'
     
+
 def vehicle_bayan(request):
     context = {
             'bayan_list': VehicleMasterList.objects.filter(CR_NAME__contains="BAYANTEL")
