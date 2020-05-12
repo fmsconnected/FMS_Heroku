@@ -11,7 +11,11 @@ from .models import (
         service_vehicle,
         Vehicle_Repair,
 )
-from masterlist.models import EmployeeMasterlist,VehicleMasterList
+from masterlist.models import (
+    EmployeeMasterlist,
+    VehicleMasterList,
+    Leasing
+    )
 from django.views.generic import (
      DetailView,
      ListView,
@@ -466,7 +470,7 @@ def serviceCreate(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
     emplist = EmployeeMasterlist.objects.all()
-    vlist = VehicleMasterList.objects.all()
+    vlist = Leasing.objects.all()
     return render(request, 'service_vehicle/service_new.html',{'Title':'Car - Car Request', 'emplist':emplist,'vlist':vlist})
 
 def servicesubmit(request):
