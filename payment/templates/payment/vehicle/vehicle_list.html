@@ -43,7 +43,7 @@
                             <th>Activity ID</th>
                             <th>Assignee Full Name</th>
                             <th>Plate Number</th>
-                            <th>PO Number</th>
+                            <th>RFP Number</th>
                             <th>SLA</th>
                             <th>Date Initiated</th>
                             <th>Date Deadline</th>
@@ -61,7 +61,7 @@
                             <td><a href="{% url 'Vehicle-summary' VehiclePayment.id %}">{{ VehiclePayment.Activity_id }}</a></td>
                             <td>{{ VehiclePayment.E_First_name }} {{ VehiclePayment.E_Last_name }}</td>
                             <td>{{ VehiclePayment.Plate_no }}</td>
-                            <td>{{ VehiclePayment.PO_no }}</td>
+                            <td>{{ VehiclePayment.rfp_number }}</td>
                             <td>{{ VehiclePayment.V_SLA }}/Days</td>
                             <td>{{ VehiclePayment.Date_initiated | date:'D d M Y'}}</td>
                             <td>{{ VehiclePayment.Deadline | date:'D d M Y'}}</td>
