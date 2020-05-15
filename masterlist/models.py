@@ -107,7 +107,7 @@ class VehicleMasterList(models.Model):
 
 	status = (
 			('Yes', 'Yes'),
-			('Not', 'Not'),
+			('No', 'No'),
 		)
 	
 	Activity_Id  = models.CharField(max_length=100,null=True, default=increment_Activity_Id)

@@ -142,7 +142,7 @@ class Vmasterlist(forms.ModelForm):
 
             status = (
                   ('Yes', 'Yes'),
-                  ('Not', 'Not'),
+                  ('No', 'No'),
             )
 
 

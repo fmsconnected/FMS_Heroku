@@ -70,7 +70,7 @@ class reg_updateForm(forms.ModelForm):
 
         status = (
             ('Yes', 'Yes'),
-            ('Not', 'Not'),
+            ('No', 'No'),
             )
 
         widgets= {

@@ -56,7 +56,7 @@ class VehiclePaymentform(forms.ModelForm):
 		    'Outstanding_balance': forms.TextInput(attrs={'class':'form-control','type':'number'}),
 		    'Date_final': forms.TextInput(attrs={'class':'form-control','type':'date'}),
 		    'Routing_remarks': forms.TextInput(attrs={'class':'form-control'}),
-		    'V_SLA': forms.TextInput(attrs={'class':'form-control','type':'number','value':'15','hidden':'True'}),
+		    'V_SLA': forms.TextInput(attrs={'class':'form-control','type':'number','value':'30','hidden':'True'}),
 		    'rfp_number' : forms.TextInput(attrs={'class':'form-control'}),
 		    'invoice_number' : forms.TextInput(attrs={'class':'form-control'}),
 		    'equip_no' : forms.TextInput(attrs={'class': 'form-control', 'readonly':'true'}),
