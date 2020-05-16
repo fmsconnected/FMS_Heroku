@@ -541,7 +541,7 @@ def vehicle_excel(request):
         # ordate = car.ORIGINAL_OR_DATE.strftime('%m/%d/%Y')
         # platerelease = car.PLATE_NUMBER_RELEASE_DATE.strftime('%m/%d/%Y')
         row = [
-                vehicle.PO_no,
+                vehicle.rfp_number,
                 vehicle.A_employee_ID,
                 vehicle.E_First_name,
                 vehicle.E_Last_name,
