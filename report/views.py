@@ -162,7 +162,7 @@ def report_excel(request):
     for report in report_queryset:
         row_num += 1
         row = [
-			    report.eceived_date ,
+			    report.received_date ,
 			    report.v_accident_type ,
 			    report.support_docs ,
 			    report.plate_number ,
