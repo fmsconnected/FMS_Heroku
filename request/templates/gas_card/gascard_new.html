@@ -102,7 +102,7 @@ function gascard(card) {
             <input name="req_emp_id" id="req_emp_id" list="emp_list" class="form-control" required>
             <datalist id="emp_list">               
             {% for empid in elist %}
-              <option data-value="{{ empid.Employee_Id }} | {{ empid.First_name }} | {{ empid.Last_name }} | {{ empid.Cost_center }}" value="{{ empid.Employee_Id }}">
+              <option data-value="{{ empid.Employee_Id }} | {{ empid.First_name }} | {{ empid.Last_name }} | {{ empid.Band }}" value="{{ empid.Employee_Id }}">
               </option>
             {% endfor %}
             </datalist>
