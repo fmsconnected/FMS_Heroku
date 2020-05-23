@@ -41,7 +41,7 @@ def Vmastertables(request):
 
 
 class vehicleViewSet(viewsets.ModelViewSet):
-    queryset = VehicleMasterList.objects.filter(leasing_remark__isnull=True).order_by('id')
+    queryset = VehicleMasterList.objects.all().order_by('id')
     serializer_class = vehicleSerializer
 
 
@@ -149,7 +149,6 @@ def vehicle(request):
     return render(request, 'vehicleMasterlist/vmasterlist.html', {'Title': 'Vehicle Masterlist','elist':elist})
 
 class vehicleMasterListView(ListView):
-    paginated_by = 10
     model = VehicleMasterList
     template_name = 'vehicleMasterlist/vm.html'
         
