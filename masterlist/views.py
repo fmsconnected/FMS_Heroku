@@ -430,6 +430,17 @@ def vehicle_excel(request):
             'REGISTRATION_MONTH',
             'ORIGINAL_OR_DATE',
             'PLATE_NUMBER_RELEASE_DATE',
+            'SAP_PR ',
+            'Vehicle_IVN_no ',
+            'Unit_MATDOC ',
+            'dealer ',
+            'dealer_name ',
+            'PO_NO ',
+            'Last_Registration_Date',
+            'Smoke_Emission_Date ',
+            'COC_Date ',
+            'Remarks '
+            'Status ',
     ]
     row_num = 1
 
@@ -477,6 +488,17 @@ def vehicle_excel(request):
                 vehicle.REGISTRATION_MONTH,
                 vehicle.ORIGINAL_OR_DATE,
                 vehicle.PLATE_NUMBER_RELEASE_DATE,
+                vehicle.SAP_PR,
+                vehicle.Vehicle_IVN_no,
+                vehicle.Unit_MATDOC,
+                vehicle.dealer,
+                vehicle.dealer_name,
+                vehicle.PO_NO,
+                vehicle.Last_Registration_Dat,
+                vehicle.Smoke_Emission_Date,
+                vehicle.COC_Date,
+                vehicle.Remarks, 
+                vehicle.Status,
         ]
         
         for col_num, cell_value in enumerate(row, 1):
