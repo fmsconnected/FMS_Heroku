@@ -430,17 +430,17 @@ def vehicle_excel(request):
             'REGISTRATION_MONTH',
             'ORIGINAL_OR_DATE',
             'PLATE_NUMBER_RELEASE_DATE',
-            'SAP_PR ',
-            'Vehicle_IVN_no ',
-            'Unit_MATDOC ',
-            'dealer ',
-            'dealer_name ',
-            'PO_NO ',
+            'SAP_PR',
+            'Vehicle_IVN_no',
+            'Unit_MATDOC',
+            'dealer',
+            'dealer_name',
+            'PO_NO',
             'Last_Registration_Date',
-            'Smoke_Emission_Date ',
-            'COC_Date ',
-            'Remarks '
-            'Status ',
+            'Smoke_Emission_Date',
+            'COC_Date',
+            'Remarks',
+            'Status',
     ]
     row_num = 1
 
