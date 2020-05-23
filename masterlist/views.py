@@ -440,7 +440,7 @@ def vehicle_excel(request):
             'Smoke_Emission_Date',
             'COC_Date',
             'Remarks',
-            'Status',
+            'Email Status',
     ]
     row_num = 1
 
