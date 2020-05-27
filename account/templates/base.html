@@ -53,15 +53,10 @@ div.dataTables_wrapper {
 tr:nth-child(even){background-color: #b8fedf}
 </style>
 
-<!-- <style type="text/css">
-  div.dataTables_wrapper {
-        width: 1300px;
-        margin: 0 auto;
-    }
-</style> -->
 <style type="text/css">
 table.table {
   width: auto;
+  border-collapse: collapse; 
   
 }
  </style>
@@ -69,6 +64,11 @@ table.table {
 #example td.red {
      color: red;
 }
+</style>
+<style type="text/css">
+    div.container {
+        width: 80%;
+    }
 </style>
 <!-- <style>
 body {
@@ -171,6 +171,7 @@ body {
     $(document).ready(function() {
     $('#example').DataTable( {
         "scrollX": true,
+        "responsive": true
     } );
 } );
 </script>

@@ -191,5 +191,5 @@ class billing_form(forms.ModelForm):
             'soa_no' : forms.TextInput(attrs={'class':'form-control'}),
             'cost_center' : forms.TextInput(attrs={'class':'form-control'}),
             'date_bill' : forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
-            'total_amount' : forms.TextInput(attrs={'class':'form-control', 'type':'number'}),
+            'total_amount' : forms.TextInput(attrs={'class':'form-control'}),
         }
