@@ -340,6 +340,7 @@ class repairform(forms.ModelForm):
 		self.fields['approvedby'].required = False
 		self.fields['meter_reading'].required = False
 		self.fields['VRR_SLA'].required = False
+		self.fields['memo_app'].required = False
 
 	class Meta:
 		model = Vehicle_Repair
@@ -348,7 +349,7 @@ class repairform(forms.ModelForm):
 		'plate_no','v_brand','engine','v_make','v_model','chassis','band','cond_sticker','equipment_no','fleet_area',
 		'maintenance_type1','scope_work1','maintenance_type2','scope_work2','recommendations','service_reminder','verified_by', 
 		'particulars','category','work_order1','work_order2','work_order3','datework_created','Shop_vendor','date_forwarded','estimate_no',
-		'maintenance_amount','less_discount','estimate_remarks','estimate_attached','approvedby','meter_reading','VRR_SLA'
+		'maintenance_amount','less_discount','estimate_remarks','estimate_attached','approvedby','meter_reading','VRR_SLA','memo_app'
 		]
 		area= (
 			('The Globe Tower', 'The Globe Tower'),
@@ -406,6 +407,7 @@ class repairform(forms.ModelForm):
 			'work_order2' : forms.TextInput(attrs={'class':'form-control'}),
 			'work_order3' : forms.TextInput(attrs={'class':'form-control'}),
 			'datework_created': forms.TextInput(attrs={'class':'form-control','type':'date'}),
+			'memo_app': forms.TextInput(attrs={'class':'form-control'}),
 			'Shop_vendor' : forms.TextInput(attrs={'class':'form-control'}),
 			'date_forwarded' : forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
 			'estimate_no' : forms.TextInput(attrs={'class':'form-control'}),

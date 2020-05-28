@@ -727,6 +727,7 @@ def repairsubmit(request):
         work_order3 = request.POST.get('work_order3')
         date_work_created = request.POST.get('date_work_created')
         repair_shop = request.POST.get('repair_shop')
+        memo_app = request.POST.get('memo_app')
         date_forward = request.POST.get('date_forward')
         estimate_no = request.POST.get('estimate_no')
         maintenance_amount = request.POST.get('maintenance_amount')
@@ -746,7 +747,7 @@ def repairsubmit(request):
             work_order1=work_order1, work_order2=work_order2, work_order3=work_order3, datework_created=date_work_created,
             Shop_vendor=repair_shop, date_forwarded=date_forward, estimate_no=estimate_no, maintenance_amount=maintenance_amount,
             less_discount=less_discount, estimate_remarks=estimate_remark, estimate_attached=estimate_attach, approvedby=approved_by,
-            meter_reading=kilo_reading,VRR_SLA=vrr_sla,
+            meter_reading=kilo_reading, VRR_SLA=vrr_sla, memo_app=memo_app,
     )
         saveto_repair.save()
 
@@ -834,6 +835,7 @@ def repair_request_excel(request):
                 'Work Order 3' ,
                 'Date Work Created' ,
                 'Shop Vendor' ,
+                'Memo App Number'
                 'Date Forwarded' ,
                 'Estimate No' ,
                 'Maintenance Amount' ,
@@ -888,6 +890,7 @@ def repair_request_excel(request):
                 repair.work_order3 ,
                 repair.datework_created ,
                 repair.Shop_vendor ,
+                repair.memo_app,
                 repair.date_forwarded ,
                 repair.estimate_no ,
                 repair.maintenance_amount ,

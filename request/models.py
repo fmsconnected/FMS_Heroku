@@ -318,10 +318,10 @@ class Vehicle_Repair(models.Model):
 	verified= (
 		('Shane Santos','Shane Santos'),
 	)
-	shop= (
-		('GR8','GR8'),
-		('Others','Others')
-	)
+	# shop= (
+	# 	('GR8','GR8'),
+	# 	('Others','Others')
+	# )
 	maintenance= (
 		('Preventive Maintenance','Preventive Maintenance'),
 		('Corective Maitenance','Corective Maitenance'),
@@ -365,7 +365,8 @@ class Vehicle_Repair(models.Model):
 	work_order2 = models.CharField(max_length=100, null=True, blank=True)
 	work_order3 = models.CharField(max_length=100, null=True, blank=True)
 	datework_created = models.CharField(max_length=100, null=True, blank=True)
-	Shop_vendor = models.CharField(max_length=100, null=True, choices=shop, blank=True)
+	Shop_vendor = models.CharField(max_length=100, null=True, blank=True)
+	memo_app = models.CharField(max_length=100, null=True, blank=True)
 	date_forwarded = models.CharField(max_length=100, null=True, blank=True)
 	estimate_no = models.CharField(max_length=100, null=True, blank=True)
 	maintenance_amount = models.CharField(max_length=100, null=True, blank=True)
