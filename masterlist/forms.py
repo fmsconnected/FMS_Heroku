@@ -138,6 +138,7 @@ class Vmasterlist(forms.ModelForm):
                   ('Volkswagen','Volkswagen'),
                   ('Volvo','Volvo'),
                   ('Saturn','Saturn'),
+                  ('Kia','Kia'),
             )
 
             status = (

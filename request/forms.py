@@ -358,10 +358,10 @@ class repairform(forms.ModelForm):
 		verified= (
 			('Shane Santos','Shane Santos'),
 		)
-		shop= (
-			('GR8','GR8'),
-			('Others','Others')
-		)
+		# shop= (
+		# 	('GR8','GR8'),
+		# 	('Others','Others')
+		# )
 		maintenance= (
 			('Preventive Maintenance','Preventive Maintenance'),
 			('Corective Maitenance','Corective Maitenance'),
@@ -406,7 +406,7 @@ class repairform(forms.ModelForm):
 			'work_order2' : forms.TextInput(attrs={'class':'form-control'}),
 			'work_order3' : forms.TextInput(attrs={'class':'form-control'}),
 			'datework_created': forms.TextInput(attrs={'class':'form-control','type':'date'}),
-			'Shop_vendor' : forms.Select(attrs={'class':'form-control','choices':'shop'}),
+			'Shop_vendor' : forms.TextInput(attrs={'class':'form-control'}),
 			'date_forwarded' : forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
 			'estimate_no' : forms.TextInput(attrs={'class':'form-control'}),
 			'maintenance_amount' : forms.TextInput(attrs={'class':'form-control'}),

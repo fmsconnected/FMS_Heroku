@@ -41,14 +41,18 @@ table {
 th, td {
   text-align: center;
   padding: 8px;
+  white-space: nowrap;
 }
 form label{
   font-weight:bold;
 }
 div.dataTables_wrapper {
-        width: 1300px;
+        width: 1300px;*/
         margin: 0 auto;
 }
+div.container {
+        width: 80%;
+    }
 
 tr:nth-child(even){background-color: #b8fedf}
 </style>
@@ -64,11 +68,6 @@ table.table {
 #example td.red {
      color: red;
 }
-</style>
-<style type="text/css">
-    div.container {
-        width: 80%;
-    }
 </style>
 <!-- <style>
 body {
@@ -169,9 +168,15 @@ body {
 
 <script type="text/javascript">
     $(document).ready(function() {
-    $('#example').DataTable( {
-        "scrollX": true,
-        "responsive": true
+    var table = $('#example').DataTable( {
+        scrollX: true,
+        scrollY: "300px",
+        scrollCollapse: true,
+        paging:         false,
+        columnDefs: [
+            { width: '20%', targets: 0 }
+        ],
+        fixedColumns: true
     } );
 } );
 </script>

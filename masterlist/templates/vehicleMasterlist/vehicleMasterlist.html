@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<style>
+<!-- <style>
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -14,7 +14,7 @@ th, td {
 }
 
 tr:nth-child(even){background-color: #f2f2f2}
-</style>
+</style> -->
 
 <div class="breadcrumbs">
     <div class="col-sm-12">
@@ -45,6 +45,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                     <a href="{% url 'vehicle_new' %}" style="float:right"><u>Add Vehicle Masterlist</u></a>
                     <a href="{% url 'vehicleMasterlist_history' %}" style="float:right" class="mr-3"><u>Vehicle Masterlist History</u></a>
                 </div>
+                    <div class="container-fluid">
                     <table id="vtable" class="table table-striped table-bordered" style="width:100%" data-server-side="false" data-ajax="/api/masterlist/?format=datatables">
                     <thead>
                         <tr>
@@ -89,15 +90,16 @@ tr:nth-child(even){background-color: #f2f2f2}
                             <th>Dealer Name</th>
                             <th>Plate Number Release Date</th>
                             <th>Employee ID</th>
-                            <th>Last_Registration_Date</th>
-                            <th>Smoke_Emission_Date</th>
-                            <th>COC_Date</th>
+                            <th>Last Registration Date</th>
+                            <th>Smoke Emission Date</th>
+                            <th>COC Date</th>
                             <th>Remarks</th>
                             <th>Status</th>
                             <th>Latest Remarks</th>
                         </tr>
                     </thead>
                     </table>
+                    </div>
                     </div>
                   </div>
                 </div>
@@ -114,6 +116,7 @@ $(document).ready(function() {
         "serverSide": false,
         "scrollX": true,
         "deferRender": true,
+        "autoWidth":true,
         "ajax": {
             "url": "/api/masterlist/?format=datatables",
             "type": "POST"
