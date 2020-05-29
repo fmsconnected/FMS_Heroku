@@ -24,8 +24,6 @@
 </div>
 <form method="POST" action="">
 {% csrf_token %}
-<!-- <input type="text" name="Idate" id="Idate" hidden />
-<input type="text" name="SLA" id="F_SLA" value="15" hidden /> -->
 <div id="Fuel Supplier Payment" class="w3-container Fsupplier">
   <fieldset>
     <legend align="left">Statement Of Account Processing</legend><br>
@@ -57,8 +55,6 @@
 <div id="OutBound Process" class="w3-container Fsupplier" style="display:none">
   <fieldset>
     <legend align="left">RPS Process</legend><br>
-      <!-- <div class="col-sm-4">
-        <label>Deadline Of Payment</label>{{ form.Payment_deadline }}</div> -->
       <div class="col-sm-4">
         <label>Date Forwarded to Accounting</label>{{ form.Date_forwarded }}</div>
       <div class="col-sm-4">
