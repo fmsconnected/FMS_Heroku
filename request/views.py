@@ -284,8 +284,8 @@ def gassubmit(request):
         person_release_card = request.POST.get('person_release_card')
         gcr_sla = request.POST.get('gcr_sla')
 
-        saveto_gas = Gas_card(date_received = date_app,application_type = app_type,fleet_provider= fleet_card,fleetcard_type =fleet_card_type ,
-            fuel_limit_amount = fuel_amount,fuel_limit_quantity = fuel_quantity,products_restriction = products_restriction,req_employee = req_emp_id,
+        saveto_gas = Gas_card(date_received = date_app, application_type=app_type,fleet_provider= fleet_card,fleetcard_type =fleet_card_type ,
+            fuel_limit_amount=fuel_amount, fuel_limit_quantity = fuel_quantity, products_restriction = products_restriction,req_employee = req_emp_id,
             req_fname = r_fname,req_lname = r_lname ,req_title = r_title,req_cost_center = r_costcenter, atd_no=atd_no, temporary_atd=temp_atd,
             new_emp_id=new_empId, new_emp_fname=new_fname, new_emp_lname=new_lname, new_emp_cost = new_costcenter,new_temp_atd = new_tempATD,
             new_assignee = new_assignee,cost_center_code = cost_code,cancellation = gcr_cancel,plate_no = plate_no,con_sticker = c_sticker,

@@ -1,4 +1,4 @@
-{% load static %}
+c{% load static %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
 <!-- You can alternatively load the minified version -->
@@ -186,6 +186,7 @@ body {font-family: Arial;}
                             <li><i class="menu-icon fa fa-folder-o" style="color:#F34415"></i><a href="{% url 'Monitoring_list' %}">FATA Monitoring</a></li>
                             <li><i class="menu-icon fa fa-folder-o" style="color:#F34415"></i><a href="{% url 'Monitoring_jan_reg' %}">Registration Monitoring</a></li>
                             <li><i class="menu-icon fa fa-folder-o" style="color:#F34415"></i><a href="{% url 'Summary_jan_reg' %}">Summary Monitoring</a></li>
+                            <li><i class="menu-icon fa fa-folder-o" style="color:#F34415"></i><a href="{% url 'Monitoring_jan_reg_due' %}">Registrations Months Duedate</a></li>
                             <li><i class="menu-icon fa fa-folder-o" style="color:#F34415"></i><a href="{% url 'Monitoring_plate' %}">Plate Monitoring</a></li>
                         </ul>
                     </li>

@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.utils import timezone
 import datetime
 from datetime import date
+
 # History
 from simple_history.models import HistoricalRecords
 
@@ -153,7 +154,7 @@ class VehicleMasterList(models.Model):
 	PLATE_NUMBER_RELEASE_DATE = models.DateField(auto_now=False, null=True, blank=True)
 	Employee = models.CharField(max_length=100, null=True)
 	Last_Registration_Date = models.CharField(max_length=100, null=True, blank=True)
-	Smoke_Emission_Date = models.CharField(max_length=100, null=True, blank=True)
+	Smoke_Emission_date = models.DateTimeField(auto_now=False, null=True, blank=True )
 	COC_Date = models.CharField(max_length=100, null=True, blank=True)
 	Remarks = models.CharField(max_length=250, null=True, blank=True, choices=remarks)
 	Status = models.CharField(max_length=20, null=True, blank=True, choices=status)

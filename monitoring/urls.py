@@ -46,4 +46,16 @@ urlpatterns = [
 	path('Plate-monitoring/', views.plateMonitoringView, name='Monitoring_plate'),
 	path('Monitoring/Export', views.fata_excel, name='fata_export'),
 	path('Registration/Update/<int:pk>', views.regUpdate.as_view(), name='reg_update'),
+	# FILTER BY Month Due
+	path('Registration_Due/January', views.janReg_dueView, name='Monitoring_jan_reg_due'),
+	path('Registration_Due/Febuary', views.febReg_dueView, name='Monitoring_feb_reg_due'),
+	path('Registration_Due/March', views.marReg_dueView, name='Monitoring_mar_reg_due'),
+	path('Registration_Due/April', views.aprReg_dueView, name='Monitoring_apr_reg_due'),
+	path('Registration_Due/May', views.mayReg_dueView, name='Monitoring_may_reg_due'),
+	path('Registration_Due/June', views.junReg_dueView, name='Monitoring_jun_reg_due'),
+	path('Registration_Due/July', views.julReg_dueView, name='Monitoring_jul_reg_due'),
+	path('Registration_Due/August', views.augReg_dueView, name='Monitoring_aug_reg_due'),
+	path('Registration_Due/September', views.sepReg_dueView, name='Monitoring_sep_reg_due'),
+	path('Registration_Due/October', views.octReg_dueView, name='Monitoring_oct_reg_due'),
+
 ]

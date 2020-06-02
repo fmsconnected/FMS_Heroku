@@ -20,40 +20,40 @@ tr:nth-child(even){background-color: #f2f2f2}
 
 <div class="breadcrumbs">
     <div class="col-sm-12">
-        <h3><b>Vehicle MasterList Registration</b></h3>
+        <h3><b>Registration Months Duedate</b></h3>
     </div>
 </div>
 
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link" href="{% url 'Monitoring_jan_reg' %}">January</a>
+    <a class="nav-link" href="{% url 'Monitoring_jan_reg_due' %}">January</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{% url 'Monitoring_feb_reg' %}">February</a>
+    <a class="nav-link" href="{% url 'Monitoring_feb_reg_due' %}">February</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{% url 'Monitoring_mar_reg' %}">March</a>
+    <a class="nav-link" href="{% url 'Monitoring_mar_reg_due' %}">March</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{% url 'Monitoring_apr_reg' %}">April</a>
+    <a class="nav-link" href="{% url 'Monitoring_apr_reg_due' %}">April</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{% url 'Monitoring_may_reg' %}">May</a>
+    <a class="nav-link" href="{% url 'Monitoring_may_reg_due' %}">May</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{% url 'Monitoring_jun_reg' %}">June</a>
+    <a class="nav-link" href="{% url 'Monitoring_jun_reg_due' %}">June</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{% url 'Monitoring_jul_reg' %}">July</a>
+    <a class="nav-link" href="{% url 'Monitoring_jul_reg_due' %}">July</a>
   </li>
   <li class="nav-item">
     <a class="nav-link active" href="#">August</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{% url 'Monitoring_sep_reg' %}">September</a>
+    <a class="nav-link" href="{% url 'Monitoring_sep_reg_due' %}">September</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{% url 'Monitoring_oct_reg' %}">October</a>
+    <a class="nav-link" href="{% url 'Monitoring_oct_reg_due' %}">October</a>
   </li>
 </ul>
 
@@ -100,7 +100,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                             <td>{{ object.ASSIGNEE_FIRST_NAME }}</td>
                             <td>{{ object.MV_FILE_NO }}</td>   
                             <td>{{ object.Last_Registration_Date }}</td>
-                            <td>{{ object.Smoke_Emission_date }}</td>
+                            <td>{{ object.Smoke_Emission_date|date:'Y-M-d' }}</td>
                             <td>{{ object.COC_Date }}</td>   
                             <td>{{ object.Remarks }}</td>  
                             <td>{{ object.Status }}</td>        
