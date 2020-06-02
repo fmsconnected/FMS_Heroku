@@ -51,12 +51,12 @@ class reg_updateForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(reg_updateForm, self).__init__(*args, **kwargs)
         self.fields['Last_Registration_Date'].required = False
-        self.fields['Smoke_Emission_date'].required = False
+        self.fields['Smoke_Emission_Date'].required = False
         self.fields['COC_Date'].required = False
         self.fields['Remarks'].required = True
     class Meta:
         model = VehicleMasterList
-        fields = ['Last_Registration_Date','Smoke_Emission_date','COC_Date','Remarks', 'Status'
+        fields = ['Last_Registration_Date','Smoke_Emission_Date','COC_Date','Remarks', 'Status'
         ]
 
 
@@ -75,7 +75,7 @@ class reg_updateForm(forms.ModelForm):
 
         widgets= {
         "Last_Registration_Date": forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
-        "Smoke_Emission_date": forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
+        "Smoke_Emission_Date": forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
         "COC_Date": forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
         "Remarks": forms.Select(attrs={'class':'form-control', 'choices':'remarks'}),
         "Status" : forms.Select(attrs={'class':'form-control', 'choices':'status'}),

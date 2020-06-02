@@ -494,7 +494,7 @@ def vehicle_excel(request):
                 vehicle.dealer_name,
                 vehicle.PO_NO,
                 vehicle.Last_Registration_Date,
-                vehicle.Smoke_Emission_date,
+                vehicle.Smoke_Emission_Date,
                 vehicle.COC_Date,
                 vehicle.Remarks, 
                 vehicle.Status,
