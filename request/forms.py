@@ -136,6 +136,7 @@ class gascardform(forms.ModelForm):
 			('Others - Adjust Credit Limit', 'Others - Adjust Credit Limit'),
 			('Others - Change of Product Restriction', 'Others - Change of Product Restriction'),
 			('Others - Update Cost Center', 'Others - Update Cost Center'),
+			('Replacement - Expired card', 'Replacement - Expired card'),
 		)
 		restrictions= (
 			('S: Super Only', 'S: Super Only'),
