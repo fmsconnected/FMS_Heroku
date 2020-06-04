@@ -32,27 +32,60 @@
                  #######################################   -->  
 <style>
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  border: 1px solid #ddd;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+html, body
+{
+    height: 100%;
 }
 
 th, td {
-  text-align: center;
-  padding: 8px;
-  white-space: nowrap;
+    text-align: center;
+    padding: 8px;
+    white-space: nowrap;
 }
 form label{
-  font-weight:bold;
+    font-weight:bold;
 }
-div.dataTables_wrapper {
-        width: 1300px;*/
+/*browser zoom 50% below   */
+@media screen and (max-width: 3000px) {
+    div.dataTables_wrapper {
+        width: 2300px;
         margin: 0 auto;
-}
-div.container {
-        width: 80%;
     }
+}
+/*browser zoom 67%*/
+@media screen and (max-width: 2500px) {
+    div.dataTables_wrapper {
+        width: 1600px;
+        margin: 0 auto;
+    }
+}
+/*browser zoom 90%- 100%*/
+@media screen and (max-width: 1500px) {
+    div.dataTables_wrapper {
+        width: 100px;
+        margin: 0 auto;
+    }
+}
+/*browser zoom 80%*/
+@media screen and (max-width: 1800px) {
+    div.dataTables_wrapper {
+        width: 1400px;
+        margin: 0 auto;
+    }
+}
+/*browser zoom 75%*/
+@media screen and (max-width: 1600px) {
+    div.dataTables_wrapper {
+        width: 1300px;
+        margin: 0 auto;
+    }
+}
+
 
 tr:nth-child(even){background-color: #b8fedf}
 </style>
@@ -169,14 +202,9 @@ body {
 <script type="text/javascript">
     $(document).ready(function() {
     var table = $('#example').DataTable( {
-        scrollX: true,
+        scrollX: "100%",
         scrollY: "500px",
-        // scrollCollapse: true,
-        // paging:         false,
-        // columnDefs: [
-        //     { width: '20%', targets: 0 }
-        // ],
-        // fixedColumns: true
+
     });
 });
 </script>
