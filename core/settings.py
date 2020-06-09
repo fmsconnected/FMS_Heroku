@@ -32,7 +32,6 @@ ALLOWED_HOSTS = ['fmsjxmtsi.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'datetimeutc',
     'rest_framework',
     'rest_framework_datatables',
     'ajax_select',
