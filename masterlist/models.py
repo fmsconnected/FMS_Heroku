@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.utils import timezone
 import datetime
 from datetime import date
+from dateutil import tz
 
 # History
 from simple_history.models import HistoricalRecords
@@ -57,6 +58,7 @@ def increment_NO():
 	new_in_int = in_int + 1
 	new_in_id = str(new_in_int).zfill(6)
 	return new_in_id
+
 
 class VehicleMasterList(models.Model):
 	Vbrand= (
@@ -126,6 +128,7 @@ class VehicleMasterList(models.Model):
 	CHASSIS_NO = models.CharField(max_length=100, null=True, blank=True)
 	MV_FILE_NO = models.CharField(max_length=100, null=True, blank=True)
 	VEHICLE_TYPE = models.CharField(max_length=100, null=True, blank=True)
+	Employee = models.CharField(max_length=100, null=True)
 	ASSIGNEE_LAST_NAME = models.CharField(max_length=100, null=True, blank=True)
 	ASSIGNEE_FIRST_NAME = models.CharField(max_length=100, null=True, blank=True)
 	VEHICLE_CATEGORY = models.CharField(max_length=100, null=True, blank=True)
@@ -152,9 +155,9 @@ class VehicleMasterList(models.Model):
 	dealer_name = models.CharField(max_length=100, null=True, blank=True)
 	PO_NO = models.CharField(max_length=100, null=True, blank=True)
 	PLATE_NUMBER_RELEASE_DATE = models.DateField(auto_now=False, null=True, blank=True)
-	Employee = models.CharField(max_length=100, null=True)
 	Last_Registration_Date = models.CharField(max_length=100, null=True, blank=True)
-	Smoke_Emission_Date = models.DateTimeField(auto_now=False, null=True, blank=True )
+	Smoke_Emission_Date = models.DateField(auto_now=False, null=True, blank=True)
+	Smoke_due = models.DateField(auto_now=False, null=True, blank=True)
 	COC_Date = models.CharField(max_length=100, null=True, blank=True)
 	Remarks = models.CharField(max_length=250, null=True, blank=True, choices=remarks)
 	Status = models.CharField(max_length=20, null=True, blank=True, choices=status)

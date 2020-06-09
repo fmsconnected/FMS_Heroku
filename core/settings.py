@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['fmsjxmtsi.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'datetimeutc',
     'rest_framework',
     'rest_framework_datatables',
     'ajax_select',
@@ -137,6 +138,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# DATE_INPUT_FORMATS = ['%Y-%m-%d']
 
 
 # Static files (CSS, JavaScript, Images)

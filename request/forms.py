@@ -167,6 +167,7 @@ class gascardform(forms.ModelForm):
 			'req_fname': forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
 			'req_lname': forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
 			'req_title': forms.TextInput(attrs={'class':'form-control'}),
+			'req_cost_center': forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
 			'req_cost_center': forms.TextInput(attrs={'class':'form-control'}),
 			'atd_no': forms.TextInput(attrs={'class':'form-control'}),
 			'temporary_atd': forms.TextInput(attrs={'class':'form-control'}),

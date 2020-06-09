@@ -87,7 +87,7 @@
     </tr>
     <tr>
       <th>Last Registration Date</th><td>{{ object.Last_Registration_Date }}</td>
-      <th>Smoke Emission Date </th> <td>{{ object.Smoke_Emission}}</td>
+      <th>Smoke Emission Date </th> <td>{{ object.Smoke_Emission_Date }}</td>
     </tr>
     <tr>
       <th>COC Date </th> <td>{{ object.COC_Date }}</td>
@@ -100,9 +100,77 @@
 
 </table>
     <div class="card-footer">
-      <a href="{% url 'reg_update' object.id %}" class="button" style="color:white">UPDATE</a><a href="{% url 'Monitoring_jan_reg'%}" class="btn" style="color:white">CLOSE</a>
-      <!-- <button class="button" data-toggle="modal" data-target="#updateModal">UPDATE</button> -->
+      <!-- <a href="{% url 'reg_due_update' object.id %}" class="button" style="color:white">UPDATE</a> -->
+      <a href="{% url 'Monitoring_jan_reg'%}" class="btn" style="color:white">CLOSE</a>
+      <button class="button" style="width:150px;" data-toggle="modal" data-target="#updateModal">UPDATE</button>
     </div>
 </div>
 </div>
+<form method="POST" action="{% url 'reg_due_update' object.id %}">
+{% csrf_token %}
+<div class="modal fade bd-example-modal-lg" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Update Vehicle Registrations</h3>
+      </div>
+
+      <div class="modal-body">
+        <input type="text" name="smoke_due" id="smoke_due" hidden="true">
+            <div class="col-sm-4">
+                <label>Last Registration Date</label>
+                <input type="Date" name="last_reg" id="last_reg" value="{{ object.Last_Registration_Date }}" class="form-control">
+            </div>
+            <div class="col-sm-4">
+                <label>Smoke Emission Date</label>
+                <input type="Date" name="smoke_date" id="smoke_date" value="{{ object.Smoke_Emission_Date }}" class="form-control">
+            </div>
+            <div class="col-sm-4">
+                <label>COC Date</label>
+                <input type="Date" name="coc_date" id="coc_date" value="{{ object.COC_Date }}" class="form-control">
+            </div>
+            <div class="col-sm-4">
+                <label>Remarks</label>
+                <select name="remarks" id="remarks" value="{{ object.Remarks }}" class="form-control">
+                    <!-- <option value="">------</option> -->
+                    <option value="Without Last Registration Date">Without Last Registration Date</option>
+                    <option value="Without Smoke Emission Date">Without Smoke Emission Date</option>
+                    <option value="Without COC Date">Without COC Date</option>
+                    <option value="Complete">Complete</option>
+                </select>
+            </div>
+            <div class="col-sm-4">
+                <label>Email Status</label>
+                <select name="Status" id="Status" value="{{ object.Status }}" class="form-control">
+                    <!-- <option>-----</option> -->
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+      </div>
+            <!-- <div class="card-footer"> -->
+              <div class="modal-footer">
+                <button type="submit" class="button">PROCEED</a></button>
+                <!-- <button class="btnc" type="reset" value="Reset">CLEAR FIELDS</button> -->
+               <!-- <a href="{% url 'Monitoring_jan_reg'%}" class="btn" style="color:white">CANCEL</a> -->
+               <button class="btn" data-dismiss="modal">CANCEL</button>
+            </div>
+          
+</form>
+<script type="text/javascript">
+    document.getElementById("smoke_date").onchange = function() {
+        var smoke_date = this.value;
+
+        // Calculate expiry date
+        var date = new Date(smoke_date);
+        date.setMonth(date.getMonth() + 2);
+
+  // Get date parts
+        var yyyy = date.getFullYear();
+        var m = date.getMonth() + 1;
+        var d = date.getDate();
+
+        document.getElementById("smoke_due").value = yyyy + "-" + m + "-" + d;
+}
+</script>
 {% endblock %}

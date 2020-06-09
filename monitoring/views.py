@@ -5,6 +5,7 @@ from openpyxl import Workbook
 from django.urls import reverse_lazy
 import datetime
 from datetime import date, timedelta
+from django.utils import timezone
 from dateutil.relativedelta import relativedelta
 from .models import (
    	Fata_monitoring,
@@ -106,6 +107,20 @@ class regUpdate(SuccessMessageMixin, UpdateView):
 		print(cleaned_data)
 		return "Registrations Updated Successfully!"
 
+def regUpdate(request, pk):
+	if request.method == 'POST':
+		last_reg = request.POST.get('last_reg')
+		smoke_date = request.POST.get('smoke_date')
+		coc_date = request.POST.get('coc_date')
+		remarks = request.POST.get('remarks')
+		Status = request.POST.get('Status')
+		smoke_due = request.POST.get('smoke_due')
+	
+	VehicleMasterList.objects.filter(id=pk).update(Last_Registration_Date=last_reg, Smoke_Emission_Date=smoke_date, COC_Date=coc_date, 
+		Remarks=remarks, Status=Status, Smoke_due=smoke_due)
+
+	return HttpResponseRedirect('/Masterlist/Registration/Details/{}'.format(pk))
+
 def monitoringHistoryView(request):
     if request.method == "GET":
        obj = Fata_monitoring.history.all()
@@ -114,7 +129,7 @@ def monitoringHistoryView(request):
 
 def janRegView(request):
 	context = {
-			'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Last_Registration_Date__isnull=True ),
+			'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Last_Registration_Date__isnull=True),
 			'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__isnull=True),
 			'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", COC_Date__isnull=True)	
 		}
@@ -954,149 +969,82 @@ def sum_oct_excel(request):
     workbook.save(response)
     return response
 	
-# def janReg_dueView(request):
-    # def dispatch(self, *args, **kwargs):
-        # return super().dispatch(*args, **kwargs)
-    # dl = VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=1))
-#     dl2 = VehicleMasterList.objects.filter(Smoke_Emission = datetime.datetime.today() + relativedelta(months=+6), REGISTRATION_MONTH__contains="FEB")
-#     dl3 = VehicleMasterList.objects.filter(Smoke_Emission_Date = datetime.datetime.today() + relativedelta(months=+6), REGISTRATION_MONTH__contains="MAR")
-#     dl4 = VehicleMasterList.objects.filter(Smoke_Emission_Date = datetime.datetime.today() + relativedelta(months=+6), REGISTRATION_MONTH__contains="APR")
-#     dl5 = VehicleMasterList.objects.filter(Smoke_Emission_Date = datetime.datetime.today() + relativedelta(months=+6), REGISTRATION_MONTH__contains="MAY")
-#     dl6 = VehicleMasterList.objects.filter(Smoke_Emission_Date = datetime.datetime.today() + relativedelta(months=+6), REGISTRATION_MONTH__contains="JUN")
-     # return  render(request, 'payment/car/cardeadline.html',{'title':'Car - Car Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5, 'dl6':dl6})
-    # return render(request, 'reg_due/regJan_monitoring_due.html',{'title':'Reg- Jan', 'dl':dl})
-
 def janReg_dueView(request):
-	# field = 'Smoke_Emission_Date'
-	# obj = VehicleMasterList.objects.first()
-	# field_object = VehicleMasterList._meta.get_field(field)
-	# field_value = field_object.value_from_object(obj)
-	 context = {
-			 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today()),
-			 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=1)),
-			 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=2)),
-			 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=3))
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=4)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=5)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=6)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=7)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=8)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=9)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=10)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=11)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=12)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=13)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=14)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=15)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=16)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=17)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=18)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=19)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=20)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=21)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=22)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=23)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=24)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=25)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=26)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=27)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=28)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=29)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=30)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=31)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=32)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=33)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=34)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=35)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=36)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=37)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=38)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=39)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=40)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=41)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=42)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=43)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=44)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=45)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=46)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=47)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=48)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=49)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=50)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=51)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=52)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=53)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=54)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=55)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=56)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=57)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=58)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=59)),
-			 # 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN", Smoke_Emission_Date__date= datetime.datetime.today() + timedelta(days=60))
-
+	today = datetime.datetime.now(tz=timezone.utc)
+	context = {
+			 'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JAN",Smoke_Emission_Date__lt=today, Smoke_due__gt=today)
 		 }
 
-	 return render(request, 'reg_due/regJan_monitoring_due.html', context)
+	return render(request, 'reg_due/regJan_monitoring_due.html', context)
 
 def febReg_dueView(request):
+	today = datetime.datetime.now(tz=timezone.utc)
 	context = {
-			'feb_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="FEB", Smoke_Emission_Date = datetime.datetime.today() + relativedelta(months=+2))
+			'feb_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="FEB", Smoke_Emission_Date__lt=today, Smoke_due__gt=today)
 			}
 
 	return render(request, 'reg_due/regFeb_monitoring_due.html', context)
 
 def marReg_dueView(request):
+	today = datetime.datetime.now(tz=timezone.utc)
 	context = {
-			'mar_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="MAR",Smoke_Emission_Date = datetime.datetime.today() + relativedelta(months=+2))
+			'mar_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="MAR",Smoke_Emission_Date__lt=today, Smoke_due__gt=today)
 		}
 
 	return render(request, 'reg_due/regMar_monitoring_due.html', context)
 
 def aprReg_dueView(request):
+	today = datetime.datetime.now(tz=timezone.utc)
 	context = {
-			'apr_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="APR", Smoke_Emission_Date = datetime.datetime.today() + relativedelta(months=+2))
+			'apr_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="APR", Smoke_Emission_Date__lt=today, Smoke_due__gt=today)
 
 		}
 
 	return render(request, 'reg_due/regApr_monitoring_due.html', context)
 
 def mayReg_dueView(request):
+	today = datetime.datetime.now(tz=timezone.utc)
 	context = {
-			'may_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="MAY", Smoke_Emission_Date = datetime.datetime.today() + relativedelta(months=+2))
+			'may_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="MAY", Smoke_Emission_Date__lt=today, Smoke_due__gt=today)
 		}
 
 	return render(request, 'reg_due/regMay_monitoring_due.html', context)
 
 def junReg_dueView(request):
+	today = datetime.datetime.now(tz=timezone.utc)
 	context = {
-			'jun_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JUN", Smoke_Emission_Date = datetime.datetime.today() + relativedelta(months=+2))
+			'jun_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JUN", Smoke_Emission_Date__lt=today, Smoke_due__gt=today)
 		}
 
 	return render(request, 'reg_due/regJun_monitoring_due.html', context)
 
 def julReg_dueView(request):
+	today = datetime.datetime.now(tz=timezone.utc)
 	context = {
-			'jul_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JUL", Smoke_Emission_Date = datetime.datetime.today() + relativedelta(months=+2))
+			'jul_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JUL", Smoke_Emission_Date__lt=today, Smoke_due__gt=today)
 		}
 	return render(request, 'reg_due/regJul_monitoring_due.html', context)
 
 def augReg_dueView(request):
+	today = datetime.datetime.now(tz=timezone.utc)
 	context = {
-			'aug_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="AUG", Smoke_Emission_Date = datetime.datetime.today() + relativedelta(months=+2))
+			'aug_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="AUG", Smoke_Emission_Date__lt=today, Smoke_due__gt=today)
 		}
 
 	return render(request, 'reg_due/regAug_monitoring_due.html', context)
 
 def sepReg_dueView(request):
+	today = datetime.datetime.now(tz=timezone.utc)
 	context = {
-			'sep_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="SEP", Smoke_Emission_Date = datetime.datetime.today() + relativedelta(months=6))
+			'sep_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="SEP", Smoke_Emission_Date__lt=today, Smoke_due__gt=today)
 		}
 
 	return render(request, 'reg_due/regSep_monitoring_due.html', context)
 
 def octReg_dueView(request):
+	today = datetime.datetime.now(tz=timezone.utc)
 	context = {
-			'oct_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="OCT", Smoke_Emission_Date = datetime.datetime.today() + relativedelta(months=6))
+			'oct_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="OCT", Smoke_Emission_Date__lt=today, Smoke_due__gt=today)
 		}
 
 	return render(request, 'reg_due/regOct_monitoring_due.html', context)

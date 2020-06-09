@@ -104,10 +104,11 @@ def VmasterlistCreate(request):
         employee_list = EmployeeMasterlist.objects.all()
         for e_id in employee_list:
             if e_id.Employee_Id == emp_id:
-                emp_save = e_id.id
+                emp_save = e_id
             
         if emp_id == '':
             emp_save = None
+            
         reg = ''
         endplate = ''
         if plate != '':

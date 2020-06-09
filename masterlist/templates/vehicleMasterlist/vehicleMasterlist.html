@@ -63,6 +63,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                             <th>Chassis Number</th>
                             <th>MV file Number</th>
                             <th>Vehicle Type</th>
+                            <th>Employee ID</th>
                             <th>Assignee Last Name</th>
                             <th>Assignee First Name</th>
                             <th>Vehicle Category</th>
@@ -89,7 +90,6 @@ tr:nth-child(even){background-color: #f2f2f2}
                             <th>Dealer</th>
                             <th>Dealer Name</th>
                             <th>Plate Number Release Date</th>
-                            <th>Employee ID</th>
                             <th>Last Registration Date</th>
                             <th>Smoke Emission Date</th>
                             <th>COC Date</th>
@@ -114,9 +114,10 @@ tr:nth-child(even){background-color: #f2f2f2}
 $(document).ready(function() {
     var table = $('#vtable').DataTable({
         "serverSide": false,
-        // "scrollX": true,
-        "scrollX": "100%",
+        "scrollX": true,
         "scrollY": "500px",
+        // "deferRender": true,
+        // "autoWidth":true,
         "deferRender": true,
         "autoWidth":true,
         "ajax": {
@@ -145,6 +146,7 @@ $(document).ready(function() {
             {"data":"CHASSIS_NO"},
             {"data":"MV_FILE_NO"},
             {"data":"VEHICLE_TYPE"},
+            {"data":"Employee"},
             {"data":"ASSIGNEE_LAST_NAME"},
             {"data":"ASSIGNEE_FIRST_NAME"},
             {"data":"VEHICLE_CATEGORY"},
@@ -171,7 +173,6 @@ $(document).ready(function() {
             {"data":"dealer"},
             {"data":"dealer_name"},
             {"data":"PLATE_NUMBER_RELEASE_DATE"},
-            {"data":"Employee"},
             {"data":"Last_Registration_Date"},
             {"data":"Smoke_Emission_Date"},
             {"data":"COC_Date"},

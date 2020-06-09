@@ -72,9 +72,10 @@ tr:nth-child(even){background-color: #f2f2f2}
 $(document).ready(function() {
     var table = $('#vtable').DataTable({
         "serverSide": false,
-        // "scrollX": true,
-        "scrollX": "100%",
+        "scrollX": true,
         "scrollY": "500px",
+        // "deferRender": true,
+        // "scrollX": true,
         "deferRender": true,
         "ajax": {
             "url": "/api/empmasterlist/?format=datatables",
