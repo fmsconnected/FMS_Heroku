@@ -115,7 +115,13 @@ function vrepair(repair) {
         </div>
         <div class="col-sm-6">
             <label>Conduction Sticker</label>
-            <input type="text" name="cs_no" id="cs_no" class="form-control" readonly>
+            <input type="text" name="cs_no" id="cs_no" list="cs_list" class="form-control">
+            <datalist id="cs_list">               
+            {% for vehiclelist in vlist %}
+              <option data-value="{{ vehiclelist.PLATE_NO }} | {{ vehiclelist.BRAND }} | {{ vehiclelist.ENGINE_NO }} | {{ vehiclelist.MODEL }} | {{ vehiclelist.VEHICLE_MAKE }} | {{ vehiclelist.CHASSIS_NO }} | {{ vehiclelist.BAND_LEVEL }} | {{ vehiclelist.CS_NO }} | {{ vehiclelist.EQUIPMENT_NO }}" value="{{ vehiclelist.CS_NO }}">
+              </option>
+            {% endfor %}
+            </datalist>
         </div>
         <div class="col-sm-6">
             <label>Equipment Number</label>
@@ -302,4 +308,22 @@ $('#plate_no').on('change', function () {
     $('#eq_no').val(parts[8]);
 });
 </script>
+<!--- vehicle CS-->
+<script>
+$('#cs_no').on('change', function () {
+    var value = $('#cs_no').val();
+    var val = ($('#cs_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#plate_no').val(parts[0]);
+    $('#v_brand').val(parts[1]);
+    $('#engine').val(parts[2]);
+    $('#v_model').val(parts[3]);
+    $('#v_make').val(parts[4]);
+    $('#chassis').val(parts[5]);
+    $('#v_band').val(parts[6]);
+    $('#cs_no').val(parts[7]);
+    $('#eq_no').val(parts[8]);
+});
+</script>
+
 {% endblock %}

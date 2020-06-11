@@ -134,7 +134,7 @@ function servicevehicle(service) {
         <div class="col-sm-4">
             <label>Preferred Vehicle Type</label>
             <select class="form-control" name="prefered_vehicle" id="prefered_vehicle">
-                <option>-------</option>
+                <option></option>
                 <option value="Sedan">Sedan</option>
                 <option value="SUV">SUV</option>
                 <option value="Pick up 4x2">Pick up 4x2</option>
@@ -156,7 +156,7 @@ function servicevehicle(service) {
 
         <div class="col-sm-4">
             <label>Plate Number</label>
-            <input style= "text-transform:" type="text" name="E_plate_no" id="E_plate_no" list="v_list" class="form-control">
+            <input type="text" name="E_plate_no" id="E_plate_no" list="v_list" class="form-control">
             <datalist id="v_list">               
             {% for v_id in vlist %}
               <option data-value="{{ v_id.PLATE_NUMBER }} | {{ v_id.CS_NO }} | {{ v_id.MODEL }} | {{ v_id.BRAND }} | {{ v_id.VEHICLE_MAKE }} | {{ v_id.VEHICLE_TYPE }}" value="{{ v_id.PLATE_NUMBER }}">
@@ -166,7 +166,13 @@ function servicevehicle(service) {
         </div>
         <div class="col-sm-4">
             <label>Conduction Sticker Number</label>
-            <input style= "text-transform:" type="text" name="E_con_sticker" id="E_con_sticker" class="form-control">
+            <input type="text" name="E_con_sticker" id="E_con_sticker" list="cs_list" class="form-control" >
+            <datalist id="cs_list">               
+            {% for v_id in vlist %}
+              <option data-value="{{ v_id.PLATE_NUMBER }} | {{ v_id.CS_NO }} | {{ v_id.MODEL }} | {{ v_id.BRAND }} | {{ v_id.VEHICLE_MAKE }} | {{ v_id.VEHICLE_TYPE }}" value="{{ v_id.CS_NO }}">
+              </option>
+            {% endfor %}
+            </datalist>
         </div>
 
         <div class="col-sm-4">
@@ -288,6 +294,20 @@ $('#assignee_employee_id').on('change', function () {
 $('#E_plate_no').on('change', function () {
     var value = $('#E_plate_no').val();
     var val = ($('#v_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#E_plate_no').val(parts[0]);
+    $('#E_con_sticker').val(parts[1]);
+    $('#E_model_year').val(parts[2]);
+    $('#E_brand').val(parts[3]);
+    $('#E_make').val(parts[4]);
+    $('#E_type').val(parts[5]);
+});
+</script>
+
+<script>
+$('#E_con_sticker').on('change', function () {
+    var value = $('#E_con_sticker').val();
+    var val = ($('#cs_list [value="' + value + '"]').data('value'));
     var parts = val.split(" | ");
     $('#E_plate_no').val(parts[0]);
     $('#E_con_sticker').val(parts[1]);
