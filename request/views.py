@@ -865,7 +865,6 @@ def repair_request_excel(request):
     for repair in repair_queryset:
         row_num += 1
         row = [
-        request_date ,
                 repair.request_date,
                 repair.employee ,
                 repair.cost_center ,
