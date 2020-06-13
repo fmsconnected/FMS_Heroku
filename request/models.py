@@ -278,18 +278,18 @@ class service_vehicle(models.Model):
 	SVV_SLA = models.CharField(max_length=10, null=True, blank=True)
 	date_initiated = models.DateField(auto_now=True, null=True)
 	history = HistoricalRecords()
-	Deadline = models.DateTimeField()
+	Deadline = models.DateField(auto_now=False, null=True, blank=True)
 
-	def save(self, *args, **kwargs):
-		if self.Deadline is None:
-			now = datetime.datetime.today()
-			num_days = 0
-			while num_days < 60:
-				now = now + timedelta(days=1)
-				if now.isoweekday() not in [6,7]:
-					num_days+=1
-			self.Deadline = now
-		super().save(*args, **kwargs)
+	# def save(self, *args, **kwargs):
+	# 	if self.Deadline is None:
+	# 		now = datetime.datetime.today()
+	# 		num_days = 0
+	# 		while num_days < 60:
+	# 			now = now + timedelta(days=1)
+	# 			if now.isoweekday() not in [6,7]:
+	# 				num_days+=1
+	# 		self.Deadline = now
+	# 	super().save(*args, **kwargs)
 
 
 	def __str__(self):

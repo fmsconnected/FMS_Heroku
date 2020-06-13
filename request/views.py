@@ -172,6 +172,7 @@ def car_request_excel(request):
                 'Immediate Supervisor' ,
                 'SLA' ,
                 'Date Initiated' ,
+                'Deadline',
     ]
     row_num = 1
 
@@ -212,6 +213,7 @@ def car_request_excel(request):
                 car.Immediate_supervisor ,
                 car.CR_SLA ,
                 car.Date_initiated ,
+                car.Deadline,
         ]
         
         for col_num, cell_value in enumerate(row, 1):
@@ -392,6 +394,7 @@ def gas_request_excel(request):
             'Person Release' ,
             'Date Initiated' ,
             'SLA' ,
+            'Deadline',
 
     ]
     row_num = 1
@@ -445,6 +448,7 @@ def gas_request_excel(request):
             rental.person_release ,
             rental.date_initiated ,
             rental.GCR_SLA ,
+            rental.Deadline
         ]
         
         for col_num, cell_value in enumerate(row, 1):
@@ -477,6 +481,7 @@ def servicesubmit(request):
     if request.method == 'POST':
         req_employee_id = request.POST.get('req_employee_id')
         request_date = request.POST.get('request_date')
+        deadline = request.POST.get('deadline')
         req_lname = request.POST.get('req_lname')
         req_fname = request.POST.get('req_fname')
         assignee_employee_id = request.POST.get('assignee_employee_id')
@@ -518,7 +523,7 @@ def servicesubmit(request):
             new_temporary_atd=new_temporary_atd, prefered_vehicle=prefered_vehicle, justification=justification, E_plate_no=E_plate_no, E_con_sticker=E_con_sticker,
             E_model_year =E_model_year, E_brand=E_brand, E_make=E_make, E_type=E_type, approved_by=approved_by, approved_date=approved_date,
             vehicle_provider =vehicle_provider, vehicle_plate_no=vehicle_plate_no, vehicle_CS_no=vehicle_CS_no, vehicle_model =vehicle_model,
-            vehicle_brand =vehicle_brand, vehicle_make=vehicle_make, vehicle_fuel_type=vehicle_fuel_type, SVV_SLA =svv_sla,)
+            vehicle_brand =vehicle_brand, vehicle_make=vehicle_make, vehicle_fuel_type=vehicle_fuel_type, SVV_SLA =svv_sla, Deadline=deadline)
         saveto_service.save()
 
         return HttpResponseRedirect('/Request/Service/')
@@ -617,6 +622,7 @@ def service_request_excel(request):
         'Vehicle Fuel Type' ,
         'SLA' ,
         'Date Initiated' ,
+        'Deadline',
 
     ]
     row_num = 1
@@ -628,42 +634,43 @@ def service_request_excel(request):
     for service in service_queryset:
         row_num += 1
         row = [
-        service.request_date ,
-        service.req_employee_id ,
-        service.req_lname ,
-        service.req_fname ,
-        service.assignee_employee_id ,
-        service.assignee_group ,
-        service.assignee_fname ,
-        service.assignee_lname ,
-        service.assignee_costcenter ,
-        service.assignee_section ,
-        service.assignee_location ,
-        service.assignee_atd ,
-        service.new_employee_id ,
-        service.new_employee_fname ,
-        service.new_employee_lname ,
-        service.new_employee_cost ,
-        service.new_temporary_atd ,
-        service.prefered_vehicle ,
-        service.justification,
-        service.E_plate_no ,
-        service.E_con_sticker ,
-        service.E_model_year ,
-        service.E_brand ,
-        service.E_make ,
-        service.E_type ,
-        service.approved_by ,
-        service.approved_date ,
-        service.vehicle_provider ,
-        service.vehicle_plate_no ,
-        service.vehicle_CS_no ,
-        service.vehicle_model ,
-        service.vehicle_brand ,
-        service.vehicle_make ,
-        service.vehicle_fuel_type ,
-        service.SVV_SLA ,
-        service.date_initiated ,
+            service.request_date ,
+            service.req_employee_id ,
+            service.req_lname ,
+            service.req_fname ,
+            service.assignee_employee_id ,
+            service.assignee_group ,
+            service.assignee_fname ,
+            service.assignee_lname ,
+            service.assignee_costcenter ,
+            service.assignee_section ,
+            service.assignee_location ,
+            service.assignee_atd ,
+            service.new_employee_id ,
+            service.new_employee_fname ,
+            service.new_employee_lname ,
+            service.new_employee_cost ,
+            service.new_temporary_atd ,
+            service.prefered_vehicle ,
+            service.justification,
+            service.E_plate_no ,
+            service.E_con_sticker ,
+            service.E_model_year ,
+            service.E_brand ,
+            service.E_make ,
+            service.E_type ,
+            service.approved_by ,
+            service.approved_date ,
+            service.vehicle_provider ,
+            service.vehicle_plate_no ,
+            service.vehicle_CS_no ,
+            service.vehicle_model ,
+            service.vehicle_brand ,
+            service.vehicle_make ,
+            service.vehicle_fuel_type ,
+            service.SVV_SLA ,
+            service.date_initiated ,
+            service.Deadline,
         ]
         
         for col_num, cell_value in enumerate(row, 1):
@@ -846,6 +853,7 @@ def repair_request_excel(request):
                 'Meter Reading' ,
                 'SLA' ,
                 'Date Initiated' ,
+                'Deadline',
 
     ]
     row_num = 1
@@ -858,6 +866,7 @@ def repair_request_excel(request):
         row_num += 1
         row = [
         request_date ,
+                repair.request_date,
                 repair.employee ,
                 repair.cost_center ,
                 repair.first_name ,
@@ -901,6 +910,7 @@ def repair_request_excel(request):
                 repair.meter_reading ,
                 repair.VRR_SLA ,
                 repair.date_initiated ,
+                repair.Deadline,
         ]
         
         for col_num, cell_value in enumerate(row, 1):

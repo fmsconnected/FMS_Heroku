@@ -12,7 +12,6 @@ function servicevehicle(service) {
   document.getElementById(service).style.display = "block";
 }
 </script>
-
 <div class="row">
     <div class="col-lg-12">
         <h3><b>Service Vehicle Request</b></h3>&nbsp;
@@ -25,10 +24,10 @@ function servicevehicle(service) {
     </div>
 <form method="POST" action="{% url 'service_submit' %}">
 {% csrf_token %}
+<input type="text" name="deadline" id="deadline">
     <div id="Service Vehicle Request" class="w3-container vehicle">
     <fieldset>
         <legend align="left">Requisitioner Details</legend><br>
-
         <div class="col-sm-6">
             <label>Requisitioner Employee ID</label>
             <input type="text" name="req_employee_id" id="req_employee_id" list="emp_list" class="form-control" required>
@@ -316,5 +315,22 @@ $('#E_con_sticker').on('change', function () {
     $('#E_make').val(parts[4]);
     $('#E_type').val(parts[5]);
 });
+</script>
+
+<script type="text/javascript">
+    document.getElementById("request_date").onchange = function() {
+        var request_date = this.value;
+
+        // Calculate expiry date
+        var date = new Date(request_date);
+        date.setMonth(date.getMonth() + 2);
+
+  // Get date parts
+        var yyyy = date.getFullYear();
+        var m = date.getMonth() + 1;
+        var d = date.getDate();
+
+        document.getElementById("deadline").value = yyyy + "-" + m + "-" + d;
+}
 </script>
 {% endblock %}
