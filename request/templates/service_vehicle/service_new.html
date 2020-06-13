@@ -24,7 +24,7 @@ function servicevehicle(service) {
     </div>
 <form method="POST" action="{% url 'service_submit' %}">
 {% csrf_token %}
-<input type="text" name="deadline" id="deadline">
+<input type="text" name="deadline" id="deadline" hidden="true">
     <div id="Service Vehicle Request" class="w3-container vehicle">
     <fieldset>
         <legend align="left">Requisitioner Details</legend><br>
