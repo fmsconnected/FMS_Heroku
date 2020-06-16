@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'voucher.apps.VoucherConfig',
     'report.apps.ReportConfig',
     'leasingmasterlist.apps.LeasingmasterlistConfig',
+    'corrective.apps.CorrectiveConfig',
 
 ]
 

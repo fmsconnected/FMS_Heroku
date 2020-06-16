@@ -278,7 +278,7 @@ class service_vehicle(models.Model):
 	SVV_SLA = models.CharField(max_length=10, null=True, blank=True)
 	date_initiated = models.DateField(auto_now=True, null=True)
 	history = HistoricalRecords()
-	Deadline = models.DateField(auto_now=False, null=True, blank=True)
+	Deadline = models.DateTimeField(auto_now=False, null=True, blank=True)
 
 	# def save(self, *args, **kwargs):
 	# 	if self.Deadline is None:
