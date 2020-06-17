@@ -249,8 +249,8 @@ def ownership_excel(request):
     for own in own_queryset:
         row_num += 1
         row = [
-				own.date_application 
-				own.req_employee_id 
+				own.date_application,
+				own.req_employee_id,
 				own.req_Fname ,
 				own.req_Lname ,
 				own.req_band ,
