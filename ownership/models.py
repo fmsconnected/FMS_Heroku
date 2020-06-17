@@ -118,7 +118,7 @@ class Ownership(models.Model):
     date_initiated = models.DateField(auto_now=True, null=True, blank=True)
     date_received_by = models.CharField(max_length=100, null=True, blank=True)
     history = HistoricalRecords()
-    Deadline = models.DateTimeField()
+    Deadline = models.DateTimeField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
         if self.Deadline is None:
