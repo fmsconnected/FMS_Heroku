@@ -113,9 +113,14 @@ class ownershipForm(forms.ModelForm):
 
         )
         TMGloc =(
-        ('Pasay','Pasay'),
-        ('Caloocan','Caloocan'),
+            ('Pasay','Pasay'),
+            ('Caloocan','Caloocan'),
         )
+
+        fee = (
+            ('JXMTSI', 'JXMTSI'),
+            ('Department','Department'),
+            )
         widgets= {
             
             'date_application': forms.TextInput(attrs={'class':'form-control','type':'date'}),
@@ -137,7 +142,7 @@ class ownershipForm(forms.ModelForm):
             'v_lname' : forms.TextInput(attrs={'class':'form-control'}),
             'v_band' : forms.TextInput(attrs={'class':'form-control'}),
             'purpose' : forms.Select(attrs={'class':'form-control','choices':'purpose'}),
-            'transfer_fee' : forms.TextInput(attrs={'class':'form-control'}),
+            'transfer_fee' : forms.TextInput(attrs={'class':'form-control', 'choices':'fee'}),
             'doc_date_completed' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'deedofsale_date': forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'confirmation_status' : forms.Select(attrs={'class':'form-control','choices':'confirm'}),

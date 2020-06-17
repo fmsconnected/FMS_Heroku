@@ -66,6 +66,11 @@ class Ownership(models.Model):
         ('Pasay','Pasay'),
         ('Caloocan','Caloocan'),
         )
+    fee = (
+            ('JXMTSI', 'JXMTSI'),
+            ('Department','Department'),
+            )
+
     Activity_id = models.CharField(max_length=100, default=increment_Activity_id)
     date_application = models.DateField(auto_now=False, null=True, blank=True)
     req_employee_id = models.CharField(max_length=50, null=True, blank=True)
@@ -86,7 +91,7 @@ class Ownership(models.Model):
     v_lname = models.CharField(max_length=100, null=True, blank=True)
     v_band = models.CharField(max_length=100, null=True, blank=True)
     purpose = models.CharField(max_length=100, null=True, choices=purpose, blank=True)
-    transfer_fee = models.CharField(max_length=100, null=True, blank=True)
+    transfer_fee = models.CharField(max_length=100, null=True, blank=True, choices=fee)
     doc_date_completed =models.CharField(max_length=100, null=True, blank=True)
     deedofsale_date = models.CharField(max_length=100, null=True, blank=True)
     confirmation_status = models.CharField(max_length=100, null=True, choices=confirm, blank=True)
