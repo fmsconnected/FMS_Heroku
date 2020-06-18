@@ -26,7 +26,7 @@ function transferownership(trans) {
 </div>
 <form method="POST">
 {% csrf_token %}
-    <div id="Deed of Sale Creation" class="w3-container ownership" style="display:none">
+    <div id="Deed of Sale Creation" class="w3-container ownership">
     <fieldset>
         <legend align="left">Deed of Sale Creation 1</legend>
         <div class="col-sm-6">
@@ -70,7 +70,7 @@ function transferownership(trans) {
       <a href="{% url 'ownership_list' %}" class="btn">CLOSE</a>
     </div>
     </div>
-    <div id="Transfer of Ownership" class="w3-container ownership">
+    <div id="Transfer of Ownership" class="w3-container ownership" style="display:none">
     <fieldset>
         <legend align="left">Requisitioner Details</legend><br>
         <div class="col-sm-6">
