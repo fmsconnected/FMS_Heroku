@@ -38,7 +38,6 @@
                             <th>Model</th>
                             <th>Conduction Sticker</th>
                             <th>Work Order Number</th>
-                            <th>SLA</th>
                             <th>Date Initiated</th>
                             <th></th>
                         </tr>
@@ -54,7 +53,6 @@
                             <td>{{ corrective.v_model }}</td>
                             <td>{{ corrective.cond_sticker }}</td>
                             <td>{{ corrective.work_order1 }}</td>
-                            <td>{{ corrective.VRR_SLA }}/Days</td>
                             <td>{{ corrective.date_initiated | date:'D d M Y'}}</td>
                             <td>
                                 <button type="button" class="delete-corrective btn-sm btn-danger rounded" data-id="{% url 'corrective_delete' corrective.pk %}">

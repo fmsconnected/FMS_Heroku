@@ -79,7 +79,6 @@ class Corrective(models.Model):
 	estimate_attached = models.CharField(max_length=100, null=True, blank=True)
 	approvedby = models.CharField(max_length=100, null=True, choices=approvedby, blank=True)
 	meter_reading = models.CharField(max_length=100, null=True, blank=True)
-	VRR_SLA = models.CharField(max_length=10, null=True, blank=True)
 	date_initiated = models.DateField(auto_now=True, null=True, blank=True)
 	history = HistoricalRecords()
 

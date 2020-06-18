@@ -184,9 +184,7 @@ def corrective_excel(request):
                 'Estimate Attached' ,
                 'Approved By' ,
                 'Meter Reading' ,
-                'SLA' ,
                 'Date Initiated' ,
-                'Deadline',
 
     ]
     row_num = 1
@@ -240,9 +238,7 @@ def corrective_excel(request):
                 corrective.estimate_attached ,
                 corrective.approvedby ,
                 corrective.meter_reading ,
-                corrective.VRR_SLA ,
                 corrective.date_initiated ,
-                corrective.Deadline,
         ]
         
         for col_num, cell_value in enumerate(row, 1):
