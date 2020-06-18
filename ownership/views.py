@@ -12,7 +12,8 @@ from .models import (
 from masterlist.models import EmployeeMasterlist,VehicleMasterList
 from . forms import (
     ownershipForm,
-    billing_form
+    billing_form,
+    bidderForm
 )
 from django.views.generic import (
                 				CreateView,
@@ -181,6 +182,14 @@ def billingHistoryView(request):
 
        return render(request, 'billing/billing_history.html', context={'object': obj})
 
+class bidder(SuccessMessageMixin, CreateView):
+	model = Ownership
+	form_class = bidderForm
+	template_name = 'bidder_form.html'
+
+	def get_success_message(self, cleaned_data):
+		print(cleaned_data)
+		return "Transfer of Ownership Bidder Created Successfully!"
 
 def ownership_excel(request):
     own_queryset = Ownership.objects.all()   
