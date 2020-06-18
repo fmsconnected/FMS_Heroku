@@ -1,12 +1,12 @@
 from django import forms
 from django.contrib.admin.widgets import FilteredSelectMultiple
-from .models import Vehicle_Repair
+from .models import Corrective
 
 
-class repairform(forms.ModelForm):
+class correctiveform(forms.ModelForm):
 
 	def __init__(self, *args, **kwargs):
-		super(repairform, self).__init__(*args, **kwargs)
+		super(correctiveform, self).__init__(*args, **kwargs)
 		self.fields['contact_no'].required = False
 		self.fields['particulars'].required = False
 		self.fields['maintenance_type1'].required = False
@@ -29,17 +29,16 @@ class repairform(forms.ModelForm):
 		self.fields['estimate_attached'].required = False
 		self.fields['approvedby'].required = False
 		self.fields['meter_reading'].required = False
-		self.fields['VRR_SLA'].required = False
 		self.fields['memo_app'].required = False
 
 	class Meta:
-		model = Vehicle_Repair
+		model = Corrective
 		fields = [
 		'request_date','employee','cost_center','first_name','last_name','contact_no','company','department','group_section',
 		'plate_no','v_brand','engine','v_make','v_model','chassis','band','cond_sticker','equipment_no','fleet_area',
 		'maintenance_type1','scope_work1','maintenance_type2','scope_work2','recommendations','service_reminder','verified_by', 
 		'particulars','category','work_order1','work_order2','work_order3','datework_created','Shop_vendor','date_forwarded','estimate_no',
-		'maintenance_amount','less_discount','estimate_remarks','estimate_attached','approvedby','meter_reading','VRR_SLA','memo_app'
+		'maintenance_amount','less_discount','estimate_remarks','estimate_attached','approvedby','meter_reading','memo_app'
 		]
 		area= (
 			('The Globe Tower', 'The Globe Tower'),
@@ -66,23 +65,23 @@ class repairform(forms.ModelForm):
 
 		widgets ={
 			'request_date': forms.TextInput(attrs={'class':'form-control','type':'date'}),
-			'employee' : forms.Select(attrs={'class':'form-control', 'readonly':'true'}),
-			'cost_center' : forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
-			'first_name' : forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
-			'last_name' : forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
+			'employee' : forms.TextInput(attrs={'class':'form-control'}),
+			'cost_center' : forms.TextInput(attrs={'class':'form-control'}),
+			'first_name' : forms.TextInput(attrs={'class':'form-control'}),
+			'last_name' : forms.TextInput(attrs={'class':'form-control'}),
 			'contact_no' : forms.TextInput(attrs={'class':'form-control'}),
-			'company' : forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
-			'department' : forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
-			'group_section' : forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
-			'plate_no' : forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
-			'v_brand' : forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
-			'engine' : forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
-			'v_make' : forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
-			'v_model' : forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
-			'chassis' : forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
-			'band' : forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
-			'cond_sticker' : forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
-			'equipment_no' : forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
+			'company' : forms.TextInput(attrs={'class':'form-control'}),
+			'department' : forms.TextInput(attrs={'class':'form-control'}),
+			'group_section' : forms.TextInput(attrs={'class':'form-control'}),
+			'plate_no' : forms.TextInput(attrs={'class':'form-control'}),
+			'v_brand' : forms.TextInput(attrs={'class':'form-control'}),
+			'engine' : forms.TextInput(attrs={'class':'form-control'}),
+			'v_make' : forms.TextInput(attrs={'class':'form-control'}),
+			'v_model' : forms.TextInput(attrs={'class':'form-control'}),
+			'chassis' : forms.TextInput(attrs={'class':'form-control'}),
+			'band' : forms.TextInput(attrs={'class':'form-control'}),
+			'cond_sticker' : forms.TextInput(attrs={'class':'form-control'}),
+			'equipment_no' : forms.TextInput(attrs={'class':'form-control'}),
 			'fleet_area' : forms.Select(attrs={'class':'form-control','choices':'area'}),
 			'particulars' : forms.TextInput(attrs={'class':'form-control'}),
 			'category' : forms.TextInput(attrs={'class':'form-control'}),
@@ -107,5 +106,4 @@ class repairform(forms.ModelForm):
 			'estimate_attached' : forms.TextInput(attrs={'class':'form-control'}),
 			'approvedby' : forms.Select(attrs={'class':'form-control','choices':'approvedby'}),
 			'meter_reading' : forms.TextInput(attrs={'class':'form-control'}),
-			'VRR_SLA': forms.TextInput(attrs={'class':'form-control','value':'30','hidden':'true'})
 		}

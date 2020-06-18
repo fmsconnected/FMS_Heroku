@@ -23,7 +23,7 @@ function vrepair(repair) {
     <button class="w3-bar-item w3-button" onclick="vrepair('Verification Process')">Verification Process</button>
     <button class="w3-bar-item w3-button" onclick="vrepair('Outbound Process')">Outbound Process</button>
     </div>
-<form method="POST" action="{% url 'repair_submit' %}">
+<form method="POST" action="{% url 'corrective_submit' %}">
 {% csrf_token %}
     <div id="Vehicle Repair Request" class="w3-container vr">
     <fieldset>

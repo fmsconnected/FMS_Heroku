@@ -378,7 +378,7 @@ class repairform(forms.ModelForm):
 
 		widgets ={
 			'request_date': forms.TextInput(attrs={'class':'form-control','type':'date'}),
-			'employee' : forms.Select(attrs={'class':'form-control', 'readonly':'true'}),
+			'employee' : forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
 			'cost_center' : forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
 			'first_name' : forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),
 			'last_name' : forms.TextInput(attrs={'class':'form-control', 'readonly':'true'}),

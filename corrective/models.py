@@ -8,7 +8,7 @@ from masterlist.models import EmployeeMasterlist,VehicleMasterList
 from simple_history.models import HistoricalRecords
 
 def increment_Activity_id():
-	last_in = Vehicle_Repair.objects.all().order_by('id').last()
+	last_in = Corrective.objects.all().order_by('id').last()
 	if not last_in:
 		return 'VRR' + str(datetime.datetime.today().strftime('%Y')) + '-' + '000001'
 	in_id = last_in.Activity_id
@@ -83,4 +83,9 @@ class Corrective(models.Model):
 	date_initiated = models.DateField(auto_now=True, null=True, blank=True)
 	history = HistoricalRecords()
 
+	def __str__(self):
+		return self.Activity_id
+
+	def get_absolute_url(self):
+		return reverse('corrective_list')
 
