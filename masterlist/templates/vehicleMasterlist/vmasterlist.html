@@ -84,6 +84,9 @@ $('#emp_id').on('change', function () {
             <option value="Volvo">Volvo</option>
             <option value="Saturn">Saturn</option>
             <option value="Kia">Kia</option>
+            <option value="Geely">Geely</option>
+            <option value="MG">MG</option>
+
 
         </select>
     </div>
@@ -94,6 +97,10 @@ $('#emp_id').on('change', function () {
     <div class="col-sm-4">
         <label>Engine Number</label>
         <input type="text" name="eng_no" id="eng_no" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Chassis Number</label>
+        <input type="text" name="chassis_no" id="chassis_no" class="form-control">
     </div>
     <div class="col-sm-4">
         <label>MV File Number</label>
@@ -109,7 +116,7 @@ $('#emp_id').on('change', function () {
     </div>
     <div class="col-sm-4">
         <label>Employee Id</label>
-        <input name="emp_id" id="emp_id" class="form-control" list="emp_list">
+        <input name="emp_id" id="emp_id" class="form-control" list="emp_list" required>
             <datalist id="emp_list">               
             {% for emp_id in elist %}
               <option data-value="{{ emp_id.Employee_Id }}" value="{{ emp_id.Employee_Id }}">

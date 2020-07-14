@@ -99,6 +99,8 @@ class VehicleMasterList(models.Model):
 			('Volvo','Volvo'),
 			('Saturn','Saturn'),
 			('Kia','Kia'),
+			('Geely','Geely'),
+			('MG','MG')
             )
 	remarks = (
             ('Without Last Registration Date','Without Last Registration Date'),
