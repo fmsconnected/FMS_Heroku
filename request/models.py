@@ -384,7 +384,7 @@ class Vehicle_Repair(models.Model):
 		if self.Deadline is None:
 			now = datetime.datetime.today()
 			num_days = 0
-			while num_days < 30:
+			while num_days < 60:
 				now = now + timedelta(days=1)
 				if now.isoweekday() not in [6,7]:
 					num_days+=1
