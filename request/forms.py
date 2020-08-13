@@ -312,7 +312,7 @@ class serviceform(forms.ModelForm):
 			'vehicle_brand': forms.Select(attrs={'class':'form-control','choices':'vbrand'}),
 			'vehicle_make': forms.TextInput(attrs={'class':'form-control'}),
 			'vehicle_fuel_type': forms.TextInput(attrs={'class':'form-control'}),
-			'SVV_SLA': forms.TextInput(attrs={'class':'form-control','value':'60','hidden':'true'})
+			'SVV_SLA': forms.TextInput(attrs={'class':'form-control','value':'90','hidden':'true'})
 		}
 
 class repairform(forms.ModelForm):
