@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from openpyxl import Workbook
 import datetime
 from datetime import date, timedelta
+from django.db.models import Q, Count
 from .models import (
 		CarRentalRequest,
         Gas_card,
@@ -688,10 +689,24 @@ def service_request_excel(request):
                      ######################################
 
 
-class repairListView(ListView):
-    model = Vehicle_Repair
-    template_name='vehicle_repair/repair_list.html'
-    
+def repairListView(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    # model = Vehicle_Repair
+    # template_name='vehicle_repair/repair_list.html'
+    dl1 = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=1))
+    dl12 = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=2))
+    dl13 = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=3))
+    dl14 = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=4))
+    dl15 = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=5))
+    dl16 = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today())
+    dl1_count = dl1.aggregate(counted=Count('id'))['counted'] + dl12.aggregate(counted=Count('id'))['counted'] + dl13.aggregate(counted=Count('id'))['counted'] + dl14.aggregate(counted=Count('id'))['counted'] + dl15.aggregate(counted=Count('id'))['counted'] + dl16.aggregate(counted=Count('id'))['counted']  # number of records
+
+    object_list = Vehicle_Repair.objects.all()
+    print(dl1_count)
+
+    return render(request,'vehicle_repair/repair_list.html',{'Title':'Vehicle Repair List', 'object_list':object_list, 'dl1_count':dl1_count})
+
 def repairCreate(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
