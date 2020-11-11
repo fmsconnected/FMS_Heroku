@@ -3,6 +3,6 @@ from .models import UserReport
 
 
 @admin.register(UserReport)
-class AuditEntryAdmin(admin.ModelAdmin):
+class UserReportAdmin(admin.ModelAdmin):
     list_display = ['action', 'username', 'ip', ]
     list_filter = ['action', ]

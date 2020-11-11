@@ -218,13 +218,11 @@ body {font-family: Arial;}
                             <li><i class="menu-icon fa fa-folder-open-o" style="color:#E615F3"></i><a href="{% url 'leasing_list' %}">Leasing Masterlist</a></li>
                         </ul>
                     </li>
+                     <li class="menu-item-has-children ">
+                        <a href="{% url 'user_list' %}"  aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-folder-open-o" style="color:#E615F3"></i>User History</a>
+                    </li>
                 </ul>
                 
             </div><!-- /.navbar-collapse -->
         </nav>
-        <div class="myDiv">
-          {% comment %} <label aria-haspopup="true" aria-expanded="false">User Log-in History</label> {% endcomment %}
-          <span aria-haspopup="true" aria-expanded="false" class="label other">User Log-in History</span>
-          <a href="{% url 'adminreport' %}"> <u><b>Download Here!</b></u></a>
-        </div>
     </aside>

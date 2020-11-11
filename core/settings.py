@@ -61,6 +61,13 @@ INSTALLED_APPS = [
 
 ]
 
+# AUTHENTICATION_BACKENDS = (
+#     'django_python3_ldap.auth.LDAPBackend',
+#     'django.contrib.auth.backends.ModelBackend',
+# )
+
+# AUTH_USER_MODEL = "Admin.AllLogin"
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

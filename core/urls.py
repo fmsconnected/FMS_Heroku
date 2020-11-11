@@ -15,9 +15,9 @@ from masterlist import views
 
 admin.autodiscover()
 router = routers.DefaultRouter()
-router.register(r'masterlist', views.vehicleViewSet)
-router.register(r'empmasterlist', views.employeeViewSet)
-router.register(r'leasingmasterlist', views.leasingViewSet)
+router.register(r'masterlist', views.vehicleViewSet),
+router.register(r'empmasterlist', views.employeeViewSet),
+router.register(r'leasingmasterlist', views.leasingViewSet),
 
 urlpatterns = [
     url('^api/', include(router.urls)),

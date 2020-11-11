@@ -3,6 +3,14 @@ from django.shortcuts import render, HttpResponseRedirect, HttpResponse, reverse
 from openpyxl import Workbook
 from django.urls import reverse_lazy
 from django.views import generic
+from django.views.generic import (
+    ListView
+)
+
+
+class userListView(ListView):
+    model = UserReport
+    template_name = 'userreport_list.html'
 
 
 def user_report_excel(request):
