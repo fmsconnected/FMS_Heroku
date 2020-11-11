@@ -57,8 +57,16 @@ INSTALLED_APPS = [
     'report.apps.ReportConfig',
     'leasingmasterlist.apps.LeasingmasterlistConfig',
     'corrective.apps.CorrectiveConfig',
+    'Admin.apps.AdminConfig',
 
 ]
+
+# AUTHENTICATION_BACKENDS = (
+#     'django_python3_ldap.auth.LDAPBackend',
+#     'django.contrib.auth.backends.ModelBackend',
+# )
+
+# AUTH_USER_MODEL = "Admin.AllLogin"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -97,7 +105,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-    'ENGINE':'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'fleet_jxmtsi_repo',
         'USER': 'fleet',
         'PASSWORD': 'fleet',
@@ -163,3 +171,5 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 50,
 }
 django_heroku.settings(locals())
+
+SILENCED_SYSTEM_CHECKS = ['fields.E300', 'fields.E307']
