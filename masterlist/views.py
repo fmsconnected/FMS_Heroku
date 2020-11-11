@@ -511,6 +511,7 @@ def vehicle_excel(request):
 
     workbook.save(response)
     return response
+    
 def vehicle_excel_bayan(request):
     v_queryset = VehicleMasterList.objects.filter(CR_NAME__contains="BAYANTEL")   
     response = HttpResponse(

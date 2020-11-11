@@ -14,6 +14,12 @@
     }
 
 
+.myDiv {
+  border: 1px outset red;
+  background-color: lightblue;
+  text-align: center;
+}
+
 
 .button {
   padding: 15px 25px;
@@ -213,6 +219,12 @@ body {font-family: Arial;}
                         </ul>
                     </li>
                 </ul>
+                
             </div><!-- /.navbar-collapse -->
         </nav>
+        <div class="myDiv">
+          {% comment %} <label aria-haspopup="true" aria-expanded="false">User Log-in History</label> {% endcomment %}
+          <span aria-haspopup="true" aria-expanded="false" class="label other">User Log-in History</span>
+          <a href="{% url 'adminreport' %}"> <u><b>Download Here!</b></u></a>
+        </div>
     </aside>

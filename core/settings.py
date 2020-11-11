@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'report.apps.ReportConfig',
     'leasingmasterlist.apps.LeasingmasterlistConfig',
     'corrective.apps.CorrectiveConfig',
+    'Admin.apps.AdminConfig',
 
 ]
 
@@ -97,7 +98,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-    'ENGINE':'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'fleet_jxmtsi_repo',
         'USER': 'fleet',
         'PASSWORD': 'fleet',
@@ -139,7 +140,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-# DATE_INPUT_FORMATS = ['%Y-%m-%d']
+DATE_INPUT_FORMATS = ['%m-%d-%Y']
 
 
 # Static files (CSS, JavaScript, Images)
@@ -163,3 +164,5 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 50,
 }
 django_heroku.settings(locals())
+
+SILENCED_SYSTEM_CHECKS = ['fields.E300', 'fields.E307']
