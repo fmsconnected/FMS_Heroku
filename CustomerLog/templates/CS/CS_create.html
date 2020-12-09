@@ -6,7 +6,7 @@
 <div class="col-md-12">
     <div class="card">
     <div class="card-header">
-        <h3 align="center"><b>Customer Care Log's</b></h3>&nbsp;
+        <h3 align="center"><b>Customer Care Log</b></h3>&nbsp;
     </div>
 <form method="POST">
 {% csrf_token %}
@@ -34,12 +34,12 @@
     <div class="col-sm-4">
         <label>Problem</label>{{ form.Problem }}
     </div>
-    <div class="col-sm-4">
+    {% comment %} <div class="col-sm-4">
         <label>Date Resolved</label>{{ form.Date_resolved }}
     </div>
     <div class="col-sm-4">
         <label>Action Taken</label>{{ form.Action_taken }}
-    </div>
+    </div> {% endcomment %}
 </div>
 {% comment %} <form method="POST">
         {% csrf_token %}

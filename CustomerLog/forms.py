@@ -16,7 +16,7 @@ class CS_form(forms.ModelForm):
     class Meta:
         model = CS_log
         fields = [
-            'Date_received', 'Fleet_member', 'Client_name', 'Email', 'Mobile_no', 'Transaction_type', 'Plate_no', 'Problem', 'Date_resolved', 'Action_taken'
+            'Date_received', 'Fleet_member', 'Client_name', 'Email', 'Mobile_no', 'Transaction_type', 'Plate_no', 'Problem'
         ]
         member = (
             ('Shane Santos', 'Shane Santos'),
@@ -52,8 +52,6 @@ class CS_form(forms.ModelForm):
             'Mobile_no': forms.TextInput(attrs={'class': 'form-control', 'type': 'number'}),
             'Transaction_type': forms.Select(attrs={'class': 'form-control', 'choices': 'trans_type'}),
             'Plate_no': forms.TextInput(attrs={'class': 'form-control'}),
-            'Problem': forms.TextInput(attrs={'class': 'form-control'}),
-            'Date_resolved': forms.TextInput(attrs={'class': 'form-control', 'type': 'date'}),
-            'Action_taken': forms.TextInput(attrs={'class': 'form-control'}),
+            'Problem': forms.TextInput(attrs={'class': 'form-control'})
 
         }

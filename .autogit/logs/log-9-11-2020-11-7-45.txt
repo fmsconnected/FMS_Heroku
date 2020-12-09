@@ -1,0 +1,39 @@
+-------------------- Auto-Git Log --------------------
+		Wed Dec 09 2020 11:07:45 GMT+0800 (Philippine Standard Time)
+------------------------------------------------------
+
+Modified files:
+* Admin/models.py
+* Admin/urls.py
+* Admin/views.py
+* core/__pycache__/settings.cpython-37.pyc
+* core/__pycache__/urls.cpython-37.pyc
+* core/settings.py
+* core/urls.py
+* payment/__pycache__/models.cpython-37.pyc
+* templates/partial/_left.html
+
+
+Created files:
+* CustomerLog/__init__.py
+* CustomerLog/admin.py
+* CustomerLog/apps.py
+* CustomerLog/forms.py
+* CustomerLog/migrations/0001_initial.py
+* CustomerLog/migrations/__init__.py
+* CustomerLog/models.py
+* CustomerLog/serializers.py
+* CustomerLog/templates/CS/CS_create.html
+* CustomerLog/templates/CS/CS_delete.html
+* CustomerLog/templates/CS/CS_details.html
+* CustomerLog/templates/CS/CS_list.html
+* CustomerLog/templates/CS/CS_update.html
+* CustomerLog/tests.py
+* CustomerLog/urls.py
+* CustomerLog/views.py
+
+
+Deleted files:
+
+
+Renamed files:
