@@ -43,44 +43,34 @@ def in_group(user):
 
 
 class CSCreateView(CreateView):
-    # @method_decorator(user_passes_test(in_group))
-    # def dispatch(self, *args, **kwargs):
-    #     return super().dispatch(*args, **kwargs)
+    @method_decorator(user_passes_test(in_group))
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
     model = CS_log
     form_class = CS_form
     template_name = 'CS/CS_create.html'
 
 
-# class FuelCreateView(SuccessMessageMixin, CreateView):
-#     model = Fuel_supplier
-#     form_class = FuelsupplierForm
-#     template_name = 'payment/fuel/fuel_supplier.html'
-
-#     def get_success_message(self, cleaned_data):
-#         print(cleaned_data)
-#         return "Fuel Supplier Has been Created!"
-
-
 class CSListView(ListView):
-    # @method_decorator(user_passes_test(in_group))
-    # def dispatch(self, *args, **kwargs):
-    #     return super().dispatch(*args, **kwargs)
+    @method_decorator(user_passes_test(in_group))
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
     model = CS_log
     template_name = 'CS/CS_list.html'
 
 
 class CSDetails(DetailView):
-    # @method_decorator(user_passes_test(in_group))
-    # def dispatch(self, *args, **kwargs):
-    #     return super().dispatch(*args, **kwargs)
+    @method_decorator(user_passes_test(in_group))
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
     model = CS_log
     template_name = 'CS/CS_details.html'
 
 
 class CSUpdate(UpdateView):
-    # @method_decorator(user_passes_test(in_group))
-    # def dispatch(self, *args, **kwargs):
-    #     return super().dispatch(*args, **kwargs)
+    @method_decorator(user_passes_test(in_group))
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
     model = CS_log
     form_class = CS_formupdate
     template_name = 'CS/CS_update.html'
@@ -96,7 +86,7 @@ class CSDeleteView(BSModalDeleteView):
     success_url = reverse_lazy('CS_List')
 
 
-# @user_passes_test(in_group)
+@user_passes_test(in_group)
 def customer_log_excel(request):
     customer_queryset = CS_log.objects.all()
     response = HttpResponse(
@@ -109,7 +99,7 @@ def customer_log_excel(request):
     worksheet.title = 'Customer Care Log'
 
     columns = [
-        'Activity Id',
+        'Ticket Number',
         'Date Received',
         'Fleet Member',
         'Client Name',

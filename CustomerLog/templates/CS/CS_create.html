@@ -34,28 +34,10 @@
     <div class="col-sm-4">
         <label>Problem</label>{{ form.Problem }}
     </div>
-    {% comment %} <div class="col-sm-4">
-        <label>Date Resolved</label>{{ form.Date_resolved }}
-    </div>
-    <div class="col-sm-4">
-        <label>Action Taken</label>{{ form.Action_taken }}
-    </div> {% endcomment %}
 </div>
-{% comment %} <form method="POST">
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-md-8">
-                <fieldset class="form-group">
-                    {{ form|crispy }}
-                </fieldset> 
-            </div>
-            <div class="col">
-
-            </div>
-        </div> {% endcomment %}
     <div class="card-footer">
-        <button type="Submit" class="buttonsubmit btn-secondary" >SUBMIT</button>
-        <button class="button" type="reset" value="Reset">CLEAR ALL FIELDS</button>
+        <button type="Submit" class="buttonsubmit btn-secondary" >Create</button>
+        <button class="button" type="reset" value="Reset">CLEAR</button>
     </div>
 
 </form>

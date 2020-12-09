@@ -105,7 +105,7 @@ class CS_formupdate(forms.ModelForm):
             'Plate_no': forms.TextInput(attrs={'class': 'form-control', 'readonly': 'true'}),
             'Problem': forms.TextInput(attrs={'class': 'form-control', 'readonly': 'true'}),
             'Date_resolved': forms.TextInput(attrs={'class': 'form-control', 'type': 'date'}),
-            'Action_taken': forms.TextInput(attrs={'class': 'form-control'})
+            'Action_taken': forms.Textarea(attrs={'cols': '70', 'rows': '4'})
 
 
         }
