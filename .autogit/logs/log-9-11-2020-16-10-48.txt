@@ -1,0 +1,25 @@
+-------------------- Auto-Git Log --------------------
+		Wed Dec 09 2020 16:10:48 GMT+0800 (Philippine Standard Time)
+------------------------------------------------------
+
+Modified files:
+* CustomerLog/forms.py
+* CustomerLog/models.py
+* CustomerLog/templates/CS/CS_create.html
+* CustomerLog/templates/CS/CS_list.html
+* CustomerLog/templates/CS/CS_update.html
+* CustomerLog/views.py
+* payment/templates/payment/car/car_rental.html
+* payment/templates/payment/car/car_rental1.html
+* templates/partial/_left.html
+
+
+Created files:
+* .autogit/logs/log-9-11-2020-14-55-43.txt
+* CustomerLog/migrations/0002_auto_20201209_1550.py
+
+
+Deleted files:
+
+
+Renamed files:
