@@ -20,6 +20,21 @@
   text-align: center;
 }
 
+.buttonsubmit {
+  padding: 15px 25px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+  /*text-decoration-color: #000000;*/
+  cursor: pointer;
+  outline: none;
+  color: #ebebe0;
+  background-color: #f5a742;
+  border: none;
+  border-radius: 20px;
+  /*box-shadow: 0 9px #999;*/
+}
+
 
 .button {
   padding: 15px 25px;
@@ -218,8 +233,13 @@ body {font-family: Arial;}
                             <li><i class="menu-icon fa fa-folder-open-o" style="color:#E615F3"></i><a href="{% url 'leasing_list' %}">Leasing Masterlist</a></li>
                         </ul>
                     </li>
-                     <li class="menu-item-has-children ">
-                        <a href="{% url 'user_list' %}"  aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-folder-open-o" style="color:#E615F3"></i>User History</a>
+                   
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-folder-open-o" style="color:#E615F3"></i>Admin</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-folder-open-o" style="color:#E615F3"></i><a href="{% url 'user_list' %}">User History</a></li>
+                            <li><i class="menu-icon fa fa-folder-open-o" style="color:#E615F3"></i><a href="{% url 'CS_List' %}">Customer Care Log</a></li>
+                        </ul>
                     </li>
                 </ul>
                 

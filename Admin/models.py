@@ -1,16 +1,4 @@
-# from django.contrib.auth.models import User
-# from django.db import models
 
-
-# class AllLogin(models.Model):
-#     user = models.ForeignKey('User', on_delete=models.CASCADE)
-#     date = models.DateTimeField(auto_now_add=True)
-
-#     USERNAME_FIELD = "date"
-#     REQUIRED_FIELDS = []
-
-#     def __str__(self):
-#         return str(self.user) + ': ' + str(self.date)
 from django.db import models
 from django.contrib.auth.signals import user_logged_in, user_logged_out, user_login_failed
 from django.dispatch import receiver
@@ -50,3 +38,5 @@ def user_logged_out_callback(sender, request, user, **kwargs):
 def user_login_failed_callback(sender, credentials, **kwargs):
     UserReport.objects.create(
         action='user_login_failed', username=credentials.get('username', None))
+
+####### Customer care log ###########

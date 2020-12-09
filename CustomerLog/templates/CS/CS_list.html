@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block content %}
+<style type="text/css">
+    th{
+        text-align: center;
+    }
+</style>
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content"></div>
+    </div>
+</div>
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3><b>Customer Care Log's</b></h3>
+    </div>
+</div>
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    {% comment %} <a href="{% url 'report_export' %}" style="float: left"><u><b>Export Customer Data</b></u></a> {% endcomment %}
+                    <a href="{% url 'CS_new' %}" style="float:right"><u><b>Add New Customer Log</b></u>&nbsp; &nbsp; &nbsp;</a>
+                </div>                         
+                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity ID</th>
+                            <th>Date Received</th>
+                            <th>Fleet Member</th>
+                            <th>Ageing</th>
+                            <th>Client Name</th>
+                            <th>Email</th>
+                            <th>Mobile Number</th>
+                            <th>Transaction Type</th>
+                            <th>Plate Number</th>
+                            <th>Problem</th>
+                            <th>Date Resolved</th>
+                            <th>Action Taken</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cs_logs in object_list %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'CS_details' cs_logs.id %}"><u>{{ cs_logs.Activity_id }}</u></a></td>
+                            <td>{{ cs_logs.Date_received }}</td>
+                            <td>{{ cs_logs.Fleet_member }}</td>
+                            <td>{{ cs_logs.Ageing }}</td>
+                            <td>{{ cs_logs.Client_name }}</td>
+                            <td>{{ cs_logs.Email}}</td>
+                            <td>{{ cs_logs.Mobile_no}}</td>
+                            <td>{{ cs_logs.Transaction_type }}</td>
+                            <td>{{ cs_logs.Plate_no }}</td>
+                            <td>{{ cs_logs.Problem }}</td>
+                            <td>{{ cs_logs.Date_resolved}}</td>
+                            <td>{{ cs_logs.Action_taken}}</td>
+                            <td>
+                                <button type="button" class="delete-cs btn-sm btn-danger rounded" data-id="{% url 'CS_delete' cs_logs.pk %}">
+                                <span class="fa fa-trash"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+    <!-- /.row -->
+    
+{% endblock %}
+
+{% block extrascripts %}
+<script type="text/javascript">
+  $(function() {
+    // Delete book buttons
+    $("#example").on('mouseover', '.delete-cs', function() {
+      $(this).modalForm({
+        formURL: $(this).data('id')
+      });
+    });
+
+  });
+</script>
+{% endblock extrascripts %}
+
+

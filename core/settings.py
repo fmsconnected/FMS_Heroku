@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'leasingmasterlist.apps.LeasingmasterlistConfig',
     'corrective.apps.CorrectiveConfig',
     'Admin.apps.AdminConfig',
+    'CustomerLog.apps.CustomerlogConfig',
 
 ]
 

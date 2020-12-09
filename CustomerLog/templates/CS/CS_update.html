@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3 align="center"><b>Customer Care Log's Update</b></h3>&nbsp;
+    </div>
+<form method="POST">
+{% csrf_token %}
+    <div class="col-sm-4">
+        <label>Date Received</label>{{ form.Date_received }}
+    </div>
+    <div class="col-sm-4">
+        <label>Fleet Member</label>{{ form.Fleet_member }}
+    </div>
+    <div class="col-sm-4">
+        <label>Client Name</label>{{ form.Client_name }}
+    </div>
+    <div class="col-sm-4">
+        <label>Email</label>{{ form.Email }}
+    </div>
+        <div class="col-sm-4">
+        <label>Mobile Number</label>{{ form.Mobile_no }}
+    </div>
+    <div class="col-sm-4">
+        <label>Transaction Type</label>{{ form.Transaction_type }}
+    </div>
+    <div class="col-sm-4">
+        <label>Plate Number</label>{{ form.Plate_no }}
+    </div>
+    <div class="col-sm-4">
+        <label>Problem</label>{{ form.Problem }}
+    </div>
+    <div class="col-sm-4">
+        <label>Date Resolved</label>{{ form.Date_resolved }}
+    </div>
+    <div class="col-sm-4">
+        <label>Action Taken</label>{{ form.Action_taken }}
+    </div>
+</div>
+{% comment %} <form method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-8">
+                <fieldset class="form-group">
+                    {{ form|crispy }}
+                </fieldset> 
+            </div>
+            <div class="col">
+
+            </div>
+        </div> {% endcomment %}
+    <div class="card-footer">
+        <button type="Submit" class="btn btn-secondary" >UPDATE</button>
+    </div>
+
+</form>
+{% endblock %}

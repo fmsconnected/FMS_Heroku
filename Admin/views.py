@@ -3,8 +3,21 @@ from django.shortcuts import render, HttpResponseRedirect, HttpResponse, reverse
 from openpyxl import Workbook
 from django.urls import reverse_lazy
 from django.views import generic
+import datetime
+from rest_framework import viewsets
+from rest_framework.response import Response
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import render
+
 from django.views.generic import (
-    ListView
+    ListView,
+    CreateView,
+    DetailView,
+    UpdateView,
+)
+
+from .models import (
+    UserReport
 )
 
 

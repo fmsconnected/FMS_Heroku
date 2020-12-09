@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+<style type="text/css">
+  th {
+    text-align: middle;
+  }
+</style>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header">Customer Care Details</h3>
+    </div>
+</div>
+
+<br>
+
+<table width="90%" class=" table-bordered table-hover" border="2px">
+    <tr>
+        <th width="25%">Activity ID </th><td width="25%">{{ object.Activity_id }}</td>
+        <th width="25%">Date Received</th><td width="25%">{{ object.Date_received }}</td>
+    </tr>
+    <tr>
+        <th>Fleet Member</th><td>{{ object.Fleet_member }}</td>
+        <th>Ageing </th> <td>{{ object.Ageing }}</td>
+    </tr>
+    <tr>
+        <th>Client Name</th><td>{{ object.Client_name }}</td>
+        <th>Email </th> <td>{{ object.Email }}</td>
+    </tr>
+    <tr>
+        <th>Mobile Number</th> <td>{{ object.Mobile_no }}</td>
+        <th>Transaction Type</th> <td>{{ object.Transaction_type }}</td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Plate Number</th> <td>{{ object.Plate_no }}</td>
+        <th>Problem</th> <td>{{ object.Problem }}</td>
+    </tr> 
+    <tr>
+        <th>Date Resolved</th><td>{{ object.Date_resolved }}</td>
+        <th>Action Taken</th><td>{{ object.Action_taken }}</td>
+    </tr>
+    
+</table>
+    <div class="card-footer">
+      <a href="{% url 'CS_update' object.id %}" class="button">UPDATE</a>
+      <a href="{% url 'CS_List' %}" class="btn">CLOSE</a>
+    </div>
+{% endblock %}
