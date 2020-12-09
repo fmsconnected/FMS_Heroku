@@ -16,7 +16,8 @@ from django.views.generic import (
 )
 
 from . forms import (
-    CS_form
+    CS_form,
+    CS_formupdate
 )
 
 from .serializers import (
@@ -55,7 +56,7 @@ class CSDetails(DetailView):
 
 class CSUpdate(UpdateView):
     model = CS_log
-    form_class = CS_form
+    form_class = CS_formupdate
     template_name = 'CS/CS_update.html'
 
 
@@ -64,3 +65,57 @@ class CSDeleteView(BSModalDeleteView):
     template_name = 'CS/CS_delete.html'
     success_message = 'Success: Item was deleted.'
     success_url = reverse_lazy('CS_List')
+
+
+def customer_log_excel(request):
+    customer_queryset = CS_log.objects.all()   
+    response = HttpResponse(
+        content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    )
+    response['Content-Disposition'] = 'attachment; filename=Customer Care Log.xlsx'
+    workbook = Workbook()
+
+    worksheet = workbook.active
+    worksheet.title = 'Customer Care Log'
+
+    columns = [
+            'Activity Id',
+            'Date Received',
+            'Fleet Member',
+            'Client Name',
+            'Email',
+            'Mobile Number',
+            'Transaction Type',
+            'Plate Number',
+            'Problem',
+            'Date Resolved',
+            'Action Taken'
+    ]
+    row_num = 1
+
+    for col_num, column_title in enumerate(columns, 1):
+        cell = worksheet.cell(row=row_num, column=col_num)
+        cell.value = column_title
+
+    for cc in customer_queryset:
+        row_num += 1
+        row = [
+                cc.Activity_id,
+                cc.Date_received,
+                cc.Fleet_member,
+                cc.Client_name,
+                cc.Email,
+                cc.Mobile_no,
+                cc.Transaction_type,
+                cc.Plate_no,
+                cc.Problem,
+                cc.Date_resolved,
+                cc.Action_taken
+        ]
+        
+        for col_num, cell_value in enumerate(row, 1):
+            cell = worksheet.cell(row=row_num, column=col_num)
+            cell.value = cell_value
+
+    workbook.save(response)
+    return response

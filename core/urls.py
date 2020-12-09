@@ -33,7 +33,7 @@ urlpatterns = [
     path('Report/', include('report.urls')),
     path('Admin/', include('Admin.urls')),
     path('Corrective/', include('corrective.urls')),
-    path('CS/', include('CustomerLog.urls')),
+    path('Customer/', include('CustomerLog.urls')),
     # path('Leasing/', include('leasingmasterlist.urls')),
     path('', auth_views.LoginView.as_view(
         template_name='account/login.html'), name='login'),
