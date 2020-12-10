@@ -3,7 +3,7 @@ from openpyxl import Workbook
 from django.urls import reverse_lazy
 from django.views import generic
 import datetime
-from datetime import date
+from datetime import date, timedelta
 from rest_framework import viewsets
 from rest_framework.response import Response
 from django.shortcuts import render
@@ -85,9 +85,10 @@ def CS_updateform(request):
 
 @user_passes_test(in_group)
 def CSUpdate(request, pk):
+
     if request.method == 'POST':
 
-        Date_received = str(request.POST.get('Date_received'))
+        Date_received = request.POST.get('date_received')
         Fleet_member = request.POST.get('Fleet_member')
         Client_name = request.POST.get('Client_name')
         Email = request.POST.get('Email')
@@ -98,8 +99,8 @@ def CSUpdate(request, pk):
         Date_resolved = request.POST.get('Date_resolved')
         Action_taken = request.POST.get('Action_taken')
 
-        d1 = datetime.datetime.strptime(Date_received, '%YY-%mm-%dd').date()
-        d2 = datetime.datetime.strptime(Date_resolved, '%YY-%mm-%dd').date()
+        d1 = datetime.datetime.strptime(Date_received, '%Y-%m-%d').date()
+        d2 = datetime.datetime.strptime(Date_resolved, '%Y-%m-%d').date()
         ageing = (d2 - d1)
 
         CS_log.objects.filter(id=pk).update(Date_received=Date_received, Fleet_member=Fleet_member, Client_name=Client_name,
