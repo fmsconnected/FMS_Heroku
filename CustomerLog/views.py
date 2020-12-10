@@ -7,6 +7,7 @@ from datetime import date, timedelta
 from rest_framework import viewsets
 from rest_framework.response import Response
 from django.shortcuts import render
+from django.db.models import Q, Count
 from bootstrap_modal_forms.generic import BSModalDeleteView
 # User
 from django.core.exceptions import PermissionDenied
@@ -52,12 +53,12 @@ class CSCreateView(CreateView):
     template_name = 'CS/CS_create.html'
 
 
-class CSListView(ListView):
-    @method_decorator(user_passes_test(in_group))
-    def dispatch(self, *args, **kwargs):
-        return super().dispatch(*args, **kwargs)
-    model = CS_log
-    template_name = 'CS/CS_list.html'
+# class CSListView(ListView):
+#     @method_decorator(user_passes_test(in_group))
+#     def dispatch(self, *args, **kwargs):
+#         return super().dispatch(*args, **kwargs)
+#     model = CS_log
+#     template_name = 'CS/CS_list.html'
 
 
 class CSDetails(DetailView):
@@ -68,27 +69,19 @@ class CSDetails(DetailView):
     template_name = 'CS/CS_details.html'
 
 
-def CS_updateform(request):
+def CSListView(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
-    cclog = CS_log.objects.all()
-    return render(request, 'CS/CS_update.html', {'title': 'Customer Care Log', 'cclog': cclog})
-
-
-def cclog_alert(request):
-    # def dispatch(self, *args, **kwargs):
-    #     return super().dispatch(*args, **kwargs)
     dl2 = CS_log.objects.filter(
         Date_received__date=datetime.datetime.today() + timedelta(days=2))
     dl1 = CS_log.objects.filter(
         Date_received__date=datetime.datetime.today() + timedelta(days=1))
-    dl = CS_log.objects.filter(
-        Date_received__date=datetime.datetime.today())
-
-    ccAlert = dl1.aggregate(counted=Count('id'))['counted'] + dl2.aggregate(counted=Count('id'))['counted'] + dl.aggregate(counted=Count('id'))[
+    dl = CS_log.objects.filter(Date_received__date=datetime.datetime.today())
+    ccl_count = dl2.aggregate(counted=Count('id'))['counted'] + dl1.aggregate(counted=Count('id'))['counted'] + dl.aggregate(counted=Count('id'))[
         'counted']
-    print(ccAlert)
-    return render(request, 'CS/CS_list.html', {'title': 'CC log alert - Alert', 'ccAlert': ccAlert})
+
+    object_list = CS_log.objects.all()
+    return render(request, 'CS/CS_list.html', {'Title': 'Customer Care Log', 'object_list': object_list, 'ccl_count': ccl_count})
 
 
 @user_passes_test(in_group)

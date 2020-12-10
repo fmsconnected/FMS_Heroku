@@ -9,7 +9,7 @@ from .views import (
     customer_log_excel
 )
 urlpatterns = [
-    path('', CSListView.as_view(), name='CS_List'),
+    path('', views.CSListView, name='CS_List'),
     path('New', views.CSCreateView.as_view(), name='CS_new'),
     path('Update/<int:pk>', views.CSUpdate, name='CS_update'),
     path('Details/<int:pk>', views.CSDetails.as_view(), name='CS_details'),

@@ -23,9 +23,9 @@ from django.views.generic import (
      CreateView,
      UpdateView,
  )
-# from django.views.generic.edit import (
-    # DeleteView,
-# )
+from CustomerLog.models import (
+    CS_log
+)
 from . forms import (
     carrequestform,
     gascardform,
@@ -701,6 +701,8 @@ def repairListView(request):
     dl15 = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=5))
     dl16 = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today())
     
+    dl1_count = dl1.aggregate(counted=Count('id'))['counted'] + dl12.aggregate(counted=Count('id'))['counted'] + dl13.aggregate(counted=Count('id'))['counted'] + dl14.aggregate(counted=Count('id'))['counted'] + dl15.aggregate(counted=Count('id'))['counted'] + dl16.aggregate(counted=Count('id'))['counted']  # number of records
+
     dl1_count = dl1.aggregate(counted=Count('id'))['counted'] + dl12.aggregate(counted=Count('id'))['counted'] + dl13.aggregate(counted=Count('id'))['counted'] + dl14.aggregate(counted=Count('id'))['counted'] + dl15.aggregate(counted=Count('id'))['counted'] + dl16.aggregate(counted=Count('id'))['counted']  # number of records
 
     object_list = Vehicle_Repair.objects.all()
