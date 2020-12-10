@@ -68,31 +68,14 @@ class CSDetails(DetailView):
     template_name = 'CS/CS_details.html'
 
 
-class CSUpdate(UpdateView):
-    @method_decorator(user_passes_test(in_group))
-    def dispatch(self, *args, **kwargs):
-        return super().dispatch(*args, **kwargs)
-    model = CS_log
-    form_class = CS_formupdate
-    template_name = 'CS/CS_update.html'
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['object_list'] = CS_log.objects.filter(po_no=self.object.item_no)
-    #     return context
-
-    def post(self, request, *args, **kwargs):
-        Date_resolved = request.POST.get('Date_resolved')
-
-        date_of_birth = datetime.strptime(input("--->"), "%d %m %Y")
-
-    def calculate_age(born):
-        today = date.today()
-        return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
-
-        age = calculate_age(date_of_birth)
-
-        return super().post(request)
+# class CSUpdate(UpdateView):
+#     @method_decorator(user_passes_test(in_group))
+#     def dispatch(self, *args, **kwargs):
+#         return super().dispatch(*args, **kwargs)
+#     model = CS_log
+#     form_class = CS_formupdate
+#     template_name = 'CS/CS_update.html'
+def CSUpdate(request):
 
 
 class CSDeleteView(BSModalDeleteView):

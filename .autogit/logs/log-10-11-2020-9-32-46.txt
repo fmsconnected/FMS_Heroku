@@ -1,0 +1,29 @@
+-------------------- Auto-Git Log --------------------
+		Thu Dec 10 2020 09:32:46 GMT+0800 (Philippine Standard Time)
+------------------------------------------------------
+
+Modified files:
+* CustomerLog/views.py
+* payment/templates/payment/vehicle/vehiclepayment_form.html
+* payment/templates/payment/vehicle/vehiclepayment_new.html
+* report/templates/report_form.html
+* report/templates/report_new.html
+* request/templates/car_rental/carrequest_new.html
+* request/templates/gas_card/gascard_details.html
+* request/templates/gas_card/gascard_form.html
+* request/templates/gas_card/gascard_new.html
+* request/templates/service_vehicle/service_details.html
+* request/templates/service_vehicle/service_form.html
+* request/templates/service_vehicle/service_new.html
+* request/templates/vehicle_repair/repair_details.html
+* templates/partial/_left.html
+
+
+Created files:
+* .autogit/logs/log-9-11-2020-17-20-14.txt
+
+
+Deleted files:
+
+
+Renamed files:
