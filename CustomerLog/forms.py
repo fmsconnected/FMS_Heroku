@@ -7,9 +7,9 @@ from .models import (
 
 
 class CS_form(forms.ModelForm):
-    #   def __init__(self, *args, **kwargs):
-    # super(CS_form, self).__init__(*args, **kwargs)
-    # self.fields['Suffix'].required = False
+    def __init__(self, *args, **kwargs):
+        super(CS_form, self).__init__(*args, **kwargs)
+        self.fields['Date_received'].required = True
     # self.fields['Unit'].required = False
     # self.fields['Sub_unit'].required = False
 

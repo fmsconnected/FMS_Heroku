@@ -52,7 +52,7 @@ class CS_log(models.Model):
     Date_received = models.CharField(max_length=100, blank=True, null=True)
     Fleet_member = models.CharField(
         max_length=100, blank=True, null=True, choices=member)
-    Ageing = models.CharField(max_length=100, blank=True, null=True)
+    Ageing = models.CharField(max_length=100, blank=True)
     Client_name = models.CharField(max_length=100, blank=True, null=True)
     Email = models.EmailField(max_length=100, blank=True, null=True)
     Mobile_no = models.CharField(max_length=100, blank=True, null=True)
@@ -61,7 +61,7 @@ class CS_log(models.Model):
     Plate_no = models.CharField(max_length=100, blank=True, null=True)
     Problem = models.CharField(
         max_length=100, blank=True, null=True)
-    Date_resolved = models.CharField(max_length=100, blank=True, null=True)
+    Date_resolved = models.CharField(max_length=100, blank=True)
     Action_taken = models.CharField(max_length=254, blank=True, null=True)
 
     def __str__(self):
