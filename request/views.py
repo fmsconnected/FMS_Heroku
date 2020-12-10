@@ -700,6 +700,7 @@ def repairListView(request):
     dl14 = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=4))
     dl15 = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=5))
     dl16 = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today())
+    
     dl1_count = dl1.aggregate(counted=Count('id'))['counted'] + dl12.aggregate(counted=Count('id'))['counted'] + dl13.aggregate(counted=Count('id'))['counted'] + dl14.aggregate(counted=Count('id'))['counted'] + dl15.aggregate(counted=Count('id'))['counted'] + dl16.aggregate(counted=Count('id'))['counted']  # number of records
 
     object_list = Vehicle_Repair.objects.all()

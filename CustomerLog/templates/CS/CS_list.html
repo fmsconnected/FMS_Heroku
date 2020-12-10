@@ -1,10 +1,47 @@
 {% extends 'base.html' %}
 {% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    setTimeout(function(){ 
+        $('#myAlert').fadeIn('slow'); 
+    }, 1000);
+</script>
 <style type="text/css">
     th{
         text-align: center;
     }
 </style>
+<style type="text/css">
+    th{
+        text-align: center;
+    }
+    #myAlert
+    {
+        display: none;
+        position: absolute;
+        /*bottom: 0;*/
+        right: 80px;
+        width: 33%;
+        margin: 0px;
+    }
+    .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .closebtn:hover {
+        color: black;
+    }
+</style>
+
 <div class="modal fade" tabindex="-1" role="dialog" id="modal">
     <div class="modal-dialog" role="document">
         <div class="modal-content"></div>
@@ -14,6 +51,20 @@
 <div class="breadcrumbs">
     <div class="col-sm-12">
         <h3><b>Customer Care Log</b></h3>
+    
+    {% if ccAlert != 0%}
+    <div class="alert alert-warning" id="myAlert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <h5 style="color:black"><b><u>Reminder!</u></b></h5>&nbsp;
+        <p>Hi, <b style="color:red">{{ccAlert}} Vehicle's</b> waiting for you to update, Please check in Deadline Table.</p>
+    </div>
+    {% else %}
+    <div class="alert alert-info" id="myAlert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <h5 style="color:red"><b><u>Have a nice Day!</u></b></h5>&nbsp;
+        <p>You have no incoming deadline.</p>
+    </div>
+    {% endif%}
     </div>
 </div>
 <div class="content mt-3">

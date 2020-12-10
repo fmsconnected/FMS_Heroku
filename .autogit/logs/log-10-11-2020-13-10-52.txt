@@ -1,0 +1,23 @@
+-------------------- Auto-Git Log --------------------
+		Thu Dec 10 2020 13:10:52 GMT+0800 (Philippine Standard Time)
+------------------------------------------------------
+
+Modified files:
+* CustomerLog/migrations/0001_initial.py
+* CustomerLog/models.py
+* CustomerLog/templates/CS/CS_create.html
+* CustomerLog/templates/CS/CS_details.html
+* CustomerLog/urls.py
+* CustomerLog/views.py
+* payment/templates/payment/car/carrental_summary.html
+* templates/partial/_left.html
+
+
+Created files:
+* .autogit/logs/log-10-11-2020-12-37-41.txt
+
+
+Deleted files:
+
+
+Renamed files:

@@ -74,13 +74,21 @@ def CS_updateform(request):
     cclog = CS_log.objects.all()
     return render(request, 'CS/CS_update.html', {'title': 'Customer Care Log', 'cclog': cclog})
 
-# class CSUpdate(UpdateView):
-#     @method_decorator(user_passes_test(in_group))
-#     def dispatch(self, *args, **kwargs):
-#         return super().dispatch(*args, **kwargs)
-#     model = CS_log
-#     form_class = CS_formupdate
-#     template_name = 'CS/CS_update.html'
+
+def cclog_alert(request):
+    # def dispatch(self, *args, **kwargs):
+    #     return super().dispatch(*args, **kwargs)
+    dl2 = CS_log.objects.filter(
+        Date_received__date=datetime.datetime.today() + timedelta(days=2))
+    dl1 = CS_log.objects.filter(
+        Date_received__date=datetime.datetime.today() + timedelta(days=1))
+    dl = CS_log.objects.filter(
+        Date_received__date=datetime.datetime.today())
+
+    ccAlert = dl1.aggregate(counted=Count('id'))['counted'] + dl2.aggregate(counted=Count('id'))['counted'] + dl.aggregate(counted=Count('id'))[
+        'counted']
+    print(ccAlert)
+    return render(request, 'CS/CS_list.html', {'title': 'CC log alert - Alert', 'ccAlert': ccAlert})
 
 
 @user_passes_test(in_group)
