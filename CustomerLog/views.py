@@ -68,6 +68,12 @@ class CSDetails(DetailView):
     template_name = 'CS/CS_details.html'
 
 
+def CS_updateform(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    cclog = CS_log.objects.all()
+    return render(request, 'CS/CS_update.html', {'title': 'Customer Care Log', 'cclog': cclog})
+
 # class CSUpdate(UpdateView):
 #     @method_decorator(user_passes_test(in_group))
 #     def dispatch(self, *args, **kwargs):
@@ -75,7 +81,31 @@ class CSDetails(DetailView):
 #     model = CS_log
 #     form_class = CS_formupdate
 #     template_name = 'CS/CS_update.html'
-def CSUpdate(request):
+
+
+@user_passes_test(in_group)
+def CSUpdate(request, pk):
+    if request.method == 'POST':
+
+        Date_received = request.POST.get('Date_received')
+        Fleet_member = request.POST.get('Fleet_member')
+        Client_name = request.POST.get('Client_name')
+        Email = request.POST.get('Email')
+        Mobile_no = request.POST.get('Mobile_no')
+        Transaction_type = request.POST.get('Transaction_type')
+        Plate_no = request.POST.get('Plate_no')
+        Problem = request.POST.get('Problem')
+        Date_resolved = request.POST.get('Date_resolved')
+        Action_taken = request.POST.get('Action_taken')
+
+        d1 = datetime.datetime.strptime(Date_received, '%Y-%m-%d').date()
+        d2 = datetime.datetime.strptime(Date_resolved, '%Y-%m-%d').date()
+        ageing = (d2 - d1)
+
+        CS_log.objects.filter(id=pk).update(Date_received=Date_received, Fleet_member=Fleet_member, Client_name=Client_name,
+                                            Email=Email, Mobile_no=Mobile_no, Transaction_type=Transaction_type, Plate_no=Plate_no, Problem=Problem,
+                                            Date_resolved=Date_resolved, Action_taken=Action_taken, Ageing=ageing)
+    return HttpResponseRedirect('/Customer/')
 
 
 class CSDeleteView(BSModalDeleteView):

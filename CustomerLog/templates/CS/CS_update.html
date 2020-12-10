@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
 {% block content %}
 
 
@@ -8,54 +7,51 @@
     <div class="card-header">
         <h3 align="center"><b>Customer Care Log Update</b></h3>&nbsp;
     </div>
-<form method="POST">
+<form method="POST" action="{% url 'CS_update' object.id %}">
 {% csrf_token %}
     <div class="col-sm-4">
-        <label>Date Received</label>{{ form.Date_received }}
+      <label>Date Received</label>
+      <input style= "text-transform:" type="date" name="date_received" id="date_received" class="form-control" value="{{ object.Date_received }}">
     </div>
     <div class="col-sm-4">
-        <label>Fleet Member</label>{{ form.Fleet_member }}
+      <label>Fleet Member</label>
+      <input style= "text-transform:" type="text" name="Fleet_member" id="Fleet_member" class="form-control" value="{{ object.Fleet_member }}">
     </div>
     <div class="col-sm-4">
-        <label>Client Name</label>{{ form.Client_name }}
+      <label>Client Name</label>
+      <input style= "text-transform:" type="text" name="Client_name" id="Client_name" class="form-control" value="{{ object.Client_name }}">
     </div>
     <div class="col-sm-4">
-        <label>Email</label>{{ form.Email }}
-    </div>
-        <div class="col-sm-4">
-        <label>Mobile Number</label>{{ form.Mobile_no }}
+      <label>Email</label>
+      <input style="text-transform:" type="text" name="Email" id="Email" class="form-control" value="{{ object.Email }}">
     </div>
     <div class="col-sm-4">
-        <label>Transaction Type</label>{{ form.Transaction_type }}
+      <label>Mobile Number</label>
+      <input style="text-transform:" type="text" name="Mobile_no" id="Mobile_no" class="form-control" value="{{ object.Mobile_no }}">
     </div>
     <div class="col-sm-4">
-        <label>Plate Number</label>{{ form.Plate_no }}
+      <label>Transaction Type</label>
+      <input style="text-transform:" type="text" name="Transaction_type" id="Transaction_type" class="form-control" value="{{ object.Transaction_type }}">
+    </div>
+
+    <div class="col-sm-4">
+      <label>Plate Number</label>
+      <input style="text-transform:" type="text" name="Plate_no" id="Plate_no" class="form-control" value="{{ object.Plate_no }}">
     </div>
     <div class="col-sm-4">
-        <label>Problem</label>{{ form.Problem }}
+      <label>Problem</label>
+      <input style="text-transform:" type="text" name="Problem" id="Problem" class="form-control" value="{{ object.Problem }}">
     </div>
     <div class="col-sm-4">
-        <label>Date Resolved</label>{{ form.Date_resolved }}
+      <label>Date Resolved</label>
+      <input style="text-transform:" type="date" name="Date_resolved" id="Date_resolved" class="form-control" value="{{ object.Date_resolved }}">
     </div>
-    <div class="col-sm-4">
-        <label>Action Taken</label>{{ form.Action_taken }}
-    </div>
+    <div class="col-sm-3">
+      <label>Action Taken</label>
+      <input style="text-transform:" type="text" name="Action_taken" id="Action_taken" class="form-control" value="{{ object.Action_taken }}">
 </div>
-{% comment %} <form method="POST">
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-md-8">
-                <fieldset class="form-group">
-                    {{ form|crispy }}
-                </fieldset> 
-            </div>
-            <div class="col">
-
-            </div>
-        </div> {% endcomment %}
-    <div class="card-footer">
-        <button type="Submit" class="btn btn-secondary" >UPDATE</button>
+	<div class="card-footer">
+        <button type="Submit" class="buttonsubmit btn-secondary" >UPDATE</button>
     </div>
-
 </form>
 {% endblock %}

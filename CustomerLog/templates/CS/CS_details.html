@@ -46,7 +46,64 @@
     
 </table>
     <div class="card-footer">
-      <a href="{% url 'CS_update' object.id %}" class="button">UPDATE</a>
+      <a data-toggle="modal" data-target="#updateModal" class="buttonsubmit">UPDATE</a>
       <a href="{% url 'CS_List' %}" class="btn">CLOSE</a>
     </div>
+<!--Update Modal--->
+<form method="POST" action="{% url 'CS_update' object.id %}">
+{% csrf_token %}
+  <div class="modal fade bd-example-modal-lg" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="page-header">Update Car Rental</h2>
+        </div>
+        <div class="modal-body">
+        <div class="tab-content">
+        <div class="row">
+        div class="col-sm-4">
+      <label>Date Received</label>
+      <input style= "text-transform:" type="date" name="date_received" id="date_received" class="form-control" value="{{ object.Date_received }}">
+    </div>
+    <div class="col-sm-4">
+      <label>Fleet Member</label>
+      <input style= "text-transform:" type="text" name="Fleet_member" id="Fleet_member" class="form-control" value="{{ object.Fleet_member }}">
+    </div>
+    <div class="col-sm-4">
+      <label>Client Name</label>
+      <input style= "text-transform:" type="text" name="Client_name" id="Client_name" class="form-control" value="{{ object.Client_name }}">
+    </div>
+    <div class="col-sm-4">
+      <label>Email</label>
+      <input style="text-transform:" type="text" name="Email" id="Email" class="form-control" value="{{ object.Email }}">
+    </div>
+    <div class="col-sm-4">
+      <label>Mobile Number</label>
+      <input style="text-transform:" type="text" name="Mobile_no" id="Mobile_no" class="form-control" value="{{ object.Mobile_no }}">
+    </div>
+    <div class="col-sm-4">
+      <label>Transaction Type</label>
+      <input style="text-transform:" type="text" name="Transaction_type" id="Transaction_type" class="form-control" value="{{ object.Transaction_type }}">
+    </div>
+
+    <div class="col-sm-4">
+      <label>Plate Number</label>
+      <input style="text-transform:" type="text" name="Plate_no" id="Plate_no" class="form-control" value="{{ object.Plate_no }}">
+    </div>
+    <div class="col-sm-4">
+      <label>Problem</label>
+      <input style="text-transform:" type="text" name="Problem" id="Problem" class="form-control" value="{{ object.Problem }}">
+    </div>
+    <div class="col-sm-4">
+      <label>Date Resolved</label>
+      <input style="text-transform:" type="date" name="Date_resolved" id="Date_resolved" class="form-control" value="{{ object.Date_resolved }}">
+    </div>
+    <div class="col-sm-3">
+      <label>Action Taken</label>
+      <input style="text-transform:" type="text" name="Action_taken" id="Action_taken" class="form-control" value="{{ object.Action_taken }}">
+</div>
+	<div class="card-footer">
+        <button type="Submit" class="buttonsubmit btn-secondary" >UPDATE</button>
+    </div>
+</form>
 {% endblock %}
