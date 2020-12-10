@@ -3,6 +3,7 @@ from openpyxl import Workbook
 from django.urls import reverse_lazy
 from django.views import generic
 import datetime
+from datetime import datetime, date
 from rest_framework import viewsets
 from rest_framework.response import Response
 from django.shortcuts import render
@@ -74,6 +75,24 @@ class CSUpdate(UpdateView):
     model = CS_log
     form_class = CS_formupdate
     template_name = 'CS/CS_update.html'
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['object_list'] = CS_log.objects.filter(po_no=self.object.item_no)
+    #     return context
+
+    def post(self, request, *args, **kwargs):
+        Date_resolved = request.POST.get('Date_resolved')
+
+        date_of_birth = datetime.strptime(input("--->"), "%d %m %Y")
+
+    def calculate_age(born):
+        today = date.today()
+        return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
+
+        age = calculate_age(date_of_birth)
+
+        return super().post(request)
 
 
 class CSDeleteView(BSModalDeleteView):

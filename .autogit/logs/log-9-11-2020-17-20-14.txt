@@ -1,0 +1,49 @@
+-------------------- Auto-Git Log --------------------
+		Wed Dec 09 2020 17:20:14 GMT+0800 (Philippine Standard Time)
+------------------------------------------------------
+
+Modified files:
+* account/templates/account/login.html
+* corrective/templates/corrective_details.html
+* corrective/templates/corrective_form.html
+* corrective/templates/corrective_update.html
+* leasingmasterlist/template/leasing_details.html
+* leasingmasterlist/template/leasing_form.html
+* masterlist/templates/employeeMasterlist/employeeMasterlist_form.html
+* masterlist/templates/leasing/leasing_details.html
+* masterlist/templates/leasing/leasing_form.html
+* masterlist/templates/registration/registration_form.html
+* masterlist/templates/registration/release_date.html
+* masterlist/templates/vehicleMasterlist/vehicleMasterlist_details.html
+* masterlist/templates/vehicleMasterlist/vehicleMasterlist_form.html
+* masterlist/templates/vehicleMasterlist/vmasterlist.html
+* masterlist/templates/vehicleMasterlist/vreg_details.html
+* monitoring/templates/fata_monitoring.html
+* monitoring/templates/fata_monitoring_details.html
+* monitoring/templates/fata_monitoring_new.html
+* ownership/templates/bidder_form.html
+* ownership/templates/transfer_new.html
+* payment/templates/payment/car/carrental_summary.html
+* payment/templates/payment/fuel/fuel_supplier.html
+* payment/templates/payment/vehicle_repair/vehicle_repair_details.html
+* payment/templates/payment/vehicle_repair/vehicle_repair_form.html
+* request/templates/car_rental/carrequest_details.html
+* request/templates/car_rental/carrequest_form.html
+* request/templates/car_rental/carrequest_new.html
+* request/templates/vehicle_repair/repair_form.html
+* request/templates/vehicle_repair/repair_new.html
+* static/vendors/popper.js/docs/index.html
+* templates/partial/_left.html
+* voucher/templates/voucher_details.html
+* voucher/templates/voucher_form.html
+* voucher/templates/voucher_new.html
+
+
+Created files:
+* .autogit/logs/log-9-11-2020-16-10-48.txt
+
+
+Deleted files:
+
+
+Renamed files:
