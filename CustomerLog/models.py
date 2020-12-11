@@ -5,6 +5,12 @@ from django.urls import reverse
 from django.utils import timezone
 import datetime
 from datetime import date
+from django.db.models import DateTimeField
+
+
+class DateTimeWithoutTZField(DateTimeField):
+    def db_type(self, connection):
+        return 'timestamp'
 
 
 def increment_Activity_id():
@@ -71,5 +77,5 @@ class CS_log(models.Model):
         return reverse('CS_List')
 
     def save(self, *args, **kwargs):
-        self.Date_received = self.Date_received.replace(tzinfo=False)
+        self.Date_received = self.Date_received.replace(tzinfo=None)
         super(CS_log, self).save(*args, **kwargs)

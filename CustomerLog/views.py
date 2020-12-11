@@ -17,6 +17,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+
 from django.views.generic import (
     ListView,
     CreateView,
@@ -76,7 +77,6 @@ def CSListView(request):
         Date_received__date=datetime.datetime.today() - timedelta(days=4))
     dl1 = CS_log.objects.filter(
         Date_received__date=datetime.datetime.today() - timedelta(days=5))
-    # dl = CS_log.objects.filter(Date_received__date=datetime.datetime.today())
     ccl_count = dl2.aggregate(counted=Count('id'))['counted'] + dl1.aggregate(counted=Count('id'))['counted']
 
     object_list = CS_log.objects.all()
@@ -101,7 +101,7 @@ def CSUpdate(request, pk):
 
        
         d1 = datetime.datetime.strptime(Date_received, '%Y-%m-%d').date()
-        d2 = datetime.datetime.strptime(Date_resolved, '%Y-%m-%d ').date()
+        d2 = datetime.datetime.strptime(Date_resolved, '%Y-%m-%d').date()
         ageing = (d2 - d1)
 
         CS_log.objects.filter(id=pk).update(Date_received=Date_received, Fleet_member=Fleet_member, Client_name=Client_name,
