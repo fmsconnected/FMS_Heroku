@@ -73,12 +73,11 @@ def CSListView(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
     dl2 = CS_log.objects.filter(
-        Date_received__date=datetime.datetime.today() - timedelta(days=2))
+        Date_received__date=datetime.datetime.today() - timedelta(days=4))
     dl1 = CS_log.objects.filter(
-        Date_received__date=datetime.datetime.today() - timedelta(days=1))
-    dl = CS_log.objects.filter(Date_received__date=datetime.datetime.today())
-    ccl_count = dl2.aggregate(counted=Count('id'))['counted'] + dl1.aggregate(counted=Count('id'))['counted'] + dl.aggregate(counted=Count('id'))[
-        'counted']
+        Date_received__date=datetime.datetime.today() - timedelta(days=5))
+    # dl = CS_log.objects.filter(Date_received__date=datetime.datetime.today())
+    ccl_count = dl2.aggregate(counted=Count('id'))['counted'] + dl1.aggregate(counted=Count('id'))['counted']
 
     object_list = CS_log.objects.all()
     return render(request, 'CS/CS_list.html', {'Title': 'Customer Care Log', 'object_list': object_list, 'ccl_count': ccl_count})
@@ -100,8 +99,9 @@ def CSUpdate(request, pk):
         Date_resolved = request.POST.get('Date_resolved')
         Action_taken = request.POST.get('Action_taken')
 
+       
         d1 = datetime.datetime.strptime(Date_received, '%Y-%m-%d').date()
-        d2 = datetime.datetime.strptime(Date_resolved, '%Y-%m-%d').date()
+        d2 = datetime.datetime.strptime(Date_resolved, '%Y-%m-%d ').date()
         ageing = (d2 - d1)
 
         CS_log.objects.filter(id=pk).update(Date_received=Date_received, Fleet_member=Fleet_member, Client_name=Client_name,

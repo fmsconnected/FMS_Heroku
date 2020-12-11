@@ -49,7 +49,7 @@ class CS_log(models.Model):
 
     Activity_id = models.CharField(
         max_length=100, default=increment_Activity_id)
-    Date_received = models.DateTimeField(auto_now=False, blank=True)
+    Date_received = models.DateTimeField(auto_now=False, blank=True, null=True)
     Fleet_member = models.CharField(
         max_length=100, blank=True, null=True, choices=member)
     Ageing = models.CharField(max_length=100, blank=True)
@@ -69,3 +69,7 @@ class CS_log(models.Model):
 
     def get_absolute_url(self):
         return reverse('CS_List')
+
+    def save(self, *args, **kwargs):
+        self.Date_received = self.Date_received.replace(tzinfo=False)
+        super(CS_log, self).save(*args, **kwargs)
