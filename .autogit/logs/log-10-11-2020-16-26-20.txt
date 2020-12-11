@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Thu Dec 10 2020 16:26:20 GMT+0800 (Philippine Standard Time)
+------------------------------------------------------
+
+Modified files:
+* CustomerLog/templates/CS/CS_list.html
+* CustomerLog/urls.py
+* CustomerLog/views.py
+* request/__pycache__/views.cpython-37.pyc
+* request/views.py
+
+
+Created files:
+* .autogit/logs/log-10-11-2020-14-41-19.txt
+
+
+Deleted files:
+
+
+Renamed files:

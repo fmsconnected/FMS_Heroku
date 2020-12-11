@@ -73,9 +73,9 @@ def CSListView(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
     dl2 = CS_log.objects.filter(
-        Date_received__date=datetime.datetime.today() + timedelta(days=2))
+        Date_received__date=datetime.datetime.today() - timedelta(days=2))
     dl1 = CS_log.objects.filter(
-        Date_received__date=datetime.datetime.today() + timedelta(days=1))
+        Date_received__date=datetime.datetime.today() - timedelta(days=1))
     dl = CS_log.objects.filter(Date_received__date=datetime.datetime.today())
     ccl_count = dl2.aggregate(counted=Count('id'))['counted'] + dl1.aggregate(counted=Count('id'))['counted'] + dl.aggregate(counted=Count('id'))[
         'counted']
@@ -118,6 +118,17 @@ class CSDeleteView(BSModalDeleteView):
     template_name = 'CS/CS_delete.html'
     success_message = 'Success: Item was deleted.'
     success_url = reverse_lazy('CS_List')
+
+def CS_deadline(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    dl = CS_log.objects.filter(Date_received__date = datetime.datetime.today() - timedelta(days=4))
+    dl2 = CS_log.objects.filter(Date_received__date = datetime.datetime.today() - timedelta(days=5))
+    dl3 = CS_log.objects.filter(Date_received__date = datetime.datetime.today() - timedelta(days=6))
+    dl4 = CS_log.objects.filter(Date_received__date = datetime.datetime.today() - timedelta(days=7))
+    dl5 = CS_log.objects.filter(Date_received__date = datetime.datetime.today() - timedelta(days=8))
+    dl6 = CS_log.objects.filter(Date_received__date = datetime.datetime.today())
+    return  render(request, 'CS/CS_deadline.html',{'title':'Customer Care Log', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5, 'dl6':dl6})
 
 
 @user_passes_test(in_group)

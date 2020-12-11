@@ -41,24 +41,33 @@
     </div>
 </div>
 
-<div class="breadcrumb">
-    <div class="col-sm-12">
+<div class="breadcrumb ">
+    <div class="col-lg-12">
         <h3><b>Customer Care Log</b></h3>
     </div>
-          {% if ccl_count != 0%}
-    <div class="alert alert-warning" id="myAlert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        <h5 style="color:black"><b><u>Reminder!</u></b></h5>&nbsp;
-        <p>Hi, <b style="color:red">{{ccl_count}} Ticket need to update before SLA lapsed,</b>Please check <strong>Customer Care Log and Update</strong>.</p>
-    </div>
+    {% if ccl_count != 0%}
+        <div class="alert alert-warning" id="myAlert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <h5 style="color:black"><b><u>Reminder!</u></b></h5>&nbsp;
+            <p>Hi, <b style="color:red">{{ccl_count}} Ticket need to update before SLA lapsed,</b>Please check <strong>Customer Care Log and Update</strong>.</p>
+        </div>
     {% else %}
-    <div class="alert alert-info" id="myAlert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        <h5 style="color:red"><b><u>Have a nice Day!</u></b></h5>&nbsp;
-        <p>You have no incoming deadline.</p>
+        <div class="alert alert-info" id="myAlert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <h5 style="color:black"><b><u>Have a nice Day!</u></b></h5>&nbsp;
+            <p>You have <strong>0</strong> Ticket need to update.</p>
     </div>
-    {% endif%}  
+    {% endif%}
 </div>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active">Customer Care Log</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'cs_deadline' %}">Coming Deadline</a>
+  </li>
+</ul>
+
 <div class="content mt-3">
     <div class="animated fadeIn">
         <div class="row">
