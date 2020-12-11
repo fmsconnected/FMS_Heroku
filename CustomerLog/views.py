@@ -100,8 +100,8 @@ def CSUpdate(request, pk):
         Action_taken = request.POST.get('Action_taken')
 
        
-        d1 = datetime.datetime.strptime(Date_received, '%Y-%m-%d').date()
-        d2 = datetime.datetime.strptime(Date_resolved, '%Y-%m-%d').date()
+        d1 = datetime.datetime.strptime(Date_received).date()
+        d2 = datetime.datetime.strptime(Date_resolved).date()
         ageing = (d2 - d1)
 
         CS_log.objects.filter(id=pk).update(Date_received=Date_received, Fleet_member=Fleet_member, Client_name=Client_name,

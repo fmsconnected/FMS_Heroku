@@ -8,9 +8,9 @@ from datetime import date
 from django.db.models import DateTimeField
 
 
-class DateTimeWithoutTZField(DateTimeField):
+class MytypeField(DateTimeField):
     def db_type(self, connection):
-        return 'timestamp'
+        return 'date'
 
 
 def increment_Activity_id():
@@ -55,7 +55,7 @@ class CS_log(models.Model):
 
     Activity_id = models.CharField(
         max_length=100, default=increment_Activity_id)
-    Date_received = models.DateTimeField(auto_now=False, blank=True, null=True)
+    Date_received = MytypeField()
     Fleet_member = models.CharField(
         max_length=100, blank=True, null=True, choices=member)
     Ageing = models.CharField(max_length=100, blank=True)

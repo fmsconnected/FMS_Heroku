@@ -148,7 +148,7 @@ USE_L10N = True
 
 USE_TZ = False
 
-DATE_INPUT_FORMATS = ['%Y-%m-%d']
+DATE_INPUT_FORMATS = ['%d-%m-%Y ']
 
 
 # Static files (CSS, JavaScript, Images)

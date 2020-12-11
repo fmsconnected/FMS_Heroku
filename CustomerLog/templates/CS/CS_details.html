@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load tz %}
 <style type="text/css">
   th {
     text-align: middle;
@@ -12,12 +13,10 @@
     </div>
 </div>
 
-<br>
-
 <table width="90%" class=" table-bordered table-hover" border="2px">
     <tr>
         <th width="25%">Activity ID </th><td width="25%">{{ object.Activity_id }}</td><td></td>
-        <th width="25%">Date Received</th><td width="25%">{{ object.Date_received }}</td>
+        <th width="25%">Date Received</th><td width="25%">{{ object.Date_received}}</td>
     </tr>
     <tr>
         <th>Fleet Member</th><td>{{ object.Fleet_member }}</td></td><td></td>
@@ -43,7 +42,6 @@
         <th>Date Resolved</th><td>{{ object.Date_resolved }}</td></td><td></td>
         <th>Action Taken</th><td>{{ object.Action_taken }}</td>
     </tr>
-    
 </table>
     <div class="card-footer">
       <a data-toggle="modal" data-target="#updateModal" class="buttonsubmit">UPDATE</a>
