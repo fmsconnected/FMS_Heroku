@@ -16,7 +16,7 @@
 <table width="90%" class=" table-bordered table-hover" border="2px">
     <tr>
         <th width="25%">Activity ID </th><td width="25%">{{ object.Activity_id }}</td><td></td>
-        <th width="25%">Date Received</th><td width="25%">{{ object.Date_received}}</td>
+        <th width="25%">Date Received</th><td width="25%">{{ object.Date_received | date:'d M Y'}}</td>
     </tr>
     <tr>
         <th>Fleet Member</th><td>{{ object.Fleet_member }}</td></td><td></td>
@@ -61,7 +61,7 @@
         <div class="row">
         <div class="col-sm-4">
             <label>Date Received</label>
-            <input style= "text-transform:" type="date" name="date_received" id="date_received" class="form-control" value="{{ object.Date_received }}" readonly>
+            <input style= "text-transform:" type="text" name="date_received" id="date_received" class="form-control" value="{{ object.Date_received | date:'Y-m-d'}}" readonly>
         </div>
         <div class="col-sm-4">
             <label>Fleet Member</label>
@@ -94,11 +94,11 @@
         </div>
         <div class="col-sm-4">
             <label>Date Resolved</label>
-            <input style="text-transform:" type="date" name="Date_resolved" id="Date_resolved" class="form-control" value="{{ object.Date_resolved }}">
+            <input style="text-transform:" type="date" name="Date_resolved" id="Date_resolved" class="form-control" value="{{ object.Date_resolved }}" required>
         </div>
         <div class="col-sm-9">
             <label>Action Taken</label>
-            <input style="text-transform:" type="text" name="Action_taken" id="Action_taken" class="form-control" value="{{ object.Action_taken }}">
+            <input style="text-transform:" type="text" name="Action_taken" id="Action_taken" class="form-control" value="{{ object.Action_taken }}" required>
         </div>
         <br><br>
         <div class="col-lg-12">

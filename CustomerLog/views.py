@@ -100,8 +100,8 @@ def CSUpdate(request, pk):
         Action_taken = request.POST.get('Action_taken')
 
        
-        d1 = datetime.datetime.strptime(Date_received).date()
-        d2 = datetime.datetime.strptime(Date_resolved).date()
+        d1 = datetime.datetime.strptime(Date_received, '%Y-%m-%d' ).date()
+        d2 = datetime.datetime.strptime(Date_resolved, '%Y-%m-%d').date()
         ageing = (d2 - d1)
 
         CS_log.objects.filter(id=pk).update(Date_received=Date_received, Fleet_member=Fleet_member, Client_name=Client_name,
@@ -122,12 +122,12 @@ class CSDeleteView(BSModalDeleteView):
 def CS_deadline(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
-    dl = CS_log.objects.filter(Date_received__date = datetime.datetime.today() - timedelta(days=4))
-    dl2 = CS_log.objects.filter(Date_received__date = datetime.datetime.today() - timedelta(days=5))
-    dl3 = CS_log.objects.filter(Date_received__date = datetime.datetime.today() - timedelta(days=6))
-    dl4 = CS_log.objects.filter(Date_received__date = datetime.datetime.today() - timedelta(days=7))
-    dl5 = CS_log.objects.filter(Date_received__date = datetime.datetime.today() - timedelta(days=8))
-    dl6 = CS_log.objects.filter(Date_received__date = datetime.datetime.today())
+    dl = CS_log.objects.filter(Date_received__date = datetime.datetime.today() - timedelta(days=4), Ageing=none)
+    dl2 = CS_log.objects.filter(Date_received__date = datetime.datetime.today() - timedelta(days=5), Ageing=none)
+    dl3 = CS_log.objects.filter(Date_received__date = datetime.datetime.today() - timedelta(days=6), Ageing=none)
+    dl4 = CS_log.objects.filter(Date_received__date = datetime.datetime.today() - timedelta(days=7), Ageing=none)
+    dl5 = CS_log.objects.filter(Date_received__date = datetime.datetime.today() - timedelta(days=8), Ageing=none)
+    dl6 = CS_log.objects.filter(Date_received__date = datetime.datetime.today(), Ageing=none)
     return  render(request, 'CS/CS_deadline.html',{'title':'Customer Care Log', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5, 'dl6':dl6})
 
 
