@@ -41,6 +41,8 @@ from .models import (
 def in_group(user):
     if user.groups.filter(name="CustomerLog").exists():
         return True
+    elif user.groups.filter(name="CustomerLogUser").exists():
+        return True
     else:
         raise PermissionDenied
 
