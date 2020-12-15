@@ -41,14 +41,14 @@ from .models import (
 def in_group(user):
     if user.groups.filter(name="CustomerLog").exists():
         return True
-    elif user.groups.filter(name="CustomerLogUser").exists():
-        return True
+    # elif user.groups.filter(name="CustomerLogUser").exists():
+    #     return True
     else:
         raise PermissionDenied
 
 
 class CSCreateView(CreateView):
-    @method_decorator(user_passes_test(in_group))
+    # @method_decorator(user_passes_test(in_group))
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
     model = CS_log
@@ -65,7 +65,7 @@ class CSCreateView(CreateView):
 
 
 class CSDetails(DetailView):
-    @method_decorator(user_passes_test(in_group))
+    # @ method_decorator(user_passes_test(in_group))
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
     model = CS_log

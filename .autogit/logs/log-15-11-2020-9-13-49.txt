@@ -1,0 +1,15 @@
+-------------------- Auto-Git Log --------------------
+		Tue Dec 15 2020 09:13:49 GMT+0800 (Philippine Standard Time)
+------------------------------------------------------
+
+Modified files:
+* CustomerLog/views.py
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:
