@@ -108,9 +108,12 @@ body {
     background-size: cover;
 }
 </style> -->
+     
 </head>
 
 <body>
+    {% include 'account/base/js.html' %}
+    
     <!-- Left Panel -->
 
     {% include 'partial/_left.html' %}
@@ -138,6 +141,12 @@ body {
             
             {% endblock %}
         </div>
+    <script>
+        $(document).ready(function(){
+            {% block jquery %}{% endblock %}
+        })
+    </script>
+    
      <!-- Right Panel -->
 
     <!--Jquery -->

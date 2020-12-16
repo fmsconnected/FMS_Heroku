@@ -10,6 +10,9 @@ from dateutil.relativedelta import relativedelta
 from .models import (
    	Fata_monitoring,
 )
+
+from rest_framework import viewsets
+from rest_framework.response import Response
 from django.db.models import Q
 from . forms import (
     FATAmonitoringForm,
@@ -25,6 +28,15 @@ from django.views.generic import (
 from bootstrap_modal_forms.generic import (
                                            BSModalDeleteView
                                            )
+
+from .serializers import (
+    monitoringSerializer
+    )
+
+class monitoringViewSet(viewsets.ModelViewSet):
+    queryset = Fata_monitoring.objects.all().order_by('id')
+    serializer_class = monitoringSerializer
+
 
 class monitoringListView(ListView):
 	model = Fata_monitoring

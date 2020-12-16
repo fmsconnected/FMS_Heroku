@@ -41,8 +41,6 @@ from .models import (
 def in_group(user):
     if user.groups.filter(name="CustomerLog").exists():
         return True
-    # elif user.groups.filter(name="CustomerLogUser").exists():
-    #     return True
     else:
         raise PermissionDenied
 
@@ -86,7 +84,7 @@ def CSListView(request):
     return render(request, 'CS/CS_list.html', {'Title': 'Customer Care Log', 'object_list': object_list, 'ccl_count': ccl_count})
 
 
-@ user_passes_test(in_group)
+# @ user_passes_test(in_group)
 def CSUpdate(request, pk):
 
     if request.method == 'POST':

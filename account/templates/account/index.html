@@ -1,7 +1,132 @@
 {% extends 'base.html' %}
+
+<script>
+{% block jquery %}
+var endpoint = 'api/monitoring/'
+var defaultData = []
+var labels = [];
+$.ajax({
+    method: "GET",
+    url: endpoint,
+    success: function(data){
+        labels = data.labels
+        defaultData = data.default
+        setChart()
+    },
+    error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+    }
+})
+function setChart(){
+    // var ctx = document.getElementById("myChart");
+    var ctx2 = document.getElementById("myChart2");
+    var myChart = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: '# Data',
+            data: defaultData,
+            backgroundColor: [
+                'rgba(255, 0, 0, 1)',
+                'rgba(255, 255, 0, 1)',
+                'rgba(136, 204, 0, 1)',
+                'rgba(34, 51, 0, 1, 1)',
+                'rgba(51, 153, 255, 1)',
+                'rgba(0, 153, 204, 1)',
+                'rgba(51, 204, 51, 1)',
+                'rgba(153, 153, 102, 1)',
+                'rgba(204, 0, 204, 1)',
+                'rgba(204, 102, 153, 1)',
+                'rgba(148, 77, 255, 1)',
+                'rgba(0, 0, 153, 1, 1)',
+                'rgba(0, 102, 153, 1)',
+                'rgba(255, 204, 255)',
+                'rgba(102, 0, 102, 1)',
+                'rgba(128, 0, 0,1)',
+                'rgba(92, 24, 12, 1)',
+            ],
+            borderColor: [
+                'rgba(255, 0, 0, 1)',
+                'rgba(255, 255, 0, 1)',
+                'rgba(136, 204, 0, 1)',
+                'rgba(34, 51, 0, 1, 1)',
+                'rgba(51, 153, 255, 1)',
+                'rgba(0, 153, 204, 1)',
+                'rgba(51, 204, 51, 1)',
+                'rgba(153, 153, 102, 1)',
+                'rgba(204, 0, 204, 1)',
+                'rgba(204, 102, 153, 1)',
+                'rgba(148, 77, 255, 1)',
+                'rgba(0, 0, 153, 1, 1)',
+                'rgba(0, 102, 153, 1)',
+                'rgba(255, 204, 255)',
+                'rgba(102, 0, 102, 1)',
+                'rgba(128, 0, 0,1)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }],
+            xAxes:[]
+        }
+    }
+});
+
+    var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels1: labels1,
+        datasets: [{
+            label: '# of Data',
+            data: defaultData1,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+}
+
+// var ctx = document.getElementById("myChart");
+
+
+
+{% endblock %}
+</script>
 {% block content %}
 <!-- Right Panel -->
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <script>
   function dashboard(cityName) {
     var i;
@@ -187,7 +312,19 @@
                 </i>
             </div>
         </div>
+    </div> -->
+
+
+<div class='row'>
+    <div class="col-md-12">
+        <h3 class="page-header">Dashboard</h3>
     </div>
+    </div>
+        <div class='col-sm-12 '>
+            <canvas id="myChart2" width="200" height="100"></canvas>
+        </div>
+</div>
+
 {% endblock %}
 
 

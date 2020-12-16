@@ -3,7 +3,6 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.conf import settings
@@ -11,13 +10,15 @@ from ajax_select import urls as ajax_select_urls
 from django.conf.urls import url, include
 from rest_framework import routers
 from masterlist import views
-# from leasingmasterlist import views
 
 admin.autodiscover()
 router = routers.DefaultRouter()
 router.register(r'masterlist', views.vehicleViewSet),
 router.register(r'empmasterlist', views.employeeViewSet),
 router.register(r'leasingmasterlist', views.leasingViewSet),
+
+from monitoring import views
+router.register(r'monitoring', views.monitoringViewSet)
 
 urlpatterns = [
     url('^api/', include(router.urls)),

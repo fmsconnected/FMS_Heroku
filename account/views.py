@@ -1,3 +1,12 @@
+
+from django.http import JsonResponse
+from django.shortcuts import render
+from django.views.generic import View
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+
 from django.shortcuts import render
 from payment.models import (
     CarRental, VehiclePayment,
@@ -28,8 +37,12 @@ from masterlist.models import (
 from CustomerLog.models import (
     CS_log
 )
-
-
+from corrective.models import (
+    Corrective
+    )
+from CustomerLog.models import (
+    CS_log
+    )
 def index(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
@@ -68,3 +81,96 @@ def cclog_alert(request):
         'counted']
     print(ccAlert)
     return render(request, 'account/index.html', {'title': 'CC log alert - Alert', 'ccAlert': ccAlert})
+
+
+
+class HomeView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'account/index.html')
+
+
+
+# def get_data(request, *args, **kwargs):
+#     data = {
+#         "sales": 100,
+#         "customers": 10,
+#     }
+#     return JsonResponse(data) # http response
+
+
+class ChartData(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        em_count = EmployeeMasterlist.objects.all().count()
+        vm_count = VehicleMasterList.objects.all().count()
+        leasing_count = Leasing.objects.all().count()
+        vpr = VehiclePayment.objects.all().count()
+        crp = CarRental.objects.all().count()
+        fs = Fuel_supplier.objects.all().count()
+        vrp = Vehicle_Repair_payment.objects.all().count()
+        crr = CarRentalRequest.objects.all().count()
+        gcr = Gas_card.objects.all().count()
+        svr = service_vehicle.objects.all().count()
+        vrr = Vehicle_Repair.objects.all().count()
+        vr = vehicle_report.objects.all().count()
+        fm = Fata_monitoring.objects.all().count()
+        own = Ownership.objects.all().count()
+        bill = Billing.objects.all().count()
+        cor = Corrective.objects.all().count()
+        cus = CS_log.objects.all().count()
+        labels = ["Vehicle Masterlist", "Employee Masterlist", "Leasing Masterlist","Monitoring",
+        "Corrective", "Customer Care", "Ownership", "Billing", "Car Rental Request", "Gas Card Request",
+        "Leasing", "Vehicle Repair Request", "Insurance", "New Vehicle Payment", "Car Rental Payment"
+        , "Fuel Supplier Payment", "Vehicle Repair Payment"]
+        default_items = [em_count, vm_count, leasing_count,fm,cor,cus, own, bill,crr,gcr,svr, vrr, vr,vpr,crp,fs,vrp]
+        data = {
+                "labels": labels,
+                "default": default_items,
+        }
+        return Response(data)
+class Vmasterlist(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        vm_count = VehicleMasterList.objects.all().count()
+        em_count = EmployeeMasterlist.objects.all().count()
+        leasing_count = Leasing.objects.all().count()
+        labels = ["Vehicle Masterlist","Employee Masterlist","Leasing Masterlist"]
+        default_items = [ vm_count,em_count,leasing_count]
+        data = {
+                "labels": labels,
+                "default": default_items,
+        }
+        return Response(data)
+class Emasterlist(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        
+        em_count = EmployeeMasterlist.objects.all().count()
+        labels = ["Employee Masterlist"]
+        default_items = [em_count]
+        data = {
+                "labels": labels,
+                "default": default_items,
+        }
+        return Response(data)
+class Lmasterlist(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        leasing_count = Leasing.objects.all().count()
+        labels = ["Leasing Masterlist"]
+        default_items = [leasing_count]
+        data = {
+                "labels": labels,
+                "default": default_items,
+        }
+        return Response(data)
+
+
