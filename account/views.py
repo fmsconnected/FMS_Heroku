@@ -124,7 +124,7 @@ class ChartData(APIView):
         "Corrective", "Customer Care", "Ownership", "Billing", "Car Rental Request", "Gas Card Request",
         "Leasing", "Vehicle Repair Request", "Insurance", "New Vehicle Payment", "Car Rental Payment"
         , "Fuel Supplier Payment", "Vehicle Repair Payment"]
-        default_items = [em_count, vm_count, leasing_count,fm,cor,cus, own, bill,crr,gcr,svr, vrr, vr,vpr,crp,fs,vrp]
+        default_items = [vm_count,em_count, leasing_count,fm,cor,cus, own, bill,crr,gcr,svr, vrr, vr,vpr,crp,fs,vrp]
         data = {
                 "labels": labels,
                 "default": default_items,
