@@ -84,9 +84,9 @@ def cclog_alert(request):
 
 
 
-class HomeView(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'account/index.html')
+# class HomeView(View):
+#     def get(self, request, *args, **kwargs):
+#         return render(request, 'account/index.html')
 
 
 
@@ -120,11 +120,11 @@ class ChartData(APIView):
         bill = Billing.objects.all().count()
         cor = Corrective.objects.all().count()
         cus = CS_log.objects.all().count()
-        labels = ["Vehicle Masterlist", "Employee Masterlist", "Leasing Masterlist","Monitoring",
+        labels = ["Monitoring",
         "Corrective", "Customer Care", "Ownership", "Billing", "Car Rental Request", "Gas Card Request",
         "Leasing", "Vehicle Repair Request", "Insurance", "New Vehicle Payment", "Car Rental Payment"
         , "Fuel Supplier Payment", "Vehicle Repair Payment"]
-        default_items = [vm_count,em_count, leasing_count,fm,cor,cus, own, bill,crr,gcr,svr, vrr, vr,vpr,crp,fs,vrp]
+        default_items = [fm,cor,cus, own, bill,crr,gcr,svr, vrr, vr,vpr,crp,fs,vrp]
         data = {
                 "labels": labels,
                 "default": default_items,

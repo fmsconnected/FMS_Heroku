@@ -19,7 +19,7 @@ $.ajax({
     }
 })
 function setChart(){
-    // var ctx = document.getElementById("myChart");
+    var ctx = document.getElementById("myChart");
     var ctx2 = document.getElementById("myChart2");
     var myChart = new Chart(ctx2, {
     type: 'bar',
@@ -32,17 +32,16 @@ function setChart(){
                 'rgba(255, 0, 0, 1)',
                 'rgba(255, 255, 0, 1)',
                 'rgba(136, 204, 0, 1)',
-                'rgba(34, 51, 0, 1, 1)',
                 'rgba(51, 153, 255, 1)',
-                'rgba(0, 153, 204, 1)',
-                'rgba(51, 204, 51, 1)',
-                'rgba(153, 153, 102, 1)',
                 'rgba(204, 0, 204, 1)',
                 'rgba(204, 102, 153, 1)',
-                'rgba(148, 77, 255, 1)',
                 'rgba(0, 0, 153, 1, 1)',
                 'rgba(0, 102, 153, 1)',
                 'rgba(255, 204, 255)',
+                'rgba(0, 153, 204, 1)',
+                'rgba(51, 204, 51, 1)',
+                'rgba(153, 153, 102, 1)',
+                'rgba(34, 51, 0, 1, 1)',
                 'rgba(102, 0, 102, 1)',
                 'rgba(128, 0, 0,1)',
                 'rgba(92, 24, 12, 1)',
@@ -51,19 +50,19 @@ function setChart(){
                 'rgba(255, 0, 0, 1)',
                 'rgba(255, 255, 0, 1)',
                 'rgba(136, 204, 0, 1)',
-                'rgba(34, 51, 0, 1, 1)',
                 'rgba(51, 153, 255, 1)',
-                'rgba(0, 153, 204, 1)',
-                'rgba(51, 204, 51, 1)',
-                'rgba(153, 153, 102, 1)',
                 'rgba(204, 0, 204, 1)',
                 'rgba(204, 102, 153, 1)',
-                'rgba(148, 77, 255, 1)',
                 'rgba(0, 0, 153, 1, 1)',
                 'rgba(0, 102, 153, 1)',
                 'rgba(255, 204, 255)',
+                'rgba(0, 153, 204, 1)',
+                'rgba(51, 204, 51, 1)',
+                'rgba(153, 153, 102, 1)',
+                'rgba(34, 51, 0, 1, 1)',
                 'rgba(102, 0, 102, 1)',
                 'rgba(128, 0, 0,1)',
+                'rgba(92, 24, 12, 1)',
             ],
             borderWidth: 1
         }]
@@ -83,10 +82,10 @@ function setChart(){
     var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels1: labels1,
+        labels: labels,
         datasets: [{
             label: '# of Data',
-            data: defaultData1,
+            data: defaultData,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -315,7 +314,7 @@ function setChart(){
     </div> -->
 
 
-<div class='row'>
+<!-- <div class='row'>
     <div class="col-md-12">
         <h3 class="page-header">Dashboard</h3>
     </div>
@@ -323,8 +322,84 @@ function setChart(){
         <div class='col-sm-12 '>
             <canvas id="myChart2" width="200" height="100"></canvas>
         </div>
+</div> -->
+<div class="row justify-content-md-center">
+    <div class="col-12 mb-4">
+        <div class="card bg-yellow-alt shadow-sm">
+            <div class="card-header d-flex flex-row align-items-center flex-0">
+                <div class="d-block">
+                    <div class="h5 font-weight-normal mb-2">Dashboard</div>
+                </div>
+            </div>
+            <div class="card-body p-2">
+                <canvas id="myChart2" width="200" height="100"></canvas>
+            </div>
+        </div>
+    </div>
 </div>
-
+<div class="col-12 col-sm-6 col-xl-4 mb-4">
+    <div class="card1 border-soft-green shadow-sm">
+        <div class="card-body">
+            <div class="row d-block d-xl-flex align-items-center">
+                <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                    <div class="icon icon-shape icon-md icon-shape-blue rounded mr-4 mr-sm-0"><span class="fas fa-truck"></span></div>
+                    <div class="d-sm-none">
+                        <h2 class="h5">Vehicle Masterlist</h2>
+                        <h3 class="mb-1">{{ count13 }}</h3>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-7 px-xl-0">
+                    <div class="d-none d-sm-block">
+                        <h2 class="h5">Vehicle Masterlist</h2>
+                        <h3 class="mb-1">{{ count13 }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-12 col-sm-6 col-xl-4 mb-4">
+    <div class="card2 border-soft-green shadow-sm">
+        <div class="card-body">
+            <div class="row d-block d-xl-flex align-items-center">
+                <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                    <div class="icon icon-shape icon-md icon-shape-secondary rounded mr-4"><span class="fas fa-address-book"></span></div>
+                    <div class="d-sm-none">
+                        <h2 class="h5">Employee Masterlist</h2>
+                        <h3>{{ count12 }}</h3>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-7 px-xl-0">
+                    <div class="d-none d-sm-block">
+                        <h2 class="h5">Employee Masterlist</h2>
+                        <h3 class="mb-1">{{ count12 }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-12 col-sm-6 col-xl-4 mb-4">
+    <div class="card3 border-soft-green shadow-sm">
+        <div class="card-body">
+            <div class="row d-block d-xl-flex align-items-center">
+                <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                    <div class="icon icon-shape icon-md icon-shape-tertiary rounded mr-4"><span class="fas fa-chart-line"></span></div>
+                    <div class="d-sm-none">
+                        <h2 class="h5">Leasing Masterlist</h2>
+                        <h3 class="mb-1">{{ count15 }}</h3>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-7 px-xl-0">
+                    <div class="d-none d-sm-block">
+                        <h2 class="h5">Leasing Masterlist</h2>
+                        <h3 class="mb-1">{{ count15 }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 
