@@ -133,14 +133,14 @@ def CS_deadline(request):
         Ageing='', Date_received__date=datetime.datetime.today() - timedelta(days=7))
     dl5 = CS_log.objects.filter(
         Ageing='', Date_received__date=datetime.datetime.today() - timedelta(days=8))
-    dl6 = CS_log.objects.filter(
-        Ageing='', Date_received__date=datetime.datetime.today())
+    # dl6 = CS_log.objects.filter(
+    #     Ageing='', Date_received__date=datetime.datetime.today())
     dl7 = CS_log.objects.filter(
         Ageing='', Date_received__date=datetime.datetime.today() - timedelta(days=3))
     dl8 = CS_log.objects.filter(
         Ageing='', Date_received__date=datetime.datetime.today() - timedelta(days=2))
 
-    return render(request, 'CS/CS_deadline.html', {'title': 'Customer Care Log', 'dl': dl, 'dl2': dl2, 'dl3': dl3, 'dl4': dl4, 'dl5': dl5, 'dl6': dl6, 'dl7': dl7, 'dl8': dl8})
+    return render(request, 'CS/CS_deadline.html', {'title': 'Customer Care Log', 'dl': dl, 'dl2': dl2, 'dl3': dl3, 'dl4': dl4, 'dl5': dl5, 'dl7': dl7, 'dl8': dl8})
 
 
 @ user_passes_test(in_group)
