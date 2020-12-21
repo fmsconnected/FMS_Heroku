@@ -74,7 +74,7 @@ def CSListView(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
     dl2 = CS_log.objects.filter(Q(Ageing="") & Q(Date_received__date=datetime.datetime.today(
-    ) - timedelta(days=4)) | Q(Date_received__date=datetime.datetime.today() - timedelta(days=5)))
+    ) - timedelta(days=4)) | Q(Date_received__date=datetime.datetime.today() - timedelta(days=5)) | Q(Date_received__date=datetime.datetime.today() - timedelta(days=3)) | Q(Date_received__date=datetime.datetime.today() - timedelta(days=2)))
     # dl1 = CS_log.objects.filter(
     #     Date_received__date=datetime.datetime.today() - timedelta(days=5))
     ccl_count = dl2.aggregate(counted=Count('id'))[
@@ -124,19 +124,23 @@ def CS_deadline(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
     dl = CS_log.objects.filter(
-        Ageing="", Date_received__date=datetime.datetime.today() - timedelta(days=4))
+        Ageing='', Date_received__date=datetime.datetime.today() - timedelta(days=4))
     dl2 = CS_log.objects.filter(
-        Ageing="", Date_received__date=datetime.datetime.today() - timedelta(days=5))
+        Ageing='', Date_received__date=datetime.datetime.today() - timedelta(days=5))
     dl3 = CS_log.objects.filter(
-        Ageing="", Date_received__date=datetime.datetime.today() - timedelta(days=6))
+        Ageing='', Date_received__date=datetime.datetime.today() - timedelta(days=6))
     dl4 = CS_log.objects.filter(
-        Ageing="", Date_received__date=datetime.datetime.today() - timedelta(days=7))
+        Ageing='', Date_received__date=datetime.datetime.today() - timedelta(days=7))
     dl5 = CS_log.objects.filter(
-        Ageing="", Date_received__date=datetime.datetime.today() - timedelta(days=8))
+        Ageing='', Date_received__date=datetime.datetime.today() - timedelta(days=8))
     dl6 = CS_log.objects.filter(
-        Ageing="", Date_received__date=datetime.datetime.today())
+        Ageing='', Date_received__date=datetime.datetime.today())
+    dl7 = CS_log.objects.filter(
+        Ageing='', Date_received__date=datetime.datetime.today() - timedelta(days=3))
+    dl8 = CS_log.objects.filter(
+        Ageing='', Date_received__date=datetime.datetime.today() - timedelta(days=2))
 
-    return render(request, 'CS/CS_deadline.html', {'title': 'Customer Care Log', 'dl': dl, 'dl2': dl2, 'dl3': dl3, 'dl4': dl4, 'dl5': dl5, 'dl6': dl6})
+    return render(request, 'CS/CS_deadline.html', {'title': 'Customer Care Log', 'dl': dl, 'dl2': dl2, 'dl3': dl3, 'dl4': dl4, 'dl5': dl5, 'dl6': dl6, 'dl7': dl7, 'dl8': dl8})
 
 
 @ user_passes_test(in_group)
