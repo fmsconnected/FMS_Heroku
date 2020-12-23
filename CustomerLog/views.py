@@ -109,9 +109,15 @@ def CSUpdate(request, pk):
         Date_resolved = request.POST.get('Date_resolved')
         Action_taken = request.POST.get('Action_taken')
 
-        d1 = datetime.datetime.strptime(Date_received, '%Y-%m-%d').date()
-        d2 = datetime.datetime.strptime(Date_resolved, '%Y-%m-%d').date()
-        ageing = (d2 - d1)
+        if Date_resolved == '':
+            Date_resolved = ''
+            ageing = ''
+        else:
+            Date_received = datetime.datetime.strptime(
+                Date_received, '%Y-%m-%d').date()
+            Date_resolved = datetime.datetime.strptime(
+                Date_resolved, '%Y-%m-%d').date()
+            ageing = (Date_resolved - Date_received)
 
         CS_log.objects.filter(id=pk).update(Date_received=Date_received, Fleet_member=Fleet_member, Client_name=Client_name,
                                             Email=Email, Mobile_no=Mobile_no, Transaction_type=Transaction_type, Plate_no=Plate_no, Problem=Problem,
