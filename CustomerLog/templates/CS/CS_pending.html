@@ -45,30 +45,19 @@
     <div class="col-lg-12">
         <h3><b>Customer Care Log</b></h3>
     </div>
-    {% if ccl_count != 0%}
-        <div class="alert alert-warning" id="myAlert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            <h5 style="color:black"><b><u>Reminder!</u></b></h5>&nbsp;
-            <p>Hi, <b style="color:red">{{ccl_count}} Ticket</b> need to update before SLA lapsed Please check <strong>Coming Deadline Tab</strong>.</p>
-        </div>
-    {% else %}
-        <div class="alert alert-info" id="myAlert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            <h5 style="color:black"><b><u>Have a nice day!</u></b></h5>&nbsp;
-            <p>You have <strong>0</strong> Ticket need to update.</p>
-    </div>
-    {% endif%}
+    
 </div>
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active">Customer Care Log</a>
+    <a class="nav-link"href="{% url 'CS_List' %}">Customer Care Log</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{% url 'CS_pending' %}">Pending</a>
+    <a class="nav-link active">Pending</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="{% url 'cs_deadline' %}">Coming Deadline</a>
   </li>
+  
 </ul>
 
 <div class="content mt-3">
@@ -100,22 +89,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for cs_logs in object_list %}
+                        {% for CC in pending %}
                         <tr class="odd gradeX">
-                            <td><a href="{% url 'CS_details' cs_logs.id %}"><u>{{ cs_logs.Activity_id }}</u></a></td>
-                            <td>{{ cs_logs.Date_received }}</td>
-                            <td>{{ cs_logs.Fleet_member }}</td>
-                            <td>{{ cs_logs.Ageing }}</td>
-                            <td>{{ cs_logs.Client_name }}</td>
-                            <td>{{ cs_logs.Email}}</td>
-                            <td>{{ cs_logs.Mobile_no}}</td>
-                            <td>{{ cs_logs.Transaction_type }}</td>
-                            <td>{{ cs_logs.Plate_no }}</td>
-                            <td>{{ cs_logs.Problem }}</td>
-                            <td>{{ cs_logs.Date_resolved}}</td>
-                            <td>{{ cs_logs.Action_taken}}</td>
+                            <td><a href="{% url 'CS_details' CC.id %}"><u>{{ CC.Activity_id }}</u></a></td>
+                            <td>{{ CC.Date_received }}</td>
+                            <td>{{ CC.Fleet_member }}</td>
+                            <td>{{ CC.Ageing }}</td>
+                            <td>{{ CC.Client_name }}</td>
+                            <td>{{ CC.Email}}</td>
+                            <td>{{ CC.Mobile_no}}</td>
+                            <td>{{ CC.Transaction_type }}</td>
+                            <td>{{ CC.Plate_no }}</td>
+                            <td>{{ CC.Problem }}</td>
+                            <td>{{ CC.Date_resolved}}</td>
+                            <td>{{ CC.Action_taken}}</td>
                             <td>
-                                <button type="button" class="delete-cs btn-sm btn-danger rounded" data-id="{% url 'CS_delete' cs_logs.pk %}">
+                                <button type="button" class="delete-cs btn-sm btn-danger rounded" data-id="{% url 'CS_delete' CC.pk %}">
                                 <span class="fa fa-trash"></span>
                                 </button>
                             </td>

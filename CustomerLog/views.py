@@ -80,8 +80,15 @@ def CSListView(request):
     ccl_count = dl2.aggregate(counted=Count('id'))[
         'counted']
 
-    object_list = CS_log.objects.all()
+    object_list = CS_log.objects.filter(Ageing__isnull=False)
     return render(request, 'CS/CS_list.html', {'Title': 'Customer Care Log', 'object_list': object_list, 'ccl_count': ccl_count})
+
+
+def CSpending(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    pending = CS_log.objects.filter(Ageing="")
+    return render(request, 'CS/CS_pending.html', {'Title': 'Customer Care Log', 'pending': pending})
 
 
 # @ user_passes_test(in_group)
