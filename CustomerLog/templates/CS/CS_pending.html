@@ -45,7 +45,19 @@
     <div class="col-lg-12">
         <h3><b>Customer Care Log</b></h3>
     </div>
-    
+     {% if pendingcount != 0%}
+        <div class="alert alert-warning" id="myAlert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <h5 style="color:black"><b><u>Reminder!</u></b></h5>&nbsp;
+            <p>Hi, You have <b style="color:red">{{pendingcount}}</b>  Pending Ticket <strong>Please update!</strong>.</p>
+        </div>
+    {% else %}
+        <div class="alert alert-info" id="myAlert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <h5 style="color:black"><b><u>Have a nice day!</u></b></h5>&nbsp;
+            <p>You have <strong>0</strong> Pending Ticket.</p>
+    </div>
+    {% endif%}
 </div>
 <ul class="nav nav-tabs">
   <li class="nav-item">

@@ -88,7 +88,9 @@ def CSpending(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
     pending = CS_log.objects.filter(Ageing="")
-    return render(request, 'CS/CS_pending.html', {'Title': 'Customer Care Log', 'pending': pending})
+    pendingcount = pending.aggregate(counted=Count('id'))[
+        'counted']
+    return render(request, 'CS/CS_pending.html', {'Title': 'Customer Care Log', 'pending': pending, 'pendingcount': pendingcount})
 
 
 # @ user_passes_test(in_group)
