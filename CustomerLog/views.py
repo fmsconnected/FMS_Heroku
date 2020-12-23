@@ -73,14 +73,14 @@ class CSDetails(DetailView):
 def CSListView(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
-    dl2 = CS_log.objects.filter(Q(Ageing="") & Q(Date_received__date=datetime.datetime.today(
+    dl2 = CS_log.objects.filter(Q(Ageing='') & Q(Date_received__date=datetime.datetime.today(
     ) - timedelta(days=4)) | Q(Date_received__date=datetime.datetime.today() - timedelta(days=5)) | Q(Date_received__date=datetime.datetime.today() - timedelta(days=3)) | Q(Date_received__date=datetime.datetime.today() - timedelta(days=2)))
     # dl1 = CS_log.objects.filter(
     #     Date_received__date=datetime.datetime.today() - timedelta(days=5))
     ccl_count = dl2.aggregate(counted=Count('id'))[
         'counted']
 
-    object_list = CS_log.objects.filter(Ageing__isnull=False)
+    object_list = CS_log.objects.all()
     return render(request, 'CS/CS_list.html', {'Title': 'Customer Care Log', 'object_list': object_list, 'ccl_count': ccl_count})
 
 

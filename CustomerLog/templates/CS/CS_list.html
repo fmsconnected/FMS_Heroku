@@ -102,7 +102,7 @@
                     <tbody>
                         {% for cs_logs in object_list %}
                         <tr class="odd gradeX">
-                            <td><a href="{% url 'CS_details' cs_logs.id %}"><u>{{ cs_logs.Activity_id }}</u></a></td>
+                            <td>{{ cs_logs.Activity_id }}</td>
                             <td>{{ cs_logs.Date_received }}</td>
                             <td>{{ cs_logs.Fleet_member }}</td>
                             <td>{{ cs_logs.Ageing }}</td>

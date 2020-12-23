@@ -58,7 +58,7 @@ class CS_log(models.Model):
     Date_received = MytypeField()
     Fleet_member = models.CharField(
         max_length=100, blank=True, null=True, choices=member)
-    Ageing = models.CharField(max_length=100, blank=True)
+    Ageing = models.CharField(max_length=100, blank=True,)
     Client_name = models.CharField(max_length=100, blank=True, null=True)
     Email = models.EmailField(max_length=100, blank=True, null=True)
     Mobile_no = models.CharField(max_length=100, blank=True, null=True)

@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Wed Dec 23 2020 11:33:19 GMT+0800 (Philippine Standard Time)
+------------------------------------------------------
+
+Modified files:
+* CustomerLog/templates/CS/CS_deadline.html
+* CustomerLog/templates/CS/CS_list.html
+* CustomerLog/urls.py
+* CustomerLog/views.py
+
+
+Created files:
+* CustomerLog/templates/CS/CS_pending.html
+
+
+Deleted files:
+
+
+Renamed files:
