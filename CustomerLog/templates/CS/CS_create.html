@@ -8,9 +8,9 @@
     <div class="card-header">
         <h3 align="center"><b>Customer Care Log</b></h3>&nbsp;
     </div>
-<form method="POST">
+<form method="POST" action="{% url 'CS_submit' %}">
 {% csrf_token %}
-    <div class="col-sm-4">
+    {% comment %} <div class="col-sm-4">
         <label>Date Received</label>{{ form.Date_received }}
     </div>
     <div class="col-sm-4">
@@ -33,7 +33,64 @@
     </div>
     <div class="col-sm-4">
         <label>Problem</label>{{ form.Problem }}
-    </div>
+    </div> {% endcomment %}
+        <div class="col-sm-4">
+            <label>Date Received</label>
+            <input style= "text-transform:" type="Date" name="date_received" id="date_received" class="form-control" >
+        </div>
+        <div class="col-sm-4">
+        <label>Fleet Member</label>
+            <select style= "text-transform:" type="text" name="Fleet_member" id="Fleet_member" class="form-control" >
+                <option >--------------</option>
+                <option value="Shane Santos">Shane Santos</option>
+                <option value="Francis Dela Cruz">Francis Dela Cruz</option>
+                <option value="Glaiza Cabillo">Glaiza Cabillo</option>
+                <option value="Janine Manzo">Janine Manzo</option>
+                <option value="Jessie Blanquisco">Jessie Blanquisco</option>
+                <option value="Maribel Evaristo">Maribel Evaristo</option>
+                <option value="Princess Concepsion">Princess Concepsion</option>
+                <option value="Stephanie Warde">Stephanie Warde</option>
+                <option value="Dennis Alonzo">Dennis Alonzo</option>
+            </select>
+        </div>
+        <div class="col-sm-4">
+            <label>Client Name</label>
+            <input style= "text-transform:" type="text" name="Client_name" id="Client_name" class="form-control" >
+        </div>
+        <div class="col-sm-4">
+            <label>Email</label>
+            <input style="text-transform:" type="Email" name="Email" id="Email" class="form-control" >
+        </div>
+        <div class="col-sm-4">
+            <label>Mobile Number</label>
+            <input style="text-transform:" type="number" name="Mobile_no" id="Mobile_no" class="form-control" >
+        </div>
+        <div class="col-sm-4">
+            <label>Transaction Type</label>
+            <select style="text-transform:" type="text" name="Transaction_type" id="Transaction_type" class="form-control" >
+                <option >--------------</option>
+                <option value="Accident Report">Accident Report</option>
+                <option value="Billing">Billing</option>
+                <option value="Car Rental">Car Rental</option>
+                <option value="Fleet Card">Fleet Card</option>
+                <option value="Insurance">Insurance</option>
+                <option value="Plate Number">Plate Number</option>
+                <option value="Vehicle Acquisition">Vehicle Acquisition</option>
+                <option value="Vehicle Disposal">Vehicle Disposal</option>
+                <option value="Vehicle Leasing">Vehicle Leasing</option>
+                <option value="Vehicle Registration">Vehicle Registration</option>
+                <option value="Others">Others</option>
+            </select>
+        </div>
+
+        <div class="col-sm-4">
+            <label>Plate Number</label>
+            <input style="text-transform:" type="text" name="Plate_no" id="Plate_no" class="form-control" >
+        </div>
+        <div class="col-sm-4">
+            <label>Problem</label>
+            <input style="text-transform:" type="text" name="Problem" id="Problem" class="form-control" >
+        </div>
 </div>
     <div class="card-footer">
         <button type="Submit" class="buttonsubmit btn-secondary" >Create</button>

@@ -8,11 +8,13 @@ from .views import (
     CSDeleteView,
     customer_log_excel,
     CS_deadline,
-    CSpending
+    CSpending,
+    CSsubmit
 )
 urlpatterns = [
     path('', views.CSListView, name='CS_List'),
-    path('New', views.CSCreateView.as_view(), name='CS_new'),
+    path('New', views.CSCreateView, name='CS_new'),
+    path('New/Submit', views.CSsubmit, name="CS_submit"),
     path('Update/<int:pk>', views.CSUpdate, name='CS_update'),
     path('Details/<int:pk>', views.CSDetails.as_view(), name='CS_details'),
     path('Delete/<int:pk>', CSDeleteView.as_view(), name='CS_delete'),

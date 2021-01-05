@@ -77,6 +77,6 @@ class CS_log(models.Model):
     def get_absolute_url(self):
         return reverse('CS_List')
 
-    def save(self, *args, **kwargs):
-        self.Date_received = self.Date_received.replace(tzinfo=None)
-        super(CS_log, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     self.Date_received = self.Date_received.replace(tzinfo=None)
+    #     super(CS_log, self).save(*args, **kwargs)

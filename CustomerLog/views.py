@@ -45,17 +45,23 @@ def in_group(user):
         raise PermissionDenied
 
 
-class CSCreateView(CreateView):
-    # @method_decorator(user_passes_test(in_group))
-    def dispatch(self, *args, **kwargs):
-        return super().dispatch(*args, **kwargs)
-    model = CS_log
-    form_class = CS_form
-    template_name = 'CS/CS_create.html'
-
+# class CSCreateView(CreateView):
+#     # @method_decorator(user_passes_test(in_group))
+#     def dispatch(self, *args, **kwargs):
+#         return super().dispatch(*args, **kwargs)
+#     model = CS_log
+#     form_class = CS_form
+#     template_name = 'CS/CS_create.html'
 
 def CSCreateView(request):
-   if request.method == 'POST':
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    customer = CS_log.objects.all()
+    return render(request, 'CS/CS_create.html',{'Title':'Customer Car Log','customer':customer})
+
+def CSsubmit(request):
+    
+    if request.method == 'POST':
 
         Date_received = request.POST.get('date_received')
         Fleet_member = request.POST.get('Fleet_member')
@@ -68,7 +74,7 @@ def CSCreateView(request):
         Date_resolved = request.POST.get('Date_resolved')
         Action_taken = request.POST.get('Action_taken')
 
-        Date_resolved_inital=datetime.datetime.today() - timedelta(days=5))
+        Date_resolved_inital = datetime.datetime.today() + timedelta(days=5)
 
         saveto_customer = CS_log(Date_received=Date_received, Fleet_member=Fleet_member, Client_name=Client_name,
                                             Email=Email, Mobile_no=Mobile_no, Transaction_type=Transaction_type, Plate_no=Plate_no, Problem=Problem,

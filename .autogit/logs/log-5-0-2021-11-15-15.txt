@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Tue Jan 05 2021 11:15:15 GMT+0800 (Philippine Standard Time)
+------------------------------------------------------
+
+Modified files:
+* CustomerLog/models.py
+* CustomerLog/templates/CS/CS_pending.html
+* CustomerLog/views.py
+
+
+Created files:
+* CustomerLog/migrations/0002_cs_log_date_resolved_inital.py
+
+
+Deleted files:
+
+
+Renamed files:
