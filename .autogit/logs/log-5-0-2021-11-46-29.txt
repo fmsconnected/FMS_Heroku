@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Tue Jan 05 2021 11:46:29 GMT+0800 (Philippine Standard Time)
+------------------------------------------------------
+
+Modified files:
+* CustomerLog/models.py
+* CustomerLog/templates/CS/CS_create.html
+* CustomerLog/urls.py
+* CustomerLog/views.py
+
+
+Created files:
+* .autogit/logs/log-5-0-2021-11-15-15.txt
+
+
+Deleted files:
+
+
+Renamed files:
