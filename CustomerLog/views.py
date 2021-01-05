@@ -54,12 +54,27 @@ class CSCreateView(CreateView):
     template_name = 'CS/CS_create.html'
 
 
-# class CSListView(ListView):
-#     @method_decorator(user_passes_test(in_group))
-#     def dispatch(self, *args, **kwargs):
-#         return super().dispatch(*args, **kwargs)
-#     model = CS_log
-#     template_name = 'CS/CS_list.html'
+def CSCreateView(request):
+   if request.method == 'POST':
+
+        Date_received = request.POST.get('date_received')
+        Fleet_member = request.POST.get('Fleet_member')
+        Client_name = request.POST.get('Client_name')
+        Email = request.POST.get('Email')
+        Mobile_no = request.POST.get('Mobile_no')
+        Transaction_type = request.POST.get('Transaction_type')
+        Plate_no = request.POST.get('Plate_no')
+        Problem = request.POST.get('Problem')
+        Date_resolved = request.POST.get('Date_resolved')
+        Action_taken = request.POST.get('Action_taken')
+
+        Date_resolved_inital=datetime.datetime.today() - timedelta(days=5))
+
+        saveto_customer = CS_log(Date_received=Date_received, Fleet_member=Fleet_member, Client_name=Client_name,
+                                            Email=Email, Mobile_no=Mobile_no, Transaction_type=Transaction_type, Plate_no=Plate_no, Problem=Problem,
+                                            Date_resolved_inital=Date_resolved_inital, Action_taken=Action_taken)
+        saveto_customer.save()
+    return HttpResponseRedirect('/Customer/')
 
 
 class CSDetails(DetailView):
