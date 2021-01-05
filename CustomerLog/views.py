@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect, HttpResponse, reverse
 from openpyxl import Workbook
 from django.urls import reverse_lazy
 from django.views import generic
+from django.core import serializers
 import datetime
 from datetime import date, timedelta
 from rest_framework import viewsets
@@ -108,11 +109,12 @@ def CSListView(request):
 def CSpending(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
+    json_serializer = serializers.get_serializer("json")()
+    counter = CS_log.objects.all()
     pending = CS_log.objects.filter(Ageing="")
     pendingcount = pending.aggregate(counted=Count('id'))[
         'counted']
-    return render(request, 'CS/CS_pending.html', {'Title': 'Customer Care Log', 'pending': pending, 'pendingcount': pendingcount})
-
+    return render(request, 'CS/CS_pending.html', {'Title': 'Customer Care Log', 'pending': pending, 'pendingcount': pendingcount, 'counter': counter})
 
 # @ user_passes_test(in_group)
 def CSUpdate(request, pk):
