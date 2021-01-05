@@ -109,12 +109,10 @@ def CSListView(request):
 def CSpending(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
-    json_serializer = serializers.get_serializer("json")()
-    counter = CS_log.objects.all()
     pending = CS_log.objects.filter(Ageing="")
     pendingcount = pending.aggregate(counted=Count('id'))[
         'counted']
-    return render(request, 'CS/CS_pending.html', {'Title': 'Customer Care Log', 'pending': pending, 'pendingcount': pendingcount, 'counter': counter})
+    return render(request, 'CS/CS_pending.html', {'Title': 'Customer Care Log', 'pending': pending, 'pendingcount': pendingcount})
 
 # @ user_passes_test(in_group)
 def CSUpdate(request, pk):
