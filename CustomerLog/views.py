@@ -77,9 +77,7 @@ def CSsubmit(request):
         Action_taken = request.POST.get('Action_taken')
 
         
-        Date_resolved_inital = datetime.datetime.strptime(Date_received, '%Y-%m-%d') + timedelta(days=5)
-        # formatted_datetime = formats.date_format(Date_resolved_inital, "%Y-%m-%d h:m:s")
-
+        Date_resolved_inital = datetime.datetime.today() + timedelta(days=5)
         saveto_customer = CS_log(Date_received=Date_received, Fleet_member=Fleet_member, Client_name=Client_name,
                                             Email=Email, Mobile_no=Mobile_no, Transaction_type=Transaction_type, Plate_no=Plate_no, Problem=Problem,
                                             Date_resolved_inital=Date_resolved_inital, Action_taken=Action_taken)
