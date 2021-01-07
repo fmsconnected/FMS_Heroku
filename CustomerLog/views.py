@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.core import serializers
 import datetime
+from django.utils import formats
 from datetime import date, timedelta
 from rest_framework import viewsets
 from rest_framework.response import Response
@@ -75,7 +76,9 @@ def CSsubmit(request):
         Date_resolved = request.POST.get('Date_resolved')
         Action_taken = request.POST.get('Action_taken')
 
-        Date_resolved_inital = datetime.datetime.today() + timedelta(days=5)
+        
+        Date_resolved_inital = datetime.datetime.strptime(Date_received, '%Y-%m-%d') + timedelta(days=5)
+        # formatted_datetime = formats.date_format(Date_resolved_inital, "%Y-%m-%d h:m:s")
 
         saveto_customer = CS_log(Date_received=Date_received, Fleet_member=Fleet_member, Client_name=Client_name,
                                             Email=Email, Mobile_no=Mobile_no, Transaction_type=Transaction_type, Plate_no=Plate_no, Problem=Problem,
