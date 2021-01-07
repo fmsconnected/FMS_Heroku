@@ -105,7 +105,7 @@
                             <td><a href="{% url 'CS_details' CC.id %}"><u>{{ CC.Activity_id }}</u></a></td>
                             <td>{{ CC.Date_received }}</td>
                             <td>{{ CC.Fleet_member }}</td>
-                            <td><span>{{ CC.Date_resolved_inital|timeuntil }}</span></td>
+                            <td><span>{{ CC.Date_received|timeuntil }}</span></td>
                             <td>{{ CC.Client_name }}</td>
                             <td>{{ CC.Email}}</td>
                             <td>{{ CC.Mobile_no}}</td>
