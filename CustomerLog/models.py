@@ -68,7 +68,7 @@ class CS_log(models.Model):
     Problem = models.CharField(
         max_length=100, blank=True, null=True)
     Date_resolved = models.CharField(max_length=100, blank=True)
-    Date_resolved_inital = MytypeField(auto_now_add=False, blank=True, null=True)
+    Date_resolved_inital = MytypeField()
     Action_taken = models.CharField(max_length=254, blank=True, null=True)
 
     def __str__(self):
