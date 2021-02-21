@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3 align="center"><b>Fleet Card Monitoring</b></h3>&nbsp;
+    </div>
+<form method="POST" action="">
+{% csrf_token %}
+        <div class="col-sm-4">
+            <label>Status</label>
+            {{ form.STATUS}}
+        </div>
+        <div class="col-sm-4">
+        <label>Received Request</label>
+            {{ form.RECEIVED_REQUEST}}
+        </div>
+        <div class="col-sm-4">
+            <label>Date Verified</label>
+            {{ form.DATE_VERIFIED }}
+        </div>
+        <div class="col-sm-4">
+            <label>Date Received</label>
+            {{ form.DATE_RECEIVED }}
+        </div>
+        <div class="col-sm-4">
+            <label>Date Issued</label>
+            {{ form.DATE_ISSUED }}
+        </div>
+        <div class="col-sm-4">
+            <label>Work Days</label>
+            {{ form.WORK_DAYS }}
+        </div>
+
+        <div class="col-sm-4">
+            <label>Card Number</label>
+            {{ form.CARD_NUMBER }}
+        </div>
+        <div class="col-sm-4">
+            <label>Name</label>
+            {{form.NAME}}
+        </div>
+
+         <div class="col-sm-4">
+            <label>Cost Center</label>
+            {{ form.COST_CENTER }}
+        </div>
+        <div class="col-sm-4">
+            <label>Plate Number</label>
+            {{ form.PLATE_NUMBER }}
+        </div>
+        <div class="col-sm-4">
+            <label>Card Type</label>
+            {{ form.CARD_TYPE }}
+        </div>
+
+        <div class="col-sm-4">
+            <label>Cabonilla</label>
+            {{ form.CABONILLA }}
+        </div>
+        <div class="col-sm-4">
+            <label>Station</label>
+            {{form.STATION}}
+        </div>
+</div>
+    <div class="card-footer">
+        <button type="Submit" class="buttonsubmit btn-secondary" >Submit</button>
+        <button class="button" type="reset" value="Reset">Clear</button>
+        <a href="{% url 'Fcm_list' %}" class="btn">Close</a>
+    </div>
+
+</form>
+{% endblock %}

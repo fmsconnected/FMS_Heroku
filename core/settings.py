@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'corrective.apps.CorrectiveConfig',
     'Admin.apps.AdminConfig',
     'CustomerLog.apps.CustomerlogConfig',
+    'fleet_card.apps.FleetCardConfig',
 
 ]
 
@@ -79,6 +80,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'simple_history.middleware.HistoryRequestMiddleware',
 ]
+
+# opional, as this will log you out when browser is closed
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+# 0r 5 * 60, same thing
+SESSION_COOKIE_AGE = 60
+# Will prrevent from logging you out after 60 seconds
+SESSION_SAVE_EVERY_REQUEST = True
 
 ROOT_URLCONF = 'core.urls'
 

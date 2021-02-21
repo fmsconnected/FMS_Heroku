@@ -53,3 +53,5 @@ urlpatterns = [
 	path('VehicleRepair/History', views.vrepairlHistoryView, name='vehicle_repair_history')
 
 ]
+
+

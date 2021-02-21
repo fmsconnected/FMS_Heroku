@@ -10,30 +10,6 @@
     </div>
 <form method="POST" action="{% url 'CS_submit' %}">
 {% csrf_token %}
-    {% comment %} <div class="col-sm-4">
-        <label>Date Received</label>{{ form.Date_received }}
-    </div>
-    <div class="col-sm-4">
-        <label>Fleet Member</label>{{ form.Fleet_member }}
-    </div>
-    <div class="col-sm-4">
-        <label>Client Name</label>{{ form.Client_name }}
-    </div>
-    <div class="col-sm-4">
-        <label>Email</label>{{ form.Email }}
-    </div>
-        <div class="col-sm-4">
-        <label>Mobile Number</label>{{ form.Mobile_no }}
-    </div>
-    <div class="col-sm-4">
-        <label>Transaction Type</label>{{ form.Transaction_type }}
-    </div>
-    <div class="col-sm-4">
-        <label>Plate Number</label>{{ form.Plate_no }}
-    </div>
-    <div class="col-sm-4">
-        <label>Problem</label>{{ form.Problem }}
-    </div> {% endcomment %}
         <div class="col-sm-4">
             <label>Date Received</label>
             <input style= "text-transform:" type="Date" name="date_received" id="date_received" class="form-control" >
