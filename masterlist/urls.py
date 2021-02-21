@@ -12,6 +12,7 @@ from .views import (
 	vehicleMasterDetails,
 	vehicleMasterUpdate,
 	vehicleMasterlistDeleteView,
+	leasing_export,
 	)
 
 
@@ -50,7 +51,8 @@ urlpatterns = [
 	path('Leasing/New', views.leasingCreateView.as_view(), name='leasing_new'),
 	path('Leasing/Update/<int:pk>', views.leasingUpdateView.as_view(), name='leasing_update'),
 	path('Leasing/Details/<int:pk>', views.leasingDetailView.as_view(), name='leasing_details'),
-	path('Leasing/History', views.leasingHistoryView, name='leasing_history')
+	path('Leasing/History', views.leasingHistoryView, name='leasing_history'),
+	path('Leasing/Export', views.leasing_export, name='leasing_export')
 ]
 
 

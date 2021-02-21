@@ -281,53 +281,162 @@ def vehicle_leasing(request):
 
     return render(request, 'vehicleMasterlist/vehicle_leasing.html', context)
 
-def vehicle_excel_leasing(request):
-    v_queryset = VehicleMasterList.objects.filter(leasing_remark__isnull=False)   
+# def vehicle_excel_leasing(request):
+#     v_queryset = VehicleMasterList.objects.filter(leasing_remark__isnull=False)   
+#     response = HttpResponse(
+#         content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+#     )
+#     response['Content-Disposition'] = 'attachment; filename=Vehicle Masterlist Leasing.xlsx'
+#     workbook = Workbook()
+
+#     worksheet = workbook.active
+#     worksheet.title = 'Vehicle Masterlist Leasing'
+
+#     columns = [
+#             'NO',
+#             'PLATE_NO',
+#             'CS_NO',
+#             'CR_NAME',
+#             'PLATE_ENDING',
+#             'MODEL',
+#             'BRAND',
+#             'VEHICLE_MAKE',
+#             'ENGINE_NO',
+#             'CHASSIS_NO',
+#             'MV_FILE_NO',
+#             'VEHICLE_TYPE',
+#             'VEHICLE_CATEGORY',
+#             'Employee',
+#             'BAND_LEVEL',
+#             'BENEFIT_GROUP',
+#             'COST_CENTER',
+#             'GROUP',
+#             'DIVISION',
+#             'DEPARTMENT',
+#             'SECTION',
+#             'IS_ID',
+#             'IS_FIRST_NAME',
+#             'IS_LAST_NAME',
+#             'LOCATION',
+#             'ACQ_DATE',
+#             'ACQ_COST',
+#             'ASSET_NO',
+#             'PO_NO',
+#             'EQUIPMENT_NO',
+#             'ASSIGNEE_LAST_NAME',
+#             'ASSIGNEE_FIRST_NAME',
+#             'REGISTRATION_MONTH',
+#             'ORIGINAL_OR_DATE',
+#             'PLATE_NUMBER_RELEASE_DATE',
+#     ]
+#     row_num = 1
+
+#     for col_num, column_title in enumerate(columns, 1):
+#         cell = worksheet.cell(row=row_num, column=col_num)
+#         cell.value = column_title
+
+#     for vehicle in v_queryset:
+#         row_num += 1
+#         # ordate = vehicle.ORIGINAL_OR_DATE.strftime('%m/%d/%Y')
+#         # platerelease = vehicle.PLATE_NUMBER_RELEASE_DATE.strftime('%m/%d/%Y')
+#         row = [
+#                 vehicle.NO,
+#                 vehicle.PLATE_NO,
+#                 vehicle.CS_NO,
+#                 vehicle.CR_NAME,
+#                 vehicle.PLATE_ENDING,
+#                 vehicle.MODEL,
+#                 vehicle.BRAND,
+#                 vehicle.VEHICLE_MAKE,
+#                 vehicle.ENGINE_NO,
+#                 vehicle.CHASSIS_NO,
+#                 vehicle.MV_FILE_NO,
+#                 vehicle.VEHICLE_TYPE,
+#                 vehicle.VEHICLE_CATEGORY,
+#                 vehicle.Employee,
+#                 vehicle.BAND_LEVEL,
+#                 vehicle.BENEFIT_GROUP,
+#                 vehicle.COST_CENTER,
+#                 vehicle.GROUP,
+#                 vehicle.DIVISION,
+#                 vehicle.DEPARTMENT,
+#                 vehicle.SECTION,
+#                 vehicle.IS_ID,
+#                 vehicle.IS_FIRST_NAME,
+#                 vehicle.IS_LAST_NAME,
+#                 vehicle.LOCATION,
+#                 vehicle.ACQ_DATE,
+#                 vehicle.ACQ_COST,
+#                 vehicle.ASSET_NO,
+#                 vehicle.PO_NO,
+#                 vehicle.EQUIPMENT_NO,
+#                 vehicle.ASSIGNEE_LAST_NAME,
+#                 vehicle.ASSIGNEE_FIRST_NAME,
+#                 vehicle.REGISTRATION_MONTH,
+#                 vehicle.ORIGINAL_OR_DATE,
+#                 vehicle.PLATE_NUMBER_RELEASE_DATE,
+#         ]
+        
+#         for col_num, cell_value in enumerate(row, 1):
+#             cell = worksheet.cell(row=row_num, column=col_num)
+#             cell.value = cell_value
+
+#     workbook.save(response)
+#     return response
+def leasing_export(request):
+    leasing_queryset = Leasing.objects.all()
     response = HttpResponse(
         content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
     )
-    response['Content-Disposition'] = 'attachment; filename=Vehicle Masterlist Leasing.xlsx'
+    response['Content-Disposition'] = 'attachment; filename=Leasing Masterlist.xlsx'
     workbook = Workbook()
 
     worksheet = workbook.active
-    worksheet.title = 'Vehicle Masterlist Leasing'
+    worksheet.title = 'Leasing Masterlist'
 
     columns = [
-            'NO',
-            'PLATE_NO',
+
+            'Activity_Id',
+            'PLATE_NUMBER',
             'CS_NO',
-            'CR_NAME',
-            'PLATE_ENDING',
+            'COMPANY',
             'MODEL',
             'BRAND',
             'VEHICLE_MAKE',
-            'ENGINE_NO',
-            'CHASSIS_NO',
-            'MV_FILE_NO',
             'VEHICLE_TYPE',
+            'LAST_NAME_ASSIGNEE',
+            'FIRST_NAME_ASSIGNEE',
             'VEHICLE_CATEGORY',
-            'Employee',
-            'BAND_LEVEL',
-            'BENEFIT_GROUP',
             'COST_CENTER',
+            'ID_NUMBER',
+            'BAND',
             'GROUP',
             'DIVISION',
             'DEPARTMENT',
             'SECTION',
-            'IS_ID',
-            'IS_FIRST_NAME',
-            'IS_LAST_NAME',
+            'IS_EMPLOYEE_ID',
+            'IS_LASTNAME',
+            'IS_FIRSTNAME',
             'LOCATION',
-            'ACQ_DATE',
-            'ACQ_COST',
-            'ASSET_NO',
-            'PO_NO',
-            'EQUIPMENT_NO',
-            'ASSIGNEE_LAST_NAME',
-            'ASSIGNEE_FIRST_NAME',
-            'REGISTRATION_MONTH',
-            'ORIGINAL_OR_DATE',
-            'PLATE_NUMBER_RELEASE_DATE',
+            'AREA',
+            'ACQUISITION_DATE',
+            'remarks',
+            'acquisition_cost',
+            'months_36',
+            'amount1',
+            'date_in_1',
+            'date_out_1',
+            'months_24',
+            'amount_Vat_EX',
+            'date_in_2',
+            'date_out_2',
+            'extension',
+            'amount2',
+            'date_in_3',
+            'date_out_3',
+            'chasis_no',
+            'engine_no',
+            'CONTRACT_NUMBER',
     ]
     row_num = 1
 
@@ -335,48 +444,52 @@ def vehicle_excel_leasing(request):
         cell = worksheet.cell(row=row_num, column=col_num)
         cell.value = column_title
 
-    for vehicle in v_queryset:
+    for leasing in leasing_queryset:
         row_num += 1
-        # ordate = vehicle.ORIGINAL_OR_DATE.strftime('%m/%d/%Y')
-        # platerelease = vehicle.PLATE_NUMBER_RELEASE_DATE.strftime('%m/%d/%Y')
         row = [
-                vehicle.NO,
-                vehicle.PLATE_NO,
-                vehicle.CS_NO,
-                vehicle.CR_NAME,
-                vehicle.PLATE_ENDING,
-                vehicle.MODEL,
-                vehicle.BRAND,
-                vehicle.VEHICLE_MAKE,
-                vehicle.ENGINE_NO,
-                vehicle.CHASSIS_NO,
-                vehicle.MV_FILE_NO,
-                vehicle.VEHICLE_TYPE,
-                vehicle.VEHICLE_CATEGORY,
-                vehicle.Employee,
-                vehicle.BAND_LEVEL,
-                vehicle.BENEFIT_GROUP,
-                vehicle.COST_CENTER,
-                vehicle.GROUP,
-                vehicle.DIVISION,
-                vehicle.DEPARTMENT,
-                vehicle.SECTION,
-                vehicle.IS_ID,
-                vehicle.IS_FIRST_NAME,
-                vehicle.IS_LAST_NAME,
-                vehicle.LOCATION,
-                vehicle.ACQ_DATE,
-                vehicle.ACQ_COST,
-                vehicle.ASSET_NO,
-                vehicle.PO_NO,
-                vehicle.EQUIPMENT_NO,
-                vehicle.ASSIGNEE_LAST_NAME,
-                vehicle.ASSIGNEE_FIRST_NAME,
-                vehicle.REGISTRATION_MONTH,
-                vehicle.ORIGINAL_OR_DATE,
-                vehicle.PLATE_NUMBER_RELEASE_DATE,
+            leasing.Activity_Id,
+            leasing.PLATE_NUMBER,
+            leasing.CS_NO,
+            leasing.COMPANY,
+            leasing.MODEL,
+            leasing.BRAND,
+            leasing.VEHICLE_MAKE,
+            leasing.VEHICLE_TYPE,
+            leasing.LAST_NAME_ASSIGNEE,
+            leasing.FIRST_NAME_ASSIGNEE,
+            leasing.VEHICLE_CATEGORY,
+            leasing.COST_CENTER,
+            leasing.ID_NUMBER,
+            leasing.BAND,
+            leasing.GROUP,
+            leasing.DIVISION,
+            leasing.DEPARTMENT,
+            leasing.SECTION,
+            leasing.IS_EMPLOYEE_ID,
+            leasing.IS_LASTNAME,
+            leasing.IS_FIRSTNAME,
+            leasing.LOCATION,
+            leasing.AREA,
+            leasing.ACQUISITION_DATE,
+            leasing.remarks,
+            leasing.acquisition_cost,
+            leasing.months_36,
+            leasing.amount1,
+            leasing.date_in_1,
+            leasing.date_out_1,
+            leasing.months_24,
+            leasing.amount_Vat_EX,
+            leasing.date_in_2,
+            leasing.date_out_2,
+            leasing.extension,
+            leasing.amount2,
+            leasing.date_in_3,
+            leasing.date_out_3,
+            leasing.chasis_no,
+            leasing.engine_no,
+            leasing.CONTRACT_NUMBER,
         ]
-        
+
         for col_num, cell_value in enumerate(row, 1):
             cell = worksheet.cell(row=row_num, column=col_num)
             cell.value = cell_value
