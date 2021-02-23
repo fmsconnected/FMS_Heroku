@@ -72,8 +72,8 @@ class Vmasterlist(forms.ModelForm):
             self.fields['DEPARTMENT'].required = False
             self.fields['SECTION'].required = False
             self.fields['IS_ID'].required = False
-            self.fields['IS_LAST_NAME'].required = False
-            self.fields['IS_FIRST_NAME'].required = False
+            self.fields['IS_NAME'].required = False
+            # self.fields['IS_FIRST_NAME'].required = False
             self.fields['LOCATION'].required = False
             self.fields['ORIGINAL_OR_DATE'].required = False
             self.fields['ACQ_DATE'].required = False
@@ -95,7 +95,7 @@ class Vmasterlist(forms.ModelForm):
             fields = [
                   'PLATE_NO','CS_NO','CR_NAME','PLATE_ENDING','REGISTRATION_MONTH','MODEL','BRAND',
                   'VEHICLE_MAKE','ENGINE_NO','CHASSIS_NO','MV_FILE_NO','VEHICLE_TYPE','ASSIGNEE_LAST_NAME','ASSIGNEE_FIRST_NAME','VEHICLE_CATEGORY','Employee',
-                  'BAND_LEVEL','BENEFIT_GROUP','COST_CENTER','GROUP','DIVISION','DEPARTMENT','SECTION','IS_ID','IS_LAST_NAME','IS_FIRST_NAME','LOCATION','ORIGINAL_OR_DATE',
+                  'BAND_LEVEL','BENEFIT_GROUP','COST_CENTER','GROUP','DIVISION','DEPARTMENT','SECTION','IS_ID','IS_NAME','LOCATION','ORIGINAL_OR_DATE',
                   'ACQ_DATE','ACQ_COST','ASSET_NO','EQUIPMENT_NO', 'SAP_PR','Vehicle_IVN_no','Unit_MATDOC','dealer',
                   'dealer_name','PO_NO','PLATE_NUMBER_RELEASE_DATE','Last_Registration_Date','Smoke_Emission_Date', 'COC_Date', 'Remarks', 'Status', 'leasing_remark'
             ]
@@ -184,8 +184,8 @@ class Vmasterlist(forms.ModelForm):
                   'DEPARTMENT': forms.TextInput(attrs={'class':'form-control'}),
                   'SECTION': forms.TextInput(attrs={'class':'form-control'}),
                   'IS_ID': forms.TextInput(attrs={'class':'form-control','readonly':'true'}),
-                  'IS_LAST_NAME': forms.TextInput(attrs={'class':'form-control','readonly':'true'}),
-                  'IS_FIRST_NAME': forms.TextInput(attrs={'class':'form-control','readonly':'true'}),
+                  'IS_NAME': forms.TextInput(attrs={'class':'form-control','readonly':'true'}),
+                  # 'IS_FIRST_NAME': forms.TextInput(attrs={'class':'form-control','readonly':'true'}),
                   'LOCATION': forms.TextInput(attrs={'class':'form-control'}),
                   'ORIGINAL_OR_DATE' : forms.TextInput(attrs={'class':'form-control', 'hidden':'true'}),
                   'ACQ_DATE': forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
@@ -215,13 +215,13 @@ class Vmaster(forms.ModelForm):
       class Meta:
             model = VehicleMasterList
             exclude = ('ENGINE_NO','CHASSIS_NO','MV_FILE_NO','VEHICLE_TYPE','ASSIGNEE_LAST_NAME','ASSIGNEE_FIRST_NAME','VEHICLE_CATEGORY','Employee_Id',
-                  'BAND_LEVEL','BENEFIT_GROUP','COST_CENTER','GROUP','DIVISION','DEPARTMENT','SECTION','IS_ID','IS_LAST_NAME','IS_FIRST_NAME','LOCATION',
+                  'BAND_LEVEL','BENEFIT_GROUP','COST_CENTER','GROUP','DIVISION','DEPARTMENT','SECTION','IS_ID','IS_NAME','LOCATION',
                   'ACQ_DATE','ACQ_COST','ASSET_NO','EQUIPMENT_NO','PO_NO',
                   )
             fields = [
                   'PLATE_NO','CS_NO','CR_NAME','PLATE_ENDING','REGISTRATION_MONTH','MODEL','BRAND',
                   'VEHICLE_MAKE','ORIGINAL_OR_DATE','ENGINE_NO','CHASSIS_NO','MV_FILE_NO','VEHICLE_TYPE','ASSIGNEE_LAST_NAME','ASSIGNEE_FIRST_NAME','VEHICLE_CATEGORY','Employee_Id',
-                  'BAND_LEVEL','BENEFIT_GROUP','COST_CENTER','GROUP','DIVISION','DEPARTMENT','SECTION','IS_ID','IS_LAST_NAME','IS_FIRST_NAME','LOCATION',
+                  'BAND_LEVEL','BENEFIT_GROUP','COST_CENTER','GROUP','DIVISION','DEPARTMENT','SECTION','IS_ID','IS_NAME','LOCATION',
                   'ACQ_DATE','ACQ_COST','ASSET_NO','EQUIPMENT_NO','PO_NO','PLATE_NUMBER_RELEASE_DATE'
 
             ]

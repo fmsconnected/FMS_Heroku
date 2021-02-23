@@ -67,8 +67,8 @@ def VmasterlistCreate(request):
         dept = request.POST.get('dept')
         sec = request.POST.get('sec')
         is_emp = request.POST.get('is_emp')
-        is_fname = request.POST.get('is_fname')
-        is_lname = request.POST.get('is_fname')
+        IS_NAME = request.POST.get('is_fname')
+        # is_lname = request.POST.get('is_fname')
         loc = request.POST.get('loc')
         aqui_date = request.POST.get('aqui_date')
         aqui_cost = request.POST.get('aqui_cost')
@@ -138,7 +138,7 @@ def VmasterlistCreate(request):
         saveto_end = VehicleMasterList(PLATE_NO=plate, CS_NO=cs, CR_NAME=cr_name, MODEL=model, BRAND=brand,PLATE_ENDING=endplate, REGISTRATION_MONTH=reg,
             VEHICLE_MAKE=vmake, ENGINE_NO=eng_no, CHASSIS_NO=chassis_no, MV_FILE_NO=mvfile, VEHICLE_TYPE=vtype, VEHICLE_CATEGORY=vcat,
             Employee=emp_save, BAND_LEVEL=band, BENEFIT_GROUP=benefit, COST_CENTER=cost, GROUP=group, DIVISION=div,
-            DEPARTMENT=dept, SECTION=sec, IS_ID=is_emp, IS_FIRST_NAME=is_fname, IS_LAST_NAME=is_lname, LOCATION=loc,
+            DEPARTMENT=dept, SECTION=sec, IS_ID=is_emp, IS_NAME=IS_NAME, LOCATION=loc,
             ACQ_DATE=aqui_date, ACQ_COST=aqui_cost, ASSET_NO=asset, PO_NO=po_no, PLATE_NUMBER_RELEASE_DATE=plate_date, ORIGINAL_OR_DATE=or_date,EQUIPMENT_NO=eq_no,
             SAP_PR=sap_pr,Vehicle_IVN_no=ivn_no,Unit_MATDOC=mathdoc,dealer=dealer, dealer_name=dealer_name, Remarks=remarks, Status=status, leasing_remark=l_remark
             )
@@ -150,9 +150,9 @@ def vehicle(request):
     elist = EmployeeMasterlist.objects.all()
     return render(request, 'vehicleMasterlist/vmasterlist.html', {'Title': 'Vehicle Masterlist','elist':elist})
 
-class vehicleMasterListView(ListView):
-    model = VehicleMasterList
-    template_name = 'vehicleMasterlist/vm.html'
+# class vehicleMasterListView(ListView):
+#     model = VehicleMasterList
+#     template_name = 'vehicleMasterlist/vm.html'
         
 class vehicleMasterDetails(DetailView):
     model = VehicleMasterList
@@ -415,7 +415,7 @@ def leasing_export(request):
             'DEPARTMENT',
             'SECTION',
             'IS_EMPLOYEE_ID',
-            'IS_LASTNAME',
+            'IS_NAME',
             'IS_FIRSTNAME',
             'LOCATION',
             'AREA',
@@ -535,8 +535,8 @@ def vehicle_excel(request):
             'DEPARTMENT',
             'SECTION',
             'IS_ID',
-            'IS_LAST_NAME',
-            'IS_FIRST_NAME',
+            'IS_NAME',
+            # 'IS_FIRST_NAME',
             'LOCATION',
             'ORIGINAL_OR_DATE',
             'ACQ_DATE',
@@ -594,8 +594,8 @@ def vehicle_excel(request):
                 vehicle.DEPARTMENT,
                 vehicle.SECTION,
                 vehicle.IS_ID,
-                vehicle.IS_LAST_NAME,
-                vehicle.IS_FIRST_NAME,
+                vehicle.IS_NAME,
+                # vehicle.IS_FIRST_NAME,
                 vehicle.LOCATION,
                 vehicle.ORIGINAL_OR_DATE,
                 vehicle.ACQ_DATE,
@@ -663,7 +663,7 @@ def vehicle_excel_bayan(request):
             'SECTION',
             'IS_ID',
             'IS_LAST_NAME',
-            'IS_FIRST_NAME',
+            # 'IS_FIRST_NAME',
             'LOCATION',
             'ORIGINAL_OR_DATE',
             'ACQ_DATE',
@@ -721,8 +721,8 @@ def vehicle_excel_bayan(request):
                 vehicle.DEPARTMENT,
                 vehicle.SECTION,
                 vehicle.IS_ID,
-                vehicle.IS_LAST_NAME,
-                vehicle.IS_FIRST_NAME,
+                vehicle.IS_NAME,
+                # vehicle.IS_FIRST_NAME,
                 vehicle.LOCATION,
                 vehicle.ORIGINAL_OR_DATE,
                 vehicle.ACQ_DATE,
@@ -789,8 +789,8 @@ def vehicle_excel_teli(request):
             'DEPARTMENT',
             'SECTION',
             'IS_ID',
-            'IS_LAST_NAME',
-            'IS_FIRST_NAME',
+            'IS_NAME',
+            # 'IS_FIRST_NAME',
             'LOCATION',
             'ORIGINAL_OR_DATE',
             'ACQ_DATE',
@@ -848,8 +848,8 @@ def vehicle_excel_teli(request):
                 vehicle.DEPARTMENT,
                 vehicle.SECTION,
                 vehicle.IS_ID,
-                vehicle.IS_LAST_NAME,
-                vehicle.IS_FIRST_NAME,
+                vehicle.IS_NAME,
+                # vehicle.IS_FIRST_NAME,
                 vehicle.LOCATION,
                 vehicle.ORIGINAL_OR_DATE,
                 vehicle.ACQ_DATE,
