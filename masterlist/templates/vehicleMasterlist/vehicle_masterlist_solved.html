@@ -2,7 +2,7 @@
 {% block content %}
 <div class="breadcrumbs">
     <div class="col-sm-12">
-        <h3><b>Vehicle MasterList Solved</b></h3>
+        <h3><b>Vehicle MasterList Sold</b></h3>
     </div>
 </div>
 <ul class="nav nav-tabs">
@@ -19,7 +19,7 @@
         <a class="nav-link" href="{% url 'vehicle_masterlist_active' %}">Active</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href="#">Solved</a>
+        <a class="nav-link active" href="#">Sold</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{% url 'vehicle_masterlist_trans' %}">Transferred</a>
@@ -31,7 +31,7 @@
             <div class="col-md-12">
                 <div class="card">
                 <div class="card-header">
-                    <a href="{% url 'vehicle_excel_solved' %}"> <u>Export VehicleList Solved </u></a>
+                    <a href="{% url 'vehicle_excel_solved' %}"> <u>Export VehicleList Sold </u></a>
                     <a href="{% url 'vehicle_new' %}" style="float:right"><u>Add Vehicle Masterlist</u></a>
                     <a href="{% url 'vehicleMasterlist_history' %}" style="float:right" class="mr-3"><u>Vehicle Masterlist History</u></a>
                 </div>
