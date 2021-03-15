@@ -1,39 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
-<!-- <style>
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  border: 1px solid #ddd;
-}
-
-th, td {
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-</style> -->
-
 <div class="breadcrumbs">
     <div class="col-sm-12">
         <h3><b>Vehicle MasterList All Units</b></h3>
     </div>
 </div>
 <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">All Units</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'vehicle_bayantel' %}">Bayan</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'vehicle_teli' %}">TelicPhil</a>
-  </li>
     <li class="nav-item">
-    <a class="nav-link" href="{% url 'leasing_list' %}">Leasing</a>
-  </li>
+        <a class="nav-link active" href="#">All Units</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_bayantel' %}">Bayan</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_teli' %}">TelicPhil</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_masterlist_active' %}">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_masterlist_solved' %}">Solved</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_masterlist_trans' %}">Transferred</a>
+    </li>
 </ul>
 <div class="content mt-3" >
     <div class="animated fadeIn">
@@ -76,7 +66,6 @@ tr:nth-child(even){background-color: #f2f2f2}
                             <th>Section</th>
                             <th>Is Id</th>
                             <th>IS Name</th>
-                            <!-- <th>IS First Name</th> -->
                             <th>Location</th>
                             <th>Original OR Date</th>
                             <th>Acq Date</th>
@@ -96,6 +85,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                             <th>Remarks</th>
                             <th>Status</th>
                             <th>Latest Remarks</th>
+                            <th>Vehicle Status</th>
                         </tr>
                     </thead>
                     </table>
@@ -178,7 +168,8 @@ $(document).ready(function() {
             {"data":"COC_Date"},
             {"data":"Remarks"},
             {"data":"Status"},
-            {"data":"leasing_remark"}
+            {"data":"leasing_remark"},
+            {"data":"vehicle_status"}
         ]
     });
     $('#vtable').on( 'click', 'tr', function () {

@@ -89,6 +89,7 @@ class Vmasterlist(forms.ModelForm):
             self.fields['dealer_name'].required = False
             self.fields['PLATE_NUMBER_RELEASE_DATE'].required = False
             self.fields['leasing_remark'].required = False
+            self.fields['vehicle_status'].required = False
 
       class Meta:
             model = VehicleMasterList
@@ -97,7 +98,7 @@ class Vmasterlist(forms.ModelForm):
                   'VEHICLE_MAKE','ENGINE_NO','CHASSIS_NO','MV_FILE_NO','VEHICLE_TYPE','ASSIGNEE_LAST_NAME','ASSIGNEE_FIRST_NAME','VEHICLE_CATEGORY','Employee',
                   'BAND_LEVEL','BENEFIT_GROUP','COST_CENTER','GROUP','DIVISION','DEPARTMENT','SECTION','IS_ID','IS_NAME','LOCATION','ORIGINAL_OR_DATE',
                   'ACQ_DATE','ACQ_COST','ASSET_NO','EQUIPMENT_NO', 'SAP_PR','Vehicle_IVN_no','Unit_MATDOC','dealer',
-                  'dealer_name','PO_NO','PLATE_NUMBER_RELEASE_DATE','Last_Registration_Date','Smoke_Emission_Date', 'COC_Date', 'Remarks', 'Status', 'leasing_remark'
+                  'dealer_name','PO_NO','PLATE_NUMBER_RELEASE_DATE','Last_Registration_Date','Smoke_Emission_Date', 'COC_Date', 'Remarks', 'Status', 'leasing_remark','vehicle_status'
             ]
 
             Vbrand= (
@@ -147,7 +148,11 @@ class Vmasterlist(forms.ModelForm):
                   ('Yes', 'Yes'),
                   ('No', 'No'),
             )
-
+            vstatus = (
+                  ('Solved', 'Solved'),
+                  ('Transferred', 'Transferred'),
+                  ('Active', 'Active'),
+            )
 
             remarks = (
                   ('Without Last Registration Date','Without Last Registration Date'),
@@ -204,7 +209,8 @@ class Vmasterlist(forms.ModelForm):
                   'COC_Date': forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
                   'Remarks': forms.Select(attrs={'class':'form-control', 'choices':'remarks'}),
                   'Status': forms.Select(attrs={'class':'form-control', 'choices':'status'}),
-                  'leasing_remark' : forms.Select(attrs={'class':'form-control'})
+                  'leasing_remark' : forms.Select(attrs={'class':'form-control'}),
+                  'vehicle_status':forms.Select(attrs={'class':'form-control', 'choices':'vstatus'}),
             }     
 
 class Vmaster(forms.ModelForm):
@@ -262,6 +268,7 @@ class leasing_form(forms.ModelForm):
             self.fields['months_36'].required = False
             self.fields['months_24'].required = False
             self.fields['engine_no'].required = False
+            self.fields['vleasing_status'].required = False
             
       class Meta:
             model = Leasing
@@ -271,7 +278,7 @@ class leasing_form(forms.ModelForm):
                   'DEPARTMENT', 'SECTION', 'IS_EMPLOYEE_ID', 'IS_LASTNAME', 'IS_FIRSTNAME', 'LOCATION', 'AREA', 
                   'ACQUISITION_DATE', 'remarks', 'acquisition_cost', 'months_36', 'amount1', 'date_in_1', 'date_out_1', 
                   'months_24', 'amount_Vat_EX', 'date_in_2', 'date_out_2', 'extension', 'amount2', 'date_in_3', 'date_out_3', 
-                  'chasis_no', 'engine_no', 'CONTRACT_NUMBER'
+                  'chasis_no', 'engine_no', 'CONTRACT_NUMBER','vleasing_status'
             ]
 
             Vbrand= (
@@ -312,7 +319,11 @@ class leasing_form(forms.ModelForm):
                   ('Volvo','Volvo'),
                   ('Saturn','Saturn'),
             )
-
+            vstatus = (
+                  ('Solved', 'Solved'),
+                  ('Transferred', 'Transferred'),
+                  ('Active', 'Active'),
+            )
             widgets = {
       
                   'PLATE_NUMBER' : forms.TextInput(attrs={'class':'form-control'}),
@@ -355,5 +366,6 @@ class leasing_form(forms.ModelForm):
                   'chasis_no' : forms.TextInput(attrs={'class':'form-control'}),
                   'engine_no' : forms.TextInput(attrs={'class':'form-control'}),
                   'CONTRACT_NUMBER' : forms.TextInput(attrs={'class':'form-control'}),
+                  'vleasing_status': forms.Select(attrs={'class':'form-control','choices':'vstatus'}),
             }
 

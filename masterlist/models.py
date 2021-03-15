@@ -115,6 +115,12 @@ class VehicleMasterList(models.Model):
 			('Yes', 'Yes'),
 			('No', 'No'),
 		)
+
+	vstatus = (
+			('Solved', 'Solved'),
+			('Transferred', 'Transferred'),
+			('Active', 'Active'),
+		)
 	
 	Activity_Id  = models.CharField(max_length=100,null=True, default=increment_Activity_Id)
 	NO = models.CharField(max_length=100, null=True, default=increment_NO)
@@ -165,6 +171,7 @@ class VehicleMasterList(models.Model):
 	Remarks = models.CharField(max_length=250, null=True, blank=True, choices=remarks)
 	Status = models.CharField(max_length=20, null=True, blank=True, choices=status)
 	leasing_remark = models.CharField(max_length=225, null=True, blank=True)
+	vehicle_status = models.CharField(max_length=100, null=True, blank=True, choices=vstatus)
 	history = HistoricalRecords()
 
 	def __str__(self):
@@ -225,7 +232,11 @@ class Leasing(models.Model):
 			('Volvo','Volvo'),
 			('Saturn','Saturn'),
             )
-
+	vstatus = (
+			('Solved', 'Solved'),
+			('Transferred', 'Transferred'),
+			('Active', 'Active'),
+		)
 	Activity_Id  = models.CharField(max_length=100,null=True, default=increment_Activity_Id)
 	PLATE_NUMBER = models.CharField(max_length=100, null=True, blank=True)
 	CS_NO= models.CharField(max_length=100, null=True, blank=True)
@@ -267,6 +278,7 @@ class Leasing(models.Model):
 	chasis_no= models.CharField(max_length=100, null=True, blank=True)
 	engine_no= models.CharField(max_length=100, null=True, blank=True)
 	CONTRACT_NUMBER= models.CharField(max_length=20, null=True, blank=True)
+	vleasing_status = models.CharField(max_length=100, null=True, blank=True, choices=vstatus)
 	history = HistoricalRecords()
 	
 	def __str__(self):

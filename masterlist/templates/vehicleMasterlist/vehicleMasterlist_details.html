@@ -98,6 +98,9 @@
       <th>Status:</th> <td>{{ object.Status }}</td>
     </tr>
 
+    <tr>
+      <th>Vehicle Status</th><td>{{objects.vehilcle_status}}</td>
+    </tr>
 </table>
     <div class="card-footer">
       <a href="{% url 'vehicle-update' object.id %}" class="buttonsubmit" style="color:white">UPDATE</a>

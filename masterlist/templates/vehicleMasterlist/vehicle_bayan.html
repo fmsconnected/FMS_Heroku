@@ -24,18 +24,24 @@ tr:nth-child(even){background-color: #f2f2f2}
 </div>
 
 <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'vehicle-list' %}">All Units</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Bayan</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'vehicle_teli' %}">TelicPhil</a>
-  </li>
     <li class="nav-item">
-    <a class="nav-link" href="{% url 'leasing_list' %}">Leasing</a>
-  </li>
+        <a class="nav-link" href="{% url 'vehicle-list' %}">All Units</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="#">Bayan</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_teli' %}">TelicPhil</a>
+    </li>
+  <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_masterlist_active' %}">Active</a>
+    </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_masterlist_solved' %}">Solved</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_masterlist_trans' %}">Transferred</a>
+    </li>
 </ul>
 <div class="content mt-3">
     <div class="animated fadeIn">
