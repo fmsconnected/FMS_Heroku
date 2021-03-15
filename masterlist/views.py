@@ -192,7 +192,7 @@ def vehicle_masterlist_active(request):
 
 def vehicle_masterlist_solved(request):
     context = {
-            'vehicle_list_solved': VehicleMasterList.objects.filter(vehicle_status__contains='Solved')
+            'vehicle_list_solved': VehicleMasterList.objects.filter(vehicle_status__contains='Sold')
         }
 
     return render(request, 'vehicleMasterlist/vehicle_masterlist_solved.html', context)
@@ -319,7 +319,7 @@ def vehicle_leasing_active(request):
 
 def vehicle_leasing_solved(request):
     context = {
-            'leasing_list_solved': Leasing.objects.filter(vleasing_status__contains='Solved')
+            'leasing_list_solved': Leasing.objects.filter(vleasing_status__contains='Sold')
         }
 
     return render(request, 'leasing/leasing_solved.html', context)
@@ -664,15 +664,15 @@ def leasing_active_export(request):
     return response
 
 def leasing_solved_export(request):
-    leasing_queryset = Leasing.objects.filter(vleasing_status='Solved')
+    leasing_queryset = Leasing.objects.filter(vleasing_status='Sold')
     response = HttpResponse(
         content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
     )
-    response['Content-Disposition'] = 'attachment; filename=Leasing Masterlist Solved.xlsx'
+    response['Content-Disposition'] = 'attachment; filename=Leasing Masterlist Sold.xlsx'
     workbook = Workbook()
 
     worksheet = workbook.active
-    worksheet.title = 'Leasing Masterlist Solved'
+    worksheet.title = 'Leasing Masterlist Sold'
 
     columns = [
 
@@ -1156,15 +1156,15 @@ def vehicle_excel_active(request):
     return response
 
 def vehicle_excel_solved(request):
-    v_queryset = VehicleMasterList.objects.filter(vehicle_status='Solved')   
+    v_queryset = VehicleMasterList.objects.filter(vehicle_status='Sold')   
     response = HttpResponse(
         content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
     )
-    response['Content-Disposition'] = 'attachment; filename=Vehicle Masterlist Solved.xlsx'
+    response['Content-Disposition'] = 'attachment; filename=Vehicle Masterlist Sold.xlsx'
     workbook = Workbook()
 
     worksheet = workbook.active
-    worksheet.title = 'Vehicle Masterlist Solved'
+    worksheet.title = 'Vehicle Masterlist Sold'
 
     columns = [
             

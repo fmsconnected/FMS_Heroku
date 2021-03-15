@@ -149,7 +149,7 @@ class Vmasterlist(forms.ModelForm):
                   ('No', 'No'),
             )
             vstatus = (
-                  ('Solved', 'Solved'),
+                  ('Sold', 'Sold'),
                   ('Transferred', 'Transferred'),
                   ('Active', 'Active'),
             )
@@ -320,7 +320,7 @@ class leasing_form(forms.ModelForm):
                   ('Saturn','Saturn'),
             )
             vstatus = (
-                  ('Solved', 'Solved'),
+                  ('Sold', 'Sold'),
                   ('Transferred', 'Transferred'),
                   ('Active', 'Active'),
             )

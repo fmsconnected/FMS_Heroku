@@ -39,7 +39,7 @@ urlpatterns = [
 	path('Vehicle/<int:pk>', views.releaseUpdate.as_view(), name='vupdate'),
 	path('Vehiclelist/export', views.vehicle_excel, name='vehiclelist_export'),
 	path('Vehiclelist/export/Active', views.vehicle_excel_active, name='vehicle_excel_active'),
-	path('Vehiclelist/export/Solved', views.vehicle_excel_solved, name='vehicle_excel_solved'),
+	path('Vehiclelist/export/Sold', views.vehicle_excel_solved, name='vehicle_excel_solved'),
 	path('Vehiclelist/export/Transferred', views.vehicle_excel_trans, name='vehicle_excel_trans'),
 	path('Registration/Details/<int:pk>', views.vreg_details.as_view(), name='vregistration_details'),
 	######Vehicle Bayantel FIlter########
@@ -60,7 +60,7 @@ urlpatterns = [
 	path('Leasing/Trans', views.vehicle_leasing_trans, name='vehicle_leasing_trans'),
 	path('Vehicle/Teli/Export', views.vehicle_excel_teli, name='vehicleteli_export'),
 	path('Leasing/Export/Active', views.leasing_active_export, name='leasing_active_export'),
-	path('Leasing/Export/Solved', views.leasing_solved_export, name='leasing_solved_export'),
+	path('Leasing/Export/Sold', views.leasing_solved_export, name='leasing_solved_export'),
 	path('Leasing/Export/Trans', views.leasing_trans_export, name='leasing_trans_export'),
 
 ]

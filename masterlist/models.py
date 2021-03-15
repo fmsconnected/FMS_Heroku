@@ -117,7 +117,7 @@ class VehicleMasterList(models.Model):
 		)
 
 	vstatus = (
-			('Solved', 'Solved'),
+			('Sold', 'Sold'),
 			('Transferred', 'Transferred'),
 			('Active', 'Active'),
 		)
@@ -233,7 +233,7 @@ class Leasing(models.Model):
 			('Saturn','Saturn'),
             )
 	vstatus = (
-			('Solved', 'Solved'),
+			('Sold', 'Sold'),
 			('Transferred', 'Transferred'),
 			('Active', 'Active'),
 		)
