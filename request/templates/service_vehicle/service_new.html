@@ -27,7 +27,7 @@ function servicevehicle(service) {
 <input type="text" name="deadline" id="deadline" hidden="true">
     <div id="Service Vehicle Request" class="w3-container vehicle">
     <fieldset>
-        <legend align="left">Requisitioner Details</legend><br>
+        <legend align="left">Replacement Details</legend><br>
         <div class="col-sm-6">
             <label>Requisitioner Employee ID</label>
             <input type="text" name="req_employee_id" id="req_employee_id" list="emp_list" class="form-control" required>
@@ -53,6 +53,34 @@ function servicevehicle(service) {
         </div>
 
     <br><br>
+    </fieldset>
+    <fieldset>
+    <legend align="left">For New Employee Only</legend>
+
+        <div class="col-sm-4">
+            <label>New Employee ID</label>
+            <input style= "text-transform:" type="text" name="new_employee_id" id="new_employee_id" class="form-control">
+        </div>
+
+        <div class="col-sm-4">
+            <label>New Employee First Name</label>
+            <input style= "text-transform:" type="text" name="new_employee_fname" id="new_employee_fname" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>New Employee Last Name</label>
+            <input style= "text-transform:" type="text" name="new_employee_lname" id="new_employee_lname" class="form-control">
+        </div>
+
+        <div class="col-sm-4">
+            <label>New Employee Cost Center</label>
+            <input style= "text-transform:" type="text" name="new_employee_cost" id="new_employee_cost" class="form-control">
+        </div>
+
+        <div class="col-sm-4">
+            <label>Temporary ATD Number</label>
+            <input style= "text-transform:" type="number" name="new_temporary_atd" id="new_temporary_atd" class="form-control">
+        </div>
+
     </fieldset>
     <hr>
     <fieldset>
@@ -100,34 +128,7 @@ function servicevehicle(service) {
         </div>
 
     </fieldset>
-    <fieldset>
-    <legend align="left">For New Employee Only</legend>
-
-        <div class="col-sm-4">
-            <label>New Employee ID</label>
-            <input style= "text-transform:" type="text" name="new_employee_id" id="new_employee_id" class="form-control">
-        </div>
-
-        <div class="col-sm-4">
-            <label>New Employee First Name</label>
-            <input style= "text-transform:" type="text" name="new_employee_fname" id="new_employee_fname" class="form-control">
-        </div>
-        <div class="col-sm-4">
-            <label>New Employee Last Name</label>
-            <input style= "text-transform:" type="text" name="new_employee_lname" id="new_employee_lname" class="form-control">
-        </div>
-
-        <div class="col-sm-4">
-            <label>New Employee Cost Center</label>
-            <input style= "text-transform:" type="text" name="new_employee_cost" id="new_employee_cost" class="form-control">
-        </div>
-
-        <div class="col-sm-4">
-            <label>Temporary ATD Number</label>
-            <input style= "text-transform:" type="number" name="new_temporary_atd" id="new_temporary_atd" class="form-control">
-        </div>
-
-    </fieldset>
+    
     <fieldset>
     <legend align="left">Request Details</legend>
         <div class="col-sm-4">
@@ -138,6 +139,8 @@ function servicevehicle(service) {
                 <option value="SUV">SUV</option>
                 <option value="Pick up 4x2">Pick up 4x2</option>
                 <option value="Pick up 4x4">Pick up 4x4</option>
+                <option value="AUV">AUV</option>
+                <option value="Others">Others</option>
 
                 
             </select>

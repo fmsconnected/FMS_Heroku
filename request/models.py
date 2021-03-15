@@ -214,6 +214,8 @@ class service_vehicle(models.Model):
 		('SUV', 'SUV '),
 		('Pick up 4x2', 'Pick up 4x2'),
 		('Pick Up 4x4', 'Pick Up 4x4'),
+		('AUV', 'AUV'),
+		('Others', 'Others '),
 	)
 	approvedby= (
 		('Ser Roy Dela Cruz', 'Ser Roy Dela Cruz'),

@@ -27,7 +27,7 @@ function servicevehicle(service) {
 {% csrf_token %}
     <div id="Service Vehicle Request" class="w3-container vehicle">
     <fieldset>
-        <legend align="left">Requisitioner Details</legend><br>
+        <legend align="left">Replacement Details</legend><br>
         
         <div class="col-sm-6">
             <label>Requisitioner Employee ID</label>
@@ -47,6 +47,29 @@ function servicevehicle(service) {
             {{ form.req_fname }}
         </div>
     <br><br>
+    </fieldset>
+    <fieldset>
+    <legend align="left">For New Employee Only</legend>
+        <div class="col-sm-4">
+            <label>New Employee ID</label>
+            {{ form.new_employee_id }}
+        </div>
+        <div class="col-sm-4">
+            <label>New Employee First Name</label>
+            {{ form.new_employee_fname }}
+        </div>
+        <div class="col-sm-4">
+            <label>New Employee Last Name</label>
+            {{ form.new_employee_lname }}
+        </div>
+        <div class="col-sm-4">
+            <label>New Employee Cost Center</label>
+            {{ form.new_employee_cost }}
+        </div>
+        <div class="col-sm-4">
+            <label>Temporary ATD Number</label>
+            {{ form.new_temporary_atd }}
+        </div>
     </fieldset>
     <hr>
     <fieldset>
@@ -86,29 +109,7 @@ function servicevehicle(service) {
             {{ form.assignee_atd }}
         </div>
     </fieldset>
-    <fieldset>
-    <legend align="left">For New Employee Only</legend>
-        <div class="col-sm-4">
-            <label>New Employee ID</label>
-            {{ form.new_employee_id }}
-        </div>
-        <div class="col-sm-4">
-            <label>New Employee First Name</label>
-            {{ form.new_employee_fname }}
-        </div>
-        <div class="col-sm-4">
-            <label>New Employee Last Name</label>
-            {{ form.new_employee_lname }}
-        </div>
-        <div class="col-sm-4">
-            <label>New Employee Cost Center</label>
-            {{ form.new_employee_cost }}
-        </div>
-        <div class="col-sm-4">
-            <label>Temporary ATD Number</label>
-            {{ form.new_temporary_atd }}
-        </div>
-    </fieldset>
+    
     <fieldset>
     <legend align="left">Request Details</legend>
         <div class="col-sm-4">
