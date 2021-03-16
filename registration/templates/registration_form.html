@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3 align="center"><b>Registration</b></h3>&nbsp;
+    </div>
+
+<form method="POST" action="{% url 'vRegistration_submit' %}">
+{% csrf_token %}
+    <div class="col-sm-4">
+        <label>Plate Number</label>
+        <input type="text" name="plate_no" id="plate_no" class="form-control" >
+    </div>
+    <div class="col-sm-4">
+        <label>Conduction Sticker Number</label>
+        <input type="text" name="cs" id="cs" class="form-control" >
+    </div>
+    <div class="col-sm-4">
+        <label>CR Name</label>
+        <select name="cr_name" class="form-control">
+            <option value="">--------</option>
+            <option value="TELICPHIL">TELICPHIL</option>
+            <option value="GLOBE">GLOBE</option>
+            <option value="BAYANTEL">BAYANTEL</option>
+        </select>
+    </div>
+    <div class="col-sm-4">
+        <label>Model</label>
+        <input type="text" name="model" id="model" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Brand</label>
+        <select name="brand" id="brand" class="form-control">
+            <option value="">--------</option>
+            <option value="Honda">Honda</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Mitsubishi">Mitsubishi</option>
+            <option value="Ford">Ford</option>
+            <option value="Masda">Masda</option>
+            <option value="Isuzu">Isuzu</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="Nissan">Nissan</option>
+            <option value="Suzuki">Suzuki</option>
+            <option value="Chevrolet">Chevrolet</option>
+            <option value="Jeep">Jeep</option>
+            <option value="Audi">Audi</option>
+            <option value="BMW">BMW</option>
+            <option value="Bently">Bently</option>
+            <option value="Cadillac">Cadillac</option>
+            <option value="Chrysler">Chrysler</option>
+            <option value="Dodge">Dodge</option>
+            <option value="GMC">GMC</option>
+            <option value="Genesis">Genesis</option>
+            <option value="Jaguar">Jaguar</option>
+            <option value="Land Rover">Land Rover</option>
+            <option value="Lexus">Lexus</option>
+            <option value="Lincoln">Lincoln</option>
+            <option value="Lotus">Lotus</option>
+            <option value="Maserati">Maserati</option>
+            <option value="Mercedes-Benz">Mercedes-Benz</option>
+            <option value="Mini">Mini</option>
+            <option value="Porsche">Porsche</option>
+            <option value="Ram">Ram</option>
+            <option value="Rolls-Royce">Rolls-Royce</option>
+            <option value="Saab">Saab</option>
+            <option value="Scion">Scion</option>
+            <option value="Subaru">Subaru</option>
+            <option value="Tesla">Tesla</option>
+            <option value="Volkswagen">Volkswagen</option>
+            <option value="Volvo">Volvo</option>
+            <option value="Saturn">Saturn</option>
+            <option value="Kia">Kia</option>
+            <option value="Geely">Geely</option>
+            <option value="MG">MG</option>
+            <option value="TRAILER">TRAILER</option>
+        </select>
+    </div>
+    <div class="col-sm-4">
+        <label>Vehicle Make</label>
+        <input type="text" name="vmake" id="vmake" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Engine Number</label>
+        <input type="text" name="eng_no" id="eng_no" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Chassis Number</label>
+        <input type="text" name="chassis_no" id="chassis_no" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>MV File Number</label>
+        <input type="text" name="mvfile" id="mvfile" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>COC</label>
+        <input type="text" name="coc" id="coc" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Smoke/TPL</label>
+        <input type="text" name="smoke" id="smoke" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Remarks/Registered</label>
+        <input name="remarks_registered" id="remarks_registered" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Date Emailed</label>
+        <input type="Date" name="demail" id="demail" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Remarks/Justification</label>
+        <input name="remarks_justification" id="remarks_justification" class="form-control">
+    </div>
+</div>
+    <div class="card-footer">
+        <button type="submit" class="buttonsubmit">PROCEED</button>
+        <button type="Reset" class="button">CLEAR ALL</button>
+        <a href="{% url 'vehicle-list' %}" class="btn">CLOSE</a>
+    </div>
+
+</form>
+{% endblock %}
+

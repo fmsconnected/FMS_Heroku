@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'Admin.apps.AdminConfig',
     'CustomerLog.apps.CustomerlogConfig',
     'fleet_card.apps.FleetCardConfig',
+    'registration.apps.RegistrationConfig',
 
 ]
 
