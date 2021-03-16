@@ -166,14 +166,14 @@ class registrationDeleteView(BSModalDeleteView):
 
 def othersRegView(request):
     context = {
-            'other_list': Registration.objects.filter(PLATE_NO="")
+            'other_list': Registration.objects.filter(PLATE_NO__isnull=True)
         }
 
     return render(request, 'reg_others.html', context)
 
 def trailerRegView(request):
     context = {
-            'trailer_list': Registration.objects.filter(BRAND__contains="TRAILER",PLATE_NO="")
+            'trailer_list': Registration.objects.filter(BRAND__contains="TRAILER",PLATE_NO__isnull=True)
         }
 
     return render(request, 'reg_trailer.html', context)
