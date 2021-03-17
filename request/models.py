@@ -378,6 +378,7 @@ class Vehicle_Repair(models.Model):
 	approvedby = models.CharField(max_length=100, null=True, choices=approvedby, blank=True)
 	meter_reading = models.CharField(max_length=100, null=True, blank=True)
 	VRR_SLA = models.CharField(max_length=10, null=True, blank=True)
+	email = models.CharField(max_length=100,null=True,blank=True)
 	date_initiated = models.DateField(auto_now=True, null=True, blank=True)
 	history = HistoricalRecords()
 	Deadline = models.DateTimeField()
@@ -386,7 +387,7 @@ class Vehicle_Repair(models.Model):
 		if self.Deadline is None:
 			now = datetime.datetime.today()
 			num_days = 0
-			while num_days < 90:
+			while num_days < 30:
 				now = now + timedelta(days=1)
 				if now.isoweekday() not in [7]:
 					num_days+=1

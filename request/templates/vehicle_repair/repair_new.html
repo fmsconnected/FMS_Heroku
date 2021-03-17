@@ -15,11 +15,11 @@ function vrepair(repair) {
 
 <div class="row">
     <div class="col-lg-12">
-        <h3><b>Vehicle Repair Request</b></h3>&nbsp;
+        <h3><b>Preventive Maintenance</b></h3>&nbsp;
     </div>
 </div>
  <div class="w3-bar w3-black">
-    <button class="w3-bar-item w3-button" onclick="vrepair('Vehicle Repair Request')">Vehicle Repair Request</button>
+    <button class="w3-bar-item w3-button" onclick="vrepair('Vehicle Repair Request')">Preventive Maintenance</button>
     <button class="w3-bar-item w3-button" onclick="vrepair('Verification Process')">Verification Process</button>
     <button class="w3-bar-item w3-button" onclick="vrepair('Outbound Process')">Outbound Process</button>
     </div>
@@ -71,6 +71,10 @@ function vrepair(repair) {
         <div class="col-sm-6">
             <label>Group/Section</label>
             <input type="text" name="group" id="group" class="form-control" readonly>
+        </div>
+        <div class="col-sm-6">
+            <label>Email</label>
+            <input type="email" name="email" id="email" class="form-control">
         </div>
     <br><br>
     </fieldset>
@@ -266,7 +270,7 @@ function vrepair(repair) {
             <label>Kilometer Reading</label>
             <input type="text" name="kilo_reading" id="kilo_reading" class="form-control">
         </div>
-    <input type="text" name="vrr_sla" id="vrr_sla" class="form-control" value = "90"hidden>
+    <input type="text" name="vrr_sla" id="vrr_sla" class="form-control" value = "30"hidden>
     </fieldset>
     <div class="card-footer">
         <button type="submit" class="buttonsubmit">UPDATE</button>

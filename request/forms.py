@@ -353,7 +353,7 @@ class repairform(forms.ModelForm):
 		'plate_no','v_brand','engine','v_make','v_model','chassis','band','cond_sticker','equipment_no','fleet_area',
 		'maintenance_type1','scope_work1','maintenance_type2','scope_work2','recommendations','service_reminder','verified_by', 
 		'particulars','category','work_order1','work_order2','work_order3','datework_created','Shop_vendor','date_forwarded','estimate_no',
-		'maintenance_amount','less_discount','estimate_remarks','estimate_attached','approvedby','meter_reading','VRR_SLA','memo_app'
+		'maintenance_amount','less_discount','estimate_remarks','estimate_attached','approvedby','meter_reading','VRR_SLA','memo_app','email'
 		]
 		area= (
 			('The Globe Tower', 'The Globe Tower'),
@@ -421,5 +421,6 @@ class repairform(forms.ModelForm):
 			'estimate_attached' : forms.TextInput(attrs={'class':'form-control'}),
 			'approvedby' : forms.Select(attrs={'class':'form-control','choices':'approvedby'}),
 			'meter_reading' : forms.TextInput(attrs={'class':'form-control'}),
-			'VRR_SLA': forms.TextInput(attrs={'class':'form-control','value':'30','hidden':'true'})
+			'VRR_SLA': forms.TextInput(attrs={'class':'form-control','value':'30','hidden':'true'}),
+			'email':forms.TextInput(attrs={'class':'form-control', 'type':'email'})
 		}

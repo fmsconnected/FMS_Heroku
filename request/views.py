@@ -1,4 +1,6 @@
 from django.views import generic
+# from django.core.mail import send_mail
+# from django.http import HttpResponse
 from django.shortcuts import render,HttpResponseRedirect, get_list_or_404,HttpResponse
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
@@ -46,6 +48,12 @@ from bootstrap_modal_forms.generic import (
                      ######################################
 
 
+###Email sender###
+
+# def vehicleEmail(request,emailto):
+#    res = send_mail("hello paul", "comment tu vas?", "paul@polo.com", [emailto])
+#    return HttpResponse('%s'%res)
+
 
 def requestCreate(request):
     def dispatch(self, *args, **kwargs):
@@ -84,6 +92,7 @@ def requestsubmit(request):
         plate_no = request.POST.get('plate_no')
         supervisor = request.POST.get('supervisor')
         cr_sla = request.POST.get('cr_sla')
+        
 
         saveto_req = CarRentalRequest(A_Employee = emp_id, Date_received = date_received,Assignee_Fname = fname,Assignee_Lname = lname,Assignee_No = cnumber,Assignee_Company = company,
                 Assignee_band = band,Assignee_Dept = dept,Assignee_Cost = cost,Assignee_Div = div,Assignee_Loc = loc,Assignee_Section = section,
@@ -761,6 +770,7 @@ def repairsubmit(request):
         estimate_attach = request.POST.get('estimate_attach')
         approved_by = request.POST.get('approved_by')
         kilo_reading = request.POST.get('kilo_reading')
+        email = request.POST.get('email')
         vrr_sla = request.POST.get('vrr_sla')
 
         saveto_repair = Vehicle_Repair(request_date=request_date, employee=emp_id, cost_center=cost_center, first_name=fname,
@@ -772,7 +782,7 @@ def repairsubmit(request):
             work_order1=work_order1, work_order2=work_order2, work_order3=work_order3, datework_created=date_work_created,
             Shop_vendor=repair_shop, date_forwarded=date_forward, estimate_no=estimate_no, maintenance_amount=maintenance_amount,
             less_discount=less_discount, estimate_remarks=estimate_remark, estimate_attached=estimate_attach, approvedby=approved_by,
-            meter_reading=kilo_reading, VRR_SLA=vrr_sla, memo_app=memo_app,
+            meter_reading=kilo_reading, VRR_SLA=vrr_sla, memo_app=memo_app,email=email
     )
         saveto_repair.save()
 

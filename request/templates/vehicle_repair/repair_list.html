@@ -47,7 +47,7 @@
 
 <div class="breadcrumbs">
     <div class="col-sm-12">
-        <h3 class="page-header"><b>Vehicle Repair Request</b></h3>
+        <h3 class="page-header"><b>Preventive Maintenance</b></h3>
     </div>
     {% if dl1_count != 0%}
     <div class="alert alert-warning" id="myAlert">
@@ -66,7 +66,7 @@
 
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active">Vehicle Repair Request</a>
+    <a class="nav-link active">Preventive Maintenance</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="{% url 'vrpdeadline' %}">Coming Deadline</a>
@@ -87,6 +87,7 @@
                         <tr>
                             <th>Activity ID</th>
                             <th>Requisitioner Name</th>
+                            <th>Email</th>
                             <th>Plate Number</th>
                             <th>Work Order Number</th>
                             <th>SLA</th>
@@ -100,6 +101,7 @@
                         <tr class="odd gradeX">
                             <td><a href="{% url 'repair_details' Vehicle_Repair.id %}"><u>{{ Vehicle_Repair.Activity_id }}</u></a></td>
                             <td>{{ Vehicle_Repair.first_name }} {{ Vehicle_Repair.last_name }}</td>
+                            <td>{{ Vehicle_Repair.email }}</td>
                             <td>{{ Vehicle_Repair.plate_no }}</td>
                             <td>{{ Vehicle_Repair.work_order1 }}</td>
                             <td>{{ Vehicle_Repair.VRR_SLA }}/Days</td>
