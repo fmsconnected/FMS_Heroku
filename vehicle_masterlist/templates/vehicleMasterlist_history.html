@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+</style>
+
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3><b>Vehicle MasterList History</b></h3>
+    </div>
+</div>
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                  <a href="{% url 'vehicle-list' %}"> <u>Back to VehicleList </u></a>
+                    
+                </div>
+                <!-- <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%"> -->
+                    <table id="example" class="display nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity No</th>
+                            <th>NO</th>
+                            <th>Plate Number</th>
+                            <th>Conductions Sticker Number</th>
+                            <th>CR Name</th>
+                            <th>Plate Ending</th>
+                            <th>Registration Month</th>
+                            <th>Model</th>
+                            <th>Brand</th>
+                            <th>Vehicle Make</th>
+                            <th>Engine Number</th>
+                            <th>Chassis Number</th>
+                            <th>MV file Number</th>
+                            <th>Vehicle Type</th>
+                            <th>Assignee Last Name</th>
+                            <th>Assignee First Name</th>
+                            <th>Vehicle Category</th>
+                            <th>Band Level</th>
+                            <th>Benefit Group</th>
+                            <th>Cost Center</th>
+                            <th>Group</th>
+                            <th>Division</th>
+                            <th>Department</th>
+                            <th>Section</th>
+                            <th>Is Id</th>
+                            <th>IS Name</th>
+                           <!-- <th>IS First Name</th> -->
+                            <th>Location</th>
+                            <th>Original OR Date</th>
+                            <th>Acq Date</th>
+                            <th>Acq Cost</th>
+                            <th>Asset Number</th>
+                            <th>Equipment Number</th>
+                            <th>PO Number</th>
+                            <th>Plate Number Release Date</th>
+                            <th>Employee ID</th>
+                            <th>History Date</th>
+                            <th>History Type</th>
+                            <th>History User</th>
+                        
+                        </tr>
+                        
+                    </thead>
+                    <tbody>
+                        {% for h in object %}
+                        <tr class="odd gradeX">
+                            <td><u>{{ h.Activity_Id }}</u></td>
+                            <td>{{ h.NO }}</td>
+                            <td>{{ h.PLATE_NO }}</td>
+                            <td>{{ h.CS_NO }}</td>
+                            <td>{{ h.CR_NAME }}</td>
+                            <td>{{ h.PLATE_ENDING }}</td>
+                            <td>{{ h.REGISTRATION_MONTH }}</td>
+                            <td>{{ h.MODEL }}</td>
+                            <td>{{ h.BRAND }}</td>
+                            <td>{{ h.VEHICLE_MAKE }}</td>
+                            <td>{{ h.ENGINE_NO }}</td>
+                            <td>{{ h.CHASSIS_NO }}</td>
+                            <td>{{ h.MV_FILE_NO }}</td>
+                            <td>{{ h.VEHICLE_TYPE }}</td>
+                            <td>{{ h.ASSIGNEE_LAST_NAME }}</td>
+                            <td>{{ h.ASSIGNEE_FIRST_NAME }}</td>
+                            <td>{{ h.VEHICLE_CATEGORY }}</td>
+                            <td>{{ h.BAND_LEVEL }}</td>
+                            <td>{{ h.BENEFIT_GROUP }}</td>
+                            <td>{{ h.COST_CENTER }}</td>
+                            <td>{{ h.GROUP }}</td>
+                            <td>{{ h.DIVISION }}</td>
+                            <td>{{ h.DEPARTMENT }}</td>
+                            <td>{{ h.SECTION }}</td>
+                            <td>{{ h.IS_ID }}</td>
+                            <td>{{ h.IS_NAME }}</td>
+                            <!-- <td>{{ h.IS_FIRST_NAME }}</td> -->
+                            <td>{{ h.LOCATION }}</td>
+                            <td>{{ h.ORIGINAL_OR_DATE }}</td>
+                            <td>{{ h.ACQ_DATE }}</td>
+                            <td>{{ h.ACQ_COST }}</td>
+                            <td>{{ h.ASSET_NO }}</td>
+                            <td>{{ h.EQUIPMENT_NO }}</td>
+                            <td>{{ h.PO_NO }}</td>
+                            <td>{{ h.PLATE_NUMBER_RELEASE_DATE }}</td>
+                            <td>{{ h.Employee }}</td>
+                            <td>{{h.history_date}}</td>
+                  
+                            {% if h.history_type == '+' %}
+                                <td style="color: green;">Created</td>
+                            {% elif h.history_type == '-' %}
+                                <td style="color: red;">Completed</td>
+                            {% else %}
+                                <td style="color: blue;">Edited</td>
+                            {% endif %}
+                            <td>{{h.history_user}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+{% endblock %}

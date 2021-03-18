@@ -13,12 +13,18 @@ from masterlist import views
 
 admin.autodiscover()
 router = routers.DefaultRouter()
-router.register(r'masterlist', views.vehicleViewSet),
+# router.register(r'masterlist', views.vehicleViewSet),
 router.register(r'empmasterlist', views.employeeViewSet),
-router.register(r'leasingmasterlist', views.leasingViewSet),
+
+from leasingmasterlist import views
+router.register(r'Leasing_Masterlist', views.leasingViewSet),
+
+from vehicle_masterlist import views
+router.register(r'Vehicle_Masterlist', views.vehicleViewSet),
+
 
 from monitoring import views
-router.register(r'monitoring', views.monitoringViewSet)
+router.register(r'monitoring', views.monitoringViewSet),
 
 urlpatterns = [
     url('^api/', include(router.urls)),
@@ -27,6 +33,8 @@ urlpatterns = [
     path('FLEET/', include('account.urls')),
     path('Payment/', include('payment.urls')),
     path('Masterlist/', include('masterlist.urls')),
+    path('Leasing/', include('leasingmasterlist.urls')),
+    path('VehicleMasterlist/', include('vehicle_masterlist.urls')),
     path('Monitoring/', include('monitoring.urls')),
     path('Request/', include('request.urls')),
     path('Ownership/', include('ownership.urls')),

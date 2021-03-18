@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.admin.widgets import FilteredSelectMultiple
 from .models import Fata_monitoring
-from masterlist.models import VehicleMasterList
+from vehicle_masterlist.models import VehicleMasterList
 
 
 

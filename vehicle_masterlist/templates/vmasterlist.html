@@ -1,0 +1,261 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<!--for employee_id auto-fill-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+$('#emp_id').on('change', function () {
+    var value = $('#emp_id').val();
+    var val = ($('#emp_list [value="' + value+ '"]').data('value'));
+    // var parts = val.split(" | ");
+    // $('#emp_id').val(parts[0]);
+});
+</script>
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3 align="center"><b>Vehicle MasterList</b></h3>&nbsp;
+    </div>
+
+<form method="POST" action="{% url 'vehicleMasterlist_submit' %}">
+{% csrf_token %}
+    <div class="col-sm-4">
+        <label>Plate Number</label>
+        <input type="text" name="plate_no" id="plate_no" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Conduction Sticker Number</label>
+        <input type="text" name="cs" id="cs" class="form-control" required>
+    </div>
+    <div class="col-sm-4">
+        <label>CR Name</label>
+        <select name="cr_name" class="form-control">
+            <option value="">--------</option>
+            <option value="TELICPHIL">TELICPHIL</option>
+            <option value="GLOBE">GLOBE</option>
+            <option value="BAYANTEL">BAYANTEL</option>
+        </select>
+    </div>
+    <div class="col-sm-4">
+        <label>Model</label>
+        <input type="text" name="model" id="model" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Brand</label>
+        <select name="cars" class="form-control">
+            <option value="">--------</option>
+            <option value="Honda">Honda</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Mitsubishi">Mitsubishi</option>
+            <option value="Ford">Ford</option>
+            <option value="Masda">Masda</option>
+            <option value="Isuzu">Isuzu</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="Nissan">Nissan</option>
+            <option value="Suzuki">Suzuki</option>
+            <option value="Chevrolet">Chevrolet</option>
+            <option value="Jeep">Jeep</option>
+            <option value="Audi">Audi</option>
+            <option value="BMW">BMW</option>
+            <option value="Bently">Bently</option>
+            <option value="Cadillac">Cadillac</option>
+            <option value="Chrysler">Chrysler</option>
+            <option value="Dodge">Dodge</option>
+            <option value="GMC">GMC</option>
+            <option value="Genesis">Genesis</option>
+            <option value="Jaguar">Jaguar</option>
+            <option value="Land Rover">Land Rover</option>
+            <option value="Lexus">Lexus</option>
+            <option value="Lincoln">Lincoln</option>
+            <option value="Lotus">Lotus</option>
+            <option value="Maserati">Maserati</option>
+            <option value="Mercedes-Benz">Mercedes-Benz</option>
+            <option value="Mini">Mini</option>
+            <option value="Porsche">Porsche</option>
+            <option value="Ram">Ram</option>
+            <option value="Rolls-Royce">Rolls-Royce</option>
+            <option value="Saab">Saab</option>
+            <option value="Scion">Scion</option>
+            <option value="Subaru">Subaru</option>
+            <option value="Tesla">Tesla</option>
+            <option value="Volkswagen">Volkswagen</option>
+            <option value="Volvo">Volvo</option>
+            <option value="Saturn">Saturn</option>
+            <option value="Kia">Kia</option>
+            <option value="Geely">Geely</option>
+            <option value="MG">MG</option>
+        </select>
+    </div>
+    <div class="col-sm-4">
+        <label>Vehicle Make</label>
+        <input type="text" name="vmake" id="vmake" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Engine Number</label>
+        <input type="text" name="eng_no" id="eng_no" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Chassis Number</label>
+        <input type="text" name="chassis_no" id="chassis_no" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>MV File Number</label>
+        <input type="text" name="mvfile" id="mvfile" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Vehicle Type</label>
+        <input type="text" name="vtype" id="vtype" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Vehicle Category</label>
+        <input type="text" name="vcat" id="vcat" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Employee Id</label>
+        <input name="emp_id" id="emp_id" class="form-control" list="emp_list" required>
+            <datalist id="emp_list">               
+            {% for emp_id in elist %}
+              <option data-value="{{ emp_id.Employee_Id }}" value="{{ emp_id.Employee_Id }}">
+              </option>
+            {% endfor %}
+            </datalist>
+            <p id="msg"></p>
+    </div>
+    <div class="col-sm-4">
+        <label>Band Level</label>
+        <input type="text" name="band" id="band" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Band Benefit</label>
+        <input type="text" name="benefit" id="benefit" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Cost Center</label>
+        <input type="text" name="cost" id="cost" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Group</label>
+        <input type="text" name="group" id="group" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Division</label>
+        <input type="text" name="div" id="div" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Department</label>
+        <input type="text" name="dept" id="dept" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Section</label>
+        <input type="text" name="sec" id="sec" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>IS (Employee ID)</label>
+        <input type="text" name="is_emp" id="is_emp" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>IS (Name)</label>
+        <input type="text" name="is_fname" id="is_fname" class="form-control">
+    </div>
+    <!-- <div class="col-sm-4">
+        <label>IS (Lastname)</label>
+        <input type="text" name="is_lname" id="is_lname" class="form-control">
+    </div> -->
+    <div class="col-sm-4">
+        <label>Location</label>
+        <input type="text" name="loc" id="loc" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Aquisition_date</label>
+        <input type="date" name="aqui_date" id="aqui_date" class="form-control">
+    </div>
+        <div class="col-sm-4">
+        <label>Aquisition Cost</label>
+        <input type="text" name="aqui_cost" id="aqui_cost" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Asset Number</label>
+        <input type="text" name="asset" id="asset" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>PO Number</label>
+        <input type="text" name="po_no" id="po_no" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>SAP PR Number</label>
+        <input type="text" name="sap_pr" id="sap_pr" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Vehicle IVN Number</label>
+        <input type="text" name="ivn_no" id="ivn_no" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Unit MATDOC</label>
+        <input type="text" name="mathdoc" id="mathdoc" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Equipment Number</label>
+        <input type="text" name="eq_no" id="eq_no" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Dealership</label>
+        <input type="text" name="dealer" id="dealer" class="form-control">
+    </div> 
+    <div class="col-sm-4">
+        <label>Dealer Name</label>
+        <input type="text" name="dealer_name" id="dealer_name" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Plate Release Date</label>
+        <input type="date" name="plate_date" id="plate_date" class="form-control">
+    </div><div class="col-sm-4">
+        <label>Original OR Date</label>
+        <input type="date" name="or_date" id="or_date" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Remarks</label>
+        <select name="remarks" id="remarks" class="form-control">
+            <option></option>
+            <option value="Without Last Registration Date">Without Last Registration Date</option>
+            <option value="Without Smoke Emission Date">Without Smoke Emission Date</option>
+            <option value="Without COC Date">Without COC Date</option>
+            <option value="No Smoke and COC">No Smoke and COC</option>
+            <option value="For Registration">For Registration</option>
+            <option value="Complete">Complete</option>
+        </select>
+    </div>
+    <div class="col-sm-4">
+        <label>Email Status</label>
+        <select class="form-control" name="status" required>
+            <option></option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        
+    </div>
+    <div class="col-sm-4">
+        <label> Latest Remark's</label>
+        <input type="test" name="l_remark" id="l_remark" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <label>Vehicle Status</label>
+        <select name="vstatus" id="vstatus" class="form-control">
+            <option></option>
+            <option value="Sold">Sold</option>
+            <option value="Active">Active</option>
+            <option value="Transferred">Transferred</option>
+            
+        </select>
+    </div>
+</div>
+    <div class="card-footer">
+        <button type="submit" class="buttonsubmit">PROCEED</button>
+        <button type="Reset" class="button">CLEAR ALL</button>
+        <a href="{% url 'vehicle-list' %}" class="btn">CLOSE</a>
+    </div>
+
+</form>
+{% endblock %}
+

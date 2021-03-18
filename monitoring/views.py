@@ -18,7 +18,9 @@ from . forms import (
     FATAmonitoringForm,
     reg_updateForm
 )
-from masterlist.models import EmployeeMasterlist,VehicleMasterList
+from masterlist.models import EmployeeMasterlist
+from vehicle_masterlist.models import VehicleMasterList
+
 from django.views.generic import (
                 				CreateView,
                 				ListView,

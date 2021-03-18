@@ -1,20 +1,18 @@
 from rest_framework import serializers
 from .models import (
-    VehicleMasterList,
-    EmployeeMasterlist,
-    Leasing
+    EmployeeMasterlist
     )
 
 
-class vehicleSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(read_only=True)
+# class vehicleSerializer(serializers.ModelSerializer):
+#     id = serializers.IntegerField(read_only=True)
 
-    class Meta:
-        model = VehicleMasterList
-        fields = (
-            '__all__'
-        )
-        datatables_always_serialize = ('id')
+#     class Meta:
+#         model = VehicleMasterList
+#         fields = (
+#             '__all__'
+#         )
+#         datatables_always_serialize = ('id')
 
 class EmployeeSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
@@ -26,15 +24,15 @@ class EmployeeSerializer(serializers.ModelSerializer):
         )
         datatables_always_serialize = ('id')
 
-class leasingSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(read_only=True)
+# class leasingSerializer(serializers.ModelSerializer):
+#     id = serializers.IntegerField(read_only=True)
 
-    class Meta:
-        model = Leasing
-        fields = (
-            '__all__'
-        )
-        datatables_always_serialize = ('id')
+#     class Meta:
+#         model = Leasing
+#         fields = (
+#             '__all__'
+#         )
+#         datatables_always_serialize = ('id')
 
 # class AlbumSerializer(serializers.ModelSerializer):
 #     artist_name = serializers.ReadOnlyField(source='artist.name')

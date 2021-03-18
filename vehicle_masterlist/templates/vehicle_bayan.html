@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+</style>
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3><b>Vehicle MasterList BayanTel</b></h3>
+    </div>
+</div>
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle-list' %}">All Units</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="#">Bayan</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_teli' %}">TelicPhil</a>
+    </li>
+  <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_masterlist_active' %}">Active</a>
+    </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_masterlist_solved' %}">Sold</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_masterlist_trans' %}">Transferred</a>
+    </li>
+</ul>
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                  <a href="{% url 'vehiclebayan_export' %}"> <u>Export VehicleList Bayan </u></a>
+                  <a href="{% url 'vehicle_new' %}" style="float:right"><u>Add Vehicle Masterlist</u></a>
+                  <a href="{% url 'vehicleMasterlist_history' %}" style="float:right" class="mr-3"><u>Vehicle Masterlist History</u></a>
+                </div>
+                <!-- <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%"> -->
+                    <table id="example" class="display nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity No</th>
+                            <th>NO</th>
+                            <th>Plate Number</th>
+                            <th>Conductions Sticker Number</th>
+                            <th>CR Name</th>
+                            <th>Plate Ending</th>
+                            <th>Registration Month</th>
+                            <th>Model</th>
+                            <th>Brand</th>
+                            <th>Vehicle Make</th>
+                            <th>Engine Number</th>
+                            <th>Chassis Number</th>
+                            <th>MV file Number</th>
+                            <th>Vehicle Type</th>
+                            <th>Assignee Last Name</th>
+                            <th>Assignee First Name</th>
+                            <th>Vehicle Category</th>
+                            <th>Band Level</th>
+                            <th>Benefit Group</th>
+                            <th>Cost Center</th>
+                            <th>Group</th>
+                            <th>Division</th>
+                            <th>Department</th>
+                            <th>Section</th>
+                            <th>Is Id</th>
+                            <th>IS Name</th>
+                            <!-- <th>IS First Name</th> -->
+                            <th>Location</th>
+                            <th>Original OR Date</th>
+                            <th>Acq Date</th>
+                            <th>Acq Cost</th>
+                            <th>Asset Number</th>
+                            <th>Equipment Number</th>
+                            <th>PO Number</th>
+                            <th>Plate Number Release Date</th>
+                            <th>Employee ID</th>
+                           
+                        </tr>
+                        
+                    </thead>
+                    <tbody>
+                        {% for object in bayan_list %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'vehicle_details' object.id %}"><u>{{ object.Activity_Id }}</u></a></td>
+                            <td>{{ object.NO }}</td>
+                            <td>{{ object.PLATE_NO }}</td>
+                            <td>{{ object.CS_NO }}</td>
+                            <td>{{ object.CR_NAME }}</td>
+                            <td>{{ object.PLATE_ENDING }}</td>
+                            <td>{{ object.REGISTRATION_MONTH }}</td>
+                            <td>{{ object.MODEL }}</td>
+                            <td>{{ object.BRAND }}</td>
+                            <td>{{ object.VEHICLE_MAKE }}</td>
+                            <td>{{ object.ENGINE_NO }}</td>
+                            <td>{{ object.CHASSIS_NO }}</td>
+                            <td>{{ object.MV_FILE_NO }}</td>
+                            <td>{{ object.VEHICLE_TYPE }}</td>
+                            <td>{{ object.ASSIGNEE_LAST_NAME }}</td>
+                            <td>{{ object.ASSIGNEE_FIRST_NAME }}</td>
+                            <td>{{ object.VEHICLE_CATEGORY }}</td>
+                            <td>{{ object.BAND_LEVEL }}</td>
+                            <td>{{ object.BENEFIT_GROUP }}</td>
+                            <td>{{ object.COST_CENTER }}</td>
+                            <td>{{ object.GROUP }}</td>
+                            <td>{{ object.DIVISION }}</td>
+                            <td>{{ object.DEPARTMENT }}</td>
+                            <td>{{ object.SECTION }}</td>
+                            <td>{{ object.IS_ID }}</td>
+                            <td>{{ object.IS_NAME }}</td>
+                            <!-- <td>{{ object.IS_FIRST_NAME }}</td> -->
+                            <td>{{ object.LOCATION }}</td>
+                            <td>{{ object.ORIGINAL_OR_DATE }}</td>
+                            <td>{{ object.ACQ_DATE }}</td>
+                            <td>{{ object.ACQ_COST }}</td>
+                            <td>{{ object.ASSET_NO }}</td>
+                            <td>{{ object.EQUIPMENT_NO }}</td>
+                            <td>{{ object.PO_NO }}</td>
+                            <td>{{ object.PLATE_NUMBER_RELEASE_DATE }}</td>
+                            <td>{{ object.Employee }}</td>   
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+{% endblock %}

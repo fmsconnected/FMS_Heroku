@@ -6,7 +6,8 @@ from django.urls import reverse_lazy
 from .models import (
    	expense_voucher,
 )
-from masterlist.models import EmployeeMasterlist,VehicleMasterList
+from masterlist.models import EmployeeMasterlist
+from vehicle_masterlist.models import VehicleMasterList
 from . forms import (
     voucherform,
 )

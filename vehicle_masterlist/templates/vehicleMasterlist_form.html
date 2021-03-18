@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3><b>Vehicle MasterList</b></h3>&nbsp;
+    </div>
+
+<form method="POST">
+{% csrf_token %}
+    {{ form.PLATE_ENDING }}
+    <div class="col-sm-4">
+        <label>Plate Number</label>{{ form.PLATE_NO }}
+    </div>
+    <div class="col-sm-4">
+        <label>Conduction Sticker Number</label>{{ form.CS_NO }}
+    </div>
+    <div class="col-sm-4">
+        <label>CR Name</label>{{ form.CR_NAME }}
+    </div>
+
+    <div class="col-sm-4">
+        <label>Model</label>{{ form.MODEL }}
+    </div>
+    <div class="col-sm-4">
+        <label>Brand</label>{{ form.BRAND }}
+    </div>
+    <div class="col-sm-4">
+        <label>Vehicle Make</label>{{ form.VEHICLE_MAKE }}
+    </div>
+    <div class="col-sm-4">
+        <label>Engine Number</label>{{ form.ENGINE_NO }}
+    </div>
+    <div class="col-sm-4">
+        <label>Chassis Number</label>{{ form.CHASSIS_NO }}
+    </div>
+    <div class="col-sm-4">
+        <label>MV File Number</label>{{ form.MV_FILE_NO }}
+    </div>
+    <div class="col-sm-4">
+        <label>Vehicle Type</label>{{ form.VEHICLE_TYPE }}
+    </div>
+    <div class="col-sm-4">
+        <label>Vehicle Category</label>{{ form.VEHICLE_CATEGORY }}
+    </div>
+    <div class="col-sm-4">
+        <label>Employee Id</label>{{ form.Employee }}
+    </div>
+    <div class="col-sm-4">
+        <label>Band Level</label>{{ form.BAND_LEVEL }}
+    </div>
+    <div class="col-sm-4">
+        <label>Band Benefit</label>{{ form.BENEFIT_GROUP }}
+    </div>
+    <div class="col-sm-4">
+        <label>Cost Center</label>{{ form.COST_CENTER }}
+    </div>
+    <div class="col-sm-4">
+        <label>Group</label>{{ form.GROUP }}
+    </div>
+    <div class="col-sm-4">
+        <label>Division</label>{{ form.DIVISION }}
+    </div>
+    <div class="col-sm-4">
+        <label>Department</label>{{ form.DEPARTMENT }}
+    </div>
+    <div class="col-sm-4">
+        <label>Section</label>{{ form.SECTION }}
+    </div>
+    <div class="col-sm-4">
+        <label>IS (Employee ID)</label>{{ form.IS_ID }}
+    </div>
+    <div class="col-sm-4">
+        <label>IS (Firstname)</label>{{ form.IS_NAME }}
+    </div>
+    <!-- <div class="col-sm-4">
+        <label>IS (Lastname)</label>{{ form.IS_LAST_NAME }}
+    </div> -->
+    <div class="col-sm-4">
+        <label>Location</label>{{ form.LOCATION }}
+    </div>
+    <div class="col-sm-4">
+        <label>Aquisition_date</label>{{ form.ACQ_DATE }}
+    </div>
+    <div class="col-sm-4">
+        <label>Aquisition Cost</label>{{ form.ACQ_COST }}
+    </div>
+    <div class="col-sm-4">
+        <label>Asset No</label>{{ form.ASSET_NO }}
+    </div>
+    <div class="col-sm-4">
+        <label>PO No</label>{{ form.PO_NO }}
+    </div>
+    <div class="col-sm-4">
+        <label>SAP PR Number</label>{{ form.SAP_PR }}
+    </div>
+    <div class="col-sm-4">
+        <label>Vehicle IVN Number</label>{{ form.Vehicle_IVN_no }}
+    </div>
+    <div class="col-sm-4">
+        <label>Unit MATDOC</label>{{ form.Unit_MATDOC }}
+    </div>
+    <div class="col-sm-4">
+        <label>Equipment Number</label>{{ form.EQUIPMENT_NO }}
+    </div>
+    <div class="col-sm-4">
+        <label>Dealership</label>{{ form.dealer }}
+    </div> 
+    <div class="col-sm-4">
+        <label>Dealer Name</label>{{ form.dealer_name }}
+    </div>
+    <div class="col-sm-4">
+        <label>Plate Release Date</label>{{ form.PLATE_NUMBER_RELEASE_DATE }}
+    </div> 
+    <div class="col-sm-4">
+        <label>Remarks</label>{{ form.Remarks }}
+    </div>
+    <div class="col-sm-4">
+        <label>Email Status</label>{{ form.Status }}
+    </div>
+    <div class="col-sm-4">
+        <label>Latest Remark's</label>{{ form.leasing_remark }}
+    </div>
+    <div class="col-sm-4">
+        <label>Vehicle Status</label>{{ form.vehicle_status }}
+    </div>
+</div>
+    <div class="card-footer">
+        <button type="submit" class="buttonsubmit">PROCEED</a></button>
+        <button class="button" type="reset" value="Reset">CLEAR ALL</button>
+       <a href="{% url 'vehicle-list' %}" class="btn">CLOSE</a>
+    </div>
+
+</form>
+{% endblock %}

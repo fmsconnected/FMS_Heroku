@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+</style>
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3><b>Leasing MasterList Active</b></h3>
+    </div>
+</div>
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'leasing_list' %}">All Unit</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_leasing_solved' %}">Sold</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_leasing_trans' %}">Transferred</a>
+    </li>
+    
+</ul>
+<div class="content mt-3" >
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'leasing_active_export' %}"> <u>Export </u></a>
+                    <a href="{% url 'leasing_new' %}" style="float:right"><u>Add Leasing</u></a>
+                    <a href="{% url 'leasing_history' %}" style="float:right" class="mr-3"><u>Leasing History</u></a>
+                </div>
+                    <table id="example" class="display nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity Id</th>
+                            <th>Plate No</th>
+                            <th>Cs No</th>
+                            <th>Company</th>
+                            <th>Model</th>
+                            <th>Brand</th>
+                            <th>Vehicle Make</th>
+                            <th>Vehicle Type</th>
+                            <th>Last Name (ASSIGNEE)</th>
+                            <th>First Name (ASSIGNEE)</th>
+                            <th>Vehicle Catergory</th>
+                            <th>Cost Center</th>
+                            <th>ID No</th>
+                            <th>Band</th>
+                            <th>Group</th>
+                            <th>Division</th>
+                            <th>Department</th>
+                            <th>Section</th>
+                            <th>IS (EMPLOYEE ID)</th>
+                            <th>IS (LASTNAME)</th>
+                            <th>IS (FIRSTNAME)</th>
+                            <th>Location</th>
+                            <th>Are</th>
+                            <th>Acquisition date</th>
+                            <th>Remarks</th>
+                            <th>Acquisition cost</th>
+                            <th>Months 36</th>
+                            <th>Amount</th>
+                            <th>Date in</th>
+                            <th>Date out</th>
+                            <th>Months 24</th>
+                            <th>Amount/Vat EX</th>
+                            <th>Date in</th>
+                            <th>Date out</th>
+                            <th>Extension</th>
+                            <th>Amount</th>
+                            <th>Date in</th>
+                            <th>Date out</th>
+                            <th>Chasis no</th>
+                            <th>Engine no</th>
+                            <th>Contact No</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead><tbody>
+                        {% for object in leasing_list_active %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'leasing_details' object.id %}"><u>{{ object.Activity_Id }}</u></a></td>
+                            <td>{{ object.PLATE_NUMBER }}</td>
+                            <td>{{ object.CS_NO }}</td>
+                            <td>{{ object.COMPANY }}</td>
+                            <td>{{ object.MODEL }}</td>
+                            <td>{{ object.BRAND }}</td>
+                            <td>{{ object.VEHICLE_MAKE }}</td>
+                            <td>{{ object.VEHICLE_TYPE }}</td>
+                            <td>{{ object.LAST_NAME_ASSIGNEE }}</td>
+                            <td>{{ object.FIRST_NAME_ASSIGNEE }}</td>
+                            <td>{{ object.VEHICLE_CATEGORY }}</td>
+                            <td>{{ object.COST_CENTER }}</td>
+                            <td>{{ object.ID_NUMBER }}</td>
+                            <td>{{ object.BAND }}</td>
+                            <td>{{ object.GROUP }}</td>
+                            <td>{{ object.DIVISION }}</td>
+                            <td>{{ object.DEPARTMENT }}</td>
+                            <td>{{ object.SECTION }}</td>
+                            <td>{{ object.IS_EMPLOYEE_ID }}</td>
+                            <td>{{ object.IS_LASTNAME }}</td>
+                            <td>{{ object.IS_FIRSTNAME }}</td>
+                            <td>{{ object.LOCATION }}</td>
+                            <td>{{ object.AREA }}</td>
+                            <td>{{ object.ACQUISITION_DATE }}</td>
+                            <td>{{ object.remarks }}</td>
+                            <td>{{ object.acquisition_cost }}</td>
+                            <td>{{ object.months_36 }}</td>
+                            <td>{{ object.amount1 }}</td>
+                            <td>{{ object.date_in_1 }}</td>
+                            <td>{{ object.date_out_1 }}</td>
+                            <td>{{ object.months_24 }}</td>
+                            <td>{{ object.amount_Vat_EX }}</td>
+                            <td>{{ object.date_in_2 }}</td>
+                            <td>{{ object.date_out_2 }}</td>
+                            <td>{{ object.extension }}</td> 
+                            <td>{{ object.amount2 }}</td>
+                            <td>{{ object.date_in_3 }}</td>
+                            <td>{{ object.date_out_3 }}</td>
+                            <td>{{ object.chasis_no }}</td>
+                            <td>{{ object.engine_no }}</td>
+                            <td>{{ object.CONTRACT_NUMBER }}</td>
+                            <td>{{ object.vleasing_status }}</td>    
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

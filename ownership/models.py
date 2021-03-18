@@ -2,7 +2,7 @@ from django.db import models
 import datetime
 from datetime import date,timedelta
 from django.urls import reverse
-from masterlist.models import VehicleMasterList
+from vehicle_masterlist.models import VehicleMasterList
 # History
 from simple_history.models import HistoricalRecords
 

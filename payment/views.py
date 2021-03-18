@@ -11,7 +11,9 @@ from .models import (
     Fuel_supplier,
     Vehicle_Repair_payment,
 )
-from masterlist.models import EmployeeMasterlist,VehicleMasterList
+from masterlist.models import EmployeeMasterlist
+from vehicle_masterlist.models import VehicleMasterList
+
 from django.views.generic import (
      DetailView,
      ListView,

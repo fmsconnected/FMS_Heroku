@@ -41,6 +41,9 @@
                             <th>IS ID</th>
                             <th>IS Full Name</th>
                             <th>Area</th>
+                            <th>Band_level</th>
+                            <th>Business_Title</th>
+                            <th>Email</th>
                             <th>Benefit</th>
                             <th></th>
                         </tr>
@@ -68,6 +71,9 @@
                             <td>{{ emp.IS_ID }}</td>
                             <td>{{ emp.IS_lastname }} {{ emp.IS_firstname }}</td>
                             <td>{{ emp.Area }}</td>
+                            <td>{{ emp.Band_level}}</td>
+                            <td>{{ emp.Business_Title}}</td>
+                            <td>{{ emp.Email}}</td>
                             <td>{{ emp.Benefit }}</td>
                             <form action="{% url 'employeeMasterlist_delete' emp.id %}" method="POST">
                                 {% csrf_token %}

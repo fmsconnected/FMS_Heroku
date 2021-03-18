@@ -3,7 +3,6 @@ from .models import (
     Leasing
     )
 
-
 class leasingSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
 

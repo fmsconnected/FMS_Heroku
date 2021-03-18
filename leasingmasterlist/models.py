@@ -6,7 +6,6 @@ from datetime import date
 # History
 from simple_history.models import HistoricalRecords
 
-
 def increment_Activity_Id():
 		last_in = Leasing.objects.all().order_by('id').last()
 		if not last_in:
@@ -58,7 +57,11 @@ class Leasing(models.Model):
 			('Volvo','Volvo'),
 			('Saturn','Saturn'),
             )
-
+	vstatus = (
+			('Sold', 'Sold'),
+			('Transferred', 'Transferred'),
+			('Active', 'Active'),
+		)
 	Activity_Id  = models.CharField(max_length=100,null=True, default=increment_Activity_Id)
 	PLATE_NUMBER = models.CharField(max_length=100, null=True, blank=True)
 	CS_NO= models.CharField(max_length=100, null=True, blank=True)
@@ -100,6 +103,7 @@ class Leasing(models.Model):
 	chasis_no= models.CharField(max_length=100, null=True, blank=True)
 	engine_no= models.CharField(max_length=100, null=True, blank=True)
 	CONTRACT_NUMBER= models.CharField(max_length=20, null=True, blank=True)
+	vleasing_status = models.CharField(max_length=100, null=True, blank=True, choices=vstatus)
 	history = HistoricalRecords()
 	
 	def __str__(self):
@@ -107,7 +111,5 @@ class Leasing(models.Model):
 				
 	def get_absolute_url(self):
 		return reverse('leasing_list')
-
-
 
 

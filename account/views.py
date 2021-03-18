@@ -29,11 +29,13 @@ from ownership.models import (
     Billing
 )
 from masterlist.models import (
-    EmployeeMasterlist,
-    VehicleMasterList,
-    Leasing
+    EmployeeMasterlist
 )
+from vehicle_masterlist.models import VehicleMasterList
 
+from leasingmasterlist.models import (
+    Leasing
+    )
 from CustomerLog.models import (
     CS_log
 )

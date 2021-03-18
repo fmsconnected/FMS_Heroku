@@ -22,18 +22,19 @@ tr:nth-child(even){background-color: #f2f2f2}
     </div>
 </div>
 <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'vehicle-list' %}">All Units</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'vehicle_bayantel' %}">Bayan</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'vehicle_teli' %}">TelicPhil</a>
-  </li>
     <li class="nav-item">
-    <a class="nav-link active" href="#">Leasing</a>
-  </li>
+        <a class="nav-link active" href="#">All Unit</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_leasing_active' %}">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_leasing_solved' %}">Sold</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_leasing_trans' %}">Transferred</a>
+    </li>
+    
 </ul>
 <div class="content mt-3" >
     <div class="animated fadeIn">
@@ -41,11 +42,11 @@ tr:nth-child(even){background-color: #f2f2f2}
             <div class="col-md-12">
                 <div class="card">
                 <div class="card-header">
-                    <a href="{% url 'leasing_export' %}"> <u> Leasing </u></a>
+                    <a href="{% url 'leasing_export' %}"> <u>Export Leasing </u></a>
                     <a href="{% url 'leasing_new' %}" style="float:right"><u>Add Leasing</u></a>
                     <a href="{% url 'leasing_history' %}" style="float:right" class="mr-3"><u>Leasing History</u></a>
                 </div>
-                    <table id="vtable" class="table table-striped table-bordered" style="width:100%" data-server-side="false" data-ajax="/api/leasingmasterlist/?format=datatables">
+                    <table id="vtable" class="table table-striped table-bordered" style="width:100%" data-server-side="false" data-ajax="/api/Leasing_Masterlist/?format=datatables">
                     <thead>
                         <tr>
                             <th>Activity Id</th>
@@ -89,6 +90,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                             <th>Chasis no</th>
                             <th>Engine no</th>
                             <th>Contact No</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     </table>
@@ -106,10 +108,13 @@ tr:nth-child(even){background-color: #f2f2f2}
 $(document).ready(function() {
     var table = $('#vtable').DataTable({
         "serverSide": false,
-        "scrollX": true,
+        // "scrollX": true,
+        "scrollX": "100%",
+        "scrollY": "500px",
         "deferRender": true,
+        "scrollY": "500px",
         "ajax": {
-            "url": "/api/leasingmasterlist/?format=datatables",
+            "url": "/api/Leasing_Masterlist/?format=datatables",
             "type": "POST"
             },
         "columns": [
@@ -160,7 +165,8 @@ $(document).ready(function() {
                 {"data":"date_out_3"}, 
                 {"data":"chasis_no"}, 
                 {"data":"engine_no"}, 
-                {"data":"CONTRACT_NUMBER"}
+                {"data":"CONTRACT_NUMBER"},
+                {"data":"vleasing_status"}
 
         ]
     });

@@ -12,10 +12,10 @@ from .models import (
 		Corrective,
 )
 from masterlist.models import (
-    EmployeeMasterlist,
-    VehicleMasterList,
-    Leasing
+    EmployeeMasterlist
     )
+from vehicle_masterlist.models import VehicleMasterList
+from leasingmasterlist.models import Leasing
 from django.views.generic import (
      DetailView,
      ListView,

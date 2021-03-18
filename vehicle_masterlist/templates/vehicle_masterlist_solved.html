@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3><b>Vehicle MasterList Sold</b></h3>
+    </div>
+</div>
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle-list' %}">All Units</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_bayantel' %}">Bayan</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_teli' %}">TelicPhil</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_masterlist_active' %}">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="#">Sold</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle_masterlist_trans' %}">Transferred</a>
+    </li>
+</ul>
+<div class="content mt-3" >
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'vehicle_excel_solved' %}"> <u>Export VehicleList Sold </u></a>
+                    <a href="{% url 'vehicle_new' %}" style="float:right"><u>Add Vehicle Masterlist</u></a>
+                    <a href="{% url 'vehicleMasterlist_history' %}" style="float:right" class="mr-3"><u>Vehicle Masterlist History</u></a>
+                </div>
+                    <div class="container-fluid">
+                    <table id="example" class="display nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity No</th>
+                            <th>NO</th>
+                            <th>Plate Number</th>
+                            <th>Conductions Sticker Number</th>
+                            <th>CR Name</th>
+                            <th>Plate Ending</th>
+                            <th>Registration Month</th>
+                            <th>Model</th>
+                            <th>Brand</th>
+                            <th>Vehicle Make</th>
+                            <th>Engine Number</th>
+                            <th>Chassis Number</th>
+                            <th>MV file Number</th>
+                            <th>Vehicle Type</th>
+                            <th>Employee ID</th>
+                            <th>Assignee Last Name</th>
+                            <th>Assignee First Name</th>
+                            <th>Vehicle Category</th>
+                            <th>Band Level</th>
+                            <th>Benefit Group</th>
+                            <th>Cost Center</th>
+                            <th>Group</th>
+                            <th>Division</th>
+                            <th>Department</th>
+                            <th>Section</th>
+                            <th>Is Id</th>
+                            <th>IS Name</th>
+                            <th>Location</th>
+                            <th>Original OR Date</th>
+                            <th>Acq Date</th>
+                            <th>Acq Cost</th>
+                            <th>Asset Number</th>
+                            <th>Equipment Number</th>
+                            <th>PO Number</th>
+                            <th>SAP PR</th>
+                            <th>Invoice Number</th>
+                            <th>Unit MATDOC</th>
+                            <th>Dealer</th>
+                            <th>Dealer Name</th>
+                            <th>Checked list by</th>
+                            <th>Plate Number Release Date</th>
+                            <th>Last Registration Date</th>
+                            <th>Smoke Emission Date</th>
+                            <th>COC Date</th>
+                            <th>Remarks</th>
+                            <th>Status</th>
+                            <th>Latest Remarks</th>
+                            <th>Vehicle Status</th>
+                        </tr>
+                    </thead>
+                    {% for Vmaster_active in vehicle_list_solved %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'vehicle_details' Vmaster_active.id %}"><u>{{ Vmaster_active.Activity_Id }}</u></a></td>
+                            <td>{{Vmaster_active.NO }}</td>
+                            <td>{{Vmaster_active.PLATE_NO }}</td>
+                            <td>{{Vmaster_active.CS_NO }}</td>
+                            <td>{{Vmaster_active.CR_NAME}}</td>
+                            <td>{{Vmaster_active.PLATE_ENDING}}</td>
+                            <td>{{Vmaster_active.REGISTRATION_MONTH}}</td>
+                            <td>{{Vmaster_active.MODEL}}</td>
+                            <td>{{Vmaster_active.BRAND}}</td>
+                            <td>{{Vmaster_active.VEHICLE_MAKE}}</td>
+                            <td>{{Vmaster_active.ENGINE_NO}}</td>
+                            <td>{{Vmaster_active.CHASSIS_NO}}</td>
+                            <td>{{Vmaster_active.MV_FILE_NO}}</td>
+                            <td>{{Vmaster_active.VEHICLE_TYPE}}</td>
+                            <td>{{Vmaster_active.Employee}}</td>
+                            <td>{{Vmaster_active.ASSIGNEE_LAST_NAME}}</td>
+                            <td>{{Vmaster_active.ASSIGNEE_FIRST_NAME}}</td>
+                            <td>{{Vmaster_active.VEHICLE_CATEGORY}}</td>
+                            <td>{{Vmaster_active.BAND_LEVEL}}</td>
+                            <td>{{Vmaster_active.BENEFIT_GROUP}}</td>
+                            <td>{{Vmaster_active.COST_CENTERr}}</td>
+                            <td>{{Vmaster_active.GROUP}}</td>
+                            <td>{{Vmaster_active.DIVISION}}</td>
+                            <td>{{Vmaster_active.DEPARTMENT}}</td>
+                            <td>{{Vmaster_active.SECTION}}</td>
+                            <td>{{Vmaster_active.IS_ID}}</td>
+                            <td>{{Vmaster_active.IS_NAME}}</td>
+                            <td>{{Vmaster_active.LOCATION}}</td>
+                            <td>{{Vmaster_active.ORIGINAL_OR_DATE}}</td>
+                            <td>{{Vmaster_active.ACQ_DATE}}</td>
+                            <td>{{Vmaster_active.ACQ_COST}}</td>
+                            <td>{{Vmaster_active.ASSET_NO}}</td>
+                            <td>{{Vmaster_active.EQUIPMENT_NO}}</td>
+                            <td>{{Vmaster_active.PO_NO}}</td>
+                            <td>{{Vmaster_active.SAP_PR}}</td>
+                            <td>{{Vmaster_active.Vehicle_IVN_no}}</td>
+                            <td>{{Vmaster_active.Unit_MATDOC}}</td>
+                            <td>{{Vmaster_active.dealer}}</td>
+                            <td>{{Vmaster_active.dealer_name}}</td>
+                            <td>{{Vmaster_active.CHECKLIST_BY}}</td>
+                            <td>{{Vmaster_active.PLATE_NUMBER_RELEASE_DATE}}</td>
+                            <td>{{Vmaster_active.Last_Registration_Date}}</td>
+                            <td>{{Vmaster_active.Smoke_Emission_Date}}</td>
+                            <td>{{Vmaster_active.COC_Date}}</td>
+                            <td>{{Vmaster_active.Remarks}}</td>
+                            <td>{{Vmaster_active.Status}}</td>
+                            <td>{{Vmaster_active.leasing_remark}}</td>
+                            <td>{{Vmaster_active.vehicle_status}}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

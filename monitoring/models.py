@@ -4,7 +4,8 @@ from django.utils import timezone
 import datetime
 from datetime import date
 from django.urls import reverse
-from masterlist.models import VehicleMasterList, EmployeeMasterlist
+from masterlist.models import EmployeeMasterlist
+from vehicle_masterlist.models import VehicleMasterList
 # History
 from simple_history.models import HistoricalRecords
 

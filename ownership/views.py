@@ -9,7 +9,8 @@ from .models import (
    	Ownership,
    	Billing
 )
-from masterlist.models import EmployeeMasterlist,VehicleMasterList
+from masterlist.models import EmployeeMasterlist
+from vehicle_masterlist.models import VehicleMasterList
 from . forms import (
     ownershipForm,
     billing_form,

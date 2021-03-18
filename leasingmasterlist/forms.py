@@ -4,6 +4,7 @@ from .models import (
       Leasing
       )
 
+
 class leasing_form(forms.ModelForm):
       def __init__(self, *args, **kwargs):
             super(leasing_form, self).__init__(*args, **kwargs)
@@ -25,6 +26,7 @@ class leasing_form(forms.ModelForm):
             self.fields['months_36'].required = False
             self.fields['months_24'].required = False
             self.fields['engine_no'].required = False
+            self.fields['vleasing_status'].required = False
             
       class Meta:
             model = Leasing
@@ -34,7 +36,7 @@ class leasing_form(forms.ModelForm):
                   'DEPARTMENT', 'SECTION', 'IS_EMPLOYEE_ID', 'IS_LASTNAME', 'IS_FIRSTNAME', 'LOCATION', 'AREA', 
                   'ACQUISITION_DATE', 'remarks', 'acquisition_cost', 'months_36', 'amount1', 'date_in_1', 'date_out_1', 
                   'months_24', 'amount_Vat_EX', 'date_in_2', 'date_out_2', 'extension', 'amount2', 'date_in_3', 'date_out_3', 
-                  'chasis_no', 'engine_no', 'CONTRACT_NUMBER'
+                  'chasis_no', 'engine_no', 'CONTRACT_NUMBER','vleasing_status'
             ]
 
             Vbrand= (
@@ -75,7 +77,11 @@ class leasing_form(forms.ModelForm):
                   ('Volvo','Volvo'),
                   ('Saturn','Saturn'),
             )
-
+            vstatus = (
+                  ('Sold', 'Sold'),
+                  ('Transferred', 'Transferred'),
+                  ('Active', 'Active'),
+            )
             widgets = {
       
                   'PLATE_NUMBER' : forms.TextInput(attrs={'class':'form-control'}),
@@ -118,5 +124,6 @@ class leasing_form(forms.ModelForm):
                   'chasis_no' : forms.TextInput(attrs={'class':'form-control'}),
                   'engine_no' : forms.TextInput(attrs={'class':'form-control'}),
                   'CONTRACT_NUMBER' : forms.TextInput(attrs={'class':'form-control'}),
+                  'vleasing_status': forms.Select(attrs={'class':'form-control','choices':'vstatus'}),
             }
 
