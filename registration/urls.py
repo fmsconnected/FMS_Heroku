@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-# from .views import HomeView
+from .views import HomeView
 
 urlpatterns = [
 	path('New', views.registration_new, name='registration_new'),
@@ -23,7 +23,7 @@ urlpatterns = [
 	path('Update/<int:pk>', views.regUpdate, name='reg_update'),
 	path('Summary/print/<int:pk>', views.registrationsPDFView.as_view(), name='registration_summary_print'),
 	path('Summary/', views.summary, name = 'summary'),
-	# path('Email', views.HomeView, name="home_view"),
+	path('Email', views.HomeView, name="home_view"),
 	# path('Reg/Month',views.emailfile, name="reg"),
 	path('Reg/Excel', views.registration_excel, name="reg_excel"),
 	]
