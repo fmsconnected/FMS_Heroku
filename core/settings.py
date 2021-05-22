@@ -16,7 +16,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['fmsjxmtsi.herokuapp.com']
-#ALLOWED_HOSTS = ['127.0.0.1']
 INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_datatables',
