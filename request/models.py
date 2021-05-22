@@ -407,31 +407,3 @@ class Vehicle_Repair(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('repair_list')
-		
-# class Vehicle_Repair_email(models.Model):
-# 	status = (
-# 			('Yes', 'Yes'),
-# 			('No', 'No'),
-# 		)
-
-# 	Plate_no = models.CharField(max_length=100, null=True, blank=True)
-# 	email = models.CharField(max_length=100,null=True,blank=True)
-# 	sent_email = models.CharField(max_length=10, null=True, blank=True,choices=status)
-# 	Deadline = models.DateTimeField()
-
-# 	def save(self, *args, **kwargs):
-# 		if self.Deadline is None:
-# 			now = datetime.datetime.today()
-# 			num_days = 0
-# 			while num_days < 30:
-# 				now = now + timedelta(days=1)
-# 				if now.isoweekday() not in [7]:
-# 					num_days+=1
-# 			self.Deadline = now
-# 		super().save(*args, **kwargs)
-
-# 	def __str__(self):
-# 		return self.email
-
-# 	def get_absolute_url(self):
-# 		return reverse('repair_list')
