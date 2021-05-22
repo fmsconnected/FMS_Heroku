@@ -44,14 +44,30 @@
       <th>Date Emailed</th><td>{{ object.DATE_EMAILED }}</td>
       <th>Justification Remarks </th> <td>{{ object.JUSTIFICATION_REMARKS }}</td>
     </tr>
+    <tr>
+      <th>Email Status</th><td>{{ object.sent_email }}</td>
+      <th>Email </th> <td>{{ object.email }}</td>
+    </tr>
 </table>
     <div class="card-footer">
-      <button class="buttonsubmit" style="width:150px;" data-toggle="modal" data-target="#updateModal">UPDATE</button>
+      <button class="buttonsubmit" style="width:150px;" data-toggle="modal" data-target="#updateModal">UPDATE</button>&nbsp;
+      <a data-toggle="modal" data-target="#printModal"  class="button" style="width:100px;">PRINT</a>&nbsp;
       <a href="{% url 'registration_jan_reg'%}" class="btn" style="color:white">CLOSE</a>
       
     </div>
 </div>
 </div>
+<!-- Print Modal--->
+<div class="modal fade" id="printModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:50%;" role="document" align="center">
+    <div class="modal-content">
+        <div class="col-lg-12">
+            <a href="{% url 'registration_summary_print' object.id %}" class="button" type="submit" style="width:70%;">Print Registration Daily Summary</a>
+        </div>
+    </div>
+    </div>
+</div>
+<!----Update---->
 <form method="POST" action="{% url 'reg_update' object.id %}">
 {% csrf_token %}
 <div class="modal fade bd-example-modal-lg" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
@@ -72,12 +88,7 @@
         </div>
         <div class="col-sm-4">
             <label>CR Name</label>
-            <select name="cr_name" class="form-control" value="{{object.CR_NAME}}">
-                <option value="">--------</option>
-                <option value="TELICPHIL">TELICPHIL</option>
-                <option value="GLOBE">GLOBE</option>
-                <option value="BAYANTEL">BAYANTEL</option>
-            </select>
+            <input type="text" name="cr_name" class="form-control" value="{{object.CR_NAME}}">
         </div>
         <div class="col-sm-4">
             <label>Model</label>
@@ -85,50 +96,7 @@
         </div>
         <div class="col-sm-4">
             <label>Brand</label>
-            <select name="brand" id="brand" class="form-control" value="{{object.BRAND}}">
-                <option value="">--------</option>
-                <option value="Honda">Honda</option>
-                <option value="Toyota">Toyota</option>
-                <option value="Mitsubishi">Mitsubishi</option>
-                <option value="Ford">Ford</option>
-                <option value="Masda">Masda</option>
-                <option value="Isuzu">Isuzu</option>
-                <option value="Hyundai">Hyundai</option>
-                <option value="Nissan">Nissan</option>
-                <option value="Suzuki">Suzuki</option>
-                <option value="Chevrolet">Chevrolet</option>
-                <option value="Jeep">Jeep</option>
-                <option value="Audi">Audi</option>
-                <option value="BMW">BMW</option>
-                <option value="Bently">Bently</option>
-                <option value="Cadillac">Cadillac</option>
-                <option value="Chrysler">Chrysler</option>
-                <option value="Dodge">Dodge</option>
-                <option value="GMC">GMC</option>
-                <option value="Genesis">Genesis</option>
-                <option value="Jaguar">Jaguar</option>
-                <option value="Land Rover">Land Rover</option>
-                <option value="Lexus">Lexus</option>
-                <option value="Lincoln">Lincoln</option>
-                <option value="Lotus">Lotus</option>
-                <option value="Maserati">Maserati</option>
-                <option value="Mercedes-Benz">Mercedes-Benz</option>
-                <option value="Mini">Mini</option>
-                <option value="Porsche">Porsche</option>
-                <option value="Ram">Ram</option>
-                <option value="Rolls-Royce">Rolls-Royce</option>
-                <option value="Saab">Saab</option>
-                <option value="Scion">Scion</option>
-                <option value="Subaru">Subaru</option>
-                <option value="Tesla">Tesla</option>
-                <option value="Volkswagen">Volkswagen</option>
-                <option value="Volvo">Volvo</option>
-                <option value="Saturn">Saturn</option>
-                <option value="Kia">Kia</option>
-                <option value="Geely">Geely</option>
-                <option value="MG">MG</option>
-                <option value="TRAILER">TRAILER</option>
-            </select>
+            <input type="text" name="brand" id="brand" class="form-control" value="{{object.BRAND}}">
         </div>
         <div class="col-sm-4">
             <label>Vehicle Make</label>
@@ -166,6 +134,15 @@
             <label>Remarks/Justification</label>
             <input name="remarks_justification" id="remarks_justification" class="form-control" value="{{object.JUSTIFICATION_REMARKS}}">
         </div>
+        <div class="col-sm-4">
+        <label>Email Status</label>
+        <input type="text" name="email_status" id="email_status" class="form-control" class="form-control" value="{{ object.sent_email}}" required>
+        </input>
+    </div>
+       <div class="col-sm-4">
+        <label>Email</label>
+        <input name="email" id="email" class="form-control" type="email" value="{{ object.email }}"required>
+    </div>
     </div>
     <div class="card-footer">
         <button type="submit" class="buttonsubmit">PROCEED</button>

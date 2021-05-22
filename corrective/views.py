@@ -174,7 +174,7 @@ def corrective_excel(request):
                 'Work Order 3' ,
                 'Date Work Created' ,
                 'Shop Vendor' ,
-                'Memo App Number'
+                'Memo App Number',
                 'Date Forwarded' ,
                 'Estimate No' ,
                 'Maintenance Amount' ,

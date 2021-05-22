@@ -38,7 +38,8 @@ from .serializers import (
 from .models import (
     CS_log
 )
-
+from request.models import Vehicle_Repair
+from registration.models import Registration
 
 def in_group(user):
     if user.groups.filter(name="CustomerLog").exists():
@@ -233,3 +234,13 @@ def customer_log_excel(request):
 
     workbook.save(response)
     return response
+
+def request_email_log(request):
+    email_log = Vehicle_Repair.objects.filter(sent_email="Yes")
+    return render (request, 'email_log/request_email_log.html',{'email_log':email_log})
+
+def registration_email_log(request):
+    email_log = Registration.objects.filter(sent_email="Yes")
+    return render (request, 'email_log/registration_email_log.html',{'email_log':email_log})
+
+

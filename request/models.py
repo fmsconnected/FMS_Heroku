@@ -335,6 +335,11 @@ class Vehicle_Repair(models.Model):
 		('Ser Roy Perluval Dela Cruz','Ser Roy Perluval Dela Cruz'),
 		('Adolfo Carlos Umali','Adolfo Carlos Umali'),
 	)
+	status = (
+			('Yes', 'Yes'),
+			('No', 'No'),
+		)
+	
 	Activity_id = models.CharField(max_length=100,null=True, default=increment_Activity_id)
 	request_date = models.DateField(auto_now=False, null=True)
 	employee = models.CharField(max_length=100, null=True, blank=True)
@@ -381,6 +386,8 @@ class Vehicle_Repair(models.Model):
 	VRR_SLA = models.CharField(max_length=10, null=True, blank=True)
 	email = models.CharField(max_length=100,null=True,blank=True)
 	date_initiated = models.DateField(auto_now=True, null=True, blank=True)
+	sent_email = models.CharField(max_length=10, null=True, blank=True,choices=status)
+	Date_email_log = models.CharField(max_length=20, null=True, blank=True)
 	history = HistoricalRecords()
 	Deadline = models.DateTimeField()
 
@@ -396,9 +403,35 @@ class Vehicle_Repair(models.Model):
 		super().save(*args, **kwargs)
 
 	def __str__(self):
-		return self.Activity_id
+		return self.plate_no
 
 	def get_absolute_url(self):
 		return reverse('repair_list')
+		
+# class Vehicle_Repair_email(models.Model):
+# 	status = (
+# 			('Yes', 'Yes'),
+# 			('No', 'No'),
+# 		)
 
+# 	Plate_no = models.CharField(max_length=100, null=True, blank=True)
+# 	email = models.CharField(max_length=100,null=True,blank=True)
+# 	sent_email = models.CharField(max_length=10, null=True, blank=True,choices=status)
+# 	Deadline = models.DateTimeField()
 
+# 	def save(self, *args, **kwargs):
+# 		if self.Deadline is None:
+# 			now = datetime.datetime.today()
+# 			num_days = 0
+# 			while num_days < 30:
+# 				now = now + timedelta(days=1)
+# 				if now.isoweekday() not in [7]:
+# 					num_days+=1
+# 			self.Deadline = now
+# 		super().save(*args, **kwargs)
+
+# 	def __str__(self):
+# 		return self.email
+
+# 	def get_absolute_url(self):
+# 		return reverse('repair_list')

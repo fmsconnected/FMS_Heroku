@@ -45,6 +45,7 @@ from corrective.models import (
 from CustomerLog.models import (
     CS_log
     )
+
 def index(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
@@ -83,21 +84,6 @@ def cclog_alert(request):
         'counted']
     print(ccAlert)
     return render(request, 'account/index.html', {'title': 'CC log alert - Alert', 'ccAlert': ccAlert})
-
-
-
-# class HomeView(View):
-#     def get(self, request, *args, **kwargs):
-#         return render(request, 'account/index.html')
-
-
-
-# def get_data(request, *args, **kwargs):
-#     data = {
-#         "sales": 100,
-#         "customers": 10,
-#     }
-#     return JsonResponse(data) # http response
 
 
 class ChartData(APIView):

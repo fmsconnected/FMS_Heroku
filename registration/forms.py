@@ -111,7 +111,7 @@ class Registration_form(forms.ModelForm):
                   'SMOKE_TPL': forms.TextInput(attrs={'class':'form-control'}),
                   'REMARKS_REGISTERED': forms.TextInput(attrs={'class':'form-control'}),
                   'DATE_EMAILED': forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
-                  'JUSTIFICATION_REMARKS' : forms.TextInput(attrs={'class':'form-control'}),
+                  'JUSTIFICATION_REMARKS' : forms.TextInput(attrs={'class':'form-control', 'maxlength':'223','placeholder':'Maximum limit: 223 characters'}),
                   'Registration_month' : forms.TextInput(attrs={'class':'form-control','hidden':'true'}),
             }     
 

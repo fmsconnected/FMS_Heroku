@@ -96,6 +96,7 @@ class Registration(models.Model):
 	Activity_Id  = models.CharField(max_length=100,null=True, default=increment_Activity_Id)
 	NO = models.CharField(max_length=100, null=True, default=increment_NO)
 	PLATE_NO = models.CharField(max_length=100, null=True, blank=True)
+	Plate_ending = models.CharField(max_length=10, null=True, blank=True)
 	CS_NO = models.CharField(max_length=100, null=True, blank=True)
 	CR_NAME = models.CharField(max_length=100, null=True, blank=True)
 	MODEL = models.CharField(max_length=10, null=True, blank=True)
@@ -110,6 +111,9 @@ class Registration(models.Model):
 	DATE_EMAILED = models.CharField(max_length=225, null=True, blank=True)
 	JUSTIFICATION_REMARKS = models.CharField(max_length=225, null=True, blank=True)
 	Registration_month = models.CharField(max_length=10, null=True, blank=True)
+	# email = models.CharField(max_length=100, null=True, blank=True)
+	sent_email = models.CharField(max_length=10, null=True, blank=True,choices=status)
+	# Date_email_log = models.CharField(max_length=20, null=True, blank=True)
 	history = HistoricalRecords()
 
 	def __str__(self):
@@ -119,5 +123,14 @@ class Registration(models.Model):
 		return reverse('Registration/January')
 
 
+#### Email test table ####
+class CarRegistration(models.Model):
+    car = models.CharField(max_length=30)
+    month = models.CharField(max_length=10)
+    status = models.CharField(max_length=10)
+    sent_email = models.CharField(max_length=10)
+    def __str__(self):
+    	return self.car
+				
 
 		

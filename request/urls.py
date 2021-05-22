@@ -38,6 +38,7 @@ urlpatterns = [
 	path('Repair/Update/<int:pk>', views.repairUpdateView.as_view(), name='repair_update'),
 	path('Repair/Delete/<int:pk>', views.repairDeleteView.as_view(), name='repair_delete'),
 	path('Repair/History/', views.repairHistoryView, name='repair_history'),
-	path('Repair.Export', views.repair_request_excel, name='repair_export')
+	path('Repair.Export', views.repair_request_excel, name='repair_export'),
+	path('PMSEmail', views.request_cron_email, name="request_email"),
 
 	]

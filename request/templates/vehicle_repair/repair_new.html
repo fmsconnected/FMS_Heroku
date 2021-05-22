@@ -74,7 +74,15 @@ function vrepair(repair) {
         </div>
         <div class="col-sm-6">
             <label>Email</label>
-            <input type="email" name="email" id="email" class="form-control">
+            <input type="email" name="email" id="email" class="form-control" required>
+        </div>
+        <div class="col-sm-6">
+            <label>Email Reminder Status</label>
+            <select type="text" name="email_status" id="email_status" class="form-control" required>
+                <option value="" disabled selected> Please select No if you want to Received Automated Email.</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
         </div>
     <br><br>
     </fieldset>
@@ -84,7 +92,7 @@ function vrepair(repair) {
         
         <div class="col-sm-6">
             <label>Plate Number</label>
-            <input name="plate_no" id="plate_no" list="v_list" class="form-control">
+            <input name="plate_no" id="plate_no" list="v_list" class="form-control" required>
             <datalist id="v_list">               
             {% for vehiclelist in vlist %}
               <option data-value="{{ vehiclelist.PLATE_NO }} | {{ vehiclelist.BRAND }} | {{ vehiclelist.ENGINE_NO }} | {{ vehiclelist.MODEL }} | {{ vehiclelist.VEHICLE_MAKE }} | {{ vehiclelist.CHASSIS_NO }} | {{ vehiclelist.BAND_LEVEL }} | {{ vehiclelist.CS_NO }} | {{ vehiclelist.EQUIPMENT_NO }}" value="{{ vehiclelist.PLATE_NO }}">

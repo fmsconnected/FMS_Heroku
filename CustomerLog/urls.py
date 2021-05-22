@@ -20,5 +20,7 @@ urlpatterns = [
     path('Delete/<int:pk>', CSDeleteView.as_view(), name='CS_delete'),
     path('Import', views.customer_log_excel, name="cs_import"),
     path('Deadline', views.CS_deadline, name="cs_deadline"),
-    path('Pending', views.CSpending, name="CS_pending")
+    path('Pending', views.CSpending, name="CS_pending"),
+    path('Request/email/log', views.request_email_log, name="request_email_log"),
+    path('Registration/email/log', views.registration_email_log, name="registration_email_log")
 ]

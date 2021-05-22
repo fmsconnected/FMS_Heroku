@@ -1,6 +1,11 @@
 from django.views import generic
-# from django.core.mail import send_mail
-# from django.http import HttpResponse
+from django.core.mail import get_connection,send_mail
+from django.core import mail
+from django.conf import settings
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.template import Context
 from django.shortcuts import render,HttpResponseRedirect, get_list_or_404,HttpResponse
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
@@ -12,7 +17,7 @@ from .models import (
 		CarRentalRequest,
         Gas_card,
         service_vehicle,
-        Vehicle_Repair,
+        Vehicle_Repair
 )
 from masterlist.models import (
     EmployeeMasterlist,
@@ -49,11 +54,6 @@ from bootstrap_modal_forms.generic import (
                      ######################################
 
 
-###Email sender###
-
-# def vehicleEmail(request,emailto):
-#    res = send_mail("hello paul", "comment tu vas?", "paul@polo.com", [emailto])
-#    return HttpResponse('%s'%res)
 
 
 def requestCreate(request):
@@ -772,6 +772,7 @@ def repairsubmit(request):
         approved_by = request.POST.get('approved_by')
         kilo_reading = request.POST.get('kilo_reading')
         email = request.POST.get('email')
+        email_status = request.POST.get('email_status')
         vrr_sla = request.POST.get('vrr_sla')
 
         saveto_repair = Vehicle_Repair(request_date=request_date, employee=emp_id, cost_center=cost_center, first_name=fname,
@@ -783,7 +784,7 @@ def repairsubmit(request):
             work_order1=work_order1, work_order2=work_order2, work_order3=work_order3, datework_created=date_work_created,
             Shop_vendor=repair_shop, date_forwarded=date_forward, estimate_no=estimate_no, maintenance_amount=maintenance_amount,
             less_discount=less_discount, estimate_remarks=estimate_remark, estimate_attached=estimate_attach, approvedby=approved_by,
-            meter_reading=kilo_reading, VRR_SLA=vrr_sla, memo_app=memo_app,email=email
+            meter_reading=kilo_reading, VRR_SLA=vrr_sla, memo_app=memo_app,email=email,sent_email=email_status
     )
         saveto_repair.save()
 
@@ -831,11 +832,11 @@ def repair_request_excel(request):
     response = HttpResponse(
         content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
     )
-    response['Content-Disposition'] = 'attachment; filename=Vehicle Repair Request.xlsx'
+    response['Content-Disposition'] = 'attachment; filename=Preventive Maintenance.xlsx'
     workbook = Workbook()
 
     worksheet = workbook.active
-    worksheet.title = 'Vehicle Repair Request'
+    worksheet.title = 'Preventive Maintenance'
 
     columns = [
                 'Request Date' ,
@@ -871,7 +872,7 @@ def repair_request_excel(request):
                 'Work Order 3' ,
                 'Date Work Created' ,
                 'Shop Vendor' ,
-                'Memo App Number'
+                'Memo App Number',
                 'Date Forwarded' ,
                 'Estimate No' ,
                 'Maintenance Amount' ,
@@ -881,7 +882,10 @@ def repair_request_excel(request):
                 'Approved By' ,
                 'Meter Reading' ,
                 'SLA' ,
+                'Email',
                 'Date Initiated' ,
+                'Sent email',
+                'Date email log',
                 'Deadline',
 
     ]
@@ -897,8 +901,8 @@ def repair_request_excel(request):
                 repair.request_date,
                 repair.employee ,
                 repair.cost_center ,
-                repair.first_name ,
-                repair.last_name ,
+                repair.first_name,
+                repair.last_name,
                 repair.contact_no ,
                 repair.company ,
                 repair.department ,
@@ -937,8 +941,11 @@ def repair_request_excel(request):
                 repair.approvedby ,
                 repair.meter_reading ,
                 repair.VRR_SLA ,
+                repair.email ,
                 repair.date_initiated ,
-                repair.Deadline,
+                repair.sent_email,
+                repair.Date_email_log ,
+                repair.Deadline ,
         ]
         
         for col_num, cell_value in enumerate(row, 1):
@@ -947,4 +954,34 @@ def repair_request_excel(request):
 
     workbook.save(response)
     return response
+
+#sending pms email
+
+class request_cron_email():
+    date_now = datetime.datetime.now().date()
+    sent_status = Vehicle_Repair.objects.all(),
+    car_status = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today(), sent_email="No")
+
+    plate = ""
+    for carreg in car_status:
+            # print(carreg.plate_no)
+            plate = carreg.plate_no
+            print(plate)
+
+    if plate != "":
+        for item in car_status:
+            subject = 'Fleet Management System Automated Email'
+            html_message = render_to_string('vehicle_repair/pms_email.html',{'content':item.plate_no})
+            plain_message = item.plate_no
+            recipient_list = [item.email]
+            from_email = 'Fleet Management System <jxmtsi.fms@gmail.com>'
+            mail.send_mail(subject, plain_message, from_email, recipient_list, html_message=html_message, fail_silently=False)
+            car_status.update(sent_email="Yes")
+            car_status.update(Date_email_log= date_now)
+
+    model = Vehicle_Repair
+    context_object_name = 'repair_list'
+    template_name = 'vehicle_repair/repair_list.html'
+
+
 

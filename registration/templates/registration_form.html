@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
 <div class="col-md-12">
     <div class="card">
     <div class="card-header">
@@ -104,7 +103,7 @@
     </div>
     <div class="col-sm-4">
         <label>Remarks/Registered</label>
-        <input name="remarks_registered" id="remarks_registered" class="form-control">
+        <input name="remarks_registered" id="remarks_registered" class="form-control" maxlength="223" placeholder="Maximum limit: 223 characters">
     </div>
     <div class="col-sm-4">
         <label>Date Emailed</label>
@@ -112,13 +111,25 @@
     </div>
     <div class="col-sm-4">
         <label>Remarks/Justification</label>
-        <input name="remarks_justification" id="remarks_justification" class="form-control">
+        <input name="remarks_justification" id="remarks_justification" class="form-control" maxlength="223" placeholder="Maximum limit: 223 characters">
+    </div>
+    <div class="col-sm-4">
+        <label>Email Status</label>
+        <select name="email_status" id="email_status" class="form-control" class="form-control" required>
+            <option></option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+    </div>
+       <div class="col-sm-4">
+        <label>Email</label>
+        <input name="email" id="email" class="form-control" type="email" required>
     </div>
 </div>
     <div class="card-footer">
         <button type="submit" class="buttonsubmit">PROCEED</button>
         <button type="Reset" class="button">CLEAR ALL</button>
-        <a href="{% url 'vehicle-list' %}" class="btn">CLOSE</a>
+        <a href="{% url 'registration_jan_reg' %}" class="btn">CLOSE</a>
     </div>
 
 </form>
