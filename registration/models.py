@@ -96,7 +96,6 @@ class Registration(models.Model):
 	Activity_Id  = models.CharField(max_length=100,null=True, default=increment_Activity_Id)
 	NO = models.CharField(max_length=100, null=True, default=increment_NO)
 	PLATE_NO = models.CharField(max_length=100, null=True, blank=True)
-	Plate_ending = models.CharField(max_length=10, null=True, blank=True)
 	CS_NO = models.CharField(max_length=100, null=True, blank=True)
 	CR_NAME = models.CharField(max_length=100, null=True, blank=True)
 	MODEL = models.CharField(max_length=10, null=True, blank=True)
