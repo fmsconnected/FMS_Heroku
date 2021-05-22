@@ -18,12 +18,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='historicalvehicle_repair',
             name='email',
-            field=models.CharField(blank=True, max_length=20, null=True),
+            field=models.CharField(blank=True, max_length=100, null=True),
         ),
         migrations.AddField(
             model_name='vehicle_repair',
             name='email',
-            field=models.CharField(blank=True, max_length=20, null=True),
+            field=models.CharField(blank=True, max_length=100, null=True),
         ),
         migrations.AddField(
             model_name='vehicle_repair',
