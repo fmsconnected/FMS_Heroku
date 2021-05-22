@@ -111,10 +111,8 @@ class Registration(models.Model):
 	DATE_EMAILED = models.CharField(max_length=225, null=True, blank=True)
 	JUSTIFICATION_REMARKS = models.CharField(max_length=225, null=True, blank=True)
 	Registration_month = models.CharField(max_length=10, null=True, blank=True)
-	# email = models.CharField(max_length=100, null=True, blank=True)
-	# sent_email = models.CharField(max_length=10, null=True, blank=True,choices=status)
-	# Date_email_log = models.CharField(max_length=20, null=True, blank=True)
-	# history = HistoricalRecords()
+	sent_email = models.CharField(max_length=10, null=True, blank=True,choices=status)
+	history = HistoricalRecords()
 
 	def __str__(self):
 		return self.PLATE_NO
