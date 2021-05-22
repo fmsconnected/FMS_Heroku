@@ -118,7 +118,6 @@ def registrationCreate(request):
         REMARKS_REGISTERED = request.POST.get('remarks_registered')
         DATE_EMAILED = request.POST.get('demail')
         JUSTIFICATION_REMARKS = request.POST.get('remarks_justification')
-        email_status = request.POST.get('email_status')
 
         reg = ''
         endplate = ''
@@ -148,7 +147,7 @@ def registrationCreate(request):
         saveto_end = Registration(PLATE_NO=PLATE_NO, CS_NO=CS_NO, CR_NAME=CR_NAME, MODEL=MODEL,BRAND=BRAND,
             VEHICLE_MAKE=VEHICLE_MAKE, ENGINE_NO=ENGINE_NO, CHASSIS_NO=CHASSIS_NO, MV_FILE_NO=MV_FILE_NO,
             COC=COC, SMOKE_TPL=SMOKE_TPL, REMARKS_REGISTERED=REMARKS_REGISTERED, DATE_EMAILED=DATE_EMAILED,
-            JUSTIFICATION_REMARKS=JUSTIFICATION_REMARKS, Registration_month = reg, sent_email=email_status
+            JUSTIFICATION_REMARKS=JUSTIFICATION_REMARKS, Registration_month = reg
             )
         saveto_end.save()
 
@@ -298,7 +297,6 @@ def registration_excel(request):
         'DATE EMAILED' ,
         'JUSTIFICATION REMARKS' ,
         'Registration month' ,
-        'Sent email' 
     ]
     row_num = 1
 
@@ -324,7 +322,6 @@ def registration_excel(request):
                 car.DATE_EMAILED ,
                 car.JUSTIFICATION_REMARKS ,
                 car.Registration_month ,
-                car.sent_email 
         ]
         
         for col_num, cell_value in enumerate(row, 1):
