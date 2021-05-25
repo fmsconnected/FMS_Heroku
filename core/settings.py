@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django_celery_results',
     'django_celery_beat',
     'django_crontab',
+    'schedule',
     'mailer',
     'crispy_forms',
     'mathfilters',
@@ -53,7 +54,6 @@ INSTALLED_APPS = [
     'vehicle_masterlist.apps.VehicleMasterlistConfig',
 
 ]
-CELERY_RESULT_BACKEND = "django-db"
 # AUTHENTICATION_BACKENDS = (
 #     'django_python3_ldap.auth.LDAPBackend',
 #     'django.contrib.auth.backends.ModelBackend',

@@ -480,8 +480,9 @@ def car_excel(request):
                 car.M_cost,
                 car.O_expenses,
                 car.T_expenses,
-                car.sqa_number,
                 car.car_provider,
+                sqa_number,
+                car.sqa_number,
                 car.rfp_no2,
         ]
         
