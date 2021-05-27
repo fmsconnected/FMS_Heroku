@@ -11,7 +11,7 @@ from django.core import mail
 import datetime
 from datetime import date, timedelta
 
-from .request import models
+from request.models import Vehicle_Repair
 
 class request_cron_email():
     print("mart test")

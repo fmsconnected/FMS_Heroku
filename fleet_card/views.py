@@ -116,8 +116,56 @@ def fcm_export(request):
     workbook.save(response)
     return response
 
+# Daily Report
+
+# def car_report(request):
+#     # PLONG
+#     def excel_report(vendor):
+#         fleetCardreport = fleet_card.objects.filter(car_provider=vendor, sqa_number="N/A")
+#         fleetCard_count = fleet_card.objects.filter(car_provider=vendor, sqa_number="N/A").count()
+#         fleetCard_sum = fleet_card.objects.filter(car_provider=vendor, sqa_number="N/A").count()
+#         fleetCard_total = fleet_card.objects.filter(car_provider=vendor).count()
+#         total_processed = fleetCardt_total - fleetCard_sum
+
+#         if fleetCard_count == 0:
+#             ws.append([vendor, 0, carreport_total])
+#         else:
+#             for soa in fleetCard:
+#                 ws.append([soa.car_provider, fleetCard_sum, total_processed])
+#                 break
+            
+#     from openpyxl import Workbook, load_workbook
+#     carvendor = fleet_card.objects.filter()
+#     carlist = []
+
+#     for vendor in carvendor:
+#         carlist_val.append(vendor.car_provider)
+
+#     carlist = set(carlist_val)
+
+#     wb = Workbook()
+#     ws = wb.active
+#     ws.title = "Fleet Cards Report"
+#     ws['A1'].value = "PERSONNEL:"
+
+#     ws['A3'].value = "OUTPUT"
+#     ws['A4'].value = ""
+#     ws.append(['Fleet Cards', 'TOTAL'])
+
+#     excel_report("A. Fleet Card Processed")
+#     excel_report("B. Prepaired Certification")
+#     excel_report("C. Prepare for DTD/Picked Up Cards")
+#     excel_report("D. Inbound Fleet Card")
+#     excel_report("E. Issued Fleet Card")
+#     excel_report("F. Billing Processed")
+#     excel_report("G. Vehicle Repair Request")
+#     excel_report("PMS/Tire/Battery")
+#     excel_report("CM")
+    
+    
+#     wb.save("/Users/workstationtwosoftwaredeveloper/Desktop/Fleet_card_Report.xlsx")
 
 
-
+#     return redirect('/Payment/Car')
 
 

@@ -1,2 +1,2 @@
 web: gunicorn core.wsgi
-clock: python3 request/cron.py
+clock: python3 clock.py --loglevel=INFO

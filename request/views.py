@@ -1,3 +1,5 @@
+from openpyxl import Workbook
+from openpyxl.utils import get_column_letter
 from django.views import generic
 import schedule
 import time
@@ -956,6 +958,9 @@ def repair_request_excel(request):
 
     workbook.save(response)
     return response
+
+
+
 
 #sending pms email
 
