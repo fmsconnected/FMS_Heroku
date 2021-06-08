@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponseRedirect,HttpResponse
+from django.shortcuts import render,HttpResponseRedirect,HttpResponse, redirect
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views import generic
 from openpyxl import Workbook
@@ -357,6 +357,48 @@ def billing_excel(request):
     return response
 
 
+
+# Registration Daily Report
+    
+# def ownership_report(request):
+#     today = datetime.datetime.now()
+#     month = today.month
+#     def excel_report(reg):
+#         Registration_due_1 = Ownership.objects.filter(Plate_ending=month)
+#         Registration_total_1 = Ownership.objects.filter(Plate_ending=month).count()
+#         if Registration_total_1 == 0:
+#             ws.append([reg, 0, ])
+#             ws['B7'].value = Registration_total_1
+#         else:
+#             for reg_due in Registration_due_1:
+#                 ws.append([reg, ])
+#                 ws['B7'].value = Registration_total_1
+#                 break
+            
+#     from openpyxl import Workbook, load_workbook
+#     wb = Workbook()
+#     ws = wb.active
+#     ws.title = "TOO Report"
+#     ws['A1'].value = "PERSONNEL:Jessie"
+#     ws['A3'].value = "Date:"
+#     ws['A4'].value = ""
+#     ws['A5'].value = ""
+#     ws.append(['Summary', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
+
+#     excel_report("DOAS Creation (New)")
+#     excel_report("DOAS Receive")
+#     excel_report("For Routing")
+#     excel_report("Notarized")
+#     excel_report("For MACRO Etching")
+#     excel_report("With TMG Schedule")
+#     excel_report("With MACRO Etching")
+#     excel_report("Fleet VisMin")
+#     excel_report("LTO Transfer")
+#     excel_report("Total")
+#     excel_report("Transfered")
+
+#     wb.save("TOO_Report.xlsx")
+#     return redirect('/Ownership/Ownership')
 
 
 

@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 import datetime
-from django.shortcuts import render,HttpResponseRedirect,HttpResponse
+from django.shortcuts import render,HttpResponseRedirect,HttpResponse,redirect
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views import generic
 from .render import Render
@@ -552,4 +552,176 @@ class HomeView():
     model = Registration
     context_object_name = 'car_list'
     template_name = 'account/account/base/login.html'
+
+# Registration Daily Report
+    
+def registration_report(request):
+    today = datetime.datetime.now()
+    month = today.month
+    def excel_report(reg):
+        Registration_due_1 = Registration.objects.filter(Plate_ending=month)
+        Registration_total_1 = Registration.objects.filter(Plate_ending=month).count()
+        if Registration_total_1 == 0:
+            ws.append([reg, 0, ])
+            ws['B7'].value = Registration_total_1
+        else:
+            for reg_due in Registration_due_1:
+                ws.append([reg, ])
+                ws['B7'].value = Registration_total_1
+                break
+            
+    from openpyxl import Workbook, load_workbook
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Registration Report"
+    ws['A1'].value = "PERSONNEL:Francis Jae Dela Cruz"
+    ws['A3'].value = "OUTPUT"
+    ws['A4'].value = ""
+    ws['A5'].value = ""
+    ws.append(['', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
+
+    excel_report("Due For Regs")
+    excel_report("Registered")
+    excel_report("unRegistered")
+    excel_report("Uploading")
+    excel_report("Alarm")
+    excel_report("Completed")
+    if month == 1:
+        ws['A5'].value = "Ending 1"
+    elif month == 2:
+        ws['A5'].value = "Ending 2"
+    elif month == 3:
+        ws['A5'].value = "Ending 3"
+    elif month == 4:
+        ws['A5'].value = "Ending 4"
+    elif month == 5:
+        ws['A5'].value = "Ending 5"
+    elif month == 6:
+        ws['A5'].value = "Ending 6"
+    elif month == 7:
+        ws['A5'].value = "Ending 7"
+    elif month == 8:
+        ws['A5'].value = "Ending 8"
+    elif month == 9:
+        ws['A5'].value = "Ending 9"
+    elif month == 10:
+        ws['A5'].value = "Ending 0"
+    # ws1 = wb.active
+    # ws1['A15'].value = ""
+    # ws1['A16'].value = "Ending 1"
+    # ws1.append(['', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
+
+    # excel_report("Due For Regs")
+    # excel_report("Registered")
+    # excel_report("unRegistered")
+    # excel_report("Uploading")
+    # excel_report("Alarm")
+    # excel_report("Completed")
+
+    # ws2 = wb.active
+    # ws2['A26'].value = ""
+    # ws2['A27'].value = "Ending 2"
+    # ws2.append(['', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
+
+    # excel_report("Due For Regs")
+    # excel_report("Registered")
+    # excel_report("unRegistered")
+    # excel_report("Uploading")
+    # excel_report("Alarm")
+    # excel_report("Completed")
+
+    # ws3 = wb.active
+    # ws3.title = "Registration Report"
+    # ws3['A36'].value = ""
+    # ws3['A37'].value = "Ending 3"
+    # ws3.append(['', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
+
+    # excel_report("Due For Regs")
+    # excel_report("Registered")
+    # excel_report("unRegistered")
+    # excel_report("Uploading")
+    # excel_report("Alarm")
+    # excel_report("Completed")
+
+    # ws4 = wb.active
+    # ws4.title = "Registration Report"
+    # ws4['A46'].value = ""
+    # ws4['A47'].value = "Ending 4"
+    # ws4.append(['', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
+
+    # excel_report("Due For Regs")
+    # excel_report("Registered")
+    # excel_report("unRegistered")
+    # excel_report("Uploading")
+    # excel_report("Alarm")
+    # excel_report("Completed")
+
+    # ws5 = wb.active
+    # ws5.title = "Registration Report"
+    # ws5['A56'].value = ""
+    # ws5['A57'].value = "Ending 5"
+    # ws5.append(['', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
+
+    # excel_report("Due For Regs")
+    # excel_report("Registered")
+    # excel_report("unRegistered")
+    # excel_report("Uploading")
+    # excel_report("Alarm")
+    # excel_report("Completed")
+
+    # ws6 = wb.active
+    # ws6.title = "Registration Report"
+    # ws6['A66'].value = ""
+    # ws6['A67'].value = "Ending 6"
+    # ws6.append(['', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
+
+    # excel_report("Due For Regs")
+    # excel_report("Registered")
+    # excel_report("unRegistered")
+    # excel_report("Uploading")
+    # excel_report("Alarm")
+    # excel_report("Completed")
+
+    # ws7 = wb.active
+    # ws7.title = "Registration Report"
+    # ws7['A76'].value = ""
+    # ws7['A77'].value = "Ending 7"
+    # ws7.append(['', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
+
+    # excel_report("Due For Regs")
+    # excel_report("Registered")
+    # excel_report("unRegistered")
+    # excel_report("Uploading")
+    # excel_report("Alarm")
+    # excel_report("Completed")
+
+    # ws8 = wb.active
+    # ws8.title = "Registration Report"
+    # ws8['A86'].value = ""
+    # ws8['A87'].value = "Ending 8"
+    # ws8.append(['', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
+
+    # excel_report("Due For Regs")
+    # excel_report("Registered")
+    # excel_report("unRegistered")
+    # excel_report("Uploading")
+    # excel_report("Alarm")
+    # excel_report("Completed")
+
+    # ws9 = wb.active
+    # ws9.title = "Registration Report"
+    # ws9['A96'].value = ""
+    # ws9['A97'].value = "Ending 9"
+    # ws9.append(['', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
+
+    # excel_report("Due For Regs")
+    # excel_report("Registered")
+    # excel_report("unRegistered")
+    # excel_report("Uploading")
+    # excel_report("Alarm")
+    # excel_report("Completed")
+
+
+    wb.save("Registration_Report.xlsx")
+    return redirect('/Registration/January')
 

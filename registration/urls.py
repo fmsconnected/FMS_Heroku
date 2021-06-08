@@ -25,7 +25,8 @@ urlpatterns = [
 	path('Summary/', views.summary, name = 'summary'),
 	path('Email', views.HomeView, name="home_view"),
 	# path('Reg/Month',views.emailfile, name="reg"),
-	path('Reg/Excel', views.registration_excel, name="reg_excel"),
+	path('Registration/Excel', views.registration_excel, name="reg_excel"),
+	path('Registration/Report', views.registration_report, name="reg_report"),
 	]
 
 
