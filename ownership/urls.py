@@ -12,6 +12,7 @@ urlpatterns = [
     path('Ownership/Delete/<int:pk>', views.ownershipDeleteView.as_view(), name='ownership_delete'),
     path('Ownership/History/', views.ownershipHistoryView, name='ownership_history'),
     path('Ownership/Export', views.ownership_excel, name='ownership_export'),
+    path('Ownership/Report', views.ownership_report, name='ownership_report'),
 
     path('Billing/new', views.billing.as_view(), name='billing_new'),
     path('Billing/List', views.billing_list.as_view(), name='billing_list'),
@@ -19,6 +20,6 @@ urlpatterns = [
     path('Billing/Delete/<int:pk>', views.billingDeleteView.as_view(), name='billing_delete'),
     path('Billing/History', views.billingHistoryView, name='billing_history'),
     path('Billing/Update/<int:pk>', views.billingUpdate.as_view(), name='billing_update'),
-    path('Billing/Export', views.billing_excel, name='billing_expo')
+    path('Billing/Export', views.billing_excel, name='billing_expo'),
 
     ]

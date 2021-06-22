@@ -1,4 +1,4 @@
-
+import os
 import numpy as np
 import pandas as pd
 import datetime
@@ -21,7 +21,6 @@ from dateutil.relativedelta import relativedelta
 from .models import (
    	Registration,
     CarRegistration
-    
 )
 from django import template
 register = template.Library()
@@ -47,6 +46,7 @@ from bootstrap_modal_forms.generic import (
 from .serializers import (
     RegistrationSerializer
     )
+
 
 def registration_new(request):
     return render(request, 'registration_form.html')
@@ -556,6 +556,7 @@ class HomeView():
 # Registration Daily Report
     
 def registration_report(request):
+    username = os.getlogin()
     today = datetime.datetime.now()
     month = today.month
     def excel_report(reg):
@@ -722,6 +723,6 @@ def registration_report(request):
     # excel_report("Completed")
 
 
-    wb.save("Registration_Report.xlsx")
+    wb.save(f"/Users/{username}/Desktop/Registration_Report.xlsx")
     return redirect('/Registration/January')
 

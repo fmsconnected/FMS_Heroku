@@ -115,6 +115,7 @@ class ownershipForm(forms.ModelForm):
         TMGloc =(
             ('Pasay','Pasay'),
             ('Caloocan','Caloocan'),
+            ('Pasig','Pasig'),
         )
 
         fee = (

@@ -1,20 +1,32 @@
 from django.db import models
 import datetime
+from django.utils import timezone
+import datetime
+from django.db.models import DateTimeField,DateField
 from datetime import date,timedelta
 from django.urls import reverse
 from vehicle_masterlist.models import VehicleMasterList
 # History
 from simple_history.models import HistoricalRecords
 
+# class DateTimeField(DateField):
+#     def to_python(self, date_notarized):
+#         if date_notarized is None: 
+#             return date_notarized
+
+class MytypeField(DateTimeField):
+    def db_type(self, connection):
+        return 'date'
+
 def increment_Activity_id():
-	last_in = Ownership.objects.all().order_by('id').last()
-	if not last_in:
-	    return 'TOO' + str(datetime.datetime.today().strftime('%Y')) + '-' + '000001'
-	in_id = last_in.Activity_id
-	in_int = int(in_id[10:])
-	new_in_int = in_int + 1
-	new_in_id = 'TOO' + str(datetime.datetime.today().strftime('%Y')) + '-' + str(new_in_int).zfill(6)
-	return new_in_id
+    last_in = Ownership.objects.all().order_by('id').last()
+    if not last_in:
+        return 'TOO' + str(datetime.datetime.today().strftime('%Y')) + '-' + '000001'
+    in_id = last_in.Activity_id
+    in_int = int(in_id[10:])
+    new_in_int = in_int + 1
+    new_in_id = 'TOO' + str(datetime.datetime.today().strftime('%Y')) + '-' + str(new_in_int).zfill(6)
+    return new_in_id
 
 
 class Ownership(models.Model):
@@ -65,6 +77,7 @@ class Ownership(models.Model):
     TMGloc =(
         ('Pasay','Pasay'),
         ('Caloocan','Caloocan'),
+        ('Pasig','Pasig'),
         )
     fee = (
             ('JXMTSI', 'JXMTSI'),
@@ -97,23 +110,23 @@ class Ownership(models.Model):
     confirmation_status = models.CharField(max_length=100, null=True, choices=confirm, blank=True)
     emailed_to_casher =models.CharField(max_length=100, null=True, blank=True)
     received_from_casher =models.CharField(max_length=100, null=True, blank=True)
-    deed_signed =models.CharField(max_length=100, null=True, blank=True)
-    routed_to_jd =models.CharField(max_length=100, null=True, blank=True)
+    deed_signed = models.CharField(max_length=100, null=True, blank=True)
+    routed_to_jd = models.DateField(default=None, blank=True, null=True)
     approved_by_jd =models.CharField(max_length=100, null=True, blank=True)
     return_fleet_admin =models.CharField(max_length=100, null=True, blank=True)
     forwarded_to_liason =models.CharField(max_length=100, null=True, blank=True)
-    date_notarized =models.CharField(max_length=100, null=True, blank=True)
+    date_notarized = models.DateField(default=None, blank=True, null=True)
     endorosed_to_insurance = models.CharField(max_length=100, null=True, blank=True)
-    requested_for_pullout =models.CharField(max_length=100, null=True, blank=True)
-    forwarded_fleet_liason =models.CharField(max_length=100, null=True, blank=True)
-    tmg_date_in =models.CharField(max_length=100, null=True, blank=True)
+    requested_for_pullout = models.CharField(max_length=100, null=True, blank=True)
+    forwarded_fleet_liason = models.CharField(max_length=100, null=True, blank=True)
+    tmg_date_in = models.DateField(default=None, blank=True, null=True)
     tmg_location =models.CharField(max_length=100, null=True, blank=True,choices=TMGloc)
-    tmg_date_return =models.CharField(max_length=100, null=True, blank=True)
-    lto_location =models.CharField(max_length=100, null=True, blank=True, choices=Location)
-    lto_date_in =models.CharField(max_length=100, null=True, blank=True)
-    lto_date_out =models.CharField(max_length=100, null=True, blank=True)
+    tmg_date_return = models.CharField(max_length=100, null=True, blank=True)
+    lto_location = models.CharField(max_length=100, null=True, blank=True, choices=Location)
+    lto_date_in = models.CharField(max_length=100, null=True, blank=True)
+    lto_date_out = models.DateField(default=None, blank=True, null=True)
     date_transfered_completed =models.CharField(max_length=100, null=True, blank=True)
-    date_comletion_vismin =models.CharField(max_length=100, null=True, blank=True)
+    date_comletion_vismin = models.DateField(default=None, blank=True, null=True)
     TOO_SLA = models.CharField(max_length=10, null=True, blank=True)
     date_initiated = models.DateField(auto_now=True, null=True, blank=True)
     date_received_by = models.CharField(max_length=100, null=True, blank=True)
@@ -133,7 +146,6 @@ class Ownership(models.Model):
 
     def __str__(self):
         return self.Activity_id
-
 
     def get_absolute_url(self):
         return reverse('ownership_list')

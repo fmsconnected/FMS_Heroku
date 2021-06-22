@@ -1,7 +1,11 @@
+import os
 from django.shortcuts import render,HttpResponseRedirect,HttpResponse, redirect
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views import generic
 from openpyxl import Workbook
+from openpyxl.styles import Font
+from openpyxl.styles import Border, Side, PatternFill, Font, GradientFill, Alignment
+from openpyxl.styles.colors import Color
 import datetime
 from datetime import date, timedelta
 from django.urls import reverse_lazy
@@ -29,6 +33,7 @@ from bootstrap_modal_forms.generic import (
 class ownershipListView(ListView):
 	model = Ownership
 	template_name = 'transfer_list.html'
+	
 
 def ownershipcreate(request):
     def dispatch(self, *args, **kwargs):
@@ -87,8 +92,8 @@ def ownership_submit(request):
 		date_transfered_completed = request.POST.get('date_transfered_completed')
 		date_comletion_vismin = request.POST.get('date_comletion_vismin')
 		date_received_by = request.POST.get('received_by')
+		TOO_SLA = request.POST.get('TOO_SLA')
 		
-
 		saveto_own = Ownership(date_application = date_application,req_employee_id = req_employee_id,req_Fname = req_Fname,req_Lname = req_Lname,
 			req_band = req_band,req_cost = req_cost,req_title = req_title,plate_no= plate_no,cond_sticker = cond_sticker,vehicle_model = vehicle_model,
 			vehicle_brand = vehicle_brand,vehicle_make = vehicle_make,vendor = Vendor,vendor_name = Other_Vendor_Name,v_employee_id =  v_employee_id,
@@ -98,7 +103,7 @@ def ownership_submit(request):
 			date_notarized = date_notarized,endorosed_to_insurance =endorosed_to_insurance ,requested_for_pullout = requested_for_pullout,
 			forwarded_fleet_liason = forwarded_fleet_liason,tmg_date_in =tmg_date_in ,tmg_location = tmg_location,
 			tmg_date_return = tmg_date_return,lto_date_in = lto_date_in,lto_date_out = lto_date_out, lto_location = lto_location,
-			date_transfered_completed = date_transfered_completed,date_comletion_vismin = date_comletion_vismin, date_received_by = date_received_by)
+			date_transfered_completed = date_transfered_completed,date_comletion_vismin = date_comletion_vismin, date_received_by = date_received_by, TOO_SLA=TOO_SLA)
 		saveto_own.save()
 
 		return HttpResponseRedirect('/Ownership/Ownership/')
@@ -360,45 +365,99 @@ def billing_excel(request):
 
 # Registration Daily Report
     
-# def ownership_report(request):
-#     today = datetime.datetime.now()
-#     month = today.month
-#     def excel_report(reg):
-#         Registration_due_1 = Ownership.objects.filter(Plate_ending=month)
-#         Registration_total_1 = Ownership.objects.filter(Plate_ending=month).count()
-#         if Registration_total_1 == 0:
-#             ws.append([reg, 0, ])
-#             ws['B7'].value = Registration_total_1
-#         else:
-#             for reg_due in Registration_due_1:
-#                 ws.append([reg, ])
-#                 ws['B7'].value = Registration_total_1
-#                 break
-            
-#     from openpyxl import Workbook, load_workbook
-#     wb = Workbook()
-#     ws = wb.active
-#     ws.title = "TOO Report"
-#     ws['A1'].value = "PERSONNEL:Jessie"
-#     ws['A3'].value = "Date:"
-#     ws['A4'].value = ""
-#     ws['A5'].value = ""
-#     ws.append(['Summary', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
+def ownership_report(request):
+	username = os.getlogin()
+	date = datetime.datetime.today()
+	# start_week = date - datetime.timedelta(date.weekday())
+	# end_week = start_week + datetime.timedelta(7)
 
-#     excel_report("DOAS Creation (New)")
-#     excel_report("DOAS Receive")
-#     excel_report("For Routing")
-#     excel_report("Notarized")
-#     excel_report("For MACRO Etching")
-#     excel_report("With TMG Schedule")
-#     excel_report("With MACRO Etching")
-#     excel_report("Fleet VisMin")
-#     excel_report("LTO Transfer")
-#     excel_report("Total")
-#     excel_report("Transfered")
+	notorized = Ownership.objects.filter(date_notarized = datetime.datetime.today()).count()
+	routing_count = Ownership.objects.filter(routed_to_jd = datetime.datetime.today()).count()
+	tmg_schedule = Ownership.objects.filter(tmg_date_in = datetime.datetime.today()).count()
+	lto_transfer = Ownership.objects.filter(lto_date_out = datetime.datetime.today()).count()
+	fleet_vismin = Ownership.objects.filter(lto_date_out = datetime.datetime.today()).count()
+	date_comletion_vismin = Ownership.objects.filter(date_comletion_vismin = datetime.datetime.today()).count()
+	from openpyxl import Workbook, load_workbook
+	wb = Workbook()
+	ws = wb.active
 
-#     wb.save("TOO_Report.xlsx")
-#     return redirect('/Ownership/Ownership')
+	#header
+	ws.title = "TOO Report"
+	ws['A1'].value = "SUBJECT:"
+	ws['B1'].value = "TOO"
+	ws['A3'].value = "PERSONNEL:"
+	ws['B3'].value = "Jessie"
+	ws['A4'].value = "Date"
+	ws['A5'].value = ""
+	ws.append(['Summary', 'Total','Remarks'])
+	ws['A8'].value = "DOAS Creation (New)"
+	ws['A9'].value = "DOAS Receive"
+	ws['A10'].value = "For Routing"
+	ws['A11'].value = "Notarized"
+	ws['A12'].value = ""
+	ws['A13'].value = "For TMG"
+	ws['A14'].value = "For MACRO Etching"
+	ws['A15'].value = "With TMG Schedule"
+	ws['A16'].value = ""
+	ws['A17'].value = "With MACRO Etching"
+	ws['A18'].value = ""
+	ws['A19'].value = "Fleet VisMin"
+	ws['A20'].value = ""
+	ws['A21'].value = "LTO Transfer"
+	ws['A22'].value = ""
+	ws['A23'].value = "Total"
+	ws['A24'].value = ""
+	ws['A25'].value = "Transfered"
+	#data
+	ws['B4'].value = date
+	ws['B10'].value = routing_count
+	ws['B11'].value = notorized
+	ws['B17'].value = tmg_schedule
+	ws['B21'].value = lto_transfer
+	ws['B25'].value = date_comletion_vismin
 
+	# style
+	ws['A6'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['B6'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['C6'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['D6'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['E6'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['F6'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['G6'].fill = PatternFill("solid", fgColor="00FFCC99")
+	#TMG color
+	ws['A13'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['B13'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['C13'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['D13'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['E13'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['F13'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['G13'].fill = PatternFill("solid", fgColor="00FFCC99")
+	#vismin color
+	ws['A19'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['B19'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['C19'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['D19'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['E19'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['F19'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['G19'].fill = PatternFill("solid", fgColor="00FFCC99")
+	#lto transfer color
+	ws['A21'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['B21'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['C21'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['D21'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['E21'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['F21'].fill = PatternFill("solid", fgColor="00FFCC99")
+	ws['G21'].fill = PatternFill("solid", fgColor="00FFCC99")
+	#transfer color
+	ws['A25'].fill = PatternFill("solid", fgColor="00FF99CC")
+	ws['B25'].fill = PatternFill("solid", fgColor="00FF99CC")
+	ws['C25'].fill = PatternFill("solid", fgColor="00FF99CC")
+	ws['D25'].fill = PatternFill("solid", fgColor="00FF99CC")
+	ws['E25'].fill = PatternFill("solid", fgColor="00FF99CC")
+	ws['F25'].fill = PatternFill("solid", fgColor="00FF99CC")
+	ws['G25'].fill = PatternFill("solid", fgColor="00FF99CC")
+
+	wb.save(f"/Users/{username}/Desktop/TOO_Report.xlsx")
+	return redirect('/Ownership/Ownership')
 
 
