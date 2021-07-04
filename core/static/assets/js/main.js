@@ -9,11 +9,7 @@ jQuery(document).ready(function($) {
 	} );
 
 	jQuery('.selectpicker').selectpicker;
-	$(document).ready(function() {
-	    $('#example').DataTable( {
-	        "scrollX": true
-	    } );
-	} );
+
 
 	$('#menuToggle').on('click', function(event) {
 		$('body').toggleClass('open');
