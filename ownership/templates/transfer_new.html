@@ -87,45 +87,10 @@ function transferownership(trans) {
     </div>
     <div id="Transfer of Ownership" class="w3-container ownership" style="display:none">
     <fieldset>
-        <legend align="left">Requisitioner Details</legend><br>
-        <div style="display: flex; justify-content: flex-end">
+        <legend align="left">DEED of Absolute Sale(DOAS)</legend><br>
         <div class="col-sm-6">
             <label>Date Application Received:</label>
             <input style= "text-transform:" type="date" name="date_application" id="date_application" class="form-control" required>
-        </div>
-        </div>
-        <div class="col-sm-6">
-            <label>Requisitioner Employee ID:</label>
-            <input name="req_employee_id" id="req_employee_id" list="emp_list" class="form-control" required>
-            <datalist id="emp_list">               
-            {% for emp_id in e_list %}
-              <option data-value="{{ emp_id.Employee_Id }} | {{ emp_id.Last_name}} | {{ emp_id.First_name }} | {{ emp_id.Band }} | {{ emp_id.Cost_center }} | {{ emp_id.Last_name}}" value="{{ emp_id.Employee_Id }}">
-              </option>
-            {% endfor %}
-            </datalist>
-        </div>
-        <div class="col-sm-6">
-            <label>Requisitioner Last Name:</label>
-            <input style= "text-transform:" type="text" name="req_Lname" id="req_Lname" class="form-control" readonly>
-        </div>
-        <div class="col-sm-6">
-            <label>Requisitioner First Name:</label>
-            <input style= "text-transform:" type="text" name="req_Fname" id="req_Fname" class="form-control" readonly>
-        </div>
-
-        <div class="col-sm-6">
-            <label>Requisitioner Band:</label>
-            <input style= "text-transform:" type="text" name="req_band" id="req_band" class="form-control" readonly>
-        </div>
-
-        <div class="col-sm-6">
-            <label>Requisitioner Cost Center:</label>
-            <input style= "text-transform:" type="text" name="req_cost" id="req_cost" class="form-control" readonly>
-        </div>
-
-        <div class="col-sm-6">
-            <label>Requisitioner Title:</label>
-            <input style= "text-transform:" type="text" name="req_title" id="req_title" class="form-control">
         </div>
     <br><br>
     </fieldset>
@@ -226,44 +191,32 @@ function transferownership(trans) {
         <legend align="left">Documents Routing 1</legend>
 
         <div class="col-sm-6">
-            <label>Date Routed to JD/ECS:</label>
-            <input style= "text-transform:" type="date" name="routed_to_jd" id="routed_to_jd" class="form-control" value="1990-01-01">
+            <label>Date Routed to GT</label>
+            <input style= "text-transform:" type="date" name="routed_to_jd" id="routed_to_jd" class="form-control" >
         </div>
 
         <div class="col-sm-6">
-            <label>Date Approved by JD/ECS:</label>
+            <label>Date Approved by GT</label>
             <input style= "text-transform:" type="date" name="approved_by_jd" id="approved_by_jd" class="form-control">
         </div>
-        <div class="col-sm-6">
-            <label>Date Return to Fleet Admin Assistant:</label>
-            <input style= "text-transform:" type="date" name="return_fleet_admin" id="return_fleet_admin" class="form-control" value="1990-01-01">
-        </div>
-
-
     </fieldset>
     <fieldset>
-        <legend align="left">Documents Routing 2</legend>
-
-        <div class="col-sm-6">
-            <label>Date Forwarded to Liason Officer:</label>
-            <input style= "text-transform:" type="date" name="forwarded_to_liason" id="forwarded_to_liason" class="form-control" value="1990-01-01">
-        </div>
-
+        <legend align="left">Documents Notarized</legend>
         <div class="col-sm-6">
             <label>Date Notarized:</label>
-            <input style= "text-transform:" type="date" name="date_notarized" id="date_notarized" class="form-control" value="1990-01-01">
+            <input style= "text-transform:" type="date" name="date_notarized" id="date_notarized" class="form-control" >
         </div>
 
     </fieldset>
     <fieldset>
         <legend align="left">Documents Routing 3</legend>
         <div class="col-sm-6">
-            <label>Date Endorsed to Insurance Company:</label>
-            <input style= "text-transform:" type="date" name="endorosed_to_insurance" id="endorosed_to_insurance" class="form-control" value="1990-01-01">
+            <label>Date Endorsed to Insurance Deletion/Request</label>
+            <input style= "text-transform:" type="date" name="endorosed_to_insurance" id="endorosed_to_insurance" class="form-control" >
         </div>
         <div class="col-sm-6">
             <label>Date Received Pull-Out of OR/CR:</label>
-            <input style= "text-transform:" type="date" name="requested_for_pullout" id="requested_for_pullout" class="form-control" value="1990-01-01">
+            <input style= "text-transform:" type="date" name="requested_for_pullout" id="requested_for_pullout" class="form-control" >
         </div>
 
     </fieldset>
@@ -272,7 +225,7 @@ function transferownership(trans) {
         <legend align="left">TMG Processing</legend>
         <div class="col-sm-6">
             <label>TMG Sched:</label>
-            <input style= "text-transform:" type="date" name="tmg_date_in" id="tmg_date_in" class="form-control" value="1990-01-01">
+            <input style= "text-transform:" type="date" name="tmg_date_in" id="tmg_date_in" class="form-control" >
         </div>
         <div class="col-sm-6">
             <label>TMG Location:</label>
@@ -294,12 +247,12 @@ function transferownership(trans) {
         <legend align="left">LTO Processing</legend>
         <div class="col-sm-6">
             <label>LTO Date In:</label>
-            <input style= "text-transform:" type="date" name="lto_date_in" id="tmg_date_out" class="form-control" value="1990-01-01">
+            <input style= "text-transform:" type="date" name="lto_date_in" id="tmg_date_out" class="form-control" >
         </div>
 
         <div class="col-sm-6">
             <label>LTO Date Out:</label>
-            <input style= "text-transform:" type="date" name="lto_date_out" id="lto_date_out" class="form-control" value="1990-01-01">
+            <input style= "text-transform:" type="date" name="lto_date_out" id="lto_date_out" class="form-control" >
         </div>
 
 
@@ -332,7 +285,20 @@ function transferownership(trans) {
             </select>
 
         </div>
+        <div class="col-sm-6">
+            <label>Status</label>
+            <select name="status" id="status" class="form-control" required>
+                <option value="">----------</option>
+                <option value="ON GOING ROUTING FOR APPROVAL">ON GOING ROUTING FOR APPROVAL</option>
+                <option value="NOTARIZED">NOTARIZED</option>
+                <option value="FOR TMG APPEARANCE">FOR TMG APPEARANCE</option>
+                <option value="WITH TMG SCHEDULE">WITH TMG SCHEDULE</option>
+                <option value="WITH MACRO ETCHING">WITH MACRO ETCHING</option>
+                <option value="FLEET VISMIN">FLEET VISMIN</option>
+                <option value="LTO TRANSFER">LTO TRANSFER</option>
+            </select>
 
+        </div>
     </fieldset>
     <div class="card-footer">
         <button type="submit" class="buttonsubmit">UPDATE</button>
@@ -363,7 +329,7 @@ function transferownership(trans) {
         <legend align="left">Transfer Of Ownership Completion (Visayas/Mindanao) </legend>
         <div class="col-sm-6">
             <label>Date Transfer Completed for Visayas/Mindanao:</label>
-            <input style= "text-transform:" type="date" name="date_comletion_vismin" id="date_comletion_vismin" class="form-control" value="1990-01-01">
+            <input style= "text-transform:" type="date" name="date_comletion_vismin" id="date_comletion_vismin" class="form-control" >
         </div>
 
     </fieldset>

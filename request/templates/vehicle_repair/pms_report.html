@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style type="text/css">
+  th {
+    text-align: middle;
+  }
+</style>
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3>Vehicle Maintenance Daily Report</h3>&nbsp;
+        
+        <a href="{% url 'repair_list' %}" style="float:right"><u>Close</u></a><br>
+        <a href="{% url 'maitenance_report' %}" style="float:right"><u>Export Report</u></a>
+    </div>
+
+<table width="90%" class="table table-bordered table-hover" border="5px">
+  <tr>
+    <th width="10%">Subject</th><td width="10%"><b>Vehicle Maintenance Report</td>
+
+  </tr>
+  <tr>
+    <th width="10%">Personel</th><td width="10%"><b>Shane Santos</td>
+  </tr>
+  <tr>
+    <th width="10%">Date</th><td width="10%">{{ date }}</td>
+  <tr>
+  <tr>
+      <td></td>
+  </tr>
+  <tr>
+    <th width="10%">Vehicle Maitenance</th>
+    <th width="10%">Total</th>
+    <th width="10%">Remarks</th>
+  </tr>
+  <tr>
+    <th></th><td>
+  <tr>
+    <th width="10%">Preventive Maitenance</th><td></td>
+  </tr>
+   <th width="10%">Corrective Maitenance</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">Tires and Battery</th><td></td>
+  </tr>
+  <tr>
+    <td></td>
+  </tr>
+  <tr>
+    <th width="10%">Insurance Claims</th><td></td>
+  </tr>
+  <tr>
+
+</table>
+
+
+{% endblock %}

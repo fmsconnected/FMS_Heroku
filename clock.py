@@ -33,7 +33,7 @@ class Command(BaseCommand):
         if plate != "":
             for item in car_status:
                 subject = 'Fleet Management System Automated Email'
-                html_message = render_to_string('vehicle_repair/pms_email.html',{'content':item.plate_no})
+                html_message = render_to_string('request/vehicle_repair/pms_email.html',{'content':item.plate_no})
                 plain_message = item.plate_no
                 recipient_list = [item.email]
                 from_email = 'Fleet Management System <jxmtsi.fms@gmail.com>'

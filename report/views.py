@@ -87,7 +87,7 @@ class reportUpdate(SuccessMessageMixin, UpdateView):
 
 class reportDetails(DetailView):
 	model = vehicle_report
-	template_name = 'report_details.html'
+	template_name = 'vehiclereport_details.html'
 	
 class reportDeleteView(BSModalDeleteView):
     model = vehicle_report

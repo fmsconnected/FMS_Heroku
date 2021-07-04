@@ -13,6 +13,7 @@ urlpatterns = [
     path('Ownership/History/', views.ownershipHistoryView, name='ownership_history'),
     path('Ownership/Export', views.ownership_excel, name='ownership_export'),
     path('Ownership/Report', views.ownership_report, name='ownership_report'),
+    path('Ownership/Report/Details', views.ownership_report_details, name='ownership_report_details'),
 
     path('Billing/new', views.billing.as_view(), name='billing_new'),
     path('Billing/List', views.billing_list.as_view(), name='billing_list'),

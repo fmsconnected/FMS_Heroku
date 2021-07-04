@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style type="text/css">
+  th {
+    text-align: middle;
+  }
+</style>
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3>Registration Daily Report</h3>&nbsp;
+        
+        <a href="{% url 'registration_jan_reg' %}" style="float:right"><u>Close</u></a><br>
+        <a href="{% url 'reg_report' %}" style="float:right"><u>Export Report</u></a>
+    </div>
+
+<table width="90%" class="table table-bordered table-hover" border="5px">
+  <tr>
+    <th width="10%">Subject</th><td width="10%"><b>Registration Report</td>
+
+  </tr>
+  <tr>
+    <th width="10%">Personel</th><td width="10%"><b>Francis Jae Dela Cruz</td>
+  </tr>
+  <tr>
+    <th width="10%">Date</th><td width="10%">{{ today }}</td>
+  <tr>
+  <tr>
+      <td></td>
+  </tr>
+  <tr>
+    <th width="10%"></th>
+    <th width="10%">Total</th>
+    <th width="10%">Remarks</th>
+    <th width="10%"></th>
+    <th width="10%">Total</th>
+    <th width="10%">Remarks</th>
+  </tr>
+  <tr>
+    <th>Ending 1</th><td></td><td></td>
+    <th>Ending 2</th>
+  </tr>
+  <tr>
+    <th width="10%">Due For Regs</th><td>{{ Due_For_Regs1 }}</td><td></td>
+    <th width="10%">Due For Regs</th><td>{{ Due_For_Regs2 }}</td>
+  </tr>
+    <th width="10%">Registered</th><td></td><td></td>
+    <th width="10%">Registered</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">unRegistered</th><td></td><td></td>
+      <th width="10%">unRegistered</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">Uploading</th><td></td><td></td>
+    <th width="10%">Uploading</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">Alarm</th><td></td><td></td>
+      <th width="10%">Alarm</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">Completed</th><td>{{ Completed1 }}</td><td></td>
+    <th width="10%">Completed</th><td>{{ Completed2 }}</td>
+  </tr>
+  <tr>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Ending 3</th><td></td><td></td>
+    <th>Ending 4</th>
+  </tr>
+  <tr>
+    <th width="10%">Due For Regs</th><td>{{ Due_For_Regs3 }}</td><td></td>
+    <th width="10%">Due For Regs</th><td> {{ Due_For_Regs4 }}</td>
+  </tr>
+    <th width="10%">Registered</th><td></td><td></td>
+    <th width="10%">Registered</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">unRegistered</th><td></td><td></td>
+      <th width="10%">unRegistered</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">Uploading</th><td></td><td></td>
+    <th width="10%">Uploading</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">Alarm</th><td></td><td></td>
+      <th width="10%">Alarm</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">Completed</th><td>{{ Completed3 }}</td><td></td>
+    <th width="10%">Completed</th><td>{{ Completed4 }}</td>
+  </tr>
+  <tr>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Ending 5</th><td></td><td></td>
+    <th>Ending 6</th>
+  </tr>
+  <tr>
+    <th width="10%">Due For Regs</th><td>{{ Due_For_Regs5 }}</td><td></td>
+    <th width="10%">Due For Regs</th><td>{{ Due_For_Regs6 }}</td>
+  </tr>
+    <th width="10%">Registered</th><td></td><td></td>
+    <th width="10%">Registered</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">unRegistered</th><td></td><td></td>
+      <th width="10%">unRegistered</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">Uploading</th><td></td><td></td>
+    <th width="10%">Uploading</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">Alarm</th><td></td><td></td>
+      <th width="10%">Alarm</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">Completed</th><td>{{ Completed5 }}</td><td></td>
+    <th width="10%">Completed</th><td>{{ Completed6 }}</td>
+  </tr>
+  <tr>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Ending 7</th><td></td><td></td>
+    <th>Ending 8</th>
+  </tr>
+  <tr>
+    <th width="10%">Due For Regs</th><td>{{ Due_For_Regs7 }}</td><td></td>
+    <th width="10%">Due For Regs</th><td>{{ Due_For_Regs8 }}</td>
+  </tr>
+    <th width="10%">Registered</th><td></td><td></td>
+    <th width="10%">Registered</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">unRegistered</th><td></td><td></td>
+      <th width="10%">unRegistered</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">Uploading</th><td></td><td></td>
+    <th width="10%">Uploading</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">Alarm</th><td></td><td></td>
+      <th width="10%">Alarm</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">Completed</th><td>{{ Completed7 }}</td><td></td>
+    <th width="10%">Completed</th><td>{{ Completed8 }}</td>
+  </tr>
+  <tr>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Ending 9</th><td></td><td></td>
+    <th>Ending 0</th>
+  </tr>
+  <tr>
+    <th width="10%">Due For Regs</th><td>{{ Due_For_Regs9 }}</td><td></td>
+    <th width="10%">Due For Regs</th><td>{{ Due_For_Regs0 }}</td>
+  </tr>
+    <th width="10%">Registered</th><td></td><td></td>
+    <th width="10%">Registered</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">unRegistered</th><td></td><td></td>
+      <th width="10%">unRegistered</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">Uploading</th><td></td><td></td>
+    <th width="10%">Uploading</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">Alarm</th><td></td><td></td>
+      <th width="10%">Alarm</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">Completed</th><td>{{ Completed9 }}</td><td></td>
+    <th width="10%">Completed</th><td>{{ Completed0 }}</td>
+  </tr>
+
+</table>
+
+
+{% endblock %}

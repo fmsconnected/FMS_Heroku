@@ -1,4 +1,7 @@
 from openpyxl import Workbook
+from openpyxl.styles import Font
+from openpyxl.styles import Border, Side, PatternFill, Font, GradientFill, Alignment
+from openpyxl.styles.colors import Color
 from openpyxl.utils import get_column_letter
 from django.views import generic
 import schedule
@@ -13,7 +16,6 @@ from django.template import Context
 from django.shortcuts import render,HttpResponseRedirect, get_list_or_404,HttpResponse
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from openpyxl import Workbook
 import datetime
 from datetime import date, timedelta
 from django.db.models import Q, Count
@@ -958,6 +960,78 @@ def repair_request_excel(request):
 
     workbook.save(response)
     return response
+
+##Daily report Details
+def vehicle_maintenance_report_details(request):
+    date = datetime.datetime.today()
+    # notorized = Ownership.objects.filter(status = 'NOTARIZED').count()
+    # routing_count = Ownership.objects.filter(status = 'ON GOING ROUTING FOR APPROVAL').count()
+    # tmg_schedule = Ownership.objects.filter(status = 'WITH_TMG SCHEDULE').count()
+    # tmg_appearance = Ownership.objects.filter(status = 'FOR TMG APPEARANCE').count()
+    
+    return render(request, 'vehicle_repair/pms_report.html',{'Title: Vehicle Maintenance':'Vehicle Maintenance','date':date})
+
+# Registration Daily Report
+def vehicle_maintenance_report(request):
+    date = datetime.datetime.today()
+
+    # preventive_count = Vehicle_Repair.objects.filter(status = 'NOTARIZED').count()
+    # corrective_count = Corrective.objects.filter(status = 'ON GOING ROUTING FOR APPROVAL').count()
+    # tire_battery = Ownership.objects.filter(status = 'WITH_TMG SCHEDULE').count()
+    # insurance = Ownership.objects.filter(status = 'FOR TMG APPEARANCE').count()
+    
+    from openpyxl import Workbook, load_workbook
+    output = HttpResponse(content_type='application/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    file_name = "Vehicle Maitenance.xlsx"
+    output['Content-Disposition'] = 'attachment; filename='+ file_name
+    wb = Workbook()
+    ws = wb.active
+
+    #header
+    ws.title = "Vehicle Maintenance"
+    ws['A1'].value = "SUBJECT:"
+    ws['B1'].value = "Vehicle Maintenance"
+    ws['A3'].value = "PERSONNEL:"
+    ws['B3'].value = "Shane Santos"
+    ws['A4'].value = "Date"
+    ws['A5'].value = ""
+    ws.append(['Vehicle Maitenance', 'Total','Remarks'])
+    ws['A8'].value = "Preventive Maitenance"
+    ws['A9'].value = "Corrective Maitenance"
+    ws['A10'].value = "Tires and Battery"
+    ws['A11'].value = ""
+    ws['A12'].value = ""
+    ws['A13'].value = "Insurance Claims"
+    #data
+    # ws['B4'].value = date
+    # ws['B10'].value = routing_count
+    # ws['B11'].value = notorized
+    # ws['B14'].value = tmg_appearance
+    # ws['B15'].value = tmg_schedule
+    # ws['B17'].value = with_tmg_etching
+    # ws['B19'].value = fleet_vismin
+    # ws['B21'].value = lto_transfer
+    # ws['B23'].value = total
+
+    # style
+    ws['A6'].fill = PatternFill("solid", fgColor="00FFCC99")
+    ws['B6'].fill = PatternFill("solid", fgColor="00FFCC99")
+    ws['C6'].fill = PatternFill("solid", fgColor="00FFCC99")
+    ws['D6'].fill = PatternFill("solid", fgColor="00FFCC99")
+    ws['E6'].fill = PatternFill("solid", fgColor="00FFCC99")
+    ws['F6'].fill = PatternFill("solid", fgColor="00FFCC99")
+    ws['G6'].fill = PatternFill("solid", fgColor="00FFCC99")
+    #TMG color
+    ws['A13'].fill = PatternFill("solid", fgColor="00FFCC99")
+    ws['B13'].fill = PatternFill("solid", fgColor="00FFCC99")
+    ws['C13'].fill = PatternFill("solid", fgColor="00FFCC99")
+    ws['D13'].fill = PatternFill("solid", fgColor="00FFCC99")
+    ws['E13'].fill = PatternFill("solid", fgColor="00FFCC99")
+    ws['F13'].fill = PatternFill("solid", fgColor="00FFCC99")
+    ws['G13'].fill = PatternFill("solid", fgColor="00FFCC99")
+   
+    wb.save(output)
+    return output
 
 
 

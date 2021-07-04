@@ -24,7 +24,7 @@ urlpatterns = [
 	path('Summary/print/<int:pk>', views.registrationsPDFView.as_view(), name='registration_summary_print'),
 	path('Summary/', views.summary, name = 'summary'),
 	path('Email', views.HomeView, name="home_view"),
-	# path('Reg/Month',views.emailfile, name="reg"),
+	path('Registration/Daily/Report',views.registration_report_detail, name="reg_dailyreport_detail"),
 	path('Registration/Excel', views.registration_excel, name="reg_excel"),
 	path('Registration/Report', views.registration_report, name="reg_report"),
 	]

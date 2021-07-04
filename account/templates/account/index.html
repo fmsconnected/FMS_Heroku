@@ -3,8 +3,16 @@
 <script>
 {% block jquery %}
 var endpoint = 'api/monitoring/'
+// var endpointongoing = 'api/Leasing_Masterlist/'
+var endpointcompleted = 'api/monitoring/Completed/'
 var defaultData = []
+var current_ongoing_data = []
+var completed_item_data = []
 var labels = [];
+var ongoing_labels = []
+var completed_labels = []
+
+// Request Chart
 $.ajax({
     method: "GET",
     url: endpoint,
@@ -18,11 +26,43 @@ $.ajax({
         console.log(error_data)
     }
 })
+
+//Ongoing Chart
+$.ajax({
+    method: "GET",
+    url: endpointongoing,
+    success: function(ongoing_data){
+        ongoing_labels = ongoing_data.ongoing_labels
+        current_ongoing_data = ongoing_data.default_ongoing
+        ongoing_chart()
+    },
+    error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+    }
+})
+
+//Completed Chart
+$.ajax({
+    method: "GET",
+    url: endpointcompleted,
+    success: function(completed_data){
+        completed_labels = completed_data.completed_labels
+        completed_item_data = completed_data.datacompleted
+        setChart()
+    },
+    error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+    }
+})
+
 function setChart(){
-    var ctx = document.getElementById("myChart");
+    var ctx1 = document.getElementById("ongoing_data");
     var ctx2 = document.getElementById("myChart2");
+    var ctx3 = document.getElementById("completed");
     var myChart = new Chart(ctx2, {
-    type: 'bar',
+    type: 'pie',
     data: {
         labels: labels,
         datasets: [{
@@ -79,28 +119,51 @@ function setChart(){
     }
 });
 
-    var myChart = new Chart(ctx, {
+    var completed_data = new Chart(ctx3, {
     type: 'bar',
     data: {
-        labels: labels,
+        labels: ["Monitoring",
+        "Corrective", "Customer Care", "Ownership", "Billing", "Car Rental Request", "Gas Card Request",
+        "Leasing", "Vehicle Repair Request", "Insurance", "New Vehicle Payment", "Car Rental Payment"
+        , "Fuel Supplier Payment", "Vehicle Repair Payment"],
         datasets: [{
-            label: '# of Data',
-            data: defaultData,
+            label: '#Data',
+            data: completed_item_data,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(255, 0, 0, 1)',
+                'rgba(255, 255, 0, 1)',
+                'rgba(136, 204, 0, 1)',
+                'rgba(51, 153, 255, 1)',
+                'rgba(204, 0, 204, 1)',
+                'rgba(204, 102, 153, 1)',
+                'rgba(0, 0, 153, 1, 1)',
+                'rgba(0, 102, 153, 1)',
+                'rgba(255, 204, 255)',
+                'rgba(0, 153, 204, 1)',
+                'rgba(51, 204, 51, 1)',
+                'rgba(153, 153, 102, 1)',
+                'rgba(34, 51, 0, 1, 1)',
+                'rgba(102, 0, 102, 1)',
+                'rgba(128, 0, 0,1)',
+                'rgba(92, 24, 12, 1)',
             ],
             borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(255, 0, 0, 1)',
+                'rgba(255, 255, 0, 1)',
+                'rgba(136, 204, 0, 1)',
+                'rgba(51, 153, 255, 1)',
+                'rgba(204, 0, 204, 1)',
+                'rgba(204, 102, 153, 1)',
+                'rgba(0, 0, 153, 1, 1)',
+                'rgba(0, 102, 153, 1)',
+                'rgba(255, 204, 255)',
+                'rgba(0, 153, 204, 1)',
+                'rgba(51, 204, 51, 1)',
+                'rgba(153, 153, 102, 1)',
+                'rgba(34, 51, 0, 1, 1)',
+                'rgba(102, 0, 102, 1)',
+                'rgba(128, 0, 0,1)',
+                'rgba(92, 24, 12, 1)',
             ],
             borderWidth: 1
         }]
@@ -114,291 +177,312 @@ function setChart(){
             }]
         }
     }
-});
+
+    });
+    var ongoing_chart = new Chart(ctx1, {
+    type: 'horizontalBar',
+    data: {
+        labels: ["Monitoring",
+        "Corrective", "Customer Care", "Ownership", "Billing", "Car Rental Request", "Gas Card Request",
+        "Leasing", "Vehicle Repair Request", "Insurance", "New Vehicle Payment", "Car Rental Payment"
+        , "Fuel Supplier Payment", "Vehicle Repair Payment"],
+        datasets: [{
+            label: '#Data',
+            data: current_ongoing_data,
+            backgroundColor: [
+                'rgba(255, 0, 0, 1)',
+                'rgba(255, 255, 0, 1)',
+                'rgba(136, 204, 0, 1)',
+                'rgba(51, 153, 255, 1)',
+                'rgba(204, 0, 204, 1)',
+                'rgba(204, 102, 153, 1)',
+                'rgba(0, 0, 153, 1, 1)',
+                'rgba(0, 102, 153, 1)',
+                'rgba(255, 204, 255)',
+                'rgba(0, 153, 204, 1)',
+                'rgba(51, 204, 51, 1)',
+                'rgba(153, 153, 102, 1)',
+                'rgba(34, 51, 0, 1, 1)',
+                'rgba(102, 0, 102, 1)',
+                'rgba(128, 0, 0,1)',
+                'rgba(92, 24, 12, 1)',
+            ],
+            borderColor: [
+                'rgba(255, 0, 0, 1)',
+                'rgba(255, 255, 0, 1)',
+                'rgba(136, 204, 0, 1)',
+                'rgba(51, 153, 255, 1)',
+                'rgba(204, 0, 204, 1)',
+                'rgba(204, 102, 153, 1)',
+                'rgba(0, 0, 153, 1, 1)',
+                'rgba(0, 102, 153, 1)',
+                'rgba(255, 204, 255)',
+                'rgba(0, 153, 204, 1)',
+                'rgba(51, 204, 51, 1)',
+                'rgba(153, 153, 102, 1)',
+                'rgba(34, 51, 0, 1, 1)',
+                'rgba(102, 0, 102, 1)',
+                'rgba(128, 0, 0,1)',
+                'rgba(92, 24, 12, 1)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+    });
+
+    window.onload = function(){
+        var ctx2 = document.getElementById("myChart2").getContext("2d");
+        window.myBar = new Chart(ctx2).Bar(myChart, {
+            responsive : true
+        });
+        var ctx3 = document.getElementById("completed").getContext("2d");
+        window.myBar = new Chart(ctx3).Bar(completed_data, {
+            responsive : true
+        });
+        var ctx1 = document.getElementById("ongoing_data").getContext("2d");
+        window.myBar = new Chart(ctx1).Bar(ongoing_chart, {
+            responsive : true
+        });
+    }
+
 }
-
-// var ctx = document.getElementById("myChart");
-
-
+// function ongoing_chart(){
+//     var ctx = document.getElementById("ongoing_data");
+//     var myChart = new Chart(ctx, {
+//     type: 'horizontalBar',
+//     data: {
+//         labels: labels,
+//         datasets: [{
+//             label: '#Data',
+//             data: current_ongoing_data,
+//             backgroundColor: [
+//                 'rgba(255, 0, 0, 1)',
+//                 'rgba(255, 255, 0, 1)',
+//                 'rgba(136, 204, 0, 1)',
+//                 'rgba(51, 153, 255, 1)',
+//                 'rgba(204, 0, 204, 1)',
+//                 'rgba(204, 102, 153, 1)',
+//                 'rgba(0, 0, 153, 1, 1)',
+//                 'rgba(0, 102, 153, 1)',
+//                 'rgba(255, 204, 255)',
+//                 'rgba(0, 153, 204, 1)',
+//                 'rgba(51, 204, 51, 1)',
+//                 'rgba(153, 153, 102, 1)',
+//                 'rgba(34, 51, 0, 1, 1)',
+//                 'rgba(102, 0, 102, 1)',
+//                 'rgba(128, 0, 0,1)',
+//                 'rgba(92, 24, 12, 1)',
+//             ],
+//             borderColor: [
+//                 'rgba(255, 0, 0, 1)',
+//                 'rgba(255, 255, 0, 1)',
+//                 'rgba(136, 204, 0, 1)',
+//                 'rgba(51, 153, 255, 1)',
+//                 'rgba(204, 0, 204, 1)',
+//                 'rgba(204, 102, 153, 1)',
+//                 'rgba(0, 0, 153, 1, 1)',
+//                 'rgba(0, 102, 153, 1)',
+//                 'rgba(255, 204, 255)',
+//                 'rgba(0, 153, 204, 1)',
+//                 'rgba(51, 204, 51, 1)',
+//                 'rgba(153, 153, 102, 1)',
+//                 'rgba(34, 51, 0, 1, 1)',
+//                 'rgba(102, 0, 102, 1)',
+//                 'rgba(128, 0, 0,1)',
+//                 'rgba(92, 24, 12, 1)',
+//             ],
+//             borderWidth: 1
+//         }]
+//     },
+//     options: {
+//         scales: {
+//             yAxes: [{
+//                 ticks: {
+//                     beginAtZero:true
+//                 }
+//             }]
+//         }
+//     }
+//     });
+// }
 
 {% endblock %}
 </script>
 {% block content %}
-<!-- Right Panel -->
-<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <script>
-  function dashboard(cityName) {
-    var i;
-    var x = document.getElementsByClassName("db");
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";  
-    }
-    document.getElementById(cityName).style.display = "block";  
-  }
-  </script>
-<style type="text/css">
-    p{
-        color: #0A0200;
-    }
-</style>
+ <!-- Content Wrapper. Contains page content -->
+    <!-- Content Header (Page header) -->
+<!-- <div class="content-wrapper"> -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6 float-sm-right">
+            <h1 class="m-0 float-sm-right">Dashboard</h1>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
-<div class="row">
-    <div class="col-lg-12">
-        <h1 align="center"><b>Dashboard Monitoring</b></h1>&nbsp;
-    </div>
-    
-</div>
-    <div class="w3-bar w3-gray">
-        <button class="w3-bar-item w3-button" onclick="dashboard('Payment')">Payment</button>
-        <button class="w3-bar-item w3-button" onclick="dashboard('Request')">Request</button>
-        <button class="w3-bar-item w3-button" onclick="dashboard('Insurance')">Insurance</button>
-        <button class="w3-bar-item w3-button" onclick="dashboard('Monitoring')">Monitoring</button>
-        <button class="w3-bar-item w3-button" onclick="dashboard('TOO')">Tranfer of Ownership</button>
-        <button class="w3-bar-item w3-button" onclick="dashboard('Masterlist')">Masterlist</button>
-    </div>
-    <div id="Payment" class="w3-container db">
-        <div class="col-lg-4">
-            <div class="social-box github">
-                <b>New Vehicle Payment Monitoring</b>
-                <i class="fa fa-laptop">&nbsp;
-                    <p class="count" style="font-size: 80%;">{{ count1 }}</p>
-                    <p>Total Records</p>
-                    <p>Check Coming Deadlines <b><a href="{% url 'Vehicle_deadline' %}" style="font-size: 110%">Click Me!</a></b></p>
-                </i>
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3 style="font-size: 20px">Total</h3>
+                <h3 style="font-size: 20px">{{ count13 }}</h3>
+                <h2 class="h5">Vehicle Masterlist</h2>
+              </div>
+              <div class="icon">
+                <i class="fas fa-car"></i>
+              </div>
+              <a href="{% url 'vehicle-list' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="social-box github">
-            <b>Car Rental Payment Monitoring</b>
-                <i class="fa fa-laptop">
-                    <p class="count" style="font-size: 80%;">{{ count2 }}</p>
-                    <p>Total Records</p>
-                    <p>Check Coming Deadlines <b><a href="{% url 'cardeadline' %}" style="font-size: 110%">Click Me!</a></b></p>
-                </i>
-            </div>
-        </div>
-        <div class="col-lg-4 ">
-            <div class="social-box github">
-            <b>Fuel Supplier Payment Monitoring</b>
-                <i class="fa fa-laptop">
-                    <p class="count" style="font-size: 80%;">{{ count3 }}</p>
-                    <p>Total Records</p>
-                    <p>Check Coming Deadlines <b><a href="{% url 'fueldeadline' %}" style="font-size: 110%">Click Me!</a></b></p>
-                </i>
-            </div>
-        </div>
-        <div class="col-lg-4 ">
-            <div class="social-box github">
-            <b>Vehicle Repair Payment Monitoring</b>
-                <i class="fa fa-laptop">
-                    <p class="count" style="font-size: 80%;"> {{ count4 }}</p>
-                    <p>Total Records</p>
-                </i>
-            </div>
-        </div>
-    </div>
-    <div id="Request" class="w3-container db" style="display:none">
-        <div class="col-lg-4 ">
-            <div class="social-box github">
-            <b>Car Rental Request Monitoring</b>
-                <i class="fa fa-send-o">
-                    <p class="count" style="font-size: 80%;">{{ count5 }}</p>
-                    <p>Total Records</p>
-                    <p>Check Coming Deadlines <b><a href="{% url 'crrdeadline' %}" style="font-size: 110%">Click Me!</a></b></p>
-                </i>
-            </div>
-        </div>
-        <div class="col-lg-4 ">
-            <div class="social-box github">
-            <b>Gas Card Request Monitoring</b>
-                <i class="fa fa-send-o">
-                    <p class="count" style="font-size: 80%;">{{ count6 }}</p>
-                    <p>Total Records</p>
-                    <p>Check Coming Deadlines <b><a href="{% url 'gccdeadline' %}" style="font-size: 110%">Click Me!</a></b></p>
-                </i>
-            </div>
-        </div>
-        <div class="col-lg-4 ">
-            <div class="social-box github">
-            <b>Service Vehicle Request Monitoring</b>
-                <i class="fa fa-send-o">
-                    <p class="count" style="font-size: 80%;"> {{ count7 }}</p>
-                    <p>Total Records</p>
-                    <p>Check Coming Deadlines <b><a href="{% url 'svrdeadline' %}" style="font-size: 110%">Click Me!</a></b></p>
-                </i>
-            </div>
-        </div>
-        <div class="col-lg-4 ">
-            <div class="social-box github">
-            <b>Vehicle Repair Request Monitoring</b>
-                <i class="fa fa-send-o">
-                    <p class="count" style="font-size: 80%;"> {{ count8 }}</p>
-                    <p>Total Records</p>
-                    <p>Check Coming Deadlines <b><a href="{% url 'vrpdeadline' %}" style="font-size: 110%">Click Me!</a></b></p>
-                </i>
-            </div>
-        </div>
-    </div>
-    <div id="Insurance" class="w3-container db" style="display:none">
-        <div class="col-lg-4 ">
-            <div class="social-box github">
-            <b>Motor Vehicle Accendent Report</b>
-                <i class="fa fa-file">
-                    <p class="count" style="font-size: 80%;"> {{ count9 }}</p>
-                    <p>Total Records</p>
-                    <p>Check Coming Deadlines <b><a href="{% url 'reportdeadline' %}" style="font-size: 110%">Click Me!</a></b></p>
-                </i>
-            </div>
-        </div>
-    </div>
-    <div id="Monitoring" class="w3-container db" style="display:none">
-        <div class="col-lg-4 ">
-            <div class="social-box github">
-            <b>FATA Monitoring</b>
-                <i class="fa fa-folder-o">
-                    <p class="count" style="font-size: 80%;">{{ count10 }}</p>
-                    <p>Total Records</p>
-                </i>
-            </div>
-        </div>
-    </div>
-    <div id="TOO" class="w3-container db" style="display:none">
-        <div class="col-lg-4" align="center">
-            <div class="social-box github" align="center">
-            <b>Transfer of Ownership</b>
-                <i class="fa fa-user">
-                    <p class="count" style="font-size: 80%;">{{ count11 }}</p>
-                    <p>Total Records</p>
-                    <p>Check Coming Deadlines <b><a href="{% url 'toodeadline' %}" style="font-size: 110%">Click Me!</a></b></p>
-                </i>
-            </div>
-        </div>
-        <div class="col-lg-4" align="center">
-            <div class="social-box github" align="center">
-            <b>Billing</b>
-                <i class="fa fa-user">
-                    <p class="count" style="font-size: 80%;">{{ count14 }}</p>
-                    <p>Total Records</p>
-                </i>
-            </div>
-        </div>
-    </div>
-    <div id="Masterlist" class="w3-container db" style="display:none">
-        <div class="col-lg-4 " align="center">
-            <div class="social-box github">
-            <b>Vehicle</b>
-                <i class="fa fa-folder-open-o">
-                    <p class="count" style="font-size: 80%;">{{ count13 }}</p>
-                    <p>Total Records</p>
-                </i>
-            </div>
-        </div>
-        <div class="col-lg-4 " align="center">
-            <div class="social-box github">
-            <b>Employee</b>
-                <i class="fa fa-folder-open-o">
-                    <p class="count" style="font-size: 80%;">{{ count12 }}</p>
-                    <p>Total Records</p>
-                </i>
-            </div>
-        </div>
-        <div class="col-lg-4 " align="center">
-            <div class="social-box github">
-            <b>Leasing</b>
-                <i class="fa fa-folder-open-o">
-                    <p class="count" style="font-size: 80%;">{{ count15 }}</p>
-                    <p>Total Records</p>
-                </i>
-            </div>
-        </div>
-    </div> -->
 
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3 style="font-size: 20px">Total</h3>
+                <h3 style="font-size: 20px">{{ count12 }}</h3>
+                <h2 class="h5">Employee Masterlist</h2>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="{% url 'employee-list' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
 
-<!-- <div class='row'>
-    <div class="col-md-12">
-        <h3 class="page-header">Dashboard</h3>
-    </div>
-    </div>
-        <div class='col-sm-12 '>
-            <canvas id="myChart2" width="200" height="100"></canvas>
-        </div>
-</div> -->
-<div class="row justify-content-md-center">
-    <div class="col-md-11 mb-4">
-        <div class="card bg-yellow-alt shadow-sm">
-            <div class="card-header d-flex flex-row align-items-center flex-0">
-                <div class="d-block">
-                    <div class="h5 font-weight-normal mb-2">Dashboard</div>
-                </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3 style="font-size: 20px">Total</h3>
+                <h3 style="font-size: 20px">{{ count15 }}</h3>
+                <h2 class="h5">Leasing Masterlist</h2>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="{% url 'leasing_list' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-            <div class="card-body p-1">
-                <canvas id="myChart2" width="200" height="100"></canvas>
+          </div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3 style="font-size: 20px">Total Pending</h3>
+                <h3 style="font-size: 20px">{{ count16 }}</h3>
+                <h2 class="h5">Customer Log's</h2>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="{% url 'CS_List' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
+          </div>
+          <!-- ./col -->
+          <!-- ./col -->
         </div>
-    </div>
-</div>
-<div class="col-12 col-sm-6 col-xl-4 mb-4">
-    <div class="card1 border-soft-green shadow-sm">
-        <div class="card-body">
-            <div class="row d-block d-xl-flex align-items-center">
-                <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
-                    <div class="icon icon-shape icon-md icon-shape-blue rounded mr-4 mr-sm-0"><span class="fas fa-truck"></span></div>
-                    <div class="d-sm-none">
-                        <h2 class="h5">Vehicle Masterlist</h2>
-                        <h3 class="mb-1">{{ count13 }}</h3>
-                    </div>
+        <!-- /.row -->
+        <!-- Main row -->
+        <div class="row">
+          <!-- Left col -->
+          <section class="col-lg-7 connectedSortable">
+            <!-- Custom tabs (Charts with tabs)-->
+            <div class="card ">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-chart-pie mr-1"></i>
+                  Request For the Month of <u>{{month}}</u>
+                </h3>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content p-0">
+                  <!-- Morris chart - Sales -->
+                  <div class="chart tab-pane active" id="revenue-chart"
+                       style="position: relative; height: 600px;">
+                      <canvas id="myChart2" height="300" style="height: 400px;"></canvas>
+                   </div>
                 </div>
-                <div class="col-12 col-xl-7 px-xl-0">
-                    <div class="d-none d-sm-block">
-                        <h2 class="h5">Vehicle Masterlist</h2>
-                        <h3 class="mb-1">{{ count13 }}</h3>
-                    </div>
-                </div>
+              </div><!-- /.card-body -->
             </div>
-        </div>
-    </div>
-</div>
-<div class="col-12 col-sm-6 col-xl-4 mb-4">
-    <div class="card2 border-soft-green shadow-sm">
-        <div class="card-body">
-            <div class="row d-block d-xl-flex align-items-center">
-                <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
-                    <div class="icon icon-shape icon-md icon-shape-secondary rounded mr-4"><span class="fas fa-address-book"></span></div>
-                    <div class="d-sm-none">
-                        <h2 class="h5">Employee Masterlist</h2>
-                        <h3>{{ count12 }}</h3>
-                    </div>
+            
+            <!-- /.card -->
+            <!-- /.card -->
+          </section>
+
+          <!-- /.Left col -->
+          <!-- right col (We are only adding the ID to make the widgets sortable)-->
+          <section class="col-lg-5 connectedSortable">
+
+            <!-- Map card -->
+            <!-- /.card -->
+
+            <!-- solid sales graph -->
+            <div class="card bg-info.bg-gradient">
+              <div class="card-header border-0">
+                <h3 class="card-title">
+                  <i class="fas fa-th mr-1"></i>
+                  Ongoing For the Month of <u>{{month}}</u>
+                </h3>
+
+                <div class="card-tools">
                 </div>
-                <div class="col-12 col-xl-7 px-xl-0">
-                    <div class="d-none d-sm-block">
-                        <h2 class="h5">Employee Masterlist</h2>
-                        <h3 class="mb-1">{{ count12 }}</h3>
-                    </div>
-                </div>
+              </div>
+              <div class="card-body "style="position: relative; height: 650px;">
+                <canvas class="chart" id="ongoing_data" style="height: 600px; max-width: 100%;"></canvas>
+              </div>
             </div>
+            <!-- /.card -->
+            <!-- /.card -->
+          </section>
+          <!-- right col -->
         </div>
-    </div>
-</div>
-<div class="col-12 col-sm-6 col-xl-4 mb-4">
-    <div class="card3 border-soft-green shadow-sm">
-        <div class="card-body">
-            <div class="row d-block d-xl-flex align-items-center">
-                <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
-                    <div class="icon icon-shape icon-md icon-shape-tertiary rounded mr-4"><span class="fas fa-chart-line"></span></div>
-                    <div class="d-sm-none">
-                        <h2 class="h5">Leasing Masterlist</h2>
-                        <h3 class="mb-1">{{ count15 }}</h3>
-                    </div>
-                </div>
-                <div class="col-12 col-xl-7 px-xl-0">
-                    <div class="d-none d-sm-block">
-                        <h2 class="h5">Leasing Masterlist</h2>
-                        <h3 class="mb-1">{{ count15 }}</h3>
-                    </div>
-                </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+        <div class="card ">
+          <div class="card-header">
+            <h3 class="card-title">
+              <i class="fas fa-chart-pie mr-1"></i>
+              Completed For the Month of <u>{{month}}</u>
+            </h3>
+          </div><!-- /.card-header -->
+          <div class="card-body">
+            <div class="tab-content p-0">
+              <!-- Morris chart - Sales -->
+              <div class="card-body">
+                  <canvas id="completed" style="height: 500px; max-width: 100%;"></canvas>
+               </div>
             </div>
+          </div><!-- /.card-body -->
         </div>
-    </div>
+    </section>
+
+    <!-- /.content -->
+<!-- </div> -->
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
 </div>
 {% endblock %}
 

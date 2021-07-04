@@ -93,6 +93,7 @@ def ownership_submit(request):
 		date_comletion_vismin = request.POST.get('date_comletion_vismin')
 		date_received_by = request.POST.get('received_by')
 		TOO_SLA = request.POST.get('TOO_SLA')
+		status = request.POST.get('status')
 		
 		saveto_own = Ownership(date_application = date_application,req_employee_id = req_employee_id,req_Fname = req_Fname,req_Lname = req_Lname,
 			req_band = req_band,req_cost = req_cost,req_title = req_title,plate_no= plate_no,cond_sticker = cond_sticker,vehicle_model = vehicle_model,
@@ -103,7 +104,7 @@ def ownership_submit(request):
 			date_notarized = date_notarized,endorosed_to_insurance =endorosed_to_insurance ,requested_for_pullout = requested_for_pullout,
 			forwarded_fleet_liason = forwarded_fleet_liason,tmg_date_in =tmg_date_in ,tmg_location = tmg_location,
 			tmg_date_return = tmg_date_return,lto_date_in = lto_date_in,lto_date_out = lto_date_out, lto_location = lto_location,
-			date_transfered_completed = date_transfered_completed,date_comletion_vismin = date_comletion_vismin, date_received_by = date_received_by, TOO_SLA=TOO_SLA)
+			date_transfered_completed = date_transfered_completed,date_comletion_vismin = date_comletion_vismin, date_received_by = date_received_by, TOO_SLA=TOO_SLA, status=status)
 		saveto_own.save()
 
 		return HttpResponseRedirect('/Ownership/Ownership/')
@@ -253,6 +254,7 @@ def ownership_excel(request):
 		    'SLA' ,
 		    'Date Initiated' ,
 		    'Date Received By' ,
+		    'Status',
 		    'Deadline' ,
     ]
     row_num = 1
@@ -308,6 +310,7 @@ def ownership_excel(request):
 				own.TOO_SLA ,
 				own.date_initiated ,
 				own.date_received_by ,
+				own.status,
 				own.Deadline ,
         ]
         
@@ -361,23 +364,38 @@ def billing_excel(request):
     workbook.save(response)
     return response
 
-
+##Daily report Details
+def ownership_report_details(request):
+	date = datetime.datetime.today()
+	notorized = Ownership.objects.filter(status = 'NOTARIZED').count()
+	routing_count = Ownership.objects.filter(status = 'ON GOING ROUTING FOR APPROVAL').count()
+	tmg_schedule = Ownership.objects.filter(status = 'WITH_TMG SCHEDULE').count()
+	tmg_appearance = Ownership.objects.filter(status = 'FOR TMG APPEARANCE').count()
+	lto_transfer = Ownership.objects.filter(status = 'LTO TRANSFER').count()
+	fleet_vismin = Ownership.objects.filter(status = 'FLEET VISMIN').count()
+	with_tmg_etching = Ownership.objects.filter(status = 'WITH_MACRO ETCHING').count()
+	total = notorized + routing_count + tmg_schedule + tmg_appearance + lto_transfer + fleet_vismin + with_tmg_etching
+	return render(request, 'report_details.html',{'Title':'TOO - TOO Report', 'notorized':notorized,'routing_count':routing_count,
+	'tmg_schedule':tmg_schedule, 'tmg_appearance':tmg_appearance, 'lto_transfer':lto_transfer, 'fleet_vismin':fleet_vismin,
+	'with_tmg_etching':with_tmg_etching, 'total':total,'date':date})
 
 # Registration Daily Report
-    
 def ownership_report(request):
 	username = os.getlogin()
 	date = datetime.datetime.today()
-	# start_week = date - datetime.timedelta(date.weekday())
-	# end_week = start_week + datetime.timedelta(7)
 
-	notorized = Ownership.objects.filter(date_notarized = datetime.datetime.today()).count()
-	routing_count = Ownership.objects.filter(routed_to_jd = datetime.datetime.today()).count()
-	tmg_schedule = Ownership.objects.filter(tmg_date_in = datetime.datetime.today()).count()
-	lto_transfer = Ownership.objects.filter(lto_date_out = datetime.datetime.today()).count()
-	fleet_vismin = Ownership.objects.filter(lto_date_out = datetime.datetime.today()).count()
-	date_comletion_vismin = Ownership.objects.filter(date_comletion_vismin = datetime.datetime.today()).count()
+	notorized = Ownership.objects.filter(status = 'NOTARIZED').count()
+	routing_count = Ownership.objects.filter(status = 'ON GOING ROUTING FOR APPROVAL').count()
+	tmg_schedule = Ownership.objects.filter(status = 'WITH_TMG SCHEDULE').count()
+	tmg_appearance = Ownership.objects.filter(status = 'FOR TMG APPEARANCE').count()
+	lto_transfer = Ownership.objects.filter(status = 'LTO TRANSFER').count()
+	fleet_vismin = Ownership.objects.filter(status = 'FLEET VISMIN').count()
+	with_tmg_etching = Ownership.objects.filter(status = 'WITH_MACRO ETCHING').count()
+	total = notorized + routing_count + tmg_schedule + tmg_appearance + lto_transfer + fleet_vismin + with_tmg_etching
 	from openpyxl import Workbook, load_workbook
+	output = HttpResponse(content_type='application/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+	file_name = "TOO_Report.xlsx"
+	output['Content-Disposition'] = 'attachment; filename='+ file_name
 	wb = Workbook()
 	ws = wb.active
 
@@ -412,9 +430,12 @@ def ownership_report(request):
 	ws['B4'].value = date
 	ws['B10'].value = routing_count
 	ws['B11'].value = notorized
-	ws['B17'].value = tmg_schedule
+	ws['B14'].value = tmg_appearance
+	ws['B15'].value = tmg_schedule
+	ws['B17'].value = with_tmg_etching
+	ws['B19'].value = fleet_vismin
 	ws['B21'].value = lto_transfer
-	ws['B25'].value = date_comletion_vismin
+	ws['B23'].value = total
 
 	# style
 	ws['A6'].fill = PatternFill("solid", fgColor="00FFCC99")
@@ -457,7 +478,9 @@ def ownership_report(request):
 	ws['F25'].fill = PatternFill("solid", fgColor="00FF99CC")
 	ws['G25'].fill = PatternFill("solid", fgColor="00FF99CC")
 
-	wb.save(f"/Users/{username}/Desktop/TOO_Report.xlsx")
-	return redirect('/Ownership/Ownership')
+	wb.save(output)
+	return output
+	# wb.save(f"/Users/{username}/Desktop/TOO_Report.xlsx")
+	# return redirect('/Ownership/Ownership')
 
 

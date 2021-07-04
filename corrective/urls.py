@@ -10,5 +10,7 @@ urlpatterns = [
 	path('Corrective/Delete/<int:pk>/', views.correctiveDeleteView.as_view(), name='corrective_delete'),
 	path('Corrective/History', views.correctiveHistoryView, name='corrective_history'),
 	path('Corrective/Export', views.corrective_excel, name='corrective_export'),
+	path('Corrective/Report/Details',views.vehicle_maintenance_report_details, name='v_maitenance_details'),
+	path('Corrective/Report/Export', views.vehicle_maintenance_report, name='v_maitenance_report'),
 
 	]

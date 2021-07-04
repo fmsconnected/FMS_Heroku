@@ -553,176 +553,242 @@ class HomeView():
     context_object_name = 'car_list'
     template_name = 'account/account/base/login.html'
 
-# Registration Daily Report
-    
-def registration_report(request):
+def registration_report_detail(request):
     username = os.getlogin()
     today = datetime.datetime.now()
     month = today.month
-    def excel_report(reg):
-        Registration_due_1 = Registration.objects.filter(Plate_ending=month)
-        Registration_total_1 = Registration.objects.filter(Plate_ending=month).count()
-        if Registration_total_1 == 0:
-            ws.append([reg, 0, ])
-            ws['B7'].value = Registration_total_1
-        else:
-            for reg_due in Registration_due_1:
-                ws.append([reg, ])
-                ws['B7'].value = Registration_total_1
-                break
-            
+
+    Due_For_Regs = Registration.objects.filter(Plate_ending=month).count()
+    
+    Due_For_Regs1 = Registration.objects.filter(Plate_ending="1").count()
+    Completed1 = Registration.objects.exclude(Plate_ending="1",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    
+    Due_For_Regs2 = Registration.objects.filter(Plate_ending="2").count()
+    Completed2 = Registration.objects.exclude(Plate_ending="2",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    
+    Due_For_Regs3 = Registration.objects.filter(Plate_ending="3").count()
+    Completed3 = Registration.objects.exclude(Plate_ending="3",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    
+    Due_For_Regs4 = Registration.objects.filter(Plate_ending="4").count()
+    Completed4 = Registration.objects.exclude(Plate_ending="4",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    
+    Due_For_Regs5 = Registration.objects.filter(Plate_ending="5").count()
+    Completed5 = Registration.objects.exclude(Plate_ending="5",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    
+    Due_For_Regs6 = Registration.objects.filter(Plate_ending="6").count()
+    Completed6 = Registration.objects.exclude(Plate_ending="6",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    
+    Due_For_Regs7 = Registration.objects.filter(Plate_ending="7").count()
+    Completed7 = Registration.objects.exclude(Plate_ending="7",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    
+    Due_For_Regs8 = Registration.objects.filter(Plate_ending="8").count()
+    Completed8 = Registration.objects.exclude(Plate_ending="8",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    
+    Due_For_Regs9 = Registration.objects.filter(Plate_ending="9").count()
+    Completed9 = Registration.objects.exclude(Plate_ending="9",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    
+    Due_For_Regs0 = Registration.objects.filter(Plate_ending="0").count()
+    Completed0 = Registration.objects.exclude(Plate_ending="0",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+
+    return  render(request, 'registration_report_details.html',{'title':'Registration - Registration Monitoring', 'Due_For_Regs1':Due_For_Regs1, 'Completed1':Completed1,
+     'Due_For_Regs2':Due_For_Regs2, 'Completed2':Completed2, 'Due_For_Regs3':Due_For_Regs3, 'Due_For_Regs4':Due_For_Regs4, 'Completed4':Completed4,
+     'Due_For_Regs5':Due_For_Regs5, 'Completed5':Completed5, 'Due_For_Regs6':Due_For_Regs6, 'Completed6':Completed6, 'Due_For_Regs7':Due_For_Regs7, 'Completed7':Completed7,
+     'Due_For_Regs8':Due_For_Regs8, 'Completed8':Completed8, 'Due_For_Regs9':Due_For_Regs9, 'Completed9':Completed9, 'Due_For_Regs0':Due_For_Regs0, 'Completed0':Completed0})
+
+# Registration Daily Report
+    
+def registration_report(request):
+
+    username = os.getlogin()
+    today = datetime.datetime.now()
+    month = today.month
+
+    Due_For_Regs = Registration.objects.filter(Plate_ending=month).count()
+    
+    Due_For_Regs1 = Registration.objects.filter(Plate_ending="1").count()
+    Completed1 = Registration.objects.exclude(Plate_ending="1",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    
+    Due_For_Regs2 = Registration.objects.filter(Plate_ending="2").count()
+    Completed2 = Registration.objects.exclude(Plate_ending="2",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    
+    Due_For_Regs3 = Registration.objects.filter(Plate_ending="3").count()
+    Completed3 = Registration.objects.exclude(Plate_ending="3",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    
+    Due_For_Regs4 = Registration.objects.filter(Plate_ending="4").count()
+    Completed4 = Registration.objects.exclude(Plate_ending="4",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    
+    Due_For_Regs5 = Registration.objects.filter(Plate_ending="5").count()
+    Completed5 = Registration.objects.exclude(Plate_ending="5",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    
+    Due_For_Regs6 = Registration.objects.filter(Plate_ending="6").count()
+    Completed6 = Registration.objects.exclude(Plate_ending="6",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    
+    Due_For_Regs7 = Registration.objects.filter(Plate_ending="7").count()
+    Completed7 = Registration.objects.exclude(Plate_ending="7",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    
+    Due_For_Regs8 = Registration.objects.filter(Plate_ending="8").count()
+    Completed8 = Registration.objects.exclude(Plate_ending="8",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    
+    Due_For_Regs9 = Registration.objects.filter(Plate_ending="9").count()
+    Completed9 = Registration.objects.exclude(Plate_ending="9",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    
+    Due_For_Regs0 = Registration.objects.filter(Plate_ending="0").count()
+    Completed0 = Registration.objects.exclude(Plate_ending="0",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+
     from openpyxl import Workbook, load_workbook
+    output = HttpResponse(content_type='application/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    file_name = "Registration_Report.xlsx"
+    output['Content-Disposition'] = 'attachment; filename='+ file_name
     wb = Workbook()
     ws = wb.active
     ws.title = "Registration Report"
-    ws['A1'].value = "PERSONNEL:Francis Jae Dela Cruz"
+    ws['A1'].value = "PERSONNEL:"
+    ws['B1'].value = "Francis Jae Dela Cruz"
     ws['A3'].value = "OUTPUT"
     ws['A4'].value = ""
-    ws['A5'].value = ""
-    ws.append(['', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
 
-    excel_report("Due For Regs")
-    excel_report("Registered")
-    excel_report("unRegistered")
-    excel_report("Uploading")
-    excel_report("Alarm")
-    excel_report("Completed")
-    if month == 1:
-        ws['A5'].value = "Ending 1"
-    elif month == 2:
-        ws['A5'].value = "Ending 2"
-    elif month == 3:
-        ws['A5'].value = "Ending 3"
-    elif month == 4:
-        ws['A5'].value = "Ending 4"
-    elif month == 5:
-        ws['A5'].value = "Ending 5"
-    elif month == 6:
-        ws['A5'].value = "Ending 6"
-    elif month == 7:
-        ws['A5'].value = "Ending 7"
-    elif month == 8:
-        ws['A5'].value = "Ending 8"
-    elif month == 9:
-        ws['A5'].value = "Ending 9"
-    elif month == 10:
-        ws['A5'].value = "Ending 0"
-    # ws1 = wb.active
-    # ws1['A15'].value = ""
-    # ws1['A16'].value = "Ending 1"
-    # ws1.append(['', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
+##### Plate Ending 1 #######
+    ws['A5'].value = "Ending 1"
+    ws.append(['', 'Total','Remarks'])
+    ws['A7'].value = "Due For Regs"
+    ws['A8'].value = "Registered"
+    ws['A9'].value = "unRegistered"
+    ws['A10'].value = "Uploading"
+    ws['A11'].value = "Alarm"
+    ws['A12'].value = "Completed"
+    ws['A13'].value = ""
+    ws['A14'].value = ""
 
-    # excel_report("Due For Regs")
-    # excel_report("Registered")
-    # excel_report("unRegistered")
-    # excel_report("Uploading")
-    # excel_report("Alarm")
-    # excel_report("Completed")
+    ws['B7'].value = Due_For_Regs1
+    ws['B12'].value = Completed1
+##### Plate Ending 2 #######
 
-    # ws2 = wb.active
-    # ws2['A26'].value = ""
-    # ws2['A27'].value = "Ending 2"
-    # ws2.append(['', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
+    ws['A15'].value = "Ending 2"
+    ws['A16'].value = "Due For Regs"
+    ws['A17'].value = "Registered"
+    ws['A18'].value = "unRegistered"
+    ws['A19'].value = "Uploading"
+    ws['A20'].value = "Alarm"
+    ws['A21'].value = "Completed"
+    ws['A22'].value = ""
+    ws['A23'].value = ""
 
-    # excel_report("Due For Regs")
-    # excel_report("Registered")
-    # excel_report("unRegistered")
-    # excel_report("Uploading")
-    # excel_report("Alarm")
-    # excel_report("Completed")
+    ws['B16'].value = Due_For_Regs2
+    ws['B21'].value = Completed2
+##### Plate Ending 3 #######
 
-    # ws3 = wb.active
-    # ws3.title = "Registration Report"
-    # ws3['A36'].value = ""
-    # ws3['A37'].value = "Ending 3"
-    # ws3.append(['', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
+    ws['A24'].value = "Ending 3"
+    ws['A25'].value = "Due For Regs"
+    ws['A26'].value = "Registered"
+    ws['A27'].value = "unRegistered"
+    ws['A28'].value = "Uploading"
+    ws['A29'].value = "Alarm"
+    ws['A30'].value = "Completed"
+    ws['A31'].value = ""
+    ws['A32'].value = ""
+    ws['B25'].value = Due_For_Regs3
+    ws['B30'].value = Completed3
+##### Plate Ending 4 #######
 
-    # excel_report("Due For Regs")
-    # excel_report("Registered")
-    # excel_report("unRegistered")
-    # excel_report("Uploading")
-    # excel_report("Alarm")
-    # excel_report("Completed")
+    ws['A33'].value = "Ending 4"
+    ws['A34'].value = "Due For Regs"
+    ws['A35'].value = "Registered"
+    ws['A36'].value = "unRegistered"
+    ws['A37'].value = "Uploading"
+    ws['A38'].value = "Alarm"
+    ws['A39'].value = "Completed"
+    ws['A40'].value = ""
+    ws['A41'].value = ""
+    ws['B34'].value = Due_For_Regs4
+    ws['B39'].value = Completed4
+##### Plate Ending 5 #######
 
-    # ws4 = wb.active
-    # ws4.title = "Registration Report"
-    # ws4['A46'].value = ""
-    # ws4['A47'].value = "Ending 4"
-    # ws4.append(['', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
+    ws['A42'].value = "Ending 5"
+    ws['A43'].value = "Due For Regs"
+    ws['A44'].value = "Registered"
+    ws['A45'].value = "unRegistered"
+    ws['A46'].value = "Uploading"
+    ws['A47'].value = "Alarm"
+    ws['A48'].value = "Completed"
+    ws['A49'].value = ""
+    ws['A50'].value = ""
+    ws['B43'].value = Due_For_Regs5
+    ws['B48'].value = Completed5
 
-    # excel_report("Due For Regs")
-    # excel_report("Registered")
-    # excel_report("unRegistered")
-    # excel_report("Uploading")
-    # excel_report("Alarm")
-    # excel_report("Completed")
+    ws['G6'].value = ""
+    ws['H6'].value = "Total"
+    ws['I6'].value = "Remarks"
+##### Plate Ending 6 #######
 
-    # ws5 = wb.active
-    # ws5.title = "Registration Report"
-    # ws5['A56'].value = ""
-    # ws5['A57'].value = "Ending 5"
-    # ws5.append(['', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
+    ws['G5'].value = "Ending 6"
+    ws['G7'].value = "Due For Regs"
+    ws['G8'].value = "Registered"
+    ws['G9'].value = "unRegistered"
+    ws['G10'].value = "Uploading"
+    ws['G11'].value = "Alarm"
+    ws['G12'].value = "Completed"
+    ws['G13'].value = ""
+    ws['G14'].value = ""
+    ws['H7'].value = Due_For_Regs6
+    ws['H12'].value = Completed6
 
-    # excel_report("Due For Regs")
-    # excel_report("Registered")
-    # excel_report("unRegistered")
-    # excel_report("Uploading")
-    # excel_report("Alarm")
-    # excel_report("Completed")
+##### Plate Ending 7 #######
 
-    # ws6 = wb.active
-    # ws6.title = "Registration Report"
-    # ws6['A66'].value = ""
-    # ws6['A67'].value = "Ending 6"
-    # ws6.append(['', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
+    ws['G15'].value = "Ending 7"
+    ws['G16'].value = "Due For Regs"
+    ws['G17'].value = "Registered"
+    ws['G18'].value = "unRegistered"
+    ws['G19'].value = "Uploading"
+    ws['G20'].value = "Alarm"
+    ws['G21'].value = "Completed"
+    ws['G22'].value = ""
+    ws['G23'].value = ""
+    ws['H16'].value = Due_For_Regs7
+    ws['H21'].value = Completed7
 
-    # excel_report("Due For Regs")
-    # excel_report("Registered")
-    # excel_report("unRegistered")
-    # excel_report("Uploading")
-    # excel_report("Alarm")
-    # excel_report("Completed")
+##### Plate Ending 8 #######
 
-    # ws7 = wb.active
-    # ws7.title = "Registration Report"
-    # ws7['A76'].value = ""
-    # ws7['A77'].value = "Ending 7"
-    # ws7.append(['', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
+    ws['G24'].value = "Ending 8"
+    ws['G25'].value = "Due For Regs"
+    ws['G26'].value = "Registered"
+    ws['G27'].value = "unRegistered"
+    ws['G28'].value = "Uploading"
+    ws['G29'].value = "Alarm"
+    ws['G30'].value = "Completed"
+    ws['G31'].value = ""
+    ws['G32'].value = ""
+    ws['H25'].value = Due_For_Regs8
+    ws['H30'].value = Completed8
 
-    # excel_report("Due For Regs")
-    # excel_report("Registered")
-    # excel_report("unRegistered")
-    # excel_report("Uploading")
-    # excel_report("Alarm")
-    # excel_report("Completed")
+##### Plate Ending 9 #######
 
-    # ws8 = wb.active
-    # ws8.title = "Registration Report"
-    # ws8['A86'].value = ""
-    # ws8['A87'].value = "Ending 8"
-    # ws8.append(['', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
+    ws['G33'].value = "Ending 9"
+    ws['G34'].value = "Due For Regs"
+    ws['G35'].value = "Registered"
+    ws['G36'].value = "unRegistered"
+    ws['G37'].value = "Uploading"
+    ws['G38'].value = "Alarm"
+    ws['G39'].value = "Completed"
+    ws['G40'].value = ""
+    ws['G41'].value = ""
+    ws['H34'].value = Due_For_Regs9
+    ws['H39'].value = Completed9
 
-    # excel_report("Due For Regs")
-    # excel_report("Registered")
-    # excel_report("unRegistered")
-    # excel_report("Uploading")
-    # excel_report("Alarm")
-    # excel_report("Completed")
+##### Plate Ending 0 #######
 
-    # ws9 = wb.active
-    # ws9.title = "Registration Report"
-    # ws9['A96'].value = ""
-    # ws9['A97'].value = "Ending 9"
-    # ws9.append(['', 'Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Remarks'])
-
-    # excel_report("Due For Regs")
-    # excel_report("Registered")
-    # excel_report("unRegistered")
-    # excel_report("Uploading")
-    # excel_report("Alarm")
-    # excel_report("Completed")
-
-
-    wb.save(f"/Users/{username}/Desktop/Registration_Report.xlsx")
-    return redirect('/Registration/January')
+    ws['G42'].value = "Ending 0"
+    ws['G43'].value = "Due For Regs"
+    ws['G44'].value = "Registered"
+    ws['G45'].value = "unRegistered"
+    ws['G46'].value = "Uploading"
+    ws['G47'].value = "Alarm"
+    ws['G48'].value = "Completed"
+    ws['G49'].value = ""
+    ws['G50'].value = ""
+    ws['H43'].value = Due_For_Regs0
+    ws['H48'].value = Completed0
+    wb.save(output)
+    return output
+    # wb.save(f"/Users/{username}/Desktop/Registration_Report.xlsx")
+    # return redirect('/Registration/January')
 

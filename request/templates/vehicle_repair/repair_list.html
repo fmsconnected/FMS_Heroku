@@ -36,7 +36,9 @@
 
     .closebtn:hover {
         color: black;
+
     }
+    
 </style>
 
 <div class="modal fade" tabindex="-1" role="dialog" id="modal">
@@ -78,9 +80,10 @@
             <div class="col-md-12">
                 <div class="card">
                 <div class="card-header">
-                    <a href="{% url 'repair_export' %}" style="float: left"><u><b>Export Vehicle Data</b></u> </a>
-                    <a href="{% url 'repair_new' %}" style="float:right"><u><b>Add Vehicle Repair</b></u>&nbsp;&nbsp;&nbsp;</a>
-                    <a href="{% url 'repair_history' %}" style="float:right" class="mr-3"><u><b>Vehicle Repair History</b></u></a>
+                    <a href="{% url 'repair_export' %}" style="float: left"><b>Export Data</b> /</a>
+                    <a href="{% url 'maitenance_details' %}" style="float: left"><b>View Report</b> </a>
+                    <a href="{% url 'repair_new' %}" style="float:right"><b>Create</b>&nbsp;&nbsp;&nbsp;</a>
+                    <a href="{% url 'repair_history' %}" style="float:right" class="mr-3"><b>History</b></a>
                 </div>
                 <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                     <thead>
@@ -99,7 +102,7 @@
                      <tbody>
                         {% for Vehicle_Repair in object_list %}
                         <tr class="odd gradeX">
-                            <td><a href="{% url 'repair_details' Vehicle_Repair.id %}"><u>{{ Vehicle_Repair.Activity_id }}</u></a></td>
+                            <td><a href="{% url 'repair_details' Vehicle_Repair.id %}">{{ Vehicle_Repair.Activity_id }}</a></td>
                             <td>{{ Vehicle_Repair.first_name }} {{ Vehicle_Repair.last_name }}</td>
                             <td>{{ Vehicle_Repair.email }}</td>
                             <td>{{ Vehicle_Repair.plate_no }}</td>

@@ -39,5 +39,6 @@ urlpatterns = [
 	path('Repair/Delete/<int:pk>', views.repairDeleteView.as_view(), name='repair_delete'),
 	path('Repair/History/', views.repairHistoryView, name='repair_history'),
 	path('Repair.Export', views.repair_request_excel, name='repair_export'),
-
+	path('Repair/Report/Details',views.vehicle_maintenance_report_details, name='maitenance_details'),
+	path('Repair/Report/Export', views.vehicle_maintenance_report, name='maitenance_report'),
 	]

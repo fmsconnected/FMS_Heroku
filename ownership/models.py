@@ -83,7 +83,15 @@ class Ownership(models.Model):
             ('JXMTSI', 'JXMTSI'),
             ('Department','Department'),
             )
-
+    status = (
+            ('ON GOING ROUTING FOR APPROVAL','ON GOING ROUTING FOR APPROVAL'),
+            ('NOTARIZED','NOTARIZED'),
+            ('FOR TMG APPEARANCE','FOR TMG APPEARANCE'),
+            ('WITH_TMG SCHEDULE','WITH TMG SCHEDULE'),
+            ('WITH_MACRO ETCHING','WITH MACRO ETCHING'),
+            ('FLEET VISMIN','FLEET VISMIN'),
+            ('LTO TRANSFER','LTO TRANSFER')
+        )
     Activity_id = models.CharField(max_length=100, default=increment_Activity_id)
     date_application = models.DateField(auto_now=False, null=True, blank=True)
     req_employee_id = models.CharField(max_length=50, null=True, blank=True)
@@ -111,25 +119,26 @@ class Ownership(models.Model):
     emailed_to_casher =models.CharField(max_length=100, null=True, blank=True)
     received_from_casher =models.CharField(max_length=100, null=True, blank=True)
     deed_signed = models.CharField(max_length=100, null=True, blank=True)
-    routed_to_jd = models.DateField(default=None, blank=True, null=True)
+    routed_to_jd = models.CharField(max_length=100, null=True, blank=True)
     approved_by_jd =models.CharField(max_length=100, null=True, blank=True)
     return_fleet_admin =models.CharField(max_length=100, null=True, blank=True)
     forwarded_to_liason =models.CharField(max_length=100, null=True, blank=True)
-    date_notarized = models.DateField(default=None, blank=True, null=True)
+    date_notarized = models.CharField(max_length=100, null=True, blank=True)
     endorosed_to_insurance = models.CharField(max_length=100, null=True, blank=True)
     requested_for_pullout = models.CharField(max_length=100, null=True, blank=True)
     forwarded_fleet_liason = models.CharField(max_length=100, null=True, blank=True)
-    tmg_date_in = models.DateField(default=None, blank=True, null=True)
+    tmg_date_in = models.CharField(max_length=100, null=True, blank=True)
     tmg_location =models.CharField(max_length=100, null=True, blank=True,choices=TMGloc)
     tmg_date_return = models.CharField(max_length=100, null=True, blank=True)
     lto_location = models.CharField(max_length=100, null=True, blank=True, choices=Location)
     lto_date_in = models.CharField(max_length=100, null=True, blank=True)
-    lto_date_out = models.DateField(default=None, blank=True, null=True)
+    lto_date_out = models.CharField(max_length=100, null=True, blank=True)
     date_transfered_completed =models.CharField(max_length=100, null=True, blank=True)
-    date_comletion_vismin = models.DateField(default=None, blank=True, null=True)
+    date_comletion_vismin = models.CharField(max_length=100, null=True, blank=True)
     TOO_SLA = models.CharField(max_length=10, null=True, blank=True)
     date_initiated = models.DateField(auto_now=True, null=True, blank=True)
     date_received_by = models.CharField(max_length=100, null=True, blank=True)
+    status = models.CharField(max_length=100, null=True, blank=True,choices=status)
     history = HistoricalRecords()
     Deadline = models.DateTimeField(null=True, blank=True)
 

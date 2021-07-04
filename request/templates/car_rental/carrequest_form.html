@@ -25,6 +25,7 @@ function carrequest(car) {
 </div>
 <form method="POST">
 {% csrf_token %}
+
   <div id="Car Rental Request" class="w3-container request">
     <fieldset>
       <legend align="left">Assignee Details</legend><br>
@@ -146,7 +147,7 @@ function carrequest(car) {
     <br><br><br>
   </div>
 
-  <div id="OutBound Process" class="w3-container request" style="display:none">
+  <div id="OutBound Process" class="w3-container request">
     <fieldset>
       <legend align="left">Vehicle Details</legend>
     <div class="col-sm-6">
@@ -164,7 +165,7 @@ function carrequest(car) {
     </div>
   </div>
 
-<div id="Approved Process" class="w3-container request" style="display:none">
+<div id="Approved Process" class="w3-container request">
   <fieldset>
   <legend align="left">Approval Process</legend>
   <div class="col-sm-6">

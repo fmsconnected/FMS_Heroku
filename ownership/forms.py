@@ -66,7 +66,7 @@ class ownershipForm(forms.ModelForm):
                     'deed_signed','routed_to_jd','approved_by_jd','return_fleet_admin','forwarded_to_liason','date_notarized',
                     'endorosed_to_insurance','requested_for_pullout','forwarded_fleet_liason',
                     'tmg_date_in','tmg_location','tmg_date_return' ,'lto_date_in','lto_date_out', 'lto_location',
-                    'date_transfered_completed','date_comletion_vismin','TOO_SLA', 'date_received_by',]
+                    'date_transfered_completed','date_comletion_vismin','TOO_SLA', 'date_received_by','status']
                     
         vendor=(
             ('Globe Telecome','Globe Telecome'),
@@ -122,6 +122,15 @@ class ownershipForm(forms.ModelForm):
             ('JXMTSI', 'JXMTSI'),
             ('Department','Department'),
             )
+        status = (
+            ('ON GOING ROUTING FOR APPROVAL','ON GOING ROUTING FOR APPROVAL'),
+            ('NOTARIZED','NOTARIZED'),
+            ('FOR TMG APPEARANCE','FOR TMG APPEARANCE'),
+            ('WITH TMG SCHEDULE','WITH TMG SCHEDULE'),
+            ('WITH MACRO ETCHING','WITH MACRO ETCHING'),
+            ('FLEET VISMIN','FLEET VISMIN'),
+            ('LTO TRANSFER','LTO TRANSFER')
+        )
         widgets= {
             
             'date_application': forms.TextInput(attrs={'class':'form-control','type':'date'}),
@@ -167,7 +176,7 @@ class ownershipForm(forms.ModelForm):
             'lto_location' : forms.Select(attrs={'class':'form-control','choices':'Location'}),
             'lto_date_out' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             # 'lto_date_return': forms.TextInput(attrs={'class':'form-control','type':'date'}),
-            # 'date_docs_return' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
+            'status' : forms.Select(attrs={'class':'form-control','choices':'status'}),
             'date_transfered_completed' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'date_comletion_vismin' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'date_received_by' : forms.TextInput(attrs={'class': 'form-control'}),

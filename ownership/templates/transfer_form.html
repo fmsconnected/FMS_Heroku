@@ -72,34 +72,10 @@ function transferownership(trans) {
     </div>
     <div id="Transfer of Ownership" class="w3-container ownership">
     <fieldset>
-        <legend align="left">Requisitioner Details</legend><br>
+        <legend align="left">DEED of Absolute Sale(DOAS)</legend><br>
         <div class="col-sm-6">
             <label>Date Application Received</label>
             {{ form.date_application }}
-        </div>
-        <div class="col-sm-6">
-            <label>Requisitioner Employee ID</label>
-            {{ form.req_employee_id }}
-        </div>
-        <div class="col-sm-6">
-            <label>Requisitioner Last Name</label>
-            {{ form.req_Lname }}
-        </div>
-        <div class="col-sm-6">
-            <label>Requisitioner First Name</label>
-            {{ form.req_Fname }}
-        </div>
-        <div class="col-sm-6">
-            <label>Requisitioner Band</label>
-            {{ form.req_band }}
-        </div>
-        <div class="col-sm-6">
-            <label>Requisitioner Cost Center</label>
-            {{ form.req_cost}}
-        </div>
-        <div class="col-sm-6">
-            <label>Requisitioner Title</label>
-            {{ form.req_title }}
         </div>
     <br><br>
     </fieldset>
@@ -168,24 +144,16 @@ function transferownership(trans) {
     <fieldset>
         <legend align="left">Documents Routing 1</legend>
         <div class="col-sm-6">
-            <label>Date Routed to JD/ECS</label>
+            <label>Date Routed to GT</label>
             {{ form.routed_to_jd }}
         </div>
         <div class="col-sm-6">
             <label>Date Approved By JD/ECS</label>
             {{ form.approved_by_jd }}
         </div>
-        <div class="col-sm-6">
-            <label>Date Return to Fleet Admin Assistant</label>
-            {{ form.return_fleet_admin }}
-        </div>
     </fieldset>
     <fieldset>
-        <legend align="left">Documents Routing 2</legend>
-        <div class="col-sm-6">
-            <label>Date Forwarded to Liason Officer</label>
-            {{ form.forwarded_to_liason }}
-        </div>
+        <legend align="left">Documents Notarized</legend>
         <div class="col-sm-6">
             <label>Date Notarized</label>
             {{ form.date_notarized }}
@@ -194,23 +162,12 @@ function transferownership(trans) {
     <fieldset>
         <legend align="left">Documents Routing 3</legend>
         <div class="col-sm-6">
-            <label>Date Endorsed to Insurance Company</label>
+            <label>Date Endorsed to Insurance Deletion/Request</label>
             {{ form.endorosed_to_insurance }}
         </div>
         <div class="col-sm-6">
             <label>Date Received Pull-out of OR/CR</label>
             {{ form.requested_for_pullout }}
-        </div>
-        <div class="col-sm-6">
-            <label>Date Pulled OR/CR</label>
-            {{ form.date_pulled }}
-        </div>
-    </fieldset>
-    <fieldset>
-        <legend align="left">Insurance Processing</legend>
-        <div class="col-sm-6">
-            <label>Date Forwarded to Fleet Liason for TMG</label>
-            {{ form.forwarded_fleet_liason }}
         </div>
     </fieldset>
     <fieldset>
@@ -241,6 +198,10 @@ function transferownership(trans) {
         <div class="col-sm-6">
             <label>LTO Location</label>
             {{ form.lto_location }}
+        </div>
+        <div class="col-sm-6">
+            <label>STATUS</label>
+            {{ form.status }}
         </div>
     </fieldset>
     <div class="card-footer">

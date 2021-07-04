@@ -23,9 +23,11 @@
             <div class="col-md-12">
                 <div class="card">
                 <div class="card-header">
-                    <a href="{% url 'corrective_export' %}" style="float: left"><u><b>Export Corrective Data</b></u> </a>
-                    <a href="{% url 'corrective_create' %}" style="float:right"><u><b>Add Corrective</b></u>&nbsp;&nbsp;&nbsp;</a>
-                    <a href="{% url 'corrective_history' %}" style="float:right" class="mr-3"><u><b>Corrective History</b></u></a>
+                    <a href="{% url 'corrective_export' %}" style="float: left"><b>Export Data</b> /</a>
+                    <a href="{% url 'v_maitenance_details' %}" style="float: left"><b>View Report</b> </a>
+                    
+                    <a href="{% url 'corrective_create' %}" style="float:right"><b>Create</b>&nbsp;&nbsp;&nbsp;</a>
+                    <a href="{% url 'corrective_history' %}" style="float:right" class="mr-3"><b> History</b></a>
                 </div>
                 <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                     <thead>
@@ -45,7 +47,7 @@
                      <tbody>
                         {% for corrective in object_list %}
                         <tr class="odd gradeX">
-                            <td><a href="{% url 'corrective_details' corrective.id %}"><u>{{ corrective.Activity_id }}</u></a></td>
+                            <td><a href="{% url 'corrective_details' corrective.id %}">{{ corrective.Activity_id }}</a></td>
                             <td>{{ corrective.first_name }} {{ corrective.last_name }}</td>
                             <td>{{ corrective.plate_no }}</td>
                             <td>{{ corrective.v_brand }}</td>

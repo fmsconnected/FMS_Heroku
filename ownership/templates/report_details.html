@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style type="text/css">
+  th {
+    text-align: middle;
+  }
+</style>
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3>TOO Daily Report</h3>&nbsp;
+        
+        <a href="{% url 'ownership_list' %}" style="float:right"><u>Close</u></a><br>
+        <a href="{% url 'ownership_report' %}" style="float:right"><u>Export Report</u></a>
+    </div>
+
+<table width="90%" class="table table-bordered table-hover" border="5px">
+  <tr>
+    <th width="25%">Subject</th><td width="15%"><b>TOO</td>
+
+  </tr>
+  <tr>
+    <th width="25%">Personel</th><td width="15%"><b>Jessie</td>
+  </tr>
+  <tr>
+    <th width="25%">Date</th><td width="15%"><b>{{ date }}</td>
+  <tr>
+  <tr>
+      <td></td>
+  </tr>
+  <tr>
+    <th width="25%">Summary</th>
+    <th width="25%">Total</th>
+    <th width="25%">Remarks</th>
+  </tr>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <th width="25%">DOAS Creation (New)</th><td></td>
+  </tr>
+    <th width="25%">DOAS Receive</th><td></td>
+  </tr>
+  <tr>
+    <th width="25%">For Routing</th><td><b>{{ routing_count }}</td>
+  </tr>
+  <tr>
+    <th width="25%">Notarized</th><td><b>{{ notorized }}</td>
+  </tr>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <th width="25%">For TMG</th><td></td>
+  </tr>
+  <tr>
+    <th width="25%">For MACRO Etching</th><td><b>{{ tmg_appearance }}</td>
+  </tr>
+  <tr>
+    <th width="25%">With TMG Schedule</th><td><b>{{ tmg_schedule }}</td>
+  </tr>
+  <tr>
+    <th width="25%">With MACRO Etching</th><td><b>{{ with_tmg_etching }}</td>
+  </tr>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <th width="25%">Fleet VisMin</th><td><b> {{ fleet_vismin }}</td>
+  </tr>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <th width="25%">LTO Transfer</th><td><b> {{ lto_transfer }}</td>
+  </tr>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <th width="25%">Total</th><td><b>{{ total }}</td>
+  </tr>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <th width="25%">Transfered</th><td></td>
+  </tr>
+    
+
+</table>
+
+
+{% endblock %}
