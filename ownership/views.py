@@ -383,7 +383,6 @@ def ownership_report_details(request):
 
 # Registration Daily Report
 def ownership_report(request):
-	username = os.getlogin()
 	date = datetime.datetime.today()
 
 	notorized = Ownership.objects.filter(status = 'NOTARIZED').count()

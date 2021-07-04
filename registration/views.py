@@ -598,8 +598,6 @@ def registration_report_detail(request):
 # Registration Daily Report
     
 def registration_report(request):
-
-    username = os.getlogin()
     today = datetime.datetime.now()
     month = today.month
 
