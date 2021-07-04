@@ -554,7 +554,6 @@ class HomeView():
     template_name = 'account/account/base/login.html'
 
 def registration_report_detail(request):
-    username = os.getlogin()
     today = datetime.datetime.now()
     month = today.month
 
