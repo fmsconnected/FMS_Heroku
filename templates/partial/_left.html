@@ -277,356 +277,358 @@ body {font-family: Arial;}
 </script>
 
 <aside id="left-panel" class="main-sidebar sidebar-dark-primary elevation-4">
-  <nav class="mt-2">
-    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-      <li class="nav-item menu-open">
-      <br>
-          <img src="{% static 'images/JXMTSI_Logo.png' %}">
-      </li>
-      <h3 class="menu-title"></h3><br><!-- /.menu-title -->
-      
-      <li class="nav-item menu-open">
-        <a href="{% url 'FLEET-index' %}" class="nav-link">
-          <i class="nav-icon fas fa-tachometer-alt" style="color:#FFD662FF"></i>
-          <p>
-            Dashboard
-            <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
-          </p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="{% url 'CS_List' %}" class="nav-link">
-          <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
-          <p>
-            Customer Care Log
-            <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
-          </p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
-          <p>
-            Email Log
-            <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="{% url 'request_email_log' %}" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>PMS Log</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{%url 'registration_email_log' %}" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Registrations Log</p>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
-          <p>Finance
-            <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="far fa-circle nav-icon " style="color:#FFD662FF"></i>
-              <p>
-                Payment
-                <i class="right fas fa-angle-left"  style="color:#FFD662FF"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{% url 'Vehicle_list' %}" class="nav-link"  style="color:#FFD662FF">
-                  <i class="far fa-dot-circle nav-icon"  style="color:#FFD662FF"></i>
-                  <p>New Vehicle Payment</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{% url 'carrental_list' %}" class="nav-link"  style="color:#FFD662FF">
-                  <i class="far fa-dot-circle nav-icon"  style="color:#FFD662FF"></i>
-                  <p>Car Rental Payment</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{% url 'Fuel_supplierList' %}" class="nav-link"  style="color:#FFD662FF">
-                  <i class="far fa-dot-circle nav-icon"  style="color:#FFD662FF"></i>
-                  <p>Fuel Supplier Payment</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{% url 'vehiclerepair_payment' %}" class="nav-link" style="color:#FFD662FF">
-                  <i class="far fa-dot-circle nav-icon"  style="color:#FFD662FF"></i>
-                  <p>Vehicle Repair Payment</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="#" class="nav-link"  style="color:#FFD662FF">
-                  <i class="far fa-dot-circle nav-icon"  style="color:#FFD662FF"></i>
-                  <p>Leasing Extension</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link" style="color:#FFD662FF">
-                  <i class="far fa-dot-circle nav-icon"  style="color:#FFD662FF"></i>
-                  <p>Fleet Driver Payment</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="far fa-circle nav-icon " style="color:#FFD662FF"></i>
-              <p>
-                Billing
-                <i class="right fas fa-angle-left"  style="color:#FFD662FF"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link"  style="color:#FFD662FF">
-                  <i class="far fa-dot-circle nav-icon"  style="color:#FFD662FF"></i>
-                  <p>JXMTSI Billing</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-dot-circle nav-icon"  style="color:#FFD662FF"></i>
-                  <p>Monthly Billing</p>
+  <div class="sidebar">  
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item menu-open">
+        <br>
+            <img src="{% static 'images/JXMTSI_Logo.png' %}">
+        </li>
+        <h3 class="menu-title"></h3><br><!-- /.menu-title -->
+        
+        <li class="nav-item menu-open">
+          <a href="{% url 'FLEET-index' %}" class="nav-link">
+            <i class="nav-icon fas fa-tachometer-alt" style="color:#FFD662FF"></i>
+            <p>
+              Dashboard
+              <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'CS_List' %}" class="nav-link">
+            <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
+            <p>
+              Customer Care Log
+              <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
+            <p>
+              Email Log
+              <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{% url 'request_email_log' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>PMS Log</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{%url 'registration_email_log' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Registrations Log</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
+            <p>Finance
+              <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="far fa-circle nav-icon " style="color:#FFD662FF"></i>
+                <p>
+                  Payment
                   <i class="right fas fa-angle-left"  style="color:#FFD662FF"></i>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="{% url 'billing_list' %}" class="nav-link"  style="color:#FFD662FF">
-                      <i class="far fa-dot-circle nav-icon"  style="color:#FFD662FF"></i>
-                      <p>TOO Billing</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
-          <p>
-            Request
-            <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="{% url 'carrequest_list' %}" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Car Rental Request</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'gascard_list' %}" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Gas Card Request</p>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
-          <p>
-            Fuel Card
-            <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Fleet Card Request</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Fleet Card Billing</p>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-item">
-        <a href="{% url 'service_list' %}" class="nav-link">
-          <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
-          <p>
-            Service Vehicle Request
-            <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
-          </p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
-          <p>
-            Vehicle Maintenance
-            <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="{% url 'repair_list' %}" class="nav-link">
-              <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
-              <p>Preventive Maintenance</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'corrective_list'%}" class="nav-link">
-              <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
-              <p>Corrective Maintenance</p>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
-          <p>
-            Insurance
-            <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="{% url 'report_list' %}" class="nav-link">
-              <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
-              <p>Vehicle Accident Report</p>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
-          <p>
-            FATA
-            <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="{% url 'Monitoring_list' %}" class="nav-link">
-              <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
-              <p>FATA Monitoring</p>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
-          <p>
-            Monitoring
-            <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="{% url 'registration_jan_reg' %}" class="nav-link">
-              <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
-              <p>Registration Monitoring</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'Monitoring_jan_reg_due' %}" class="nav-link">
-              <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
-              <p>Registrations Months Due Date</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'Monitoring_plate' %}" class="nav-link">
-              <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
-              <p>Plate Monitoring</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'Fcm_list' %}" class="nav-link">
-              <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
-              <p>Fleet Card Monitoring</p>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
-          <p>
-            TOO
-            <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="{% url 'ownership_list' %}" class="nav-link">
-              <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
-              <p>Transfer of Ownership</p>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
-          <p>
-            Masterlist
-            <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="{% url 'vehicle-list' %}" class="nav-link">
-              <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
-              <p>Vehicle Masterlist</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'employee-list' %}" class="nav-link">
-              <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
-              <p>Employee Masterlist</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'leasing_list' %}" class="nav-link">
-              <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
-              <p>Leasing Masterlist</p>
-            </a>
-          </li>
-        </ul>
-      </li>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{% url 'Vehicle_list' %}" class="nav-link"  style="color:#FFD662FF">
+                    <i class="far fa-dot-circle nav-icon"  style="color:#FFD662FF"></i>
+                    <p>New Vehicle Payment</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'carrental_list' %}" class="nav-link"  style="color:#FFD662FF">
+                    <i class="far fa-dot-circle nav-icon"  style="color:#FFD662FF"></i>
+                    <p>Car Rental Payment</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'Fuel_supplierList' %}" class="nav-link"  style="color:#FFD662FF">
+                    <i class="far fa-dot-circle nav-icon"  style="color:#FFD662FF"></i>
+                    <p>Fuel Supplier Payment</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'vehiclerepair_payment' %}" class="nav-link" style="color:#FFD662FF">
+                    <i class="far fa-dot-circle nav-icon"  style="color:#FFD662FF"></i>
+                    <p>Vehicle Repair Payment</p>
+                  </a>
+                </li>
 
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-user-shield" style="color:#FFD662FF"></i>
-          <p>
-            Admin
-            <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="{% url 'user_list' %}" class="nav-link">
-              <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
-              <p>User History</p>
-            </a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
+                <li class="nav-item">
+                  <a href="#" class="nav-link"  style="color:#FFD662FF">
+                    <i class="far fa-dot-circle nav-icon"  style="color:#FFD662FF"></i>
+                    <p>Leasing Extension</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link" style="color:#FFD662FF">
+                    <i class="far fa-dot-circle nav-icon"  style="color:#FFD662FF"></i>
+                    <p>Fleet Driver Payment</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="far fa-circle nav-icon " style="color:#FFD662FF"></i>
+                <p>
+                  Billing
+                  <i class="right fas fa-angle-left"  style="color:#FFD662FF"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link"  style="color:#FFD662FF">
+                    <i class="far fa-dot-circle nav-icon"  style="color:#FFD662FF"></i>
+                    <p>JXMTSI Billing</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-dot-circle nav-icon"  style="color:#FFD662FF"></i>
+                    <p>Monthly Billing</p>
+                    <i class="right fas fa-angle-left"  style="color:#FFD662FF"></i>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="{% url 'billing_list' %}" class="nav-link"  style="color:#FFD662FF">
+                        <i class="far fa-dot-circle nav-icon"  style="color:#FFD662FF"></i>
+                        <p>TOO Billing</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
+            <p>
+              Request
+              <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{% url 'carrequest_list' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Car Rental Request</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'gascard_list' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Gas Card Request</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
+            <p>
+              Fuel Card
+              <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Fleet Card Request</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Fleet Card Billing</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'service_list' %}" class="nav-link">
+            <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
+            <p>
+              Service Vehicle Request
+              <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
+            <p>
+              Vehicle Maintenance
+              <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{% url 'repair_list' %}" class="nav-link">
+                <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
+                <p>Preventive Maintenance</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'corrective_list'%}" class="nav-link">
+                <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
+                <p>Corrective Maintenance</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
+            <p>
+              Insurance
+              <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{% url 'report_list' %}" class="nav-link">
+                <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
+                <p>Vehicle Accident Report</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
+            <p>
+              FATA
+              <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{% url 'Monitoring_list' %}" class="nav-link">
+                <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
+                <p>FATA Monitoring</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
+            <p>
+              Monitoring
+              <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{% url 'registration_jan_reg' %}" class="nav-link">
+                <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
+                <p>Registration Monitoring</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'Monitoring_jan_reg_due' %}" class="nav-link">
+                <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
+                <p>Registrations Months Due Date</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'Monitoring_plate' %}" class="nav-link">
+                <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
+                <p>Plate Monitoring</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'Fcm_list' %}" class="nav-link">
+                <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
+                <p>Fleet Card Monitoring</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
+            <p>
+              TOO
+              <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{% url 'ownership_list' %}" class="nav-link">
+                <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
+                <p>Transfer of Ownership</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
+            <p>
+              Masterlist
+              <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{% url 'vehicle-list' %}" class="nav-link">
+                <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
+                <p>Vehicle Masterlist</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'employee-list' %}" class="nav-link">
+                <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
+                <p>Employee Masterlist</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'leasing_list' %}" class="nav-link">
+                <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
+                <p>Leasing Masterlist</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-user-shield" style="color:#FFD662FF"></i>
+            <p>
+              Admin
+              <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{% url 'user_list' %}" class="nav-link">
+                <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
+                <p>User History</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </aside>
