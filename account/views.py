@@ -178,15 +178,11 @@ class ChartData_completed(APIView):
         bill = Billing.objects.all().count()
         cor = Corrective.objects.all().count()
         cus = CS_log.objects.all().count()
-        completed_labels = ["Monitoring",
-        "Corrective", "Customer Care", "Ownership", "Billing", "Car Rental Request", "Gas Card Request",
-        "Leasing", "Vehicle Repair Request", "Insurance", "New Vehicle Payment", "Car Rental Payment"
-        , "Fuel Supplier Payment", "Vehicle Repair Payment"]
         item_completed_data = [fm,cor,cus, own, bill,crr,gcr,svr, vrr, vr,vpr,crp,fs,vrp]
         completed_data = {
-                "completed_labels": completed_labels,
                 "datacompleted": item_completed_data,
         }
+        print('Completed Data',completed_data)
         return Response(completed_data)
 
 class Vmasterlist(APIView):

@@ -3,7 +3,7 @@
 <script>
 {% block jquery %}
 var endpoint = 'api/monitoring/'
-// var endpointongoing = 'api/Leasing_Masterlist/'
+var endpointongoing = 'api/Leasing_Masterlist/'
 var endpointcompleted = 'api/monitoring/Completed/'
 var defaultData = []
 var current_ongoing_data = []
@@ -47,7 +47,6 @@ $.ajax({
     method: "GET",
     url: endpointcompleted,
     success: function(completed_data){
-        completed_labels = completed_data.completed_labels
         completed_item_data = completed_data.datacompleted
         setChart()
     },
@@ -117,10 +116,8 @@ function setChart(){
             xAxes:[]
         }
     }
-});
-
+    });
     var completed_data = new Chart(ctx3, {
-    type: 'bar',
     data: {
         labels: ["Monitoring",
         "Corrective", "Customer Care", "Ownership", "Billing", "Car Rental Request", "Gas Card Request",
@@ -177,8 +174,8 @@ function setChart(){
             }]
         }
     }
-
     });
+
     var ongoing_chart = new Chart(ctx1, {
     type: 'horizontalBar',
     data: {
@@ -253,67 +250,9 @@ function setChart(){
             responsive : true
         });
     }
-
+    
 }
-// function ongoing_chart(){
-//     var ctx = document.getElementById("ongoing_data");
-//     var myChart = new Chart(ctx, {
-//     type: 'horizontalBar',
-//     data: {
-//         labels: labels,
-//         datasets: [{
-//             label: '#Data',
-//             data: current_ongoing_data,
-//             backgroundColor: [
-//                 'rgba(255, 0, 0, 1)',
-//                 'rgba(255, 255, 0, 1)',
-//                 'rgba(136, 204, 0, 1)',
-//                 'rgba(51, 153, 255, 1)',
-//                 'rgba(204, 0, 204, 1)',
-//                 'rgba(204, 102, 153, 1)',
-//                 'rgba(0, 0, 153, 1, 1)',
-//                 'rgba(0, 102, 153, 1)',
-//                 'rgba(255, 204, 255)',
-//                 'rgba(0, 153, 204, 1)',
-//                 'rgba(51, 204, 51, 1)',
-//                 'rgba(153, 153, 102, 1)',
-//                 'rgba(34, 51, 0, 1, 1)',
-//                 'rgba(102, 0, 102, 1)',
-//                 'rgba(128, 0, 0,1)',
-//                 'rgba(92, 24, 12, 1)',
-//             ],
-//             borderColor: [
-//                 'rgba(255, 0, 0, 1)',
-//                 'rgba(255, 255, 0, 1)',
-//                 'rgba(136, 204, 0, 1)',
-//                 'rgba(51, 153, 255, 1)',
-//                 'rgba(204, 0, 204, 1)',
-//                 'rgba(204, 102, 153, 1)',
-//                 'rgba(0, 0, 153, 1, 1)',
-//                 'rgba(0, 102, 153, 1)',
-//                 'rgba(255, 204, 255)',
-//                 'rgba(0, 153, 204, 1)',
-//                 'rgba(51, 204, 51, 1)',
-//                 'rgba(153, 153, 102, 1)',
-//                 'rgba(34, 51, 0, 1, 1)',
-//                 'rgba(102, 0, 102, 1)',
-//                 'rgba(128, 0, 0,1)',
-//                 'rgba(92, 24, 12, 1)',
-//             ],
-//             borderWidth: 1
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             yAxes: [{
-//                 ticks: {
-//                     beginAtZero:true
-//                 }
-//             }]
-//         }
-//     }
-//     });
-// }
+
 
 {% endblock %}
 </script>
