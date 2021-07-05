@@ -3,7 +3,7 @@
 <script>
 {% block jquery %}
 var endpoint = 'api/monitoring/'
-var endpointongoing = 'api/Leasing_Masterlist/'
+var endpointongoing = 'api/monitoring/Ongoing/'
 var endpointcompleted = 'api/monitoring/Completed/'
 var defaultData = []
 var current_ongoing_data = []
@@ -117,7 +117,8 @@ function setChart(){
         }
     }
     });
-    var completed_data = new Chart(ctx3, {
+    var completed_Data_list = new Chart(ctx3, {
+      type: 'bar',
     data: {
         labels: ["Monitoring",
         "Corrective", "Customer Care", "Ownership", "Billing", "Car Rental Request", "Gas Card Request",
@@ -242,7 +243,7 @@ function setChart(){
             responsive : true
         });
         var ctx3 = document.getElementById("completed").getContext("2d");
-        window.myBar = new Chart(ctx3).Bar(completed_data, {
+        window.myBar = new Chart(ctx3).Bar(completed_Data_list, {
             responsive : true
         });
         var ctx1 = document.getElementById("ongoing_data").getContext("2d");

@@ -177,7 +177,7 @@ class ChartData_completed(APIView):
         own = Ownership.objects.filter(date_initiated__month= date.month ).count()
         bill = Billing.objects.all().count()
         cor = Corrective.objects.all().count()
-        cus = CS_log.objects.all().count()
+        cus = CS_log.objects.filter(Date_received__month= date.month, Date_resolved_inital="" ).count()
         item_completed_data = [fm,cor,cus, own, bill,crr,gcr,svr, vrr, vr,vpr,crp,fs,vrp]
         completed_data = {
                 "datacompleted": item_completed_data,
