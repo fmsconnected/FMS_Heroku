@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 <script>
 {% block jquery %}
 var endpoint = 'api/monitoring/'
@@ -112,17 +111,15 @@ function setChart(){
                 ticks: {
                     beginAtZero:true
                 }
-            }],
-            xAxes:[]
+            }]
         }
     }
     });
     var completed_Data_list = new Chart(ctx3, {
       type: 'bar',
     data: {
-        labels: ["Monitoring",
-        "Corrective", "Customer Care", "Ownership", "Billing", "Car Rental Request", "Gas Card Request",
-        "Leasing", "Vehicle Repair Request", "Insurance", "New Vehicle Payment", "Car Rental Payment"
+        labels: ["FATA Monitoring",
+        "Corrective Maintenance", "Customer Care", "Ownership", "TOO Billing", "Car Rental Request", "Gas Card Request", "Preventive Maintenance", "Insurance", "New Vehicle Payment", "Car Rental Payment"
         , "Fuel Supplier Payment", "Vehicle Repair Payment"],
         datasets: [{
             label: '#Data',
@@ -167,22 +164,30 @@ function setChart(){
         }]
     },
     options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
+      tooltips: {
+        enabled: true
+      },
+      plugins: {
+        datalabels: {
+          formatter: (value, ctx3) => {
+
+            let sum = ctx3.dataset._meta[0].total;
+            let percentage = (value * 100 / sum).toFixed(2) + "%";
+            return percentage;
+
+
+          },
+          color: '#fff',
         }
+      }
     }
     });
 
     var ongoing_chart = new Chart(ctx1, {
     type: 'horizontalBar',
     data: {
-        labels: ["Monitoring",
-        "Corrective", "Customer Care", "Ownership", "Billing", "Car Rental Request", "Gas Card Request",
-        "Leasing", "Vehicle Repair Request", "Insurance", "New Vehicle Payment", "Car Rental Payment"
+        labels: ["FATA Monitoring",
+        "Corrective Maintenance", "Customer Care", "Ownership", "TOO Billing", "Car Rental Request", "Gas Card Request","Service Vehicle Request", "Preventive Maintenance", "Insurance", "New Vehicle Payment", "Car Rental Payment"
         , "Fuel Supplier Payment", "Vehicle Repair Payment"],
         datasets: [{
             label: '#Data',

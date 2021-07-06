@@ -167,6 +167,7 @@ class Billing(models.Model):
     cost_center = models.CharField(max_length=100, null=True, blank=True)
     date_bill = models.DateField(auto_now=False, null=True, blank=True)
     total_amount = models.CharField(max_length=100, null=True, blank=True)
+    date_initiated = models.DateField(auto_now=True, null=True, blank=True)
     history = HistoricalRecords()
 
     def __str__(self):
