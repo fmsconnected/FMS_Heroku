@@ -39,6 +39,7 @@
                     <thead>
                         <tr>
                             <th>Activity ID</th>
+                            <th>Employee Id</th>
                             <th>Requisitioner Name</th>
                             <th>Plate Number</th>
                             <th>Conduction Sticker Number</th>
@@ -54,6 +55,7 @@
                         {% for service_vehicle in object_list %}
                         <tr class="odd gradeX">
                             <td><a href="{% url 'service_details' service_vehicle.id %}"><u>{{ service_vehicle.Activity_id }}</u></a></td>
+                            <td>{{ service_vehicle.req_employee_id }}</td>
                             <td>{{ service_vehicle.req_fname }} {{ service_vehicle.req_lname }}</td>
                             <td>{{ service_vehicle.E_plate_no }}</td>
                             <td>{{ service_vehicle.vehicle_CS_no }}</td>

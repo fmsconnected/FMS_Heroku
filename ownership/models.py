@@ -45,6 +45,7 @@ class Ownership(models.Model):
         ('Shift from Non-Sales to Sales','Shift from Non-Sales to Sales'),
         ('Shift from Sales to Non-Sales','Shift from Sales to Non-Sales'),
         ('Winning Bidder','Winning Bidder'),
+        ('2nd Hand','2nd Hand'),
     )
     confirm=(
         ('Confirmed','Confirmed'),
