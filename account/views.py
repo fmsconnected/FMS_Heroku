@@ -1070,47 +1070,12 @@ class monthly_report_jan_summary(APIView):
 
         ### Net Amount End#####
         petron_data = [
-            BB14_B1,BB14_B10,BB14_B11,BB14_B2,BB14_B3,BB14_B4,BB14_B5,BB14_B6,BB14_B7,BB14_B8,BB14_C,BB14_E,CMG12_C,CMG12_D,CMG2_B1,
-            CMG2_B2,CMG2_B3,CMG2_C1,CMG2_C2,CMG2_C3,CMG2_C4,CMG2_C5_C,CMG2_D1,CMG2_D2,CMG2_D3,CMG2_E1,CMG2_E2,CMG2_E3,CMG2_F1,CMG2_F2,
-            CMG2_F3,CMG3_A,CMG4_B,CMG4_B15,CMG4_B2,CMG4_E,CMG4_F,CMG4_G,CMG5_B,CMG5_E,CMG5_G,CMG6_B,CMG6_C,CMG6_E,CMG7_F,CMG8_B,CRA6_A,
-            FIN23_C1,FIN23_C10,FIN23_C4,FIN23_C9,FIN9_C0201,FIN9_C0301,GEG02_B,GEG02_C,GEG02_D,GEG02_E,GEG02_G,GEG02_H,GEG02_I,GEG02_K,
-            GEG02_L,GEG04_B3,GEG05_E,GEG09_D,GRTM_C503,ISG18_C2,NTT11_E,NTT2_C3,NTT2_C5,NTT2_C6,NTT2_D01_A,NTT2_D08_C,NTT2_D1,
-            NTT2_D2_02,NTT2_D2_03,NTT2_D2_05,NTT2_D3_02,NTT2_D3_03,NTT2_D3_04,NTT2_D3_06,NTT2_D4_03,NTT2_D5_02,NTT2_D5_03,NTT2_D6,
-            NTT2_D6_06,NTT2_D7_01,NTT2_D7_02,NTT2_D7_03,NTT2_E2,NTT2_E3,NTT2_F3A,NTT2_F3B,NTT2_F3D,NTT2_F3E,NTT2_G2,
-            NTT2_G4,NTT3_A,NTT3_B5,NTT3_C,NTT3_D2,NTT3_D3,NTT3_D4,NTT3_D5,NTT5_A01,NTT5_B02,NTT5_B06,NTT5_C01,NTT5_D01,NTT5_D02A,
-            NTT5_D02B,NTT5_E03,NTT5_E04,NTT5_F01,NTT5_F02,NTT5_F03,NTT5_G,NTT5_G01,NTT5_G02,NTT5_G03,NTT5_H01,NTT5_H03,NTT5_I01,NTT5_I03,
-            NTT5_J01,NTT5_J03,OP12_A,OP20_F1,SG02_O,SG02_P,SG02_Q,SG02_R,SG02_U,GEG02_F,GRTM_C503,GEG04_B3
+            BB14_B1,BB14_B10,BB14_B11,BB14_B2,BB14_B3,BB14_B4,BB14_B5,BB14_B6,BB14_B7,BB14_B8
         ]
         petron_data_dis = [
-            dis_BB14_B1 ,dis_BB14_B10, dis_BB14_B11, dis_BB14_B2,dis_BB14_B3,dis_BB14_B4,dis_BB14_B5,dis_BB14_B6,dis_BB14_B7,dis_BB14_B8,dis_BB14_C,
-            dis_BB14_E,  dis_CMG12_C,dis_CMG12_D,dis_CMG2_B1,dis_CMG2_B2,dis_CMG2_B3,dis_CMG2_C1,dis_CMG2_C2,dis_CMG2_C3,dis_CMG2_C4,dis_CMG2_C5_C,
-            dis_CMG2_D1,dis_CMG2_D2,dis_CMG2_D3,dis_CMG2_E1,dis_CMG2_E2,dis_CMG2_E3,dis_CMG2_F1,dis_CMG2_F2,dis_CMG2_F3,dis_CMG3_A,  dis_CMG4_B,
-            dis_CMG4_B15, dis_CMG4_B2,dis_CMG4_E,  dis_CMG4_F,  dis_CMG4_G,  dis_CMG5_B,  dis_CMG5_E,  dis_CMG5_G,  dis_CMG6_B,  dis_CMG6_C,  dis_CMG6_E, 
-            dis_CMG7_F,  dis_CMG8_B,  dis_CRA6_A,  dis_FIN23_C1, dis_FIN23_C10,  dis_FIN23_C4, dis_FIN23_C9, dis_FIN9_C0201, 
-            dis_FIN9_C0301, dis_GEG02_B,dis_GEG02_C,dis_GEG02_D,dis_GEG02_E,dis_GEG02_G,dis_GEG02_H,dis_GEG02_I,dis_GEG02_K,dis_GEG02_L,dis_GEG04_B3, 
-            dis_GEG05_E,dis_GEG09_D,dis_GRTM_C503,  dis_ISG18_C2, dis_NTT11_E,dis_NTT2_C3,dis_NTT2_C5,dis_NTT2_C6,dis_NTT2_D01_A, 
-            dis_NTT2_D08_C, dis_NTT2_D1,dis_NTT2_D2_02, dis_NTT2_D2_03, dis_NTT2_D2_05, dis_NTT2_D3_02, dis_NTT2_D3_03, dis_NTT2_D3_04, dis_NTT2_D3_06,
-            dis_NTT2_D4_03, dis_NTT2_D5_02, dis_NTT2_D5_03, dis_NTT2_D6,dis_NTT2_D6_06, 
-            dis_NTT2_D7_01, dis_NTT2_D7_02, dis_NTT2_D7_03, dis_NTT2_E2,dis_NTT2_E3,dis_NTT2_F3A, dis_NTT2_F3B, dis_NTT2_F3D, dis_NTT2_F3E, 
-            dis_NTT2_G2,dis_NTT2_G4,dis_NTT3_A,  dis_NTT3_B5,dis_NTT3_C,  dis_NTT3_D2,dis_NTT3_D3,dis_NTT3_D4,dis_NTT3_D5,dis_NTT5_A01, dis_NTT5_B02, 
-            dis_NTT5_B06, dis_NTT5_C01, dis_NTT5_D01, dis_NTT5_D02A,  dis_NTT5_D02B,  dis_NTT5_E03, dis_NTT5_E04, dis_NTT5_F01, dis_NTT5_F02, dis_NTT5_F03, 
-            dis_NTT5_G,  dis_NTT5_G01, dis_NTT5_G02, dis_NTT5_G03, dis_NTT5_H01, dis_NTT5_H03, dis_NTT5_I01, dis_NTT5_I03, dis_NTT5_J01, dis_NTT5_J03, 
-            dis_OP12_A,  dis_OP20_F1,dis_SG02_O,  dis_SG02_P,  dis_SG02_Q,  dis_SG02_R,  dis_SG02_U,  dis_GEG02_F,  dis_GRTM_C503,  dis_GEG04_B3]
+            dis_BB14_B1 ,dis_BB14_B10, dis_BB14_B11, dis_BB14_B2,dis_BB14_B3,dis_BB14_B4,dis_BB14_B5,dis_BB14_B6,dis_BB14_B7,dis_BB14_B8]
         petron_data_net = [
-            net_BB14_B1 ,  net_BB14_B10,   net_BB14_B11,   net_BB14_B2,  net_BB14_B3,  net_BB14_B4,  net_BB14_B5,  net_BB14_B6,  net_BB14_B7,  net_BB14_B8,  
-            net_BB14_C, net_BB14_E, net_CMG12_C,  net_CMG12_D,  net_CMG2_B1,  net_CMG2_B2,  net_CMG2_B3,  net_CMG2_C1,  net_CMG2_C2,  net_CMG2_C3,  net_CMG2_C4,  
-            net_CMG2_C5_C,net_CMG2_D1,  net_CMG2_D2,  net_CMG2_D3,  net_CMG2_E1,  net_CMG2_E2,  net_CMG2_E3,  net_CMG2_F1,  net_CMG2_F2,  net_CMG2_F3,  net_CMG3_A, net_CMG4_B,
-            net_CMG4_B15,   net_CMG4_B2,  net_CMG4_E, net_CMG4_F, net_CMG4_G, net_CMG5_B, net_CMG5_E, net_CMG5_G, net_CMG6_B, net_CMG6_C, net_CMG6_E, net_CMG7_F,
-            net_CMG8_B, net_CRA6_A, net_FIN23_C1,   net_FIN23_C10,    net_FIN23_C4,   net_FIN23_C9,   net_FIN9_C0201,net_FIN9_C0301,
-            net_GEG02_B,  net_GEG02_C,  net_GEG02_D,  net_GEG02_E,  net_GEG02_G,  net_GEG02_H,  net_GEG02_I,  net_GEG02_K,  net_GEG02_L,  net_GEG04_B3,   net_GEG05_E,  
-            net_GEG09_D,  net_GRTM_C503,    net_ISG18_C2,   net_NTT11_E,  net_NTT2_C3,  net_NTT2_C5,  net_NTT2_C6,  net_NTT2_D01_A,
-            net_NTT2_D08_C,net_NTT2_D1,  net_NTT2_D2_02,net_NTT2_D2_03,net_NTT2_D2_05,net_NTT2_D3_02,net_NTT2_D3_03,net_NTT2_D3_04,net_NTT2_D3_06,net_NTT2_D4_03,
-            net_NTT2_D5_02,net_NTT2_D5_03,net_NTT2_D6,  net_NTT2_D6_06,net_NTT2_D7_01,net_NTT2_D7_02,net_NTT2_D7_03,net_NTT2_E2,  net_NTT2_E3,  net_NTT2_F3A,   
-            net_NTT2_F3B,   net_NTT2_F3D,   net_NTT2_F3E,   net_NTT2_G2,  net_NTT2_G4,  net_NTT3_A, net_NTT3_B5,  net_NTT3_C, net_NTT3_D2,  net_NTT3_D3,  net_NTT3_D4,  
-            net_NTT3_D5,  net_NTT5_A01,   net_NTT5_B02,   net_NTT5_B06,   net_NTT5_C01,   net_NTT5_D01,   net_NTT5_D02A,    net_NTT5_D02B,    net_NTT5_E03,   
-            net_NTT5_E04,   net_NTT5_F01,   net_NTT5_F02,   net_NTT5_F03,   net_NTT5_G, net_NTT5_G01,   net_NTT5_G02,   net_NTT5_G03,   net_NTT5_H01,   net_NTT5_H03,   
-            net_NTT5_I01,   net_NTT5_I03,   net_NTT5_J01,   net_NTT5_J03,   net_OP12_A, net_OP20_F1,  net_SG02_O, net_SG02_P, net_SG02_Q, net_SG02_R, net_SG02_U, 
-            net_GEG02_F, net_GRTM_C503, net_GEG04_B3
+            net_BB14_B1 ,  net_BB14_B10,   net_BB14_B11,   net_BB14_B2,  net_BB14_B3,  net_BB14_B4,  net_BB14_B5,  net_BB14_B6,  net_BB14_B7,  net_BB14_B8 
         ]
         # petron_data = [
         # BB14_B1,BB14_B10,BB14_B11,BB14_B2,BB14_B3,BB14_B4,BB14_B5,BB14_B6,BB14_B7,BB14_B8,BB14_C,BB14_E,CMG12_C,CMG12_D,CMG2_B1,
