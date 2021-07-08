@@ -1,7 +1,15 @@
 from django.urls import path
 from django.conf.urls import url
 from . import views
-from .views import  ChartData,ChartData_ongoing,ChartData_completed,Vmasterlist,Emasterlist,Lmasterlist
+from .views import  (
+	ChartData,
+	ChartData_ongoing,
+	ChartData_completed,
+	Vmasterlist,
+	Emasterlist,
+	Lmasterlist,
+	monthly_report_jan_summary
+	)
 
 urlpatterns = [
     path('', views.index, name='FLEET-index'),
@@ -11,5 +19,6 @@ urlpatterns = [
     path('api/monitoring/Completed/', ChartData_completed.as_view()),
     path('api/Vmonitoring/', Vmasterlist.as_view()),
     path('api/Emonitoring/', Emasterlist.as_view()),
-    path('api/Lmonitoring/', Lmasterlist.as_view())
+    path('api/Lmonitoring/', Lmasterlist.as_view()),
+    path('api/Petron/Report/',monthly_report_jan_summary.as_view()),
 ]

@@ -31,9 +31,10 @@
             <div class="col-md-12">
                 <div class="card">
                 <div class="card-header">
-                    <a href="{% url 'service_export' %}" style="float:left "><u><b>Export Service Data</b></u></a>
-                    <a href="{% url 'service_new' %}" style="float:right "><u><b>Add Service Vehicle</b></u> &nbsp; &nbsp;</a>
-                    <a href="{% url 'service_history' %}" style="float:right " class="mr-3"><u><b>Service Vehicle History</b></u></a>
+                    <a href="{% url 'service_export' %}" style="float:left "><b>Export Data</b>&nbsp;/&nbsp;</a>
+                    <a href="{% url 'service_vehicle_report' %}" style="float:left "><b>View Report</b></a>
+                    <a href="{% url 'service_new' %}" style="float:right "><b>Create</b> &nbsp; &nbsp;</a>
+                    <a href="{% url 'service_history' %}" style="float:right " class="mr-3"><b>History</b></a>
                 </div>
                 <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                     <thead>

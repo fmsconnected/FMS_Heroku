@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+<style type="text/css">
+  th {
+    text-align: middle;
+  }
+</style>
+<script type="text/javascript">
+  $(document).ready(function()
+  {
+    var p_amount;
+    var p_amount_total=0;
+    var d_amount;
+    var d_amount_total=0;
+    var net_amount;
+    var net_amount_total=0;
+    $("td:nth-child(2)").each(function(){
+        p_amount= $(this).html();
+        p_amount_total += parseInt(p_amount);
+        $("#total_cdept").text(p_amount_total);
+    });
+    $("td:nth-child(3)").each(function(){
+        d_amount= $(this).html();
+        d_amount_total += parseInt(d_amount);
+        $("#total_d_amount").text(d_amount_total);
+    });
+    $("td:nth-child(4)").each(function(){
+        net_amount= $(this).html();
+        net_amount_total += parseInt(net_amount);
+        $("#total_net_amount").text(net_amount_total);
+    });
+  });
+</script>
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3>Petron January Summary</h3>&nbsp;
+    </div>
+
+<table width="90%" class="table table-bordered table-hover" border="5px">
+    <tr>
+        <th width="25%"><font size="3"><b>Charging Department</b></font></th>
+        <th width="25%"><font size="3">Sum of Product Amount</b></font></th>
+        <th width="25%"><font size="3">Sum of Discount Amount</b></font></th>
+        <th width="25%"><font size="3">Sum of Net Amount</b></font></th>
+    </tr>
+    <tr>
+    </tr>
+
+    <tr><th>BB14-B1</th><td>{{ BB14_B1.ProductAmount__sum }}</td> <td>{{ dis_BB14_B1.DiscountAmount__sum }}</td><td>{{ net_BB14_B1.NetAmount__sum }}</td></tr>
+    <tr><th>BB14-B10</th><td>{{ BB14_B10.ProductAmount__sum }}</td> <td>{{ dis_BB14_B10.DiscountAmount__sum }}</td><td>{{ net_BB14_B10.NetAmount__sum }}</td></tr>
+    <tr><th>BB14-B11</th><td>{{ BB14_B11.ProductAmount__sum }}</td> <td>{{ dis_BB14_B11.DiscountAmount__sum }}</td><td>{{ net_BB14_B11.NetAmount__sum }}</td></tr>
+    <tr><th>BB14-B2</th><td>{{ BB14_B2.ProductAmount__sum }}</td> <td>{{ dis_BB14_B2.DiscountAmount__sum }}</td><td>{{ net_BB14_B2.NetAmount__sum }}</td></tr>
+    <tr><th>BB14-B3</th><td>{{ BB14_B3.ProductAmount__sum }}</td> <td>{{ dis_BB14_B3.DiscountAmount__sum }}</td><td>{{ net_BB14_B3.NetAmount__sum }}</td></tr>
+    <tr><th>BB14-B4</th><td>{{ BB14_B4.ProductAmount__sum }}</td> <td>{{ dis_BB14_B4.DiscountAmount__sum }}</td><td>{{ net_BB14_B4.NetAmount__sum }}</td></tr>
+    <tr><th>BB14-B5</th><td>{{ BB14_B5.ProductAmount__sum }}</td> <td>{{ dis_BB14_B5.DiscountAmount__sum }}</td><td>{{ net_BB14_B5.NetAmount__sum }}</td></tr>
+    <tr><th>BB14-B6</th><td>{{ BB14_B6.ProductAmount__sum }}</td> <td>{{ dis_BB14_B6.DiscountAmount__sum }}</td><td>{{ net_BB14_B6.NetAmount__sum }}</td></tr>
+    <tr><th>BB14-B7</th><td>{{ BB14_B7.ProductAmount__sum }}</td> <td>{{ dis_BB14_B7.DiscountAmount__sum }}</td><td>{{ net_BB14_B7.NetAmount__sum }}</td></tr>
+    <tr><th>BB14-B8</th><td>{{ BB14_B8.ProductAmount__sum }}</td> <td>{{ dis_BB14_B8.DiscountAmount__sum }}</td><td>{{ net_BB14_B8.NetAmount__sum }}</td></tr>
+    <tr><th>BB14-C</th><td>{{ BB14_C.ProductAmount__sum }}</td> <td>{{ dis_BB14_C.DiscountAmount__sum }}</td> <td>{{ net_BB14_C.NetAmount__sum }}</td></tr>
+    <tr><th>BB14-E</th><td>{{ BB14_E.ProductAmount__sum }}</td> <td>{{ dis_BB14_E.DiscountAmount__sum }}</td> <td>{{ net_BB14_E.NetAmount__sum }}</td></tr>
+    <tr><th>CMG12-C</th><td>{{ CMG12_C.ProductAmount__sum }}</td> <td>{{ dis_CMG12_C.DiscountAmount__sum }}</td><td>{{ net_CMG12_C.NetAmount__sum }}</td></tr>
+    <tr><th>CMG12-D</th><td>{{ CMG12_D.ProductAmount__sum }}</td> <td>{{ dis_CMG12_D.DiscountAmount__sum }}</td><td>{{ net_CMG12_D.NetAmount__sum }}</td></tr>
+    <tr><th>CMG2-B1</th><td>{{ CMG2_B1.ProductAmount__sum }}</td> <td>{{ dis_CMG2_B1.DiscountAmount__sum }}</td><td>{{ net_CMG2_B1.NetAmount__sum }}</td></tr>
+    <tr><th>CMG2-B2</th><td>{{ CMG2_B2.ProductAmount__sum }}</td> <td>{{ dis_CMG2_B2.DiscountAmount__sum }}</td><td>{{ net_CMG2_B2.NetAmount__sum }}</td></tr>
+    <tr><th>CMG2-B3</th><td>{{ CMG2_B3.ProductAmount__sum }}</td> <td>{{ dis_CMG2_B3.DiscountAmount__sum }}</td><td>{{ net_CMG2_B3.NetAmount__sum }}</td></tr>
+    <tr><th>CMG2-C1</th><td>{{ CMG2_C1.ProductAmount__sum }}</td> <td>{{ dis_CMG2_C1.DiscountAmount__sum }}</td><td>{{ net_CMG2_C1.NetAmount__sum }}</td></tr>
+    <tr><th>CMG2-C2</th><td>{{ CMG2_C2.ProductAmount__sum }}</td> <td>{{ dis_CMG2_C2.DiscountAmount__sum }}</td><td>{{ net_CMG2_C2.NetAmount__sum }}</td></tr>
+    <tr><th>CMG2-C3</th><td>t{{ CMG2_C3.ProductAmount__sum }}</td> <td>{{ dis_CMG2_C3.DiscountAmount__sum }}</td><td>{{ net_CMG2_C3.NetAmount__sum }}</td></tr>
+    <tr><th>CMG2-C4</th><td>{{ CMG2_C4.ProductAmount__sum }}</td> <td>{{ dis_CMG2_C4.DiscountAmount__sum }}</td><td>{{ net_CMG2_C4.NetAmount__sum }}</td></tr>
+    <tr><th>CMG2-C5-C</th><td>{{ CMG2_C5_C.ProductAmount__sum }}</td> <td>{{ dis_CMG2_C5_C.DiscountAmount__sum }}</td><td>{{ net_CMG2_C5_C.NetAmount__sum }}</td></tr>
+    <tr><th>CMG2-D1</th><td>{{ CMG2_D1.ProductAmount__sum }}</td> <td>{{ dis_CMG2_D1.DiscountAmount__sum }}</td><td>{{ net_CMG2_D1.NetAmount__sum }}</td></tr>
+    <tr><th>CMG2-D2</th><td>{{ CMG2_D2.ProductAmount__sum }}</td> <td>{{ dis_CMG2_D2.DiscountAmount__sum }}</td><td>{{ net_CMG2_D2.NetAmount__sum }}</td></tr>
+    <tr><th>CMG2-D3</th><td>{{ CMG2_D3.ProductAmount__sum }}</td> <td>{{ dis_CMG2_D3.DiscountAmount__sum }}</td><td>{{ net_CMG2_D3.NetAmount__sum }}</td></tr>
+    <tr><th>CMG2-E1</th><td>{{ CMG2_E1.ProductAmount__sum }}</td> <td>{{ dis_CMG2_E1.DiscountAmount__sum }}</td><td>{{ net_CMG2_E1.NetAmount__sum }}</td></tr>
+    <tr><th>CMG2-E2</th><td>{{ CMG2_E2.ProductAmount__sum }}</td> <td>{{ dis_CMG2_E2.DiscountAmount__sum }}</td><td>{{ net_CMG2_E2.NetAmount__sum }}</td></tr>
+    <tr><th>CMG2-E3</th><td>{{ CMG2_E3.ProductAmount__sum }}</td> <td>{{ dis_CMG2_E3.DiscountAmount__sum }}</td><td>{{ net_CMG2_E3.NetAmount__sum }}</td></tr>
+    <tr><th>CMG2-F1</th><td>{{ CMG2_F1.ProductAmount__sum }}</td> <td>{{ dis_CMG2_F1.DiscountAmount__sum }}</td><td>{{ net_CMG2_F1.NetAmount__sum }}</td></tr>
+    <tr><th>CMG2-F2</th><td>{{ CMG2_F2.ProductAmount__sum }}</td> <td>{{ dis_CMG2_F2.DiscountAmount__sum }}</td><td>{{ net_CMG2_F2.NetAmount__sum }}</td></tr>
+    <tr><th>CMG2-F3</th><td>{{ CMG2_F3.ProductAmount__sum }}</td> <td>{{ dis_CMG2_F3.DiscountAmount__sum }}</td><td>{{ net_CMG2_F3.NetAmount__sum }}</td></tr>
+    <tr><th>CMG3-A</th><td>{{ CMG3_A.ProductAmount__sum }}</td> <td>{{ dis_CMG3_A.DiscountAmount__sum }}</td> <td>{{ net_CMG3_A.NetAmount__sum }}</td></tr>
+    <tr><th>CMG4-B</th><td>{{ CMG4_B.ProductAmount__sum }}</td> <td>{{ dis_CMG4_B.DiscountAmount__sum }}</td> <td>{{ net_CMG4_B.NetAmount__sum }}</td></tr>
+    <tr><th>CMG4-B15</th><td>{{ CMG4_B15.ProductAmount__sum }}</td> <td>{{ dis_CMG4_B15.DiscountAmount__sum }}</td><td>{{ net_CMG4_B15.NetAmount__sum }}</td></tr>
+    <tr><th>CMG4-B2</th><td>{{ CMG4_B2.ProductAmount__sum }}</td> <td>{{ dis_CMG4_B2.DiscountAmount__sum }}</td><td>{{ net_CMG4_B2.NetAmount__sum }}</td></tr>
+    <tr><th>CMG4-E</th><td>{{ CMG4_E.ProductAmount__sum }}</td> <td>{{ dis_CMG4_E.DiscountAmount__sum }}</td> <td>{{ net_CMG4_E.NetAmount__sum }}</td></tr>
+    <tr><th>CMG4-F</th><td>{{ CMG4_F.ProductAmount__sum }}</td> <td>{{ dis_CMG4_F.DiscountAmount__sum }}</td> <td>{{ net_CMG4_F.NetAmount__sum }}</td></tr>
+    <tr><th>CMG4-G</th><td>{{ CMG4_G.ProductAmount__sum }}</td> <td>{{ dis_CMG4_G.DiscountAmount__sum }}</td> <td>{{ net_CMG4_G.NetAmount__sum }}</td></tr>
+    <tr><th>CMG5-B</th><td>{{ CMG5_B.ProductAmount__sum }}</td> <td>{{ dis_CMG5_B.DiscountAmount__sum }}</td> <td>{{ net_CMG5_B.NetAmount__sum }}</td></tr>
+    <tr><th>CMG5-E</th><td>{{ CMG5_E.ProductAmount__sum }}</td> <td>{{ dis_CMG5_E.DiscountAmount__sum }}</td> <td>{{ net_CMG5_E.NetAmount__sum }}</td></tr>
+    <tr><th>CMG5-G</th><td>{{ CMG5_G.ProductAmount__sum }}</td> <td>{{ dis_CMG5_G.DiscountAmount__sum }}</td> <td>{{ net_CMG5_G.NetAmount__sum }}</td></tr>
+    <tr><th>CMG6-B</th><td>{{ CMG6_B.ProductAmount__sum }}</td> <td>{{ dis_CMG6_B.DiscountAmount__sum }}</td> <td>{{ net_CMG6_B.NetAmount__sum }}</td></tr>
+    <tr><th>CMG6-C</th><td>{{ CMG6_C.ProductAmount__sum }}</td> <td>{{ dis_CMG6_C.DiscountAmount__sum }}</td> <td>{{ net_CMG6_C.NetAmount__sum }}</td></tr>
+    <tr><th>CMG6-E</th><td>{{ CMG6_E.ProductAmount__sum }}</td> <td>{{ dis_CMG6_E.DiscountAmount__sum }}</td> <td>{{ net_CMG6_E.NetAmount__sum }}</td></tr>
+    <tr><th>CMG7-F</th><td>{{ CMG7_F.ProductAmount__sum }}</td> <td>{{ dis_CMG7_F.DiscountAmount__sum }}</td> <td>{{ net_CMG7_F.NetAmount__sum }}</td></tr>
+    <tr><th>CMG8-B</th><td>{{ CMG8_B.ProductAmount__sum }}</td> <td>{{ dis_CMG8_B.DiscountAmount__sum }}</td> <td>{{ net_CMG8_B.NetAmount__sum }}</td></tr>
+    <tr><th>CRA6-A</th><td>{{ CRA6_A.ProductAmount__sum }}</td> <td>{{ dis_CRA6_A.DiscountAmount__sum }}</td> <td>{{ net_CRA6_A.NetAmount__sum }}</td></tr>
+    <tr><th>FIN23-C1</th><td>{{ FIN23_C1.ProductAmount__sum }}</td> <td>{{ dis_FIN23_C1.DiscountAmount__sum }}</td><td>{{ net_FIN23_C1.NetAmount__sum }}</td></tr>
+    <tr><th>FIN23-C10</th><td>{{ FIN23_C10.ProductAmount__sum }}</td> <td>{{ dis_FIN23_C10.DiscountAmount__sum }}</td><td>{{ net_FIN23_C10.NetAmount__sum }}</td></tr>
+    <tr><th>FIN23-C4</th><td>{{ FIN23_C4.ProductAmount__sum }}</td> <td>{{ dis_FIN23_C4.DiscountAmount__sum }}</td><td>{{ net_FIN23_C4.NetAmount__sum }}</td></tr>
+    <tr><th>FIN23-C9</th><td>{{ FIN23_C9.ProductAmount__sum }}</td> <td>{{ dis_FIN23_C9.DiscountAmount__sum }}</td><td>{{ net_FIN23_C9.NetAmount__sum }}</td></tr>
+    <tr><th>FIN9-C0201</th><td>{{ FIN9_C0201.ProductAmount__sum }}</td> <td>{{ dis_FIN9_C0201.DiscountAmount__sum }}</td><td>{{ net_FIN9_C0201.NetAmount__sum }}</td></tr>
+    <tr><th>FIN9-C0301</th><td>{{ FIN9_C0301.ProductAmount__sum }}</td> <td>{{ dis_FIN9_C0301.DiscountAmount__sum }}</td><td>{{ net_FIN9_C0301.NetAmount__sum }}</td></tr>
+    <tr><th>GEG02-B</th><td>{{ GEG02_B.ProductAmount__sum }}</td> <td>{{ dis_GEG02_B.DiscountAmount__sum }}</td><td>{{ net_GEG02_B.NetAmount__sum }}</td></tr>
+    <tr><th>GEG02-C</th><td>{{ GEG02_C.ProductAmount__sum }}</td> <td>{{ dis_GEG02_C.DiscountAmount__sum }}</td><td>{{ net_GEG02_C.NetAmount__sum }}</td></tr>
+    <tr><th>GEG02-D</th><td>{{ GEG02_D.ProductAmount__sum }}</td> <td>{{ dis_GEG02_D.DiscountAmount__sum }}</td><td>{{ net_GEG02_D.NetAmount__sum }}</td></tr>
+    <tr><th>GEG02-E</th><td>{{ GEG02_E.ProductAmount__sum }}</td> <td>{{ dis_GEG02_E.DiscountAmount__sum }}</td><td>{{ net_GEG02_E.NetAmount__sum }}</td></tr>
+    <tr><th>GEG02-F</th><td>{{ GEG02_F.ProductAmount__sum }}</td> <td>{{ dis_GEG02_F.DiscountAmount__sum }}</td><td>{{ net_GEG02_F.NetAmount__sum }}</td></tr>
+    <tr><th>GEG02-G</th><td>{{ GEG02_G.ProductAmount__sum }}</td> <td>{{ dis_GEG02_G.DiscountAmount__sum }}</td><td>{{ net_GEG02_G.NetAmount__sum }}</td></tr>
+    <tr><th>GEG02-H</th><td>{{ GEG02_H.ProductAmount__sum }}</td> <td>{{ dis_GEG02_H.DiscountAmount__sum }}</td><td>{{ net_GEG02_H.NetAmount__sum }}</td></tr>
+    <tr><th>GEG02-I</th><td>{{ GEG02_I.ProductAmount__sum }}</td> <td>{{ dis_GEG02_I.DiscountAmount__sum }}</td><td>{{ net_GEG02_I.NetAmount__sum }}</td></tr>
+    <tr><th>GEG02-K</th><td>{{ GEG02_K.ProductAmount__sum }}</td> <td>{{ dis_GEG02_K.DiscountAmount__sum }}</td><td>{{ net_GEG02_K.NetAmount__sum }}</td></tr>
+    <tr><th>GEG02-L</th><td>{{ GEG02_L.ProductAmount__sum }}</td> <td>{{ dis_GEG02_L.DiscountAmount__sum }}</td><td>{{ net_GEG02_L.NetAmount__sum }}</td></tr>
+    <tr><th>GEG04-B3</th><td>{{ GEG04_B3.ProductAmount__sum }}</td> <td>{{ dis_GEG04_B3.DiscountAmount__sum }}</td><td>{{ net_GEG04_B3.NetAmount__sum }}</td></tr>
+    <tr><th>GEG05-E</th><td>{{ GEG05_E.ProductAmount__sum }}</td> <td>{{ dis_GEG05_E.DiscountAmount__sum }}</td><td>{{ net_GEG05_E.NetAmount__sum }}</td></tr>
+    <tr><th>GEG09-D</th><td>{{ GEG09_D.ProductAmount__sum }}</td> <td>{{ dis_GEG09_D.DiscountAmount__sum }}</td><td>{{ net_GEG09_D.NetAmount__sum }}</td></tr>
+    <tr><th>GRTM-C503</th><td>{{ GRTM_C503.ProductAmount__sum }}</td> <td>{{ dis_GRTM_C503.DiscountAmount__sum }}</td><td>{{ net_GRTM_C503.NetAmount__sum }}</td></tr>
+    <tr><th>ISG18-C2</th><td>{{ ISG18_C2.ProductAmount__sum }}</td> <td>{{ dis_ISG18_C2.DiscountAmount__sum }}</td><td>{{ net_ISG18_C2.NetAmount__sum }}</td></tr>
+    <tr><th>NTT11-E</th><td>{{ NTT11_E.ProductAmount__sum }}</td> <td>{{ dis_NTT11_E.DiscountAmount__sum }}</td><td>{{ net_NTT11_E.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-C3</th><td>{{ NTT2_C3.ProductAmount__sum }}</td> <td>{{ dis_NTT2_C3.DiscountAmount__sum }}</td><td>{{ net_NTT2_C3.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-C5</th><td>{{ NTT2_C5.ProductAmount__sum }}</td> <td>{{ dis_NTT2_C5.DiscountAmount__sum }}</td><td>{{ net_NTT2_C5.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-C6</th><td>{{ NTT2_C6.ProductAmount__sum }}</td> <td>{{ dis_NTT2_C6.DiscountAmount__sum }}</td><td>{{ net_NTT2_C6.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-D01-A</th><td>{{ NTT2_D01_A.ProductAmount__sum }}</td> <td>{{ dis_NTT2_D01_A.DiscountAmount__sum }}</td><td>{{ net_NTT2_D01_A.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-D08-C</th><td>{{ NTT2_D08_C.ProductAmount__sum }}</td> <td>{{ dis_NTT2_D08_C.DiscountAmount__sum }}</td><td>{{ net_NTT2_D08_C.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-D1</th><td>{{ NTT2_D1.ProductAmount__sum }}</td> <td>{{ dis_NTT2_D1.DiscountAmount__sum }}</td><td>{{ net_NTT2_D1.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-D2-02</th><td>{{ NTT2_D2_02.ProductAmount__sum }}</td> <td>{{ dis_NTT2_D2_02.DiscountAmount__sum }}</td><td>{{ net_NTT2_D2_02.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-D2-03</th><td>{{ NTT2_D2_03.ProductAmount__sum }}</td> <td>{{ dis_NTT2_D2_03.DiscountAmount__sum }}</td><td>{{ net_NTT2_D2_03.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-D2-05</th><td>{{ NTT2_D2_05.ProductAmount__sum }}</td> <td>{{ dis_NTT2_D2_05.DiscountAmount__sum }}</td><td>{{ net_NTT2_D2_05.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-D3-02</th><td>{{ NTT2_D3_02.ProductAmount__sum }}</td> <td>{{ dis_NTT2_D3_02.DiscountAmount__sum }}</td><td>{{ net_NTT2_D3_02.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-D3-03</th><td>{{ NTT2_D3_03.ProductAmount__sum }}</td> <td>{{ dis_NTT2_D3_03.DiscountAmount__sum }}</td><td>{{ net_NTT2_D3_03.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-D3-04</th><td>{{ NTT2_D3_04.ProductAmount__sum }}</td> <td>{{ dis_NTT2_D3_04.DiscountAmount__sum }}</td><td>{{ net_NTT2_D3_04.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-D3-06</th><td>{{ NTT2_D3_06.ProductAmount__sum }}</td> <td>{{ dis_NTT2_D3_06.DiscountAmount__sum }}</td><td>{{ net_NTT2_D3_06.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-D4-03</th><td>{{ NTT2_D4_03.ProductAmount__sum }}</td> <td>{{ dis_NTT2_D4_03.DiscountAmount__sum }}</td><td>{{ net_NTT2_D4_03.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-D5-02</th><td>{{ NTT2_D5_02.ProductAmount__sum }}</td> <td>{{ dis_NTT2_D5_02.DiscountAmount__sum }}</td><td>{{ net_NTT2_D5_02.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-D5-03</th><td>{{ NTT2_D5_03.ProductAmount__sum }}</td> <td>{{ dis_NTT2_D5_03.DiscountAmount__sum }}</td><td>{{ net_NTT2_D5_03.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-D6</th><td>{{ NTT2_D6.ProductAmount__sum }}</td> <td>{{ dis_NTT2_D6.DiscountAmount__sum }}</td><td>{{ net_NTT2_D6.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-D6-06</th><td>{{ NTT2_D6_06.ProductAmount__sum }}</td> <td>{{ dis_NTT2_D6_06.DiscountAmount__sum }}</td><td>{{ net_NTT2_D6_06.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-D7-01</th><td>{{ NTT2_D7_01.ProductAmount__sum }}</td> <td>{{ dis_NTT2_D7_01.DiscountAmount__sum }}</td><td>{{ net_NTT2_D7_01.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-D7-02</th><td>{{ NTT2_D7_02.ProductAmount__sum }}</td> <td>{{ dis_NTT2_D7_02.DiscountAmount__sum }}</td><td>{{ net_NTT2_D7_02.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-D7-03</th><td>{{ NTT2_D7_03.ProductAmount__sum }}</td> <td>{{ dis_NTT2_D7_03.DiscountAmount__sum }}</td><td>{{ net_NTT2_D7_03.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-E2</th><td>{{ NTT2_E2.ProductAmount__sum }}</td> <td>{{ dis_NTT2_E2.DiscountAmount__sum }}</td><td>{{ net_NTT2_E2.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-E3</th><td>{{ NTT2_E3.ProductAmount__sum }}</td> <td>{{ dis_NTT2_E3.DiscountAmount__sum }}</td><td>{{ net_NTT2_E3.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-F3A</th><td>{{ NTT2_F3A.ProductAmount__sum }}</td> <td>{{ dis_NTT2_F3A.DiscountAmount__sum }}</td><td>{{ net_NTT2_F3A.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-F3B</th><td>{{ NTT2_F3B.ProductAmount__sum }}</td> <td>{{ dis_NTT2_F3B.DiscountAmount__sum }}</td><td>{{ net_NTT2_F3B.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-F3D</th><td>{{ NTT2_F3D.ProductAmount__sum }}</td> <td>{{ dis_NTT2_F3D.DiscountAmount__sum }}</td><td>{{ net_NTT2_F3D.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-F3E</th><td>{{ NTT2_F3E.ProductAmount__sum }}</td> <td>{{ dis_NTT2_F3E.DiscountAmount__sum }}</td><td>{{ net_NTT2_F3E.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-G2</th><td>{{ NTT2_G2.ProductAmount__sum }}</td> <td>{{ dis_NTT2_G2.DiscountAmount__sum }}</td><td>{{ net_NTT2_G2.NetAmount__sum }}</td></tr>
+    <tr><th>NTT2-G4</th><td>{{ NTT2_G4.ProductAmount__sum }}</td> <td>{{ dis_NTT2_G4.DiscountAmount__sum }}</td><td>{{ net_NTT2_G4.NetAmount__sum }}</td></tr>
+    <tr><th>NTT3-A</th><td>{{ NTT3_A.ProductAmount__sum }}</td> <td>{{ dis_NTT3_A.DiscountAmount__sum }}</td> <td>{{ net_NTT3_A.NetAmount__sum }}</td></tr>
+    <tr><th>NTT3-B5</th><td>{{ NTT3_B5.ProductAmount__sum }}</td> <td>{{ dis_NTT3_B5.DiscountAmount__sum }}</td><td>{{ net_NTT3_B5.NetAmount__sum }}</td></tr>
+    <tr><th>NTT3-C</th><td>{{ NTT3_C.ProductAmount__sum }}</td> <td>{{ dis_NTT3_C.DiscountAmount__sum }}</td> <td>{{ net_NTT3_C.NetAmount__sum }}</td></tr>
+    <tr><th>NTT3-D2</th><td>{{ NTT3_D2.ProductAmount__sum }}</td> <td>{{ dis_NTT3_D2.DiscountAmount__sum }}</td><td>{{ net_NTT3_D2.NetAmount__sum }}</td></tr>
+    <tr><th>NTT3-D3</th><td>{{ NTT3_D3.ProductAmount__sum }}</td> <td>{{ dis_NTT3_D3.DiscountAmount__sum }}</td><td>{{ net_NTT3_D3.NetAmount__sum }}</td></tr>
+    <tr><th>NTT3-D4</th><td>{{ NTT3_D4.ProductAmount__sum }}</td> <td>{{ dis_NTT3_D4.DiscountAmount__sum }}</td><td>{{ net_NTT3_D4.NetAmount__sum }}</td></tr>
+    <tr><th>NTT3-D5</th><td>{{ NTT3_D5.ProductAmount__sum }}</td> <td>{{ dis_NTT3_D5.DiscountAmount__sum }}</td><td>{{ net_NTT3_D5.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-A01</th><td>{{ NTT5_A01.ProductAmount__sum }}</td> <td>{{ dis_NTT5_A01.DiscountAmount__sum }}</td><td>{{ net_NTT5_A01.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-B02</th><td>{{ NTT5_B02.ProductAmount__sum }}</td> <td>{{ dis_NTT5_B02.DiscountAmount__sum }}</td><td>{{ net_NTT5_B02.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-B06</th><td>{{ NTT5_B06.ProductAmount__sum }}</td> <td>{{ dis_NTT5_B06.DiscountAmount__sum }}</td><td>{{ net_NTT5_B06.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-C01</th><td>{{ NTT5_C01.ProductAmount__sum }}</td> <td>{{ dis_NTT5_C01.DiscountAmount__sum }}</td><td>{{ net_NTT5_C01.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-D01</th><td>{{ NTT5_D01.ProductAmount__sum }}</td> <td>{{ dis_NTT5_D01.DiscountAmount__sum }}</td><td>{{ net_NTT5_D01.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-D02A</th><td>{{ NTT5_D02A.ProductAmount__sum }}</td> <td>{{ dis_NTT5_D02A.DiscountAmount__sum }}</td><td>{{ net_NTT5_D02A.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-D02B</th><td>{{ NTT5_D02B.ProductAmount__sum }}</td> <td>{{ dis_NTT5_D02B.DiscountAmount__sum }}</td><td>{{ net_NTT5_D02B.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-E03</th><td>{{ NTT5_E03.ProductAmount__sum }}</td> <td>{{ dis_NTT5_E03.DiscountAmount__sum }}</td><td>{{ net_NTT5_E03.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-E04</th><td>{{ NTT5_E04.ProductAmount__sum }}</td> <td>{{ dis_NTT5_E04.DiscountAmount__sum }}</td><td>{{ net_NTT5_E04.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-F01</th><td>{{ NTT5_F01.ProductAmount__sum }}</td> <td>{{ dis_NTT5_F01.DiscountAmount__sum }}</td><td>{{ net_NTT5_F01.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-F02</th><td>{{ NTT5_F02.ProductAmount__sum }}</td> <td>{{ dis_NTT5_F02.DiscountAmount__sum }}</td><td>{{ net_NTT5_F02.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-F03</th><td>{{ NTT5_F03.ProductAmount__sum }}</td> <td>{{ dis_NTT5_F03.DiscountAmount__sum }}</td><td>{{ net_NTT5_F03.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-G</th><td>{{ NTT5_G.ProductAmount__sum }}</td> <td>{{  dis_NTT5_G.DiscountAmount__sum }}</td><td>{{  net_NTT5_G.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-G01</th><td>{{ NTT5_G01.ProductAmount__sum }}</td> <td>{{ dis_NTT5_G01.DiscountAmount__sum }}</td><td>{{ net_NTT5_G01.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-G01</th><td>{{ NTT5_G01.ProductAmount__sum }}</td> <td>{{ dis_NTT5_G01.DiscountAmount__sum }}</td><td>{{ net_NTT5_G01.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-G02</th><td>{{ NTT5_G02.ProductAmount__sum }}</td> <td>{{ dis_NTT5_G02.DiscountAmount__sum }}</td><td>{{ net_NTT5_G02.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-G03</th><td>{{ NTT5_G03.ProductAmount__sum }}</td> <td>{{ dis_NTT5_G03.DiscountAmount__sum }}</td><td>{{ net_NTT5_G03.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-H01</th><td>{{ NTT5_H01.ProductAmount__sum }}</td> <td>{{ dis_NTT5_H01.DiscountAmount__sum }}</td><td>{{ net_NTT5_H01.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-H03</th><td>{{ NTT5_H03.ProductAmount__sum }}</td> <td>{{ dis_NTT5_H03.DiscountAmount__sum }}</td><td>{{ net_NTT5_H03.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-I01</th><td>{{ NTT5_I01.ProductAmount__sum }}</td> <td>{{ dis_NTT5_I01.DiscountAmount__sum }}</td><td>{{ net_NTT5_I01.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-I03</th><td>{{ NTT5_I03.ProductAmount__sum }}</td> <td>{{ dis_NTT5_I03.DiscountAmount__sum }}</td><td>{{ net_NTT5_I03.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-J01</th><td>{{ NTT5_J01.ProductAmount__sum }}</td> <td>{{ dis_NTT5_J01.DiscountAmount__sum }}</td><td>{{ net_NTT5_J01.NetAmount__sum }}</td></tr>
+    <tr><th>NTT5-J03</th><td>{{ NTT5_J03.ProductAmount__sum }}</td> <td>{{ dis_NTT5_J03.DiscountAmount__sum }}</td><td>{{ net_NTT5_J03.NetAmount__sum }}</td></tr>
+    <tr><th>OP12-A</th><td>{{ OP12_A.ProductAmount__sum }}</td> <td>{{  dis_OP12_A.DiscountAmount__sum }}</td><td>{{  net_OP12_A.NetAmount__sum }}</td></tr>
+    <tr><th>OP20-F1</th><td>{{ OP20_F1.ProductAmount__sum }}</td> <td>{{  dis_OP20_F1.DiscountAmount__sum }}</td><td>{{  net_OP20_F1.NetAmount__sum }}</td></tr>
+    <tr><th>SG02-O</th><td>{{ SG02_O.ProductAmount__sum }}</td> <td>{{  dis_SG02_O.DiscountAmount__sum }}</td><td>{{  net_SG02_O.NetAmount__sum }}</td></tr>
+    <tr><th>SG02-P</th><td>{{ SG02_P.ProductAmount__sum }}</td> <td>{{  dis_SG02_P.DiscountAmount__sum }}</td><td>{{  net_SG02_P.NetAmount__sum }}</td></tr>
+    <tr><th>SG02-Q</th><td>{{ SG02_Q.ProductAmount__sum }}</td> <td>{{  dis_SG02_Q.DiscountAmount__sum }}</td><td>{{  net_SG02_Q.NetAmount__sum }}</td></tr>
+    <tr><th>SG02-R</th><td>{{ SG02_R.ProductAmount__sum }}</td> <td>{{  dis_SG02_R.DiscountAmount__sum }}</td><td>{{  net_SG02_R.NetAmount__sum }}</td></tr>
+    <tr><th>SG02-U</th><td>{{ SG02_U.ProductAmount__sum }}</td> <td>{{  dis_SG02_U.DiscountAmount__sum }}</td><td>{{  net_SG02_U.NetAmount__sum }}</td></tr> 
+    <tr><th></th></tr>
+   <tr>
+      <th width="25%"><font size="3">Total</b></font></th><td id="total_cdept"></td><td id="total_d_amount"></td><td id="total_net_amount"></td>
+    </tr>
+
+</table>
+
+
+{% endblock %}

@@ -29,6 +29,7 @@ urlpatterns = [
 	path('Service/Delete/<int:pk>', views.serviceDeleteView.as_view(), name='service_delete'),
 	path('Service/History/', views.serviceHistoryView, name='service_history'),
 	path('Service/Export', views.service_request_excel, name='service_export'),
+	path('Service/Daily/Report', views.service_report, name='service_vehicle_report'),
 	# path('Repair/', views.repairListView.as_view(), name='repair_list'),
 	path('Repair/', views.repairListView, name='repair_list'),
 	path('Repair/Deadline', views.vrp_deadline, name='vrpdeadline'),

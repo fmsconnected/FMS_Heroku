@@ -4,12 +4,14 @@
 var endpoint = 'api/monitoring/'
 var endpointongoing = 'api/monitoring/Ongoing/'
 var endpointcompleted = 'api/monitoring/Completed/'
+var petron_report = 'api/Petron/Report/'
 var defaultData = []
 var current_ongoing_data = []
 var completed_item_data = []
 var labels = [];
 var ongoing_labels = []
 var completed_labels = []
+var petron_item_data =[]
 
 // Request Chart
 $.ajax({
@@ -55,10 +57,27 @@ $.ajax({
     }
 })
 
+//petron_report
+$.ajax({
+    method: "GET",
+    url: petron_report,
+    success: function(petron_report_data){
+        petron_item_data = petron_report_data.petron_data_item
+        petron_item_data_dis = petron_report_data.petron_data_dis
+        petron_item_data_net = petron_report_data.petron_data_net
+        setChart()
+    },
+    error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+    }
+})
+
 function setChart(){
     var ctx1 = document.getElementById("ongoing_data");
     var ctx2 = document.getElementById("myChart2");
     var ctx3 = document.getElementById("completed");
+    var ctx4 = document.getElementById("petron_report_monthly");
     var myChart = new Chart(ctx2, {
     type: 'pie',
     data: {
@@ -233,17 +252,55 @@ function setChart(){
     }
     });
 
+    var petron_chart = new Chart(ctx4, {
+    type: 'bar',
+    data: {
+        labels: ["BB14-B1","BB14-B10", "BB14-B11", "BB14-B2","BB14-B3", "BB14-B4","BB14-B5","BB14-B6","BB14-B7","BB14-B8"],
+        datasets: [{
+            label: 'Sum of Product Amount',
+            data: petron_item_data,
+            backgroundColor:'rgba(23, 128, 173)',
+        },
+          {
+            label: 'Sum of Discount Amount',
+            fill: true,
+            data: petron_item_data_dis,
+            backgroundColor:'rgba(207, 154, 50)',
+        },
+        {
+            label: 'Sum of Net Amount',
+            fill: true,
+            data: petron_item_data_net,
+            backgroundColor:'rgba(196, 195, 187)',
+
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+    });
     window.onload = function(){
         var ctx2 = document.getElementById("myChart2").getContext("2d");
         window.myBar = new Chart(ctx2).Bar(myChart, {
+            responsive : true
+        });
+        
+        var ctx1 = document.getElementById("ongoing_data").getContext("2d");
+        window.myBar = new Chart(ctx1).Bar(ongoing_chart, {
             responsive : true
         });
         var ctx3 = document.getElementById("completed").getContext("2d");
         window.myBar = new Chart(ctx3).Bar(completed_Data_list, {
             responsive : true
         });
-        var ctx1 = document.getElementById("ongoing_data").getContext("2d");
-        window.myBar = new Chart(ctx1).Bar(ongoing_chart, {
+        var ctx4 = document.getElementById("petron_report_monthly").getContext("2d");
+        window.myBar = new Chart(ctx4).Bar(petron_chart, {
             responsive : true
         });
     }
@@ -409,6 +466,23 @@ function setChart(){
             </div>
           </div><!-- /.card-body -->
         </div>
+        <div class="card ">
+          <div class="card-header">
+            <h3 class="card-title">
+              <i class="fas fa-chart-pie mr-1"></i>
+              Petron Monthly Report <u>{{month}}</u>
+            </h3>
+          </div><!-- /.card-header -->
+          <div class="card-body">
+            <div class="tab-content p-0">
+              <!-- Morris chart - Sales -->
+              <div class="card-body">
+                  <canvas id="petron_report_monthly" style="height: 600px; max-width: 100%;"></canvas>
+               </div>
+            </div>
+          </div><!-- /.card-body -->
+        </div>
+
     </section>
 
     <!-- /.content -->

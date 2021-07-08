@@ -578,6 +578,15 @@ def serviceHistoryView(request):
        obj = service_vehicle.history.all()
 
        return render(request, 'service_vehicle/service_history.html', context={'object': obj})
+
+def service_report(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    emplist = EmployeeMasterlist.objects.all()
+    vlist = Leasing.objects.all()
+    return render(request, 'service_vehicle/service_vehicle_report.html')
+
+
 def svr_deadline(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)

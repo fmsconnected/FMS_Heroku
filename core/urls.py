@@ -11,6 +11,7 @@ from django.conf.urls import url, include
 from rest_framework import routers
 from masterlist import views
 
+
 admin.autodiscover()
 router = routers.DefaultRouter()
 # router.register(r'masterlist', views.vehicleViewSet),
@@ -26,6 +27,8 @@ router.register(r'Vehicle_Masterlist', views.vehicleViewSet),
 from monitoring import views
 router.register(r'monitoring', views.monitoringViewSet),
 
+from monthly_report import views
+router.register(r'MonthlyReport', views.vehicleViewSet),
 urlpatterns = [
     url('^api/', include(router.urls)),
     url(r'^ajax_select/', include(ajax_select_urls)),
@@ -45,6 +48,7 @@ urlpatterns = [
     path('Customer/', include('CustomerLog.urls')),
     path('Fcm/', include('fleet_card.urls')),
     path('Registration/', include('registration.urls')),
+    path('Monthly/Report/', include('monthly_report.urls')),
     path('', auth_views.LoginView.as_view(
         template_name='account/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='account/logout.html'), name='logout'),

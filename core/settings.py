@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'fleet_card.apps.FleetCardConfig',
     'registration.apps.RegistrationConfig',
     'vehicle_masterlist.apps.VehicleMasterlistConfig',
+    'monthly_report.apps.MonthlyReportConfig',
 
 ]
 # AUTHENTICATION_BACKENDS = (
