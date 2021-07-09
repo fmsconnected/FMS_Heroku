@@ -8,7 +8,8 @@ from .views import  (
 	Vmasterlist,
 	Emasterlist,
 	Lmasterlist,
-	monthly_report_jan_summary
+	monthly_report_jan_summary,
+    monthly_report_shell_summary
 	)
 
 urlpatterns = [
@@ -21,4 +22,5 @@ urlpatterns = [
     path('api/Emonitoring/', Emasterlist.as_view()),
     path('api/Lmonitoring/', Lmasterlist.as_view()),
     path('api/Petron/Report/',monthly_report_jan_summary.as_view()),
+    path('api/Shell/Report/', monthly_report_shell_summary.as_view()),
 ]

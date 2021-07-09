@@ -1,0 +1,274 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3><b>Monthly Fuel Supplier Report - SHELL</b></h3>
+    </div>
+</div>
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link " href="{% url 'jan_monthly_report' %}">Petron</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="#">Shell</a>
+    </li>
+</ul>
+<div class="content mt-3" >
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="#"> <u>View Summary</u></a>
+                    <a href="#" style="float:right"><u>Create</u></a>
+                </div>
+                    <div class="container-fluid">
+                    <table id="shell_table" class="table table-striped table-bordered" style="width:100%" data-server-side="false" data-ajax="/api/MonthlyReportShell/?format=datatables">
+                    <thead>
+                        <tr>
+                            <th>Account Number</th>
+                            <th>Customer Name1</th>
+                            <th>FullCard Number</th>
+                            <th>DelcoList Price</th>
+                            <th>Net Customer Amount</th>
+                            <th>Card Sequence Number</th>
+                            <th>Check Digit</th>
+                            <th>Delco Gross Value</th>
+                            <th>Delco Vat Amount</th>
+                            <th>Delco Vat Rate</th>
+                            <th>Rebate Cust Amount</th>
+                            <th>VAT Net Amount</th>
+                            <th>Delco Rebate Rate</th>
+                            <th>Voucher Number</th>
+                            <th>Fleet Id</th>
+                            <th>Quantity</th>
+                            <th>Dialogue Indicator</th>
+                            <th>Issuer Code1</th>
+                            <th>Net Invoice Indicator</th>
+                            <th>Network Code</th>
+                            <th>Card Group Name</th>
+                            <th>Card Holder Name</th>
+                            <th>Card Vehicle Registration Number</th>
+                            <th>Delivery Net Amount</th>
+                            <th>Pin Indicator</th>
+                            <th>Rebate Type</th>
+                            <th>Record Type</th>
+                            <th>Release Code</th>
+                            <th>Time</th>
+                            <th>Transaction Status</th>
+                            <th>Transaction Type1</th>
+                            <th>VAT Indicator</th>
+                            <th>Vat Usage</th>
+                            <th>Issuer Country</th>
+                            <th>Delco Code</th>
+                            <th>Delco Country Code1</th>
+                            <th>TransactionC urrency</th>
+                            <th>Invoice Number</th>
+                            <th>Invoice Date</th>
+                            <th>Product Code</th>
+                            <th>Site Code</th>
+                            <th>Site</th>
+                            <th>Delivery Date</th>
+                            <th>Odometer Reading1</th>
+                            <th>Delco Cust Rate1</th>
+                            <th>Customer Currency Name1</th>
+                            <th>Delco Pump Price</th>
+                            <th>Delco Rebate Amount1</th>
+                            <th>Cust Rebate Rate1</th>
+                            <th>Payer Display Name</th>
+                            <th>Payer Code</th>
+                            <th>Card GroupID</th>
+                            <th>Product Name</th>
+                            <th>Credit Debit Code</th>
+                            <th>Correction Flag</th>
+                            <th>Delco Country Code</th>
+                            <th>VAT Applicable</th>
+                            <th>Customer Euro Rate</th>
+                            <th>Delco Euro Rate</th>
+                            <th>Euro Rebate Amount</th>
+                            <th>EuroVATAmount</th>
+                            <th>InvoiceSequenceNo</th>
+                            <th>ListPriceInTransactionCurrency</th>
+                            <th>NetEuroAmount</th>
+                            <th>PumpPriceInTransactionCurrency</th>
+                            <th>RebateonNetAmountInCustomerCurrency</th>
+                            <th>RebateonNetAmountInTransactionCurrency</th>
+                            <th>RebateRate</th>
+                            <th>UnInvoiceSequenceNo</th>
+                            <th>NetworkName</th>
+                            <th>Additional1</th>
+                            <th>Additional2</th>
+                            <th>Additional3</th>
+                            <th>Additional4</th>
+                            <th>TransactionIdentifier</th>
+                            <th>TransactionAuthorisationCode</th>
+                            <th>DelcoName</th>
+                            <th>SiteGroupid</th>
+                            <th>SiteGroupName</th>
+                            <th>Cardtype</th>
+                            <th>PayerGroup</th>
+                            <th>PayerNumber</th>
+                            <th>RefundFlag</th>
+                            <th>RefundOriginalTransactionId</th>
+                            <th>PostingDate</th>
+                            <th>PostingTime</th>
+                            <th>CustomerReferenceValue</th>
+                            <th>CustomerReferenceDescription</th>
+                            <th>CardPayerAssociationCode</th>
+                            <th>CardPayerAssociation</th>
+                            <th>IncomingProductCode</th>
+                            <th>TransactionProviderId</th>
+                            <th>TransactionProviderName</th>
+                            <th>FileName</th>
+                            <th>FileDate</th>
+                            <th>AccountGroup3Code</th>
+                            <th>AccountGroup3Name</th>
+                            <th>ContractedRebateRate</th>
+                            <th>IsBestOfPricingApplicable</th>
+                            <th>CostCenter</th>
+                        </tr>
+                    </thead>
+                    </table>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+
+$(document).ready(function() {
+    var table = $('#shell_table').DataTable({
+        "serverSide": false,
+        "scrollX": true,
+        "scrollY": "500px",
+        // "deferRender": true,
+        // "autoWidth":true,
+        "deferRender": true,
+        "autoWidth":true,
+        "ajax": {
+            "url": "/api/MonthlyReportShell/?format=datatables",
+            "type": "POST"
+            },
+        "columns": [
+            {"data": "AccountNumber"},
+            {"data":"CustomerName1"},
+            {"data":"FullCardNumber"},
+            {"data":"DelcoListPrice"},
+            {"data":"NetCustomerAmount"},
+            {"data":"CardSequenceNumber"},
+            {"data":"CheckDigit"},
+            {"data":"DelcoGrossValue"},
+            {"data":"DelcoVatAmount"},
+            {"data":"DelcoVatRate"},
+            {"data":"RebateCustAmount"},
+            {"data":"VATNetAmount"},
+            {"data":"DelcoRebateRate"},
+            {"data":"VoucherNumber"},
+            {"data":"FleetId"},
+            {"data":"Quantity"},
+            {"data":"DialogueIndicator"},
+            {"data":"IssuerCode1"},
+            {"data":"NetInvoiceIndicator"},
+            {"data":"NetworkCode"},
+            {"data":"CardGroupName"},
+            {"data":"CardHolderName"},
+            {"data":"CardVehicleRegistrationNumber"},
+            {"data":"DeliveryNetAmount"},
+            {"data":"PinIndicator"},
+            {"data":"RebateType"},
+            {"data":"RecordType"},
+            {"data":"ReleaseCode"},
+            {"data":"Time"},
+            {"data":"TransactionStatus"},
+            {"data":"TransactionType1"},
+            {"data":"VATIndicator"},
+            {"data":"VatUsage"},
+            {"data":"IssuerCountry"},
+            {"data":"DelcoCode"},
+            {"data":"DelcoCountryCode1"},
+            {"data":"TransactionCurrency"},
+            {"data":"InvoiceNumber"},
+            {"data":"InvoiceDate"},
+            {"data":"ProductCode"},
+            {"data":"SiteCode"},
+            {"data":"Site"},
+            {"data":"DeliveryDate"},
+            {"data":"OdometerReading1"},
+            {"data":"DelcoCustRate1"},
+            {"data":"CustomerCurrencyName1"},
+            {"data":"DelcoPumpPrice"},
+            {"data":"DelcoRebateAmount1"},
+            {"data":"CustRebateRate1"},
+            {"data":"PayerDisplayName"},
+            {"data":"PayerCode"},
+            {"data":"CardGroupID"},
+            {"data":"ProductName"},
+            {"data":"CreditDebitCode"},
+            {"data":"CorrectionFlag"},
+            {"data":"DelcoCountryCode"},
+            {"data":"VATApplicable"},
+            {"data":"CustomerEuroRate"},
+            {"data":"DelcoEuroRate"},
+            {"data":"EuroRebateAmount"},
+            {"data":"EuroVATAmount"},
+            {"data":"InvoiceSequenceNo"},
+            {"data":"ListPriceInTransactionCurrency"},
+            {"data":"NetEuroAmount"},
+            {"data":"PumpPriceInTransactionCurrency"},
+            {"data":"RebateonNetAmountInCustomerCurrency"},
+            {"data":"RebateonNetAmountInTransactionCurrency"},
+            {"data":"RebateRate"},
+            {"data":"UnInvoiceSequenceNo"},
+            {"data":"NetworkName"},
+            {"data":"Additional1"},
+            {"data":"Additional2"},
+            {"data":"Additional3"},
+            {"data":"Additional4"},
+            {"data":"TransactionIdentifier"},
+            {"data":"TransactionAuthorisationCode"},
+            {"data":"DelcoName"},
+            {"data":"SiteGroupid"},
+            {"data":"SiteGroupName"},
+            {"data":"Cardtype"},
+            {"data":"PayerGroup"},
+            {"data":"PayerNumber"},
+            {"data":"RefundFlag"},
+            {"data":"RefundOriginalTransactionId"},
+            {"data":"PostingDate"},
+            {"data":"PostingTime"},
+            {"data":"CustomerReferenceValue"},
+            {"data":"CustomerReferenceDescription"},
+            {"data":"CardPayerAssociationCode"},
+            {"data":"CardPayerAssociation"},
+            {"data":"IncomingProductCode"},
+            {"data":"TransactionProviderId"},
+            {"data":"TransactionProviderName"},
+            {"data":"FileName"},
+            {"data":"FileDate"},
+            {"data":"AccountGroup3Code"},
+            {"data":"AccountGroup3Name"},
+            {"data":"ContractedRebateRate"},
+            {"data":"IsBestOfPricingApplicable"},
+            {"data":"CostCenter"}
+        ]
+    });
+    $('#shell_table').on( 'click', 'tr', function () {
+        if ( $(this).hasClass('selected') ) {
+            $(this).removeClass('selected');
+        }
+        else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    } );
+});
+</script>
+
+{% endblock %}
+
+

@@ -5,6 +5,7 @@ var endpoint = 'api/monitoring/'
 var endpointongoing = 'api/monitoring/Ongoing/'
 var endpointcompleted = 'api/monitoring/Completed/'
 var petron_report = 'api/Petron/Report/'
+var shell_report = 'api/Shell/Report/'
 var defaultData = []
 var current_ongoing_data = []
 var completed_item_data = []
@@ -12,6 +13,12 @@ var labels = [];
 var ongoing_labels = []
 var completed_labels = []
 var petron_item_data =[]
+var shell_item_data = []
+var shell_reb_data = []
+var shell_label = []
+var petron_item_data_dis = []
+var petron_item_data_net = []
+
 
 // Request Chart
 $.ajax({
@@ -73,11 +80,27 @@ $.ajax({
     }
 })
 
+//shell_report
+$.ajax({
+    method: "GET",
+    url: shell_report,
+    success: function(shell_report_data){
+        shell_item_data = shell_report_data.shell_data
+        shell_reb_data = shell_report_data.shell_reb_data
+        shell_label = shell_report_data.shell_label
+        setChart()
+    },
+    error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+    }
+})
 function setChart(){
     var ctx1 = document.getElementById("ongoing_data");
     var ctx2 = document.getElementById("myChart2");
     var ctx3 = document.getElementById("completed");
     var ctx4 = document.getElementById("petron_report_monthly");
+    var ctx5 = document.getElementById("shell_report_monthly");
     var myChart = new Chart(ctx2, {
     type: 'pie',
     data: {
@@ -285,6 +308,32 @@ function setChart(){
         }
     }
     });
+    var shell_chart = new Chart(ctx5, {
+    type: 'bar',
+    data: {
+        labels: ["BB14-B10", "BB14-B2", "BB14-B3", "BB14-B4", "BB14-B5", "BB14-B6", "BB14-B7", "BB14-B8", "BB14-E", "CMB4-B"],
+        datasets: [{
+            label: 'Sum of DelcoGrossValue',
+            data: shell_item_data,
+            backgroundColor:'rgba(23, 128, 173)',
+        },
+          {
+            label: 'Sum of RebateCustAmount',
+            fill: true,
+            data: shell_reb_data,
+            backgroundColor:'rgba(207, 154, 50)',
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+    });
     window.onload = function(){
         var ctx2 = document.getElementById("myChart2").getContext("2d");
         window.myBar = new Chart(ctx2).Bar(myChart, {
@@ -301,6 +350,10 @@ function setChart(){
         });
         var ctx4 = document.getElementById("petron_report_monthly").getContext("2d");
         window.myBar = new Chart(ctx4).Bar(petron_chart, {
+            responsive : true
+        });
+        var ctx5 = document.getElementById("shell_report_monthly").getContext("2d");
+        window.myBar = new Chart(ctx5).Bar(shell_chart, {
             responsive : true
         });
     }
@@ -470,18 +523,36 @@ function setChart(){
           <div class="card-header">
             <h3 class="card-title">
               <i class="fas fa-chart-pie mr-1"></i>
-              Petron Monthly Report <u>{{month}}</u>
+              Fuel Supplier Monthly Report <u>{{month}}</u>
             </h3>
+            <div class="card-tools">
+                <ul class="nav nav-pills ml-auto" role="tablist">
+                    <li role="presentation" class="nav-item active">
+                        <a href="#petron" aria-controls="home" role="tab" data-toggle="tab" class="nav-link active" style="color: white;">PETRON</a></li>
+                    <li role="presentation" class="nav-item active">
+                        <a href="#shell" aria-controls="profile" role="tab" data-toggle="tab" class="nav-link " style="color: white;">SHELL</a></li>
+                </ul>
+            </div>
           </div><!-- /.card-header -->
-          <div class="card-body">
+        <div class="card-body">
             <div class="tab-content p-0">
               <!-- Morris chart - Sales -->
-              <div class="card-body">
-                  <canvas id="petron_report_monthly" style="height: 600px; max-width: 100%;"></canvas>
-               </div>
+                <div class="card-body">
+                    <div class="tab-content p-0">
+                      <!-- Morris chart - Sales -->
+                        <div class="chart tab-pane active" id="petron"
+                           style="position: relative; height: 800px;">
+                            <canvas id="petron_report_monthly" style="height: 800px; max-width: 100%;"></canvas>
+                        </div>
+                        <div class="chart tab-pane " id="shell" style="position: relative; height: 800px;">
+                            <canvas id="shell_report_monthly" style="height: 800px; max-width: 100%;"></canvas>
+                        </div>
+                    </div>
+                      
+                </div>
             </div>
-          </div><!-- /.card-body -->
-        </div>
+        </div><!-- /.card-body -->
+        <div>
 
     </section>
 
