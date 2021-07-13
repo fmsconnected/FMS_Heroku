@@ -33,6 +33,7 @@ class vehicleViewSet(viewsets.ModelViewSet):
     serializer_class = petron_report_Serializer
 
 def monthly_report_jan_summary(request):
+
     date = datetime.datetime.today()
     ## ProductAmount ####
     BB14_B1 = Petron_report.objects.filter(StatementDate__year=date.year, 
@@ -310,7 +311,6 @@ def monthly_report_jan_summary(request):
     
 
     ## ProductAmount end ####
-    
 
     ##Discount_Amount
 
@@ -864,7 +864,7 @@ def monthly_report_jan_summary(request):
         StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('NetAmount'))
 
     ### Net Amount End#####
-
+    
     return render(request,'monthly_report/jan_report_summary.html',{'title':'Petron Data', 'BB14_B1':BB14_B1,
     'BB14_B10':BB14_B10, 'BB14_B11':BB14_B11, 'BB14_B2':BB14_B2, 'BB14_B3':BB14_B3, 'BB14_B4':BB14_B4, 'BB14_B5':BB14_B5, 'BB14_B6':BB14_B6,
     'BB14_B7':BB14_B7, 'BB14_B8':BB14_B8, 'BB14_C':BB14_C, 'BB14_E':BB14_E, 'CMG12_C':CMG12_C, 

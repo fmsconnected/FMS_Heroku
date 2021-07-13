@@ -1,0 +1,423 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+          <h3 ><b>Shell Report - Create</b></h3>&nbsp;
+      </div>
+<form method="POST">
+{% csrf_token %}
+    <div class="col-sm-4">
+        <label>Account Number</label>
+        {{ form.AccountNumber }}
+    </div>
+    <div class="col-sm-4">
+        <label>Customer Name</label>
+        {{ form.CustomerName1 }}
+    </div>
+    <div class="col-sm-4">
+        <label>Full Card Number</label>
+        {{ form.FullCardNumber }}
+    </div>
+    <div class="col-sm-4">
+        <label>Delco List Price</label>
+        {{ form.DelcoListPrice }}
+    </div>
+    <div class="col-sm-4">
+        <label>Net Customer Amount</label>
+        {{ form.NetCustomerAmount }}
+    </div>
+    <div class="col-sm-4">
+        <label>Card Sequence Number</label>
+        {{ form.CardSequenceNumber }}
+    </div>
+    <div class="col-sm-4">
+        <label>Check Digit</label>
+        {{ form.CheckDigit }}
+    </div>
+    <div class="col-sm-4">
+        <label>Delco Gross Value</label>
+        {{ form.DelcoGrossValue }}
+    </div>
+    <div class="col-sm-4">
+        <label>Delco Vat Amount</label>
+        {{ form.DelcoVatAmount }}
+    </div>
+    <div class="col-sm-4">
+        <label>Delco Vat Rate</label>
+        {{ form.DelcoVatRate }}
+    </div>
+    <div class="col-sm-4">
+        <label>RebateCustAmount</label>
+        {{ form.RebateCustAmount }}
+    </div>
+    <div class="col-sm-4">
+        <label>VAT Net Amount</label>
+        {{ form.VATNetAmount }}
+    </div>
+    <div class="col-sm-4">
+        <label>Delco Rebate Rate</label>
+        {{ form.DelcoRebateRate }}
+    </div>
+    <div class="col-sm-4">
+        <label>Voucher Number</label>
+        {{ form.VoucherNumber }}
+    </div>
+    <div class="col-sm-4">
+        <label>Fleet Id</label>
+        {{ form.FleetId}}
+    </div>
+    
+    <div class="col-sm-4">
+        <label>Quantity</label>
+        {{ form.Quantity }}
+    </div>
+    <div class="col-sm-4">
+        <label>Dialogue Indicator</label>
+        {{ form.DialogueIndicator }}
+    </div>
+    <div class="col-sm-4">
+        <label>Issuer Code1</label>
+        {{ form.IssuerCode1 }}
+    </div>
+    <div class="col-sm-4">
+        <label>Net Invoice Indicator</label>
+        {{ form.NetInvoiceIndicator }}
+    </div>
+    <div class="col-sm-4">
+        <label>Net work Code</label>
+        {{ form.NetworkCode }}
+    </div>
+    <div class="col-sm-4">
+        <label>Card Group Name</label>
+        {{ form.CardGroupName }}
+    </div>
+    <div class="col-sm-4">
+        <label>Card Holder Name</label>
+        {{ form.CardHolderName }}
+    </div>
+    <div class="col-sm-4">
+        <label>Card Vehicle Registration Number</label>
+        {{ form.CardVehicleRegistrationNumber }}
+    </div>
+    <div class="col-sm-4">
+        <label>Delivery Net Amount</label>
+        {{ form.DeliveryNetAmount }}
+    </div>
+    <div class="col-sm-4">
+        <label>Pin Indicator</label>
+        {{ form.PinIndicator }}
+    </div>
+    <div class="col-sm-4">
+        <label>Rebate Type</label>
+        {{ form.RebateType }}
+    </div>
+    <div class="col-sm-4">
+        <label>Record Type</label>
+        {{ form.RecordType }}
+    </div>
+    <div class="col-sm-4">
+        <label>Release Code</label>
+        {{ form.ReleaseCode }}
+    </div>
+    <div class="col-sm-4">
+        <label>Time</label>
+        {{ form.Time }}
+    </div>
+    <div class="col-sm-4">
+        <label>Transaction Status</label>
+        {{ form.TransactionStatus }}
+    </div>
+    <div class="col-sm-4">
+        <label>Transaction Type 1</label>
+        {{ form.TransactionType1 }}
+    </div>
+    <div class="col-sm-4">
+        <label>VAT Indicator</label>
+        {{ form.VATIndicator }}
+    </div>
+    <div class="col-sm-4">
+        <label>Vat Usage</label>
+        {{ form.VatUsage }}
+    </div>
+    <div class="col-sm-4">
+        <label>Issuer Country</label>
+        {{ form.IssuerCountry }}
+    </div>
+    <div class="col-sm-4">
+        <label>Delco Code</label>
+        {{ form.DelcoCode }}
+    </div>
+    <div class="col-sm-4">
+        <label>Delco Country Code1</label>
+        {{ form.DelcoCountryCode1 }}
+    </div>
+    <div class="col-sm-4">
+        <label>Transaction Currency</label>
+        {{ form.TransactionCurrency }}
+    </div>
+    <div class="col-sm-4">
+        <label>Invoice Number</label>
+        {{ form.InvoiceNumber }}
+    </div>
+    <div class="col-sm-4">
+        <label>Invoice Date</label>
+        {{ form.InvoiceDate}}
+    </div>
+    <div class="col-sm-4">
+        <label>Product Code</label>
+        {{ form.ProductCode }}
+    </div>
+    <div class="col-sm-4">
+        <label>Site Code</label>
+        {{ form.SiteCode }}
+    </div>
+    <div class="col-sm-4">
+        <label>Site</label>
+        {{ form.Site }}
+    </div>
+    <div class="col-sm-4">
+        <label>Delivery Date</label>
+        {{ form.DeliveryDate }}
+    </div>
+    <div class="col-sm-4">
+        <label>Odometer Reading1</label>
+        {{ form.OdometerReading1 }}
+    </div>
+    <div class="col-sm-4">
+        <label>Delco Cust Rate1</label>
+        {{ form.DelcoCustRate1 }}
+    </div>
+    <div class="col-sm-4">
+        <label>Customer Currency Name1</label>
+        {{ form.CustomerCurrencyName1 }}
+    </div>
+    <div class="col-sm-4">
+        <label>Delco Pump Price</label>
+        {{ form.DelcoPumpPrice }}
+    </div>
+    <div class="col-sm-4">
+        <label>Delco Rebate Amount1</label>
+        {{ form.DelcoRebateAmount1 }}
+    </div>
+    <div class="col-sm-4">
+        <label>Cust Rebate Rate1</label>
+        {{ form.CustRebateRate1 }}
+    </div>
+    <div class="col-sm-4">
+        <label>Payer Display Name</label>
+        {{ form.PayerDisplayName }}
+    </div>
+    <div class="col-sm-4">
+        <label>Payer Code</label>
+        {{ form.PayerCode }}
+    </div>
+    <div class="col-sm-4">
+        <label>Card Group ID</label>
+        {{ form.CardGroupID }}
+    </div>
+    <div class="col-sm-4">
+        <label>Product Name</label>
+        {{ form.ProductName }}
+    </div>
+    <div class="col-sm-4">
+        <label>Credit Debit Code</label>
+        {{ form.CreditDebitCode }}
+    </div>
+    <div class="col-sm-4">
+        <label>Correction Flag</label>
+        {{ form.CorrectionFlag }}
+    </div>
+    <div class="col-sm-4">
+        <label>Delco Country Code</label>
+        {{ form.DelcoCountryCode }}
+    </div>
+    <div class="col-sm-4">
+        <label>VAT Applicable</label>
+        {{ form.VATApplicable }}
+    </div>
+    <div class="col-sm-4">
+        <label>Customer Euro Rate</label>
+        {{ form.CustomerEuroRate }}
+    </div>
+    <div class="col-sm-4">
+        <label>Delco Euro Rate</label>
+        {{ form.DelcoEuroRate }}
+    </div>
+    <div class="col-sm-4">
+        <label>Euro Rebate Amount</label>
+        {{ form.EuroRebateAmount }}
+    </div>
+    <div class="col-sm-4">
+        <label>Euro VAT Amount</label>
+        {{ form.EuroVATAmount }}
+    </div>
+    <div class="col-sm-4">
+        <label>Invoice Sequence No</label>
+        {{ form.InvoiceSequenceNo }}
+    </div>
+    <div class="col-sm-4">
+        <label>List Price InTransaction Currency</label>
+        {{ form.ListPriceInTransactionCurrency}}
+    </div>
+    
+    <div class="col-sm-4">
+        <label>Net Euro Amount</label>
+        {{ form.NetEuroAmount }}
+    </div>
+    <div class="col-sm-4">
+        <label>Pump Price InTransaction Currency</label>
+        {{ form.PumpPriceInTransactionCurrency }}
+    </div>
+    <div class="col-sm-4">
+        <label>Rebate on Net Amount In Customer Currency</label>
+        {{ form.RebateonNetAmountInCustomerCurrency }}
+    </div>
+    <div class="col-sm-4">
+        <label>Rebate on Net Amount In Transaction Currency</label>
+        {{ form.RebateonNetAmountInTransactionCurrency }}
+    </div>
+    <div class="col-sm-4">
+        <label>Rebate Rate</label>
+        {{ form.RebateRate }}
+    </div>
+    <div class="col-sm-4">
+        <label>UnInvoice Sequence No</label>
+        {{ form.UnInvoiceSequenceNo }}
+    </div>
+    <div class="col-sm-4">
+        <label>Network Name</label>
+        {{ form.NetworkName }}
+    </div>
+    <div class="col-sm-4">
+        <label>Additional 1</label>
+        {{ form.Additional1 }}
+    </div>
+    <div class="col-sm-4">
+        <label>Additional 2</label>
+        {{ form.Additional2 }}
+    </div>
+    <div class="col-sm-4">
+        <label>Additional 3</label>
+        {{ form.Additional3 }}
+    </div>
+    <div class="col-sm-4">
+        <label>Additional 4</label>
+        {{ form.Additional4 }}
+    </div>
+    <div class="col-sm-4">
+        <label>Transaction Identifier</label>
+        {{ form.TransactionIdentifier }}
+    </div>
+    <div class="col-sm-4">
+        <label>Transaction Authorisation Code</label>
+        {{ form.TransactionAuthorisationCode }}
+    </div>
+    <div class="col-sm-4">
+        <label>Delco Name</label>
+        {{ form.DelcoName }}
+    </div>
+    <div class="col-sm-4">
+        <label>Site Group id</label>
+        {{ form.SiteGroupid }}
+    </div>
+    <div class="col-sm-4">
+        <label>Site Group Name</label>
+        {{ form.SiteGroupName }}
+    </div>
+    <div class="col-sm-4">
+        <label>Card type</label>
+        {{ form.Cardtype }}
+    </div>
+    <div class="col-sm-4">
+        <label>Payer Group</label>
+        {{ form.PayerGroup }}
+    </div>
+    <div class="col-sm-4">
+        <label>Payer Number</label>
+        {{ form.PayerNumber }}
+    </div>
+    <div class="col-sm-4">
+        <label>Refund Flag</label>
+        {{ form.RefundFlag }}
+    </div>
+    <div class="col-sm-4">
+        <label>Refund riginal Transaction Id</label>
+        {{ form.RefundOriginalTransactionId }}
+    </div>
+    <div class="col-sm-4">
+        <label>Posting Date</label>
+        {{ form.PostingDate }}
+    </div>
+    <div class="col-sm-4">
+        <label>Posting Time</label>
+        {{ form.PostingTime }}
+    </div>
+    <div class="col-sm-4">
+        <label>Customer Reference Value</label>
+        {{ form.CustomerReferenceValue}}
+    </div>
+    <div class="col-sm-4">
+        <label>Customer Reference Description</label>
+        {{ form.CustomerReferenceDescription }}
+    </div>
+    <div class="col-sm-4">
+        <label>Card Payer Association Code</label>
+        {{ form.CardPayerAssociationCode }}
+    </div>
+    <div class="col-sm-4">
+        <label>Card Payer Association</label>
+        {{ form.CardPayerAssociation }}
+    </div>
+    <div class="col-sm-4">
+        <label>Incoming Product Code</label>
+        {{ form.IncomingProductCode }}
+    </div>
+    <div class="col-sm-4">
+        <label>Transaction Provider Id</label>
+        {{ form.TransactionProviderId }}
+    </div>
+    <div class="col-sm-4">
+        <label>Transaction Provider Name</label>
+        {{ form.TransactionProviderName }}
+    </div>
+    <div class="col-sm-4">
+        <label>File Name</label>
+        {{ form.FileName }}
+    </div>
+    <div class="col-sm-4">
+        <label>File Date</label>
+        {{ form.FileDate }}
+    </div>
+    <div class="col-sm-4">
+        <label>Account Group 3 Code</label>
+        {{ form.AccountGroup3Code }}
+    </div>
+    <div class="col-sm-4">
+        <label>AccountGroup 3 Name</label>
+        {{ form.AccountGroup3Name }}
+    </div>
+    <div class="col-sm-4">
+        <label>Contracted Rebate Rate</label>
+        {{ form.ContractedRebateRate }}
+    </div>
+    <div class="col-sm-4">
+        <label>Is Best Of Pricing Applicable</label>
+        {{ form.IsBestOfPricingApplicable }}
+    </div>
+    <div class="col-sm-4">
+        <label>CostCenter</label>
+        {{ form.CostCenter }}
+    </div>
+    {{ form.Supplier }}
+    
+</div>
+<div class="card-footer">
+    <button type="submit" class="buttonsubmit">SUBMIT</button>
+    <button type="Reset" class="button">CLEAR ALL</button>
+  <!-- <a href="#" class="btn">CLOSE</a> -->
+</div>
+</form>      
+    
+{% endblock %}
