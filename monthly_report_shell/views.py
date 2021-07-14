@@ -19,12 +19,13 @@ from django.views.generic import (
                 				ListView,
                 				UpdateView,
                 				DetailView,
+                                DeleteView,
                 				)
 from django.db.models import Sum
-from . forms import (
-    shell_form
-)
+from . forms import shell_form
 
+from bootstrap_modal_forms.generic import BSModalDeleteView
+                                           
 def monthly_report_shell(request):
 	return render(request, 'shell/shell_list.html')
 
@@ -36,6 +37,25 @@ class shell_create(CreateView):
     model = shell_report
     form_class = shell_form
     template_name = 'shell/shell_create.html'
+
+class shell_update(UpdateView):
+    model = shell_report
+    form_class = shell_form
+    template_name = 'shell/shell_create.html'
+
+# class shell_delete(BSModalDeleteView):
+#     model = shell_report
+#     template_name = 'shell/shell_delete.html'
+#     success_message = 'Success: Item was deleted.'
+    success_url = reverse_lazy('report_shell_list')
+class shell_delete(DeleteView):
+    model = shell_report
+    success_url = reverse_lazy('report_shell_list')
+    template_name = 'shell/shell_delete.html'
+
+class shell_details(DetailView):
+    model = shell_report
+    template_name = 'shell/shell_detail.html'
 
 def monthly_report_shellDetails(request):
     date = datetime.datetime.today()
@@ -447,7 +467,7 @@ def monthly_report_shellDetails(request):
         InvoiceDate__month=date.month, Supplier='Shell', CostCenter="ST1").aggregate(Sum('RebateCustAmount'))
     
     
-    return render(request, 'shell/shell_details.html',{'title' : 'Shell Report', 'BB14_B10':BB14_B10,'BB14_B2':BB14_B2,'BB14_B3':BB14_B3,'BB14_B4':BB14_B4,'BB14_B5':BB14_B5,'BB14_B6':BB14_B6,'BB14_B7':BB14_B7,'BB14_B8':BB14_B8,'BB14_E':BB14_E,'CMB4_B':CMB4_B,'CMG12_D':CMG12_D,'CMG2_B1':CMG2_B1,
+    return render(request, 'shell/shell_summary.html',{'title' : 'Shell Report', 'BB14_B10':BB14_B10,'BB14_B2':BB14_B2,'BB14_B3':BB14_B3,'BB14_B4':BB14_B4,'BB14_B5':BB14_B5,'BB14_B6':BB14_B6,'BB14_B7':BB14_B7,'BB14_B8':BB14_B8,'BB14_E':BB14_E,'CMB4_B':CMB4_B,'CMG12_D':CMG12_D,'CMG2_B1':CMG2_B1,
     'CMG2_B3':CMG2_B3,'CMG2_C1':CMG2_C1,'CMG2_C2':CMG2_C2,'CMG2_C3':CMG2_C3,'CMG2_C4':CMG2_C4,'CMG2_C5_B':CMG2_C5_B,'CMG2_C5_C':CMG2_C5_C,'CMG2_C5_G':CMG2_C5_G,'CMG2_D1':CMG2_D1,'CMG2_D2':CMG2_D2,'CMG2_D3':CMG2_D3,
     'CMG2_E2':CMG2_E2,'CMG2_E3':CMG2_E3,'CMG2_F1':CMG2_F1,'CMG2_F2':CMG2_F2,'CMG2_F3':CMG2_F3,'CMG3_A':CMG3_A,'CMG4_B':CMG4_B,'CMG4_C':CMG4_C,'CMG4_D':CMG4_D,'CMG4_E':CMG4_E,'CMG4_F':CMG4_F,'CMG4_G':CMG4_G,'CMG5_D':CMG5_D,
     'CMG5_E':CMG5_E,'CMG5_G':CMG5_G,'CMG6_E':CMG6_E,'CRA6_A':CRA6_A,'EIG09_A':EIG09_A,'FIN13_K1':FIN13_K1,'FIN13_K2':FIN13_K2,'FIN22_D1b':FIN22_D1b,'FIN22_D2a':FIN22_D2a,'FIN23_C1':FIN23_C1 ,

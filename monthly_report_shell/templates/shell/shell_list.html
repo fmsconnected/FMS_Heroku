@@ -155,7 +155,14 @@ $(document).ready(function() {
             "type": "POST"
             },
         "columns": [
-            {"data": "AccountNumber"},
+            {"data": "AccountNumber",
+            "render": function(data, type, row, meta){
+                if(type === 'display'){
+                    data = '<a href="Detail/' + row.id + '">' + data + '</a>';
+                    }
+                return data;
+                }
+            },
             {"data":"CustomerName1"},
             {"data":"FullCardNumber"},
             {"data":"DelcoListPrice"},

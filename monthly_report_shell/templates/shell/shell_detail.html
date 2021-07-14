@@ -1,0 +1,358 @@
+{% extends 'base.html' %}
+{% block content %}
+<style type="text/css">
+  th {
+    text-align: middle;
+  }
+</style>
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3>Shell <u>{{object.CostCenter}}</u> Details</h3>&nbsp;
+    </div>
+
+
+<table width="90%" class="table table-bordered table-hover" border="5px" id="table_shell">
+    <tr>
+      <th width="25%">Account Number</th>
+        <td width="25%">{{ object.AccountNumber }}</td>
+        <th>Customer Name</th>
+        <td>{{ object.CustomerName1 }}</td>
+    </tr>
+    <tr>
+      <th>Full Card Number</th>
+        <td>{{ object.FullCardNumber }}</td>
+        <th>Delco List Price</th>
+        <td>{{ object.DelcoListPrice }}</td>
+    </tr>
+    <tr>
+      <th>Net Customer Amount</th>
+        <td>{{ object.NetCustomerAmount }}</td>
+      <th>Card Sequence Number</th>
+        <td>{{ object.CardSequenceNumber }}</td>
+    </tr>
+    <tr>
+      <th>Check Digit</th>
+        <td>{{ object.CheckDigit }}</td>
+      <th>Delco Gross Value</th>
+        <td>{{ object.DelcoGrossValue }}</td>
+    </tr>
+    <tr>
+      <th>Delco Vat Amount</th>
+        <td>{{ object.DelcoVatAmount }}</td>
+      <th>Delco Vat Rate</th>
+        <td>{{ object.DelcoVatRate }}</td>
+    </tr>
+    <tr>
+      <th>RebateCustAmount</th>
+        <td>{{ object.RebateCustAmount }}</td>
+      <th>VAT Net Amount</th>
+        <td>{{ object.VATNetAmount }}</td>
+    </tr>
+    <tr>
+      <th>Delco Rebate Rate</th>
+        <td>{{ object.DelcoRebateRate }}</td>
+      <th>Voucher Number</th>
+        <td>{{ object.VoucherNumber }}</td>
+    </tr>
+    <tr>
+      <th>Fleet Id</th>
+        <td>{{ object.FleetId}}</td>
+      <th>Quantity</th>
+        <td>{{ object.Quantity }}</td>
+    </tr>
+    
+    <tr>
+      <th>Dialogue Indicator</th>
+        <td>{{ object.DialogueIndicator }}</td>
+      <th>Issuer Code1</th>
+        <td>{{ object.IssuerCode1 }}</td>
+    </tr>
+    <tr>
+      <th>Net Invoice Indicator</th>
+        <td>{{ object.NetInvoiceIndicator }}</td>
+      <th>Net work Code</th>
+        <td>{{ object.NetworkCode }}</td>
+    </tr>
+    <tr>
+      <th>Card Group Name</th>
+        <td>{{ object.CardGroupName }}</td>
+      <th>Card Holder Name</th>
+        <td>{{ object.CardHolderName }}</td>
+    </tr>
+    <tr>
+      <th>Card Vehicle Registration Number</th>
+        <td>{{ object.CardVehicleRegistrationNumber }}</td>
+      <th>Delivery Net Amount</th>
+        <td>{{ object.DeliveryNetAmount }}</td>
+    </tr>
+    <tr>
+      <th>Pin Indicator</th>
+        <td>{{ object.PinIndicator }}</td>
+      <th>Rebate Type</th>
+        <td>{{ object.RebateType }}</td>
+    </tr>
+    <tr>
+      <th>Record Type</th>
+        <td>{{ object.RecordType }}</td>
+      <th>Release Code</th>
+        <td>{{ object.ReleaseCode }}</td>
+    </tr>
+    <tr>
+      <th>Time</th>
+        <td>{{ object.Time }}</td>
+      <th>Transaction Status</th>
+        <td>{{ object.TransactionStatus }}</td>
+    </tr>
+    <tr>
+      <th>Transaction Type 1</th>
+        <td>{{ object.TransactionType1 }}</td>
+      <th>VAT Indicator</th>
+        <td>{{ object.VATIndicator }}</td>
+    </tr>
+    <tr>
+      <th>Vat Usage</th>
+        <td>{{ object.VatUsage }}</td>
+      <th>Issuer Country</th>
+        <td>{{ object.IssuerCountry }}</td>
+    </tr>
+    <tr>
+      <th>Delco Code</th>
+        <td>{{ object.DelcoCode }}</td>
+      <th>Delco Country Code1</th>
+        <td>{{ object.DelcoCountryCode1 }}</td>
+    </tr>
+    <tr>
+      <th>Transaction Currency</th>
+        <td>{{ object.TransactionCurrency }}</td>
+      <th>Invoice Number</th>
+        <td>{{ object.InvoiceNumber }}</td>
+    </tr>
+    <tr>
+      <th>Invoice Date</th>
+        <td>{{ object.InvoiceDate}}</td>
+      <th>Product Code</th>
+        <td>{{ object.ProductCode }}</td>
+    </tr>
+    <tr>
+      <th>Site Code</th>
+        <td>{{ object.SiteCode }}</td>
+      <th>Site</th>
+        <td>{{ object.Site }}</td>
+    </tr>
+    <tr>
+      <th>Delivery Date</th>
+        <td>{{ object.DeliveryDate }}</td>
+      <th>Odometer Reading1</th>
+        <td>{{ object.OdometerReading1 }}</td>
+    </tr>
+    <tr>
+      <th>Delco Cust Rate1</th>
+        <td>{{ object.DelcoCustRate1 }}</td>
+      <th>Customer Currency Name1</th>
+        <td>{{ object.CustomerCurrencyName1 }}</td>
+    </tr>
+    <tr>
+      <th>Delco Pump Price</th>
+        <td>{{ object.DelcoPumpPrice }}</td>
+      <th>Delco Rebate Amount1</th>
+        <td>{{ object.DelcoRebateAmount1 }}</td>
+    </tr>
+    <tr>
+      <th>Cust Rebate Rate1</th>
+        <td>{{ object.CustRebateRate1 }}</td>
+      <th>Payer Display Name</th>
+        <td>{{ object.PayerDisplayName }}</td>
+    </tr>
+    <tr>
+      <th>Payer Code</th>
+        <td>{{ object.PayerCode }}</td>
+      <th>Card Group ID</th>
+        <td>{{ object.CardGroupID }}</td>
+    </tr>
+    <tr>
+      <th>Product Name</th>
+        <td>{{ object.ProductName }}</td>
+      <th>Credit Debit Code</th>
+        <td>{{ object.CreditDebitCode }}</td>
+    </tr>
+    <tr>
+      <th>Correction Flag</th>
+        <td>{{ object.CorrectionFlag }}</td>
+      <th>Delco Country Code</th>
+        <td>{{ object.DelcoCountryCode }}</td>
+    </tr>
+    <tr>
+      <th>VAT Applicable</th>
+        <td>{{ object.VATApplicable }}</td>
+      <th>Customer Euro Rate</th>
+        <td>{{ object.CustomerEuroRate }}</td>
+    </tr>
+    <tr>
+      <th>Delco Euro Rate</th>
+        <td>{{ object.DelcoEuroRate }}</td>
+      <th>Euro Rebate Amount</th>
+        <td>{{ object.EuroRebateAmount }}</td>
+    </tr>
+    <tr>
+      <th>Euro VAT Amount</th>
+        <td>{{ object.EuroVATAmount }}</td>
+      <th>Invoice Sequence No</th>
+        <td>{{ object.InvoiceSequenceNo }}</td>
+    </tr>
+    <tr>
+      <th>List Price InTransaction Currency</th>
+        <td>{{ object.ListPriceInTransactionCurrency}}</td>
+      <th>Net Euro Amount</th>
+        <td>{{ object.NetEuroAmount }}</td>
+    </tr>
+    
+    <tr>
+      <th>Pump Price InTransaction Currency</th>
+        <td>{{ object.PumpPriceInTransactionCurrency }}</td>
+      <th>Rebate on Net Amount In Customer Currency</th>
+        <td>{{ object.RebateonNetAmountInCustomerCurrency }}</td>
+    </tr>
+    <tr>
+      <th>Rebate on Net Amount In Transaction Currency</th>
+        <td>{{ object.RebateonNetAmountInTransactionCurrency }}</td>
+      <th>Rebate Rate</th>
+        <td>{{ object.RebateRate }}</td>
+    </tr>
+    <tr>
+      <th>UnInvoice Sequence No</th>
+        <td>{{ object.UnInvoiceSequenceNo }}</td>
+      <th>Network Name</th>
+        <td>{{ object.NetworkName }}</td>
+    </tr>
+    <tr>
+      <th>Additional 1</th>
+        <td>{{ object.Additional1 }}</td>
+      <th>Additional 2</th>
+        <td>{{ object.Additional2 }}</td>
+    </tr>
+    <tr>
+      <th>Additional 3</th>
+        <td>{{ object.Additional3 }}</td>
+      <th>Additional 4</th>
+        <td>{{ object.Additional4 }}</td>
+    </tr>
+    <tr>
+      <th>Transaction Identifier</th>
+        <td>{{ object.TransactionIdentifier }}</td>
+      <th>Transaction Authorisation Code</th>
+        <td>{{ object.TransactionAuthorisationCode }}</td>
+    </tr>
+    <tr>
+      <th>Delco Name</th>
+        <td>{{ object.DelcoName }}</td>
+      <th>Site Group id</th>
+        <td>{{ object.SiteGroupid }}</td>
+    </tr>
+    <tr>
+      <th>Site Group Name</th>
+        <td>{{ object.SiteGroupName }}</td>
+      <th>Card type</th>
+        <td>{{ object.Cardtype }}</td>
+    </tr>
+    <tr>
+      <th>Payer Group</th>
+        <td>{{ object.PayerGroup }}</td>
+      <th>Payer Number</th>
+        <td>{{ object.PayerNumber }}</td>
+    </tr>
+    <tr>
+      <th>Refund Flag</th>
+        <td>{{ object.RefundFlag }}</td>
+      <th>Refund riginal Transaction Id</th>
+        <td>{{ object.RefundOriginalTransactionId }}</td>
+    </tr>
+    <tr>
+      <th>Posting Date</th>
+        <td>{{ object.PostingDate }}</td>
+      <th>Posting Time</th>
+        <td>{{ object.PostingTime }}</td>
+    </tr>
+    <tr>
+     
+    </tr>
+    <tr>
+      <th>Customer Reference Value</th>
+        <td>{{ object.CustomerReferenceValue}}</td>
+      <th>Customer Reference Description</th>
+        <td>{{ object.CustomerReferenceDescription }}</td>
+    </tr>
+    <tr>
+      <th>Card Payer Association Code</th>
+        <td>{{ object.CardPayerAssociationCode }}</td>
+      <th>Card Payer Association</th>
+        <td>{{ object.CardPayerAssociation }}</td>
+    </tr>
+    <tr>
+      <th>Incoming Product Code</th>
+        <td>{{ object.IncomingProductCode }}</td>
+      <th>Transaction Provider Id</th>
+        <td>{{ object.TransactionProviderId }}</td>
+    </tr>
+    <tr>
+      <th>Transaction Provider Name</th>
+        <td>{{ object.TransactionProviderName }}</td>
+      <th>File Name</th>
+        <td>{{ object.FileName }}</td>
+    </tr>
+    <tr>
+      <th>File Date</th>
+        <td>{{ object.FileDate }}</td>
+      <th>Account Group 3 Code</th>
+        <td>{{ object.AccountGroup3Code }}</td>
+    </tr>
+    <tr>
+      <th>AccountGroup 3 Name</th>
+        <td>{{ object.AccountGroup3Name }}</td>
+      <th>Contracted Rebate Rate</th>
+        <td>{{ object.ContractedRebateRate }}</td>
+    </tr>
+    <tr>
+      <th>Is Best Of Pricing Applicable</th>
+        <td>{{ object.IsBestOfPricingApplicable }}</td>
+      <th>CostCenter</th>
+        <td>{{ object.CostCenter }}</td>
+    </tr>
+
+</table>
+    <div class="card-footer">
+      <a href="{% url 'shell_report_update' object.id %}" class="buttonsubmit" >Update</a>
+      <!-- <button class="delete-shell btn-sm btn-danger" data-id="{% url 'shell_report_delete' object.id %}"><span>Delete</span></button> -->
+      <button class="btndanger" data-toggle="modal" data-target="#fm-modal-grid">Delete</button>
+      <a href="{% url 'report_shell_list'%}" class="btn" >Close</a>
+    </div>
+
+
+<div class="modal fade" id="fm-modal-grid" tabindex="-1"
+     role="dialog" aria-labelledBy="fm-modal-grid"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <form action="{% url 'shell_report_delete' object.id %}" method="POST">
+                        {% csrf_token %}
+                        <h3>Delete</h3>
+                        <br>
+                        <p>Are you sure you want to delete Account Number: <u>{{object.AccountNumber}}</u> ?</p>
+                          <button class="btndanger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
