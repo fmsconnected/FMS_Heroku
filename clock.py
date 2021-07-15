@@ -42,5 +42,5 @@ def email_job():
     print('This job working')
 
 sched.start()
-# while __name__ == '__main__':
-#     pass
+while __name__ == '__main__':
+    pass
