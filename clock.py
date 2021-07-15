@@ -10,7 +10,7 @@ from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
-from .models import (
+from models import (
         Vehicle_Repair
 )
 
@@ -42,5 +42,5 @@ def email_job():
     print('This job working')
 
 sched.start()
-while __name__ == '__main__':
-    pass
+# while __name__ == '__main__':
+#     pass
