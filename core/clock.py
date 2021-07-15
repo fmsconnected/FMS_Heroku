@@ -12,14 +12,12 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from request.models import Vehicle_Repair
 from registration.models import Registration
-from django.conf import settings
+import django
 
-
-settings.configure()
+django.setup()
 sched = BlockingScheduler()
-# def request_cron_email():
-# class Command(BaseCommand):
 sched = Scheduler()
+
 @sched.cron_schedule(day_of_week='mon-sun', hour=24)
 def email_job():
     car_status = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today(), sent_email="No")

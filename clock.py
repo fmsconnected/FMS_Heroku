@@ -40,7 +40,6 @@ def email_job():
             car_status.update(sent_email="Yes")
             car_status.update(Date_email_log= datetime.datetime.today())
 
-    print('This job working')
 
 @sched.cron_schedule(day_of_week='mon-sun', hour=24)
 def send_registration_email():
