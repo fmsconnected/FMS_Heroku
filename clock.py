@@ -20,7 +20,6 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         sched = Scheduler()
         @sched.cron_schedule(day_of_week='mon-sun', hour=24)
-        date_now = datetime.datetime.today()
         sent_status = Vehicle_Repair.objects.all(),
         car_status = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today(), sent_email="No")
 
@@ -39,7 +38,7 @@ class Command(BaseCommand):
                 from_email = 'Fleet Management System <jxmtsi.fms@gmail.com>'
                 mail.send_mail(subject, plain_message, from_email, recipient_list, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
-                car_status.update(Date_email_log= date_now)
+                car_status.update(Date_email_log= datetime.datetime.today())
 
     
     sched.start()
