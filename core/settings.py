@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'monitoring.apps.MonitoringConfig',
     'request.apps.RequestConfig',
     'ownership.apps.OwnershipConfig',
-    'voucher.apps.VoucherConfig',
     'report.apps.ReportConfig',
     'leasingmasterlist.apps.LeasingmasterlistConfig',
     'corrective.apps.CorrectiveConfig',

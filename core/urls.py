@@ -44,7 +44,6 @@ urlpatterns = [
     path('Monitoring/', include('monitoring.urls')),
     path('Request/', include('request.urls')),
     path('Ownership/', include('ownership.urls')),
-    path('Voucher/', include('voucher.urls')),
     path('Report/', include('report.urls')),
     path('Admin/', include('Admin.urls')),
     path('Corrective/', include('corrective.urls')),
