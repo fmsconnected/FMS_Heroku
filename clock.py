@@ -18,10 +18,11 @@ from .models import (
 # def request_cron_email():
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):
-        sched = Scheduler()
-        @sched.cron_schedule(day_of_week='mon-sun', hour=24)
         sent_status = Vehicle_Repair.objects.all()
         car_status = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today(), sent_email="No")
+
+        sched = Scheduler()
+        @sched.cron_schedule(day_of_week='mon-sun', hour=24)
 
         plate = ""
         for carreg in car_status:
