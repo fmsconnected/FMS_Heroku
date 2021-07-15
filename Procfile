@@ -1,2 +1,2 @@
 web: gunicorn core.wsgi
-clock: python clock.py
+clock: python core.clock.py

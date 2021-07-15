@@ -1,6 +1,4 @@
 
-import os
-
 from django.core.mail import get_connection,send_mail
 from django.core.management.base import BaseCommand
 # from apscheduler.schedulers.background import BackgroundScheduler
@@ -15,7 +13,7 @@ from django.utils.html import strip_tags
 from request.models import Vehicle_Repair
 from registration.models import Registration
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'core.settings'
+
 sched = BlockingScheduler()
 # def request_cron_email():
 # class Command(BaseCommand):
