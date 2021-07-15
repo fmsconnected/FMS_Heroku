@@ -17,11 +17,11 @@ from .models import (
 
 # def request_cron_email():
 class Command(BaseCommand):
+    car_status = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today(), sent_email="No")
     def handle(self, *args, **kwargs):
         sched = Scheduler()
         @sched.cron_schedule(day_of_week='mon-sun', hour=24)
-        car_status = Vehicle_Repair.objects.filter(Deadline__date = datetime.datetime.today(), sent_email="No")
-
+        
         plate = ""
         for carreg in car_status:
                 # print(carreg.plate_no)
