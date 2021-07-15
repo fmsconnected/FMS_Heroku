@@ -12,8 +12,10 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from request.models import Vehicle_Repair
 from registration.models import Registration
+from django.conf import settings
 
 
+settings.configure()
 sched = BlockingScheduler()
 # def request_cron_email():
 # class Command(BaseCommand):
