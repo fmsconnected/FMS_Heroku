@@ -57,9 +57,9 @@ class shell_details(DetailView):
     model = shell_report
     template_name = 'shell/shell_detail.html'
 
-def monthly_report_shellDetails(request):
+def reportsummary(request):
     date = datetime.datetime.today()
-    BB14_B10 = shell_report.objects.filter(InvoiceDate__year=date.year, 
+    BB14_B10=shell_report.objects.filter(InvoiceDate__year=date.year, 
         InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-B10").aggregate(Sum('DelcoGrossValue'))
     BB14_B2=shell_report.objects.filter(InvoiceDate__year=date.year, 
         InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-B2").aggregate(Sum('DelcoGrossValue'))
@@ -487,7 +487,7 @@ def monthly_report_shellDetails(request):
     'rebate_NTT5_J02':rebate_NTT5_J02,'rebate_NTT5_J03':rebate_NTT5_J03,'rebate_NTT6_C':rebate_NTT6_C,'rebate_NTT7_E':rebate_NTT7_E,'rebate_OP12_A':rebate_OP12_A,'rebate_SG02_O':rebate_SG02_O,'rebate_SG02_O2':rebate_SG02_O2,'rebate_SG02_P':rebate_SG02_P,'rebate_SG02_Q':rebate_SG02_Q,'rebate_SG02_Q2':rebate_SG02_Q2,'rebate_SG02_R':rebate_SG02_R,'rebate_SG02_U':rebate_SG02_U,'rebate_SG11_A':rebate_SG11_A,'rebate_ST1':rebate_ST1
     })
 
-def shell_report(request):
+def shellreport_export(request):
     date = datetime.datetime.today()
     BB14_B10 = shell_report.objects.filter(InvoiceDate__year=date.year, 
         InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-B10").aggregate(Sum('DelcoGrossValue'))
