@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% block content %}
+<style type="text/css">
+  th {
+    text-align: middle;
+  }
+</style>
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3>Petron Account Number:<u>{{object.Account_Number}}</u> Details</h3>&nbsp;
+    </div>
+
+
+<table width="90%" class="table table-bordered table-hover" border="5px" id="table_shell">
+    <tr>
+    <th width="25%">Record Number</th>
+        <td>{{ object.RecordNumber }}</td>
+    <th>Statement No</th>
+        <td>{{ object.StatementNo }}</td>
+    </tr>
+    <tr>
+    <th>Account Number</th>
+        <td>{{ object.Account_Number }}</td>
+    <th>Statement Date</th>
+        <td>{{ object.StatementDate }}</td>
+    </tr>
+    <tr>
+    <th>Payment Due Date</th>
+        <td>{{ object.PaymentDueDate }}</td>
+    <th>Period Covered</th>
+        <td>{{ object.PeriodCovered }}</td>
+    </tr>
+    <tr>
+    <th>Card Number</th>
+        <td>{{ object.CardNumber }}</td>
+    <th>Charging Department</th>
+        <td>{{ object.ChargingDepartment }}</td>
+    </tr>
+    <tr>
+    <th>Embossed Name</th>
+        <td>{{ object.EmbossedName }}</td>
+    <th>Plate Number</th>
+        <td>{{ object.PlateNumber }}</td>
+    </tr>
+    <tr>
+    <th>Vehicle Description</th>
+        <td>{{ object.VehicleDescription }}</td>
+    <th>Invoice Date</th>
+        <td>{{ object.InvoiceDate }}</td>
+    </tr>
+    <tr>
+    <th>Station Name</th>
+        <td>{{ object.StationName }}</td>
+    <th>Station Address</th>
+        <td>{{ object.StationAddress }}</td>
+    </tr>
+    <tr>
+    <th>Invoice Number</th>
+        <td>{{ object.InvoiceNumber}}</td>
+    <th>Product Name</th>
+        <td>{{ object.ProductName }}</td>
+    </tr>
+    <tr>
+    <th>Product Quantity</th>
+        <td>{{ object.ProductQuantity }}</td>
+    <th>Product Amount</th>
+        <td>{{ object.ProductAmount }}</td>
+    </tr>
+    <tr>
+    <th>Discount Per Litre</th>
+        <td>{{ object.DiscountPerLitre }}</td>
+    <th>Discount Amount</th>
+        <td>{{ object.DiscountAmount }}</td>
+    </tr>
+    <tr>
+    <th>Net Amount</th>
+        <td>{{ object.NetAmount }}</td>
+    <th>Odometer</th>
+        <td>{{ object.Odometer }}</td>
+    </tr>
+    <tr>
+    <th>KMDriven</th>
+        <td>{{ object.KMDriven }}</td>
+    <th>Php/Km</th>
+        <td>{{ object.Php_Km }}</td>
+    </tr>
+    <tr>
+    <th>Km/Li</th>
+        <td>{{ object.Km_Li }}</td>
+    <th>Fuel Limit</th>
+        <td>{{ object.FuelLimit }}</td>
+    </tr>
+    <tr>
+    <th>Fuel Limit Unit</th>
+        <td>{{ object.FuelLimitUnit }}</td>
+    </tr>
+</table>
+    <div class="card-footer">
+      <a href="{% url 'petron_update' object.id %}" class="buttonsubmit" >Update</a>
+      <!-- <button class="delete-shell btn-sm btn-danger" data-id="{% url 'shell_report_delete' object.id %}"><span>Delete</span></button> -->
+      <button class="btndanger" data-toggle="modal" data-target="#fm-modal-grid">Delete</button>
+      <a href="{% url 'jan_monthly_report'%}" class="btn" >Close</a>
+    </div>
+
+
+<div class="modal fade" id="fm-modal-grid" tabindex="-1"
+     role="dialog" aria-labelledBy="fm-modal-grid"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <form action="{% url 'petron_delete' object.id %}" method="POST">
+                        {% csrf_token %}
+                        <h3>Delete</h3>
+                        <br>
+                        <p>Are you sure you want to delete Account Number: <u>{{object.Account_Number}}</u> ?</p>
+                          <button class="btndanger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

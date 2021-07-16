@@ -47,7 +47,7 @@ class shell_update(UpdateView):
 #     model = shell_report
 #     template_name = 'shell/shell_delete.html'
 #     success_message = 'Success: Item was deleted.'
-    success_url = reverse_lazy('report_shell_list')
+    # success_url = reverse_lazy('report_shell_list')
 class shell_delete(DeleteView):
     model = shell_report
     success_url = reverse_lazy('report_shell_list')

@@ -28,10 +28,11 @@ from monitoring import views
 router.register(r'monitoring', views.monitoringViewSet),
 
 from monthly_report import views
-router.register(r'MonthlyReport', views.vehicleViewSet),
+router.register(r'MonthlyReport', views.petronViewSet),
 
 from monthly_report_shell import views
 router.register(r'MonthlyReportShell', views.shell_report_ViewSet),
+
 urlpatterns = [
     url('^api/', include(router.urls)),
     url(r'^ajax_select/', include(ajax_select_urls)),

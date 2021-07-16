@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+          <h3 ><b>Petron Report - Create</b></h3>&nbsp;
+      </div>
+<form method="POST">
+{% csrf_token %}
+    <div class="col-sm-4">
+        <label>Record Number</label>
+        {{ form.RecordNumber }}
+    </div>
+    <div class="col-sm-4">
+        <label>Statement No</label>
+        {{ form.StatementNo }}
+    </div>
+    <div class="col-sm-4">
+        <label>Account Number</label>
+        {{ form.Account_Number }}
+    </div>
+    <div class="col-sm-4">
+        <label>Statement Date</label>
+        {{ form.StatementDate }}
+    </div>
+    <div class="col-sm-4">
+        <label>Payment Due Date</label>
+        {{ form.PaymentDueDate }}
+    </div>
+    <div class="col-sm-4">
+        <label>Period Covered</label>
+        {{ form.PeriodCovered }}
+    </div>
+    <div class="col-sm-4">
+        <label>Card Number</label>
+        {{ form.CardNumber }}
+    </div>
+    <div class="col-sm-4">
+        <label>Charging Department</label>
+        {{ form.ChargingDepartment }}
+    </div>
+    <div class="col-sm-4">
+        <label>Embossed Name</label>
+        {{ form.EmbossedName }}
+    </div>
+    <div class="col-sm-4">
+        <label>Plate Number</label>
+        {{ form.PlateNumber }}
+    </div>
+    <div class="col-sm-4">
+        <label>Vehicle Description</label>
+        {{ form.VehicleDescription }}
+    </div>
+    <div class="col-sm-4">
+        <label>Invoice Date</label>
+        {{ form.InvoiceDate }}
+    </div>
+    <div class="col-sm-4">
+        <label>Station Name</label>
+        {{ form.StationName }}
+    </div>
+    <div class="col-sm-4">
+        <label>Station Address</label>
+        {{ form.StationAddress }}
+    </div>
+    <div class="col-sm-4">
+        <label>Invoice Number</label>
+        {{ form.InvoiceNumber}}
+    </div>
+    
+    <div class="col-sm-4">
+        <label>Product Name</label>
+        {{ form.ProductName }}
+    </div>
+    <div class="col-sm-4">
+        <label>Product Quantity</label>
+        {{ form.ProductQuantity }}
+    </div>
+    <div class="col-sm-4">
+        <label>Product Amount</label>
+        {{ form.ProductAmount }}
+    </div>
+    <div class="col-sm-4">
+        <label>Discount Per Litre</label>
+        {{ form.DiscountPerLitre }}
+    </div>
+    <div class="col-sm-4">
+        <label>Discount Amount</label>
+        {{ form.DiscountAmount }}
+    </div>
+    <div class="col-sm-4">
+        <label>Net Amount</label>
+        {{ form.NetAmount }}
+    </div>
+    <div class="col-sm-4">
+        <label>Odometer</label>
+        {{ form.Odometer }}
+    </div>
+    <div class="col-sm-4">
+        <label>KMDriven</label>
+        {{ form.KMDriven }}
+    </div>
+    <div class="col-sm-4">
+        <label>Php/Km</label>
+        {{ form.Php_Km }}
+    </div>
+    <div class="col-sm-4">
+        <label>Km/Li</label>
+        {{ form.Km_Li }}
+    </div>
+    <div class="col-sm-4">
+        <label>Fuel Limit</label>
+        {{ form.FuelLimit }}
+    </div>
+    <div class="col-sm-4">
+        <label>Fuel Limit Unit</label>
+        {{ form.FuelLimitUnit }}
+    </div>
+        {{ form.Supplier }}
+</div>
+<div class="card-footer">
+    <button type="submit" class="buttonsubmit">SUBMIT</button>
+    <button type="Reset" class="button" >CLEAR</button>
+</div>
+</form>      
+    
+{% endblock %}

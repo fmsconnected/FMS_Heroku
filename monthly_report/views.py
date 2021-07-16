@@ -19,18 +19,40 @@ from django.views.generic import (
                 				ListView,
                 				UpdateView,
                 				DetailView,
+                                DeleteView,
                 				)
 from django.db.models import Sum
+from .serializers import petron_report_Serializer
+from . forms import petron_form
 
 
 def monthly_report_jan(request):
 	jan_data = Petron_report.objects.all()
-	return render(request, 'monthly_report/jan_report.html',{'title':'Report','jan_data':jan_data})
+	return render(request, 'monthly_report/petron_report.html',{'title':'Report','jan_data':jan_data})
 
 
-class vehicleViewSet(viewsets.ModelViewSet):
+class petronViewSet(viewsets.ModelViewSet):
     queryset = Petron_report.objects.all().order_by('id')
     serializer_class = petron_report_Serializer
+
+class petron_create(CreateView):
+    model = Petron_report
+    form_class = petron_form
+    template_name = 'monthly_report/petron_create.html'
+
+class petron_update(UpdateView):
+    model = Petron_report
+    form_class = petron_form
+    template_name = 'monthly_report/petron_create.html'
+
+class petron_details(DetailView):
+    model = Petron_report
+    template_name = 'monthly_report/petron_detail.html'
+
+class petron_delete(DeleteView):
+    model = Petron_report
+    success_url = reverse_lazy('jan_monthly_report')
+    template_name = 'monthly_report/petron_delete.html'
 
 def monthly_report_jan_summary(request):
 
@@ -865,7 +887,7 @@ def monthly_report_jan_summary(request):
 
     ### Net Amount End#####
     
-    return render(request,'monthly_report/jan_report_summary.html',{'title':'Petron Data', 'BB14_B1':BB14_B1,
+    return render(request,'monthly_report/petron_report_summary.html',{'title':'Petron Data', 'BB14_B1':BB14_B1,
     'BB14_B10':BB14_B10, 'BB14_B11':BB14_B11, 'BB14_B2':BB14_B2, 'BB14_B3':BB14_B3, 'BB14_B4':BB14_B4, 'BB14_B5':BB14_B5, 'BB14_B6':BB14_B6,
     'BB14_B7':BB14_B7, 'BB14_B8':BB14_B8, 'BB14_C':BB14_C, 'BB14_E':BB14_E, 'CMG12_C':CMG12_C, 
     'CMG12_D':CMG12_D, 'CMG2_B1':CMG2_B1, 'CMG2_B2':CMG2_B2, 'CMG2_B3':CMG2_B3, 'CMG2_C1':CMG2_C1, 'CMG2_C2':CMG2_C2, 
