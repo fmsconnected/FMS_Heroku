@@ -38,7 +38,7 @@ def send_registration_email():
                 html_message = render_to_string('email.html',{'content':item.PLATE_NO})
                 plain_message = item.PLATE_NO
                 recipient_list = [item.email]
-                from_email = 'Fleet Management System <jxmtsi.fms@gmail.com>'
+                from_email = 'Fleet Management System <fmsjxmtsi@gmail.com>'
                 mail.send_mail(subject, plain_message, from_email, recipient_list, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)

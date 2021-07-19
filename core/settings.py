@@ -169,15 +169,10 @@ REST_FRAMEWORK = {
 django_heroku.settings(locals())
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST_USER = 'JXMTSI.fms@gmail.com'
+EMAIL_HOST_USER = 'fmsjxmtsi@gmail.com'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-EMAIL_HOST_PASSWORD = "JXMTSI2241"
+EMAIL_HOST_PASSWORD = "jxmtsi@2241"
 
-
-CRONJOBS = {
-    ('*/1140 * * * *', 'request.cron.request_cron_email'),
-    ('*/1140 * * * *', 'registration.reg_task.send_registration_email')
-}
