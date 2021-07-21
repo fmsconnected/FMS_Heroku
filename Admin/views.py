@@ -21,10 +21,13 @@ from .models import (
 )
 
 
-class userListView(ListView):
-    model = UserReport
-    template_name = 'userreport_list.html'
+# class userListView(ListView):
+#     model = UserReport
+#     template_name = 'userreport_list.html'
 
+def userListView(request):
+    user = UserReport.objects.order_by('-date')
+    return render(request, 'userreport_list.html', {'title': 'User - User', 'user': user})
 
 def user_report_excel(request):
     report = UserReport.objects.all()

@@ -27,11 +27,11 @@ def user_logged_in_callback(sender, request, user, **kwargs):
                               ip=ip, username=user.username)
 
 
-@receiver(user_logged_out)
-def user_logged_out_callback(sender, request, user, **kwargs):
-    ip = request.META.get('REMOTE_ADDR')
-    UserReport.objects.create(action='user_logged_out',
-                              ip=ip, username=user.username)
+# @receiver(user_logged_out)
+# def user_logged_out_callback(sender, request, user, **kwargs):
+#     ip = request.META.get('REMOTE_ADDR')
+#     UserReport.objects.create(action='user_logged_out',
+#                               ip=ip, username=user.username)
 
 
 @receiver(user_login_failed)

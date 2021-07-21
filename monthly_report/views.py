@@ -949,3 +949,92 @@ def monthly_report_jan_summary(request):
     'net_NTT5_I03':net_NTT5_I03, 'net_NTT5_J01':net_NTT5_J01, 'net_NTT5_J03':net_NTT5_J03, 'net_OP12_A':net_OP12_A, 'net_OP20_F1':net_OP20_F1, 'net_SG02_O':net_SG02_O, 'net_SG02_P':net_SG02_P, 'net_SG02_Q':net_SG02_Q, 
     'net_SG02_R':net_SG02_R, 'net_SG02_U':net_SG02_U,'net_GEG02_F':net_GEG02_F, 'dis_GEG02_F':dis_GEG02_F, 'GEG02_F':GEG02_F, 'GEG04_B3':GEG04_B3, 'GRTM_C503':GRTM_C503, 'dis_GEG04_B3':dis_GEG04_B3, 'dis_GRTM_C503':dis_GRTM_C503,
     'net_GEG04_B3':net_GEG04_B3, 'net_GRTM_C503':net_GRTM_C503})
+
+
+# def petron_report_excel(request):
+#     petron_queryset = Petron_report.objects.all()   
+#     response = HttpResponse(
+#         content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+#     )
+#     response['Content-Disposition'] = 'attachment; filename=Petron Monthly Report.xlsx'
+#     workbook = Workbook()
+
+#     worksheet = workbook.active
+#     worksheet.title = 'Petron Monthly Report'
+
+#     columns = [
+#             'PO Number',
+#             'Employee Id',
+#             'First Name',
+#             'Last Name',
+#             'Delivery Date',
+#             'Plate No',
+#             'Model',
+#             'Brand',
+#             'Make',
+#             'Dealer',
+#             'LTO Documents',
+#             'Documents Plate No',
+#             'LTO Conduction Stickers',
+#             'Date Initial',
+#             'First Payment',
+#             'LTO Charges',
+#             'Outstanding Balance',
+#             'Date Final',
+#             'Remarks',
+#             'Date Initiated',
+#             'rfp_number',
+#             'invoice_number',
+#             'equip_no',
+#             'asset_no',
+#             'sap_no',
+#             'mat_no',
+#             'Dealer_name',
+#     ]
+#     row_num = 1
+
+#     for col_num, column_title in enumerate(columns, 1):
+#         cell = worksheet.cell(row=row_num, column=col_num)
+#         cell.value = column_title
+
+#     for vehicle in vehicle_queryset:
+#         row_num += 1
+#         # ordate = car.ORIGINAL_OR_DATE.strftime('%m/%d/%Y')
+#         # platerelease = car.PLATE_NUMBER_RELEASE_DATE.strftime('%m/%d/%Y')
+#         row = [
+#                 vehicle.rfp_number,
+#                 vehicle.A_employee_ID,
+#                 vehicle.E_First_name,
+#                 vehicle.E_Last_name,
+#                 vehicle.V_deliverDate,
+#                 vehicle.Plate_no,
+#                 vehicle.V_model,
+#                 vehicle.V_brand,
+#                 vehicle.V_make,
+#                 vehicle.V_dealer,
+#                 vehicle.LTO_documents,
+#                 vehicle.Docs_plate_no,
+#                 vehicle.LTO_stickers,
+#                 vehicle.Date_initial,
+#                 vehicle.First_payment,
+#                 vehicle.LTO_charges,
+#                 vehicle.Outstanding_balance,
+#                 vehicle.Date_final,
+#                 vehicle.Routing_remarks,
+#                 vehicle.Date_initiated,
+#                 vehicle.rfp_number,
+#                 vehicle.invoice_number,
+#                 vehicle.equip_no,
+#                 vehicle.asset_no,
+#                 vehicle.sap_no,
+#                 vehicle.mat_no,
+#                 vehicle.Dealer_name,
+                
+#         ]
+        
+#         for col_num, cell_value in enumerate(row, 1):
+#             cell = worksheet.cell(row=row_num, column=col_num)
+#             cell.value = cell_value
+
+#     workbook.save(response)
+#     return response
