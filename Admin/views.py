@@ -26,7 +26,7 @@ from .models import (
 #     template_name = 'userreport_list.html'
 
 def userListView(request):
-    user = UserReport.objects.all().order_by('-date')
+    user = UserReport.objects.all().order_by('-id','-date')
     return render(request, 'userreport_list.html', {'title': 'User - User', 'user': user})
 
 def user_report_excel(request):
