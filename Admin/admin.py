@@ -4,5 +4,5 @@ from .models import UserReport
 
 @admin.register(UserReport)
 class UserReportAdmin(admin.ModelAdmin):
-    list_display = ['action', 'username','date' 'ip', ]
+    list_display = ['action', 'username','date', 'ip', ]
     list_filter = ['date', ]

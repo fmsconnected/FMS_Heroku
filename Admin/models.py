@@ -18,7 +18,8 @@ class UserReport(models.Model):
 
     def __str__(self):
         return '{0} - {1} - {2}'.format(self.action, self.username, self.ip)
-
+    class Meta:
+        ordering = ('date', )
 
 @receiver(user_logged_in)
 def user_logged_in_callback(sender, request, user, **kwargs):
