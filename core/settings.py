@@ -168,7 +168,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework_datatables.pagination.DatatablesPageNumberPagination',
     'PAGE_SIZE': 50,
 }
-SESSION_ENGINE= 'django.contrib.sessions.backends.cached_db'
+
 
 django_heroku.settings(locals())
 
@@ -180,8 +180,8 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_HOST_PASSWORD = "jxmtsi@2241"
 
+SESSION_ENGINE= 'django.contrib.sessions.backends.cached_db'
 SESSION_TIMEOUT_REDIRECT = '/logout/'
-
-SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 SESSION_EXPIRE_SECONDS = 1800
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 SESSION_EXPIRE_AFTER_LAST_ACTIVITY_GRACE_PERIOD = 1800
