@@ -1,5 +1,5 @@
 
-from django.core.mail import get_connection,send_mail
+from django.core.mail import get_connection,send_mail,EmailMessage,EmailMultiAlternatives
 from django.core.management.base import BaseCommand
 # from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.schedulers.blocking import BlockingScheduler
@@ -16,13 +16,12 @@ import sched
 
 django.setup()
 sched = BlockingScheduler()
-@sched.scheduled_job('interval', minutes=1)
-# @sched.scheduled_job('cron', day_of_week='mon-sun', hour=23)
+# @sched.scheduled_job('interval', minutes=1)
+@sched.scheduled_job('cron', day_of_week='mon-sun', hour=23)
 
 def email_job():
     print("test")
     current_date = datetime.datetime.today()
-    # date_now = datetime.datetime.today().strftime('%Y-%m-%d')
     date_now = datetime.datetime.now().date()
     # print(date_now)
 
@@ -39,9 +38,11 @@ def email_job():
             html_message = render_to_string('vehicle_repair/pms_email.html',{'content':item.plate_no})
             plain_message = item.plate_no
             recipient_list = [item.email]
+            cc_email= ['zscsantos@globe.com.ph']
             from_email = 'Fleet Management System <fmsjxmtsi@gmail.com>'
-            mail.send_mail(subject, plain_message, from_email, recipient_list, html_message=html_message, fail_silently=False)
-            car_status.update(sent_email="Yes")
+            toaddrs = recipient_list + cc_email
+            mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message)
+            car_status.update(sent_email="Yes") 
             car_status.update(Date_email_log=datetime.datetime.now().date())
 
 sched.start()

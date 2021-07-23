@@ -31,7 +31,8 @@ def send_registration_email():
                 # print(carreg.plate_no)
                 plate = carreg.PLATE_NO
                 print(plate)
-
+cc_email= ['zscsantos@globe.com.ph']
+toaddrs = recipient_list + cc_email
         if plate != "":
             for item in car_status:
                 subject = 'Fleet Management System Automated Email'
@@ -39,7 +40,9 @@ def send_registration_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.email]
                 from_email = 'Fleet Management System <fmsjxmtsi@gmail.com>'
-                mail.send_mail(subject, plain_message, from_email, recipient_list, html_message=html_message, fail_silently=False)
+                cc_email= ['zscsantos@globe.com.ph']
+                toaddrs = recipient_list + cc_email
+                mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
 
@@ -59,7 +62,9 @@ def send_registration_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.email]
                 from_email = 'Fleet Management System <jxmtsi.fms@gmail.com>'
-                mail.send_mail(subject, plain_message, from_email, recipient_list, html_message=html_message, fail_silently=False)
+                cc_email= ['zscsantos@globe.com.ph']
+                toaddrs = recipient_list + cc_email
+                mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
 
@@ -79,7 +84,9 @@ def send_registration_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.email]
                 from_email = 'Fleet Management System <jxmtsi.fms@gmail.com>'
-                mail.send_mail(subject, plain_message, from_email, recipient_list, html_message=html_message, fail_silently=False)
+                cc_email= ['zscsantos@globe.com.ph']
+                toaddrs = recipient_list + cc_email
+                mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
 
@@ -99,7 +106,9 @@ def send_registration_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.email]
                 from_email = 'Fleet Management System <jxmtsi.fms@gmail.com>'
-                mail.send_mail(subject, plain_message, from_email, recipient_list, html_message=html_message, fail_silently=False)
+                cc_email= ['zscsantos@globe.com.ph']
+                toaddrs = recipient_list + cc_email
+                mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
 
@@ -119,7 +128,9 @@ def send_registration_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.email]
                 from_email = 'Fleet Management System <jxmtsi.fms@gmail.com>'
-                mail.send_mail(subject, plain_message, from_email, recipient_list, html_message=html_message, fail_silently=False)
+                cc_email= ['zscsantos@globe.com.ph']
+                toaddrs = recipient_list + cc_email
+                mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
 
@@ -139,7 +150,9 @@ def send_registration_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.email]
                 from_email = 'Fleet Management System <jxmtsi.fms@gmail.com>'
-                mail.send_mail(subject, plain_message, from_email, recipient_list, html_message=html_message, fail_silently=False)
+                cc_email= ['zscsantos@globe.com.ph']
+                toaddrs = recipient_list + cc_email
+                mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
 
@@ -159,7 +172,9 @@ def send_registration_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.email]
                 from_email = 'Fleet Management System <jxmtsi.fms@gmail.com>'
-                mail.send_mail(subject, plain_message, from_email, recipient_list, html_message=html_message, fail_silently=False)
+                cc_email= ['zscsantos@globe.com.ph']
+                toaddrs = recipient_list + cc_email
+                mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
 
@@ -179,7 +194,9 @@ def send_registration_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.email]
                 from_email = 'Fleet Management System <jxmtsi.fms@gmail.com>'
-                mail.send_mail(subject, plain_message, from_email, recipient_list, html_message=html_message, fail_silently=False)
+                cc_email= ['zscsantos@globe.com.ph']
+                toaddrs = recipient_list + cc_email
+                mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
 
@@ -199,7 +216,9 @@ def send_registration_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.email]
                 from_email = 'Fleet Management System <jxmtsi.fms@gmail.com>'
-                mail.send_mail(subject, plain_message, from_email, recipient_list, html_message=html_message, fail_silently=False)
+                cc_email= ['zscsantos@globe.com.ph']
+                toaddrs = recipient_list + cc_email
+                mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
 
@@ -219,7 +238,9 @@ def send_registration_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.email]
                 from_email = 'Fleet Management System <jxmtsi.fms@gmail.com>'
-                mail.send_mail(subject, plain_message, from_email, recipient_list, html_message=html_message, fail_silently=False)
+                cc_email= ['zscsantos@globe.com.ph']
+                toaddrs = recipient_list + cc_email
+                mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
 
