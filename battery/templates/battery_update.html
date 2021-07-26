@@ -1,0 +1,241 @@
+{% extends 'base.html' %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script>
+function vrepair(repair) {
+  var i;
+  var x = document.getElementsByClassName("vr");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(repair).style.display = "block";  
+}
+</script>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header"><b>Battery Maintenance</b></h3>&nbsp;
+    </div>
+</div>
+ <div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button" onclick="vrepair('Vehicle Repair Request')">Battery Maintenance</button>
+    <button class="w3-bar-item w3-button" onclick="vrepair('Verification Process')">Verification Process</button>
+    <button class="w3-bar-item w3-button" onclick="vrepair('Outbound Process')">Outbound Process</button>
+    </div>
+<form method="POST">
+{% csrf_token %}
+    <div id="Vehicle Repair Request" class="w3-container vr">
+    <fieldset>
+        <legend align="left">Requisitioner Details</legend><br>
+        
+        <div class="col-sm-6">
+            <label>Employee ID</label>
+            {{ form.employee }}
+        </div>
+        
+        <div class="col-sm-6">
+            <label>Request Date</label>
+            {{ form.request_date }}
+        </div>
+        
+        <div class="col-sm-6">
+            <label>Cost Center Code</label>
+            {{ form.cost_center }}
+        </div>
+        <div class="col-sm-6">
+            <label>First Name</label>
+            {{ form.first_name}}
+        </div>
+        <div class="col-sm-6">
+            <label>Last Name</label>
+            {{ form.last_name }}
+        </div>
+        <div class="col-sm-6">
+            <label>Contact Number</label>
+            {{ form.contact_no }}
+        </div>
+        <div class="col-sm-6">
+            <label>Company</label>
+            {{ form.company }}
+        </div>
+        <div class="col-sm-6">
+            <label>Department</label>
+            {{ form.department}}
+        </div>
+        <div class="col-sm-6">
+            <label>Group/Section</label>
+            {{ form.group_section }}
+        </div>
+        <div class="col-sm-6">
+            <label>Email</label>
+            {{ form.email }}
+            
+        </div>
+    <br><br>
+    </fieldset>
+    <hr>
+    <fieldset>
+    <legend align="left">Vehicle Details</legend>
+        
+        <div class="col-sm-6">
+            <label>Plate Number</label>
+            {{ form.plate_no }}
+        </div>
+        
+        <div class="col-sm-6">
+            <label>Vehicle Brand</label>
+            {{ form.v_brand }}
+        </div>
+        <div class="col-sm-6">
+            <label>Engine Number</label>
+            {{ form.engine }}
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Model Year</label>
+            {{ form.v_model }}
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Make</label>
+            {{ form.v_make }}
+        </div>
+        <div class="col-sm-6">
+            <label>Chassis</label>
+            {{ form.chassis }}
+        </div>
+        <div class="col-sm-6">
+            <label>Band</label>
+            {{ form.band }}
+        </div>
+        <div class="col-sm-6">
+            <label>Conduction Sticker</label>
+            {{ form.cond_sticker }}
+        </div>
+        <div class="col-sm-6">
+            <label>Equipment Number</label>
+            {{ form.equipment_no }}
+        </div>
+        <div class="col-sm-6">
+            <label>Fleet Area</label>
+            {{ form.fleet_area }}
+        </div>
+        <div class="col-sm-6">
+            <label>Particulars</label>
+            {{ form.particulars }}
+        </div>
+        <div class="col-sm-6">
+            <label>Category</label>
+            {{ form.category }}
+        </div>
+    </fieldset>
+    <div class="card-footer">
+      <button type="submit" class="buttonsubmit">SUBMIT</button>
+      <a href="{% url 'repair_list' %}" class="btn">CLOSE</a>
+      <button type="Reset" class="button">CLEAR ALL</button>
+    </div>
+    </div>
+    <div id="Verification Process" class="w3-container vr" style="display:none">
+    <fieldset>
+        <legend align="left">Vehicle Repair Request Verification</legend>
+        <div class="col-sm-6">
+            <label>Maintenance Job Type 1</label>
+            {{ form.maintenance_type1 }}
+        </div>
+        <div class="col-sm-6">
+            <label>Maintenance Job Type 2</label>
+            {{ form.maintenance_type2 }}
+        </div>
+        <div class="col-sm-6">
+            <label>Scope of Work 1</label>
+            {{ form.scope_work1 }}
+        </div>
+        
+        <div class="col-sm-6">
+            <label>Scope of Work 2</label>
+            {{ form.scope_work2 }}
+        </div>
+        <div class="col-sm-6">
+            <label>Recommendation</label>
+            {{ form.recommendations }}
+        </div>
+        <div class="col-sm-6">
+            <label>Service Reminder</label>
+            {{ form.service_reminder }}
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Repair Request Verified By</label>
+            {{ form.verified_by }}
+        </div>
+    </fieldset>
+    <div class="card-footer">
+        <button type="submit" class="buttonsubmit">UPDATE</button>
+    </div>
+    </div>
+    <div id="Outbound Process" class="w3-container vr" style="display:none">
+    <fieldset>
+        <legend align="left">Work Order Creation</legend>
+        <div class="col-sm-4">
+            <label>Work Order</label>
+            {{ form.work_order1 }}
+            {{ form.work_order2 }}
+            {{ form.work_order3 }}
+        </div>
+        <div class="col-sm-4">
+            <label>Date Work Created</label>
+            {{ form.datework_created }}
+        </div>
+        <div class="col-sm-4">
+            <label>Accredited Repair Shop/Vendor</label>
+            {{ form.Shop_vendor }}
+        </div>
+        <div class="col-sm-4">
+            <label>Date Forwarded Word</label>
+            {{ form.date_forwarded }}
+        </div>
+        <div class="col-sm-4">
+            <label>Memo App Number</label>
+            {{ form.memo_app }}
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend align="left">Motor Shop Estimate</legend>
+        <div class="col-sm-6">
+            <label>Estimate Number</label>
+            {{ form.estimate_no }}
+        </div>
+        <div class="col-sm-6">
+            <label>Maintenance Amount</label>
+            {{ form.maintenance_amount }}
+        </div>
+        <div class="col-sm-6">
+            <label>Less Discount</label>
+            {{ form.less_discount }}
+        </div>
+        <div class="col-sm-6">
+            <label>Estimate Remarks</label>
+            {{ form.estimate_remarks }}
+        </div>
+        <div class="col-sm-6">
+            <label>Estimate Attached</label>
+            {{ form.estimate_attached }}
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend align="left">Vehicle Repair Request Approval</legend>
+        <div class="col-sm-6">
+            <label>Approved By</label>
+            {{ form.approvedby }}
+        </div>
+        <div class="col-sm-6">
+            <label>Kilometer Reading</label>
+            {{ form.meter_reading }}
+        </div>
+    {{ form.VRR_SLA}}
+    </fieldset>
+    <div class="card-footer">
+        <button type="submit" class="buttonsubmit">UPDATE</button>
+    </div>
+    </div>
+</div>
+</form>
+{% endblock %}

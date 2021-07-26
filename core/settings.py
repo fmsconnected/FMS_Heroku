@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'vehicle_masterlist.apps.VehicleMasterlistConfig',
     'monthly_report.apps.MonthlyReportConfig',
     'monthly_report_shell.apps.MonthlyReportShellConfig',
+    'battery.apps.BatteryConfig',
+    'tires.apps.TiresConfig',
 
 ]
 # AUTHENTICATION_BACKENDS = (

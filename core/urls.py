@@ -53,6 +53,7 @@ urlpatterns = [
     path('Registration/', include('registration.urls')),
     path('Monthly/Report/', include('monthly_report.urls')),
     path('Monthly/Report/Shell/', include('monthly_report_shell.urls')),
+    path('Battery/', include('battery.urls')),
     path('', auth_views.LoginView.as_view(
         template_name='account/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='account/logout.html'), name='logout'),

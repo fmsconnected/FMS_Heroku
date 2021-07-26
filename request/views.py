@@ -829,6 +829,7 @@ def repairHistoryView(request):
        obj = Vehicle_Repair.history.all()
 
        return render(request, 'vehicle_repair/repair_history.html', context={'object': obj})
+       
 def vrp_deadline(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
