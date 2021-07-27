@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style type="text/css">
+  th {
+    text-align: middle;
+  }
+</style>
+
+<div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h3>Tire's Maintenance Details</h3>
+    </div>
+
+<br>
+
+<table width="90%" class="table table-bordered table-hover" border="2px">
+    <tr>
+        <th width="25%">Activity ID </th><td width="25%">{{ object.Activity_id }}</td>
+        <th width="25%">Date Initiated</th><td width="25%">{{ object.date_initiated }}</td>
+    </tr>
+    <tr>
+        <th>SLA</th><td>{{ object.VRR_SLA}}/Months</td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Request Date</th><td>{{ object.request_date }}</td>
+        <th>Employee ID </th> <td>{{ object.employee_Id }}</td>
+    </tr>
+    <tr>
+        <th>Name </th> <td>{{ object.first_name }} {{ object.last_name }}</td>
+        <th>Cost Center Code</th> <td>{{ object.cost_center }}</td>
+    </tr>
+    <tr>
+        <th>Contact Number</th><td>{{ object.contact_no }}</td>
+        <th>Company </th> <td>{{ object.company }}</td>
+    </tr>
+    <tr>
+        <th>Department </th> <td>{{ object.department }}</td>
+        <th>Group/Section</th> <td>{{ object.group_section}}</td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Plate Number </th> <td>{{ object.plate_no }}</td>
+        <th>Vehicle Brand</th> <td>{{ object.v_brand }}</td>
+    </tr> 
+    <tr>
+        <th>Engine</th><td>{{ object.engine }}</td>
+        <th>Vehicle Make</th><td>{{ object.v_make }}</td>
+    </tr>
+    <tr>
+        <th>Vehicle Model Year </th> <td>{{ object.v_model }}</td>
+        <th>Chassis</th><td>{{ object.chassis}}</td>
+    </tr>
+    <tr>
+        <th>Band</th><td>{{ object.band }}</td>
+        <th>Conduction Sticker</th><td>{{ object.cond_sticker}}</td>
+    </tr>
+    <tr>
+        <th>Equipment Number </th> <td>{{ object.equipment_no }}</td>
+        <th>Fleet Area</th><td>{{ object.fleet_area}}</td>
+    </tr>
+    <tr>
+        <th>Particulars</th><td>{{ object.particulars }}</td>
+        <th>Category</th><td>{{ object.category}}</td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Maintenance Job Type 1</th><td>{{ object.maintenance_type1 }}</td>
+        <th>Scope Of Work 1</th><td>{{ object.scope_work1 }}</td>
+    </tr>
+    <tr>
+        <th>Maintenance Job Type 2 </th> <td>{{ object.maintenance_type2 }}</td>
+        <th>Scope of Work 2 </th> <td>{{ object.scope_work2 }}</td>
+    </tr>
+    <tr>
+        <th>Recomendations </th> <td>{{ object.recommendations }}</td>
+        <th>Service Reminder</th> <td>{{ object.service_reminder }}</td>
+    </tr>
+    <tr>
+        <th>Vehicle Repair Request Verified By </th> <td>{{ object.verified_by }}</td>
+        <th></th> <td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Work Order Number</th><td>{{ object.work_order1 }} {{ object.work_order2 }} {{ object.work_order3 }}</td>
+        <th>Date Work Created</th><td>{{ object.datework_created }}</td>
+    </tr>
+    <tr>
+        <th>Accredited Work Shop/Vendor</th><td>{{ object.Shop_vendor }}</td>
+        <th>Date Forwarded Word</th><td>{{ object.date_forwarded }}</td>
+    </tr>
+    <tr>
+        <th>Memo App Number</th><td>{{ object.memo_app }}</td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Estimate Number</th><td>{{ object.estimate_no }}</td>
+        <th>Maintenance Amount</th><td>{{ object.maintenance_amount }}</td>
+    </tr>
+    <tr>
+        <th>Less Discount</th> <td>{{ object.less_discount }}</td>
+        <th>Estimate Remarks</th><td>{{ object.estimate_remarks}}</td>
+    </tr>
+    <tr>
+        <th>Estimate Attached</th><td>{{ object.estimate_attached}}</td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+        <th>Approved By</th><td>{{ object.approvedby }}</td>
+        <th>Kilometer Reading</th><td>{{ object.meter_reading }}</td>
+    </tr>
+</table>
+    <div class="card-footer">
+      <a href="{% url 'tire_update' object.id %}" class="buttonsubmit">UPDATE</a>
+      <a href="{% url 'tire_List' %}" class='btn'>CLOSE</a>
+    </div>
+{% endblock %}

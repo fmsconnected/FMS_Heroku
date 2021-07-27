@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'monthly_report_shell.apps.MonthlyReportShellConfig',
     'battery.apps.BatteryConfig',
     'tires.apps.TiresConfig',
+    
 
 ]
 # AUTHENTICATION_BACKENDS = (

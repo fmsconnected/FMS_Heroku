@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style type="text/css">
+    th{
+        text-align: center;
+    }
+</style>
+
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3 class="page-header"><b>Tire Maintenance</b></h3>
+    </div>
+</div>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link " href="{% url 'tire_List' %}">Tire Maintenance</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active">Coming Deadline</a>
+  </li>
+</ul>
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'repair_export' %}" style="float: left"><u><b>Export Data</b></u> </a>
+                    <a href="{% url 'repair_new' %}" style="float:right"><u><b>Create</b></u>&nbsp;&nbsp;&nbsp;</a>
+                    <a href="{% url 'repair_history' %}" style="float:right" class="mr-3"><u><b>History</b></u></a>
+                </div>
+                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity ID</th>
+                            <th>Requisitioner Name</th>
+                            <th>Plate Number</th>
+                            <th>Work Order Number</th>
+                            <th>SLA</th>
+                            <th>Date Initiated</th>
+                            <th>Date Deadline</th>
+                        </tr>
+                    </thead>
+                     <tbody>
+                        {% for vrp in dl %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'battery_details' vrp.id %}"><u>{{ vrp.Activity_id }}</u></a></td>
+                            <td>{{ vrp.first_name }} {{ vrp.last_name }}</td>
+                            <td>{{ vrp.plate_no }}</td>
+                            <td>{{ vrp.work_order1 }}</td>
+                            <td>{{ vrp.VRR_SLA }}/Days</td>
+                            <td>{{ vrp.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ vrp.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for vrp2 in dl2 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'battery_details' vrp2.id %}"><u>{{ vrp2.Activity_id }}</u></a></td>
+                            <td>{{ vrp2.first_name }} {{ vrp2.last_name }}</td>
+                            <td>{{ vrp2.plate_no }}</td>
+                            <td>{{ vrp2.work_order1 }}</td>
+                            <td>{{ vrp2.VRR_SLA }}/Days</td>
+                            <td>{{ vrp2.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ vrp2.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for vrp3 in dl3 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'battery_details' vrp3.id %}"><u>{{ vrp3.Activity_id }}</u></a></td>
+                            <td>{{ vrp3.first_name }} {{ vrp3.last_name }}</td>
+                            <td>{{ vrp3.plate_no }}</td>
+                            <td>{{ vrp3.work_order1 }}</td>
+                            <td>{{ vrp3.VRR_SLA }}/Days</td>
+                            <td>{{ vrp3.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ vrp3.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for vrp4 in dl4 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'battery_details' vrp4.id %}"><u>{{ vrp4.Activity_id }}</u></a></td>
+                            <td>{{ vrp4.first_name }} {{ vrp4.last_name }}</td>
+                            <td>{{ vrp4.plate_no }}</td>
+                            <td>{{ vrp4.work_order1 }}</td>
+                            <td>{{ vrp4.VRR_SLA }}/Days</td>
+                            <td>{{ vrp4.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ vrp4.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for vrp5 in dl5 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'battery_details' vrp5.id %}"><u>{{ vrp5.Activity_id }}</u></a></td>
+                            <td>{{ vrp5.first_name }} {{ vrp5.last_name }}</td>
+                            <td>{{ vrp5.plate_no }}</td>
+                            <td>{{ vrp5.work_order1 }}</td>
+                            <td>{{ vrp5.VRR_SLA }}/Days</td>
+                            <td>{{ vrp5.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ vrp5.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for vrp6 in dl6 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'battery_details' vrp6.id %}"><u>{{ vrp6.Activity_id }}</u></a></td>
+                            <td>{{ vrp6.first_name }} {{ vrp6.last_name }}</td>
+                            <td>{{ vrp6.plate_no }}</td>
+                            <td>{{ vrp6.work_order1 }}</td>
+                            <td>{{ vrp6.VRR_SLA }}/Days</td>
+                            <td>{{ vrp6.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ vrp6.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody> 
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+    <!-- /.row -->
+{% endblock %}
+
+

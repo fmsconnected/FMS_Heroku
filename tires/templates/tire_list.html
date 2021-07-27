@@ -35,9 +35,11 @@
         color: black;
 
     }
+    th{
+        text-align: center;
+    }
     
 </style>
-
 <div class="modal fade" tabindex="-1" role="dialog" id="modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content"></div>
@@ -46,29 +48,15 @@
 
 <div class="breadcrumbs">
     <div class="col-sm-12">
-        <h3 class="page-header"><b>Preventive Maintenance</b></h3>
+        <h3 class="page-header"><b>Tire's Maintenance</b></h3>
     </div>
-    {% if dl1_count != 0%}
-    <div class="alert alert-warning" id="myAlert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        <h5 style="color:black"><b><u>Reminder!</u></b></h5>&nbsp;
-        <p>Hi, <b style="color:red">{{dl1_count}} Vehicle's</b> waiting for you to update, Please check in Deadline Table.</p>
-    </div>
-    {% else %}
-    <div class="alert alert-info" id="myAlert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        <h5 style="color:red"><b><u>Have a nice Day!</u></b></h5>&nbsp;
-        <p>You have no incoming deadline.</p>
-    </div>
-    {% endif%}
 </div>
-
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active">Preventive Maintenance</a>
+    <a class="nav-link active">Tire's Maintenance</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{% url 'vrpdeadline' %}">Coming Deadline</a>
+    <a class="nav-link" href="{% url 'tire_deadline' %}">Coming Deadline</a>
   </li>
 </ul>
 <div class="content mt-3">
@@ -77,38 +65,41 @@
             <div class="col-md-12">
                 <div class="card">
                 <div class="card-header">
-                    <a href="{% url 'repair_export' %}" style="float: left"><b>Export Data</b> /</a>
-                    <a href="{% url 'maitenance_details' %}" style="float: left"><b>View Report</b> </a>
-                    <a href="{% url 'repair_new' %}" style="float:right"><b>Create</b>&nbsp;&nbsp;&nbsp;</a>
-                    <a href="{% url 'repair_history' %}" style="float:right" class="mr-3"><b>History</b></a>
+                    <a href="{% url 'tire_excel' %}" style="float: left"><b>Export Data</b> /</a>
+                    <a href="{% url 'tirereport' %}" style="float: left"><b>View Report</b> </a>
+                    
+                    <a href="{% url 'tire_create' %}" style="float:right"><b>Create</b>&nbsp;&nbsp;&nbsp;</a>
+                    <a href="{% url 'tire_hitory' %}" style="float:right" class="mr-3"><b> History</b></a>
                 </div>
                 <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                     <thead>
                         <tr>
                             <th>Activity ID</th>
                             <th>Requisitioner Name</th>
-                            <th>Email</th>
                             <th>Plate Number</th>
+                            <th>Brand</th>
+                            <th>Make</th>
+                            <th>Model</th>
+                            <th>Conduction Sticker</th>
                             <th>Work Order Number</th>
-                            <th>SLA</th>
                             <th>Date Initiated</th>
-                            <th>Date Deadline</th>
                             <th></th>
                         </tr>
                     </thead>
                      <tbody>
-                        {% for Vehicle_Repair in object_list %}
+                        {% for tire in object_list %}
                         <tr class="odd gradeX">
-                            <td><a href="{% url 'repair_details' Vehicle_Repair.id %}">{{ Vehicle_Repair.Activity_id }}</a></td>
-                            <td>{{ Vehicle_Repair.first_name }} {{ Vehicle_Repair.last_name }}</td>
-                            <td>{{ Vehicle_Repair.email }}</td>
-                            <td>{{ Vehicle_Repair.plate_no }}</td>
-                            <td>{{ Vehicle_Repair.work_order1 }}</td>
-                            <td>{{ Vehicle_Repair.VRR_SLA }}/Days</td>
-                            <td>{{ Vehicle_Repair.date_initiated | date:'D d M Y'}}</td>
-                            <td>{{ Vehicle_Repair.Deadline | date:'D d M Y'}}</td>
+                            <td><a href="{% url 'tire_details' tire.pk%}">{{ tire.Activity_id }}</a></td>
+                            <td>{{ tire.first_name }} {{ tire.last_name }}</td>
+                            <td>{{ tire.plate_no }}</td>
+                            <td>{{ tire.v_brand }}</td>
+                            <td>{{ tire.v_make }}</td>
+                            <td>{{ tire.v_model }}</td>
+                            <td>{{ tire.cond_sticker }}</td>
+                            <td>{{ tire.work_order1 }}</td>
+                            <td>{{ tire.date_initiated | date:'D d M Y'}}</td>
                             <td>
-                                <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'repair_delete' Vehicle_Repair.pk %}">
+                                <button type="button" class="delete-tire btn-sm btn-danger rounded" data-id="{% url 'tire_delete' tire.pk %}">
                                 <span class="fa fa-trash"></span>
                                 </button>
                             </td>
@@ -129,7 +120,7 @@
 <script type="text/javascript">
   $(function() {
     // Delete book buttons
-    $("#example").on('mouseover', '.delete-inventory', function() {
+    $("#example").on('mouseover', '.delete-tire', function() {
       $(this).modalForm({
         formURL: $(this).data('id')
       });

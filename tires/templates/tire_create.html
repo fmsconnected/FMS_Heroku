@@ -1,0 +1,334 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script>
+function vrepair(repair) {
+  var i;
+  var x = document.getElementsByClassName("vr");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(repair).style.display = "block";  
+}
+</script>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3><b>Tire's Maintenance</b></h3>&nbsp;
+    </div>
+</div>
+ <div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button" onclick="vrepair('Vehicle Repair Request')">Tire's Maintenance</button>
+    <button class="w3-bar-item w3-button" onclick="vrepair('Verification Process')">Verification Process</button>
+    <button class="w3-bar-item w3-button" onclick="vrepair('Outbound Process')">Outbound Process</button>
+    </div>
+<form method="POST" action="{% url 'tire_submit' %}">
+{% csrf_token %}
+    <div id="Vehicle Repair Request" class="w3-container vr">
+    <fieldset>
+        <legend align="left">Requisitioner Details</legend><br>
+        <div style="display: flex; justify-content: flex-end">
+        <div class="col-sm-6">
+            <label>Request Date</label>
+            <input type="Date" name="request_date" id="request_date" class="form-control" required>
+        </div>
+        </div>
+        <div class="col-sm-6">
+            <label>Employee ID</label>
+            <input name="emp_id" id="emp_id" list="emp_list" class="form-control" required>
+            <datalist id="emp_list">               
+            {% for emp_id in emplist %}
+              <option data-value="{{ emp_id.Employee_Id }} | {{ emp_id.Cost_center }} | {{ emp_id.First_name }} | {{ emp_id.Last_name }} | {{ emp_id.Company }} | {{ emp_id.Department }} | {{ emp_id.Group }}" value="{{ emp_id.Employee_Id }}">
+              </option>
+            {% endfor %}
+            </datalist>
+        </div>
+        <div class="col-sm-6">
+            <label>Cost Center Code</label>
+            <input type="text" name="cost_center" id="cost_center" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>First Name</label>
+            <input type="text" name="fname" id="fname" class="form-control" >
+        </div>
+        <div class="col-sm-6">
+            <label>Last Name</label>
+            <input type="text" name="lname" id="lname" class="form-control" >
+        </div>
+        <div class="col-sm-6">
+            <label>Contact Number</label>
+            <input type="text" name="c_no" id="c_no" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Company</label>
+            <input type="text" name="company" id="company" class="form-control" >
+        </div>
+        <div class="col-sm-6">
+            <label>Department</label>
+            <input type="text" name="department" id="department" class="form-control" >
+        </div>
+        <div class="col-sm-6">
+            <label>Group/Section</label>
+            <input type="text" name="group" id="group" class="form-control" >
+        </div>
+        <div class="col-sm-6">
+            <label>Email</label>
+            <input type="email" name="email" id="email" class="form-control" required>
+        </div>
+            <input type="text" name="email_status" id="email_status" class="form-control" value="No" hidden>
+    <br><br>
+    </fieldset>
+    <hr>
+    <fieldset>
+    <legend align="left">Vehicle Details</legend>
+        
+        <div class="col-sm-6">
+            <label>Plate Number</label>
+            <input name="plate_no" id="plate_no" list="v_list" class="form-control" required>
+            <datalist id="v_list">               
+            {% for vehiclelist in vlist %}
+              <option data-value="{{ vehiclelist.PLATE_NO }} | {{ vehiclelist.BRAND }} | {{ vehiclelist.ENGINE_NO }} | {{ vehiclelist.MODEL }} | {{ vehiclelist.VEHICLE_MAKE }} | {{ vehiclelist.CHASSIS_NO }} | {{ vehiclelist.BAND_LEVEL }} | {{ vehiclelist.CS_NO }} | {{ vehiclelist.EQUIPMENT_NO }}" value="{{ vehiclelist.PLATE_NO }}">
+              </option>
+            {% endfor %}
+            </datalist>
+        </div>
+        
+        <div class="col-sm-6">
+            <label>Vehicle Brand</label>
+            <input type="text" name="v_brand" id="v_brand" class="form-control" >
+        </div>
+        <div class="col-sm-6">
+            <label>Engine Number</label>
+            <input type="text" name="engine" id="engine" class="form-control" >
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Model Year</label>
+            <input type="text" name="v_model" id="v_model" class="form-control" >
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Make</label>
+            <input type="text" name="v_make" id="v_make" class="form-control" >
+        </div>
+        <div class="col-sm-6">
+            <label>Chassis</label>
+            <input type="text" name="chassis" id="chassis" class="form-control" >
+        </div>
+        <div class="col-sm-6">
+            <label>Band</label>
+            <input type="text" name="v_band" id="v_band" class="form-control" >
+        </div>
+        <div class="col-sm-6">
+            <label>Conduction Sticker</label>
+            <input type="text" name="cs_no" id="cs_no" list="cs_list" class="form-control">
+            <datalist id="cs_list">               
+            {% for vehiclelist in vlist %}
+              <option data-value="{{ vehiclelist.PLATE_NO }} | {{ vehiclelist.BRAND }} | {{ vehiclelist.ENGINE_NO }} | {{ vehiclelist.MODEL }} | {{ vehiclelist.VEHICLE_MAKE }} | {{ vehiclelist.CHASSIS_NO }} | {{ vehiclelist.BAND_LEVEL }} | {{ vehiclelist.CS_NO }} | {{ vehiclelist.EQUIPMENT_NO }}" value="{{ vehiclelist.CS_NO }}">
+              </option>
+            {% endfor %}
+            </datalist>
+        </div>
+        <div class="col-sm-6">
+            <label>Equipment Number</label>
+            <input type="text" name="eq_no" id="eq_no" class="form-control" >
+        </div>
+        <div class="col-sm-6">
+            <label>Fleet Area</label>
+            <select class="form-control" name="fleet_area" id="fleet_area">
+                <option value="">--------</option>
+                <option value="The Globe Tower">The Globe Tower</option>
+                <option value="Visayas-Mindanao">Visayas-Mindanao</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label>Particulars</label>
+            <input type="text" name="particulars" id="particulars" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Category</label>
+            <input type="text" name="category" id="category" class="form-control">
+        </div>
+    </fieldset>
+    <div class="card-footer">
+      <button type="submit" class="buttonsubmit">SUBMIT</button>
+      <a href="{% url 'repair_list' %}" class="btn">CLOSE</a>
+      <button type="Reset" class="button">CLEAR ALL</button>
+    </div>
+    </div>
+    <div id="Verification Process" class="w3-container vr" style="display:none">
+    <fieldset>
+        <legend align="left">Vehicle Repair Request Verification</legend>
+        <div class="col-sm-6">
+            <label>Maintenance Job Type 1</label>
+            <select name="maintenance_type1" id="maintenance_type1" class="form-control">
+                <option value="">---------</option>
+                <option value="Preventive Maintenance">Preventive Maintenance</option>
+                <option value="Corective Maintenance">Corective Maintenance</option>
+                <option value="Battery">Battery</option>
+                <option value="Tire">Tire</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label>Maintenance Job Type 2</label>
+            <select name="maintenance_type2" id="maintenance_type2" class="form-control">
+                <option value="">---------</option>
+                <option value="Preventive Maintenance">Preventive Maintenance</option>
+                <option value="Corective Maintenance">Corective Maintenance</option>
+                <option value="Battery">Battery</option>
+                <option value="Tire">Tire</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label>Scope of Work 1</label>
+            <input type="text" name="scope_work1" id="scope_work1" class="form-control">
+        </div>
+        
+        <div class="col-sm-6">
+            <label>Scope of Work 2</label>
+            <input type="text" name="scope_work2" id="scope_work2" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Recommendation</label>
+            <input type="text" name="recomendations" id="recomendations" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Service Reminder</label>
+            <input type="text" name="service_reminder" id="service_reminder" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Vehicle Repair Request Verified By</label>
+            <select name="repair_verified_by" id="repair_verified_by" class="form-control">
+                <option value="">---------</option>
+                <option value="Shane Santos">Shane Santos</option>
+            </select>
+        </div>
+    </fieldset>
+    <div class="card-footer">
+        <button type="submit" class="buttonsubmit">UPDATE</button>
+    </div>
+    </div>
+    <div id="Outbound Process" class="w3-container vr" style="display:none">
+    <fieldset>
+        <legend align="left">Work Order Creation</legend>
+        <div class="col-sm-4">
+            <label>Work Order</label>
+            <input type="text" name="work_order1" id="work_order1" class="form-control">
+            <input type="text" name="work_order2" id="work_order2" class="form-control">
+            <input type="text" name="work_order3" id="work_order3" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>Date Work Created</label>
+            <input type="Date" name="date_work_created" id="date_work_created" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>Accredited Repair Shop/Vendor</label>
+            <input type="text" name="repair_shop" id="repair_shop" class="form-control">            
+        </div>
+        <div class="col-sm-4">
+            <label>Date Forwarded Word</label>
+            <input type="Date" name="date_forward" id="date_forward" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label>Memo App Number</label>
+            <input type="text" name="memo_app" id="memo_app" class="form-control">  
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend align="left">Motor Shop Estimate</legend>
+        <div class="col-sm-6">
+            <label>Estimate Number</label>
+            <input type="text" name="estimate_no" id="estimate_no" class="form-control">        
+        </div>
+        <div class="col-sm-6">
+            <label>Maintenance Amount</label>
+            <input type="text" name="maintenance_amount" id="maintenance_amount" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Less Discount</label>
+            <input type="text" name="less_discount" id="less_discount" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Estimate Remarks</label>
+            <input type="text" name="estimate_remark" id="estimate_remark" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Estimate Attached</label>
+            <input type="text" name="estimate_attach" id="estimate_attach" class="form-control">
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend align="left">Vehicle Repair Request Approval</legend>
+        <div class="col-sm-6">
+            <label>Approved By</label>
+            <select name="approved_by" id="approved_by" class="form-control">
+                <option value="">----------------------------------</option>
+                <option value="Ser Roy Perluval Dela Cruz">Ser Roy Perluval Dela Cruz</option>
+                <option value="Shane Santos">Shane Santos</option>
+                <option value="Immediate Supervisor"> Immediate Supervisor </option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label>Kilometer Reading</label>
+            <input type="text" name="kilo_reading" id="kilo_reading" class="form-control">
+        </div>
+    <input type="text" name="vrr_sla" id="vrr_sla" class="form-control" value = "18"hidden>
+    </fieldset>
+    <div class="card-footer">
+        <button type="submit" class="buttonsubmit">UPDATE</button>
+    </div>
+    </div>
+</div>
+</form>
+
+<!--for employee auto-fill-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$('#emp_id').on('change', function () {
+    var value = $('#emp_id').val();
+    var val = ($('#emp_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#emp_id').val(parts[0]);
+    $('#cost_center').val(parts[1]);
+    $('#fname').val(parts[2]);
+    $('#lname').val(parts[3]);
+    $('#company').val(parts[4]);
+    $('#department').val(parts[5]);
+    $('#group').val(parts[6]);
+});
+</script>
+<!--for vehicle auto-fill-->
+<script>
+$('#plate_no').on('change', function () {
+    var value = $('#plate_no').val();
+    var val = ($('#v_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#plate_no').val(parts[0]);
+    $('#v_brand').val(parts[1]);
+    $('#engine').val(parts[2]);
+    $('#v_model').val(parts[3]);
+    $('#v_make').val(parts[4]);
+    $('#chassis').val(parts[5]);
+    $('#v_band').val(parts[6]);
+    $('#cs_no').val(parts[7]);
+    $('#eq_no').val(parts[8]);
+});
+</script>
+<!--- vehicle CS-->
+<script>
+$('#cs_no').on('change', function () {
+    var value = $('#cs_no').val();
+    var val = ($('#cs_list [value="' + value + '"]').data('value'));
+    var parts = val.split(" | ");
+    $('#plate_no').val(parts[0]);
+    $('#v_brand').val(parts[1]);
+    $('#engine').val(parts[2]);
+    $('#v_model').val(parts[3]);
+    $('#v_make').val(parts[4]);
+    $('#chassis').val(parts[5]);
+    $('#v_band').val(parts[6]);
+    $('#cs_no').val(parts[7]);
+    $('#eq_no').val(parts[8]);
+});
+</script>
+
+{% endblock %}

@@ -124,6 +124,19 @@ class batteryDetailView(DetailView):
     model = battery
     template_name = 'battery_details.html'
 
+def battery_deadline(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    # dl = datetime.datetime.today() - timedelta(days=3)
+    dl = battery.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=1))
+    dl2 = battery.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=2))
+    dl3 = battery.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=3))
+    dl4 = battery.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=4))
+    dl5 = battery.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=5))
+    dl6 = battery.objects.filter(Deadline__date = datetime.datetime.today())
+    return  render(request, 'battery_deadline.html',{'title':'Battery - Battery Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5, 'dl6':dl6})
+
+
 
 def battery_excel(request):
     repair_queryset = battery.objects.all()   
