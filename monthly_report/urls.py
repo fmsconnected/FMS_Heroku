@@ -9,6 +9,7 @@ urlpatterns = [
 	path('Update/<int:pk>', views.petron_update.as_view(), name='petron_update'),
 	path('Detail/<int:pk>', views.petron_details.as_view(), name='petron_detail'),
 	path('Delete/<int:pk>', views.petron_delete.as_view(), name='petron_delete'),
+	path('Export/', views.petron_report, name='petron_export'),
 ]
 
 

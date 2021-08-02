@@ -16,8 +16,8 @@ import sched
 
 django.setup()
 sched = BlockingScheduler()
-@sched.scheduled_job('cron', day_of_week='mon-sun', hour=23)
-# @sched.scheduled_job('interval', minutes=1)
+# @sched.scheduled_job('cron', day_of_week='mon-sun', hour=23)
+@sched.scheduled_job('interval', minutes=10)
 def send_registration_email():
     month = datetime.datetime.now().month
     date_now = datetime.datetime.now().date()
