@@ -59,838 +59,965 @@ def monthly_report_jan_summary(request):
     date = datetime.datetime.today()
     ## ProductAmount ####
     BB14_B1 = Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B1").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_B10= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B10").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B10").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_B11= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B11").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B11").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_B2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B2").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B3").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_B4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B4").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B4").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_B5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B5").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B5").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_B6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B6").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B6").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_B7= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B7").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B7").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_B8= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B8").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B8").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-C").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-E").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
+    CMG12_A= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG12_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-C").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG12_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-D").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-D").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_B1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B1").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_B2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B2").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B3").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_C1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C1").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_C2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C2").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_C3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C3").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_C4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C4").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C4").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_C5_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-C").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
+    CMG2_C5_D= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-D").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_D1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D1").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_D2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D2").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_D3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D3").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_E1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E1").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_E2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E2").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_E3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E3").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_F1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F1").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_F2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F2").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_F3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F3").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG3_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG3-A").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG3-A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG4_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG4_B15= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B15").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B15").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG4_B2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B2").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG4_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-E").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG4_F= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-F").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-F").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG4_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-G").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-G").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG5_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-B").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG5_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-E").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG5_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-G").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-G").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG6_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-B").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG6_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-C").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG6_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-E").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG7_F= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG7-F").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG7-F").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG8_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG8-B").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG8-B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CRA6_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CRA6-A").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CRA6-A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     FIN23_C1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C1").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     FIN23_C10= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C10").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C10").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     FIN23_C4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C4").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C4").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
+    FIN23_C6= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C6").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     FIN23_C9= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C9").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C9").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     FIN9_C0201= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0201").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0201").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     FIN9_C0301= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0301").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0301").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
+    FIN9_C0305= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0305").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG02_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG02_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-C").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG02_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG02_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG02_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-G").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-G").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG02_H= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-H").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-H").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG02_I= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-I").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-I").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG02_K= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-K").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-K").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG02_L= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-L").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-L").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG04_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B3").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG05_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG09_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GRTM_C503= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GRTM-C503").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GRTM-C503").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     ISG18_C2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="ISG18-C2").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="ISG18-C2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT11_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT11-E").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT11-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
+    NTT2_B6= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-B6").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_C3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C3").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_C5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C5").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C5").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_C6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C6").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C6").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D01_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D01-A").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D01-A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D08_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D08-C").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D08-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D1").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D2_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-02").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D2_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-03").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D2_05= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-05").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-05").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D3_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-02").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D3_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-03").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D3_04= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-04").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-04").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D3_06= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-06").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-06").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D4_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D4-03").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D4-03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D5_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-02").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D5_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-03").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D6_06= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6-06").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6-06").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
+    NTT2_D03_B= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D03-B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D7_01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-01").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D7_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-02").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D7_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-03").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_E2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E2").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_E3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E3").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_F3A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3A").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_F3B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3B").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_F3D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3D").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3D").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_F3E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3E").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_G2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G2").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_G4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G4").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G4").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT3_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-A").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT3_B5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B5").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B5").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT3_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-C").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT3_D2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D2").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT3_D3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D3").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT3_D4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D4").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D4").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT3_D5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D5").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D5").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
+    NTT3_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_A01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-A01").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-A01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_B02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B02").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_B06= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B06").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B06").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_C01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-C01").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-C01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_D01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D01").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_D02A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02A").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_D02B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02B").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_D2_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D2-03").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D2-03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
+    NTT5_E01= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_E03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E03").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_E04= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E04").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E04").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_F01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F01").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_F02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F02").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_F03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F03").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_G01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G01").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_G02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G02").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_G03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G03").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_H01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H01").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_H03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H03").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_I01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I01").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_I03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I03").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_J01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J01").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_J03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J03").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
+    NTT6_C= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT6-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     OP12_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP12-A").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP12-A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     OP20_F1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP20-F1").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP20-F1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     SG02_O= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-O").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-O").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     SG02_P= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-P").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-P").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     SG02_Q= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-Q").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-Q").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     SG02_R= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-R").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-R").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     SG02_U= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG02_F= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GRTM_C503= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('ProductAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
+    SG02_T1= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-T1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG04_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('ProductAmount'))
-    
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
 
     ## ProductAmount end ####
 
     ##Discount_Amount
 
     dis_BB14_B1 = Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B1").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_B10= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B10").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B10").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_B11= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B11").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B11").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_B2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B2").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B3").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_B4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B4").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B4").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_B5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B5").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B5").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_B6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B6").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B6").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_B7= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B7").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B7").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_B8= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B8").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B8").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-C").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-E").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
+    dis_CMG12_A= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG12_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-C").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG12_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-D").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-D").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_B1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B1").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_B2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B2").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B3").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_C1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C1").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_C2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C2").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_C3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C3").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_C4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C4").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C4").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_C5_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-       StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-C").aggregate(Sum('DiscountAmount'))
+       StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
+    dis_CMG2_C5_D= Petron_report.objects.filter(StatementDate__year=date.year, 
+       StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-D").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_D1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D1").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_D2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D2").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_D3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D3").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_E1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E1").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_E2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E2").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_E3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E3").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_F1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F1").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_F2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F2").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_F3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F3").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG3_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG3-A").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG3-A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG4_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG4_B15= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B15").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B15").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG4_B2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B2").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG4_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-E").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG4_F= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-F").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-F").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG4_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-G").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-G").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG5_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-B").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG5_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-E").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG5_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-G").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-G").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG6_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-B").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG6_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-C").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG6_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-E").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG7_F= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG7-F").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG7-F").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG8_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG8-B").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG8-B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CRA6_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CRA6-A").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CRA6-A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_FIN23_C1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C1").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_FIN23_C10= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C10").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C10").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_FIN23_C4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C4").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C4").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
+    dis_FIN23_C6= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C6").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_FIN23_C9= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C9").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C9").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_FIN9_C0201= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0201").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0201").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_FIN9_C0301= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0301").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0301").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
+    dis_FIN9_C0305= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0305").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG02_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG02_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-C").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG02_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG02_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG02_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-G").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-G").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG02_H= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-H").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-H").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG02_I= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-I").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-I").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG02_K= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-K").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-K").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG02_L= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-L").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-L").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG04_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B3").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG05_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG09_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GRTM_C503= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GRTM-C503").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GRTM-C503").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_ISG18_C2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="ISG18-C2").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="ISG18-C2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT11_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT11-E").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT11-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
+    dis_NTT2_B6= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-B6").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_C3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C3").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_C5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C5").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C5").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_C6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C6").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C6").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D01_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D01-A").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D01-A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D08_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D08-C").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D08-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D1").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D2_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-02").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D2_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-03").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D2_05= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-05").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-05").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D3_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-02").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D3_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-03").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D3_04= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-04").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-04").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D3_06= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-06").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-06").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D4_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D4-03").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D4-03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D5_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-02").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D5_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-03").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D6_06= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6-06").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6-06").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
+    dis_NTT2_D03_B= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D03_B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D7_01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-01").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D7_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-02").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D7_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-03").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_E2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E2").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_E3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E3").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_F3A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3A").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_F3B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3B").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_F3D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3D").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3D").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_F3E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3E").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_G2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G2").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_G4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G4").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G4").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT3_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-A").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT3_B5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B5").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B5").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
+    dis_NTT3_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT3_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-C").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT3_D2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D2").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT3_D3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D3").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT3_D4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D4").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D4").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT3_D5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D5").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D5").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_A01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-A01").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-A01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_B02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B02").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_B06= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B06").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B06").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_C01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-C01").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-C01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_D01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D01").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_D02A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02A").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_D02B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02B").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
+    dis_NTT5_D2_03= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D2-03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
+    dis_NTT5_E01= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_E03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E03").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_E04= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E04").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E04").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_F01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F01").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_F02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F02").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_F03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F03").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_G01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G01").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_G02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G02").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_G03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G03").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_H01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H01").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_H03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H03").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_I01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I01").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_I03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I03").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_J01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J01").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_J03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J03").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
+    dis_NTT6_C= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT6-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_OP12_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP12-A").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP12-A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_OP20_F1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP20-F1").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP20-F1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_SG02_O= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-O").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-O").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_SG02_P= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-P").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-P").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_SG02_Q= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-Q").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-Q").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_SG02_R= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-R").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-R").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_SG02_U= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG02_F= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GRTM_C503= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
+    dis_SG02_T1= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-T1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG04_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('DiscountAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     
     ## Discount_Amount end ######
 
     ### Net Amount #####
     net_BB14_B1 = Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B1").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_B10= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B10").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B10").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_B11= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B11").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B11").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_B2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B2").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B3").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_B4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B4").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B4").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_B5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B5").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B5").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_B6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B6").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B6").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_B7= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B7").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B7").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_B8= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B8").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B8").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-C").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-E").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
+    net_CMG12_A= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG12_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-C").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG12_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-D").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-D").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_B1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B1").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_B2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B2").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B3").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_C1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C1").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_C2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C2").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_C3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C3").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_C4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C4").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C4").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
+    net_CMG2_C5_D= Petron_report.objects.filter(StatementDate__year=date.year, 
+       StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-D").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_C5_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-       StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-C").aggregate(Sum('NetAmount'))
+       StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_D1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D1").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_D2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D2").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_D3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D3").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_E1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E1").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_E2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E2").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_E3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E3").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_F1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F1").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_F2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F2").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_F3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F3").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG3_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG3-A").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG3-A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG4_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG4_B15= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B15").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B15").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG4_B2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B2").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG4_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-E").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG4_F= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-F").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-F").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG4_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-G").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-G").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG5_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-B").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG5_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-E").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG5_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-G").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-G").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG6_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-B").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG6_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-C").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG6_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-E").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG7_F= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG7-F").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG7-F").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG8_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG8-B").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG8-B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CRA6_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CRA6-A").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CRA6-A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_FIN23_C1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C1").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_FIN23_C10= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C10").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C10").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_FIN23_C4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C4").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C4").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
+    net_FIN23_C6= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C6").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_FIN23_C9= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C9").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C9").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_FIN9_C0201= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0201").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0201").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_FIN9_C0301= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0301").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0301").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
+    net_FIN9_C0305= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0305").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG02_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG02_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-C").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG02_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG02_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG02_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-G").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-G").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG02_H= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-H").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-H").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG02_I= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-I").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-I").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG02_K= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-K").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-K").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG02_L= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-L").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-L").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG04_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B3").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG05_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG09_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GRTM_C503= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GRTM-C503").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GRTM-C503").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_ISG18_C2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="ISG18-C2").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="ISG18-C2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT11_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT11-E").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT11-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_C3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C3").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_C5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C5").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C5").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_C6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C6").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C6").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
+    net_NTT2_B6= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-B6").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D01_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D01-A").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D01-A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
+    net_NTT2_D03_B= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D03-B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D08_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D08-C").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D08-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D1").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D2_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-02").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D2_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-03").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D2_05= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-05").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-05").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D3_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-02").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D3_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-03").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D3_04= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-04").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-04").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D3_06= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-06").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-06").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D4_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D4-03").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D4-03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D5_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-02").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D5_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-03").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D6_06= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6-06").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6-06").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D7_01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-01").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D7_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-02").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D7_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-03").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_E2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E2").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_E3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E3").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_F3A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3A").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_F3B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3B").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_F3D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3D").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3D").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_F3E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3E").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_G2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G2").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_G4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G4").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G4").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT3_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-A").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT3_B5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B5").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B5").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
+    net_NTT3_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT3_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-C").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT3_D2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D2").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT3_D3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D3").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT3_D4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D4").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D4").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT3_D5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D5").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D5").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_A01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-A01").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-A01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_B02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B02").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_B06= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B06").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B06").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_C01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-C01").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-C01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_D01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D01").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_D02A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02A").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_D02B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02B").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_D2_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D2-03").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D2-03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
+    net_NTT5_E01= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_E03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E03").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_E04= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E04").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E04").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_F01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F01").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_F02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F02").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_F03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F03").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_G01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G01").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_G02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G02").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_G03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G03").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_H01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H01").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_H03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H03").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_I01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I01").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_I03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I03").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_J01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J01").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_J03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J03").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
+    net_NTT6_C= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT6_C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_OP12_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP12-A").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP12-A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_OP20_F1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP20-F1").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP20-F1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_SG02_O= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-O").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-O").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_SG02_P= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-P").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-P").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_SG02_Q= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-Q").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-Q").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_SG02_R= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-R").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-R").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_SG02_U= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG02_F= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GRTM_C503= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('NetAmount'))
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
+    net_SG02_T1= Petron_report.objects.filter(StatementDate__year=date.year, 
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-T1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG04_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('NetAmount'))
-
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     ### Net Amount End#####
-    
+    grand_total = BB14_B1+BB14_B10+BB14_B11+BB14_B2+BB14_B3+BB14_B4+BB14_B5
+    +BB14_B6+BB14_B7+BB14_B8+BB14_C+BB14_E+CMG12_A+CMG12_C
+    +CMG12_D+CMG2_B1+CMG2_B2+CMG2_B3+CMG2_C1+CMG2_C2+CMG2_C3
+    +CMG2_C4+CMG2_C5_C+CMG2_C5_D+CMG2_D1+CMG2_D2+CMG2_D3+CMG2_E1
+    +CMG2_E2+CMG2_E3+CMG2_F1+CMG2_F2+CMG2_F3+CMG3_A+CMG4_B
+    +CMG4_B15+CMG4_B2+CMG4_E+CMG4_F+CMG4_G+CMG5_B+CMG5_E+CMG5_G
+    +CMG6_B+CMG6_C+CMG6_E+CMG7_F+CMG8_B+CRA6_A+FIN23_C1+FIN23_C10
+    +FIN23_C4+FIN23_C6+FIN23_C9+FIN9_C0201+FIN9_C0301+FIN9_C0305
+    +GEG02_B+GEG02_C+GEG02_D+GEG02_E+GEG02_G+GEG02_H+GEG02_I+GEG02_K
+    +GEG02_L+GEG04_B3+GEG05_E+GEG09_D+GRTM_C503+ISG18_C2+NTT11_E
+    +NTT2_B6+NTT2_C3+NTT2_C5+NTT2_C6+NTT2_D01_A+NTT2_D08_C+NTT2_D1
+    +NTT2_D2_02+NTT2_D2_03+NTT2_D2_05+NTT2_D3_02+NTT2_D3_03+NTT2_D3_04
+    +NTT2_D3_06+NTT2_D4_03+NTT2_D5_02+NTT2_D5_03+NTT2_D6+NTT2_D6_06
+    +NTT2_D03_B+NTT2_D7_01+NTT2_D7_02+NTT2_D7_03+NTT2_E2+NTT2_E3
+    +NTT2_F3A+NTT2_F3B+NTT2_F3D+NTT2_F3E+NTT2_G2+NTT2_G4+NTT3_A
+    +NTT3_B5+NTT3_C+NTT3_D2+NTT3_D3+NTT3_D4+NTT3_D5+NTT3_B3
+    +NTT5_A01+NTT5_B02+NTT5_B06+NTT5_C01+NTT5_D01+NTT5_D02A
+    +NTT5_D02B+NTT5_D2_03+NTT5_E01+NTT5_E03+NTT5_E04+NTT5_F01
+    +NTT5_F02+NTT5_F03+NTT5_G+NTT5_G01+NTT5_G02+NTT5_G03+NTT5_H01
+    +NTT5_H03+NTT5_I01+NTT5_I03+NTT5_J01+NTT5_J03+NTT6_C+OP12_A
+    +OP20_F1+SG02_O+SG02_P+SG02_Q+SG02_R+SG02_U+GEG02_F+GRTM_C503
+    +SG02_T1+GEG04_B3
+
+    dis_grand_total = dis_BB14_B1+dis_BB14_B10+dis_BB14_B11+dis_BB14_B2+dis_BB14_B3+dis_BB14_B4+dis_BB14_B5
+    +dis_BB14_B6+dis_BB14_B7+dis_BB14_B8+dis_BB14_C+dis_BB14_E+dis_CMG12_A+dis_CMG12_C
+    +dis_CMG12_D+dis_CMG2_B1+dis_CMG2_B2+dis_CMG2_B3+dis_CMG2_C1+dis_CMG2_C2+dis_CMG2_C3
+    +dis_CMG2_C4+dis_CMG2_C5_C+dis_CMG2_C5_D+dis_CMG2_D1+dis_CMG2_D2+dis_CMG2_D3+dis_CMG2_E1
+    +dis_CMG2_E2+dis_CMG2_E3+dis_CMG2_F1+dis_CMG2_F2+dis_CMG2_F3+dis_CMG3_A+dis_CMG4_B
+    +dis_CMG4_B15+dis_CMG4_B2+dis_CMG4_E+dis_CMG4_F+dis_CMG4_G+dis_CMG5_B+dis_CMG5_E+dis_CMG5_G
+    +dis_CMG6_B+dis_CMG6_C+dis_CMG6_E+dis_CMG7_F+dis_CMG8_B+dis_CRA6_A+dis_FIN23_C1+dis_FIN23_C10
+    +dis_FIN23_C4+dis_FIN23_C6+dis_FIN23_C9+dis_FIN9_C0201+dis_FIN9_C0301+dis_FIN9_C0305
+    +dis_GEG02_B+dis_GEG02_C+dis_GEG02_D+dis_GEG02_E+dis_GEG02_G+dis_GEG02_H+dis_GEG02_I+dis_GEG02_K
+    +dis_GEG02_L+dis_GEG04_B3+dis_GEG05_E+dis_GEG09_D+dis_GRTM_C503+dis_ISG18_C2+dis_NTT11_E
+    +dis_NTT2_B6+dis_NTT2_C3+dis_NTT2_C5+dis_NTT2_C6+dis_NTT2_D01_A+dis_NTT2_D08_C+dis_NTT2_D1
+    +dis_NTT2_D2_02+dis_NTT2_D2_03+dis_NTT2_D2_05+dis_NTT2_D3_02+dis_NTT2_D3_03+dis_NTT2_D3_04
+    +dis_NTT2_D3_06+dis_NTT2_D4_03+dis_NTT2_D5_02+dis_NTT2_D5_03+dis_NTT2_D6+dis_NTT2_D6_06
+    +dis_NTT2_D03_B+dis_NTT2_D7_01+dis_NTT2_D7_02+dis_NTT2_D7_03+dis_NTT2_E2+dis_NTT2_E3
+    +dis_NTT2_F3A+dis_NTT2_F3B+dis_NTT2_F3D+dis_NTT2_F3E+dis_NTT2_G2+dis_NTT2_G4+dis_NTT3_A
+    +dis_NTT3_B5+dis_NTT3_C+dis_NTT3_D2+dis_NTT3_D3+dis_NTT3_D4+dis_NTT3_D5+dis_NTT3_B3
+    +dis_NTT5_A01+dis_NTT5_B02+dis_NTT5_B06+dis_NTT5_C01+dis_NTT5_D01+dis_NTT5_D02A
+    +dis_NTT5_D02B+dis_NTT5_D2_03+dis_NTT5_E01+dis_NTT5_E03+dis_NTT5_E04+dis_NTT5_F01
+    +dis_NTT5_F02+dis_NTT5_F03+dis_NTT5_G+dis_NTT5_G01+dis_NTT5_G02+dis_NTT5_G03+dis_NTT5_H01
+    +dis_NTT5_H03+dis_NTT5_I01+dis_NTT5_I03+dis_NTT5_J01+dis_NTT5_J03+dis_NTT6_C+dis_OP12_A
+    +dis_OP20_F1+dis_SG02_O+dis_SG02_P+dis_SG02_Q+dis_SG02_R+dis_SG02_U+dis_GEG02_F+dis_GRTM_C503
+    +dis_SG02_T1+dis_GEG04_B3
+
+    net_grand_total = net_BB14_B1+net_BB14_B10+net_BB14_B11+net_BB14_B2+net_BB14_B3+net_BB14_B4+net_BB14_B5
+    +net_BB14_B6+net_BB14_B7+net_BB14_B8+net_BB14_C+net_BB14_E+net_CMG12_A+net_CMG12_C
+    +net_CMG12_D+net_CMG2_B1+net_CMG2_B2+net_CMG2_B3+net_CMG2_C1+net_CMG2_C2+net_CMG2_C3
+    +net_CMG2_C4+net_CMG2_C5_C+net_CMG2_C5_D+net_CMG2_D1+net_CMG2_D2+net_CMG2_D3+net_CMG2_E1
+    +net_CMG2_E2+net_CMG2_E3+net_CMG2_F1+net_CMG2_F2+net_CMG2_F3+net_CMG3_A+net_CMG4_B
+    +net_CMG4_B15+net_CMG4_B2+net_CMG4_E+net_CMG4_F+net_CMG4_G+net_CMG5_B+net_CMG5_E+net_CMG5_G
+    +net_CMG6_B+net_CMG6_C+net_CMG6_E+net_CMG7_F+net_CMG8_B+net_CRA6_A+net_FIN23_C1+net_FIN23_C10
+    +net_FIN23_C4+net_FIN23_C6+net_FIN23_C9+net_FIN9_C0201+net_FIN9_C0301+net_FIN9_C0305
+    +net_GEG02_B+net_GEG02_C+net_GEG02_D+net_GEG02_E+net_GEG02_G+net_GEG02_H+net_GEG02_I+net_GEG02_K
+    +net_GEG02_L+net_GEG04_B3+net_GEG05_E+net_GEG09_D+net_GRTM_C503+net_ISG18_C2+net_NTT11_E
+    +net_NTT2_B6+net_NTT2_C3+net_NTT2_C5+net_NTT2_C6+net_NTT2_D01_A+net_NTT2_D08_C+net_NTT2_D1
+    +net_NTT2_D2_02+net_NTT2_D2_03+net_NTT2_D2_05+net_NTT2_D3_02+net_NTT2_D3_03+net_NTT2_D3_04
+    +net_NTT2_D3_06+net_NTT2_D4_03+net_NTT2_D5_02+net_NTT2_D5_03+net_NTT2_D6+net_NTT2_D6_06
+    +net_NTT2_D03_B+net_NTT2_D7_01+net_NTT2_D7_02+net_NTT2_D7_03+net_NTT2_E2+net_NTT2_E3
+    +net_NTT2_F3A+net_NTT2_F3B+net_NTT2_F3D+net_NTT2_F3E+net_NTT2_G2+net_NTT2_G4+net_NTT3_A
+    +net_NTT3_B5+net_NTT3_C+net_NTT3_D2+net_NTT3_D3+net_NTT3_D4+net_NTT3_D5+net_NTT3_B3
+    +net_NTT5_A01+net_NTT5_B02+net_NTT5_B06+net_NTT5_C01+net_NTT5_D01+net_NTT5_D02A
+    +net_NTT5_D02B+net_NTT5_D2_03+net_NTT5_E01+net_NTT5_E03+net_NTT5_E04+net_NTT5_F01
+    +net_NTT5_F02+net_NTT5_F03+net_NTT5_G+net_NTT5_G01+net_NTT5_G02+net_NTT5_G03+net_NTT5_H01
+    +net_NTT5_H03+net_NTT5_I01+net_NTT5_I03+net_NTT5_J01+net_NTT5_J03+net_NTT6_C+net_OP12_A
+    +net_OP20_F1+net_SG02_O+net_SG02_P+net_SG02_Q+net_SG02_R+net_SG02_U+net_GEG02_F+net_GRTM_C503
+    +net_SG02_T1+net_GEG04_B3
     return render(request,'monthly_report/petron_report_summary.html',{'title':'Petron Data', 'BB14_B1':BB14_B1,
     'BB14_B10':BB14_B10, 'BB14_B11':BB14_B11, 'BB14_B2':BB14_B2, 'BB14_B3':BB14_B3, 'BB14_B4':BB14_B4, 'BB14_B5':BB14_B5, 'BB14_B6':BB14_B6,
     'BB14_B7':BB14_B7, 'BB14_B8':BB14_B8, 'BB14_C':BB14_C, 'BB14_E':BB14_E, 'CMG12_C':CMG12_C, 
@@ -952,969 +1079,970 @@ def monthly_report_jan_summary(request):
     'net_NTT5_G':net_NTT5_G, 'net_NTT5_G01':net_NTT5_G01, 'net_NTT5_G02':net_NTT5_G02, 'net_NTT5_G03':net_NTT5_G03, 'net_NTT5_H01':net_NTT5_H01, 'net_NTT5_H03':net_NTT5_H03, 'net_NTT5_I01':net_NTT5_I01, 
     'net_NTT5_I03':net_NTT5_I03, 'net_NTT5_J01':net_NTT5_J01, 'net_NTT5_J03':net_NTT5_J03, 'net_OP12_A':net_OP12_A, 'net_OP20_F1':net_OP20_F1, 'net_SG02_O':net_SG02_O, 'net_SG02_P':net_SG02_P, 'net_SG02_Q':net_SG02_Q, 
     'net_SG02_R':net_SG02_R, 'net_SG02_U':net_SG02_U,'net_GEG02_F':net_GEG02_F, 'dis_GEG02_F':dis_GEG02_F, 'GEG02_F':GEG02_F, 'GEG04_B3':GEG04_B3, 'GRTM_C503':GRTM_C503, 'dis_GEG04_B3':dis_GEG04_B3, 'dis_GRTM_C503':dis_GRTM_C503,
-    'net_GEG04_B3':net_GEG04_B3, 'net_GRTM_C503':net_GRTM_C503})
+    'net_GEG04_B3':net_GEG04_B3, 'net_GRTM_C503':net_GRTM_C503,'grand_total':grand_total,'dis_grand_total':dis_grand_total,'net_grand_total':net_grand_total})
 
 def petron_report(request):
-    report = Petron_report.objects.all()
+    
     date = datetime.datetime.today()
+    report = Petron_report.objects.filter(StatementDate__year=date.year, StatementDate__month=date.month)
     ## ProductAmount ####
     BB14_B1 = Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_B10= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B10").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B10").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_B11= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B11").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B11").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_B2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_B4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B4").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B4").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_B5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B5").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B5").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_B6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B6").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B6").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_B7= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B7").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B7").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_B8= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B8").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B8").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     BB14_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG12_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG12_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG12_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-D").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-D").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_B1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_B2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_C1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_C2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_C3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_C4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C4").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C4").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_C5_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_C5_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-D").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-D").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_D1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_D2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_D3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_E1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_E2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_E3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_F1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_F2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG2_F3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG3_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG3-A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG3-A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG4_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG4_B15= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B15").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B15").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG4_B2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG4_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG4_F= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-F").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-F").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG4_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-G").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-G").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG5_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG5_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG5_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-G").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-G").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG6_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG6_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG6_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG7_F= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG7-F").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG7-F").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CMG8_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG8-B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG8-B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     CRA6_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CRA6-A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CRA6-A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     FIN23_C1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     FIN23_C10= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C10").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C10").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     FIN23_C4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C4").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C4").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     FIN23_C6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C6").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C6").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     FIN23_C9= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C9").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C9").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     FIN9_C0201= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0201").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0201").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     FIN9_C0301= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0301").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0301").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     FIN9_C0305= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0305").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0305").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG02_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG02_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG02_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG02_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG02_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-G").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-G").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG02_H= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-H").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-H").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG02_I= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-I").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-I").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG02_K= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-K").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-K").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG02_L= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-L").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-L").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG04_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG05_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG09_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GRTM_C503= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GRTM-C503").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GRTM-C503").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     ISG18_C2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="ISG18-C2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="ISG18-C2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT11_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT11-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT11-E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_B6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-B6").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-B6").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_C3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_C5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C5").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C5").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_C6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C6").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C6").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D01_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D01-A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D01-A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D08_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D08-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D08-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D2_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D2_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D2_05= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-05").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-05").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D3_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D3_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D3_04= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-04").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-04").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D3_06= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-06").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-06").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D4_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D4-03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D4-03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D5_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D5_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D6_06= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6-06").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6-06").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D03_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D03-B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D03-B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D7_01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D7_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_D7_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_E2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_E3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_F3A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_F3B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_F3D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3D").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3D").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_F3E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3E").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_G2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT2_G4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G4").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G4").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT3_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT3_B5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B5").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B5").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT3_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT3_D2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D2").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT3_D3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT3_D4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D4").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D4").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT3_D5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D5").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D5").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT3_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B3").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_A01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-A01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-A01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_B02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_B06= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B06").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B06").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_C01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-C01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-C01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_D01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_D02A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_D02B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02B").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_D2_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D2-03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D2-03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_E01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_E03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_E04= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E04").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E04").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_F01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_F02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_F03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_G01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_G02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G02").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_G03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_H01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_H03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_I01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_I03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_J01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J01").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT5_J03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J03").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     NTT6_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT6-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT6-C").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     OP12_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP12-A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP12-A").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     OP20_F1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP20-F1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP20-F1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     SG02_O= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-O").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-O").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     SG02_P= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-P").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-P").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     SG02_Q= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-Q").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-Q").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     SG02_R= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-R").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-R").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     SG02_U= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG02_F= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GRTM_C503= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     SG02_T1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-T1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-T1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     GEG04_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
     
-    grand_total = float(BB14_B1)+float(BB14_B10)+float(BB14_B11)+float(BB14_B2)+float(BB14_B3)+float(BB14_B4)+float(BB14_B5)
-    +float(BB14_B6)+float(BB14_B7)+float(BB14_B8)+float(BB14_C)+float(BB14_E)+float(CMG12_A)+float(CMG12_C)
-    +float(CMG12_D)+float(CMG2_B1)+float(CMG2_B2)+float(CMG2_B3)+float(CMG2_C1)+float(CMG2_C2)+float(CMG2_C3)
-    +float(CMG2_C4)+float(CMG2_C5_C)+float(CMG2_C5_D)+float(CMG2_D1)+float(CMG2_D2)+float(CMG2_D3)+float(CMG2_E1)
-    +float(CMG2_E2)+float(CMG2_E3)+float(CMG2_F1)+float(CMG2_F2)+float(CMG2_F3)+float(CMG3_A)+float(CMG4_B)
-    +float(CMG4_B15)+float(CMG4_B2)+float(CMG4_E)+float(CMG4_F)+float(CMG4_G)+float(CMG5_B)+float(CMG5_E)+float(CMG5_G)
-    +float(CMG6_B)+float(CMG6_C)+float(CMG6_E)+float(CMG7_F)+float(CMG8_B)+float(CRA6_A)+float(FIN23_C1)+float(FIN23_C10)
-    +float(FIN23_C4)+float(FIN23_C6)+float(FIN23_C9)+float(FIN9_C0201)+float(FIN9_C0301)+float(FIN9_C0305)
-    +float( GEG02_B)+float(GEG02_C)+float(GEG02_D)+float(GEG02_E)+float(GEG02_G)+float(GEG02_H)+float(GEG02_I)+float(GEG02_K)
-    +float(GEG02_L)+float(GEG04_B3)+float(GEG05_E)+float(GEG09_D)+float(GRTM_C503)+float(ISG18_C2)+float(NTT11_E)
-    +float(NTT2_B6)+float(NTT2_C3)+float(NTT2_C5)+float(NTT2_C6)+float(NTT2_D01_A)+float(NTT2_D08_C)+float(NTT2_D1)
-    +float(NTT2_D2_02)+float(NTT2_D2_03)+float(NTT2_D2_05)+float(NTT2_D3_02)+float(NTT2_D3_03)+float(NTT2_D3_04)
-    +float(NTT2_D3_06)+float(NTT2_D4_03)+float(NTT2_D5_02)+float(NTT2_D5_03)+float(NTT2_D6)+float(NTT2_D6_06)
-    +float(NTT2_D03_B)+float(NTT2_D7_01)+float(NTT2_D7_02)+float(NTT2_D7_03)+float(NTT2_E2)+float(NTT2_E3)
-    +float( NTT2_F3A)+float(NTT2_F3B)+float(NTT2_F3D)+float(NTT2_F3E)+float(NTT2_G2)+float(NTT2_G4)+float(NTT3_A)
-    +float(NTT3_B5)+float(NTT3_C)+float(NTT3_D2)+float(NTT3_D3)+float(NTT3_D4)+float(NTT3_D5)+float(NTT3_B3)
-    +float(NTT5_A01)+float(NTT5_B02)+float(NTT5_B06)+float(NTT5_C01)+float(NTT5_D01)+float(NTT5_D02A)
-    +float( NTT5_D02B)+float(NTT5_D2_03)+float(NTT5_E01)+float(NTT5_E03)+float(NTT5_E04)+float(NTT5_F01)
-    +float( NTT5_F02)+float(NTT5_F03)+float(NTT5_G)+float(NTT5_G01)+float(NTT5_G02)+float(NTT5_G03)+float(NTT5_H01)
-    +float(NTT5_H03)+float(NTT5_I01)+float(NTT5_I03)+float(NTT5_J01)+float(NTT5_J03)+float(NTT6_C)+float(OP12_A)
-    +float(OP20_F1)+float(SG02_O)+float(SG02_P)+float(SG02_Q)+float(SG02_R)+float(SG02_U)+float(GEG02_F)+float( GRTM_C503)
-    +float(G02_T1)+float(GEG04_B3)
+    grand_total = BB14_B1+BB14_B10+BB14_B11+BB14_B2+BB14_B3+BB14_B4+BB14_B5
+    +BB14_B6+BB14_B7+BB14_B8+BB14_C+BB14_E+CMG12_A+CMG12_C
+    +CMG12_D+CMG2_B1+CMG2_B2+CMG2_B3+CMG2_C1+CMG2_C2+CMG2_C3
+    +CMG2_C4+CMG2_C5_C+CMG2_C5_D+CMG2_D1+CMG2_D2+CMG2_D3+CMG2_E1
+    +CMG2_E2+CMG2_E3+CMG2_F1+CMG2_F2+CMG2_F3+CMG3_A+CMG4_B
+    +CMG4_B15+CMG4_B2+CMG4_E+CMG4_F+CMG4_G+CMG5_B+CMG5_E+CMG5_G
+    +CMG6_B+CMG6_C+CMG6_E+CMG7_F+CMG8_B+CRA6_A+FIN23_C1+FIN23_C10
+    +FIN23_C4+FIN23_C6+FIN23_C9+FIN9_C0201+FIN9_C0301+FIN9_C0305
+    +GEG02_B+GEG02_C+GEG02_D+GEG02_E+GEG02_G+GEG02_H+GEG02_I+GEG02_K
+    +GEG02_L+GEG04_B3+GEG05_E+GEG09_D+GRTM_C503+ISG18_C2+NTT11_E
+    +NTT2_B6+NTT2_C3+NTT2_C5+NTT2_C6+NTT2_D01_A+NTT2_D08_C+NTT2_D1
+    +NTT2_D2_02+NTT2_D2_03+NTT2_D2_05+NTT2_D3_02+NTT2_D3_03+NTT2_D3_04
+    +NTT2_D3_06+NTT2_D4_03+NTT2_D5_02+NTT2_D5_03+NTT2_D6+NTT2_D6_06
+    +NTT2_D03_B+NTT2_D7_01+NTT2_D7_02+NTT2_D7_03+NTT2_E2+NTT2_E3
+    +NTT2_F3A+NTT2_F3B+NTT2_F3D+NTT2_F3E+NTT2_G2+NTT2_G4+NTT3_A
+    +NTT3_B5+NTT3_C+NTT3_D2+NTT3_D3+NTT3_D4+NTT3_D5+NTT3_B3
+    +NTT5_A01+NTT5_B02+NTT5_B06+NTT5_C01+NTT5_D01+NTT5_D02A
+    +NTT5_D02B+NTT5_D2_03+NTT5_E01+NTT5_E03+NTT5_E04+NTT5_F01
+    +NTT5_F02+NTT5_F03+NTT5_G+NTT5_G01+NTT5_G02+NTT5_G03+NTT5_H01
+    +NTT5_H03+NTT5_I01+NTT5_I03+NTT5_J01+NTT5_J03+NTT6_C+OP12_A
+    +OP20_F1+SG02_O+SG02_P+SG02_Q+SG02_R+SG02_U+GEG02_F+GRTM_C503
+    +SG02_T1+GEG04_B3
     ## ProductAmount end ####
 
     ##Discount_Amount
 
     dis_BB14_B1 = Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_B10= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B10").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B10").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_B11= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B11").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B11").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_B2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_B4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B4").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B4").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_B5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B5").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B5").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_B6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B6").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B6").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_B7= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B7").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B7").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_B8= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B8").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B8").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_BB14_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG12_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG12_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG12_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-D").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-D").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_B1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_B2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_C1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_C2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_C3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_C4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C4").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C4").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_C5_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-       StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+       StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_C5_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-       StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-D").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+       StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-D").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_D1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_D2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_D3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_E1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_E2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_E3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_F1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_F2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG2_F3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG3_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG3-A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG3-A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG4_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG4_B15= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B15").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B15").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG4_B2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG4_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG4_F= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-F").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-F").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG4_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-G").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-G").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG5_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG5_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG5_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-G").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-G").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG6_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG6_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG6_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG7_F= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG7-F").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG7-F").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CMG8_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG8-B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG8-B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_CRA6_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CRA6-A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CRA6-A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_FIN23_C1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_FIN23_C10= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C10").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C10").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_FIN23_C4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C4").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C4").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_FIN23_C6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C6").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C6").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_FIN23_C9= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C9").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C9").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_FIN9_C0201= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0201").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0201").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_FIN9_C0301= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0301").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0301").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_FIN9_C0305= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0305").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0305").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG02_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG02_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG02_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG02_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG02_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-G").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-G").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG02_H= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-H").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-H").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG02_I= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-I").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-I").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG02_K= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-K").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-K").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG02_L= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-L").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-L").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG04_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG05_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG09_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GRTM_C503= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GRTM-C503").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GRTM-C503").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_ISG18_C2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="ISG18-C2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="ISG18-C2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT11_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT11-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT11-E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_B6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-B6").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-B6").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_C3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_C5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C5").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C5").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_C6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C6").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C6").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D01_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D01-A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D01-A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D08_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D08-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D08-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D2_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D2_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D2_05= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-05").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-05").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D3_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D3_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D3_04= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-04").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-04").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D3_06= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-06").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-06").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D4_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D4-03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D4-03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D5_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D5_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D6_06= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6-06").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6-06").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D03_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D03_B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D03_B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D7_01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D7_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_D7_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_E2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_E3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_F3A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_F3B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_F3D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3D").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3D").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_F3E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3E").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_G2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT2_G4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G4").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G4").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT3_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT3_B5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B5").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B5").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT3_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT3_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT3_D2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D2").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT3_D3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D3").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT3_D4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D4").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D4").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT3_D5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D5").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D5").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_A01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-A01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-A01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_B02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_B06= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B06").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B06").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_C01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-C01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-C01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_D01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_D02A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_D02B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02B").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_D2_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D2-03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D2-03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_E01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_E03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_E04= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E04").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E04").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_F01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_F02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_F03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_G01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_G02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G02").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_G03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_H01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_H03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_I01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_I03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_J01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J01").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT5_J03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J03").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_NTT6_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT6-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT6-C").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_OP12_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP12-A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP12-A").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_OP20_F1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP20-F1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP20-F1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_SG02_O= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-O").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-O").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_SG02_P= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-P").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-P").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_SG02_Q= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-Q").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-Q").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_SG02_R= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-R").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-R").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_SG02_U= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG02_F= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GRTM_C503= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_SG02_T1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-T1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-T1").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     dis_GEG04_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('DiscountAmount')).get('DiscountAmount__sum', 0.00) or 0
     
-    dis_grand_total = float(dis_BB14_B1)+float(dis_BB14_B10)+float(dis_BB14_B11)+float(dis_BB14_B2)+float(dis_BB14_B3)+float(dis_BB14_B4)+float(dis_BB14_B5)
-    +float(dis_BB14_B6)+float(dis_BB14_B7)+float(dis_BB14_B8)+float(dis_BB14_C)+float(dis_BB14_E)+float(dis_CMG12_A)+float(dis_CMG12_C)
-    +float(dis_CMG12_D)+float(dis_CMG2_B1)+float(dis_CMG2_B2)+float(dis_CMG2_B3)+float(dis_CMG2_C1)+float(dis_CMG2_C2)+float(dis_CMG2_C3)
-    +float(dis_CMG2_C4)+float(dis_CMG2_C5_C)+float(dis_CMG2_C5_D)+float(dis_CMG2_D1)+float(dis_CMG2_D2)+float(dis_CMG2_D3)+float(dis_CMG2_E1)
-    +float(dis_CMG2_E2)+float(dis_CMG2_E3)+float(dis_CMG2_F1)+float(dis_CMG2_F2)+float(dis_CMG2_F3)+float(dis_CMG3_A)+float(dis_CMG4_B)
-    +float(dis_CMG4_B15)+float(dis_CMG4_B2)+float(dis_CMG4_E)+float(dis_CMG4_F)+float(dis_CMG4_G)+float(dis_CMG5_B)+float(dis_CMG5_E)+float(dis_CMG5_G)
-    +float(dis_CMG6_B)+float(dis_CMG6_C)+float(dis_CMG6_E)+float(dis_CMG7_F)+float(dis_CMG8_B)+float(dis_CRA6_A)+float(dis_FIN23_C1)+float(dis_FIN23_C10)
-    +float(dis_FIN23_C4)+float(dis_FIN23_C6)+float(dis_FIN23_C9)+float(dis_FIN9_C0201)+float(dis_FIN9_C0301)+float(dis_FIN9_C0305)
-    +float(dis_GEG02_B)+float(dis_GEG02_C)+float(dis_GEG02_D)+float(dis_GEG02_E)+float(dis_GEG02_G)+float(dis_GEG02_H)+float(dis_GEG02_I)+float(dis_GEG02_K)
-    +float(dis_GEG02_L)+float(dis_GEG04_B3)+float(dis_GEG05_E)+float(dis_GEG09_D)+float(dis_GRTM_C503)+float(dis_ISG18_C2)+float(dis_NTT11_E)
-    +float(dis_NTT2_B6)+float(dis_NTT2_C3)+float(dis_NTT2_C5)+float(dis_NTT2_C6)+float(dis_NTT2_D01_A)+float(dis_NTT2_D08_C)+float(dis_NTT2_D1)
-    +float(dis_NTT2_D2_02)+float(dis_NTT2_D2_03)+float(dis_NTT2_D2_05)+float(dis_NTT2_D3_02)+float(dis_NTT2_D3_03)+float(dis_NTT2_D3_04)
-    +float(dis_NTT2_D3_06)+float(dis_NTT2_D4_03)+float(dis_NTT2_D5_02)+float(dis_NTT2_D5_03)+float(dis_NTT2_D6)+float(dis_NTT2_D6_06)
-    +float(dis_NTT2_D03_B)+float(dis_NTT2_D7_01)+float(dis_NTT2_D7_02)+float(dis_NTT2_D7_03)+float(dis_NTT2_E2)+float(dis_NTT2_E3)
-    +float(dis_NTT2_F3A)+float(dis_NTT2_F3B)+float(dis_NTT2_F3D)+float(dis_NTT2_F3E)+float(dis_NTT2_G2)+float(dis_NTT2_G4)+float(dis_NTT3_A)
-    +float(dis_NTT3_B5)+float(dis_NTT3_C)+float(dis_NTT3_D2)+float(dis_NTT3_D3)+float(dis_NTT3_D4)+float(dis_NTT3_D5)+float(dis_NTT3_B3)
-    +float(dis_NTT5_A01)+float(dis_NTT5_B02)+float(dis_NTT5_B06)+float(dis_NTT5_C01)+float(dis_NTT5_D01)+float(dis_NTT5_D02A)
-    +float(dis_NTT5_D02B)+float(dis_NTT5_D2_03)+float(dis_NTT5_E01)+float(dis_NTT5_E03)+float(dis_NTT5_E04)+float(dis_NTT5_F01)
-    +float(dis_NTT5_F02)+float(dis_NTT5_F03)+float(dis_NTT5_G)+float(dis_NTT5_G01)+float(dis_NTT5_G02)+float(dis_NTT5_G03)+float(dis_NTT5_H01)
-    +float(dis_NTT5_H03)+float(dis_NTT5_I01)+float(dis_NTT5_I03)+float(dis_NTT5_J01)+float(dis_NTT5_J03)+float(dis_NTT6_C)+float(dis_OP12_A)
-    +float(dis_OP20_F1)+float(dis_SG02_O)+float(dis_SG02_P)+float(dis_SG02_Q)+float(dis_SG02_R)+float(dis_SG02_U)+float(dis_GEG02_F)+float(dis_GRTM_C503)
-    +float(dis_G02_T1)+float(dis_GEG04_B3)
+    dis_grand_total = dis_BB14_B1+dis_BB14_B10+dis_BB14_B11+dis_BB14_B2+dis_BB14_B3+dis_BB14_B4+dis_BB14_B5
+    +dis_BB14_B6+dis_BB14_B7+dis_BB14_B8+dis_BB14_C+dis_BB14_E+dis_CMG12_A+dis_CMG12_C
+    +dis_CMG12_D+dis_CMG2_B1+dis_CMG2_B2+dis_CMG2_B3+dis_CMG2_C1+dis_CMG2_C2+dis_CMG2_C3
+    +dis_CMG2_C4+dis_CMG2_C5_C+dis_CMG2_C5_D+dis_CMG2_D1+dis_CMG2_D2+dis_CMG2_D3+dis_CMG2_E1
+    +dis_CMG2_E2+dis_CMG2_E3+dis_CMG2_F1+dis_CMG2_F2+dis_CMG2_F3+dis_CMG3_A+dis_CMG4_B
+    +dis_CMG4_B15+dis_CMG4_B2+dis_CMG4_E+dis_CMG4_F+dis_CMG4_G+dis_CMG5_B+dis_CMG5_E+dis_CMG5_G
+    +dis_CMG6_B+dis_CMG6_C+dis_CMG6_E+dis_CMG7_F+dis_CMG8_B+dis_CRA6_A+dis_FIN23_C1+dis_FIN23_C10
+    +dis_FIN23_C4+dis_FIN23_C6+dis_FIN23_C9+dis_FIN9_C0201+dis_FIN9_C0301+dis_FIN9_C0305
+    +dis_GEG02_B+dis_GEG02_C+dis_GEG02_D+dis_GEG02_E+dis_GEG02_G+dis_GEG02_H+dis_GEG02_I+dis_GEG02_K
+    +dis_GEG02_L+dis_GEG04_B3+dis_GEG05_E+dis_GEG09_D+dis_GRTM_C503+dis_ISG18_C2+dis_NTT11_E
+    +dis_NTT2_B6+dis_NTT2_C3+dis_NTT2_C5+dis_NTT2_C6+dis_NTT2_D01_A+dis_NTT2_D08_C+dis_NTT2_D1
+    +dis_NTT2_D2_02+dis_NTT2_D2_03+dis_NTT2_D2_05+dis_NTT2_D3_02+dis_NTT2_D3_03+dis_NTT2_D3_04
+    +dis_NTT2_D3_06+dis_NTT2_D4_03+dis_NTT2_D5_02+dis_NTT2_D5_03+dis_NTT2_D6+dis_NTT2_D6_06
+    +dis_NTT2_D03_B+dis_NTT2_D7_01+dis_NTT2_D7_02+dis_NTT2_D7_03+dis_NTT2_E2+dis_NTT2_E3
+    +dis_NTT2_F3A+dis_NTT2_F3B+dis_NTT2_F3D+dis_NTT2_F3E+dis_NTT2_G2+dis_NTT2_G4+dis_NTT3_A
+    +dis_NTT3_B5+dis_NTT3_C+dis_NTT3_D2+dis_NTT3_D3+dis_NTT3_D4+dis_NTT3_D5+dis_NTT3_B3
+    +dis_NTT5_A01+dis_NTT5_B02+dis_NTT5_B06+dis_NTT5_C01+dis_NTT5_D01+dis_NTT5_D02A
+    +dis_NTT5_D02B+dis_NTT5_D2_03+dis_NTT5_E01+dis_NTT5_E03+dis_NTT5_E04+dis_NTT5_F01
+    +dis_NTT5_F02+dis_NTT5_F03+dis_NTT5_G+dis_NTT5_G01+dis_NTT5_G02+dis_NTT5_G03+dis_NTT5_H01
+    +dis_NTT5_H03+dis_NTT5_I01+dis_NTT5_I03+dis_NTT5_J01+dis_NTT5_J03+dis_NTT6_C+dis_OP12_A
+    +dis_OP20_F1+dis_SG02_O+dis_SG02_P+dis_SG02_Q+dis_SG02_R+dis_SG02_U+dis_GEG02_F+dis_GRTM_C503
+    +dis_SG02_T1+dis_GEG04_B3
     ## Discount_Amount end ######
 
     ### Net Amount #####
     net_BB14_B1 = Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_B10= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B10").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B10").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_B11= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B11").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B11").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_B2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_B4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B4").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B4").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_B5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B5").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B5").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_B6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B6").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B6").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_B7= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B7").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B7").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_B8= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B8").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B8").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_BB14_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG12_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG12_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG12_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-D").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG12-D").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_B1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_B2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-B3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_C1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_C2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_C3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_C4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C4").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C4").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_C5_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-       StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-D").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+       StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-D").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_C5_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-       StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+       StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-C5-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_D1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_D2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_D3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-D3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_E1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_E2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_E3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-E3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_F1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_F2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG2_F3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG2-F3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG3_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG3-A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG3-A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG4_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG4_B15= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B15").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B15").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG4_B2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-B2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG4_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG4_F= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-F").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-F").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG4_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-G").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG4-G").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG5_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG5_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG5_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-G").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG5-G").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG6_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG6_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG6_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG6-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG7_F= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG7-F").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG7-F").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CMG8_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG8-B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CMG8-B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_CRA6_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CRA6-A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="CRA6-A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_FIN23_C1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_FIN23_C10= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C10").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C10").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_FIN23_C4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C4").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C4").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_FIN23_C6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C6").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C6").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_FIN23_C9= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C9").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN23-C9").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_FIN9_C0201= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0201").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0201").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_FIN9_C0301= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0301").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0301").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_FIN9_C0305= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0305").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="FIN9-C0305").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG02_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG02_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG02_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG02_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG02_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-G").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-G").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG02_H= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-H").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-H").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG02_I= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-I").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-I").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG02_K= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-K").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-K").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG02_L= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-L").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-L").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG04_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-B3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG05_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG09_D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GEG02-D").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GRTM_C503= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GRTM-C503").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="GRTM-C503").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_ISG18_C2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="ISG18-C2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="ISG18-C2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT11_E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT11-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT11-E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_C3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_C5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C5").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C5").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_C6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C6").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-C6").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_B6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-B6").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-B6").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D01_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D01-A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D01-A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D03_B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D03-B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D03-B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D08_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D08-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D08-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D2_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D2_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D2_05= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-05").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D2-05").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D3_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D3_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D3_04= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-04").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-04").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D3_06= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-06").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D3-06").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D4_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D4-03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D4-03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D5_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D5_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D5-03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D6= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D6_06= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6-06").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D6-06").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D7_01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D7_02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_D7_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-D7-03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_E2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_E3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-E3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_F3A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_F3B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_F3D= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3D").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3D").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_F3E= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-F3E").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_G2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT2_G4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G4").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT2-G4").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT3_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT3_B5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B5").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B5").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT3_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-B3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT3_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT3_D2= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D2").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT3_D3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D3").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT3_D4= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D4").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D4").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT3_D5= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D5").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT3-D5").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_A01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-A01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-A01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_B02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_B06= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B06").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-B06").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_C01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-C01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-C01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_D01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_D02A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_D02B= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D02B").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_D2_03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D2-03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-D2-03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_E01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_E03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_E04= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E04").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-E04").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_F01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_F02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_F03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-F03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_G= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_G01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_G02= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G02").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_G03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-G03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_H01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_H03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-H03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_I01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_I03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-I03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_J01= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J01").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT5_J03= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT5-J03").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_NTT6_C= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT6_C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="NTT6_C").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_OP12_A= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP12-A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP12-A").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_OP20_F1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP20-F1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="OP20-F1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_SG02_O= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-O").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-O").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_SG02_P= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-P").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-P").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_SG02_Q= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-Q").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-Q").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_SG02_R= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-R").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-R").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_SG02_U= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG02_F= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GRTM_C503= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_SG02_T1= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-T1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-T1").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
     net_GEG04_B3= Petron_report.objects.filter(StatementDate__year=date.year, 
-        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00)
-    net_grand_total = float(net_BB14_B1)+float(net_BB14_B10)+float(net_BB14_B11)+float(net_BB14_B2)+float(net_BB14_B3)+float(net_BB14_B4)+float(net_BB14_B5)
-    +float(net_BB14_B6)+float(net_BB14_B7)+float(net_BB14_B8)+float(net_BB14_C)+float(net_BB14_E)+float(net_CMG12_A)+float(net_CMG12_C)
-    +float(net_CMG12_D)+float(net_CMG2_B1)+float(net_CMG2_B2)+float(net_CMG2_B3)+float(net_CMG2_C1)+float(net_CMG2_C2)+float(net_CMG2_C3)
-    +float(net_CMG2_C4)+float(net_CMG2_C5_C)+float(net_CMG2_C5_D)+float(net_CMG2_D1)+float(net_CMG2_D2)+float(net_CMG2_D3)+float(net_CMG2_E1)
-    +float(net_CMG2_E2)+float(net_CMG2_E3)+float(net_CMG2_F1)+float(net_CMG2_F2)+float(net_CMG2_F3)+float(net_CMG3_A)+float(net_CMG4_B)
-    +float(net_CMG4_B15)+float(net_CMG4_B2)+float(net_CMG4_E)+float(net_CMG4_F)+float(net_CMG4_G)+float(net_CMG5_B)+float(net_CMG5_E)+float(net_CMG5_G)
-    +float(net_CMG6_B)+float(net_CMG6_C)+float(net_CMG6_E)+float(net_CMG7_F)+float(net_CMG8_B)+float(net_CRA6_A)+float(net_FIN23_C1)+float(net_FIN23_C10)
-    +float(net_FIN23_C4)+float(net_FIN23_C6)+float(net_FIN23_C9)+float(net_FIN9_C0201)+float(net_FIN9_C0301)+float(net_FIN9_C0305)
-    +float(net_GEG02_B)+float(net_GEG02_C)+float(net_GEG02_D)+float(net_GEG02_E)+float(net_GEG02_G)+float(net_GEG02_H)+float(net_GEG02_I)+float(net_GEG02_K)
-    +float(net_GEG02_L)+float(net_GEG04_B3)+float(net_GEG05_E)+float(net_GEG09_D)+float(net_GRTM_C503)+float(net_ISG18_C2)+float(net_NTT11_E)
-    +float(net_NTT2_B6)+float(net_NTT2_C3)+float(net_NTT2_C5)+float(net_NTT2_C6)+float(net_NTT2_D01_A)+float(net_NTT2_D08_C)+float(net_NTT2_D1)
-    +float(net_NTT2_D2_02)+float(net_NTT2_D2_03)+float(net_NTT2_D2_05)+float(net_NTT2_D3_02)+float(net_NTT2_D3_03)+float(net_NTT2_D3_04)
-    +float(net_NTT2_D3_06)+float(net_NTT2_D4_03)+float(net_NTT2_D5_02)+float(net_NTT2_D5_03)+float(net_NTT2_D6)+float(net_NTT2_D6_06)
-    +float(net_NTT2_D03_B)+float(net_NTT2_D7_01)+float(net_NTT2_D7_02)+float(net_NTT2_D7_03)+float(net_NTT2_E2)+float(net_NTT2_E3)
-    +float(net_NTT2_F3A)+float(net_NTT2_F3B)+float(net_NTT2_F3D)+float(net_NTT2_F3E)+float(net_NTT2_G2)+float(net_NTT2_G4)+float(net_NTT3_A)
-    +float(net_NTT3_B5)+float(net_NTT3_C)+float(net_NTT3_D2)+float(net_NTT3_D3)+float(net_NTT3_D4)+float(net_NTT3_D5)+float(net_NTT3_B3)
-    +float(net_NTT5_A01)+float(net_NTT5_B02)+float(net_NTT5_B06)+float(net_NTT5_C01)+float(net_NTT5_D01)+float(net_NTT5_D02A)
-    +float(net_NTT5_D02B)+float(net_NTT5_D2_03)+float(net_NTT5_E01)+float(net_NTT5_E03)+float(net_NTT5_E04)+float(net_NTT5_F01)
-    +float(net_NTT5_F02)+float(net_NTT5_F03)+float(net_NTT5_G)+float(net_NTT5_G01)+float(net_NTT5_G02)+float(net_NTT5_G03)+float(net_NTT5_H01)
-    +float(net_NTT5_H03)+float(net_NTT5_I01)+float(net_NTT5_I03)+float(net_NTT5_J01)+float(net_NTT5_J03)+float(net_NTT6_C)+float(net_OP12_A)
-    +float(net_OP20_F1)+float(net_SG02_O)+float(net_SG02_P)+float(net_SG02_Q)+float(net_SG02_R)+float(net_SG02_U)+float(net_GEG02_F)+float(net_GRTM_C503)
-    +float(net_G02_T1)+float(net_GEG04_B3)
+        StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="SG02-U").aggregate(Sum('NetAmount')).get('NetAmount__sum', 0.00) or 0
+    net_grand_total = net_BB14_B1+net_BB14_B10+net_BB14_B11+net_BB14_B2+net_BB14_B3+net_BB14_B4+net_BB14_B5
+    +net_BB14_B6+net_BB14_B7+net_BB14_B8+net_BB14_C+net_BB14_E+net_CMG12_A+net_CMG12_C
+    +net_CMG12_D+net_CMG2_B1+net_CMG2_B2+net_CMG2_B3+net_CMG2_C1+net_CMG2_C2+net_CMG2_C3
+    +net_CMG2_C4+net_CMG2_C5_C+net_CMG2_C5_D+net_CMG2_D1+net_CMG2_D2+net_CMG2_D3+net_CMG2_E1
+    +net_CMG2_E2+net_CMG2_E3+net_CMG2_F1+net_CMG2_F2+net_CMG2_F3+net_CMG3_A+net_CMG4_B
+    +net_CMG4_B15+net_CMG4_B2+net_CMG4_E+net_CMG4_F+net_CMG4_G+net_CMG5_B+net_CMG5_E+net_CMG5_G
+    +net_CMG6_B+net_CMG6_C+net_CMG6_E+net_CMG7_F+net_CMG8_B+net_CRA6_A+net_FIN23_C1+net_FIN23_C10
+    +net_FIN23_C4+net_FIN23_C6+net_FIN23_C9+net_FIN9_C0201+net_FIN9_C0301+net_FIN9_C0305
+    +net_GEG02_B+net_GEG02_C+net_GEG02_D+net_GEG02_E+net_GEG02_G+net_GEG02_H+net_GEG02_I+net_GEG02_K
+    +net_GEG02_L+net_GEG04_B3+net_GEG05_E+net_GEG09_D+net_GRTM_C503+net_ISG18_C2+net_NTT11_E
+    +net_NTT2_B6+net_NTT2_C3+net_NTT2_C5+net_NTT2_C6+net_NTT2_D01_A+net_NTT2_D08_C+net_NTT2_D1
+    +net_NTT2_D2_02+net_NTT2_D2_03+net_NTT2_D2_05+net_NTT2_D3_02+net_NTT2_D3_03+net_NTT2_D3_04
+    +net_NTT2_D3_06+net_NTT2_D4_03+net_NTT2_D5_02+net_NTT2_D5_03+net_NTT2_D6+net_NTT2_D6_06
+    +net_NTT2_D03_B+net_NTT2_D7_01+net_NTT2_D7_02+net_NTT2_D7_03+net_NTT2_E2+net_NTT2_E3
+    +net_NTT2_F3A+net_NTT2_F3B+net_NTT2_F3D+net_NTT2_F3E+net_NTT2_G2+net_NTT2_G4+net_NTT3_A
+    +net_NTT3_B5+net_NTT3_C+net_NTT3_D2+net_NTT3_D3+net_NTT3_D4+net_NTT3_D5+net_NTT3_B3
+    +net_NTT5_A01+net_NTT5_B02+net_NTT5_B06+net_NTT5_C01+net_NTT5_D01+net_NTT5_D02A
+    +net_NTT5_D02B+net_NTT5_D2_03+net_NTT5_E01+net_NTT5_E03+net_NTT5_E04+net_NTT5_F01
+    +net_NTT5_F02+net_NTT5_F03+net_NTT5_G+net_NTT5_G01+net_NTT5_G02+net_NTT5_G03+net_NTT5_H01
+    +net_NTT5_H03+net_NTT5_I01+net_NTT5_I03+net_NTT5_J01+net_NTT5_J03+net_NTT6_C+net_OP12_A
+    +net_OP20_F1+net_SG02_O+net_SG02_P+net_SG02_Q+net_SG02_R+net_SG02_U+net_GEG02_F+net_GRTM_C503
+    +net_SG02_T1+net_GEG04_B3
 
     from openpyxl.workbook import Workbook
     output = HttpResponse(content_type='application/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
