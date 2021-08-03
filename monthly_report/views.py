@@ -57,6 +57,8 @@ class petron_delete(DeleteView):
 def monthly_report_jan_summary(request):
 
     date = datetime.datetime.today()
+    months = ['zero','January','February','March','April','May','June','July','August','September','October','November','December']
+    month = months[date.month]
     ## ProductAmount ####
     BB14_B1 = Petron_report.objects.filter(StatementDate__year=date.year, 
         StatementDate__month=date.month, Supplier='Petron', ChargingDepartment="BB14-B1").aggregate(Sum('ProductAmount')).get('ProductAmount__sum', 0.00) or 0
@@ -1079,7 +1081,7 @@ def monthly_report_jan_summary(request):
     'net_NTT5_G':net_NTT5_G, 'net_NTT5_G01':net_NTT5_G01, 'net_NTT5_G02':net_NTT5_G02, 'net_NTT5_G03':net_NTT5_G03, 'net_NTT5_H01':net_NTT5_H01, 'net_NTT5_H03':net_NTT5_H03, 'net_NTT5_I01':net_NTT5_I01, 
     'net_NTT5_I03':net_NTT5_I03, 'net_NTT5_J01':net_NTT5_J01, 'net_NTT5_J03':net_NTT5_J03, 'net_OP12_A':net_OP12_A, 'net_OP20_F1':net_OP20_F1, 'net_SG02_O':net_SG02_O, 'net_SG02_P':net_SG02_P, 'net_SG02_Q':net_SG02_Q, 
     'net_SG02_R':net_SG02_R, 'net_SG02_U':net_SG02_U,'net_GEG02_F':net_GEG02_F, 'dis_GEG02_F':dis_GEG02_F, 'GEG02_F':GEG02_F, 'GEG04_B3':GEG04_B3, 'GRTM_C503':GRTM_C503, 'dis_GEG04_B3':dis_GEG04_B3, 'dis_GRTM_C503':dis_GRTM_C503,
-    'net_GEG04_B3':net_GEG04_B3, 'net_GRTM_C503':net_GRTM_C503,'grand_total':grand_total,'dis_grand_total':dis_grand_total,'net_grand_total':net_grand_total})
+    'net_GEG04_B3':net_GEG04_B3, 'net_GRTM_C503':net_GRTM_C503,'grand_total':grand_total,'dis_grand_total':dis_grand_total,'net_grand_total':net_grand_total,'month':month})
 
 def petron_report(request):
     

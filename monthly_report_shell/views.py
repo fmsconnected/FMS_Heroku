@@ -60,6 +60,8 @@ class shell_details(DetailView):
 
 def reportsummary(request):
     date = datetime.datetime.today()
+    months = ['zero','January','February','March','April','May','June','July','August','September','October','November','December']
+    month = months[date.month]
     BB14_B10=shell_report.objects.filter(InvoiceDate__year=date.year, 
         InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-B10").aggregate(Sum('DelcoGrossValue')).get('DelcoGrossValue__sum', 0) or 0
     BB14_B2=shell_report.objects.filter(InvoiceDate__year=date.year, 
@@ -516,7 +518,7 @@ def reportsummary(request):
     'rebate_NTT2_D6_05':rebate_NTT2_D6_05,'rebate_NTT2_F4':rebate_NTT2_F4,'rebate_NTT2_G4':rebate_NTT2_G4,'rebate_NTT2_H3':rebate_NTT2_H3,'rebate_NTT3_B5':rebate_NTT3_B5,'rebate_NTT3_D5':rebate_NTT3_D5,'rebate_NTT5_B05A':rebate_NTT5_B05A,'rebate_NTT5_B06':rebate_NTT5_B06,'rebate_NTT5_C01':rebate_NTT5_C01 ,'rebate_NTT5_D01':rebate_NTT5_D01,'rebate_NTT5_D02':rebate_NTT5_D02,
     'rebate_NTT5_E03':rebate_NTT5_E03,'rebate_NTT5_E04':rebate_NTT5_E04,'rebate_NTT5_G01':rebate_NTT5_G01,'rebate_NTT5_G02':rebate_NTT5_G02,'rebate_NTT5_G03':rebate_NTT5_G03,'rebate_NTT5_H01':rebate_NTT5_H01,'rebate_NTT5_H03':rebate_NTT5_H03,'rebate_NTT5_I01':rebate_NTT5_I01,'rebate_NTT5_I02':rebate_NTT5_I02,'rebate_NTT5_I03':rebate_NTT5_I03,'rebate_NTT5_J01':rebate_NTT5_J01,
     'rebate_NTT5_J02':rebate_NTT5_J02,'rebate_NTT5_J03':rebate_NTT5_J03,'rebate_NTT6_C':rebate_NTT6_C,'rebate_NTT7_E':rebate_NTT7_E,'rebate_OP12_A':rebate_OP12_A,'rebate_SG02_O':rebate_SG02_O,'rebate_SG02_O2':rebate_SG02_O2,'rebate_SG02_P':rebate_SG02_P,'rebate_SG02_Q':rebate_SG02_Q,'rebate_SG02_Q2':rebate_SG02_Q2,'rebate_SG02_R':rebate_SG02_R,'rebate_SG02_U':rebate_SG02_U,'rebate_SG11_A':rebate_SG11_A,'rebate_ST1':rebate_ST1,
-    'grand_total':grand_total,'reb_grand_total':reb_grand_total
+    'grand_total':grand_total,'reb_grand_total':reb_grand_total,'month':month
     })
 
 
