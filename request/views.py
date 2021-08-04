@@ -706,6 +706,87 @@ def service_request_excel(request):
     workbook.save(response)
     return response
 
+def service_vehicle_report(request):
+    date = datetime.datetime.today().year
+    m_date = datetime.datetime.today()
+    months = ['zero','January','February','March','April','May','June','July','August','September','October','November','December']
+    month = months[m_date.month]
+    # preventive_count = Vehicle_Repair.objects.filter(status = 'NOTARIZED').count()
+    # corrective_count = Corrective.objects.filter(status = 'ON GOING ROUTING FOR APPROVAL').count()
+    # tire_battery = Ownership.objects.filter(status = 'WITH_TMG SCHEDULE').count()
+    # insurance = Ownership.objects.filter(status = 'FOR TMG APPEARANCE').count()
+    
+    from openpyxl import Workbook, load_workbook
+    output = HttpResponse(content_type='application/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    file_name = "Service Vehicle Request.xlsx"
+    output['Content-Disposition'] = 'attachment; filename='+ file_name
+    wb = Workbook()
+    ws = wb.active
+
+    #header
+    ws.title = "Service Vehicle Request"
+    ws.append([month, date])
+    ws['B2'].value = "Monday"
+    ws['C2'].value = "Tuesday"
+    ws['D2'].value = "Wednesday"
+    ws['E2'].value = "Thursday"
+    ws['F2'].value = "Friday"
+    ws['G2'].value = "Total"
+
+    ws['A3'].value = "A. Leasing/Process"
+    ws['A4'].value = "SVRF Line-Up"
+    ws['A5'].value = "* New Hire"
+    ws['A6'].value = "* Replacement Request"
+    ws['A7'].value = ""
+    ws['A8'].value = "Deliveries"
+    ws['A9'].value = "* Deliveries Endorsement (New)"
+    ws['A10'].value = "* Safekeeping (Allocated)"
+    ws['A11'].value = ""
+    ws['A12'].value = "PULLOUT Endorsement"
+    ws['A13'].value = "* Endorsed for Pullout"
+    ws['A14'].value = "* Returned (Matured/Terminated)"
+    ws['A15'].value = "* Sold"
+    ws['A16'].value = ""
+    ws['A17'].value = "TOA (Transefer of Accountability)"
+    ws['A18'].value = "* Change In Masterlist"
+    ws['A19'].value = "* For Processing Waiting Approval"
+    ws['A20'].value = ""
+    ws['A21'].value = "ENCODE (Masterlist and SAP)"
+    ws['A22'].value = "* Input New Vahicle Details"
+    ws['A23'].value = "* Create Contract-SAP"
+    ws['A24'].value = ""
+    ws['A25'].value = "B. Car Rental/Process"
+    ws['A26'].value = "* Request"
+    ws['A27'].value = "* Booked"
+    ws['A28'].value = ""
+    ws['A29'].value = "C. Other Task"
+    ws['A30'].value = "* Cascading Replacement Vehicle"
+    ws['A31'].value = "* Allocation of Temporary Vehicle"
+
+    #data
+    # ws['B4'].value = date
+    # ws['B10'].value = routing_count
+    # ws['B11'].value = notorized
+    # ws['B14'].value = tmg_appearance
+    # ws['B15'].value = tmg_schedule
+    # ws['B17'].value = with_tmg_etching
+    # ws['B19'].value = fleet_vismin
+    # ws['B21'].value = lto_transfer
+    # ws['B23'].value = total
+
+    # style
+    ws['A4'].fill = PatternFill("solid", fgColor="00FFCC99")
+    ws['A8'].fill = PatternFill("solid", fgColor="00FFCC99")
+    ws['A12'].fill = PatternFill("solid", fgColor="00FFCC99")
+    ws['A17'].fill = PatternFill("solid", fgColor="00FFCC99")
+    ws['A21'].fill = PatternFill("solid", fgColor="00FFCC99")
+    ws['A25'].fill = PatternFill("solid", fgColor="00FFCC99")
+    ws['A29'].fill = PatternFill("solid", fgColor="00FFCC99")
+   
+    wb.save(output)
+    return output
+
+
 
                       #####################################  
                     #########################################

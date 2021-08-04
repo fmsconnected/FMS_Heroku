@@ -30,6 +30,7 @@ urlpatterns = [
 	path('Service/History/', views.serviceHistoryView, name='service_history'),
 	path('Service/Export', views.service_request_excel, name='service_export'),
 	path('Service/Daily/Report', views.service_report, name='service_vehicle_report'),
+	path('Service/Daily/Export', views.service_vehicle_report, name='service_daily_export'),
 	# path('Repair/', views.repairListView.as_view(), name='repair_list'),
 	path('Repair/', views.repairListView, name='repair_list'),
 	path('Repair/Deadline', views.vrp_deadline, name='vrpdeadline'),
