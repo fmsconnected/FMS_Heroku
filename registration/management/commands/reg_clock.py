@@ -31,8 +31,6 @@ def send_registration_email():
                 # print(carreg.plate_no)
                 plate = carreg.PLATE_NO
                 print(plate)
-cc_email= ['zscsantos@globe.com.ph']
-toaddrs = recipient_list + cc_email
         if plate != "":
             for item in car_status:
                 subject = 'Fleet Management System Automated Email'
