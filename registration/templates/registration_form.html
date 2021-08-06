@@ -114,8 +114,8 @@
         <input name="remarks_justification" id="remarks_justification" class="form-control" maxlength="223" placeholder="Maximum limit: 223 characters">
     </div>
     <div class="col-sm-4">
-        <label>Email Status</label>
-        <select name="email_status" id="email_status" class="form-control" class="form-control" required>
+        <!-- <label>Email Status</label> -->
+        <select name="email_status" id="email_status" class="form-control" class="form-control" value="No" hidden>
             <option></option>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
@@ -128,8 +128,8 @@
 </div>
     <div class="card-footer">
         <button type="submit" class="buttonsubmit">PROCEED</button>
-        <button type="Reset" class="button">CLEAR ALL</button>
         <a href="{% url 'registration_jan_reg' %}" class="btn">CLOSE</a>
+        <button type="Reset" class="button">CLEAR ALL</button>
     </div>
 
 </form>
