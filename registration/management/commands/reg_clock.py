@@ -19,6 +19,7 @@ sched = BlockingScheduler()
 # @sched.scheduled_job('cron', day_of_week='mon-sun', hour=23)
 @sched.scheduled_job('interval', minutes=10)
 def send_registration_email():
+    print("test Registration Email")
     month = datetime.datetime.now().month
     date_now = datetime.datetime.now().date()
     print(date_now)

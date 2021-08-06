@@ -20,7 +20,7 @@ sched = BlockingScheduler()
 # @sched.scheduled_job('cron', day_of_week='mon-sun', hour=23)
 
 def email_job():
-    print("test")
+    print("test Request Email")
     current_date = datetime.datetime.today()
     date_now = datetime.datetime.now().date()
     # print(date_now)
