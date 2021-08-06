@@ -31,9 +31,9 @@
             <div class="col-md-12">
                 <div class="card">
                 <div class="card-header">
-                    <a href="{% url 'vehiclelist_export' %}"> <u>Export VehicleList </u></a>
-                    <a href="{% url 'vehicle_new' %}" style="float:right"><u>Add Vehicle Masterlist</u></a>
-                    <a href="{% url 'vehicleMasterlist_history' %}" style="float:right" class="mr-3"><u>Vehicle Masterlist History</u></a>
+                    <a href="{% url 'vehiclelist_export' %}"> <u>Export Data </u></a>
+                    <a href="{% url 'vehicle_new' %}" style="float:right"><u>Create</u></a>
+                    <a href="{% url 'vehicleMasterlist_history' %}" style="float:right" class="mr-3"><u>History</u></a>
                 </div>
                     <div class="container-fluid">
                     <table id="vtable" class="table table-striped table-bordered" style="width:100%" data-server-side="false" data-ajax="/api/Vehicle_Masterlist/?format=datatables">
