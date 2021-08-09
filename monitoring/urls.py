@@ -9,6 +9,8 @@ urlpatterns = [
 	path('Monitoring/Details/<int:pk>', views.monitoringDetails.as_view(), name='Monitoring_details'),
 	path('Monitoring/Delete/<int:pk>', views.monitoringDeleteView.as_view(), name='Monitoring_delete'),
 	path('Monitoring/History/', views.monitoringHistoryView, name='Monitoring_history'),
+	path('Report/Summary', views.report_details, name='fata_report_summary'),
+	path('Report/Export',views.report, name='fata_report_export'),
 	# FILTER BY MONTH
 	# path('Registration/January', views.janRegView, name='Monitoring_jan_reg'),
 	# path('Registration/Febuary', views.febRegView, name='Monitoring_feb_reg'),

@@ -1064,6 +1064,115 @@ def octReg_dueView(request):
 	return render(request, 'reg_due/regOct_monitoring_due.html', context)
 
 
+##Daily report Details
+def report_details(request):
+	# date = datetime.datetime.today()
+	# notorized = Ownership.objects.filter(status = 'NOTARIZED').count()
+	# routing_count = Ownership.objects.filter(status = 'ON GOING ROUTING FOR APPROVAL').count()
+	# tmg_schedule = Ownership.objects.filter(status = 'WITH_TMG SCHEDULE').count()
+	# tmg_appearance = Ownership.objects.filter(status = 'FOR TMG APPEARANCE').count()
+	# lto_transfer = Ownership.objects.filter(status = 'LTO TRANSFER').count()
+	# fleet_vismin = Ownership.objects.filter(status = 'FLEET VISMIN').count()
+	# with_tmg_etching = Ownership.objects.filter(status = 'WITH_MACRO ETCHING').count()
+	# total = notorized + routing_count + tmg_schedule + tmg_appearance + lto_transfer + fleet_vismin + with_tmg_etching
+	# return render(request, 'report_details.html',{'Title':'TOO - TOO Report', 'notorized':notorized,'routing_count':routing_count,
+	# 'tmg_schedule':tmg_schedule, 'tmg_appearance':tmg_appearance, 'lto_transfer':lto_transfer, 'fleet_vismin':fleet_vismin,
+	# 'with_tmg_etching':with_tmg_etching, 'total':total,'date':date})
+	return render(request, 'report.html')
+# Registration Daily Report
+def report(request):
+# 	date = datetime.datetime.today()
 
+# 	notorized = Ownership.objects.filter(status = 'NOTARIZED').count()
+# 	routing_count = Ownership.objects.filter(status = 'ON GOING ROUTING FOR APPROVAL').count()
+# 	tmg_schedule = Ownership.objects.filter(status = 'WITH_TMG SCHEDULE').count()
+# 	tmg_appearance = Ownership.objects.filter(status = 'FOR TMG APPEARANCE').count()
+# 	lto_transfer = Ownership.objects.filter(status = 'LTO TRANSFER').count()
+# 	fleet_vismin = Ownership.objects.filter(status = 'FLEET VISMIN').count()
+# 	with_tmg_etching = Ownership.objects.filter(status = 'WITH_MACRO ETCHING').count()
+# 	total = notorized + routing_count + tmg_schedule + tmg_appearance + lto_transfer + fleet_vismin + with_tmg_etching
+	from openpyxl import Workbook, load_workbook
+	output = HttpResponse(content_type='application/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+	file_name = "FATA_Report.xlsx"
+	output['Content-Disposition'] = 'attachment; filename='+ file_name
+	wb = Workbook()
+	ws = wb.active
+
+# 	#header
+	ws.title = "FATA Report"
+	ws['A1'].value = "Acquisition / Stephanie Warde"
+	ws.append(['', 'Total','Remarks'])
+	ws['A3'].value = "* New PR / PO (Ariba)"
+	ws['A4'].value = "2nd Hand"
+	ws['A5'].value = "FATA /Returned /Inhouse"
+	ws['A6'].value = "Delivered Units"
+	ws['A7'].value = "For Good Receipt (Approval in Ariba)"
+	ws['A8'].value = ""
+	ws['A9'].value = "* Documents"
+	ws['A10'].value = "FATA"
+	ws['A11'].value = "ORCR Monitoring"
+	ws['A12'].value = "Stencil Monitoring"
+	ws['A13'].value = "Spare Key Monitoring"
+	ws['A14'].value = ""
+	ws['A15'].value = "* Plate Monitoring"
+	ws['A16'].value = "Received Plate"
+	ws['A17'].value = "Aging Plate"
+	ws['A18'].value = ""
+	ws['A19'].value = "* Other Task"
+	ws['A20'].value = "Scanning ORCR and Invoices"
+# 	#data
+# 	ws['B4'].value = date
+# 	ws['B10'].value = routing_count
+# 	ws['B11'].value = notorized
+# 	ws['B14'].value = tmg_appearance
+# 	ws['B15'].value = tmg_schedule
+# 	ws['B17'].value = with_tmg_etching
+# 	ws['B19'].value = fleet_vismin
+# 	ws['B21'].value = lto_transfer
+# 	ws['B23'].value = total
+
+# 	# style
+# 	ws['A6'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['B6'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['C6'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['D6'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['E6'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['F6'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['G6'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	#TMG color
+# 	ws['A13'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['B13'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['C13'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['D13'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['E13'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['F13'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['G13'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	#vismin color
+# 	ws['A19'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['B19'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['C19'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['D19'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['E19'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['F19'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['G19'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	#lto transfer color
+# 	ws['A21'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['B21'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['C21'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['D21'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['E21'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['F21'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	ws['G21'].fill = PatternFill("solid", fgColor="00FFCC99")
+# 	#transfer color
+# 	ws['A25'].fill = PatternFill("solid", fgColor="00FF99CC")
+# 	ws['B25'].fill = PatternFill("solid", fgColor="00FF99CC")
+# 	ws['C25'].fill = PatternFill("solid", fgColor="00FF99CC")
+# 	ws['D25'].fill = PatternFill("solid", fgColor="00FF99CC")
+# 	ws['E25'].fill = PatternFill("solid", fgColor="00FF99CC")
+# 	ws['F25'].fill = PatternFill("solid", fgColor="00FF99CC")
+# 	ws['G25'].fill = PatternFill("solid", fgColor="00FF99CC")
+
+	wb.save(output)
+	return output
 		
 		

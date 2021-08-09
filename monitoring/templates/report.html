@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style type="text/css">
+  th {
+    text-align: middle;
+  }
+</style>
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3>Daily Report</h3>&nbsp;
+        
+        <a href="{% url 'Monitoring_list' %}" style="float:right"><u>Close</u></a><br>
+        <a href="{% url 'fata_report_export' %}" style="float:right"><u>Export Report</u></a>
+    </div>
+
+<table width="90%" class="table table-bordered table-hover" border="5px">
+  <tr>
+    <th width="25%">Acquisition / Stephanie Warde</th><td width="15%"><b></td>
+
+  </tr>
+  <tr>
+    <th width="25%"></th>
+    <th width="25%">Total</th>
+    <th width="25%">Remarks</th>
+  </tr>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <th width="25%"><b>* New PR / PO (Ariba)</b></th><td></td>
+  </tr>
+    <th width="25%">2nd Hand</th><td></td>
+  </tr>
+  <tr>
+    <th width="25%">FATA /Returned /Inhouse</th><td></td>
+  </tr>
+  <tr>
+    <th width="25%">Delivered Units</th><td></td>
+  </tr>
+  <tr>
+    <th width="25%">For Good Receipt (Approval in Ariba)</th><td></td>
+  </tr>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <th width="25%"><b>* Documents</b></th><td></td>
+  </tr>
+  <tr>
+    <th width="25%">FATA</th><td></td>
+  </tr>
+  <tr>
+    <th width="25%">ORCR Monitoring</th><td></td>
+  </tr>
+  <tr>
+    <th width="25%">Stencil Monitoring</th><td></td>
+  </tr>
+  <tr>
+    <th width="25%">Spare Key Monitoring</th><td></td>
+  </tr>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <th width="25%"><b>* Plate Monitoring</b></th><td></td>
+  </tr>
+  <tr>
+    <th width="25%">Received Plate</th><td></td>
+  </tr>
+  <tr>
+    <th width="25%">Aging Plate</th><td></td>
+  </tr>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <th width="25%"><b>* Other Task</b></th><td></td>
+  </tr>
+  <tr>
+    <th width="25%">Scanning ORCR and Invoices</th><td></td>
+  </tr>
+</table>
+
+
+{% endblock %}
