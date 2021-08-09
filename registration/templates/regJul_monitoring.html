@@ -90,6 +90,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                             <th>Smoke/TPL</th>
                             <th>COC</th>
                             <th>Date Emailed</th>
+                            <th>Email</th>
                             <th>Justification Remarks</th>
                             <th>Remark Registered</th>
                            
@@ -97,7 +98,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                         
                     </thead>
                     <tbody>
-                        {% for object in jul_list %}
+                        {% for object in apr_list %}
                         <tr class="odd gradeX">
                             <td><a href="{% url 'vregistration_details' object.id %}">{{ object.PLATE_NO }}</a></td>
                             <td>{{ object.CS_NO }}</td>
@@ -111,6 +112,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                             <td>{{ object.SMOKE_TPL }}</td>
                             <td>{{ object.COC }}</td>
                             <td>{{ object.DATE_EMAILED }}</td>   
+                            <td>{{ object.email }}</td>
                             <td>{{ object.JUSTIFICATION_REMARKS }}</td> 
                             <td>{{ object.REMARKS_REGISTERED }}</td>      
                         </tr>
