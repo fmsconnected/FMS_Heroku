@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style type="text/css">
+  th {
+    text-align: middle;
+  }
+</style>
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3>Finance Daily Report</h3>&nbsp;
+        <a href="{% url 'car_dailyreport_export' %}" style="float:right"><u>Export Report</u></a>
+    </div>
+
+<table width="90%" class="table table-bordered table-hover" border="5px">
+  <tr>
+    <th width="10%">Personel</th><td width="10%"><b>Janine Manzo</td>
+
+  </tr>
+  <tr>
+    <th width="10%">Date</th><td width="10%">{{ date }}</td>
+  </tr>
+  <tr>
+      <td></td>
+  </tr>
+  <tr>
+    <th width="10%">Vendor</th>
+    <th width="10%">Total Unpaid SOA</th>
+    <th width="10%">Total Processed</th>
+    <th width="10%">For this Month SOA Processed</th>
+  </tr>
+  <tr>
+    <th></th>
+  <tr>
+    <th width="10%">ORIX</th><td>{{ orix }}</td><td>{{ tp_orix }}</td>
+  </tr>
+   <th width="10%">DIAMOND</th><td>{{ diamond }}</td><td>{{ tp_diamond }}</td>
+  </tr>
+  <tr>
+    <th width="10%">PETRON</th><td></td><td></td>
+  </tr>
+  <tr>
+    <th width="10%">SHELL</th><td></td><td></td>
+  </tr>
+  <tr>
+    <th width="10%">GR8</th><td></td><td></td>
+  </tr>
+   <th width="10%">JXM</th><td></td><td></td>
+  </tr>
+  <tr>
+    <th width="10%">SAFARI (Car Rental)</th><td>{{ safari }}</td><td>{{ tp_safari }}</td>
+  </tr>
+  <tr>
+    <th width="10%">Tiger City (Car Rental)</th><td>{{ tg }}</td><td>{{ tp_tg }}</td>
+  </tr>
+  <tr>
+    <th width="10%">Created Work Order</th><td></td><td></td>
+  </tr>
+   <th width="10%">TopServe (FLEET Driver)</th><td></td><td></td>
+  </tr>
+  <tr>
+    <th width="10%">CARPLAN 95%</th><td></td><td></td>
+  </tr>
+  <tr>
+    <th width="10%">CARPLAN 5%</th><td></td><td></td>
+  </tr>
+
+</table>
+
+
+{% endblock %}

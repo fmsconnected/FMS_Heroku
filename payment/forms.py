@@ -89,10 +89,15 @@ class FuelsupplierForm(forms.ModelForm):
 			('INNOVE', 'INNOVE'),
 			('BAYAN', 'BAYAN'),
 		)
+		fuelpro = (
+			('SHELL','SHELL'),
+			('Petron Corporation','Petron Corporation'),
+			('Pilipinas Shell Petroleum Corp.','Pilipinas Shell Petroleum Corp.')
+		)
 		widgets = {
 
 		'SOA_Date_received': forms.TextInput(attrs={'class':'form-control','type':'date'}),
-		'Fuel_provider': forms.TextInput(attrs={'class':'form-control'}),
+		'Fuel_provider': forms.TextInput(attrs={'class':'form-control','choices':'fuelpro'}),
 		'SOA_billdate': forms.TextInput(attrs={'class':'form-control','type':'date'}),
 		'SOA_current_amount': forms.TextInput(attrs={'class':'form-control'}),
 		'SOA_outstanding_amount': forms.TextInput(attrs={'class':'form-control','type':'number'}),

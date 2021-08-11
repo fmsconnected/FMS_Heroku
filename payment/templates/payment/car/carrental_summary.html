@@ -126,6 +126,7 @@
     </tr>
     <tr>
       <th>Vehicle Brand </th> <td>{{ object.V_brand }}</td>
+      <th>SOA Number</th> <td>{{ object.sqa_number }}</td>
     </tr>
     <tr>
       <th>Vehicle Make </th> <td>{{ object.V_make }}</td>
@@ -169,7 +170,7 @@
     </tr>    
 </table>
     <div class="card-footer">
-      <a data-toggle="modal" data-target="#updateModal" class="button">UPDATE</a>
+      <a data-toggle="modal" data-target="#updateModal" class="buttonsubmit">UPDATE</a>
       <a href="{% url 'carrental_list' %}" type="button" class="btn">CLOSE</a> 
     </div>
 
@@ -223,14 +224,18 @@
                   <input style="text-transform:" type="text" name="Ocost" id="Ocost" class="form-control" value="{{ object.O_cost_center }}">
                   <br>
               </div>
+              <div class="col-sm-4">
+                  <label>SOA Number</label>
+                  <input style="text-transform:" type="text" name="sqa_number" id="sqa_number" class="form-control" value="{{ object.sqa_number }}">
+              </div>
 
-              <div class="col-sm-3">
+              <div class="col-sm-4">
                   <label>Plate Number</label>
                   <input style="text-transform:" type="text" name="Pnumber" id="Ddate" class="form-control" value="{{ object.Plate_no }}" readonly>
               </div>
-              <div class="col-sm-3">
+              <div class="col-sm-4">
                   <label>Vehicle Provider</label>
-                  <input style="text-transform:" type="text" name="Vprovider" id="Vprovider" class="form-control" value="{{ object.V_provider }}" readonly>
+                  <input style="text-transform:" type="text" name="Vprovider" id="Vprovider" class="form-control" value="{{ object.car_provider }}">
               </div>
               <div class="col-sm-3">
                   <label>Vehicle Brand</label>

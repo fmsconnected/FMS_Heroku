@@ -147,7 +147,7 @@ def Carrental_update(request, pk):
         Meal_cost = request.POST.get('Mealcost')
         Other_exp = request.POST.get('Otherexp')
         Total = request.POST.get('TotalExp')
-        car_provider = request.POST.get('car_provider')
+        car_provider = request.POST.get('Vprovider')
         sqa_number = request.POST.get('sqa_number')
         rfp_no2 = request.POST.get('rfp_no2')
 
@@ -164,7 +164,7 @@ def Carrental_update(request, pk):
             O_cost_center=Other_cost, Plate_no=Plate_no, V_brand=V_brand, V_make=V_make,
             D_vehicle=Delivered_V, S_rental=S_rental, E_rental=E_rental, R_duration=Rduration, R_Cost=R_cost,
             G_cost=Gas_cost, T_fee=Toll_fee, P_fee=Park_fee, Del_fee=Del_fee, Dri_fee=Driverfee, M_cost=Meal_cost,
-            O_expenses=Other_exp, T_expenses=Total)
+            O_expenses=Other_exp, T_expenses=Total,sqa_number=sqa_number,car_provider=car_provider)
 
         return HttpResponseRedirect('/Payment/Car/')
 
@@ -719,4 +719,142 @@ def vrepair_excel(request):
     return response
 
 
+## Car rental Daily report Details
+def car_report_details(request):
+    date = datetime.datetime.today()
+    carreport_SAFARI = CarRental.objects.filter(car_provider="SAFARI", sqa_number="").count()
+    carreport_DIAMOND = CarRental.objects.filter(car_provider="DIAMOND", sqa_number="").count()
+    carreport_TG = CarRental.objects.filter(car_provider="Tiger City", sqa_number="").count()
+    carreport_ORIX = CarRental.objects.filter(car_provider="ORIX", sqa_number="").count()
+    
+    vreport_ORIX = Vehicle_Repair_payment.objects.filter(dealership="ORIX", invoice_date="").count()
+    vreport_SAFARI = Vehicle_Repair_payment.objects.filter(dealership="SAFARI", invoice_date="").count()
+    vreport_DIAMOND = Vehicle_Repair_payment.objects.filter(dealership="DIAMOND", invoice_date="").count()
+    vreport_TG = Vehicle_Repair_payment.objects.filter(dealership="Tiger City", invoice_date="").count()
+    
+    processed_ORIX = CarRental.objects.filter(car_provider="ORIX").exclude(sqa_number='').count()
+    processed_SAFARI = CarRental.objects.filter(car_provider="SAFARI").exclude(sqa_number='').count()
+    processed_DIAMOND = CarRental.objects.filter(car_provider="DIAMOND").exclude(sqa_number='').count()
+    processed_TG = CarRental.objects.filter(car_provider="Tiger City").exclude(sqa_number='').count()
 
+    proreport_ORIX = Vehicle_Repair_payment.objects.filter(dealership="ORIX").exclude(invoice_date="").count()
+    proreport_SAFARI = Vehicle_Repair_payment.objects.filter(dealership="SAFARI").exclude(invoice_date="").count()
+    proreport_DIAMOND = Vehicle_Repair_payment.objects.filter(dealership="DIAMOND").exclude(invoice_date="").count()
+    proreport_TG = Vehicle_Repair_payment.objects.filter(dealership="Tiger City").exclude(invoice_date="").count()
+    
+    shell = Fuel_supplier.objects.filter(Fuel_provider="SHELL", SOA_billdate="").count()
+    pro_shell = Fuel_supplier.objects.filter(Fuel_provider="SHELL").exclude(SOA_billdate="").count()
+    petron = Fuel_supplier.objects.filter(Fuel_provider="Petron Corporation", SOA_billdate="").count()
+    pro_petron = Fuel_supplier.objects.filter(Fuel_provider="Petron Corporation").exclude(SOA_billdate="").count()
+
+    orix = carreport_ORIX + vreport_ORIX
+    safari = carreport_SAFARI + vreport_SAFARI
+    diamond = carreport_DIAMOND + vreport_DIAMOND
+    tg = carreport_TG + vreport_TG
+
+    tp_orix = processed_ORIX + proreport_ORIX
+    tp_safari = processed_SAFARI + proreport_SAFARI
+    tp_diamond = processed_DIAMOND + proreport_DIAMOND
+    tp_tg = processed_TG + proreport_TG
+
+    return render(request, 'payment_report.html',{'title':'Payment','date':date,'orix':orix, 'safari':safari, 'diamond':diamond, 'tg':tg,'tp_orix':tp_orix, 'tp_safari':tp_safari, 'tp_diamond':tp_diamond, 'tp_tg':tp_tg})
+
+# Car rental Daily Report
+def car_report(request):
+    date = datetime.datetime.today()
+    yr = datetime.datetime.now().year
+    months = ['zero','January','February','March','April','May','June','July','August','September','October','November','December']
+    month = months[date.month]
+    datem = datetime.datetime(date.year, date.month, 1)
+    carreport_SAFARI = CarRental.objects.filter(car_provider="SAFARI", sqa_number="").count()
+    carreport_DIAMOND = CarRental.objects.filter(car_provider="DIAMOND", sqa_number="").count()
+    carreport_TG = CarRental.objects.filter(car_provider="Tiger City", sqa_number="").count()
+    carreport_ORIX = CarRental.objects.filter(car_provider="ORIX", sqa_number="").count()
+    
+    vreport_ORIX = Vehicle_Repair_payment.objects.filter(dealership="ORIX", invoice_date="").count()
+    vreport_SAFARI = Vehicle_Repair_payment.objects.filter(dealership="SAFARI", invoice_date="").count()
+    vreport_DIAMOND = Vehicle_Repair_payment.objects.filter(dealership="DIAMOND", invoice_date="").count()
+    vreport_TG = Vehicle_Repair_payment.objects.filter(dealership="Tiger City", invoice_date="").count()
+    
+    processed_ORIX = CarRental.objects.filter(car_provider="ORIX").exclude(sqa_number='').count()
+    processed_SAFARI = CarRental.objects.filter(car_provider="SAFARI").exclude(sqa_number='').count()
+    processed_DIAMOND = CarRental.objects.filter(car_provider="DIAMOND").exclude(sqa_number='').count()
+    processed_TG = CarRental.objects.filter(car_provider="Tiger City").exclude(sqa_number='').count()
+
+    proreport_ORIX = Vehicle_Repair_payment.objects.filter(dealership="ORIX").exclude(invoice_date="").count()
+    proreport_SAFARI = Vehicle_Repair_payment.objects.filter(dealership="SAFARI").exclude(invoice_date="").count()
+    proreport_DIAMOND = Vehicle_Repair_payment.objects.filter(dealership="DIAMOND").exclude(invoice_date="").count()
+    proreport_TG = Vehicle_Repair_payment.objects.filter(dealership="Tiger City").exclude(invoice_date="").count()
+    
+    shell = Fuel_supplier.objects.filter(Fuel_provider="SHELL", SOA_billdate="").count()
+    pro_shell = Fuel_supplier.objects.filter(Fuel_provider="SHELL").exclude(SOA_billdate="").count()
+    petron = Fuel_supplier.objects.filter(Fuel_provider="Petron Corporation", SOA_billdate="").count()
+    pro_petron = Fuel_supplier.objects.filter(Fuel_provider="Petron Corporation").exclude(SOA_billdate="").count()
+
+    orix = carreport_ORIX + vreport_ORIX
+    safari = carreport_SAFARI + vreport_SAFARI
+    diamond = carreport_DIAMOND + vreport_DIAMOND
+    tg = carreport_TG + vreport_TG
+
+    tp_orix = processed_ORIX + proreport_ORIX
+    tp_safari = processed_SAFARI + proreport_SAFARI
+    tp_diamond = processed_DIAMOND + proreport_DIAMOND
+    tp_tg = processed_TG + proreport_TG
+
+
+    from openpyxl import Workbook, load_workbook
+    output = HttpResponse(content_type='application/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    file_name = "Insurance Daily Report.xlsx"
+    output['Content-Disposition'] = 'attachment; filename='+ file_name
+    wb = Workbook()
+    ws = wb.active
+
+    #header
+    ws.title = "Insurance Daily Report"
+    ws['A1'].value = "Personel"
+    ws['B1'].value = "Janine Manzo"
+    ws['B2'].value = datem
+    ws['A2'].value = "Date"
+    ws.append(['Vendor','Total Unpaid SOA','Total Processed','For this Month Total SOA Processed'])
+    ws['A4'].value = "ORIX"
+    ws['A5'].value = "DIAMOND"
+    ws['A6'].value = "PETRON"
+    ws['A7'].value = "SHELL"
+    ws['A8'].value = "GR8"
+    ws['A9'].value = "JXM"
+    ws['A10'].value = "SAFARI (Car Rental)"
+    ws['A11'].value = "Tiger City (Car Rental)"
+    ws['A12'].value = "Created Work Order"
+    ws['A13'].value = "TopServe (FLEET Driver)"
+    ws['A14'].value = "CARPLAN 95%"
+    ws['A15'].value = "CARPLAN 5%"
+    #data
+    ws['B4'].value = orix
+    ws['B5'].value = diamond
+    ws['B6'].value = petron
+    ws['B7'].value = shell
+    ws['B8'].value = ""
+    ws['B9'].value = ""
+    ws['B10'].value = safari
+    ws['B11'].value = tg
+    ws['B12'].value = ""
+    ws['B13'].value = ""
+    ws['B14'].value = ""
+    ws['B15'].value = ""
+
+    ws['C4'].value = tp_orix
+    ws['C5'].value = tp_diamond
+    ws['C6'].value = pro_petron
+    ws['C7'].value = pro_shell
+    ws['C8'].value = ""
+    ws['C9'].value = ""
+    ws['C10'].value = tp_safari
+    ws['C11'].value = tp_tg
+    ws['C12'].value = ""
+    ws['C13'].value = ""
+    ws['C14'].value = ""
+    ws['C15'].value = ""
+
+   
+    wb.save(output)
+    return output

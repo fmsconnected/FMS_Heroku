@@ -50,7 +50,9 @@ urlpatterns = [
 	path('VehicleRepair/Update/<int:pk>', views.vrepairUpdate.as_view(), name='vehiclerepair_payment_udpate'),
 	path('VehicleRepair/Delete/<int:pk>', views.vrepairDeleteView.as_view(), name='vehiclerepair_payment_delete'),
 	path('VehicleRepair/export', views.vrepair_excel, name='vehiclerepair_payment_export'),
-	path('VehicleRepair/History', views.vrepairlHistoryView, name='vehicle_repair_history')
+	path('VehicleRepair/History', views.vrepairlHistoryView, name='vehicle_repair_history'),
+	path('Daily/Summary/', views.car_report_details, name='car_dailyreport_details'),
+	path('Daily/Export/',views.car_report, name='car_dailyreport_export'),
 
 ]
 
