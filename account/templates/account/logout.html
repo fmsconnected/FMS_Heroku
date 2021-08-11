@@ -120,24 +120,26 @@
         };
     </script>
 <div style="position: relative; z-index: 100;">
-    <form class="form-signin" method="POST">
-    {% csrf_token %}
-        <div style="text-align: center; font-family: 'Arial';">
-            <div class="mainBox">
-                <div style="font-size: 30px; margin-bottom: 5px; margin-top: 10px; position: relative; display: inline-block; margin-bottom: 10px;"><b>
-                    FLEET MANAGEMENT SYSTEM<b></div>
-                <div style="background: rgba(0,0,0, 0.75); margin-bottom: 25px; text-align: left; padding: 5px; overflow">
-                <img src="{% static 'images/fleet.jpg' %}" />
-                </div>
+    
+        <form class="form-signin" method="POST">
+        {% csrf_token %}
+            <div style="text-align: center; font-family: 'Arial';">
+                <div class="mainBox">
+                    <div style="font-size: 30px; margin-bottom: 5px; margin-top: 10px; position: relative; display: inline-block; margin-bottom: 10px;"><b>
+                        FLEET MANAGEMENT SYSTEM<b></div>
+                    <div style="background: rgba(0,0,0, 0.75); margin-bottom: 25px; text-align: left; padding: 5px; overflow">
+                    <img src="{% static 'images/fleet.jpg' %}" />
+                    </div>
 
-                <div style="padding: 0px; text-align: left;">
-                    <h2><center>You have been logged out!</center></h2>
-                    <p><center>Click button below to login again.</center></p>
-                    <br><center><a href="{% url 'login' %}" class="btn btn-lg btn-primary" style="width:150px;float:center" title="Login" type="submit">LOGIN</a></center>
+                    <div style="padding: 0px; text-align: left;">
+                        <h2><center>You have been logged out!</center></h2>
+                        <p><center>Click button below to login again.</center></p>
+                        <br><center><a href="{% url 'login' %}" class="btn btn-lg btn-primary" style="width:150px;float:center" title="Login" type="submit">LOGIN</a></center>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    
 </div>
 </body>
 

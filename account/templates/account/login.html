@@ -140,29 +140,32 @@
             nodesjs.setHeight(window.innerHeight);
         };
     </script>
-<div style="position: relative; z-index: 100;">
-    <form class="form-signin" method="POST">
-    {% csrf_token %}
-        <div style="text-align: center; font-family: 'Arial';">
-            <div class="mainBox">
-                <div style="font-size: 30px; margin-bottom: 5px; margin-top: 10px; position: relative; display: inline-block; margin-bottom: 10px;">
-                    FLEET MANAGEMENT SYSTEM</div>
-                <div style="background: rgba(0,0,0, 0.75); margin-bottom: 25px; text-align: left; padding: 5px; overflow">
-                <img src="{% static 'images/fleet.jpg' %}" />
-                </div>
 
-                <div style="padding: 0px; text-align: left;">
-                    {% csrf_token %}
-                    {{ form|crispy }}
+    <div style="position: relative; z-index: 100;">
+        
+        <form class="form-signin" method="POST">
+        {% csrf_token %}
+            <div style="text-align: center; font-family: 'Arial';">
+                <div class="mainBox">
+                    <div style="font-size: 30px; margin-bottom: 5px; margin-top: 10px; position: relative; display: inline-block; margin-bottom: 10px;">
+                        FLEET MANAGEMENT SYSTEM</div>
+                    <div style="background: rgba(0,0,0, 0.75); margin-bottom: 25px; text-align: left; padding: 5px; overflow">
+                    <img src="{% static 'images/fleet.jpg' %}" />
+                    </div>
 
-                    <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-                    <label for="remember"> Remember Me</label>
-                    <button class="buttonsubmit" style="width:150px;height: 30px;float:right" type="submit" >LOGIN</button>
+                    <div style="padding: 0px; text-align: left;">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+
+                        <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+                        <label for="remember"> Remember Me</label>
+                        <button class="buttonsubmit" style="width:150px;height: 30px;float:right" type="submit" >LOGIN</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
-</div>
+        </form>
+        
+    </div>
     
 
 

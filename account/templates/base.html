@@ -1320,9 +1320,11 @@ body {
     {% block stylesheets %}
     {% endblock stylesheets %}
 </head>
-
+{% if request.user.is_authenticated %}
 <body class="hold-transition sidebar-mini layout-fixed">
+    
     <div class="wrapper">
+    
         {% include 'account/base/js.html' %}
         
         <!-- Left Panel -->
@@ -1336,7 +1338,7 @@ body {
         {% include 'partial/_header.html' %}
 
             <!-- Header-->
-
+    
         <!--Right Panel-->
         <div class="content-wrapper">
             <section class="content">
@@ -1490,5 +1492,21 @@ body {
     {% endblock extrascripts %}
     </div>
 </body>
+{% else %}
+        <form class="" method="">
+        {% csrf_token %}
+            <div style="text-align: center; font-family: 'Arial';">
+                <div class="mainBox">
+                    <div style="font-size: 30px; margin-bottom: 5px; margin-top: 10px; position: relative; display: inline-block; margin-bottom: 10px;">
+                        SESSION Expired. Please Login Again!
+                    </div>
+
+                    <div style="padding: 0px; text-align: left;">
+                        <center><a href="{% url 'login' %}" class="btn btn-lg btn-primary" style="width:150px;float:center" type="submit">Ok</a></center>
+                    </div>
+                </div>
+            </div>
+        </form>
+    {% endif %}
 
 </html>

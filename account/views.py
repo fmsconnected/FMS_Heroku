@@ -52,9 +52,6 @@ from corrective.models import (
 from CustomerLog.models import (
     CS_log
     )
-def sample_view(request):
-    current_user = request.user
-    print(current_user.id)
 
 def index(request):
     current_user = request.user
