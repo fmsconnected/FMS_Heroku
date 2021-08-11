@@ -52,24 +52,18 @@ from corrective.models import (
 from CustomerLog.models import (
     CS_log
     )
+def sample_view(request):
+    current_user = request.user
+    print(current_user.id)
 
 def index(request):
+    current_user = request.user
+    print("user",current_user.username)
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
     date = datetime.datetime.today()
     months = ['zero','January','February','March','April','May','June','July','August','September','October','November','December']
     month = months[date.month]
-    # count1 = VehiclePayment.objects.filter(Date_initiated__month= date.month ).count()
-    # count2 = CarRental.objects.filter(Date_initiated__month= date.month ).count()
-    # count3 = Fuel_supplier.objects.filter(Date_initiated__month= date.month ).count()
-    # count4 = Vehicle_Repair_payment.objects.filter(date_initiated__month= date.month ).count()
-    # count5 = CarRentalRequest.objects.filter(Date_initiated__month= date.month ).count()
-    # count6 = Gas_card.objects.filter(date_initiated__month= date.month ).count()
-    # count7 = service_vehicle.objects.filter(date_initiated__month= date.month ).count()
-    # count8 = Vehicle_Repair.objects.filter(date_initiated__month= date.month ).count()
-    # count9 = vehicle_report.objects.filter(date_initiated__month= date.month ).count()
-    # count10 = Fata_monitoring.objects.filter(Date_initiated__month= date.month ).count()
-    # count11 = Ownership.objects.filter(date_initiated__month= date.month ).count()
     count11 = Corrective.objects.count()
     count12 = EmployeeMasterlist.objects.count()
     count13 = VehicleMasterList.objects.count()
