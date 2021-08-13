@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+<style type="text/css">
+  th {
+    text-align: middle;
+  }
+</style>
+
+<div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h2>Fleet Card Details</h2>
+    </div>
+
+<br>
+
+<table width="90%" class="table table-bordered table-hover" border="2px">
+    <tr>
+      <th width="25%">Activity ID </th><td width="25%">{{ object.Activity_id }}</td>
+    </tr>
+    <tr>
+        <th></th><td></td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+      <th>Status</th><td>{{ object.STATUS }}</td>
+      <th>Received Request </th> <td>{{ object.RECEIVED_REQUEST }}</td>
+    </tr>
+    <tr>
+      <th>Date Verified</th> <td>{{ object.DATE_VERIFIED }}</td>
+      <th>Date Received</th> <td>{{ object.DATE_RECEIVED }}</td>
+    </tr>
+    <tr>
+      <th>Date Issued</th> <td>{{ object.DATE_ISSUED }}</td>
+      <th>Work Days</th> <td>{{ object.WORK_DAYS }}</td>
+    </tr>
+    <tr>
+      <th>Card Number</th> <td>{{ object.CARD_NUMBER }}</td>
+      <th>Name</th> <td>{{ object.NAME }}</td>
+    </tr> 
+    <tr>
+      <th>Cost Center</th> <td>{{ object.COST_CENTER }}</td>
+      <th>Plate Number</th><td>{{ object.PLATE_NUMBER }}</td>
+    </tr>
+    <tr>
+      <th>Card Type</th> <td>{{ object.CARD_TYPE }}</td>
+      <th>Cabonilla</th> <td>{{ object.CABONILLA }}</td>
+    </tr> 
+    <tr>
+      <th>Station</th> <td>{{ object.STATION }}</td>
+      <th></th><td></td>
+    </tr>
+</table>
+
+    <div class="card-footer">
+      <a href="{% url 'Fcm_update' object.id %}" class="buttonsubmit">UPDATE</a><a href="{% url 'Fcm_list' %}" type="button" class="btn">CLOSE</a>
+    </div>
+{% endblock %}

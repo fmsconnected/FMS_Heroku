@@ -6,7 +6,7 @@
 <div class="col-md-12">
     <div class="card">
     <div class="card-header">
-        <h3 align="center"><b>Fleet Card Monitoring</b></h3>&nbsp;
+        <h3 align="center"><b>Fleet Card</b></h3>&nbsp;
     </div>
 <form method="POST" action="">
 {% csrf_token %}
@@ -68,8 +68,8 @@
 </div>
     <div class="card-footer">
         <button type="Submit" class="buttonsubmit btn-secondary" >Submit</button>
-        <button class="button" type="reset" value="Reset">Clear</button>
         <a href="{% url 'Fcm_list' %}" class="btn">Close</a>
+        <button class="button" type="reset" value="Reset">Clear</button>
     </div>
 
 </form>

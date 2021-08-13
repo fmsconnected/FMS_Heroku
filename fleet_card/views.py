@@ -39,6 +39,9 @@ from .models import (
 )
 
 class fleet_card_list(ListView):
+    date = datetime.datetime.today().date()
+    print("Date:",date)
+
     model = fleet_card
     template_name = 'fcm_list.html'
 
@@ -57,6 +60,10 @@ class fleet_card_delete(BSModalDeleteView):
     template_name = 'fcm_delete.html'
     success_message = 'Success: Item was deleted.'
     success_url = reverse_lazy('Fcm_list')
+
+class fleet_cardDetails(DetailView):
+    model = fleet_card
+    template_name = 'fcm_details.html'
 
 
 def fcm_export(request):
@@ -117,55 +124,55 @@ def fcm_export(request):
     return response
 
 # Daily Report
+def fleet_summary(request):
+    date = datetime.datetime.today().date()
+    fleetCard_report = fleet_card.objects.filter(STATUS="ON PROCESS",RECEIVED_REQUEST=date).count()
+    fleetCard_issued = fleet_card.objects.filter(DATE_ISSUED=date).count()
+    return render(request, 'fcm_report.html',{'title':'Fleet Card','date':date,'fleetCard_report':fleetCard_report,'fleetCard_issued':fleetCard_issued})
 
-# def car_report(request):
-#     # PLONG
-#     def excel_report(vendor):
-#         fleetCardreport = fleet_card.objects.filter(car_provider=vendor, sqa_number="N/A")
-#         fleetCard_count = fleet_card.objects.filter(car_provider=vendor, sqa_number="N/A").count()
-#         fleetCard_sum = fleet_card.objects.filter(car_provider=vendor, sqa_number="N/A").count()
-#         fleetCard_total = fleet_card.objects.filter(car_provider=vendor).count()
-#         total_processed = fleetCardt_total - fleetCard_sum
-
-#         if fleetCard_count == 0:
-#             ws.append([vendor, 0, carreport_total])
-#         else:
-#             for soa in fleetCard:
-#                 ws.append([soa.car_provider, fleetCard_sum, total_processed])
-#                 break
-            
-#     from openpyxl import Workbook, load_workbook
-#     carvendor = fleet_card.objects.filter()
-#     carlist = []
-
-#     for vendor in carvendor:
-#         carlist_val.append(vendor.car_provider)
-
-#     carlist = set(carlist_val)
-
-#     wb = Workbook()
-#     ws = wb.active
-#     ws.title = "Fleet Cards Report"
-#     ws['A1'].value = "PERSONNEL:"
-
-#     ws['A3'].value = "OUTPUT"
-#     ws['A4'].value = ""
-#     ws.append(['Fleet Cards', 'TOTAL'])
-
-#     excel_report("A. Fleet Card Processed")
-#     excel_report("B. Prepaired Certification")
-#     excel_report("C. Prepare for DTD/Picked Up Cards")
-#     excel_report("D. Inbound Fleet Card")
-#     excel_report("E. Issued Fleet Card")
-#     excel_report("F. Billing Processed")
-#     excel_report("G. Vehicle Repair Request")
-#     excel_report("PMS/Tire/Battery")
-#     excel_report("CM")
-    
-    
-#     wb.save("/Users/workstationtwosoftwaredeveloper/Desktop/Fleet_card_Report.xlsx")
+def fleet_report(request):
+    date = datetime.datetime.today().date()
+    print("Date:",date)
+    fleetCard_report = fleet_card.objects.filter(STATUS="ON PROCESS",RECEIVED_REQUEST=date).count()
+    # fleetCard_cert = fleet_card.objects.filter(car_provider=vendor, sqa_number="N/A").count()
+    # fleetCard_pickup = fleet_card.objects.filter(car_provider=vendor, sqa_number="N/A").count()
+    # fleetCard_inbound = fleet_card.objects.filter(car_provider=vendor).count()
+    fleetCard_issued = fleet_card.objects.filter(DATE_ISSUED=date).count()
+    # fleetCard_billing = fleet_card.objects.filter(car_provider=vendor).count()
+    from openpyxl import Workbook, load_workbook
+    output = HttpResponse(content_type='application/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    file_name = "Fleet Card Daily Report.xlsx"
+    output['Content-Disposition'] = 'attachment; filename='+ file_name
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Fleet Card Daily Report"
+    ws['A1'].value = ""
+    ws['A2'].value = "Date"
+    ws['B2'].value = date
+    ws.append(['Fleet Cards', 'TOTAL'])
+    ws['A4'].value = ""
+    ws['A5'].value = "Fleet Card Processed"
+    ws['A6'].value = "Prepared Certification"
+    ws['A7'].value = "Prepared for DTD/Pick up Cards"
+    ws['A8'].value = "Inbound Fleet Cards"
+    ws['A9'].value = "Issued Fleet Cards"
+    ws['A10'].value = "Billing Processed"
+    ws['A11'].value = "Vehicle Repair Request"
+    ws['A12'].value = "PMS/TIRES/BATTERY"
+    ws['A13'].value = "CM"
 
 
-#     return redirect('/Payment/Car')
+    ws['B5'].value = fleetCard_report
+    ws['B6'].value = "0"
+    ws['B7'].value = "0"
+    ws['B8'].value = "0"
+    ws['B9'].value = fleetCard_issued
+    ws['B10'].value = "0"
+    ws['B11'].value = "0"
+    ws['B12'].value = "0"
+    ws['B13'].value = "0"
 
+
+    wb.save(output)
+    return output
 
