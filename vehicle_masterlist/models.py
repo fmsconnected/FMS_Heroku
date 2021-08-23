@@ -121,6 +121,7 @@ class VehicleMasterList(models.Model):
 	IS_NAME = models.CharField(max_length=100, null=True, blank=True)
 	LOCATION = models.CharField(max_length=100, null=True, blank=True)
 	AREA = models.CharField(max_length=254, null=True, blank=True)
+	EMAIL = models.CharField(max_length=254, null=True, blank=True)
 	ORIGINAL_OR_DATE  = models.DateField(auto_now=False, null=True, blank=True)
 	ACQ_DATE  = models.DateField(auto_now=False, null=True, blank=True)
 	ACQ_COST = models.CharField(max_length=100, null=True, blank=True)
