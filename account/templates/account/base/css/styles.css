@@ -1,0 +1,137 @@
+.a,
+.a:visited {
+    color: white;
+    text-decoration: underline;
+}
+
+.a:hover {
+}
+
+.btn,
+a.btn,
+a.btn:visited {
+    text-decoration: none;
+    color: 255,255,255,0.3;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid #c1c1c1;
+    border-bottom: 2px solid #c1c1c1;
+    padding: 5px; border-radius: 2px;
+    transition: all 250ms;
+    font-size: 15px;
+}
+
+.btn:hover {
+    box-shadow: 0px 0px 12px 0px rgba(255,255,255, 0.5);
+    background: rgba(255,255,255,0.3);
+}
+
+.mainBox {
+    width: 700px;
+    display: inline-block;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.2);
+    margin-top: 200px;
+}
+
+@media only screen and (max-width: 600px) {
+    .mainBox {
+        width: 300px;
+    }
+}
+
+@media only screen and (max-height: 700px) {
+    .mainBox {
+        margin-top: 50px;
+    }
+}
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: #4CAF50;
+}
+.remember__title{
+    text-align: center;
+}
+.login__button{
+    justify-content: space-between;
+    height: 30px;
+    width: 180px;
+    padding: .25rem .5rem .5rem 0;
+}
+.container{
+    background-color: gray;
+    margin-left: 15rem;
+    margin-right: 10rem;
+    border-radius: 1rem;
+    height: 550px;
+    margin-top: 12%;
+    margin-left: 15%;
+    column-gap: 1rem;
+}
+.login__container{
+    width: 430px;
+    height: 700px;
+    border-radius: 40px;
+    background: #ecf0f3;
+    box-shadow: 13px 13px 20px #cbced1,
+                -13px -13px 20px #ffffff;m
+}
+
+
+
+.fleet__img{
+    width: 750px;
+    height: 500px;
+    border-radius: .5rem;
+}
+.fleet__subtitle{
+    color: #000000;
+    font-size: 30px;
+    margin-left: 10rem;
+    margin-top: 1rem;
+
+}
+.logo
+{
+    display: block;
+    margin: 0 auto;
+    padding-top: 42px;
+    color:white;
+    background-color: #592d8b;
+    border-radius: 50%;
+    width:100px;
+    height:100px;
+    text-align: center;
+    font-weight:bold;
+    font-size: 1.2rem ;
+    /* box shadow du logo*/
+    box-shadow: 0px 0px 2px #5f5f5f,
+    /* offset*/
+    0px 0px 0px 5px #ecf0f3,
+    /*buttom right*/
+    8px 8px 15px #a7aaaf,
+    /*top left*/
+    -8px -8px 15px #ffffff;
+}
+.title
+{
+    text-align: center;
+    font-size: 28px;
+    padding-top: 25px;
+    letter-spacing: 0.5px;
+}
+.sub-title{
+    text-align: center;
+    font-size:15px;
+    padding-top: 7px;
+    letter-spacing: 3px;
+}
+body{
+    background-color: transparent;
+}

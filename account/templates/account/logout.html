@@ -13,83 +13,390 @@
 
     <title>FLEET Management</title>
 
+ 
+
     <!-- Custom Fonts -->
-    <link href="{% static 'vendors/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no,user-scalable=0"/>
     
     <meta name="description" content="nodes.js is a nodes/particles animation useable for backgrounds">
     <meta name="keywords" content="nodes, animation, particlees, web, html5, canvas, backgorund">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap">
+    <!--==================== CSS ====================-->
+<style type="text/css">
 
-    <style type="text/css">
-        * {
-            padding: 0px;
-            margin: 0px;
-        }
+    .a,
+    .a:visited {
+        color: white;
+        text-decoration: underline;
+    }
 
-        body {
-            font-family: 'Arial';
-            font-size: 14px;
-            line-height: 20px;
-            color: white;
-            background: black;
-        }
+    .a:hover {
+    }
 
-        .a,
-        .a:visited {
-            color: white;
-            text-decoration: underline;
-        }
+    .btn,
+    a.btn,
+    a.btn:visited {
+        text-decoration: none;
+        color: 255,255,255,0.3;
+        display: inline-block;
+        cursor: pointer;
+        border: 1px solid #c1c1c1;
+        border-bottom: 2px solid #c1c1c1;
+        padding: 5px; border-radius: 2px;
+        transition: all 250ms;
+        font-size: 15px;
+    }
 
-        .a:hover {
-        }
+    .btn:hover {
+        box-shadow: 0px 0px 12px 0px rgba(255,255,255, 0.5);
+        background: rgba(255,255,255,0.3);
+    }
 
-        .btn,
-        a.btn,
-        a.btn:visited {
-            text-decoration: none;
-            color: 255,255,255,0.3;
-            display: inline-block;
-            cursor: pointer;
-            border: 1px solid #c1c1c1;
-            border-bottom: 2px solid #c1c1c1;
-            padding: 5px; border-radius: 2px;
-            transition: all 250ms;
-            font-size: 15px;
-        }
+    .mainBox {
+        width: 700px;
+        display: inline-block;
+        border-radius: 2px;
+        background: rgba(255,255,255,0.2);
+        margin-top: 200px;
+    }
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
 
-        .btn:hover {
-            box-shadow: 0px 0px 12px 0px rgba(255,255,255, 0.5);
-            background: rgba(255,255,255,0.3);
-        }
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: #4CAF50;
+}
+.remember__title{
+    text-align: center;
+}
+.login__button{
+    justify-content: space-between;
+    height: 30px;
+    width: 180px;
+    padding: .25rem .5rem .5rem 0;
+}
+.container{
+    background-color: gray;
+    margin-left: 15rem;
+    margin-right: 10rem;
+    border-radius: 1rem;
+    height: 550px;
+    margin-top: 12%;
+    margin-left: 15%;
+    column-gap: 1rem;
+}
+.login__container{
+    margin-top: 200px;
+    width: 430px;
+    height: 500px;
+    border-radius: 1rem;
+    background: #ecf0f3;
+    margin-left: 45px;
+    /*box-shadow: 13px 13px 20px #cbced1,
+                -13px -13px 20px #e2b5f5;*/
+}
 
-        .mainBox {
-            width: 700px;
-            display: inline-block;
-            border-radius: 2px;
-            background: rgba(255,255,255,0.2);
-            margin-top: 200px;
-        }
 
-        @media only screen and (max-width: 600px) {
-            .mainBox {
-                width: 300px;
-            }
-        }
 
-        @media only screen and (max-height: 700px) {
-            .mainBox {
-                margin-top: 50px;
-            }
-        }
-    </style>
+.fleet__img{
+    width: 700px;
+    height: 500px;
+    border-radius: 1rem;
+    margin-left: 195px;
+    margin-top: 15px;
+    /*box-shadow: 13px 13px 20px #cbced1,
+                -13px -13px 20px #e2b5f5;*/
+}
+.fleet__subtitle{
+    color: #FFF;
+    font-size: 30px;
+    margin-left: 20rem;
+    margin-top: 150px;
 
+}
+.logo
+{
+    display: block;
+    margin: 0 auto;
+    padding-top: 42px;
+    color:white;
+    background-color: #5191f0;
+    border-radius: 50%;
+    width:100px;
+    height:100px;
+    text-align: center;
+    font-weight:bold;
+    font-size: 1.2rem ;
+    /* box shadow du logo*/
+    box-shadow: 0px 0px 2px #5f5f5f,
+    /* offset*/
+    0px 0px 0px 5px #ecf0f3,
+    /*buttom right*/
+    8px 8px 15px #a7aaaf,
+    /*top left*/
+    -8px -8px 15px #ffffff;
+}
+.fields
+{
+    width: 100%;
+    padding: 75px 5px 5px 5px;
+}
+.fields input
+{   
+    width: 300px;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 18px;
+    color: #555;
+    padding: 20px 10px 20px 5px;
+    margin-bottom: 30px;
+    border-radius: 25px;
+    box-shadow: inset 8px 8px 8px #cbced1,
+                inset -8px -8px 8px #ffffff;
+}
+/*.username, .password
+{
+    margin-bottom: 30px;
+    border-radius: 25px;
+    box-shadow: inset 8px 8px 8px #cbced1,
+                inset -8px -8px 8px #ffffff;
+}*/
+.fields svg
+{
+    height: 22px;
+    margin:0 10px -3px 25px;
+}
+.signin-button
+{   
+    margin-top: 13rem;
+    outline: none;
+    border:none;
+    cursor:pointer;
+    width: 100%;
+    height: 60px;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Lato', 'sans-serif';
+    text-align: center;
+    background: #5191f0; 
+    color: #ffff;
+    transition: 0.5s;
+}
+
+.signin-button:hover {
+    background-color: #592d8b;
+}
+.signin-button:active {
+    background-color: #592d8b;
+}
+.link
+{
+    padding-top: 20px;
+    text-align: center;
+}
+.link a
+{
+    text-decoration : none;
+    color: #aaa;
+    font-size: 15px;
+}
+
+.title
+{
+    text-align: center;
+    font-size: 28px;
+    padding-top: 25px;
+    letter-spacing: 0.5px;
+}
+.sub-title{
+    text-align: center;
+    font-size:15px;
+    padding-top: 7px;
+    letter-spacing: 3px;
+}
+body{
+    background-color: transparent;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: grid;
+  clear: both;
+}
+
+/******Phone*********/
+@media screen and (max-width: 499px) {
+    #nodes{
+        visibility: hidden;
+    }
+    .fleet__img {
+        display: none;
+        width: 0;
+        height: 0;
+        visibility: hidden;
+
+    }
+    .fleet__subtitle{
+        display: none;
+        margin-top: 1px;
+    }
+    .login__container{
+        margin-top: 1px;
+        width: 330px;
+        height: 600px;
+        border-radius: 1rem;
+        background: #ecf0f3;
+        margin-left: -1px;
+    }
+    .column{
+        width: -1px;
+    }
+    .row{
+        width: -1px;
+    }
+}
+/****Chrome Screen***/
+/******Small********/
+@media screen and (min-width:500px) and (max-width: 800px) {
+    #nodes{
+        visibility: hidden;
+    }
+    .fleet__img {
+        display: none;
+        width: 0;
+        height: 0;
+        visibility: hidden;
+    }
+    .fleet__subtitle{
+        display: none;
+    }
+    .login__container{
+        margin-top: 100px;
+        width: 330px;
+        height: 600px;
+        border-radius: 1rem;
+        background: #ecf0f3;
+        margin-left: 1px;
+    }
+    .column{
+        width: 0px;
+    }
+}
+@media screen and (min-width:809px) and (max-width: 1000px) {
+
+    .fleet__img {
+        display: none;
+        width: 0;
+        height: 0;
+        visibility: hidden;
+    }
+    .fleet__subtitle{
+        display: none;
+    }
+    .login__container{
+        margin-top: 100px;
+        width: 330px;
+        height: 600px;
+        border-radius: 1rem;
+        background: #ecf0f3;
+        margin-left: 90px;
+    }
+    .column{
+        width: 0px;
+    }
+}
+/****Chrome Screen***/
+/******Medium********/
+@media screen and (min-width:180px) and (max-width: 1200px) {
+    .fleet__img {
+        width: 400px;
+        height: 600px;
+        border-radius: 1rem;
+        margin-left: 195px;
+        margin-top: 90px;
+    }
+    .fleet__subtitle{
+        display: none;
+    }
+    .login__container{
+        margin-top: 90px;
+        width: 330px;
+        height: 600px;
+        border-radius: 1rem;
+        background: #ecf0f3;
+        margin-left: 550px;
+    }
+    .column{
+        width: 0px;
+    }
+}
+@media screen and (min-width:1209px) and (max-width: 1600px) {
+    .fleet__img {
+        width: 500px;
+        height: 600px;
+        border-radius: 1rem;
+        margin-left: 195px;
+        margin-top: 0px;
+    }
+    .fleet__subtitle{
+        margin-top: 0px;
+        margin-left: 250px;
+    }
+    .login__container{
+        margin-top: 105px;
+        width: 430px;
+        height: 600px;
+        border-radius: 1rem;
+        background: #ecf0f3;
+        margin-left: 650px;
+    }
+    .column{
+        width: 0px;
+    }
+    
+}
+@media screen and (min-width: 1609px) {
+    .fleet__img {
+        width: 700px;
+        height: 500px;
+        border-radius: 1rem;
+        margin-left: 195px;
+        margin-top: 15px;
+
+    }
+    .login__container{
+        margin-top: 200px;
+        width: 430px;
+        height: 500px;
+        border-radius: 1rem;
+        background: #ecf0f3;
+        margin-left: 45px;
+    }
+}
+</style>
 </head>
 
-
 <body>
-
-<!-- <nodes.js embedding> -->
+    <!-- <nodes.js embedding> -->
     <script type="text/javascript" src="{% static 'nodes/js/nodes.js' %}"></script>
     <script type="text/javascript">
         var nodesjs = new NodesJs({
@@ -120,27 +427,34 @@
         };
     </script>
 <div style="position: relative; z-index: 100;">
+<div class="row">
+  <div class="column" >
+    <div class="fleet__subtitle">
+        <span >FLEET MANAGEMENT SYSTEM</span>
+    </div>
     
-        <form class="form-signin" method="POST">
-        {% csrf_token %}
-            <div style="text-align: center; font-family: 'Arial';">
-                <div class="mainBox">
-                    <div style="font-size: 30px; margin-bottom: 5px; margin-top: 10px; position: relative; display: inline-block; margin-bottom: 10px;"><b>
-                        FLEET MANAGEMENT SYSTEM<b></div>
-                    <div style="background: rgba(0,0,0, 0.75); margin-bottom: 25px; text-align: left; padding: 5px; overflow">
-                    <img src="{% static 'images/fleet.jpg' %}" />
-                    </div>
-
-                    <div style="padding: 0px; text-align: left;">
-                        <h2><center>You have been logged out!</center></h2>
-                        <p><center>Click button below to login again.</center></p>
-                        <br><center><a href="{% url 'login' %}" class="btn btn-lg btn-primary" style="width:150px;float:center" title="Login" type="submit">LOGIN</a></center>
-                    </div>
-                </div>
-            </div>
+    <img src="{% static 'images/fleet.jpg' %}" class="fleet__img"/>
+  </div>
+  <div class="column">
+    <div class="login__container">
+        <div class="logo">FMS
+        </div>
+        <div class="title">You have been successfully logged out!
+        </div>
+        <div class="sub-title">Click button below to login again.
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <button class="signin-button">
+            <a href="{% url 'login' %}"  title="Login" type="submit">_______________LogIn_______________</a>
+        </button>
         </form>
-    
+    </div>
+    </div>
+</div>
+</div>
 </div>
 </body>
 
 </html>
+
