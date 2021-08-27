@@ -24,7 +24,7 @@ def send_registration_email():
     date_now = datetime.datetime.now().date()
     print(date_now)
     sent_status = Registration.objects.all()
-    if month == 1:
+    if month == 12:
         car_status = Registration.objects.filter(
             Registration_month="JAN", sent_email="No")
         plate = ""
@@ -45,7 +45,7 @@ def send_registration_email():
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
 
-    elif month == 2:
+    elif month == 1:
         car_status = Registration.objects.filter(
             Registration_month="FEB", sent_email="No")
         plate = ""
@@ -67,7 +67,7 @@ def send_registration_email():
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
 
-    elif month == 3:
+    elif month == 2:
         car_status = Registration.objects.filter(
             Registration_month="MAR", sent_email="No")
         plate = ""
@@ -89,7 +89,7 @@ def send_registration_email():
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
 
-    elif month == 4:
+    elif month == 3:
         car_status = Registration.objects.filter(
             Registration_month="APR", sent_email="No")
         plate = ""
@@ -111,7 +111,7 @@ def send_registration_email():
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
 
-    elif month == 5:
+    elif month == 4:
         car_status = Registration.objects.filter(
             Registration_month="MAY", sent_email="No")
         plate = ""
@@ -133,7 +133,7 @@ def send_registration_email():
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
 
-    elif month == 6:
+    elif month == 5:
         car_status = Registration.objects.filter(
             Registration_month="JUN", sent_email="No")
         plate = ""
@@ -155,7 +155,7 @@ def send_registration_email():
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
 
-    elif month == 7:
+    elif month == 6:
         car_status = Registration.objects.filter(
             Registration_month="JUL", sent_email="No")
         plate = ""
@@ -177,7 +177,7 @@ def send_registration_email():
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
 
-    elif month == 8:
+    elif month == 7:
         car_status = Registration.objects.filter(
             Registration_month="AUG", sent_email="No")
         plate = ""
@@ -199,7 +199,7 @@ def send_registration_email():
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
 
-    elif month == 9:
+    elif month == 8:
         car_status = Registration.objects.filter(
             Registration_month="SEP", sent_email="No")
         plate = ""
@@ -221,7 +221,7 @@ def send_registration_email():
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
 
-    elif month == 0:
+    elif month == 9:
         car_status = Registration.objects.filter(
             Registration_month="OCT", sent_email="No")
         plate = ""
