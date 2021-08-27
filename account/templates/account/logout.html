@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap">
     <!--==================== CSS ====================-->
 <style type="text/css">
-
     .a,
     .a:visited {
         color: white;
@@ -55,7 +54,7 @@
     }
 
     .mainBox {
-        width: 700px;
+        width: 100%;
         display: inline-block;
         border-radius: 2px;
         background: rgba(255,255,255,0.2);
@@ -173,7 +172,7 @@
     margin:0 10px -3px 25px;
 }
 .signin-button
-{   
+{
     margin-top: 13rem;
     outline: none;
     border:none;
@@ -187,6 +186,8 @@
     text-align: center;
     background: #5191f0; 
     color: #ffff;
+    box-shadow: 3px 3px 8px #b1b1b1,
+                -3px -3px 8px #ffffff;
     transition: 0.5s;
 }
 
@@ -242,9 +243,8 @@ body{
   display: grid;
   clear: both;
 }
-
 /******Phone*********/
-@media screen and (max-width: 499px) {
+@media (max-width: 499px) {
     #nodes{
         visibility: hidden;
     }
@@ -266,9 +266,11 @@ body{
         border-radius: 1rem;
         background: #ecf0f3;
         margin-left: -1px;
+        
     }
     .column{
         width: -1px;
+        column-gap: 0;
     }
     .row{
         width: -1px;
@@ -276,7 +278,7 @@ body{
 }
 /****Chrome Screen***/
 /******Small********/
-@media screen and (min-width:500px) and (max-width: 800px) {
+@media (min-width:500px) and (max-width: 800px) {
     #nodes{
         visibility: hidden;
     }
@@ -301,7 +303,7 @@ body{
         width: 0px;
     }
 }
-@media screen and (min-width:809px) and (max-width: 1000px) {
+@media (min-width:809px) and (max-width: 1000px) {
 
     .fleet__img {
         display: none;
@@ -318,7 +320,7 @@ body{
         height: 600px;
         border-radius: 1rem;
         background: #ecf0f3;
-        margin-left: 90px;
+        margin-left: -200px;
     }
     .column{
         width: 0px;
@@ -326,7 +328,7 @@ body{
 }
 /****Chrome Screen***/
 /******Medium********/
-@media screen and (min-width:180px) and (max-width: 1200px) {
+@media (min-width:180px) and (max-width: 1200px) {
     .fleet__img {
         width: 400px;
         height: 600px;
@@ -349,7 +351,7 @@ body{
         width: 0px;
     }
 }
-@media screen and (min-width:1209px) and (max-width: 1600px) {
+@media (min-width:1209px) and (max-width: 1600px) {
     .fleet__img {
         width: 500px;
         height: 600px;
@@ -374,7 +376,7 @@ body{
     }
     
 }
-@media screen and (min-width: 1609px) {
+@media (min-width: 1609px){
     .fleet__img {
         width: 700px;
         height: 500px;
@@ -389,7 +391,195 @@ body{
         height: 500px;
         border-radius: 1rem;
         background: #ecf0f3;
-        margin-left: 45px;
+        margin-left: -5px;
+    }
+}
+@media (min-width: 1810px) and (max-width: 1980px){
+    .fleet__img {
+        width: 700px;
+        height: 500px;
+        border-radius: 1rem;
+        margin-left: 300px;
+        margin-top: 15px;
+
+    }
+    .login__container{
+        margin-top: 200px;
+        width: 430px;
+        height: 500px;
+        border-radius: 1rem;
+        background: #ecf0f3;
+        margin-left: -5px;
+    }
+}
+@media screen and (min-width: 1980px){
+    .fleet__img {
+        width: 700px;
+        height: 500px;
+        border-radius: 1rem;
+        margin-left: 300px;
+        margin-top: 15px;
+
+    }
+    .login__container{
+        margin-top: 200px;
+        width: 430px;
+        height: 500px;
+        border-radius: 1rem;
+        background: #ecf0f3;
+        margin-left: -5px;
+    }
+}
+@media screen and (min-width: 2080px){
+    .fleet__img {
+        width: 700px;
+        height: 500px;
+        border-radius: 1rem;
+        margin-right: -10px;
+        margin-top: 15px;
+
+    }
+    .fleet__subtitle{
+        margin-left: 500px;
+    }
+    .login__container{
+        margin-top: 200px;
+        width: 430px;
+        height: 500px;
+        border-radius: 1rem;
+        background: #ecf0f3;
+        margin-left: -90px;
+    }
+}
+@media (min-width: 2180px){
+    .fleet__img {
+        width: 700px;
+        height: 500px;
+        border-radius: 1rem;
+        margin-left: 500px;
+        margin-top: 15px;
+
+    }
+    .fleet__subtitle{
+        margin-left: 500px;
+    }
+    .login__container{
+        margin-top: 200px;
+        width: 430px;
+        height: 500px;
+        border-radius: 1rem;
+        background: #ecf0f3;
+        margin-left: -90px;
+
+    }
+}
+@media (min-width: 2590px){
+    .fleet__img {
+        width: 700px;
+        height: 500px;
+        border-radius: 1rem;
+        margin-left: 600px;
+        margin-top: 15px;
+
+    }
+    .column{
+        padding: 0;
+    }
+    .fleet__subtitle{
+        margin-left: 700px;
+    }
+    .login__container{
+        padding: 0;
+        margin-top: 200px;
+        width: 430px;
+        height: 500px;
+        border-radius: 1rem;
+        background: #ecf0f3;
+        margin-left: -90px;
+    }
+}
+@media (min-width: 2790px){
+    .column{
+         grid-template-columns: repeat(2, 1fr);
+         align-content: center;
+    }
+    .fleet__img {
+        width: 700px;
+        height: 500px;
+        border-radius: 1rem;
+        margin-left: 700px;
+        margin-top: 15px;
+
+    }
+    .column{
+        padding: 0;
+    }
+    .fleet__subtitle{
+        margin-left: 800px;
+    }
+    .login__container{
+        padding: 0;
+        margin-top: 200px;
+        width: 430px;
+        height: 500px;
+        border-radius: 1rem;
+        background: #ecf0f3;
+        margin-left: -90px;
+    }
+}
+@media (min-width: 2790px){
+    .column{
+         grid-template-columns: repeat(2, 1fr);
+         align-content: center;
+    }
+    .fleet__img {
+        width: 700px;
+        height: 500px;
+        border-radius: 1rem;
+        margin-left: 700px;
+        margin-top: 15px;
+
+    }
+    .column{
+        padding: 0;
+    }
+    .fleet__subtitle{
+        margin-left: 800px;
+    }
+    .login__container{
+        padding: 0;
+        margin-top: 200px;
+        width: 430px;
+        height: 500px;
+        border-radius: 1rem;
+        background: #ecf0f3;
+        margin-left: -90px;
+    }
+}
+@media (min-width: 3080px){
+    .column{
+         grid-template-columns: repeat(2, 1fr);
+         align-content: center;
+    }
+    .fleet__img {
+        visibility: hidden;
+
+    }
+    .column{
+        padding: 0;
+    }
+    .fleet__subtitle{
+        margin-left: 800px;
+        visibility: hidden;
+    }
+    .login__container{
+        padding: 0;
+        margin-top: 200px;
+        width: 430px;
+        height: 500px;
+        border-radius: 1rem;
+        background: #ecf0f3;
+        margin-left: -90px;
     }
 }
 </style>
@@ -437,6 +627,7 @@ body{
   </div>
   <div class="column">
     <div class="login__container">
+
         <div class="logo">FMS
         </div>
         <div class="title">You have been successfully logged out!
