@@ -88,6 +88,7 @@
                             <th>Status</th>
                             <th>Latest Remarks</th>
                             <th>Vehicle Status</th>
+                            <th>Email Status</th>
                         </tr>
                     </thead>
                     </table>
@@ -173,7 +174,8 @@ $(document).ready(function() {
             {"data":"Remarks"},
             {"data":"Status"},
             {"data":"leasing_remark"},
-            {"data":"vehicle_status"}
+            {"data":"vehicle_status"},
+            {"data":"sent_email"},
         ]
     });
     $('#vtable').on( 'click', 'tr', function () {
