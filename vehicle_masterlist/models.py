@@ -143,6 +143,8 @@ class VehicleMasterList(models.Model):
 	Status = models.CharField(max_length=20, null=True, blank=True, choices=status)
 	leasing_remark = models.CharField(max_length=225, null=True, blank=True)
 	vehicle_status = models.CharField(max_length=100, null=True, blank=True, choices=vstatus)
+	sent_email = models.CharField(max_length=10, null=True, blank=True,choices=status)
+	Date_email_log = models.CharField(max_length=20, null=True, blank=True)
 	history = HistoricalRecords()
 
 	def __str__(self):
