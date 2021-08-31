@@ -27,7 +27,7 @@ def send_registration_email():
     if month == 12:
         print("test Registration Month 1")
         car_status = VehicleMasterList.objects.filter(
-            PLATE_ENDING="1", sent_email="No")
+            PLATE_ENDING="1", Status="No")
         plate = ""
         for carreg in car_status:
                 # print(carreg.plate_no)
@@ -43,14 +43,14 @@ def send_registration_email():
                 cc_email= ['zscsantos@globe.com.ph','zfvdelacruz@globe.com.ph']
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
-                car_status.update(sent_email="Yes")
+                car_status.update(Status="Yes")
                 car_status.update(Date_email_log= date_now)
                 print("Test Registration Month 1 Send")
 
     elif month == 1:
         print("test Registration Month 2")
         car_status = VehicleMasterList.objects.filter(
-            PLATE_ENDING="2", sent_email="No")
+            PLATE_ENDING="2", Status="No")
         plate = ""
         for carreg in car_status:
                 # print(carreg.PLATE_NO)
@@ -67,14 +67,14 @@ def send_registration_email():
                 cc_email= ['zscsantos@globe.com.ph','zfvdelacruz@globe.com.ph']
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
-                car_status.update(sent_email="Yes")
+                car_status.update(Status="Yes")
                 car_status.update(Date_email_log= date_now)
                 print("Test Registration Month 2 Send")
 
     elif month == 2:
         print("test Registration Month 3")
         car_status = VehicleMasterList.objects.filter(
-            PLATE_ENDING="3", sent_email="No")
+            PLATE_ENDING="3", Status="No")
         plate = ""
         for carreg in car_status:
                 # print(carreg.PLATE_NO)
@@ -91,14 +91,14 @@ def send_registration_email():
                 cc_email= ['zscsantos@globe.com.ph','zfvdelacruz@globe.com.ph']
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
-                car_status.update(sent_email="Yes")
+                car_status.update(Status="Yes")
                 car_status.update(Date_email_log= date_now)
                 print("Test Registration Month 3 Send")
 
     elif month == 3:
         print("test Registration Month 4")
         car_status = VehicleMasterList.objects.filter(
-            PLATE_ENDING="4", sent_email="No")
+            PLATE_ENDING="4", Status="No")
         plate = ""
         for carreg in car_status:
                 # print(carreg.PLATE_NO)
@@ -115,14 +115,14 @@ def send_registration_email():
                 cc_email= ['zscsantos@globe.com.ph','zfvdelacruz@globe.com.ph']
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
-                car_status.update(sent_email="Yes")
+                car_status.update(Status="Yes")
                 car_status.update(Date_email_log= date_now)
                 print("Test Registration Month 4 Send")
 
     elif month == 4:
         print("test Registration Month 5")
         car_status = VehicleMasterList.objects.filter(
-            PLATE_ENDING="5", sent_email="No")
+            PLATE_ENDING="5", Status="No")
         plate = ""
         for carreg in car_status:
                 # print(carreg.PLATE_NO)
@@ -139,14 +139,14 @@ def send_registration_email():
                 cc_email= ['zscsantos@globe.com.ph','zfvdelacruz@globe.com.ph']
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
-                car_status.update(sent_email="Yes")
+                car_status.update(Status="Yes")
                 car_status.update(Date_email_log= date_now)
                 print("Test Registration Month 5 Send")
 
     elif month == 5:
         print("test Registration Month 6")
         car_status = VehicleMasterList.objects.filter(
-            PLATE_ENDING="6", sent_email="No")
+            PLATE_ENDING="6", Status="No")
         plate = ""
         for carreg in car_status:
                 # print(carreg.PLATE_NO)
@@ -163,14 +163,14 @@ def send_registration_email():
                 cc_email= ['zscsantos@globe.com.ph','zfvdelacruz@globe.com.ph']
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
-                car_status.update(sent_email="Yes")
+                car_status.update(Status="Yes")
                 car_status.update(Date_email_log= date_now)
                 print("Test Registration Month 6 Send")
 
     elif month == 6:
         print("test Registration Month 7")
         car_status = VehicleMasterList.objects.filter(
-            PLATE_ENDING="7", sent_email="No")
+            PLATE_ENDING="7", Status="No")
         plate = ""
         for carreg in car_status:
                 # print(carreg.PLATE_NO)
@@ -187,14 +187,14 @@ def send_registration_email():
                 cc_email= ['zscsantos@globe.com.ph','zfvdelacruz@globe.com.ph']
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
-                car_status.update(sent_email="Yes")
+                car_status.update(Status="Yes")
                 car_status.update(Date_email_log= date_now)
                 print("Test Registration Month 7 Send")
 
     elif month == 7:
         print("test Registration Month 8")
         car_status = VehicleMasterList.objects.filter(
-            PLATE_ENDING="8", sent_email="No")
+            PLATE_ENDING="8", Status="No")
         plate = ""
         for carreg in car_status:
                 # print(carreg.PLATE_NO)
@@ -211,14 +211,14 @@ def send_registration_email():
                 cc_email= ['zscsantos@globe.com.ph','zfvdelacruz@globe.com.ph']
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
-                car_status.update(sent_email="Yes")
+                car_status.update(Status="Yes")
                 car_status.update(Date_email_log= date_now)
                 print("Test Registration Month 8 Send")
 
     elif month == 8:
         print("test Registration Month 9")
         car_status = VehicleMasterList.objects.filter(
-            PLATE_ENDING="9", sent_email="No")
+            PLATE_ENDING="9", Status="No")
         plate = ""
         for carreg in car_status:
                 # print(carreg.PLATE_NO)
@@ -235,14 +235,14 @@ def send_registration_email():
                 cc_email= ['zscsantos@globe.com.ph','zfvdelacruz@globe.com.ph']
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
-                car_status.update(sent_email="Yes")
+                car_status.update(Status="Yes")
                 car_status.update(Date_email_log= date_now)
                 print("Test Registration Month 9 Send")
 
     elif month == 9:
         print("test Registration Month 0")
         car_status = VehicleMasterList.objects.filter(
-            PLATE_ENDING="0", sent_email="No")
+            PLATE_ENDING="0", Status="No")
         plate = ""
         for carreg in car_status:
                 # print(carreg.PLATE_NO)
@@ -259,7 +259,7 @@ def send_registration_email():
                 cc_email= ['zscsantos@globe.com.ph','zfvdelacruz@globe.com.ph']
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
-                car_status.update(sent_email="Yes")
+                car_status.update(Status="Yes")
                 car_status.update(Date_email_log= date_now)
                 print("Test Registration Month 0 Send")
 
