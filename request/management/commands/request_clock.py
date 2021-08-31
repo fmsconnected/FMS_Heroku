@@ -16,7 +16,7 @@ import sched
 
 django.setup()
 sched = BlockingScheduler()
-@sched.scheduled_job('interval', minutes=30)
+@sched.scheduled_job('interval', minutes=10)
 # @sched.scheduled_job('cron', day_of_week='mon-sun', hour=23)
 
 def email_job():
@@ -31,7 +31,7 @@ def email_job():
             # print(carreg.plate_no)
             plate = carreg.plate_no
             print(plate)
-             
+
     if plate != "":
         for item in car_status:
             subject = 'Fleet Management System Automated Email'
