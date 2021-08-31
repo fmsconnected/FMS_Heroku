@@ -45,6 +45,7 @@ def send_registration_email():
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
+                print("Test Registration Month 1 Send")
 
     elif month == 1:
         print("test Registration Month 2")
@@ -68,6 +69,7 @@ def send_registration_email():
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
+                print("Test Registration Month 2 Send")
 
     elif month == 2:
         print("test Registration Month 3")
@@ -91,6 +93,7 @@ def send_registration_email():
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
+                print("Test Registration Month 3 Send")
 
     elif month == 3:
         print("test Registration Month 4")
@@ -114,6 +117,7 @@ def send_registration_email():
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
+                print("Test Registration Month 4 Send")
 
     elif month == 4:
         print("test Registration Month 5")
@@ -137,6 +141,7 @@ def send_registration_email():
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
+                print("Test Registration Month 5 Send")
 
     elif month == 5:
         print("test Registration Month 6")
@@ -160,6 +165,7 @@ def send_registration_email():
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
+                print("Test Registration Month 6 Send")
 
     elif month == 6:
         print("test Registration Month 7")
@@ -183,6 +189,7 @@ def send_registration_email():
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
+                print("Test Registration Month 7 Send")
 
     elif month == 7:
         print("test Registration Month 8")
@@ -206,6 +213,7 @@ def send_registration_email():
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
+                print("Test Registration Month 8 Send")
 
     elif month == 8:
         print("test Registration Month 9")
@@ -229,6 +237,7 @@ def send_registration_email():
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
+                print("Test Registration Month 9 Send")
 
     elif month == 9:
         print("test Registration Month 0")
@@ -252,5 +261,6 @@ def send_registration_email():
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(sent_email="Yes")
                 car_status.update(Date_email_log= date_now)
+                print("Test Registration Month 0 Send")
 
 sched.start()
