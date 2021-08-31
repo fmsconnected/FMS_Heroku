@@ -85,9 +85,9 @@
                             <th>COC Date</th>
                             <th>Email</th>
                             <th>Remarks</th>
-                            <th>Status</th>
                             <th>Latest Remarks</th>
                             <th>Vehicle Status</th>
+                            <th>Emailed Status</th>
                         </tr>
                     </thead>
                     {% for Vmaster_active in vehicle_list_active %}
@@ -138,9 +138,9 @@
                             <td>{{Vmaster_active.COC_Date}}</td>
                             <td>{{Vmaster_active.EMAIL}}</td>
                             <td>{{Vmaster_active.Remarks}}</td>
-                            <td>{{Vmaster_active.Status}}</td>
                             <td>{{Vmaster_active.leasing_remark}}</td>
                             <td>{{Vmaster_active.vehicle_status}}</td>
+                            <td>{{Vmaster_active.sent_email}}</td>
                         </tr>
                     {% endfor %}
                     </table>
