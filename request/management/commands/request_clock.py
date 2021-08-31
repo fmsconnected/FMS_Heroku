@@ -20,7 +20,7 @@ sched = BlockingScheduler()
 # @sched.scheduled_job('cron', day_of_week='mon-sun', hour=23)
 
 def email_job():
-    print("test Request Email")
+    print("Test Request Email Starting.....")
     current_date = datetime.datetime.today()
     date_now = datetime.datetime.now().date()
     # print(date_now)
@@ -31,7 +31,7 @@ def email_job():
             # print(carreg.plate_no)
             plate = carreg.plate_no
             print(plate)
-
+             
     if plate != "":
         for item in car_status:
             subject = 'Fleet Management System Automated Email'
@@ -44,5 +44,6 @@ def email_job():
             mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message)
             car_status.update(sent_email="Yes") 
             car_status.update(Date_email_log=datetime.datetime.now().date())
+            print("Test Request Email Send!")
 
 sched.start()
