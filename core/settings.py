@@ -180,7 +180,7 @@ EMAIL_HOST_USER = 'fmsjxmtsi@gmail.com'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = "jxmtsi@2241"
+EMAIL_HOST_PASSWORD = "JXMTSI@2241"
 
 SESSION_ENGINE= 'django.contrib.sessions.backends.cached_db'
 SESSION_TIMEOUT_REDIRECT = '/logout/'
