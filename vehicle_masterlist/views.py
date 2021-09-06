@@ -84,7 +84,109 @@ def VmasterlistCreate(request):
         remarks = request.POST.get('remarks')
         status = request.POST.get('status')
         l_remark = request.POST.get('l_remark')
+        email = request.POST.get('email')
+        vehicle_status = request.POST.get('vstatus')
+        
+        if or_date == '':
+            or_date = None
+        else:
+            or_date = datetime.datetime.strptime(or_date,'%Y-%m-%d')
+
+        if aqui_date == '':
+            aqui_date = None
+        else:
+            aqui_date = datetime.datetime.strptime(aqui_date,'%Y-%m-%d')
+
+        if plate_date == '':
+            plate_date = None
+        else:
+            plate_date = datetime.datetime.strptime(plate_date,'%Y-%m-%d')
+
+
+        employee_list = EmployeeMasterlist.objects.all()
+        for e_id in employee_list:
+            if e_id.Employee_Id == emp_id:
+                emp_save = e_id
+            
+        if emp_id == '':
+            emp_save = None
+            
+        reg = ''
+        endplate = ''
+        if plate != '':
+            endplate = int(plate[-1])
+            if endplate == 1:
+                reg = 'JAN'
+            elif endplate == 2:
+                reg = 'FEB'
+            elif endplate == 3:
+                reg = 'MAR'
+            elif endplate == 4:
+                reg = 'APR'
+            elif endplate == 5:
+                reg = 'MAY'
+            elif endplate == 6:
+                reg = 'JUN'
+            elif endplate == 7:
+                reg = 'JUL'
+            elif endplate == 8:
+                reg = 'AUG'
+            elif endplate == 9:
+                reg = 'SEP'
+            elif endplate == 0:
+                reg = 'OCT'
+
+        saveto_end = VehicleMasterList(PLATE_NO=plate, CS_NO=cs, CR_NAME=cr_name, MODEL=model, BRAND=brand,PLATE_ENDING=endplate, REGISTRATION_MONTH=reg,
+            VEHICLE_MAKE=vmake, ENGINE_NO=eng_no, CHASSIS_NO=chassis_no, MV_FILE_NO=mvfile, VEHICLE_TYPE=vtype, VEHICLE_CATEGORY=vcat,
+            Employee=emp_save, BAND_LEVEL=band, BENEFIT_GROUP=benefit, COST_CENTER=cost, GROUP=group, DIVISION=div,
+            DEPARTMENT=dept, SECTION=sec, IS_ID=is_emp, IS_NAME=IS_NAME, LOCATION=loc,
+            ACQ_DATE=aqui_date, ACQ_COST=aqui_cost, ASSET_NO=asset, PO_NO=po_no, PLATE_NUMBER_RELEASE_DATE=plate_date, ORIGINAL_OR_DATE=or_date,EQUIPMENT_NO=eq_no,
+            SAP_PR=sap_pr,Vehicle_IVN_no=ivn_no,Unit_MATDOC=mathdoc,dealer=dealer, dealer_name=dealer_name, Remarks=remarks, Status=status, leasing_remark=l_remark,
+            vehicle_status = vehicle_status
+            )
+        saveto_end.save()
+
+    return HttpResponseRedirect('/VehicleMasterlist/VehicleMasterlist/')
+
+def VmasterlistUpdate(request):
+    if request.method == 'POST':
+        plate = request.POST.get('plate_no')
+        cs = request.POST.get('cs')
+        cr_name = request.POST.get('cr_name')
+        model = request.POST.get('model')
+        brand = request.POST.get('brand')
+        vmake = request.POST.get('vmake')
+        eng_no = request.POST.get('eng_no')
+        chassis_no = request.POST.get('chassis_no')
+        mvfile = request.POST.get('mvfile')
+        vtype = request.POST.get('vtype')
+        vcat = request.POST.get('vcat')
+        emp_id = request.POST.get('emp_id')
+        band = request.POST.get('band')
+        benefit = request.POST.get('benefit')
+        cost = request.POST.get('cost')
+        group = request.POST.get('group')
+        div = request.POST.get('div')
+        dept = request.POST.get('dept')
+        sec = request.POST.get('sec')
+        is_emp = request.POST.get('is_emp')
+        IS_NAME = request.POST.get('is_fname')
+        loc = request.POST.get('loc')
+        aqui_date = request.POST.get('aqui_date')
+        aqui_cost = request.POST.get('aqui_cost')
+        asset = request.POST.get('asset')
+        po_no = request.POST.get('po_no')
+        sap_pr = request.POST.get('sap_pr')
+        ivn_no = request.POST.get('ivn_no')
+        mathdoc = request.POST.get('mathdoc')
+        eq_no = request.POST.get('eq_no')
+        dealer = request.POST.get('dealer')
+        dealer_name = request.POST.get('dealer_name')
+        plate_date = request.POST.get('plate_date')
+        or_date = request.POST.get('or_date')
+        remarks = request.POST.get('remarks')
         l_remark = request.POST.get('l_remark')
+        email = request.POST.get('email')
         vehicle_status = request.POST.get('vstatus')
         
         if or_date == '':

@@ -140,10 +140,11 @@ class VehicleMasterList(models.Model):
 	Smoke_due = models.DateField(auto_now=False, null=True, blank=True)
 	COC_Date = models.CharField(max_length=100, null=True, blank=True)
 	Remarks = models.CharField(max_length=250, null=True, blank=True, choices=remarks)
-	Status = models.CharField(max_length=20, null=True, blank=True, choices=status)
+	Status = models.CharField(max_length=20, null=True, blank=True)
 	leasing_remark = models.CharField(max_length=225, null=True, blank=True)
 	vehicle_status = models.CharField(max_length=100, null=True, blank=True, choices=vstatus)
-	sent_email = models.CharField(max_length=10, null=True, blank=True,choices=status)
+	Status_2 = models.CharField(max_length=10, null=True, blank=True)
+	Status_3 = models.CharField(max_length=10, null=True, blank=True)
 	Date_email_log = models.CharField(max_length=20, null=True, blank=True)
 	history = HistoricalRecords()
 

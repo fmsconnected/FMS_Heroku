@@ -39,7 +39,7 @@ def email_job():
             plain_message = item.plate_no
             recipient_list = [item.email]
             cc_email= ['zscsantos@globe.com.ph']
-            from_email = 'Fleet Management System <fmsjxmtsi@gmail.com>'
+            from_email = 'Fleet Management System <fmsconnected@gmail.com>'
             toaddrs = recipient_list + cc_email
             mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message)
             car_status.update(sent_email="Yes") 
