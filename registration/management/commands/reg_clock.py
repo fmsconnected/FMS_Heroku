@@ -341,10 +341,10 @@ def send_registration_email():
                 car_status.update(Date_email_log= date_now)
                 print("1st Email Registration Month 0 Send")
 
-#################################
-#####.......2nd email......######
-#################################
-@sched.scheduled_job('interval', minutes=1)
+            #################################
+            #####.......2nd email......######
+            #################################
+@sched.scheduled_job('interval', minutes=10)
 def second_send_registration_email():
     ###---Get 14 days of the month---###
     given_date = datetime.datetime.now().date()
