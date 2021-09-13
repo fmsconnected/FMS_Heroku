@@ -90,7 +90,6 @@
                             <th>Status 2</th>
                             <th>Status 3</th>
                             <th>Vehicle Status</th>
-                            <th>Emailed Status</th>
                         </tr>
                     </thead>
                     {% for Vmaster_active in vehicle_list_active %}
@@ -146,7 +145,6 @@
                             <td>{{Vmaster_active.Status_2}}</td>
                             <td>{{Vmaster_active.Status_3}}</td>
                             <td>{{Vmaster_active.vehicle_status}}</td>
-                            <td>{{Vmaster_active.sent_email}}</td>
                         </tr>
                     {% endfor %}
                     </table>
