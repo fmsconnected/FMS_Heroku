@@ -35,7 +35,7 @@ def send_registration_email():
     if month == 12:
         print("1st Email Registration Month 1")
         exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-        car_status = VehicleMasterList.objects.filter(
+        car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
             PLATE_ENDING="1", Status="No").exclude(exc)
         plate = ""
         for carreg in car_status:
@@ -65,7 +65,7 @@ def send_registration_email():
     elif month == 1:
         print("1st Email Registration Month 2")
         exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-        car_status = VehicleMasterList.objects.filter(
+        car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
             PLATE_ENDING="2", Status="No").exclude(exc)
         plate = ""
         for carreg in car_status:
@@ -96,7 +96,7 @@ def send_registration_email():
     elif month == 2:
         print("1st Email Registration Month 3")
         exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-        car_status = VehicleMasterList.objects.filter(
+        car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
             PLATE_ENDING="3", Status="No").exclude(exc)
         plate = ""
         for carreg in car_status:
@@ -127,7 +127,7 @@ def send_registration_email():
     elif month == 3:
         print("1st Email Registration Month 4")
         exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-        car_status = VehicleMasterList.objects.filter(
+        car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
             PLATE_ENDING="4", Status="No").exclude(exc)
         plate = ""
         for carreg in car_status:
@@ -158,7 +158,7 @@ def send_registration_email():
     elif month == 4:
         print("1st Email Registration Month 5")
         exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-        car_status = VehicleMasterList.objects.filter(
+        car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
             PLATE_ENDING="5", Status="No").exclude(exc)
         plate = ""
         for carreg in car_status:
@@ -189,7 +189,7 @@ def send_registration_email():
     elif month == 5:
         print("1st Email Registration Month 6")
         exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-        car_status = VehicleMasterList.objects.filter(
+        car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
             PLATE_ENDING="6", Status="No").exclude(exc)
         plate = ""
         for carreg in car_status:
@@ -220,7 +220,7 @@ def send_registration_email():
     elif month == 6:
         print("1st Email Registration Month 7")
         exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-        car_status = VehicleMasterList.objects.filter(
+        car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
             PLATE_ENDING="7", Status="No").exclude(exc)
         plate = ""
         for carreg in car_status:
@@ -251,7 +251,7 @@ def send_registration_email():
     elif month == 7:
         print("1st Email Registration Month 8")
         exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-        car_status = VehicleMasterList.objects.filter(
+        car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
             PLATE_ENDING="8", Status="No").exclude(exc)
         plate = ""
         for carreg in car_status:
@@ -282,7 +282,7 @@ def send_registration_email():
     elif month == 8:
         print("1st Email Registration Month 9")
         exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-        car_status = VehicleMasterList.objects.filter(
+        car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
             PLATE_ENDING="9", Status="No").exclude(exc)
         plate = ""
         for carreg in car_status:
@@ -313,7 +313,7 @@ def send_registration_email():
     elif month == 9:
         print("1st Email Registration Month 0")
         exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-        car_status = VehicleMasterList.objects.filter(
+        car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
             PLATE_ENDING="0", Status="No").exclude(exc)
         plate = ""
         for carreg in car_status:
@@ -344,7 +344,7 @@ def send_registration_email():
 #################################
 #####.......2nd email......######
 #################################
-@sched.scheduled_job('interval', minutes=10)
+@sched.scheduled_job('interval', minutes=1)
 def second_send_registration_email():
     ###---Get 14 days of the month---###
     given_date = datetime.datetime.now().date()
@@ -363,7 +363,7 @@ def second_send_registration_email():
         if given_date == sec_week_of_month:
             print("2nd Email Registration Month 1")
             exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-            car_status = VehicleMasterList.objects.filter(
+            car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
                 PLATE_ENDING="1", Status_2="No").exclude(exc)
             plate = ""
             for carreg in car_status:
@@ -394,7 +394,7 @@ def second_send_registration_email():
         if given_date == sec_week_of_month:
             print("2nd Email Registration Month 2")
             exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-            car_status = VehicleMasterList.objects.filter(
+            car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
                 PLATE_ENDING="2", Status_2="No").exclude(exc)
             plate = ""
             for carreg in car_status:
@@ -426,7 +426,7 @@ def second_send_registration_email():
         if given_date == sec_week_of_month:
             print("2nd Email Registration Month 3")
             exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-            car_status = VehicleMasterList.objects.filter(
+            car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
                 PLATE_ENDING="3", Status_2="No").exclude(exc)
             plate = ""
             for carreg in car_status:
@@ -458,7 +458,7 @@ def second_send_registration_email():
         if given_date == sec_week_of_month:
             print("2nd Email Registration Month 4")
             exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-            car_status = VehicleMasterList.objects.filter(
+            car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
                 PLATE_ENDING="4", Status_2="No").exclude(exc)
             plate = ""
             for carreg in car_status:
@@ -490,7 +490,7 @@ def second_send_registration_email():
         if given_date == sec_week_of_month:
             print("2nd Email Registration Month 5")
             exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-            car_status = VehicleMasterList.objects.filter(
+            car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
                 PLATE_ENDING="5", Status_2="No").exclude(exc)
             plate = ""
             for carreg in car_status:
@@ -522,7 +522,7 @@ def second_send_registration_email():
         if given_date == sec_week_of_month:
             print("2nd Email Registration Month 6")
             exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-            car_status = VehicleMasterList.objects.filter(
+            car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
                 PLATE_ENDING="6", Status_2="No").exclude(exc)
             plate = ""
             for carreg in car_status:
@@ -554,7 +554,7 @@ def second_send_registration_email():
         if given_date == sec_week_of_month:
             print("2nd Email Registration Month 7")
             exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-            car_status = VehicleMasterList.objects.filter(
+            car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
                 PLATE_ENDING="7", Status_2="No").exclude(exc)
             plate = ""
             for carreg in car_status:
@@ -586,7 +586,7 @@ def second_send_registration_email():
         if given_date == sec_week_of_month:
             print("2nd Email Registration Month 8")
             exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-            car_status = VehicleMasterList.objects.filter(
+            car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
                 PLATE_ENDING="8", Status_2="No").exclude(exc)
             plate = ""
             for carreg in car_status:
@@ -618,7 +618,7 @@ def second_send_registration_email():
         if given_date == sec_week_of_month:
             print("2nd Email Registration Month 9")
             exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-            car_status = VehicleMasterList.objects.filter(
+            car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
                 PLATE_ENDING="9", Status_2="No").exclude(exc)
             plate = ""
             for carreg in car_status:
@@ -651,7 +651,7 @@ def second_send_registration_email():
         if given_date == sec_week_of_month:
             print("2nd Email Registration Month 0")
             exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-            car_status = VehicleMasterList.objects.filter(
+            car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
                 PLATE_ENDING="0", Status_2="No").exclude(exc)
             plate = ""
             for carreg in car_status:
@@ -672,8 +672,8 @@ def second_send_registration_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@gmail.com>'
-                    cc_email= ['zscsantos@globe.com.ph','zfvdelacruz@globe.com.ph']
-                    toaddrs = recipient_list + cc_email
+                    # cc_email= ['zscsantos@globe.com.ph','zfvdelacruz@globe.com.ph']
+                    toaddrs = recipient_list
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     car_status.update(Status_2="Yes")
                     car_status.update(Date_email_log= date_now)
@@ -694,7 +694,7 @@ def second_send_registration_email():
 #     if month == 1:
 #         print("3rd Email Registration Month 1")
 #         exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-#         car_status = VehicleMasterList.objects.filter(
+#         car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
 #             PLATE_ENDING="1", Status_3="No", Status_2="Yes",Status="Yes", Status_2="Yes",Status="Yes").exclude(exc)
 #         plate = ""
 #         for carreg in car_status:
@@ -723,7 +723,7 @@ def second_send_registration_email():
 #     elif month == 2:
 #         print("3rd Email Registration Month 2")
 #         exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-#         car_status = VehicleMasterList.objects.filter(
+#         car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
 #             PLATE_ENDING="2", Status_3="No", Status_2="Yes",Status="Yes").exclude(exc)
 #         plate = ""
 #         for carreg in car_status:
@@ -753,7 +753,7 @@ def second_send_registration_email():
 #     elif month == 3:
 #         print("3rd Email Registration Month 3")
 #         exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-#         car_status = VehicleMasterList.objects.filter(
+#         car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
 #             PLATE_ENDING="3", Status_3="No", Status_2="Yes",Status="Yes").exclude(exc)
 #         plate = ""
 #         for carreg in car_status:
@@ -783,7 +783,7 @@ def second_send_registration_email():
 #     elif month == 4:
 #         print("3rd Email Registration Month 4")
 #         exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-#         car_status = VehicleMasterList.objects.filter(
+#         car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
 #             PLATE_ENDING="4", Status_3="No", Status_2="Yes",Status="Yes").exclude(exc)
 #         plate = ""
 #         for carreg in car_status:
@@ -813,7 +813,7 @@ def second_send_registration_email():
 #     elif month == 5:
 #         print("3rd Email Registration Month 5")
 #         exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-#         car_status = VehicleMasterList.objects.filter(
+#         car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
 #             PLATE_ENDING="5", Status_3="No", Status_2="Yes",Status="Yes").exclude(exc)
 #         plate = ""
 #         for carreg in car_status:
@@ -843,7 +843,7 @@ def second_send_registration_email():
 #     elif month == 6:
 #         print("3rd Email Registration Month 6")
 #         exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-#         car_status = VehicleMasterList.objects.filter(
+#         car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
 #             PLATE_ENDING="6", Status_3="No", Status_2="Yes",Status="Yes").exclude(exc)
 #         plate = ""
 #         for carreg in car_status:
@@ -873,7 +873,7 @@ def second_send_registration_email():
 #     elif month == 7:
 #         print("3rd Email Registration Month 7")
 #         exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-#         car_status = VehicleMasterList.objects.filter(
+#         car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
 #             PLATE_ENDING="7", Status_3="No", Status_2="Yes",Status="Yes").exclude(exc)
 #         plate = ""
 #         for carreg in car_status:
@@ -903,7 +903,7 @@ def second_send_registration_email():
 #     elif month == 8:
 #         print("3rd Email Registration Month 8")
 #         exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-#         car_status = VehicleMasterList.objects.filter(
+#         car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
 #             PLATE_ENDING="8", Status_3="No", Status_2="Yes",Status="Yes").exclude(exc)
 #         plate = ""
 #         for carreg in car_status:
@@ -933,7 +933,7 @@ def second_send_registration_email():
 #     elif month == 9:
 #         print("3rd Email Registration Month 9")
 #         exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-#         car_status = VehicleMasterList.objects.filter(
+#         car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
 #             PLATE_ENDING="9", Status_3="No", Status_2="Yes",Status="Yes").exclude(exc)
 #         plate = ""
 #         for carreg in car_status:
@@ -963,7 +963,7 @@ def second_send_registration_email():
 #     elif month == 0:
 #         print("3rd Email Registration Month 0")
 #         exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2)
-#         car_status = VehicleMasterList.objects.filter(
+#         car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
 #             PLATE_ENDING="0", Status_3="No", Status_2="Yes",Status="Yes").exclude(exc)
 #         plate = ""
 #         for carreg in car_status:
