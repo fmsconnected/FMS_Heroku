@@ -90,7 +90,7 @@ def tiresubmit(request):
         vrr_sla = request.POST.get('vrr_sla')
 
         deadl = datetime.datetime.strptime(request_date, '%Y-%m-%d')
-        dead_date = deadl + datetime.timedelta(days=30)
+        dead_date = deadl + datetime.timedelta(days=365)
 
         saveto_tire = tire(request_date=request_date, employee=emp_id, cost_center=cost_center, first_name=fname,
             last_name=lname, contact_no=c_no, company=company, department=department, group_section=group,

@@ -90,7 +90,7 @@ def batterysubmit(request):
         vrr_sla = request.POST.get('vrr_sla')
 
         deadl = datetime.datetime.strptime(request_date, '%Y-%m-%d')
-        dead_date = deadl + datetime.timedelta(days=30)
+        dead_date = deadl + datetime.timedelta(days=530)
         # print(dead_date)
 
         saveto_batterry = battery(request_date=request_date, employee=emp_id, cost_center=cost_center, first_name=fname,
