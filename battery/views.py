@@ -89,6 +89,10 @@ def batterysubmit(request):
         email_status = request.POST.get('email_status')
         vrr_sla = request.POST.get('vrr_sla')
 
+        deadl = datetime.datetime.strptime(request_date, '%Y-%m-%d')
+        dead_date = deadl + datetime.timedelta(days=30)
+        # print(dead_date)
+
         saveto_batterry = battery(request_date=request_date, employee=emp_id, cost_center=cost_center, first_name=fname,
             last_name=lname, contact_no=c_no, company=company, department=department, group_section=group,
             plate_no=plate_no, v_brand=v_brand, engine=engine, v_make=v_make, v_model=v_model, chassis=chassis,
@@ -98,8 +102,8 @@ def batterysubmit(request):
             work_order1=work_order1, work_order2=work_order2, work_order3=work_order3, datework_created=date_work_created,
             Shop_vendor=repair_shop, date_forwarded=date_forward, estimate_no=estimate_no, maintenance_amount=maintenance_amount,
             less_discount=less_discount, estimate_remarks=estimate_remark, estimate_attached=estimate_attach, approvedby=approved_by,
-            meter_reading=kilo_reading, VRR_SLA=vrr_sla, memo_app=memo_app,email=email,sent_email=email_status
-    )
+            meter_reading=kilo_reading, VRR_SLA=vrr_sla, memo_app=memo_app,email=email,sent_email=email_status,Deadline=dead_date
+        )
         saveto_batterry.save()
 
         return HttpResponseRedirect('/Battery/List')

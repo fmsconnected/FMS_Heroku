@@ -97,6 +97,8 @@
                             <th>Conduction Sticker</th>
                             <th>Work Order Number</th>
                             <th>Date Initiated</th>
+                            <th>Date Requested</th>
+                            <th>Date Deadline</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -112,6 +114,8 @@
                             <td>{{ battery.cond_sticker }}</td>
                             <td>{{ battery.work_order1 }}</td>
                             <td>{{ battery.date_initiated | date:'D d M Y'}}</td>
+                            <td>{{ battery.request_date | date:'D d M Y'}}</td>
+                            <td>{{ battery.Deadline | date:'D d M Y'}}</td>
                             <td>
                                 <button type="button" class="delete-battery btn-sm btn-danger rounded" data-id="{% url 'battery_delete' battery.pk %}">
                                 <span class="fa fa-trash"></span>

@@ -10,11 +10,11 @@ from simple_history.models import HistoricalRecords
 def increment_Activity_id():
 	last_in = tire.objects.all().order_by('id').last()
 	if not last_in:
-		return 'BAT' + str(datetime.datetime.today().strftime('%Y')) + '-' + '000001'
+		return 'TIRE' + str(datetime.datetime.today().strftime('%Y')) + '-' + '000001'
 	in_id = last_in.Activity_id
 	in_int = int(in_id[10:])
 	new_in_int = in_int + 1
-	new_in_id = 'BAT' + str(datetime.datetime.today().strftime('%Y')) + '-' + str(new_in_int).zfill(6)
+	new_in_id = 'TIRE' + str(datetime.datetime.today().strftime('%Y')) + '-' + str(new_in_int).zfill(6)
 	return new_in_id
 
 class tire(models.Model):
