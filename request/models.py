@@ -391,16 +391,16 @@ class Vehicle_Repair(models.Model):
 	history = HistoricalRecords()
 	Deadline = models.DateTimeField()
 
-	def save(self, *args, **kwargs):
-		if self.Deadline is None:
-			now = datetime.datetime.today()
-			num_days = 0
-			while num_days < 30:
-				now = now + timedelta(days=1)
-				if now.isoweekday() not in [7]:
-					num_days+=1
-			self.Deadline = now
-		super().save(*args, **kwargs)
+	# def save(self, *args, **kwargs):
+	# 	if self.Deadline is None:
+	# 		now = datetime.datetime.today()
+	# 		num_days = 0
+	# 		while num_days < 30:
+	# 			now = now + timedelta(days=1)
+	# 			if now.isoweekday() not in [7]:
+	# 				num_days+=1
+	# 		self.Deadline = now
+	# 	super().save(*args, **kwargs)
 
 	def __str__(self):
 		return self.plate_no

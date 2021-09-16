@@ -272,6 +272,7 @@ function vrepair(repair) {
             <input type="text" name="kilo_reading" id="kilo_reading" class="form-control">
         </div>
     <input type="text" name="vrr_sla" id="vrr_sla" class="form-control" value = "30"hidden>
+    
     </fieldset>
     <div class="card-footer">
         <button type="submit" class="buttonsubmit">UPDATE</button>
@@ -330,5 +331,12 @@ $('#cs_no').on('change', function () {
     $('#eq_no').val(parts[8]);
 });
 </script>
-
+<!-----SLA---->
+<!-- <script type="text/javascript">
+    $('#deadline').on('change', function(){
+        var future = document.getElementById('request_date')[0].value;
+            future.setDate(future.getDate() + 30);
+        console.log(future)
+    })
+</script> -->
 {% endblock %}
