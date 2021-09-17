@@ -161,8 +161,9 @@ function setChart(){
       type: 'bar',
     data: {
         labels: ["FATA Monitoring",
-        "Corrective Maintenance", "Customer Care", "Ownership", "TOO Billing", "Car Rental Request", "Gas Card Request", "Preventive Maintenance", "Insurance", "New Vehicle Payment", "Car Rental Payment"
+        "Corrective Maintenance", "Customer Care", "Ownership", "TOO Billing", "Car Rental Request", "Gas Card Request","Service Vehicle Request","Preventive Maintenance", "Insurance", "New Vehicle Payment", "Car Rental Payment"
         , "Fuel Supplier Payment", "Vehicle Repair Payment"],
+        item_completed_data = [fm,cor,cus, own, bill,crr,gcr,svr, vrr, vr,vpr,crp,fs,vrp]
         datasets: [{
             label: '#Data',
             data: completed_item_data,
