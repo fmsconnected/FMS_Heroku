@@ -114,8 +114,8 @@ class ChartData(APIView):
         cus = CS_log.objects.all().count()
         
         labels = ["FATA Monitoring",
-        "Corrective Maintenance", "Customer Care", "Ownership", "TOO Billing", "Car Rental Request", "Gas Card Request",
-        "Leasing", "Preventive Maintenance", "Insurance", "New Vehicle Payment", "Car Rental Payment"
+        "Corrective Maintenance", "Customer Care", "Ownership", "TOO Billing", "Car Rental Request", "Gas Card Request","Service Vehicle Request",
+        "Preventive Maintenance", "Insurance", "New Vehicle Payment", "Car Rental Payment"
         , "Fuel Supplier Payment", "Vehicle Repair Payment"]
         default_items = [fm,cor,cus, own, bill,crr,gcr,svr, vrr, vr,vpr,crp,fs,vrp]
         data = {
