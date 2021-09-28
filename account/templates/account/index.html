@@ -329,7 +329,7 @@ function setChart(){
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-3 col-5">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
@@ -345,7 +345,7 @@ function setChart(){
 
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-2 col-5">
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
@@ -361,7 +361,7 @@ function setChart(){
           </div>
 
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-2 col-5">
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
@@ -375,7 +375,7 @@ function setChart(){
               <a href="{% url 'leasing_list' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-2 col-5">
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
@@ -387,6 +387,19 @@ function setChart(){
                 <i class="ion ion-person-add"></i>
               </div>
               <a href="{% url 'CS_List' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-5">
+            <!-- small box -->
+            <div class="small-box bg-secondary">
+              <div class="inner">
+                <h4 style="font-size: 15px">Total Registered</h4>
+                <h4 style="font-size: 12px">{{ registered }}</h4>
+                <h4 style="font-size: 15px">Total not Registered</h4>
+                <h4 style="font-size: 12px">{{ not_registered }}</h4>
+                <h2 class="h5">Registration Monitoring</h2>
+              </div>
+              <a href="{% url 'registration_jan_reg' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

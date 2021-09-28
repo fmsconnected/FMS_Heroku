@@ -135,14 +135,18 @@
             <input name="remarks_justification" id="remarks_justification" class="form-control" value="{{object.JUSTIFICATION_REMARKS}}">
         </div>
         <div class="col-sm-4">
-        <label>Email Status</label>
-        <input type="text" name="email_status" id="email_status" class="form-control" class="form-control" value="{{ object.sent_email}}" required>
+        <!-- <label>Email Status</label> -->
+        <input type="text" name="email_status" id="email_status" class="form-control" class="form-control" value="{{ object.sent_email}}" hidden>
         </input>
     </div>
-       <div class="col-sm-4">
+      <div class="col-sm-4">
         <label>Email</label>
         <input name="email" id="email" class="form-control" type="email" value="{{ object.email }}"required>
-    </div>
+      </div>
+      <div class="col-sm-4">
+        <label>Date Registered</label>
+        <input name="date_reg" id="date_reg" class="form-control" type="Date" value="{{ object.Date_registered }}">
+      </div>
     </div>
     <div class="card-footer">
         <button type="submit" class="buttonsubmit">Submit</button>

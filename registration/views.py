@@ -69,6 +69,7 @@ def regUpdate(request, pk):
         JUSTIFICATION_REMARKS = request.POST.get('remarks_justification')
         email_status = request.POST.get('email_status')
         email = request.POST.get('email')
+        date_reg = request.POST.get('date_reg')
 
         reg = ''
         endplate = ''
@@ -95,7 +96,7 @@ def regUpdate(request, pk):
             elif endplate == 0:
                 reg = 'OCT' 
 	
-    Registration.objects.filter(id=pk).update(PLATE_NO=PLATE_NO, Plate_ending=endplate, CS_NO=CS_NO, CR_NAME=CR_NAME, MODEL=MODEL,BRAND=BRAND,VEHICLE_MAKE=VEHICLE_MAKE,ENGINE_NO=ENGINE_NO,CHASSIS_NO=CHASSIS_NO,MV_FILE_NO=MV_FILE_NO,COC=COC,SMOKE_TPL=SMOKE_TPL,REMARKS_REGISTERED=REMARKS_REGISTERED,DATE_EMAILED=DATE_EMAILED,JUSTIFICATION_REMARKS=JUSTIFICATION_REMARKS,Registration_month=reg, sent_email=email_status, email=email)
+    Registration.objects.filter(id=pk).update(PLATE_NO=PLATE_NO, Plate_ending=endplate, CS_NO=CS_NO, CR_NAME=CR_NAME, MODEL=MODEL,BRAND=BRAND,VEHICLE_MAKE=VEHICLE_MAKE,ENGINE_NO=ENGINE_NO,CHASSIS_NO=CHASSIS_NO,MV_FILE_NO=MV_FILE_NO,COC=COC,SMOKE_TPL=SMOKE_TPL,REMARKS_REGISTERED=REMARKS_REGISTERED,DATE_EMAILED=DATE_EMAILED,JUSTIFICATION_REMARKS=JUSTIFICATION_REMARKS,Registration_month=reg, sent_email=email_status, email=email, Date_registered=date_reg)
     return HttpResponseRedirect('/Registration/Details/{}'.format(pk))
 
 
@@ -305,6 +306,7 @@ def registration_excel(request):
         'Email' ,
         'Sent email' ,
         'Date email log' ,
+        'Date Registered',
     ]
     row_num = 1
 
@@ -334,6 +336,7 @@ def registration_excel(request):
                 car.email ,
                 car.sent_email ,
                 car.Date_email_log ,
+                car.Date_registered,
         ]
         
         for col_num, cell_value in enumerate(row, 1):

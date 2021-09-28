@@ -93,6 +93,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                             <th>Email</th>
                             <th>Justification Remarks</th>
                             <th>Remark Registered</th>
+                            <th>Date Registered</th>
                            
                         </tr>
                         
@@ -114,7 +115,8 @@ tr:nth-child(even){background-color: #f2f2f2}
                             <td>{{ object.DATE_EMAILED }}</td>   
                             <td>{{ object.email }}</td>
                             <td>{{ object.JUSTIFICATION_REMARKS }}</td> 
-                            <td>{{ object.REMARKS_REGISTERED }}</td>      
+                            <td>{{ object.REMARKS_REGISTERED }}</td> 
+                            <td>{{ object.Date_registered }}</td>       
                         </tr>
                         {% endfor %}
                     </tbody>

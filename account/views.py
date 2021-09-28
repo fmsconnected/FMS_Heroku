@@ -52,6 +52,7 @@ from corrective.models import (
 from CustomerLog.models import (
     CS_log
     )
+from registration.models import Registration
 
 def index(request):
     current_user = request.user
@@ -61,14 +62,17 @@ def index(request):
     date = datetime.datetime.today()
     months = ['zero','January','February','March','April','May','June','July','August','September','October','November','December']
     month = months[date.month]
+    reg_months = datetime.datetime.now().month
     count11 = Corrective.objects.count()
     count12 = EmployeeMasterlist.objects.count()
     count13 = VehicleMasterList.objects.count()
     count14 = Billing.objects.count()
     count15 = Leasing.objects.count()
     count16 = CS_log.objects.filter(Ageing="").count()
+    not_registered = Registration.objects.filter(Plate_ending=reg_months,Date_registered__isnull=True ).count()
+    registered = Registration.objects.exclude(Plate_ending=reg_months,Date_registered__isnull=True).count()
     return render(request, 'account/index.html', {'title': 'FLEET', 'month':month, 'count11': count11,
-                                                  'count12': count12, 'count13': count13, 'count14': count14, 'count15': count15, 'count16':count16})
+                                                  'count12': count12, 'count13': count13, 'count14': count14, 'count15': count15, 'count16':count16,'not_registered':not_registered,'registered':registered})
 
 ########### Customer care log alert ###########
 
