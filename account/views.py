@@ -146,7 +146,7 @@ class ChartData_ongoing(APIView):
         crp = CarRental.objects.filter(Date_initiated__month= date.month, R_Cost="" ).count()
         fs = Fuel_supplier.objects.filter(Date_initiated__month= date.month, Date_forwarded="" ).count()
         vrp = Vehicle_Repair_payment.objects.filter(date_initiated__month= date.month, invoice_date="" ).count()
-        registration = VehicleMasterList.objects.filter(PLATE_ENDING=month).count()
+        registration = VehicleMasterList.objects.filter(PLATE_ENDING=month, vehicle_status="Active",CR_NAME="GLOBE").count()
         
         ongoing_labels = ["FATA Monitoring",
         "Corrective Maintenance", "Transfer Ownership", "Car Rental Request", "Gas Card Request",

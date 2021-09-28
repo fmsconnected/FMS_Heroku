@@ -31,6 +31,7 @@ class Fata_monitoring(models.Model):
 	Vehicle_brand = models.CharField(max_length=100, blank=True, null=True)
 	Certificate_of_Reg = models.CharField(max_length=100, blank=True, null=True)
 	Vehicle_model = models.CharField(max_length=100, blank=True, null=True)
+	Cr_name = models.CharField(max_length=100, blank=True, null=True)
 	# Transferor_employee = models.ForeignKey('masterlist.EmployeeMasterlist', on_delete=models.DO_NOTHING, related_name='Transferor_employee')
 	Transferor_employee = models.CharField(max_length=100, blank=True, null=True)
 	Transferor_Fname = models.CharField(max_length=100, blank=True, null=True)
