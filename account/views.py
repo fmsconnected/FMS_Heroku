@@ -1083,38 +1083,38 @@ class monthly_report_jan_summary(APIView):
         #     net_BB14_B1 ,  net_BB14_B10,   net_BB14_B11,   net_BB14_B2,  net_BB14_B3,  net_BB14_B4,  net_BB14_B5,  net_BB14_B6,  net_BB14_B7,  net_BB14_B8 
         # ]
 
-        NTT5_F01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-F01").aggregate(Sum('sum_product_amount'))['sum_product_amount__sum']
-        FIN23_C6 = Petron_pivot.objects.filter(ChargingDepartment="FIN23-C6").aggregate(Sum('sum_product_amount'))['sum_product_amount__sum']
-        NTT5_H01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-H01").aggregate(Sum('sum_product_amount'))['sum_product_amount__sum']
-        NTT5_J01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-J01").aggregate(Sum('sum_product_amount'))['sum_product_amount__sum']
-        FIN23_C9 = Petron_pivot.objects.filter(ChargingDepartment="FIN23-C9").aggregate(Sum('sum_product_amount'))['sum_product_amount__sum']
-        NTT5_G01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-G01").aggregate(Sum('sum_product_amount'))['sum_product_amount__sum']
-        SG02_P = Petron_pivot.objects.filter(ChargingDepartment="SG02-P").aggregate(Sum('sum_product_amount'))['sum_product_amount__sum']
-        CMG2_D3 = Petron_pivot.objects.filter(ChargingDepartment="CMG2-D3").aggregate(Sum('sum_product_amount'))['sum_product_amount__sum']
-        CMG2_B2 = Petron_pivot.objects.filter(ChargingDepartment="CMG2-B2").aggregate(Sum('sum_product_amount'))['sum_product_amount__sum']
-        CMG5_G = Petron_pivot.objects.filter(ChargingDepartment="CMG5-G").aggregate(Sum('sum_product_amount'))['sum_product_amount__sum']
+        NTT5_F01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-F01")
+        FIN23_C6 = Petron_pivot.objects.filter(ChargingDepartment="FIN23-C6")
+        NTT5_H01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-H01")
+        NTT5_J01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-J01")
+        FIN23_C9 = Petron_pivot.objects.filter(ChargingDepartment="FIN23-C9")
+        NTT5_G01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-G01")
+        SG02_P = Petron_pivot.objects.filter(ChargingDepartment="SG02-P")
+        CMG2_D3 = Petron_pivot.objects.filter(ChargingDepartment="CMG2-D3")
+        CMG2_B2 = Petron_pivot.objects.filter(ChargingDepartment="CMG2-B2")
+        CMG5_G = Petron_pivot.objects.filter(ChargingDepartment="CMG5-G")
 
-        dis_NTT5_F01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-F01").aggregate(Sum('sum_disc_amount'))['sum_disc_amount__sum']
-        dis_FIN23_C6 = Petron_pivot.objects.filter(ChargingDepartment="FIN23-C6").aggregate(Sum('sum_disc_amount'))['sum_disc_amount__sum']
-        dis_NTT5_H01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-H01").aggregate(Sum('sum_disc_amount'))['sum_disc_amount__sum']
-        dis_NTT5_J01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-J01").aggregate(Sum('sum_disc_amount'))['sum_disc_amount__sum']
-        dis_FIN23_C9 = Petron_pivot.objects.filter(ChargingDepartment="FIN23-C9").aggregate(Sum('sum_disc_amount'))['sum_disc_amount__sum']
-        dis_NTT5_G01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-G01").aggregate(Sum('sum_disc_amount'))['sum_disc_amount__sum']
-        dis_SG02_P = Petron_pivot.objects.filter(ChargingDepartment="SG02-P").aggregate(Sum('sum_disc_amount'))['sum_disc_amount__sum']
-        dis_CMG2_D3 = Petron_pivot.objects.filter(ChargingDepartment="CMG2-D3").aggregate(Sum('sum_disc_amount'))['sum_disc_amount__sum']
-        dis_CMG2_B2 = Petron_pivot.objects.filter(ChargingDepartment="CMG2-B2").aggregate(Sum('sum_disc_amount'))['sum_disc_amount__sum']
-        dis_CMG5_G = Petron_pivot.objects.filter(ChargingDepartment="CMG5-G").aggregate(Sum('sum_disc_amount'))['sum_disc_amount__sum']
+        dis_NTT5_F01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-F01")
+        dis_FIN23_C6 = Petron_pivot.objects.filter(ChargingDepartment="FIN23-C6")
+        dis_NTT5_H01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-H01")
+        dis_NTT5_J01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-J01")
+        dis_FIN23_C9 = Petron_pivot.objects.filter(ChargingDepartment="FIN23-C9")
+        dis_NTT5_G01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-G01")
+        dis_SG02_P = Petron_pivot.objects.filter(ChargingDepartment="SG02-P")
+        dis_CMG2_D3 = Petron_pivot.objects.filter(ChargingDepartment="CMG2-D3")
+        dis_CMG2_B2 = Petron_pivot.objects.filter(ChargingDepartment="CMG2-B2")
+        dis_CMG5_G = Petron_pivot.objects.filter(ChargingDepartment="CMG5-G")
 
-        net_NTT5_F01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-F01").aggregate(Sum('sum_net_amount'))['sum_net_amount__sum']
-        net_FIN23_C6 = Petron_pivot.objects.filter(ChargingDepartment="FIN23-C6").aggregate(Sum('sum_net_amount'))['sum_net_amount__sum']
-        net_NTT5_H01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-H01").aggregate(Sum('sum_net_amount'))['sum_net_amount__sum']
-        net_NTT5_J01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-J01").aggregate(Sum('sum_net_amount'))['sum_net_amount__sum']
-        net_FIN23_C9 = Petron_pivot.objects.filter(ChargingDepartment="FIN23-C9").aggregate(Sum('sum_net_amount'))['sum_net_amount__sum']
-        net_NTT5_G01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-G01").aggregate(Sum('sum_net_amount'))['sum_net_amount__sum']
-        net_SG02_P = Petron_pivot.objects.filter(ChargingDepartment="SG02-P").aggregate(Sum('sum_net_amount'))['sum_net_amount__sum']
-        net_CMG2_D3 = Petron_pivot.objects.filter(ChargingDepartment="CMG2-D3").aggregate(Sum('sum_net_amount'))['sum_net_amount__sum']
-        net_CMG2_B2 = Petron_pivot.objects.filter(ChargingDepartment="CMG2-B2").aggregate(Sum('sum_net_amount'))['sum_net_amount__sum']
-        net_CMG5_G = Petron_pivot.objects.filter(ChargingDepartment="CMG5-G").aggregate(Sum('sum_net_amount'))['sum_net_amount__sum']
+        net_NTT5_F01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-F01")
+        net_FIN23_C6 = Petron_pivot.objects.filter(ChargingDepartment="FIN23-C6")
+        net_NTT5_H01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-H01")
+        net_NTT5_J01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-J01")
+        net_FIN23_C9 = Petron_pivot.objects.filter(ChargingDepartment="FIN23-C9")
+        net_NTT5_G01 = Petron_pivot.objects.filter(ChargingDepartment="NTT5-G01")
+        net_SG02_P = Petron_pivot.objects.filter(ChargingDepartment="SG02-P")
+        net_CMG2_D3 = Petron_pivot.objects.filter(ChargingDepartment="CMG2-D3")
+        net_CMG2_B2 = Petron_pivot.objects.filter(ChargingDepartment="CMG2-B2")
+        net_CMG5_G = Petron_pivot.objects.filter(ChargingDepartment="CMG5-G")
 
         petron_data = [
         NTT5_F01 ,FIN23_C6,NTT5_H01 ,NTT5_J01 ,FIN23_C9 ,NTT5_G01 ,SG02_P ,CMG2_D3 ,CMG2_B2,CMG5_G
