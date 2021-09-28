@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'battery.apps.BatteryConfig',
     'tires.apps.TiresConfig',
     'car_rental_payment.apps.CarRentalPaymentConfig',
+    'car_rental_request.apps.CarRentalRequestConfig',
     
 
 ]

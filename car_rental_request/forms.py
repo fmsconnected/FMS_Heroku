@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.admin.widgets import FilteredSelectMultiple
-from .models import CarRentalRequest, Gas_card, service_vehicle, Vehicle_Repair
+from .models import CarRentalRequest
 
 
 
