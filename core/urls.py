@@ -47,6 +47,7 @@ urlpatterns = [
     path('VehicleMasterlist/', include('vehicle_masterlist.urls')),
     path('Monitoring/', include('monitoring.urls')),
     path('Request/', include('request.urls')),
+    path('Car/', include('car_rental_payment.urls')),
     path('Ownership/', include('ownership.urls')),
     path('Report/', include('report.urls')),
     path('Admin/', include('Admin.urls')),

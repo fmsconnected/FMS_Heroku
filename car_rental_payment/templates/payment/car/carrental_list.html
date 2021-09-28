@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3><b>Car Rental Payment</b></h3>
+    </div>
+</div>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="{% url 'carrental_list' %}">Car Rental Payment</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'cardeadline' %}">Coming Deadline</a>
+  </li>
+</ul>
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'car_export' %}" style="float:left "><b>Export Data</b>&nbsp;/&nbsp;</a>
+                    <a href="{% url 'car_dailyreport_details' %}" style="float:left "><b>View Report</b></a>
+                    <a href="{% url 'Car-rental' %}" style="float:right"><u><b>Create</b></u>&nbsp; &nbsp;</a>
+                    <a href="{% url 'carrental_history' %}" style="float:right" class="mr-3"><u><b>History</b></u></a>
+                </div>                         
+                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity ID</th>
+                            <th>Assignee Full Name</th>
+                            <th>Assignee Cost Center</th>
+                            <th>Billing Date</th>
+                            <th>Plate Number</th>
+                            <th>SLA</th>
+                            <th>Date Initiated</th>
+                            <th>Date Deadline</th>
+                            <th>Provider</th>
+                            <th>SOA Number</th>
+                            <th>RFP Number</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for CarRental in object_list %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'Carrental_summary' CarRental.id %}"><u>{{ CarRental.Activity_id }}</u></a></td>
+                            <td>{{ CarRental.F_name }} {{ CarRental.L_name }}</td>
+                            <td>{{ CarRental.Cost_center }}</td>
+                            <td>{{ CarRental.Bill_date }}</td>
+                            <td>{{ CarRental.Plate_no }}</td>
+                            <td>{{ CarRental.C_SLA }}/Days</td>
+                            <td>{{ CarRental.Date_initiated|date:'D d M Y' }}</td>
+                            <td>{{ CarRental.Deadline | date:'D d M Y'}}</td>
+                            <td>{{ CarRental.car_provider}} </td>
+                            <td>{{ CarRental.sqa_number}} </td>
+                            <td>{{ CarRental.rfp_no2 }}</td>
+                            <td>
+                                <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'carrental_delete' CarRental.pk %}">
+                                <span class="fa fa-trash"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+    <!-- /.row -->
+{% endblock %}
+
+{% block extrascripts %}
+<script type="text/javascript">
+  $(function() {
+    // Delete book buttons
+    $("#example").on('mouseover', '.delete-inventory', function() {
+      $(this).modalForm({
+        formURL: $(this).data('id')
+      });
+    });
+
+  });
+</script>
+{% endblock extrascripts %}
+
