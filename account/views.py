@@ -155,8 +155,8 @@ class ChartData_ongoing(APIView):
         ongoing_labels = ["FATA Monitoring",
         "Corrective Maintenance", "Transfer Ownership", "Car Rental Request", "Gas Card Request",
         "Service Vehicle Request", "Preventive Maintenance", "Insurance", "New Vehicle Payment",
-        "Car Rental Payment", "Fuel Supplier Payment", "Vehicle Repair Payment","Registration Monitoring"],
-        item_data = [fm,cor, own,crr,gcr,svr, vrr, vr,vpr,crp,fs,vrp,registration]
+        "Car Rental Payment", "Fuel Supplier Payment", "Vehicle Repair Payment"],
+        item_data = [fm,cor, own,crr,gcr,svr, vrr, vr,vpr,crp,fs,vrp]
         ongoing_data = {
                 "default_ongoing": item_data,
         }
