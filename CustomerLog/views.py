@@ -18,7 +18,7 @@ from django.contrib.auth.decorators import user_passes_test
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from vehicle_masterlist.models import VehicleMasterList
 
 from django.views.generic import (
     ListView,
@@ -240,7 +240,7 @@ def request_email_log(request):
     return render (request, 'email_log/request_email_log.html',{'email_log':email_log})
 
 def registration_email_log(request):
-    email_log = Registration.objects.filter(sent_email="Yes")
+    email_log = VehicleMasterList.objects.filter(Status="Yes")
     return render (request, 'email_log/registration_email_log.html',{'email_log':email_log})
 
 

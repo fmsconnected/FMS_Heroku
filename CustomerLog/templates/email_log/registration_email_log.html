@@ -46,13 +46,13 @@ tr:nth-child(even){background-color: #f2f2f2}
                             <th>Date Emailed</th>
                             <th>Justification Remarks</th>
                             <th>Remark Registered</th>
-                            <th>Emailed Date</th>
+                            <th>Emailed</th>
                            
                         </tr>
                         
                     </thead>
                     <tbody>
-                        {% for object in jan_list %}
+                        {% for object in email_log %}
                         <tr class="odd gradeX">
                             <td><a href="{% url 'vregistration_details' object.id %}">{{ object.PLATE_NO }}</a></td>
                             <td>{{ object.CS_NO }}</td>
@@ -68,7 +68,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                             <td>{{ object.DATE_EMAILED }}</td>   
                             <td>{{ object.JUSTIFICATION_REMARKS }}</td> 
                             <td>{{ object.REMARKS_REGISTERED }}</td>
-                            <td>{{ object.Date_email_log}}</td>      
+                            <td>{{ object.Status}}</td>      
                         </tr>
                         {% endfor %}
                     </tbody>
