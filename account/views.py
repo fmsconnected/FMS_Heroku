@@ -131,30 +131,33 @@ class ChartData_ongoing(APIView):
 
     def get(self, request, format=None):
         date = datetime.datetime.today()
-        vpr = VehiclePayment.objects.filter(Date_initiated__month= date.month, Date_initial="" ).count()
-        crp = CarRental.objects.filter(Date_initiated__month= date.month, R_Cost="" ).count()
-        fs = Fuel_supplier.objects.filter(Date_initiated__month= date.month, Date_forwarded="" ).count()
-        vrp = Vehicle_Repair_payment.objects.filter(date_initiated__month= date.month, invoice_date="" ).count()
+        month = datetime.datetime.now().month
+        print(month)
+        fm = Fata_monitoring.objects.filter(Date_initiated__month= date.month, Clearing_accountability="" ).count()
+        cor = Corrective.objects.filter(date_initiated__month= date.month, approvedby="" ).count()
+        own = Ownership.objects.filter(date_initiated__month= date.month, date_transfered_completed="" ).count()
+        # bill = Billing.objects.filter(date_initiated__month=date.month, cost_center="").count()
         crr = CarRentalRequest.objects.filter(Date_initiated__month= date.month, Plate_no="").count()
         gcr = Gas_card.objects.filter(date_initiated__month= date.month, fleet_date_release="" ).count()
         svr = service_vehicle.objects.filter(date_initiated__month= date.month, approved_by="" ).count()
         vrr = Vehicle_Repair.objects.filter(date_initiated__month= date.month,approvedby="" ).count()
         vr = vehicle_report.objects.filter(date_initiated__month= date.month, date_forwarded="" ).count()
-        fm = Fata_monitoring.objects.filter(Date_initiated__month= date.month, Clearing_accountability="" ).count()
-        own = Ownership.objects.filter(date_initiated__month= date.month, date_transfered_completed="" ).count()
-        cor = Corrective.objects.filter(date_initiated__month= date.month, approvedby="" ).count()
-        cus = CS_log.objects.filter(Date_received__month= date.month, Date_resolved="").count()
-        bill = Billing.objects.filter(date_initiated__month=date.month, cost_center="").count()
-        ongoing_labels = ["Monitoring",
-        "Corrective ", "Transfer Ownership", "Car Rental Request", "Gas Card Request",
-        "Vehicle Repair Request", "Insurance", "New Vehicle Payment", "Car Rental Payment"
-        , "Fuel Supplier Payment", "Vehicle Repair Payment"]
-        item_data = [fm,cor,cus, own,bill,crr,gcr,svr, vrr, vr,vpr,crp,fs,vrp]
+        vpr = VehiclePayment.objects.filter(Date_initiated__month= date.month, Date_initial="" ).count()
+        crp = CarRental.objects.filter(Date_initiated__month= date.month, R_Cost="" ).count()
+        fs = Fuel_supplier.objects.filter(Date_initiated__month= date.month, Date_forwarded="" ).count()
+        vrp = Vehicle_Repair_payment.objects.filter(date_initiated__month= date.month, invoice_date="" ).count()
+        registration = VehicleMasterList.objects.filter(PLATE_ENDING=month).count()
+        
+        ongoing_labels = ["FATA Monitoring",
+        "Corrective Maintenance", "Transfer Ownership", "Car Rental Request", "Gas Card Request",
+        "Service Vehicle Request", "Preventive Maintenance", "Insurance", "New Vehicle Payment",
+        "Car Rental Payment", "Fuel Supplier Payment", "Vehicle Repair Payment","Registration Monitoring"],
+        item_data = [fm,cor, own,crr,gcr,svr, vrr, vr,vpr,crp,fs,vrp,registration]
         ongoing_data = {
-                "ongoing_labels": ongoing_labels,
                 "default_ongoing": item_data,
         }
-        print('Ongoing Data',item_data)
+        print('registration',item_data)
+
         return Response(ongoing_data)
 
 class ChartData_completed(APIView):
