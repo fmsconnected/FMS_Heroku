@@ -226,19 +226,19 @@ function setChart(){
         labels: ["NTT5_F01" ,"FIN23_C6","NTT5_H01" ,"NTT5_J01" ,"FIN23_C9" ,"NTT5_G01" ,"SG02_P" ,"CMG2_D3" ,"CMG2_B2","CMG5_G"],
         datasets: [{
             label: 'Sum of Product Amount',
-            data: petron_item_data,
+            data: ["476578.19","470886","427945.49","218998.42","213100","206067.56","171227.94","171179.37","169505.28","145304.77"],
             backgroundColor:'rgba(23, 128, 173)',
         },
           {
             label: 'Sum of Discount Amount',
             fill: true,
-            data: petron_item_data_dis,
+            data: ["-29672.83","-27000.28","-26582.15","-13148.77","-13393","-12730.5","-12777.35","-13546.17","-13392.87","-11565.87"],
             backgroundColor:'rgba(207, 154, 50)',
         },
         {
             label: 'Sum of Net Amount',
             fill: true,
-            data: petron_item_data_net,
+            data: ["443344.16","440645.69","398172.98","204271.5","198099.85","191809.19","156917.25","156007.59","154505.2","132350.93"],
             backgroundColor:'rgba(196, 195, 187)',
 
         }]
@@ -256,16 +256,16 @@ function setChart(){
     var shell_chart = new Chart(ctx5, {
     type: 'bar',
     data: {
-        labels: ["BB14-B10", "BB14-B2", "BB14-B3", "BB14-B4", "BB14-B5", "BB14-B6", "BB14-B7", "BB14-B8", "BB14-E", "CMB4-B"],
+        labels: ["BB14-B10","BB14-B11","BB14-B2","NTT5-I01","NTT5-J01","BB14-B6","BB14-B3 ","BB14-B3","BB14-B5","BB14-B4"],
         datasets: [{
             label: 'Sum of DelcoGrossValue',
-            data: shell_item_data,
+            data: ["476578.19","470886","427945.49","265747.75","237679.54","171179.37","213100","218998.42","171227.94","206067.56"],
             backgroundColor:'rgba(23, 128, 173)',
         },
           {
             label: 'Sum of RebateCustAmount',
             fill: true,
-            data: shell_reb_data,
+            data: ["-29672.83","-27000.28","-26582.15","-16516.58","-14640.76","-13546.17","-13393","-13148.77","-12777.35","-12730.5"],
             backgroundColor:'rgba(207, 154, 50)',
         }]
     },

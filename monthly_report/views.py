@@ -12,7 +12,7 @@ from django.urls import reverse_lazy
 from .serializers import (
     petron_report_Serializer
     )
-from . models import Petron_report
+from . models import Petron_report,Petron_pivot
 from rest_framework import viewsets
 from django.views.generic import (
                 				CreateView,
@@ -22,7 +22,7 @@ from django.views.generic import (
                                 DeleteView,
                 				)
 from django.db.models import Sum
-from .serializers import petron_report_Serializer
+from .serializers import petron_report_Serializer,petron_pivot_Serializer
 from . forms import petron_form
 
 
@@ -34,6 +34,10 @@ def monthly_report_jan(request):
 class petronViewSet(viewsets.ModelViewSet):
     queryset = Petron_report.objects.all().order_by('id')
     serializer_class = petron_report_Serializer
+
+class petronpivot(viewsets.ModelViewSet):
+    queryset = Petron_pivot.objects.all().order_by('id')
+    serializer_class = petron_pivot_Serializer
 
 class petron_create(CreateView):
     model = Petron_report

@@ -30,6 +30,9 @@ router.register(r'monitoring', views.monitoringViewSet),
 from monthly_report import views
 router.register(r'MonthlyReport', views.petronViewSet),
 
+from monthly_report import views
+router.register(r'PetronPivot', views.petronpivot),
+
 from monthly_report_shell import views
 router.register(r'MonthlyReportShell', views.shell_report_ViewSet),
 
