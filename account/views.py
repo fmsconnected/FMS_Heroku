@@ -114,7 +114,7 @@ class ChartData(APIView):
         cus = CS_log.objects.all().count()
         
         labels = ["FATA Monitoring",
-        "Corrective Maintenance", "Customer Care", "Ownership", "TOO Billing", "Car Rental Request", "Gas Card Request","Service Vehicle Request",
+        "Corrective Maintenance", "Customer Care", "Transfer Ownership", "TOO Billing", "Car Rental Request", "Gas Card Request","Service Vehicle Request",
         "Preventive Maintenance", "Insurance", "New Vehicle Payment", "Car Rental Payment"
         , "Fuel Supplier Payment", "Vehicle Repair Payment"]
         default_items = [fm,cor,cus, own, bill,crr,gcr,svr, vrr, vr,vpr,crp,fs,vrp]
@@ -146,7 +146,7 @@ class ChartData_ongoing(APIView):
         cus = CS_log.objects.filter(Date_received__month= date.month, Date_resolved="").count()
         bill = Billing.objects.filter(date_initiated__month=date.month, cost_center="").count()
         ongoing_labels = ["Monitoring",
-        "Corrective ","Customer Care", "Ownership", "Car Rental Request", "Gas Card Request",
+        "Corrective ", "Transfer Ownership", "Car Rental Request", "Gas Card Request",
         "Vehicle Repair Request", "Insurance", "New Vehicle Payment", "Car Rental Payment"
         , "Fuel Supplier Payment", "Vehicle Repair Payment"]
         item_data = [fm,cor,cus, own,bill,crr,gcr,svr, vrr, vr,vpr,crp,fs,vrp]
