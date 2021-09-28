@@ -45,6 +45,7 @@ class Fata_monitoring(models.Model):
 	Clearing_accountability = models.CharField(max_length=10, blank=True, null=True)
 	Globe_fixed_asset = models.CharField(max_length=50, blank=True, null=True)
 	Innove_fixed_asset = models.CharField(max_length=50, blank=True, null=True)
+	Remarks =  models.CharField(max_length=255, blank=True, null=True)
 	Date_initiated = models.DateField(auto_now=True, null=True)
 	history = HistoricalRecords()
 

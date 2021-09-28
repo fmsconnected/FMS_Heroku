@@ -342,6 +342,7 @@ def fata_excel(request):
     worksheet.title = 'FATA Monitoring'
 
     columns = [
+    			'Activity id',
 				'FATA Number' ,
 				'Date Transfer' ,
 				'Date Received' ,
@@ -350,6 +351,7 @@ def fata_excel(request):
 				'Vehicle Brand' ,
 				'Certificate Of Registrations Name' ,
 				'Vehicle Model' ,
+				'Cr Name',
 				'Transferor Employee' ,
 				'Transferor First Name' ,
 				'Transferor Last Name' ,
@@ -361,6 +363,7 @@ def fata_excel(request):
 				'Clearing of Accountability' ,
 				'Globe Fixed Asset Recepient' ,
 				'Innove Fixed Asset Recepient' ,
+				'Remarks',
 				'Date Initiated' ,
 
     ]
@@ -373,26 +376,29 @@ def fata_excel(request):
     for fata in fata_queryset:
         row_num += 1
         row = [
-				fata.Fata_no ,
-				fata.Date_transfer ,
-				fata.Date_received ,
-				fata.Plate_no ,
-				fata.Vehicle_make ,
-				fata.Vehicle_brand ,
-				fata.Certificate_of_Reg ,
-				fata.Vehicle_model ,
-				fata.Transferor_employee ,
-				fata.Transferor_Fname ,
-				fata.Transferor_Lname ,
-				fata.Recipient_Employee ,
-				fata.Recipient_Fname ,
-				fata.Recipient_Lname ,
-				fata.Date_endorsed_Globe ,
-				fata.Date_endorsed_Innove ,
-				fata.Clearing_accountability ,
-				fata.Globe_fixed_asset ,
-				fata.Innove_fixed_asset ,
-				fata.Date_initiated ,
+				fata.Activity_id,
+				fata.Fata_no,
+				fata.Date_transfer,
+				fata.Date_received,
+				fata.Plate_no,
+				fata.Vehicle_make,
+				fata.Vehicle_brand,
+				fata.Certificate_of_Reg,
+				fata.Vehicle_model,
+				fata.Cr_name,
+				fata.Transferor_employee,
+				fata.Transferor_Fname,
+				fata.Transferor_Lname,
+				fata.Recipient_Employee,
+				fata.Recipient_Fname,
+				fata.Recipient_Lname,
+				fata.Date_endorsed_Globe,
+				fata.Date_endorsed_Innove,
+				fata.Clearing_accountability,
+				fata.Globe_fixed_asset,
+				fata.Innove_fixed_asset,
+				fata.Remarks,
+				fata.Date_initiated,
         ]
         
         for col_num, cell_value in enumerate(row, 1):
