@@ -62,6 +62,7 @@ def index(request):
     date = datetime.datetime.today()
     months = ['zero','January','February','March','April','May','June','July','August','September','October','November','December']
     month = months[date.month]
+    month_supplier = months[date.month-1]
     reg_months = datetime.datetime.now().month
     count11 = Corrective.objects.count()
     count12 = EmployeeMasterlist.objects.count()
@@ -72,7 +73,7 @@ def index(request):
     not_registered = Registration.objects.filter(Plate_ending=reg_months,Date_registered__isnull=True ).count()
     registered = Registration.objects.exclude(Plate_ending=reg_months,Date_registered__isnull=True).count()
     return render(request, 'account/index.html', {'title': 'FLEET', 'month':month, 'count11': count11,
-                                                  'count12': count12, 'count13': count13, 'count14': count14, 'count15': count15, 'count16':count16,'not_registered':not_registered,'registered':registered})
+                                                  'count12': count12, 'count13': count13, 'count14': count14, 'count15': count15, 'count16':count16,'not_registered':not_registered,'registered':registered,'month_supplier':month_supplier})
 
 ########### Customer care log alert ###########
 

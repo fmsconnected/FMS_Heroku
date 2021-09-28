@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block content %}
+<style type="text/css">
+  th {
+    text-align: middle;
+  }
+</style>
+
+
+<div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h2>Car Rental Request Details</h2>
+    </div>
+
+<br>
+
+<table width="100%" class="table table-bordered table-hover" border="2px">
+    <tr>
+      <th width="25%">Activity ID </th><td width="25%">{{ object.Activity_id }}</td>
+      <th width="25%">Date Initiated</th><td width="25%">{{ object.Date_initiated }}</td>
+    </tr>
+    <tr>
+        <th>SLA</th><td>{{ object.CR_SLA}}/Days</td>
+        <th></th><td></td>
+    </tr>
+    <tr>
+      <th>Employee ID</th><td>{{ object.A_Employee }}</td>
+      <th>Date Received </th> <td>{{ object.Date_received }}</td>
+    </tr>
+    <tr>
+      <th>Assignee Full Name </th> <td>{{ object.Assignee_Fname }} {{ object.Assignee_Lname }}</td>
+      <th>Contact Number </th> <td>{{ object.Assignee_No }}</td>
+    </tr>
+    <tr>
+      <th>Company</th> <td>{{ object.Assignee_Company }}</td>
+      <th>Band</th> <td>{{ object.Assignee_band }}</td>
+    </tr>
+    <tr>
+      <th>Department </th> <td>{{ object.Assignee_Dept }}</td>
+      <th>Cost Center </th> <td>{{ object.Assignee_Cost }}</td>
+    </tr> 
+    <tr>
+      <th>Division</th> <td>{{ object.Assignee_Div }}</td>
+      <th>Location</th><td>{{ object.Assignee_Loc }}</td>
+    </tr>
+    <tr>
+      <th>Section</th><td>{{ object.Assignee_Section }}</td>
+      <th>Designation </th> <td>{{ object.Assignee_Designation }}</td>
+    </tr>
+    <tr>
+      <th>ATD </th> <td>{{ object.Assignee_ATD }}</td>
+      <th>Vendor Name </th> <td>{{ object.Vendor_name }}</td>
+    </tr>
+    <tr>
+      <th>Date</th> <td>{{ object.Date }}</td>
+      <th>Up To</th> <td>{{ object.Up_to }}</td>
+    </tr>
+    <tr>
+      <th>Time </th> <td>{{ object.Time }}</td>
+      <th>Place of Delivery </th> <td>{{ object.Place_of_del }}</td>
+    </tr> 
+    <tr>
+      <th>Type of Rental</th> <td>{{ object.type_rental }}</td>
+      <th>Cost Center</th><td>{{ object.Cost_center }}</td>
+    </tr>
+
+    <tr>
+      <th>Rental Period</th><td>{{ object.Rental_period }}</td>
+      <th>Destination </th> <td>{{ object.Destination }}</td>
+    </tr>
+    <tr>
+      <th>Delivery Date </th> <td>{{ object.Delivery_date }}</td>
+      <th>End User </th> <td>{{ object.End_user }}</td>
+    </tr>
+    <tr>
+      <th>Type of Vehiclee</th> <td>{{ object.Type_of_vehicle }}</td>
+      <th>Plate Number</th> <td>{{ object.Plate_no }}</td>
+    </tr>
+    <tr>
+      <th>Immediate Supervisor </th> <td>{{ object.Immediate_supervisor }}</td>
+      <th> </th> <td></td>
+    </tr> 
+
+</table>
+    <div class="card-footer">
+      <a href="{% url 'carrequest_update' object.id %}" class="buttonsubmit">UPDATE</a>
+      <a href="{% url 'carrequest_list' %}" class='btn'>CLOSE</a>
+    </div>
+{% endblock %}

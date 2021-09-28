@@ -45,3 +45,9 @@ class Petron_report(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('jan_monthly_report')
+
+class Petron_pivot(models.Model):
+	ChargingDepartment = models.CharField(max_length=254, null=True, blank=True)
+	sum_product_amount = models.CharField(max_length=254, null=True, blank=True)
+	sum_disc_amount = models.CharField(max_length=254, null=True, blank=True)
+	sum_net_amount = models.CharField(max_length=254, null=True, blank=True)

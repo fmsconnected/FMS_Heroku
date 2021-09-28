@@ -393,9 +393,9 @@ function setChart(){
             <!-- small box -->
             <div class="small-box bg-secondary">
               <div class="inner">
-                <h4 style="font-size: 15px">Total Registered</h4>
+                <h4 style="font-size: 15px">Total Registered - {{month}}</h4>
                 <h4 style="font-size: 12px">{{ registered }}</h4>
-                <h4 style="font-size: 15px">Total not Registered</h4>
+                <h4 style="font-size: 15px">Total not Registered - {{month}}</h4>
                 <h4 style="font-size: 12px">{{ not_registered }}</h4>
                 <h2 class="h5">Registration Monitoring</h2>
               </div>
@@ -482,7 +482,7 @@ function setChart(){
           <div class="card-header">
             <h3 class="card-title">
               <i class="fas fa-chart-pie mr-1"></i>
-              Fuel Supplier Monthly Report <u>{{month}}</u>
+              Fuel Supplier Monthly Report <u>{{month_supplier}}</u>
             </h3>
             <div class="card-tools">
                 <ul class="nav nav-pills ml-auto" role="tablist">

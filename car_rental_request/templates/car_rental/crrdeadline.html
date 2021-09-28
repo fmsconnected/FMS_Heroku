@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3><b>Car Rental Request</b></h3>
+    </div>
+</div>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'carrequest_list' %}">Car Rental Request</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active">Coming Deadline</a>
+  </li>
+</ul>
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'carrequest_export' %}" style="float:left"><u><b>Export Car Rental Data </b></u></a>
+                    <a href="{% url 'car_request' %}"style="float:right "><u><b>Add Car Rental Request</b></u>&nbsp;&nbsp;</a>
+                    <a href="{% url 'carrequest_history' %}"style="float:right" class="mr-3"><u><b>Car Rental Request History</b></u></a>
+                </div>                         
+                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity ID</th>
+                            <th>Assignee Full Name</th>
+                            <th>Plate Number</th>
+                            <th>SLA</th>
+                            <th>Date Initiated</th>
+                            <th>Date Deadline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for crr in dl %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'carrequest_details' crr.id %}"><u>{{ crr.Activity_id }}</u></a></td>
+                            <td>{{ crr.Assignee_Fname }} {{ crr.Assignee_Lname }}</td>
+                            <td>{{ crr.Plate_no }}</td>
+                            <td>{{ crr.CR_SLA }}/Days</td>
+                            <td>{{ crr.Date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ crr.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for crr2 in dl2 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'carrequest_details' crr2.id %}"><u>{{ crr2.Activity_id }}</u></a></td>
+                            <td>{{ crr2.Assignee_Fname }} {{ crr2.Assignee_Lname }}</td>
+                            <td>{{ crr2.Plate_no }}</td>
+                            <td>{{ crr2.CR_SLA }}/Days</td>
+                            <td>{{ crr2.Date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ crr2.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for crr3 in dl3 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'carrequest_details' crr3.id %}"><u>{{ crr3.Activity_id }}</u></a></td>
+                            <td>{{ crr3.Assignee_Fname }} {{ crr3.Assignee_Lname }}</td>
+                            <td>{{ crr3.Plate_no }}</td>
+                            <td>{{ crr3.CR_SLA }}/Days</td>
+                            <td>{{ crr3.Date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ crr3.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+    <!-- /.row -->
+{% endblock %}
+
+

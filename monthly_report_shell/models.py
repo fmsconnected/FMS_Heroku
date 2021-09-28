@@ -140,3 +140,8 @@ class shell_report(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('report_shell_list')
+
+class shell_pivot(models.Model):
+	ChargingDepartment = models.CharField(max_length=254, null=True, blank=True)
+	sum_delco_gross = models.CharField(max_length=254, null=True, blank=True)
+	Sum_total_net = models.CharField(max_length=254, null=True, blank=True)
