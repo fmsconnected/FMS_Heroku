@@ -1175,7 +1175,7 @@ class monthly_report_jan_summary(APIView):
                     "petron_data_dis":petron_data_dis,
                     "petron_data_net":petron_data_net,
             }
-        # print(petron_data)
+        print(petron_data)
         return Response(petron_report_data)
 
 class monthly_report_shell_summary(APIView):
