@@ -69,10 +69,10 @@ def index(request):
     count14 = Billing.objects.count()
     count15 = Leasing.objects.count()
     count16 = CS_log.objects.filter(Ageing="").count()
-    not_registered = Registration.objects.filter(Plate_ending=reg_months,Date_registered__isnull=True ).count()
-    registered = Registration.objects.exclude(Plate_ending=reg_months,Date_registered__isnull=True).count()
+    # not_registered = Registration.objects.filter(Plate_ending=reg_months,Date_registered__isnull=True ).count()
+    # registered = Registration.objects.exclude(Plate_ending=reg_months,Date_registered__isnull=True).count()
     return render(request, 'account/index.html', {'title': 'FLEET', 'month':month, 'count11': count11,
-                                                  'count12': count12, 'count13': count13, 'count14': count14, 'count15': count15, 'count16':count16,'not_registered':not_registered,'registered':registered})
+                                                  'count12': count12, 'count13': count13, 'count14': count14, 'count15': count15, 'count16':count16})
 
 ########### Customer care log alert ###########
 
