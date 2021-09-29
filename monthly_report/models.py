@@ -39,6 +39,11 @@ class Petron_report(models.Model):
 	FuelLimit= models.CharField(max_length=254, null=True, blank=True)
 	FuelLimitUnit= models.CharField(max_length=254, null=True, blank=True)
 	Supplier = models.CharField(max_length=254, null=True, blank=True)
+	Lubes_imit= models.CharField(max_length=254, null=True, blank=True)
+	Lubes_limit_unit= models.CharField(max_length=254, null=True, blank=True)
+	Services_limit= models.CharField(max_length=254, null=True, blank=True)
+	Treats_limit= models.CharField(max_length=254, null=True, blank=True)
+	Others_limits= models.CharField(max_length=254, null=True, blank=True)
 
 	def __str__(self):
 		return self.RecordNumber
