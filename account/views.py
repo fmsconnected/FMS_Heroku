@@ -14,8 +14,9 @@ from payment.models import (
     Fuel_supplier,
     Vehicle_Repair_payment
 )
+from car_rental_payment.models import CarRental
+from car_rental_request.models import CarRentalRequest
 from request.models import (
-    CarRentalRequest,
     Gas_card,
     service_vehicle,
     Vehicle_Repair,)
