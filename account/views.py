@@ -19,7 +19,6 @@ from car_rental_request.models import CarRentalRequest
 from service_request.models import service_vehicle
 from request.models import (
     Gas_card,
-    service_vehicle,
     Vehicle_Repair,)
 from report.models import (
     vehicle_report,
