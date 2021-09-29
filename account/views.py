@@ -10,7 +10,6 @@ from django.db.models import Sum
 
 from django.shortcuts import render
 from payment.models import (
-    CarRental, VehiclePayment,
     Fuel_supplier,
     Vehicle_Repair_payment
 )
