@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<style type="text/css">
+#example td.red {
+     color: red;
+     font-weight: bold;
+}
+</style>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+<div class="breadcrumbs">
+    <div class="col-sm-14">
+        <h3><b>New Vehicle Payment</b></h3>
+    </div>
+</div>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active">New Vehicle Payment</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'Vehicle_deadline' %}">Coming Deadline</a>
+  </li>
+</ul>
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'vehicle_export' %}" style="float:left "><b>Export Data</b>&nbsp;/&nbsp;</a>
+                    <a href="{% url 'car_dailyreport_details' %}" style="float:left "><b>View Report</b></a>
+                    <a href="{% url 'Vehicle-new' %}" style="float:right "><u><b>Create</b></u>&nbsp; &nbsp;</a>
+                    <a href="{% url 'Vehicle_history' %}" style="float:right" class="mr-3"><u><b>History</b></u></a>
+                </div>                         
+                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity ID</th>
+                            <th>Assignee Full Name</th>
+                            <th>Plate Number</th>
+                            <th>PO Number</th>
+                            <th>SLA</th>
+                            <th>Date Initiated</th>
+                            <th>Date Deadline</th>
+                            <th>Equipment Number</th>
+                            <th>Asset Number</th>
+                            <th>Sap PR Number</th>
+                            <th>Mat Doc Number</th>
+                            <th>Dealer Name</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for VehiclePayment in object_list %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'Vehicle-summary' VehiclePayment.id %}">{{ VehiclePayment.Activity_id }}</a></td>
+                            <td>{{ VehiclePayment.E_First_name }} {{ VehiclePayment.E_Last_name }}</td>
+                            <td>{{ VehiclePayment.Plate_no }}</td>
+                            <td>{{ VehiclePayment.rfp_number }}</td>
+                            <td>{{ VehiclePayment.V_SLA }}/Days</td>
+                            <td>{{ VehiclePayment.Date_initiated | date:'D d M Y'}}</td>
+                            <td>{{ VehiclePayment.Deadline | date:'D d M Y'}}</td>
+                            <td>{{ VehiclePayment.equip_no }}</td>
+                            <td>{{ VehiclePayment.asset_no }}</td>
+                            <td>{{ VehiclePayment.sap_no }}</td>
+                            <td>{{ VehiclePayment.mat_no }}</td>
+                            <td>{{ VehiclePayment.Dealer_name }}</td>
+                            <td>
+                                <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'Vehicle_delete' VehiclePayment.pk %}">
+                                <span class="fa fa-trash"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+    <!-- /.row -->
+{% endblock %}
+
+{% block extrascripts %}
+<script type="text/javascript">
+  $(function() {
+    // Delete book buttons
+    $("#example").on('mouseover', '.delete-inventory', function() {
+      $(this).modalForm({
+        formURL: $(this).data('id')
+      });
+    });
+
+  });
+</script>
+{% endblock extrascripts %}
+
+

@@ -91,7 +91,9 @@ class Ownership(models.Model):
             ('WITH_TMG SCHEDULE','WITH TMG SCHEDULE'),
             ('WITH_MACRO ETCHING','WITH MACRO ETCHING'),
             ('FLEET VISMIN','FLEET VISMIN'),
-            ('LTO TRANSFER','LTO TRANSFER')
+            ('LTO TRANSFER','LTO TRANSFER'),
+            ('DONE TRANSFERRED','DONE TRANSFERRED'),
+            ('FOR PULL OUT ORCR','FOR PULL OUT ORCR'),
         )
     Activity_id = models.CharField(max_length=100, default=increment_Activity_id)
     date_application = models.DateField(auto_now=False, null=True, blank=True)

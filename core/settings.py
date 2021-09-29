@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'car_rental_payment.apps.CarRentalPaymentConfig',
     'car_rental_request.apps.CarRentalRequestConfig',
     'service_request.apps.ServiceRequestConfig',
+    'new_vehicle_payment.apps.NewVehiclePaymentConfig',
     
 
 ]

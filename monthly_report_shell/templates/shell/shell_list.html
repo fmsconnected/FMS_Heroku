@@ -19,114 +19,106 @@
             <div class="col-md-12">
                 <div class="card">
                 <div class="card-header">
-                    <a href="{% url 'report_summary' %}"> <u>View Summary</u></a>&nbsp;/&nbsp;
+                    <!-- <a href="{% url 'report_summary' %}"> <u>View Summary</u></a>&nbsp;/&nbsp; -->
                     <a href="{% url 'shell_export' %}">Export</a>
-                    <a href="{% url 'shell_report_create' %}" style="float:right"><u>Create</u></a>
                 </div>
                     <div class="container-fluid">
                     <table id="shell_table" class="table table-striped table-bordered" style="width:100%" data-server-side="false" data-ajax="/api/MonthlyReportShell/?format=datatables">
                     <thead>
                         <tr>
-                            <th>Account Number</th>
-                            <th>Customer Name1</th>
-                            <th>FullCard Number</th>
-                            <th>DelcoList Price</th>
-                            <th>Net Customer Amount</th>
+                            <th>Account Customer Number</th>
+                            <th>Account Name</th>
+                            <th>Card PAN</th>
+                            <th>Sum of Trx Delco List Price Total Net</th>
+                            <th>Sum of Trx Customer Invoice Total Net</th>
                             <th>Card Sequence Number</th>
-                            <th>Check Digit</th>
-                            <th>Delco Gross Value</th>
-                            <th>Delco Vat Amount</th>
-                            <th>Delco Vat Rate</th>
-                            <th>Rebate Cust Amount</th>
-                            <th>VAT Net Amount</th>
-                            <th>Delco Rebate Rate</th>
-                            <th>Voucher Number</th>
-                            <th>Fleet Id</th>
-                            <th>Quantity</th>
-                            <th>Dialogue Indicator</th>
-                            <th>Issuer Code1</th>
+                            <th>Card Luhn Check Digit</th>
+                            <th>Sum of Trx Delco Invoice Total Gross</th>
+                            <th>Sum of Trx Delco Invoice Total VAT</th>
+                            <th>Trx VAT Percentage</th>
+                            <th>Sum of Trx Customer Effective Discount Total Net</th>
+                            <th>Sum of Trx System Invoice Total VAT</th>
+                            <th>Trx Delco Effective Discount Unit Net</th>
+                            <th>Trx Other Prompt</th>
+                            <th>Sum of Trx Quantity</th>
+                            <th>Card Issuer Code</th>
                             <th>Net Invoice Indicator</th>
                             <th>Network Code</th>
-                            <th>Card Group Name</th>
-                            <th>Card Holder Name</th>
-                            <th>Card Vehicle Registration Number</th>
-                            <th>Delivery Net Amount</th>
-                            <th>Pin Indicator</th>
-                            <th>Rebate Type</th>
-                            <th>Record Type</th>
-                            <th>Release Code</th>
-                            <th>Time</th>
-                            <th>Transaction Status</th>
-                            <th>Transaction Type1</th>
-                            <th>VAT Indicator</th>
-                            <th>Vat Usage</th>
-                            <th>Issuer Country</th>
-                            <th>Delco Code</th>
-                            <th>Delco Country Code1</th>
-                            <th>TransactionC urrency</th>
-                            <th>Invoice Number</th>
-                            <th>Invoice Date</th>
-                            <th>Product Code</th>
-                            <th>Site Code</th>
-                            <th>Site</th>
-                            <th>Delivery Date</th>
-                            <th>Odometer Reading1</th>
-                            <th>Delco Cust Rate1</th>
-                            <th>Customer Currency Name1</th>
-                            <th>Delco Pump Price</th>
-                            <th>Delco Rebate Amount1</th>
-                            <th>Cust Rebate Rate1</th>
-                            <th>Payer Display Name</th>
-                            <th>Payer Code</th>
-                            <th>Card GroupID</th>
-                            <th>Product Name</th>
-                            <th>Credit Debit Code</th>
-                            <th>Correction Flag</th>
-                            <th>Delco Country Code</th>
-                            <th>VAT Applicable</th>
-                            <th>Customer Euro Rate</th>
-                            <th>Delco Euro Rate</th>
-                            <th>Euro Rebate Amount</th>
-                            <th>EuroVATAmount</th>
-                            <th>InvoiceSequenceNo</th>
-                            <th>ListPriceInTransactionCurrency</th>
-                            <th>NetEuroAmount</th>
-                            <th>PumpPriceInTransactionCurrency</th>
-                            <th>RebateonNetAmountInCustomerCurrency</th>
-                            <th>RebateonNetAmountInTransactionCurrency</th>
-                            <th>RebateRate</th>
-                            <th>UnInvoiceSequenceNo</th>
-                            <th>NetworkName</th>
-                            <th>Additional1</th>
-                            <th>Additional2</th>
-                            <th>Additional3</th>
-                            <th>Additional4</th>
-                            <th>TransactionIdentifier</th>
-                            <th>TransactionAuthorisationCode</th>
-                            <th>DelcoName</th>
-                            <th>SiteGroupid</th>
-                            <th>SiteGroupName</th>
-                            <th>Cardtype</th>
-                            <th>PayerGroup</th>
-                            <th>PayerNumber</th>
-                            <th>RefundFlag</th>
-                            <th>RefundOriginalTransactionId</th>
-                            <th>PostingDate</th>
-                            <th>PostingTime</th>
-                            <th>CustomerReferenceValue</th>
-                            <th>CustomerReferenceDescription</th>
-                            <th>CardPayerAssociationCode</th>
-                            <th>CardPayerAssociation</th>
-                            <th>IncomingProductCode</th>
-                            <th>TransactionProviderId</th>
-                            <th>TransactionProviderName</th>
-                            <th>FileName</th>
-                            <th>FileDate</th>
-                            <th>AccountGroup3Code</th>
-                            <th>AccountGroup3Name</th>
-                            <th>ContractedRebateRate</th>
-                            <th>IsBestOfPricingApplicable</th>
-                            <th>CostCenter</th>
+                            <th>Card Group Description</th>
+                            <th>Account Card Embossing Default Name</th>
+                            <th>Card VRN</th>
+                            <th>Sum of Trx Delco Invoice Total Net</th>
+                            <th>Trx PIN Used Description</th>
+                            <th>Trx Discount Pricing Type Description</th>
+                            <th>Transaction Item Type Description</th>
+                            <th>Card Release Code</th>
+                            <th>Trx Delivery Time</th>
+                            <th>Trx Transaction Billed Indicator</th>
+                            <th>Trx Transaction Type Description</th>
+                            <th>Card Issuing Country Code</th>
+                            <th>Trx Delco Code</th>
+                            <th>Delco Country ISO2 Code</th>
+                            <th>Trx Customer Currency ISO3 Code</th>
+                            <th>Trx Invoice Number</th>
+                            <th>Trx Invoice Date</th>
+                            <th>Trx Global Product Code</th>
+                            <th>Euroshell Site Number</th>
+                            <th>Site Name</th>
+                            <th>Trx Delivery Date</th>
+                            <th>Trx Odometer Reading</th>
+                            <th>Sum of Trx Delco Discount Total Net</th>
+                            <th>Trx Customer Effective Discount Unit Net</th>
+                            <th>Legal Entity Trading Name</th>
+                            <th>Account Legal Entity Customer Number</th>
+                            <th>Card Group Code</th>
+                            <th>Global Product Description</th>
+                            <th>Trx Transaction Debit Or Credit Indicator</th>
+                            <th>Trx Correction Flag</th>
+                            <th>Delco Country Name</th>
+                            <th>Legal Entity VAT Exempt Indicator</th>
+                            <th>Trx Customer To Euro Exchange Rate</th>
+                            <th>Trx Site To Euro Exchange Rate</th>
+                            <th>Trx System Effective Discount Total Net</th>
+                            <th>Sum of Trx System Invoice Total Net</th>
+                            <th>Trx Delco Retail Price Unit Net</th>
+                            <th>Trx Rebate on Net Amount In Customer Currency</th>
+                            <th>Trx Rebate on Net Amount In Transaction Currency</th>
+                            <th>Trx Rebate Rate</th>
+                            <th>Network Name</th>
+                            <th>Trx Additional 1</th>
+                            <th>Trx Additional 2</th>
+                            <th>Trx Additional 3</th>
+                            <th>Trx Additional 4</th>
+                            <th>Trx Transaction Item Id</th>
+                            <th>Trx Authorisation Code</th>
+                            <th>Delco Name</th>
+                            <th>Site Groups</th>
+                            <th>Card Type Description</th>
+                            <th>Legal Entity Group Description</th>
+                            <th>Trx Original Transaction Item Id</th>
+                            <th>Trx GFN Posting Date</th>
+                            <th>Trx GFN Posting Time</th>
+                            <th>Card Fleet Id Prompt</th>
+                            <th>Trx Vehicle Registration Number</th>
+                            <th>Card Payer Association Code</th>
+                            <th>Card Payer Association Name</th>
+                            <th>Trx Forward Standard Product Code</th>
+                            <th>Trx Transaction Provider Code</th>
+                            <th>Trx Transaction Provider Description</th>
+                            <th>Trx Incoming Transaction Batch File Name</th>
+                            <th>Trx Insert Date</th>
+                            <th>Account Group 3 Code</th>
+                            <th>Account Group 3 Name</th>
+                            <th>Trx Colco Contracted Discount Unit Net</th>
+                            <th>Account Best Of Price Indicator</th>
+                            <th>Card Driver Name</th>
+                            <th>Trx Incoming Site Location Description</th>
+                            <th>Trx Delco List Price Unit Net</th>
+                            <th>Trx Receipt Number</th>
+                            <th>Sum of Trx System Invoice Total Gross</th>
+                            <th>Sum of Trx Customer Invoice Total VAT</th>
+                            <th>Sum of Trx Customer Invoice Total Gross</th>
+                            <th>Cost Center</th>
                         </tr>
                     </thead>
                     </table>
@@ -164,106 +156,99 @@ $(document).ready(function() {
                 return data;
                 }
             },
-            {"data":"CustomerName1"},
-            {"data":"FullCardNumber"},
-            {"data":"DelcoListPrice"},
-            {"data":"NetCustomerAmount"},
-            {"data":"CardSequenceNumber"},
-            {"data":"CheckDigit"},
-            {"data":"DelcoGrossValue"},
-            {"data":"DelcoVatAmount"},
-            {"data":"DelcoVatRate"},
-            {"data":"RebateCustAmount"},
-            {"data":"VATNetAmount"},
-            {"data":"DelcoRebateRate"},
-            {"data":"VoucherNumber"},
-            {"data":"FleetId"},
-            {"data":"Quantity"},
-            {"data":"DialogueIndicator"},
-            {"data":"IssuerCode1"},
-            {"data":"NetInvoiceIndicator"},
-            {"data":"NetworkCode"},
-            {"data":"CardGroupName"},
-            {"data":"CardHolderName"},
-            {"data":"CardVehicleRegistrationNumber"},
-            {"data":"DeliveryNetAmount"},
-            {"data":"PinIndicator"},
-            {"data":"RebateType"},
-            {"data":"RecordType"},
-            {"data":"ReleaseCode"},
-            {"data":"Time"},
-            {"data":"TransactionStatus"},
-            {"data":"TransactionType1"},
-            {"data":"VATIndicator"},
-            {"data":"VatUsage"},
-            {"data":"IssuerCountry"},
-            {"data":"DelcoCode"},
-            {"data":"DelcoCountryCode1"},
-            {"data":"TransactionCurrency"},
-            {"data":"InvoiceNumber"},
-            {"data":"InvoiceDate"},
-            {"data":"ProductCode"},
-            {"data":"SiteCode"},
-            {"data":"Site"},
-            {"data":"DeliveryDate"},
-            {"data":"OdometerReading1"},
-            {"data":"DelcoCustRate1"},
-            {"data":"CustomerCurrencyName1"},
-            {"data":"DelcoPumpPrice"},
-            {"data":"DelcoRebateAmount1"},
-            {"data":"CustRebateRate1"},
-            {"data":"PayerDisplayName"},
-            {"data":"PayerCode"},
-            {"data":"CardGroupID"},
-            {"data":"ProductName"},
-            {"data":"CreditDebitCode"},
-            {"data":"CorrectionFlag"},
-            {"data":"DelcoCountryCode"},
-            {"data":"VATApplicable"},
-            {"data":"CustomerEuroRate"},
-            {"data":"DelcoEuroRate"},
-            {"data":"EuroRebateAmount"},
-            {"data":"EuroVATAmount"},
-            {"data":"InvoiceSequenceNo"},
-            {"data":"ListPriceInTransactionCurrency"},
-            {"data":"NetEuroAmount"},
-            {"data":"PumpPriceInTransactionCurrency"},
-            {"data":"RebateonNetAmountInCustomerCurrency"},
-            {"data":"RebateonNetAmountInTransactionCurrency"},
-            {"data":"RebateRate"},
-            {"data":"UnInvoiceSequenceNo"},
-            {"data":"NetworkName"},
-            {"data":"Additional1"},
-            {"data":"Additional2"},
-            {"data":"Additional3"},
-            {"data":"Additional4"},
-            {"data":"TransactionIdentifier"},
-            {"data":"TransactionAuthorisationCode"},
-            {"data":"DelcoName"},
-            {"data":"SiteGroupid"},
-            {"data":"SiteGroupName"},
-            {"data":"Cardtype"},
-            {"data":"PayerGroup"},
-            {"data":"PayerNumber"},
-            {"data":"RefundFlag"},
-            {"data":"RefundOriginalTransactionId"},
-            {"data":"PostingDate"},
-            {"data":"PostingTime"},
-            {"data":"CustomerReferenceValue"},
-            {"data":"CustomerReferenceDescription"},
-            {"data":"CardPayerAssociationCode"},
-            {"data":"CardPayerAssociation"},
-            {"data":"IncomingProductCode"},
-            {"data":"TransactionProviderId"},
-            {"data":"TransactionProviderName"},
-            {"data":"FileName"},
-            {"data":"FileDate"},
-            {"data":"AccountGroup3Code"},
-            {"data":"AccountGroup3Name"},
-            {"data":"ContractedRebateRate"},
-            {"data":"IsBestOfPricingApplicable"},
-            {"data":"CostCenter"}
-        ]
+            {"data":"Account_Customer_Number"},
+            {"data":"Account_Name"},
+            {"data":"Card_PAN"},
+            {"data":"Sum_of_Trx_Delco_List_Price_Total_Net"},
+            {"data":"Sum_of_Trx_Customer_Invoice_Total_Net"},
+            {"data":"Card_Sequence_Number"},
+            {"data":"Card_Luhn_Check_Digit"},
+            {"data":"Sum_of_Trx_Delco_Invoice_Total_Gross"},
+            {"data":"Sum_of_Trx_Delco_Invoice_Total_VAT"},
+            {"data":"Trx_VAT_Percentage"},
+            {"data":"Sum_of_Trx_Customer_Effective_Discount_Total_Net"},
+            {"data":"Sum_of_Trx_System_Invoice_Total_VAT"},
+            {"data":"Trx_Delco_Effective_Discount_Unit_Net"},
+            {"data":"rx_Other_Prompt"},
+            {"data":"Sum_of_Trx_Quantity"},
+            {"data":"Card_Issuer_Code"},
+            {"data":"Net_Invoice_Indicator"},
+            {"data":"Network_Code"},
+            {"data":"Card_Group_Description"},
+            {"data":"Account_Card_Embossing_Default_Name"},
+            {"data":"Card_VRN"},
+            {"data":"Sum_of_Trx_Delco_Invoice_Total_Net"},
+            {"data":"Trx_PIN_Used_Description"},
+            {"data":"Trx_Discount_Pricing_Type_Description"},
+            {"data":"Transaction_Item_Type_Description"},
+            {"data":"Card_Release_Code"},
+            {"data":"Trx_Delivery_Time"},
+            {"data":"Trx_Transaction_Billed_Indicator"},
+            {"data":"Trx_Transaction_Type_Description"},
+            {"data":"Card_Issuing_Country_Code"},
+            {"data":"Trx_Delco_Code"},
+            {"data":"Delco_Country_ISO2_Code"},
+            {"data":"Trx_Customer_Currency_ISO3_Code"},
+            {"data":"Trx_Invoice_Number"},
+            {"data":"Trx_Invoice_Date"},
+            {"data":"Trx_Global_Product_Code"},
+            {"data":"Euroshell_Site_Number"},
+            {"data":"Site_Name"},
+            {"data":"Trx_Delivery_Date"},
+            {"data":"Trx_Odometer_Reading"},
+            {"data":"Sum_of_Trx_Delco_Discount_Total_Net"},
+            {"data":"Trx_Customer_Effective_Discount_Unit_Net"},
+            {"data":"Legal_Entity_Trading_Name"},
+            {"data":"Account_Legal_Entity_Customer_Number"},
+            {"data":"Card_Group_Code"},
+            {"data":"Global_Product_Description"},
+            {"data":"Trx_Transaction_Debit_Or_Credit_Indicator"},
+            {"data":"Trx_Correction_Flag"},
+            {"data":"Delco_Country_Name"},
+            {"data":"Legal_Entity_VAT_Exempt_Indicator"},
+            {"data":"Trx_Customer_To_Euro_Exchange_Rate"},
+            {"data":"Trx_Site_To_Euro_Exchange_Rate"},
+            {"data":"Trx_System_Effective_Discount_Total_Net"},
+            {"data":"Sum_of_Trx_System_Invoice_Total_Net"},
+            {"data":"Trx_Delco_Retail_Price_Unit_Net"},
+            {"data":"Trx_Rebate_on_Net_Amount_In_Customer_Currency"},
+            {"data":"Trx_Rebate_on_Net_Amount_In_Transaction_Currency"},
+            {"data":"Trx_Rebate_Rate"},
+            {"data":"Network_Name"},
+            {"data":"Trx_Additional_1"},
+            {"data":"Trx_Additional_2"},
+            {"data":"Trx_Additional_4"},
+            {"data":"Trx_Transaction_Item_Id"},
+            {"data":"Trx_Authorisation_Code"},
+            {"data":"Delco_Name"},
+            {"data":"Site_Groups"},
+            {"data":"Card_Type_Description"},
+            {"data":"Legal_Entity_Group_Description"},
+            {"data":"Trx_Original_Transaction_Item_Id"},
+            {"data":"Trx_GFN_Posting_Date"},
+            {"data":"Trx_GFN_Posting_Time"},
+            {"data":"Card_Fleet_Id_Prompt"},
+            {"data":"Trx_Vehicle_Registration_Number"},
+            {"data":"Card_Payer_Association_Code"},
+            {"data":"Card_Payer_Association_Name"},
+            {"data":"Trx_Forward_Standard_Product_Code"},
+            {"data":"Trx_Transaction_Provider_Code"},
+            {"data":"Trx_Transaction_Provider_Description"},
+            {"data":"Trx_Incoming_Transaction_Batch_File_Name"},
+            {"data":"Trx_Insert_Date"},
+            {"data":"Account_Group_3_Code"},
+            {"data":"Account_Group_3_Name"},
+            {"data":"Trx_Colco_Contracted_Discount_Unit_Net"},
+            {"data":"Account_Best_Of_Price_Indicator"},
+            {"data":"Card_Driver_Name"},
+            {"data":"Trx_Incoming_Site_Location_Description"},
+            {"data":"Trx_Delco_List_Price_Unit_Net"},
+            {"data":"Trx_Receipt_Number"},
+            {"data":"Sum_of_Trx_System_Invoice_Total_Gross"},
+            {"data":"Sum_of_Trx_Customer_Invoice_Total_VAT"},
+            {"data":"Sum_of_Trx_Customer_Invoice_Total_Gross"},
+            {"data":"Cost_Center"},
+            ]
     });
     $('#shell_table').on( 'click', 'tr', function () {
         if ( $(this).hasClass('selected') ) {

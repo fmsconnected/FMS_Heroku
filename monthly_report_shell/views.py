@@ -22,7 +22,7 @@ from django.views.generic import (
                                 DeleteView,
                 				)
 from django.db.models import Sum
-from . forms import shell_form
+# from . forms import shell_form
 
 from bootstrap_modal_forms.generic import BSModalDeleteView
                                            
@@ -33,16 +33,16 @@ class shell_report_ViewSet(viewsets.ModelViewSet):
     queryset = shell_report.objects.all().order_by('id')
     serializer_class = shell_report_Serializer
 
-class shell_new(CreateView):
-    model = shell_report
-    form_class = shell_form
-    template_name = 'shell/shell_create.html'
+# class shell_new(CreateView):
+#     model = shell_report
+#     form_class = shell_form
+#     template_name = 'shell/shell_create.html'
 
 
-class shell_update(UpdateView):
-    model = shell_report
-    form_class = shell_form
-    template_name = 'shell/shell_create.html'
+# class shell_update(UpdateView):
+#     model = shell_report
+#     form_class = shell_form
+#     template_name = 'shell/shell_create.html'
 
 # class shell_delete(BSModalDeleteView):
 #     model = shell_report

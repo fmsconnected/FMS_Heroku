@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="breadcrumbs">
+    <div class="col-sm-14">
+        <h3><b>New Vehicle Payment Deadline</b></h3>
+    </div>
+</div>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'Vehicle_list' %}">New Vehicle Payment</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" >Coming Deadline</a>
+  </li>
+</ul>
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'vehicle_export' %}" style="float:left "><u><b>Export NVP Data</b></u></a>
+                    <a href="{% url 'Vehicle-new' %}" style="float:right "><u><b>Add NVP</b></u>&nbsp; &nbsp;</a>
+                    <a href="{% url 'Vehicle_history' %}" style="float:right" class="mr-3"><u><b>NVP History</b></u></a>
+                </div>                         
+                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity ID</th>
+                            <th>Assignee Full Name</th>
+                            <th>Plate Number</th>
+                            <th>PO Number</th>
+                            <th>SLA</th>
+                            <th>Date Initiated</th>
+                            <th>Date Deadline</th>
+                            <th>Equipment Number</th>
+                            <th>Asset Number</th>
+                            <th>Sap PR Number</th>
+                            <th>Mat Doc Number</th>
+                            <th>Dealer Name</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for nvp in dl %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'Vehicle-summary' nvp.id %}">{{ nvp.Activity_id }}</a></td>
+                            <td>{{ nvp.E_First_name }} {{ nvp.E_Last_name }}</td>
+                            <td>{{ nvp.Plate_no }}</td>
+                            <td>{{ nvp.PO_no }}</td>
+                            <td>{{ nvp.V_SLA }}/Days</td>
+                            <td>{{ nvp.Date_initiated | date:'D d M Y'}}</td>
+                            <td class="red">{{ nvp.Deadline | date:'D d M Y' }}</td>
+                            <td>{{ nvp.equip_no }}</td>
+                            <td>{{ nvp.asset_no }}</td>
+                            <td>{{ nvp.sap_no }}</td>
+                            <td>{{ nvp.mat_no }}</td>
+                            <td>{{ nvp.Dealer_name}}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for nvp2 in dl2 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'Vehicle-summary' nvp2.id %}">{{ nvp2.Activity_id }}</a></td>
+                            <td>{{ nvp2.E_First_name }} {{ nvp2.E_Last_name }}</td>
+                            <td>{{ nvp2.Plate_no }}</td>
+                            <td>{{ nvp2.PO_no }}</td>
+                            <td>{{ nvp2.V_SLA }}/Days</td>
+                            <td>{{ nvp2.Date_initiated | date:'D d M Y'}}</td>
+                            <td class="red">{{ nvp2.Deadline | date:'D d M Y' }}</td>
+                            <td>{{ nvp2.equip_no }}</td>
+                            <td>{{ nvp2.asset_no }}</td>
+                            <td>{{ nvp2.sap_no }}</td>
+                            <td>{{ nvp2.mat_no }}</td>
+                            <td>{{ nvp2.Dealer_name}}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for nvp3 in dl3 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'Vehicle-summary' nvp3.id %}">{{ nvp3.Activity_id }}</a></td>
+                            <td>{{ nvp3.E_First_name }} {{ nvp3.E_Last_name }}</td>
+                            <td>{{ nvp3.Plate_no }}</td>
+                            <td>{{ nvp3.PO_no }}</td>
+                            <td>{{ nvp3.V_SLA }}/Days</td>
+                            <td>{{ nvp3.Date_initiated | date:'D d M Y'}}</td>
+                            <td class="red">{{ nvp3.Deadline | date:'D d M Y' }}</td>
+                            <td>{{ nvp3.equip_no }}</td>
+                            <td>{{ nvp3.asset_no }}</td>
+                            <td>{{ nvp3.sap_no }}</td>
+                            <td>{{ nvp3.mat_no }}</td>
+                            <td>{{ nvp3.Dealer_name}}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for nvp4 in dl4 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'Vehicle-summary' nvp4.id %}">{{ nvp4.Activity_id }}</a></td>
+                            <td>{{ nvp4.E_First_name }} {{ nvp4.E_Last_name }}</td>
+                            <td>{{ nvp4.Plate_no }}</td>
+                            <td>{{ nvp4.PO_no }}</td>
+                            <td>{{ nvp4.V_SLA }}/Days</td>
+                            <td>{{ nvp4.Date_initiated | date:'D d M Y'}}</td>
+                            <td class="red">{{ nvp4.Deadline | date:'D d M Y' }}</td>
+                            <td>{{ nvp4.equip_no }}</td>
+                            <td>{{ nvp4.asset_no }}</td>
+                            <td>{{ nvp4.sap_no }}</td>
+                            <td>{{ nvp4.mat_no }}</td>
+                            <td>{{ nvp4.Dealer_name}}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for nvp5 in dl5 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'Vehicle-summary' nvp5.id %}">{{ nvp5.Activity_id }}</a></td>
+                            <td>{{ nvp5.E_First_name }} {{ nvp5.E_Last_name }}</td>
+                            <td>{{ nvp5.Plate_no }}</td>
+                            <td>{{ nvp5.PO_no }}</td>
+                            <td>{{ nvp5.V_SLA }}/Days</td>
+                            <td>{{ nvp5.Date_initiated | date:'D d M Y'}}</td>
+                            <td class="red">{{ nvp5.Deadline | date:'D d M Y' }}</td>
+                            <td>{{ nvp5.equip_no }}</td>
+                            <td>{{ nvp5.asset_no }}</td>
+                            <td>{{ nvp5.sap_no }}</td>
+                            <td>{{ nvp5.mat_no }}</td>
+                            <td>{{ nvp5.Dealer_name}}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for nvp6 in dl6 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'Vehicle-summary' nvp6.id %}">{{ nvp6.Activity_id }}</a></td>
+                            <td>{{ nvp6.E_First_name }} {{ nvp6.E_Last_name }}</td>
+                            <td>{{ nvp6.Plate_no }}</td>
+                            <td>{{ nvp6.PO_no }}</td>
+                            <td>{{ nvp6.V_SLA }}/Days</td>
+                            <td>{{ nvp6.Date_initiated | date:'D d M Y'}}</td>
+                            <td class="red">{{ nvp6.Deadline | date:'D d M Y' }}</td>
+                            <td>{{ nvp6.equip_no }}</td>
+                            <td>{{ nvp6.asset_no }}</td>
+                            <td>{{ nvp6.sap_no }}</td>
+                            <td>{{ nvp6.mat_no }}</td>
+                            <td>{{ nvp6.Dealer_name}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+    <!-- /.row -->
+{% endblock %}
+

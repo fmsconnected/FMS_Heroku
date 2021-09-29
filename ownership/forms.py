@@ -130,7 +130,9 @@ class ownershipForm(forms.ModelForm):
             ('WITH TMG SCHEDULE','WITH TMG SCHEDULE'),
             ('WITH MACRO ETCHING','WITH MACRO ETCHING'),
             ('FLEET VISMIN','FLEET VISMIN'),
-            ('LTO TRANSFER','LTO TRANSFER')
+            ('LTO TRANSFER','LTO TRANSFER'),
+            ('DONE TRANSFERRED','DONE TRANSFERRED'),
+            ('FOR PULL OUT ORCR','FOR PULL OUT ORCR'),
         )
         widgets= {
             
