@@ -70,14 +70,17 @@ def index(request):
     reg_months = datetime.datetime.now().month
     count11 = Corrective.objects.count()
     count12 = EmployeeMasterlist.objects.count()
-    count13 = VehicleMasterList.objects.count()
+    count13 = VehicleMasterList.objects.filter(vehicle_status="Active").count()
+    sold = VehicleMasterList.objects.filter(vehicle_status="Sold").count()
     count14 = Billing.objects.count()
     count15 = Leasing.objects.count()
     count16 = CS_log.objects.filter(Ageing="").count()
     not_registered = Registration.objects.filter(Plate_ending=reg_months,Date_registered__isnull=True ).count()
     registered = Registration.objects.exclude(Plate_ending=reg_months,Date_registered__isnull=True).count()
     return render(request, 'account/index.html', {'title': 'FLEET', 'month':month, 'count11': count11,
-                                                  'count12': count12, 'count13': count13, 'count14': count14, 'count15': count15, 'count16':count16,'not_registered':not_registered,'registered':registered,'month_supplier':month_supplier})
+                                                  'count12': count12, 'count13': count13, 'count14': count14, 'count15': count15, 
+                                                  'count16':count16,'not_registered':not_registered,'registered':registered,
+                                                  'month_supplier':month_supplier,'sold':sold})
 
 ########### Customer care log alert ###########
 
@@ -1177,436 +1180,436 @@ class monthly_report_jan_summary(APIView):
                     "petron_data_dis":petron_data_dis,
                     "petron_data_net":petron_data_net,
             }
-        print(petron_data)
+        # print(petron_data)
         return Response(petron_report_data)
 
-class monthly_report_shell_summary(APIView):
-    date = datetime.datetime.today()
-    authentication_classes = []
-    permission_classes = []
-    ## ProductAmount ####
-    def get(self, request, format=None):
-        date = datetime.datetime.today()
+# class monthly_report_shell_summary(APIView):
+#     date = datetime.datetime.today()
+#     authentication_classes = []
+#     permission_classes = []
+#     ## ProductAmount ####
+#     def get(self, request, format=None):
+#         date = datetime.datetime.today()
 
-        BB14_B10 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-B10").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        BB14_B2 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-B2").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        BB14_B3 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-B3").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        BB14_B4 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-B4").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        BB14_B5 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-B5").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        BB14_B6 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-B6").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        BB14_B7 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-B7").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        BB14_B8 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-B8").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        BB14_E = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-E").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMB4_B = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMB4-B").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG12_D = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG12-D").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG2_B1 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-B1").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG2_B3 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-B3").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG2_C1 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-C1").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG2_C2 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-C2").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG2_C3 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-C3").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG2_C4 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-C4").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG2_C5_B = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-C5-B").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG2_C5_C = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-C5-C").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG2_C5_G = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-C5-G").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum'] 
-        CMG2_D1 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-D1").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG2_D2 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-D2").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG2_D3 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-D3").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG2_E2 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-E2").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG2_E3 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-E3").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG2_F1  = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-F1").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']  
-        CMG2_F2 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-F2").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG2_F3  = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-F3").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']  
-        CMG3_A = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG3-A").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG4_B = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG4-B").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG4_C = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG4-C").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG4_D = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG4-D").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG4_E = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG4-E").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG4_F = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG4-F").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG4_G = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG4-G").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG5_D = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG5-D").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG5_E = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG5-E").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG5_G = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG5-G").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        CMG6_E  = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG6-E").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']  
-        CRA6_A = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CRA6-A").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        EIG09_A = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="EIG09-A").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        FIN13_K1 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="FIN13-K1").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']   
-        FIN13_K2 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="FIN13-K2").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        FIN22_D1b = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="FIN22-D1b").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        FIN22_D2a = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="FIN22-D2a").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        FIN23_C1  = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="FIN23-C1").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']   
-        FIN9_C0301 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="FIN9-C0301").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        FIN9_E02 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="FIN9-E02").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        FIN9_F0201 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="FIN9-F0201").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        FIN_F0201 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="FIN-F0201").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        GEG02_A = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GEG02-A").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        GEG02_B = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GEG02-B").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        GEG02_C   = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GEG02-C").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum'] 
-        GEG02_D = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GEG02-D").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        GEG02_E = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GEG02-E").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        GEG02_F = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GEG02-F").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        GEG02_G = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GEG02-G").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        GEG02_H = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GEG02-H").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        GEG02_K  = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GEG02-K").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']     
-        GEG04_B = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GEG04-B").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        GENT_F2011 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GENT-F2011").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT2_D06_E = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT2-D06-E").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT2_D5_03  = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT2-D5-03").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']  
-        NTT2_D5_05 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT2-D5-05").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT2_D6_03 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT2-D6-03").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT2_D6_05 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT2-D6-05").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT2_F4 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT2-F4").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT2_G4 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT2-G4").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT2_H3 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT2-H3").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT3_B5 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT3-B5").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT3_D5 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT3-D5").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT5_B05A = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-B05A").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT5_B06 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-B06").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT5_C01  = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-C01").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum'] 
-        NTT5_D01  = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-D01").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']  
-        NTT5_D02 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-D02").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT5_E03 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-E03").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT5_E04 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-E04").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT5_G01 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-G01").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']    
-        NTT5_G02 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-G02").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT5_G03 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-G03").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT5_H01  = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-H01").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']  
-        NTT5_H03 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-H03").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT5_I01 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-I01").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT5_I02 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-I02").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT5_I03 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-I03").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT5_J01  = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-J01").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']  
-        NTT5_J02 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-J02").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT5_J03 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-J03").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT6_C = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT6-C").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        NTT7_E = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT7-E").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        OP12_A = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="OP12-A").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        SG02_O = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="SG02-O").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        SG02_O2 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="SG02-O2").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        SG02_P = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="SG02-P").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        SG02_Q = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="SG02-Q").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        SG02_Q2 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="SG02-Q2").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        SG02_R = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="SG02-R").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        SG02_U = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="SG02-U").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        SG11_A = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="SG11-A").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
-        ST1 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="ST1").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         BB14_B10 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="BB14-B10").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         BB14_B2 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="BB14-B2").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         BB14_B3 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="BB14-B3").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         BB14_B4 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="BB14-B4").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         BB14_B5 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="BB14-B5").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         BB14_B6 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="BB14-B6").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         BB14_B7 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="BB14-B7").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         BB14_B8 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="BB14-B8").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         BB14_E = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="BB14-E").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMB4_B = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMB4-B").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG12_D = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG12-D").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG2_B1 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-B1").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG2_B3 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-B3").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG2_C1 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-C1").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG2_C2 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-C2").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG2_C3 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-C3").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG2_C4 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-C4").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG2_C5_B = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-C5-B").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG2_C5_C = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-C5-C").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG2_C5_G = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-C5-G").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum'] 
+#         CMG2_D1 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-D1").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG2_D2 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-D2").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG2_D3 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-D3").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG2_E2 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-E2").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG2_E3 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-E3").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG2_F1  = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-F1").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']  
+#         CMG2_F2 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-F2").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG2_F3  = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-F3").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']  
+#         CMG3_A = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG3-A").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG4_B = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG4-B").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG4_C = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG4-C").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG4_D = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG4-D").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG4_E = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG4-E").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG4_F = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG4-F").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG4_G = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG4-G").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG5_D = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG5-D").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG5_E = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG5-E").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG5_G = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG5-G").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         CMG6_E  = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG6-E").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']  
+#         CRA6_A = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CRA6-A").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         EIG09_A = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="EIG09-A").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         FIN13_K1 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="FIN13-K1").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']   
+#         FIN13_K2 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="FIN13-K2").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         FIN22_D1b = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="FIN22-D1b").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         FIN22_D2a = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="FIN22-D2a").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         FIN23_C1  = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="FIN23-C1").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']   
+#         FIN9_C0301 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="FIN9-C0301").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         FIN9_E02 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="FIN9-E02").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         FIN9_F0201 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="FIN9-F0201").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         FIN_F0201 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="FIN-F0201").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         GEG02_A = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GEG02-A").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         GEG02_B = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GEG02-B").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         GEG02_C   = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GEG02-C").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum'] 
+#         GEG02_D = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GEG02-D").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         GEG02_E = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GEG02-E").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         GEG02_F = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GEG02-F").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         GEG02_G = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GEG02-G").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         GEG02_H = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GEG02-H").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         GEG02_K  = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GEG02-K").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']     
+#         GEG04_B = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GEG04-B").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         GENT_F2011 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GENT-F2011").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT2_D06_E = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT2-D06-E").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT2_D5_03  = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT2-D5-03").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']  
+#         NTT2_D5_05 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT2-D5-05").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT2_D6_03 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT2-D6-03").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT2_D6_05 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT2-D6-05").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT2_F4 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT2-F4").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT2_G4 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT2-G4").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT2_H3 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT2-H3").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT3_B5 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT3-B5").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT3_D5 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT3-D5").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT5_B05A = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-B05A").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT5_B06 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-B06").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT5_C01  = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-C01").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum'] 
+#         NTT5_D01  = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-D01").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']  
+#         NTT5_D02 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-D02").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT5_E03 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-E03").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT5_E04 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-E04").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT5_G01 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-G01").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']    
+#         NTT5_G02 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-G02").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT5_G03 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-G03").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT5_H01  = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-H01").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']  
+#         NTT5_H03 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-H03").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT5_I01 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-I01").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT5_I02 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-I02").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT5_I03 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-I03").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT5_J01  = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-J01").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']  
+#         NTT5_J02 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-J02").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT5_J03 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-J03").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT6_C = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT6-C").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         NTT7_E = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT7-E").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         OP12_A = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="OP12-A").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         SG02_O = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="SG02-O").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         SG02_O2 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="SG02-O2").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         SG02_P = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="SG02-P").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         SG02_Q = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="SG02-Q").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         SG02_Q2 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="SG02-Q2").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         SG02_R = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="SG02-R").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         SG02_U = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="SG02-U").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         SG11_A = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="SG11-A").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
+#         ST1 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="ST1").aggregate(Sum('DelcoGrossValue'))['DelcoGrossValue__sum']
 
-        reb_BB14_B10 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-B10").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_BB14_B2 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-B2").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_BB14_B3 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-B3").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_BB14_B4 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-B4").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_BB14_B5 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-B5").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_BB14_B6 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-B6").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_BB14_B7 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-B7").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_BB14_B8 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-B8").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_BB14_E = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="BB14-E").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMB4_B = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMB4-B").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG12_D = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG12-D").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG2_B1 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-B1").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG2_B3 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-B3").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG2_C1 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-C1").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG2_C2 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-C2").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG2_C3 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-C3").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG2_C4 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-C4").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG2_C5_B = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-C5-B").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG2_C5_C = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-C5-C").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG2_C5_G = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-C5-G").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum'] 
-        reb_CMG2_D1 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-D1").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG2_D2 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-D2").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG2_D3 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-D3").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG2_E2 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-E2").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG2_E3 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-E3").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG2_F1  = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-F1").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']  
-        reb_CMG2_F2 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-F2").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG2_F3  = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG2-F3").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']  
-        reb_CMG3_A = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG3-A").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG4_B = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG4-B").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG4_C = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG4-C").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG4_D = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG4-D").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG4_E = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG4-E").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG4_F = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG4-F").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG4_G = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG4-G").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG5_D = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG5-D").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG5_E = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG5-E").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG5_G = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG5-G").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_CMG6_E  = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CMG6-E").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']  
-        reb_CRA6_A = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="CRA6-A").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_EIG09_A = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="EIG09-A").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_FIN13_K1 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="FIN13-K1").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']   
-        reb_FIN13_K2 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="FIN13-K2").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_FIN22_D1b = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="FIN22-D1b").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_FIN22_D2a = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="FIN22-D2a").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_FIN23_C1  = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="FIN23-C1").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']   
-        reb_FIN9_C0301 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="FIN9-C0301").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_FIN9_E02 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="FIN9-E02").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_FIN9_F0201 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="FIN9-F0201").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_FIN_F0201 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="FIN-F0201").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_GEG02_A = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GEG02-A").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_GEG02_B = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GEG02-B").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_GEG02_C   = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GEG02-C").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum'] 
-        reb_GEG02_D = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GEG02-D").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_GEG02_E = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GEG02-E").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_GEG02_F = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GEG02-F").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_GEG02_G = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GEG02-G").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_GEG02_H = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GEG02-H").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_GEG02_K  = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GEG02-K").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']     
-        reb_GEG04_B = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GEG04-B").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_GENT_F2011 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="GENT-F2011").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT2_D06_E = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT2-D06-E").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT2_D5_03  = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT2-D5-03").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']  
-        reb_NTT2_D5_05 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT2-D5-05").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT2_D6_03 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT2-D6-03").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT2_D6_05 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT2-D6-05").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT2_F4 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT2-F4").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT2_G4 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT2-G4").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT2_H3 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT2-H3").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT3_B5 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT3-B5").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT3_D5 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT3-D5").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT5_B05A = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-B05A").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT5_B06 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-B06").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT5_C01  = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-C01").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum'] 
-        reb_NTT5_D01  = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-D01").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']  
-        reb_NTT5_D02 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-D02").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT5_E03 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-E03").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT5_E04 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-E04").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT5_G01 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-G01").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']    
-        reb_NTT5_G02 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-G02").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT5_G03 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-G03").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT5_H01  = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-H01").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']  
-        reb_NTT5_H03 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-H03").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT5_I01 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-I01").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT5_I02 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-I02").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT5_I03 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-I03").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT5_J01  = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-J01").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']  
-        reb_NTT5_J02 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-J02").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT5_J03 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT5-J03").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT6_C = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT6-C").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_NTT7_E = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="NTT7-E").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_OP12_A = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="OP12-A").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_SG02_O = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="SG02-O").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_SG02_O2 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="SG02-O2").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_SG02_P = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="SG02-P").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_SG02_Q = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="SG02-Q").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_SG02_Q2 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="SG02-Q2").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_SG02_R = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="SG02-R").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_SG02_U = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="SG02-U").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_SG11_A = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="SG11-A").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
-        reb_ST1 = shell_report.objects.filter(InvoiceDate__year=date.year, 
-            InvoiceDate__month=date.month, Supplier='Shell', CostCenter="ST1").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_BB14_B10 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="BB14-B10").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_BB14_B2 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="BB14-B2").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_BB14_B3 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="BB14-B3").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_BB14_B4 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="BB14-B4").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_BB14_B5 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="BB14-B5").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_BB14_B6 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="BB14-B6").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_BB14_B7 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="BB14-B7").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_BB14_B8 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="BB14-B8").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_BB14_E = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="BB14-E").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMB4_B = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMB4-B").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG12_D = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG12-D").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG2_B1 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-B1").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG2_B3 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-B3").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG2_C1 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-C1").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG2_C2 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-C2").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG2_C3 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-C3").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG2_C4 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-C4").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG2_C5_B = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-C5-B").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG2_C5_C = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-C5-C").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG2_C5_G = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-C5-G").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum'] 
+#         reb_CMG2_D1 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-D1").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG2_D2 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-D2").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG2_D3 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-D3").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG2_E2 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-E2").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG2_E3 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-E3").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG2_F1  = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-F1").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']  
+#         reb_CMG2_F2 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-F2").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG2_F3  = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG2-F3").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']  
+#         reb_CMG3_A = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG3-A").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG4_B = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG4-B").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG4_C = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG4-C").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG4_D = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG4-D").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG4_E = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG4-E").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG4_F = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG4-F").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG4_G = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG4-G").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG5_D = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG5-D").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG5_E = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG5-E").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG5_G = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG5-G").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_CMG6_E  = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CMG6-E").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']  
+#         reb_CRA6_A = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="CRA6-A").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_EIG09_A = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="EIG09-A").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_FIN13_K1 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="FIN13-K1").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']   
+#         reb_FIN13_K2 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="FIN13-K2").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_FIN22_D1b = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="FIN22-D1b").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_FIN22_D2a = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="FIN22-D2a").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_FIN23_C1  = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="FIN23-C1").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']   
+#         reb_FIN9_C0301 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="FIN9-C0301").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_FIN9_E02 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="FIN9-E02").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_FIN9_F0201 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="FIN9-F0201").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_FIN_F0201 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="FIN-F0201").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_GEG02_A = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GEG02-A").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_GEG02_B = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GEG02-B").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_GEG02_C   = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GEG02-C").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum'] 
+#         reb_GEG02_D = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GEG02-D").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_GEG02_E = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GEG02-E").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_GEG02_F = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GEG02-F").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_GEG02_G = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GEG02-G").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_GEG02_H = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GEG02-H").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_GEG02_K  = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GEG02-K").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']     
+#         reb_GEG04_B = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GEG04-B").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_GENT_F2011 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="GENT-F2011").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT2_D06_E = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT2-D06-E").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT2_D5_03  = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT2-D5-03").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']  
+#         reb_NTT2_D5_05 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT2-D5-05").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT2_D6_03 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT2-D6-03").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT2_D6_05 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT2-D6-05").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT2_F4 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT2-F4").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT2_G4 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT2-G4").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT2_H3 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT2-H3").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT3_B5 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT3-B5").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT3_D5 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT3-D5").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT5_B05A = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-B05A").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT5_B06 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-B06").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT5_C01  = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-C01").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum'] 
+#         reb_NTT5_D01  = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-D01").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']  
+#         reb_NTT5_D02 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-D02").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT5_E03 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-E03").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT5_E04 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-E04").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT5_G01 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-G01").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']    
+#         reb_NTT5_G02 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-G02").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT5_G03 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-G03").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT5_H01  = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-H01").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']  
+#         reb_NTT5_H03 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-H03").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT5_I01 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-I01").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT5_I02 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-I02").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT5_I03 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-I03").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT5_J01  = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-J01").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']  
+#         reb_NTT5_J02 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-J02").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT5_J03 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT5-J03").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT6_C = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT6-C").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_NTT7_E = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="NTT7-E").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_OP12_A = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="OP12-A").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_SG02_O = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="SG02-O").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_SG02_O2 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="SG02-O2").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_SG02_P = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="SG02-P").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_SG02_Q = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="SG02-Q").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_SG02_Q2 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="SG02-Q2").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_SG02_R = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="SG02-R").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_SG02_U = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="SG02-U").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_SG11_A = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="SG11-A").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
+#         reb_ST1 = shell_report.objects.filter(Trx_Invoice_Date__year=date.year, 
+#             Trx_Invoice_Date__month=date.month, Trx_Transaction_Provider_Description='Shell Philippines', Cost_Center="ST1").aggregate(Sum('RebateCustAmount'))['RebateCustAmount__sum']
 
-        shell_data = [
-        BB14_B10, BB14_B2, BB14_B3, BB14_B4, BB14_B5, BB14_B6, BB14_B7, BB14_B8, BB14_E, CMB4_B
-        ]
-        shell_reb_data = [
-        reb_BB14_B10,reb_BB14_B2,reb_BB14_B3,reb_BB14_B4,reb_BB14_B5,reb_BB14_B6,reb_BB14_B7,reb_BB14_B8,reb_BB14_E,reb_CMB4_B      
-        ]
-        shell_label =[
-        "BB14-B10", "BB14-B2", "BB14-B3", "BB14-B4", "BB14-B5", "BB14-B6", "BB14-B7", "BB14-B8", "BB14-E", "CMB4-B"
-        ]
-        shell_report_data = {
-                    "shell_data": shell_data,
-                    "shell_label":shell_label,
-                    "shell_reb_data":shell_reb_data,
-            }
-        print(shell_data)
-        return Response(shell_report_data)
+#         shell_data = [
+#         BB14_B10, BB14_B2, BB14_B3, BB14_B4, BB14_B5, BB14_B6, BB14_B7, BB14_B8, BB14_E, CMB4_B
+#         ]
+#         shell_reb_data = [
+#         reb_BB14_B10,reb_BB14_B2,reb_BB14_B3,reb_BB14_B4,reb_BB14_B5,reb_BB14_B6,reb_BB14_B7,reb_BB14_B8,reb_BB14_E,reb_CMB4_B      
+#         ]
+#         shell_label =[
+#         "BB14-B10", "BB14-B2", "BB14-B3", "BB14-B4", "BB14-B5", "BB14-B6", "BB14-B7", "BB14-B8", "BB14-E", "CMB4-B"
+#         ]
+#         shell_report_data = {
+#                     "shell_data": shell_data,
+#                     "shell_label":shell_label,
+#                     "shell_reb_data":shell_reb_data,
+#             }
+#         # print(shell_data)
+#         return Response(shell_report_data)

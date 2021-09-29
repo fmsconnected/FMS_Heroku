@@ -146,7 +146,7 @@ class shell_report(models.Model):
 	Delco_Country_ISO2_Code= models.CharField(max_length=254, null=True, blank=True)
 	Trx_Customer_Currency_ISO3_Code= models.CharField(max_length=254, null=True, blank=True)
 	Trx_Invoice_Number= models.CharField(max_length=254, null=True, blank=True)
-	Trx_Invoice_Date= models.CharField(max_length=254, null=True, blank=True)
+	Trx_Invoice_Date= models.DateField(auto_now=False,auto_now_add=False, null=True, blank=True)
 	Trx_Global_Product_Code= models.CharField(max_length=254, null=True, blank=True)
 	Euroshell_Site_Number= models.CharField(max_length=254, null=True, blank=True)
 	Site_Name= models.CharField(max_length=254, null=True, blank=True)

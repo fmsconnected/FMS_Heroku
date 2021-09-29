@@ -5,7 +5,7 @@ var endpoint = 'api/monitoring/'
 var endpointongoing = 'api/monitoring/Ongoing/'
 var endpointcompleted = 'api/monitoring/Completed/'
 var petron_report = 'api/Petron/Report/'
-var shell_report = 'api/Shell/Report/'
+var shell_report = ''
 var defaultData = []
 var current_ongoing_data = []
 var completed_item_data = []
@@ -333,8 +333,11 @@ function setChart(){
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3 style="font-size: 20px">Total</h3>
-                <h3 style="font-size: 20px">{{ count13 }}</h3>
+                <h4 style="font-size: 20px">Total</h4>
+                <h4 style="font-size: 17px">Active Unit's - {{ count13 }}</h4>
+                <!-- <h4 style="font-size: 12px">{{ count13 }}</h4> -->
+                <h4 style="font-size: 17px">Sold Unit's - {{ sold }}</h4>
+                <!-- <h4 style="font-size: 12px">{{ sold }}</h4> -->
                 <h2 class="h5">Vehicle Masterlist</h2>
               </div>
               <div class="icon">
