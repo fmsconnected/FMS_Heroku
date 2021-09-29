@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style type="text/css">
+    th{
+        text-align: center;
+    }
+</style>
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3><b>Service Vehicle Request Deadline</b></h3>
+    </div>
+</div>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link " href="{% url 'service_list' %}">Service Vehicle Request</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active">Coming Deadline</a>
+  </li>
+</ul>
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'service_export' %}" style="float:left "><u><b>Export Service Data</b></u></a>
+                    <a href="{% url 'service_new' %}" style="float:right "><u><b>Add Service Vehicle</b></u> &nbsp; &nbsp;</a>
+                    <a href="{% url 'service_history' %}" style="float:right " class="mr-3"><u><b>Service Vehicle History</b></u></a>
+                </div>
+                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity ID</th>
+                            <th>Requisitioner Name</th>
+                            <th>Plate Number</th>
+                            <th>Conduction Sticker Number</th>
+                            <th>SLA</th>
+                            <th>Date Initiated</th>
+                            <th>Date Deadline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for svr in dl %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'service_details' svr.id %}"><u>{{ svr.Activity_id }}</u></a></td>
+                            <td>{{ svr.req_fname }} {{ svr.req_lname }}</td>
+                            <td>{{ svr.E_plate_no }}</td>
+                            <td>{{ svr.vehicle_CS_no }}</td>
+                            <td>{{ svr.SVV_SLA }}/Days</td>
+                            <td>{{ svr.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ svr.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for svr2 in dl2 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'service_details' svr2.id %}"><u>{{ svr2.Activity_id }}</u></a></td>
+                            <td>{{ svr2.req_fname }} {{ svr2.req_lname }}</td>
+                            <td>{{ svr2.E_plate_no }}</td>
+                            <td>{{ svr2.vehicle_CS_no }}</td>
+                            <td>{{ svr2.SVV_SLA }}/Days</td>
+                            <td>{{ svr2.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ svr2.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for svr3 in dl3 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'service_details' svr3.id %}"><u>{{ svr3.Activity_id }}</u></a></td>
+                            <td>{{ svr3.req_fname }} {{ svr3.req_lname }}</td>
+                            <td>{{ svr3.E_plate_no }}</td>
+                            <td>{{ svr3.vehicle_CS_no }}</td>
+                            <td>{{ svr3.SVV_SLA }}/Days</td>
+                            <td>{{ svr3.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ svr3.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for svr4 in dl4 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'service_details' svr4.id %}"><u>{{ svr4.Activity_id }}</u></a></td>
+                            <td>{{ svr4.req_fname }} {{ svr4.req_lname }}</td>
+                            <td>{{ svr4.E_plate_no }}</td>
+                            <td>{{ svr4.vehicle_CS_no }}</td>
+                            <td>{{ svr4.SVV_SLA }}/Days</td>
+                            <td>{{ svr4.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ svr4.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for svr5 in dl5 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'service_details' svr5.id %}"><u>{{ svr5.Activity_id }}</u></a></td>
+                            <td>{{ svr5.req_fname }} {{ svr5.req_lname }}</td>
+                            <td>{{ svr5.E_plate_no }}</td>
+                            <td>{{ svr5.vehicle_CS_no }}</td>
+                            <td>{{ svr5.SVV_SLA }}/Days</td>
+                            <td>{{ svr5.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ svr5.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% for svr6 in dl6 %}
+                        <tr class="odd gradeX">
+                            <td><a href="{% url 'service_details' svr6.id %}"><u>{{ svr6.Activity_id }}</u></a></td>
+                            <td>{{ svr6.req_fname }} {{ svr6.req_lname }}</td>
+                            <td>{{ svr6.E_plate_no }}</td>
+                            <td>{{ svr6.vehicle_CS_no }}</td>
+                            <td>{{ svr6.SVV_SLA }}/Days</td>
+                            <td>{{ svr6.date_initiated | date:'D d M Y' }}</td>
+                            <td class="red">{{ svr6.Deadline | date:'D d M Y' }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+    <!-- /.row -->
+{% endblock %}
+
+

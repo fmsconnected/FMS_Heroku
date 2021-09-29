@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style type="text/css">
+  th {
+    text-align: middle;
+  }
+</style>
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3>Service Vehicle Daily Report</h3>&nbsp;
+        
+        <a href="{% url 'service_list' %}" style="float:right"><u>Close</u></a><br>
+        <a href="{% url 'service_daily_export' %}" style="float:right"><u>Export Report</u></a>
+    </div>
+
+<table width="90%" class="table table-bordered table-hover" border="5px">
+  <tr>
+    <th width="10%">Subject</th><td width="10%"><b>Service Vehicle Report</td>
+
+  </tr>
+  <tr>
+    <th width="10%">Personel</th><td width="10%"><b>Princess</td>
+  </tr>
+  <tr>
+    <th width="10%">Date</th><td width="10%"></td>
+  <tr>
+  <tr>
+      <td></td>
+  </tr>
+  <tr>
+    <th width="10%"></th>
+    <th width="10%">Total</th>
+    <th width="10%">Remarks</th>
+  </tr>
+  <tr>
+    <th><font size="4" face="Courier New" ><b>A.Leasing Process</b></font></th>
+  <tr>
+  <tr>
+    <td></td>
+  </tr>
+  <tr>
+    <th><font size="4" face="Courier New" ><b>&nbsp;&nbsp;SVRF Line-Up</b></font></th>
+  <tr>
+    <th width="10%">* New Hire</th><td></td>
+  </tr>
+  <tr>
+   <th width="10%">* Replacement Request</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%"><b><font size="4" face="Courier New" >&nbsp;&nbsp;Deliveries</font></b></th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">* Deliveries Endorsement (New)</th><td></td>
+  </tr>
+  <tr>
+   <th width="10%">* Safekeeping (Allocated)</th><td></td>
+  </tr>
+  <tr>
+    <th width="10%"><b><font size="4" face="Courier New" >&nbsp;&nbsp;PULLOUT Endorsement</font></b></th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">* Endorsed for Pullout</th><td></td>
+  </tr>
+  <tr>
+   <th width="10%">* Returned (Matured/Terminated)</th><td></td>
+  </tr>
+   </tr>
+   <tr>
+   <th width="10%">* Sold</th><td></td>
+  </tr>
+
+  <tr>
+    <th width="10%"><b><font size="4" face="Courier New" >&nbsp;&nbsp;TOA (Transefer of Accountability)</font></b></th><td></td>
+  </tr>
+  <tr>
+    <th width="10%">* Change In Masterlist</th><td></td>
+  </tr>
+  <tr>
+   <th width="10%">* For Processing Waiting Approval</th><td></td>
+  </tr>
+ </tr>
+
+  <tr>
+    <th width="10%"><b><font size="4" face="Courier New" >&nbsp;&nbsp;ENCODE (Masterlist and SAP)</font></b></th><td></td>
+  </tr>
+   <tr>
+    <th width="10%">* Input New Vahicle Details</th><td></td>
+  </tr>
+  <tr>
+   <th width="10%">* Create Contract-SAP </th><td></td>
+  </tr>
+  <tr>
+    <th></th>
+  </tr>
+    <tr>
+    <th width="10%"><b><font size="4" face="Courier New" >&nbsp;&nbsp;B. Car Rental/Process</font></b></th><td></td>
+  </tr>
+   <tr>
+    <th width="10%">* Request</th><td></td>
+  </tr>
+  <tr>
+   <th width="10%">* Booked </th><td></td>
+  </tr>
+    <tr>
+    <th></th>
+  </tr>
+    <tr>
+    <th width="10%"><b><font size="4" face="Courier New" >&nbsp;&nbsp;C. Other Task</font></b></th><td></td>
+  </tr>
+   <tr>
+    <th width="10%">* Cascading Replacement Vehicle</th><td></td>
+  </tr>
+  <tr>
+   <th width="10%">* Allocation of Temporary Vehicle </th><td></td>
+  </tr>
+
+</table>
+
+
+{% endblock %}

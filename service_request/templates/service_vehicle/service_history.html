@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <h3><b>Service Vehicle Request History</b></h3>
+    </div>
+</div>
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'service_list' %}" style="float:left "><u><b>Back to Service Data</b></u></a>
+                </div>                         
+                <!-- <table id="bootstrap-data-table-export" class="table table-striped table-bordered"> -->
+                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Activity ID</th>
+                            <th>Requisitioner Name</th>
+                            <th>Plate Number</th>
+                            <th>Conduction Sticker Number</th>
+                            <th>SLA</th>
+                            <th>Date Initiated</th>
+                            <th>History Date</th>
+                            <th>History Type</th>
+                            <th>History User</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for h in object %}
+                        <tr class="odd gradeX">
+                            <td><u>{{ h.Activity_id }}</u></td>
+                            <td>{{ h.req_fname }} {{ h.req_lname }}</td>
+                            <td>{{ h.E_plate_no }}</td>
+                            <td>{{ h.vehicle_CS_no }}</td>
+                            <td>{{ h.SVV_SLA }}/Days</td>
+                            <td>{{ h.date_initiated }}</td>
+                            <td>{{h.history_date}}</td>
+                  
+                            {% if h.history_type == '+' %}
+                                <td style="color: green;">Created</td>
+                            {% elif h.history_type == '-' %}
+                                <td style="color: red;">Completed</td>
+                            {% else %}
+                                <td style="color: blue;">Edited</td>
+                            {% endif %}
+                            <td>{{h.history_user}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+    <!-- /.row -->
+
+{% endblock %}
