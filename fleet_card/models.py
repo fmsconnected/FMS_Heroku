@@ -57,6 +57,9 @@ class fleet_card(models.Model):
 	CARD_TYPE = models.CharField(max_length=100, blank=True, null=True,choices=card_type)
 	CABONILLA = models.CharField(max_length=100, blank=True, null=True)
 	STATION = models.CharField(max_length=254, blank=True, null=True,choices=station)
+	CRF_NUMBER= models.CharField(max_length=254, blank=True, null=True)
+	DATE_OF_CRF_RECEIVED= models.CharField(max_length=254, blank=True, null=True)
+	REMARKS= models.CharField(max_length=254, blank=True, null=True)
 
 
 	def __str__(self):
