@@ -294,6 +294,10 @@ def vehicle_masterlist_solved(request):
 
     return render(request, 'vehicle_masterlist_solved.html')
 
+def vehicle_masterlist_globe(request):
+
+    return render(request, 'vehicle_masterlist_globe.html')
+
 def vehicle_masterlist_trans(request):
     context = {
             'vehicle_list_trans': VehicleMasterList.objects.filter(vehicle_status__contains='Transferred')

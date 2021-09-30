@@ -13,6 +13,7 @@ urlpatterns = [
 	path('VehicleMasterlist/Active', views.vehicle_masterlist_active, name='vehicle_masterlist_active'),
 	path('VehicleMasterlist/Solved', views.vehicle_masterlist_solved, name='vehicle_masterlist_solved'),
 	path('VehicleMasterlist/Trans', views.vehicle_masterlist_trans, name='vehicle_masterlist_trans'),
+	path('VehicleMasterlist/Globe', views.vehicle_masterlist_globe, name='vehicle_masterlist_globe'),
 	path('VehicleMasterlist/', views.Vmastertables, name='vehicle-list'),
 	path('VehicleMasterlist/New', views.vehicle, name='vehicle_new'),
 	path('VehicleMasterlist/submit', views.VmasterlistCreate, name='vehicleMasterlist_submit'),
