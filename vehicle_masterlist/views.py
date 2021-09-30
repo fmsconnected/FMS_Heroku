@@ -280,19 +280,19 @@ def vehicleMasterlistHistoryView(request):
        return render(request, 'vehicleMasterlist_history.html', context={'object': obj})
 
 def vehicle_masterlist_active(request):
-    context = {
-            'vehicle_list_active': VehicleMasterList.objects.filter(vehicle_status__contains='Active')[:100]
-        }
+    # context = {
+    #         'vehicle_list_active': VehicleMasterList.objects.filter(vehicle_status__contains='Active')[:100]
+    #     }
 
-    return render(request, 'vehicle_masterlist_active.html', context)
+    return render(request, 'vehicle_masterlist_active.html')
 
 def vehicle_masterlist_solved(request):
-    context = {
-            'vehicle_list_solved': VehicleMasterList.objects.prefetch_related('Sold').order_by('vehicle_status')[:100]
-            # 'vehicle_list_solved':VehicleMasterList.objects.raw('SELECT * FROM VehicleMasterList')[0]
-        }
+    # context = {
+    #         'vehicle_list_solved': VehicleMasterList.objects.prefetch_related('Sold').order_by('vehicle_status')[:100]
+    #         # 'vehicle_list_solved':VehicleMasterList.objects.raw('SELECT * FROM VehicleMasterList')[0]
+    #     }
 
-    return render(request, 'vehicle_masterlist_solved.html', context)
+    return render(request, 'vehicle_masterlist_solved.html')
 
 def vehicle_masterlist_trans(request):
     context = {
