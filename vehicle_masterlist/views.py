@@ -288,7 +288,7 @@ def vehicle_masterlist_active(request):
 
 def vehicle_masterlist_solved(request):
     context = {
-            'vehicle_list_solved': VehicleMasterList.objects.prefetch_related('Sold').order_by('vehicle_status')[:100]
+            'vehicle_list_solved': VehicleMasterList.objects.prefetch_related('Sold').order_by('vehicle_status')[:10]
             # 'vehicle_list_solved':VehicleMasterList.objects.raw('SELECT * FROM VehicleMasterList')[0]
         }
 
