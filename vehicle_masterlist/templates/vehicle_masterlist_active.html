@@ -21,9 +21,9 @@
     <li class="nav-item">
         <a class="nav-link" href="{% url 'vehicle_masterlist_solved' %}">Sold</a>
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link" href="{% url 'vehicle_masterlist_trans' %}">Transferred</a>
-    </li>
+    </li> -->
 </ul>
 <div class="content mt-3" >
     <div class="animated fadeIn">
@@ -36,7 +36,7 @@
                     <a href="{% url 'vehicleMasterlist_history' %}" style="float:right" class="mr-3"><u>History</u></a>
                 </div>
                     <div class="container-fluid">
-                    <table id="example" class="display nowrap" style="width:100%">
+                    <table id="vtable" class="table table-striped table-bordered" style="width:100%" data-server-side="false" data-ajax="/api/Vehicle_Masterlist/?format=datatables">
                     <thead>
                         <tr>
                             <th>Activity No</th>
@@ -78,20 +78,18 @@
                             <th>Unit MATDOC</th>
                             <th>Dealer</th>
                             <th>Dealer Name</th>
-                            <th>Checked list by</th>
                             <th>Plate Number Release Date</th>
                             <th>Last Registration Date</th>
                             <th>Smoke Emission Date</th>
                             <th>COC Date</th>
+                            <th>Area</th>
                             <th>Email</th>
                             <th>Remarks</th>
                             <th>Latest Remarks</th>
-                            <th>Status</th>
-                            <th>Status 2</th>
-                            <th>Status 3</th>
                             <th>Vehicle Status</th>
+                            <th>Email Status</th>
                         </tr>
-                    </thead>
+                    </thead><!-- 
                     {% for Vmaster_active in vehicle_list_active %}
                         <tr class="odd gradeX">
                             <td><a href="{% url 'vehicle_details' Vmaster_active.id %}"><u>{{ Vmaster_active.Activity_Id }}</u></a></td>
@@ -146,7 +144,7 @@
                             <td>{{Vmaster_active.Status_3}}</td>
                             <td>{{Vmaster_active.vehicle_status}}</td>
                         </tr>
-                    {% endfor %}
+                    {% endfor %} -->
                     </table>
                     </div>
                     </div>
@@ -157,5 +155,148 @@
     </div>
 </div>
 {% endblock %}
+{% block extra_js %}
+<script>
+
+$(document).ready(function() {
+    var table = $('#vtable').DataTable({
+        "serverSide": false,
+        "scrollX": true,
+        "scrollY": "500px",
+        // "deferRender": true,
+        // "autoWidth":true,
+        "deferRender": true,
+        "autoWidth":true,
+         "searchCols": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            { "search": 'Active' },
+            null,
+              ],
+        "columns": [
+            {"data": "Activity_Id",
+            "render": function(data, type, row, meta){
+                if(type === 'display'){
+                    data = '<a href="Details/' + row.id + '">' + data + '</a>';
+                    }
+                return data;
+                }
+            },
+            {"data":"NO"},
+            {"data":"PLATE_NO"},
+            {"data":"CS_NO"},
+            {"data":"CR_NAME"},
+            {"data":"PLATE_ENDING"},
+            {"data":"REGISTRATION_MONTH"},
+            {"data":"MODEL"},
+            {"data":"BRAND"},
+            {"data":"VEHICLE_MAKE"},
+            {"data":"ENGINE_NO"},
+            {"data":"CHASSIS_NO"},
+            {"data":"MV_FILE_NO"},
+            {"data":"VEHICLE_TYPE"},
+            {"data":"Employee"},
+            {"data":"ASSIGNEE_LAST_NAME"},
+            {"data":"ASSIGNEE_FIRST_NAME"},
+            {"data":"VEHICLE_CATEGORY"},
+            {"data":"BAND_LEVEL"},
+            {"data":"BENEFIT_GROUP"},
+            {"data":"COST_CENTER"},
+            {"data":"GROUP"},
+            {"data":"DIVISION"},
+            {"data":"DEPARTMENT"},
+            {"data":"SECTION"},
+            {"data":"IS_ID"},
+            {"data":"IS_NAME"},
+            // {"data":"IS_FIRST_NAME"},
+            {"data":"LOCATION"},
+            {"data":"ORIGINAL_OR_DATE"},
+            {"data":"ACQ_DATE"},
+            {"data":"ACQ_COST"},
+            {"data":"ASSET_NO"},
+            {"data":"EQUIPMENT_NO"},
+            {"data":"PO_NO"},
+            {"data":"SAP_PR"},
+            {"data":"Vehicle_IVN_no"},
+            {"data":"Unit_MATDOC"},
+            {"data":"dealer"},
+            {"data":"dealer_name"},
+            {"data":"PLATE_NUMBER_RELEASE_DATE"},
+            {"data":"Last_Registration_Date"},
+            {"data":"Smoke_Emission_Date"},
+            {"data":"COC_Date"},
+            {"data":"AREA"},
+            {"data":"EMAIL"},
+            {"data":"Remarks"},
+            // {"data":"Status"},
+            {"data":"leasing_remark"},
+            {"data":"vehicle_status"},
+            {"data":"Status_2"},
+        ]
+    });
+    $('#vtable').on( 'click', 'tr', function () {
+        if ( $(this).hasClass('selected') ) {
+            $(this).removeClass('selected');
+        }
+        else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    } );
+});
+</script>
+
+{% endblock %}
+
+
+
+
+
+
 
 
