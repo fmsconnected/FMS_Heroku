@@ -163,9 +163,10 @@ $(document).ready(function() {
         "serverSide": true,
         "scrollX": true,
         "scrollY": "500px",
-        // "deferRender": true,
-        // "autoWidth":true,
         "deferRender": true,
+        "paging": true,
+        "ordering": false,
+        "searching": false,
         "autoWidth":true,
          "searchCols": [
             null,
@@ -221,6 +222,22 @@ $(document).ready(function() {
         "processing": true,
         "language": {
             processing: '<i class="fa fa-spinner fa-spin fa-5x fa-fw" style="position:fixed; z-index: 10; top:400px; font-size: 2em; color: #39c0bc;"></i>'
+        },
+        ajax: function ( data, callback, settings ) {
+            var out = [];
+ 
+            for ( var i=data.start, ien=data.start+data.length ; i<ien ; i++ ) {
+                out.push( [ i+'-1', i+'-2', i+'-3', i+'-4', i+'-5' ] );
+            }
+ 
+            setTimeout( function () {
+                callback( {
+                    draw: data.draw,
+                    data: out,
+                    recordsTotal: 5000000,
+                    recordsFiltered: 5000000
+                } );
+            }, 50 );
         },
         "columns": [
             {"data": "Activity_Id",
