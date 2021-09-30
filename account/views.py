@@ -13,10 +13,10 @@ from payment.models import (
     Fuel_supplier,
     Vehicle_Repair_payment
 )
-from new_vehicle_payment.models import VehiclePayment
-from car_rental_payment.models import CarRental
-from car_rental_request.models import CarRentalRequest
-from service_request.models import service_vehicle
+from new_vehicle_payment.models import (VehiclePayment)
+from car_rental_payment.models import (CarRental)
+from car_rental_request.models import (CarRentalRequest)
+from service_request.models import (service_vehicle)
 from request.models import (
     Gas_card,
     Vehicle_Repair,)

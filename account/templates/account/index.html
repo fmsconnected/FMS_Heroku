@@ -96,117 +96,152 @@ $.ajax({
     }
 })
 function setChart(){
-    var ctx1 = document.getElementById("ongoing_data");
-    var ctx2 = document.getElementById("myChart2");
-    var ctx3 = document.getElementById("completed");
+    // var ctx1 = document.getElementById("ongoing_data");
+    // var ctx2 = document.getElementById("myChart2");
+    // var ctx3 = document.getElementById("completed");
     var ctx4 = document.getElementById("petron_report_monthly");
     var ctx5 = document.getElementById("shell_report_monthly");
-    var myChart = new Chart(ctx2, {
-    type: 'pie',
-    data: {
-        labels: labels,
-        datasets: [{
-            label: '# Data',
-            data: defaultData,
-            backgroundColor: [
-                'rgba(255, 0, 0, 1)',
-                'rgba(255, 255, 0, 1)',
-                'rgba(136, 204, 0, 1)',
-                'rgba(51, 153, 255, 1)',
-                'rgba(204, 0, 204, 1)',
-                'rgba(204, 102, 153, 1)',
-                'rgba(0, 0, 153, 1, 1)',
-                'rgba(0, 102, 153, 1)',
-                'rgba(255, 204, 255)',
-                'rgba(0, 153, 204, 1)',
-                'rgba(51, 204, 51, 1)',
-                'rgba(153, 153, 102, 1)',
-                'rgba(34, 51, 0, 1, 1)',
-                'rgba(102, 0, 102, 1)',
-                'rgba(128, 0, 0,1)',
-                'rgba(92, 24, 12, 1)',
-            ],
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-    });
-    var completed_Data_list = new Chart(ctx3, {
-      type: 'bar',
-    data: {
-        labels: ["FATA Monitoring",
-        "Corrective Maintenance", "Customer Care", "Transfer Ownership", "TOO Billing", "Car Rental Request", "Gas Card Request","Service Vehicle Request","Preventive Maintenance", "Insurance", "New Vehicle Payment", "Car Rental Payment"
-        , "Fuel Supplier Payment", "Vehicle Repair Payment"],
-        datasets: [{
-            label: '#Data',
-            data: completed_item_data,
-            backgroundColor: [
-                'rgba(255, 0, 0, 1)',
-                'rgba(255, 255, 0, 1)',
-                'rgba(136, 204, 0, 1)',
-                'rgba(51, 153, 255, 1)',
-                'rgba(204, 0, 204, 1)',
-                'rgba(204, 102, 153, 1)',
-                'rgba(0, 0, 153, 1, 1)',
-                'rgba(0, 102, 153, 1)',
-                'rgba(255, 204, 255)',
-                'rgba(0, 153, 204, 1)',
-                'rgba(51, 204, 51, 1)',
-                'rgba(153, 153, 102, 1)',
-                'rgba(34, 51, 0, 1, 1)',
-                'rgba(102, 0, 102, 1)',
-                'rgba(128, 0, 1, 1)',
-                'rgba(92, 24, 12, 1)',
-            ],
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-    });
+    var ctx6 = document.getElementById("prog");
+    // var myChart = new Chart(ctx2, {
+    // type: 'pie',
+    // data: {
+    //     labels: labels,
+    //     datasets: [{
+    //         label: '# Data',
+    //         data: defaultData,
+    //         backgroundColor: [
+    //             'rgba(255, 0, 0, 1)',
+    //             'rgba(255, 255, 0, 1)',
+    //             'rgba(136, 204, 0, 1)',
+    //             'rgba(51, 153, 255, 1)',
+    //             'rgba(204, 0, 204, 1)',
+    //             'rgba(204, 102, 153, 1)',
+    //             'rgba(0, 0, 153, 1, 1)',
+    //             'rgba(0, 102, 153, 1)',
+    //             'rgba(255, 204, 255)',
+    //             'rgba(0, 153, 204, 1)',
+    //             'rgba(51, 204, 51, 1)',
+    //             'rgba(153, 153, 102, 1)',
+    //             'rgba(34, 51, 0, 1, 1)',
+    //             'rgba(102, 0, 102, 1)',
+    //             'rgba(128, 0, 0,1)',
+    //             'rgba(92, 24, 12, 1)',
+    //         ],
+    //     }]
+    // },
+    // options: {
+    //     scales: {
+    //         yAxes: [{
+    //             ticks: {
+    //                 beginAtZero:true
+    //             }
+    //         }]
+    //     }
+    // }
+    // });
+    // var completed_Data_list = new Chart(ctx3, {
+    //   type: 'bar',
+    // data: {
+    //     labels: ["FATA Monitoring",
+    //     "Corrective Maintenance", "Customer Care", "Transfer Ownership", "TOO Billing", "Car Rental Request", "Gas Card Request","Service Vehicle Request","Preventive Maintenance", "Insurance", "New Vehicle Payment", "Car Rental Payment"
+    //     , "Fuel Supplier Payment", "Vehicle Repair Payment"],
+    //     datasets: [{
+    //         label: '#Data',
+    //         data: completed_item_data,
+    //         backgroundColor: [
+    //             'rgba(255, 0, 0, 1)',
+    //             'rgba(255, 255, 0, 1)',
+    //             'rgba(136, 204, 0, 1)',
+    //             'rgba(51, 153, 255, 1)',
+    //             'rgba(204, 0, 204, 1)',
+    //             'rgba(204, 102, 153, 1)',
+    //             'rgba(0, 0, 153, 1, 1)',
+    //             'rgba(0, 102, 153, 1)',
+    //             'rgba(255, 204, 255)',
+    //             'rgba(0, 153, 204, 1)',
+    //             'rgba(51, 204, 51, 1)',
+    //             'rgba(153, 153, 102, 1)',
+    //             'rgba(34, 51, 0, 1, 1)',
+    //             'rgba(102, 0, 102, 1)',
+    //             'rgba(128, 0, 1, 1)',
+    //             'rgba(92, 24, 12, 1)',
+    //         ],
+    //     }]
+    // },
+    // options: {
+    //     scales: {
+    //         yAxes: [{
+    //             ticks: {
+    //                 beginAtZero:true
+    //             }
+    //         }]
+    //     }
+    // }
+    // });
 
-    var ongoing_chart = new Chart(ctx1, {
+    // var ongoing_chart = new Chart(ctx1, {
+    // type: 'horizontalBar',
+    // data: {
+    //     labels: ["FATA Monitoring",
+    //     "Corrective Maintenance", "Transfer Ownership", "Car Rental Request", "Gas Card Request","Service Vehicle Request", "Preventive Maintenance", "Insurance", "New Vehicle Payment", "Car Rental Payment", "Fuel Supplier Payment", "Vehicle Repair Payment"],
+    //     datasets: [{
+    //         label: '#Data',
+    //         data: current_ongoing_data,
+    //         backgroundColor: [
+    //             'rgba(255, 0, 0, 1)',
+    //             'rgba(255, 255, 0, 1)',
+    //             'rgba(136, 204, 0, 1)',
+    //             'rgba(51, 153, 255, 1)',
+    //             'rgba(204, 0, 204, 1)',
+    //             'rgba(204, 102, 153, 1)',
+    //             'rgba(0, 0, 153, 1, 1)',
+    //             'rgba(0, 102, 153, 1)',
+    //             'rgba(255, 204, 255)',
+    //             'rgba(0, 153, 204, 1)',
+    //             'rgba(51, 204, 51, 1)',
+    //             'rgba(153, 153, 102, 1)',
+    //             'rgba(34, 51, 0, 1, 1)',
+    //             'rgba(102, 0, 102, 1)',
+    //             'rgba(128, 0, 0,1)',
+    //             'rgba(12, 0, 102, 1)',
+    //             'rgba(122, 0, 102, 1)',
+    //             'rgba(111, 0, 0,1)',
+    //             'rgba(201, 0, 102, 1)',
+    //         ],
+    //     }]
+    // },
+    // options: {
+    //     scales: {
+    //         yAxes: [{
+    //             ticks: {
+    //                 beginAtZero:true
+    //             }
+    //         }]
+    //     }
+    // }
+    // });
+    var prog_chart = new Chart(ctx6, {
     type: 'horizontalBar',
     data: {
-        labels: ["FATA Monitoring",
-        "Corrective Maintenance", "Transfer Ownership", "Car Rental Request", "Gas Card Request","Service Vehicle Request", "Preventive Maintenance", "Insurance", "New Vehicle Payment", "Car Rental Payment", "Fuel Supplier Payment", "Vehicle Repair Payment"],
+        labels: ["FATA Monitoring","Corrective Maintenance", "Customer Care", "Transfer Ownership", "TOO Billing", "Car Rental Request", "Gas Card Request","Service Vehicle Request","Preventive Maintenance", "Insurance", "New Vehicle Payment", "Car Rental Payment"
+        , "Fuel Supplier Payment", "Vehicle Repair Payment"],
         datasets: [{
-            label: '#Data',
+            label: 'Requested',
+            data: defaultData,
+            backgroundColor:'rgba(23, 128, 173)',
+        },
+          {
+            label: 'Ongoing',
+            fill: true,
             data: current_ongoing_data,
-            backgroundColor: [
-                'rgba(255, 0, 0, 1)',
-                'rgba(255, 255, 0, 1)',
-                'rgba(136, 204, 0, 1)',
-                'rgba(51, 153, 255, 1)',
-                'rgba(204, 0, 204, 1)',
-                'rgba(204, 102, 153, 1)',
-                'rgba(0, 0, 153, 1, 1)',
-                'rgba(0, 102, 153, 1)',
-                'rgba(255, 204, 255)',
-                'rgba(0, 153, 204, 1)',
-                'rgba(51, 204, 51, 1)',
-                'rgba(153, 153, 102, 1)',
-                'rgba(34, 51, 0, 1, 1)',
-                'rgba(102, 0, 102, 1)',
-                'rgba(128, 0, 0,1)',
-                'rgba(12, 0, 102, 1)',
-                'rgba(122, 0, 102, 1)',
-                'rgba(111, 0, 0,1)',
-                'rgba(201, 0, 102, 1)',
-            ],
+            backgroundColor:'rgba(207, 154, 50)',
+        },
+        {
+            label: 'Completed',
+            fill: true,
+            data: completed_item_data,
+            backgroundColor:'rgba(196, 195, 187)',
+
         }]
     },
     options: {
@@ -219,7 +254,6 @@ function setChart(){
         }
     }
     });
-
     var petron_chart = new Chart(ctx4, {
     type: 'bar',
     data: {
@@ -280,25 +314,29 @@ function setChart(){
     }
     });
     window.onload = function(){
-        var ctx2 = document.getElementById("myChart2").getContext("2d");
-        window.myBar = new Chart(ctx2).Bar(myChart, {
-            responsive : true
-        });
+        // var ctx2 = document.getElementById("myChart2").getContext("2d");
+        // window.myBar = new Chart(ctx2).Bar(myChart, {
+        //     responsive : true
+        // });
         
-        var ctx1 = document.getElementById("ongoing_data").getContext("2d");
-        window.myBar = new Chart(ctx1).Bar(ongoing_chart, {
-            responsive : true
-        });
-        var ctx3 = document.getElementById("completed").getContext("2d");
-        window.myBar = new Chart(ctx3).Bar(completed_Data_list, {
-            responsive : true
-        });
+        // var ctx1 = document.getElementById("ongoing_data").getContext("2d");
+        // window.myBar = new Chart(ctx1).Bar(ongoing_chart, {
+        //     responsive : true
+        // });
+        // var ctx3 = document.getElementById("completed").getContext("2d");
+        // window.myBar = new Chart(ctx3).Bar(completed_Data_list, {
+        //     responsive : true
+        // });
         var ctx4 = document.getElementById("petron_report_monthly").getContext("2d");
         window.myBar = new Chart(ctx4).Bar(petron_chart, {
             responsive : true
         });
         var ctx5 = document.getElementById("shell_report_monthly").getContext("2d");
         window.myBar = new Chart(ctx5).Bar(shell_chart, {
+            responsive : true
+        });
+        var ctx6 = document.getElementById("prog").getContext("2d");
+        window.myBar = new Chart(ctx6).Bar(prog_chart, {
             responsive : true
         });
     }
@@ -410,7 +448,7 @@ function setChart(){
         </div>
         <!-- /.row -->
         <!-- Main row -->
-        <div class="row">
+        <div class="row" hidden>
           <!-- Left col -->
           <section class="col-lg-7 connectedSortable">
             <!-- Custom tabs (Charts with tabs)-->
@@ -465,7 +503,7 @@ function setChart(){
         </div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
-        <div class="card ">
+        <div class="card " hidden>
           <div class="card-header">
             <h3 class="card-title">
               <i class="fas fa-chart-pie mr-1"></i>
@@ -481,6 +519,23 @@ function setChart(){
             </div>
           </div><!-- /.card-body -->
         </div>
+
+        <div class="card ">
+          <div class="card-header">
+            <h3 class="card-title">
+              <i class="fas fa-chart-pie mr-1"></i>
+              Progress
+            </h3>
+          </div><!-- /.card-header -->
+        <div class="card-body">
+            <div class="tab-content p-0">
+                <div class="card-body">
+                    <div class="tab-content p-0">
+                        <canvas id="prog" style="height: 800px; max-width: 100%;"></canvas>
+                    </div>  
+                </div>
+            </div>
+        </div><!-- /.card-body -->
         <div class="card ">
           <div class="card-header">
             <h3 class="card-title">

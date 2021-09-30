@@ -23,6 +23,8 @@ router.register(r'Leasing_Masterlist', views.leasingViewSet),
 from vehicle_masterlist import views
 router.register(r'Vehicle_Masterlist', views.vehicleViewSet),
 
+from vehicle_masterlist import views
+router.register(r'Vehicle_Masterlist_Sold', views.vehiclesoldViewSet),
 
 from monitoring import views
 router.register(r'monitoring', views.monitoringViewSet),

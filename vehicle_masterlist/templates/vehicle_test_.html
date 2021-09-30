@@ -2,12 +2,12 @@
 {% block content %}
 <div class="breadcrumbs">
     <div class="col-sm-12">
-        <h3><b>Vehicle MasterList All Units</b></h3>
+        <h3><b>Vehicle MasterList Sold</b></h3>
     </div>
 </div>
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link active" href="#">All Units</a>
+        <a class="nav-link" href="{% url 'vehicle-list' %}">All Units</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{% url 'vehicle_bayantel' %}">Bayan</a>
@@ -19,7 +19,7 @@
         <a class="nav-link" href="{% url 'vehicle_masterlist_active' %}">Active</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'vehicle_masterlist_solved' %}">Sold</a>
+        <a class="nav-link active" href="#">Sold</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{% url 'vehicle_masterlist_trans' %}">Transferred</a>
@@ -112,6 +112,10 @@ $(document).ready(function() {
         // "autoWidth":true,
         "deferRender": true,
         "autoWidth":true,
+        "ajax": {
+            "url": "/api/Vehicle_Masterlist/?format=datatables",
+            "type": "POST"
+            },
         "columns": [
             {"data": "Activity_Id",
             "render": function(data, type, row, meta){
@@ -173,6 +177,12 @@ $(document).ready(function() {
             {"data":"Status_2"},
         ]
     });
+    var filteredData = table.vehicle_status( 0 )
+        .data()
+        .filter( function ( value, index ) {
+            return value = 'Sold' ? true : false;
+    } );
+
     $('#vtable').on( 'click', 'tr', function () {
         if ( $(this).hasClass('selected') ) {
             $(this).removeClass('selected');

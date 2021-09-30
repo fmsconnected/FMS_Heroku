@@ -28,7 +28,8 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 # from .models import VehicleMasterList,
 from .serializers import (
-    vehicleSerializer
+    vehicleSerializer,
+    vehiclesold
     )
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -43,6 +44,10 @@ class vehicleViewSet(viewsets.ModelViewSet):
     queryset = VehicleMasterList.objects.all().order_by('id')
     serializer_class = vehicleSerializer
 
+class vehiclesoldViewSet(viewsets.ModelViewSet):
+    queryset = VehicleMasterList.objects.all().order_by('vehicle_status')
+    serializer_class = vehiclesold
+        
 
 def VmasterlistCreate(request):
     if request.method == 'POST':
@@ -290,6 +295,7 @@ def vehicle_masterlist_active(request):
 def vehicle_masterlist_solved(request):
     context = {
             'vehicle_list_solved': VehicleMasterList.objects.filter(vehicle_status__contains='Sold')
+            # 'vehicle_list_solved':VehicleMasterList.objects.raw('SELECT * FROM VehicleMasterList')[0]
         }
 
     return render(request, 'vehicle_masterlist_solved.html', context)
