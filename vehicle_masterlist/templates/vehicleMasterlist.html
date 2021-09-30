@@ -52,7 +52,7 @@
                             <th>Engine Number</th>
                             <th>Chassis Number</th>
                             <th>MV file Number</th>
-                            <!-- <th>Vehicle Type</th>
+                            <th>Vehicle Type</th>
                             <th>Employee ID</th>
                             <th>Assignee Last Name</th>
                             <th>Assignee First Name</th>
@@ -87,7 +87,7 @@
                             <th>Remarks</th>
                             <th>Latest Remarks</th>
                             <th>Vehicle Status</th>
-                            <th>Email Status</th> -->
+                            <th>Email Status</th>
                         </tr>
                     </thead>
                     </table>
@@ -108,11 +108,14 @@ $(document).ready(function() {
         "serverSide": true,
         "scrollX": true,
         "scrollY": "500px",
+        "paging": true,
         // "deferRender": true,
         // "autoWidth":true,
         "deferRender": true,
+        "deferLoading": [ 100],
         "autoWidth":true,
         "processing": true,
+
         "language": {
             processing: '<i class="fa fa-spinner fa-spin fa-5x fa-fw" style="position:fixed; z-index: 10; top:400px; font-size: 2em; color: #39c0bc;"></i>'
         },
@@ -137,44 +140,44 @@ $(document).ready(function() {
             {"data":"ENGINE_NO"},
             {"data":"CHASSIS_NO"},
             {"data":"MV_FILE_NO"},
-            // {"data":"VEHICLE_TYPE"},
-            // {"data":"Employee"},
-            // {"data":"ASSIGNEE_LAST_NAME"},
-            // {"data":"ASSIGNEE_FIRST_NAME"},
-            // {"data":"VEHICLE_CATEGORY"},
-            // {"data":"BAND_LEVEL"},
-            // {"data":"BENEFIT_GROUP"},
-            // {"data":"COST_CENTER"},
-            // {"data":"GROUP"},
-            // {"data":"DIVISION"},
-            // {"data":"DEPARTMENT"},
-            // {"data":"SECTION"},
-            // {"data":"IS_ID"},
-            // {"data":"IS_NAME"},
-            // // {"data":"IS_FIRST_NAME"},
-            // {"data":"LOCATION"},
-            // {"data":"ORIGINAL_OR_DATE"},
-            // {"data":"ACQ_DATE"},
-            // {"data":"ACQ_COST"},
-            // {"data":"ASSET_NO"},
-            // {"data":"EQUIPMENT_NO"},
-            // {"data":"PO_NO"},
-            // {"data":"SAP_PR"},
-            // {"data":"Vehicle_IVN_no"},
-            // {"data":"Unit_MATDOC"},
-            // {"data":"dealer"},
-            // {"data":"dealer_name"},
-            // {"data":"PLATE_NUMBER_RELEASE_DATE"},
-            // {"data":"Last_Registration_Date"},
-            // {"data":"Smoke_Emission_Date"},
-            // {"data":"COC_Date"},
-            // {"data":"AREA"},
-            // {"data":"EMAIL"},
-            // {"data":"Remarks"},
-            // // {"data":"Status"},
-            // {"data":"leasing_remark"},
-            // {"data":"vehicle_status"},
-            // {"data":"Status_2"},
+            {"data":"VEHICLE_TYPE"},
+            {"data":"Employee"},
+            {"data":"ASSIGNEE_LAST_NAME"},
+            {"data":"ASSIGNEE_FIRST_NAME"},
+            {"data":"VEHICLE_CATEGORY"},
+            {"data":"BAND_LEVEL"},
+            {"data":"BENEFIT_GROUP"},
+            {"data":"COST_CENTER"},
+            {"data":"GROUP"},
+            {"data":"DIVISION"},
+            {"data":"DEPARTMENT"},
+            {"data":"SECTION"},
+            {"data":"IS_ID"},
+            {"data":"IS_NAME"},
+            // {"data":"IS_FIRST_NAME"},
+            {"data":"LOCATION"},
+            {"data":"ORIGINAL_OR_DATE"},
+            {"data":"ACQ_DATE"},
+            {"data":"ACQ_COST"},
+            {"data":"ASSET_NO"},
+            {"data":"EQUIPMENT_NO"},
+            {"data":"PO_NO"},
+            {"data":"SAP_PR"},
+            {"data":"Vehicle_IVN_no"},
+            {"data":"Unit_MATDOC"},
+            {"data":"dealer"},
+            {"data":"dealer_name"},
+            {"data":"PLATE_NUMBER_RELEASE_DATE"},
+            {"data":"Last_Registration_Date"},
+            {"data":"Smoke_Emission_Date"},
+            {"data":"COC_Date"},
+            {"data":"AREA"},
+            {"data":"EMAIL"},
+            {"data":"Remarks"},
+            // {"data":"Status"},
+            {"data":"leasing_remark"},
+            {"data":"vehicle_status"},
+            {"data":"Status_2"},
         ]
     });
     $('#vtable').on( 'click', 'tr', function () {
@@ -185,6 +188,13 @@ $(document).ready(function() {
             table.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
         }
+    } );
+    $('#all').on( 'click', function () {
+    table.page.len( -1 ).draw();
+    } );
+     
+    $('#_10').on( 'click', function () {
+        table.page.len( 10 ).draw();
     } );
 });
 </script>
