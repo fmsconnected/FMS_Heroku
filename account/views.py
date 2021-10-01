@@ -58,6 +58,7 @@ from CustomerLog.models import (
 from registration.models import Registration
 
 def index(request):
+    regs_months = ""
     current_user = request.user
     print("user",current_user.username)
     def dispatch(self, *args, **kwargs):
@@ -67,6 +68,9 @@ def index(request):
     month = months[date.month]
     month_supplier = months[date.month-1]
     reg_months = datetime.datetime.now().month
+    if reg_months == 10:
+        regs_months = 0
+    
     count11 = Corrective.objects.count()
     count12 = EmployeeMasterlist.objects.count()
     count13 = VehicleMasterList.objects.filter(vehicle_status="Active").count()
@@ -74,8 +78,9 @@ def index(request):
     count14 = Billing.objects.count()
     count15 = Leasing.objects.count()
     count16 = CS_log.objects.filter(Ageing="").count()
-    not_registered = Registration.objects.filter(Plate_ending=reg_months,Date_registered="" ).count()
-    registered = Registration.objects.exclude(Plate_ending=reg_months,Date_registered="" ).count()
+    print("months",regs_months)
+    not_registered = Registration.objects.filter(Plate_ending=regs_months,Date_registered__isnull=True ).count()
+    registered = Registration.objects.filter(Plate_ending=regs_months ).exclude(Date_registered__isnull=True).count()
     return render(request, 'account/index.html', {'title': 'FLEET', 'month':month, 'count11': count11,
                                                   'count12': count12, 'count13': count13, 'count14': count14, 'count15': count15, 
                                                   'count16':count16,'not_registered':not_registered,'registered':registered,

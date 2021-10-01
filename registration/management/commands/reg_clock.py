@@ -682,7 +682,7 @@ def second_send_registration_email():
         #################################
 ####.......3rd Email, 1st day of Month Due.....#####
         #################################
-@sched.scheduled_job('interval', minutes=30)
+@sched.scheduled_job('interval', minutes=1)
 def third_send_registration_email():
     month = datetime.datetime.now().month
     year = datetime.datetime.now().year
@@ -705,8 +705,9 @@ def third_send_registration_email():
             for item in car_status:
                 data ={
                     'plate':item.PLATE_NO,
-                    'model':item.MODEL,
-                    'make':item.VEHICLE_MAKE
+                        'model':item.MODEL,
+                        'make':item.VEHICLE_MAKE,
+                        'brand':item.BRAND
                 }
                 subject = 'Fleet Management System Automated Email- ' + (item.PLATE_NO)
                 html_message = render_to_string('email.html',data)
@@ -735,8 +736,9 @@ def third_send_registration_email():
             for item in car_status:
                 data ={
                     'plate':item.PLATE_NO,
-                    'model':item.MODEL,
-                    'make':item.VEHICLE_MAKE
+                        'model':item.MODEL,
+                        'make':item.VEHICLE_MAKE,
+                        'brand':item.BRAND
                 }
                 subject = 'Fleet Management System Automated Email- ' + (item.PLATE_NO)
                 html_message = render_to_string('email.html',data)
@@ -765,8 +767,9 @@ def third_send_registration_email():
             for item in car_status:
                 data ={
                     'plate':item.PLATE_NO,
-                    'model':item.MODEL,
-                    'make':item.VEHICLE_MAKE
+                        'model':item.MODEL,
+                        'make':item.VEHICLE_MAKE,
+                        'brand':item.BRAND
                 }
                 subject = 'Fleet Management System Automated Email- ' + (item.PLATE_NO)
                 html_message = render_to_string('email.html',data)
@@ -795,8 +798,9 @@ def third_send_registration_email():
             for item in car_status:
                 data ={
                     'plate':item.PLATE_NO,
-                    'model':item.MODEL,
-                    'make':item.VEHICLE_MAKE
+                        'model':item.MODEL,
+                        'make':item.VEHICLE_MAKE,
+                        'brand':item.BRAND
                 }
                 subject = 'Fleet Management System Automated Email- ' + (item.PLATE_NO)
                 html_message = render_to_string('email.html',data)
@@ -825,8 +829,9 @@ def third_send_registration_email():
             for item in car_status:
                 data ={
                     'plate':item.PLATE_NO,
-                    'model':item.MODEL,
-                    'make':item.VEHICLE_MAKE
+                        'model':item.MODEL,
+                        'make':item.VEHICLE_MAKE,
+                        'brand':item.BRAND
                 }
                 subject = 'Fleet Management System Automated Email- ' + (item.PLATE_NO)
                 html_message = render_to_string('email.html',data)
@@ -855,8 +860,9 @@ def third_send_registration_email():
             for item in car_status:
                 data ={
                     'plate':item.PLATE_NO,
-                    'model':item.MODEL,
-                    'make':item.VEHICLE_MAKE
+                        'model':item.MODEL,
+                        'make':item.VEHICLE_MAKE,
+                        'brand':item.BRAND
                 }
                 subject = 'Fleet Management System Automated Email- ' + (item.PLATE_NO)
                 html_message = render_to_string('email.html',data)
@@ -885,8 +891,9 @@ def third_send_registration_email():
             for item in car_status:
                 data ={
                     'plate':item.PLATE_NO,
-                    'model':item.MODEL,
-                    'make':item.VEHICLE_MAKE
+                        'model':item.MODEL,
+                        'make':item.VEHICLE_MAKE,
+                        'brand':item.BRAND
                 }
                 subject = 'Fleet Management System Automated Email- ' + (item.PLATE_NO)
                 html_message = render_to_string('email.html',data)
@@ -915,8 +922,9 @@ def third_send_registration_email():
             for item in car_status:
                 data ={
                     'plate':item.PLATE_NO,
-                    'model':item.MODEL,
-                    'make':item.VEHICLE_MAKE
+                        'model':item.MODEL,
+                        'make':item.VEHICLE_MAKE,
+                        'brand':item.BRAND
                 }
                 subject = 'Fleet Management System Automated Email - ' + (item.PLATE_NO)
                 html_message = render_to_string('email.html',data)
@@ -948,8 +956,9 @@ def third_send_registration_email():
             for item in car_status:
                 data ={
                     'plate':item.PLATE_NO,
-                    'model':item.MODEL,
-                    'make':item.VEHICLE_MAKE
+                        'model':item.MODEL,
+                        'make':item.VEHICLE_MAKE,
+                        'brand':item.BRAND
                 }
                 subject = 'Fleet Management System Automated Email- ' + (item.PLATE_NO)
                 html_message = render_to_string('email.html',data)
@@ -978,16 +987,17 @@ def third_send_registration_email():
             for item in car_status:
                 data ={
                     'plate':item.PLATE_NO,
-                    'model':item.MODEL,
-                    'make':item.VEHICLE_MAKE
+                        'model':item.MODEL,
+                        'make':item.VEHICLE_MAKE,
+                        'brand':item.BRAND
                 }
                 subject = 'Fleet Management System Automated Email - ' + (item.PLATE_NO)
                 html_message = render_to_string('email.html',data)
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@gmail.com>'
-                cc_email= ['zscsantos@globe.com.ph','zfvdelacruz@globe.com.ph']
-                toaddrs = recipient_list + cc_email
+                # cc_email= ['zscsantos@globe.com.ph','zfvdelacruz@globe.com.ph']
+                toaddrs = recipient_list
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(Status_3="Yes")
                 car_status.update(Date_email_log= date_now)
