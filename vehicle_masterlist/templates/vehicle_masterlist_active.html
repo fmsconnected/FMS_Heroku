@@ -164,6 +164,7 @@ $(document).ready(function() {
         "scrollX": true,
         "scrollY": "500px",
         "deferRender": true,
+        "deferLoading": 50,
         "paging": true,
         "ordering": false,
         "searching": false,
@@ -234,8 +235,8 @@ $(document).ready(function() {
                 callback( {
                     draw: data.draw,
                     data: out,
-                    recordsTotal: 5000000,
-                    recordsFiltered: 5000000
+                    recordsTotal: 500000,
+                    recordsFiltered: 500000
                 } );
             }, 50 );
         },

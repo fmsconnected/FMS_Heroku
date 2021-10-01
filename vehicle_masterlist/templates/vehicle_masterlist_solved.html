@@ -108,8 +108,7 @@ $(document).ready(function() {
         "serverSide": true,
         "scrollX": true,
         "scrollY": "500px",
-        // "deferRender": true,
-        // "autoWidth":true,
+        "deferLoading": 50,
         "deferRender": true,
         "paging": true,
         "ordering": false,
@@ -183,8 +182,8 @@ $(document).ready(function() {
                 callback( {
                     draw: data.draw,
                     data: out,
-                    recordsTotal: 5000000,
-                    recordsFiltered: 5000000
+                    recordsTotal: 500000,
+                    recordsFiltered: 500000
                 } );
             }, 50 );
         },
