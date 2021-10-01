@@ -996,8 +996,8 @@ def third_send_registration_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@gmail.com>'
-                # cc_email= ['zscsantos@globe.com.ph','zfvdelacruz@globe.com.ph']
-                toaddrs = recipient_list
+                cc_email= ['zscsantos@globe.com.ph','zfvdelacruz@globe.com.ph']
+                toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 car_status.update(Status_3="Yes")
                 car_status.update(Date_email_log= date_now)
