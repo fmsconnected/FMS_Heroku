@@ -24,7 +24,7 @@ sched = BlockingScheduler()
         ################################
 ###.......1st Email, 1st day of Month before Due.....#####
         ################################
-@sched.scheduled_job('interval', minutes=5)
+@sched.scheduled_job('interval', minutes=1)
 def send_registration_email():
     month = datetime.datetime.now().month
     year = datetime.datetime.now().year
@@ -344,7 +344,7 @@ def send_registration_email():
             #################################
             #####.......2nd email......######
             #################################
-@sched.scheduled_job('interval', minutes=10)
+@sched.scheduled_job('interval', minutes=5)
 def second_send_registration_email():
     ###---Get 14 days of the month---###
     given_date = datetime.datetime.now().date()
@@ -682,7 +682,7 @@ def second_send_registration_email():
         #################################
 ####.......3rd Email, 1st day of Month Due.....#####
         #################################
-@sched.scheduled_job('interval', minutes=30)
+@sched.scheduled_job('interval', minutes=10)
 def third_send_registration_email():
     month = datetime.datetime.now().month
     year = datetime.datetime.now().year
