@@ -682,7 +682,7 @@ def second_send_registration_email():
         #################################
 ####.......3rd Email, 1st day of Month Due.....#####
         #################################
-@sched.scheduled_job('interval', minutes=1)
+@sched.scheduled_job('interval', minutes=30)
 def third_send_registration_email():
     month = datetime.datetime.now().month
     year = datetime.datetime.now().year
