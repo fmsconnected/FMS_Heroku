@@ -563,34 +563,34 @@ def registration_report_detail(request):
     # Due_For_Regs = Registration.objects.filter(Plate_ending=month).count()
     
     Due_For_Regs1 = Registration.objects.filter(Registration_month="JAN").count()
-    Completed1 = Registration.objects.exclude(Registration_month="JAN",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    Completed1 = Registration.objects.filter(Registration_month="JAN").exclude(Date_registered__isnull=True).count()
     
     Due_For_Regs2 = Registration.objects.filter(Registration_month="FEB").count()
-    Completed2 = Registration.objects.exclude(Registration_month="FEB",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    Completed2 = Registration.objects.filter(Registration_month="FEB").exclude(Date_registered__isnull=True).count()
     
     Due_For_Regs3 = Registration.objects.filter(Registration_month="MAR").count()
-    Completed3 = Registration.objects.exclude(Registration_month="MAR",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    Completed3 = Registration.objects.filter(Registration_month="MAR").exclude(Date_registered__isnull=True).count()
     
     Due_For_Regs4 = Registration.objects.filter(Registration_month="APR").count()
-    Completed4 = Registration.objects.exclude(Registration_month="APR",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    Completed4 = Registration.objects.filter(Registration_month="APR").exclude(Date_registered__isnull=True).count()
     
     Due_For_Regs5 = Registration.objects.filter(Registration_month="MAY").count()
-    Completed5 = Registration.objects.exclude(Registration_month="MAY",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    Completed5 = Registration.objects.filter(Registration_month="MAY").exclude(Date_registered__isnull=True).count()
     
     Due_For_Regs6 = Registration.objects.filter(Registration_month="JUN").count()
-    Completed6 = Registration.objects.exclude(Registration_month="JUN",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    Completed6 = Registration.objects.filter(Registration_month="JUN").exclude(Date_registered__isnull=True).count()
     
     Due_For_Regs7 = Registration.objects.filter(Registration_month="JUL").count()
-    Completed7 = Registration.objects.exclude(Registration_month="JUL",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    Completed7 = Registration.objects.filter(Registration_month="JUL").exclude(Date_registered__isnull=True).count()
     
     Due_For_Regs8 = Registration.objects.filter(Registration_month="AUG").count()
-    Completed8 = Registration.objects.exclude(Registration_month="AUG",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    Completed8 = Registration.objects.filter(Registration_month="AUG").exclude(Date_registered__isnull=True).count()
     
     Due_For_Regs9 = Registration.objects.filter(Registration_month="SEP").count()
-    Completed9 = Registration.objects.exclude(Registration_month="SEP",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    Completed9 = Registration.objects.filter(Registration_month="SEP").exclude(Date_registered__isnull=True).count()
     
     Due_For_Regs0 = Registration.objects.filter(Registration_month="OCT").count()
-    Completed0 = Registration.objects.exclude(Registration_month="OCT",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    Completed0 = Registration.objects.filter(Registration_month="OCT").exclude(Date_registered__isnull=True).count()
 
     return  render(request, 'registration_report_details.html',{'title':'Registration - Registration Monitoring', 'Due_For_Regs1':Due_For_Regs1, 'Completed1':Completed1,
      'Due_For_Regs2':Due_For_Regs2, 'Completed2':Completed2, 'Due_For_Regs3':Due_For_Regs3, 'Due_For_Regs4':Due_For_Regs4, 'Completed4':Completed4,
@@ -606,34 +606,34 @@ def registration_report(request):
     # Due_For_Regs = Registration.objects.filter(Registration_month=month).count()
     
     Due_For_Regs1 = Registration.objects.filter(Registration_month="JAN").count()
-    Completed1 = Registration.objects.exclude(Registration_month="JAN",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    Completed1 = Registration.objects.filter(Registration_month="JAN").exclude(Date_registered__isnull=True).count()
     
     Due_For_Regs2 = Registration.objects.filter(Registration_month="FEB").count()
-    Completed2 = Registration.objects.exclude(Registration_month="FEB",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    Completed2 = Registration.objects.filter(Registration_month="FEB").exclude(Date_registered__isnull=True).count()
     
     Due_For_Regs3 = Registration.objects.filter(Registration_month="MAR").count()
-    Completed3 = Registration.objects.exclude(Registration_month="MAR",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    Completed3 = Registration.objects.filter(Registration_month="MAR").exclude(Date_registered__isnull=True).count()
     
     Due_For_Regs4 = Registration.objects.filter(Registration_month="APR").count()
-    Completed4 = Registration.objects.exclude(Registration_month="APR",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    Completed4 = Registration.objects.filter(Registration_month="APR").exclude(Date_registered__isnull=True).count()
     
     Due_For_Regs5 = Registration.objects.filter(Registration_month="MAY").count()
-    Completed5 = Registration.objects.exclude(Registration_month="MAY",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    Completed5 = Registration.objects.filter(Registration_month="MAY").exclude(Date_registered__isnull=True).count()
     
     Due_For_Regs6 = Registration.objects.filter(Registration_month="JUN").count()
-    Completed6 = Registration.objects.exclude(Registration_month="JUN",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    Completed6 = Registration.objects.filter(Registration_month="JUN").exclude(Date_registered__isnull=True).count()
     
     Due_For_Regs7 = Registration.objects.filter(Registration_month="JUL").count()
-    Completed7 = Registration.objects.exclude(Registration_month="JUL",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    Completed7 = Registration.objects.filter(Registration_month="JUL").exclude(Date_registered__isnull=True).count()
     
     Due_For_Regs8 = Registration.objects.filter(Registration_month="AUG").count()
-    Completed8 = Registration.objects.exclude(Registration_month="AUG",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    Completed8 = Registration.objects.filter(Registration_month="AUG").exclude(Date_registered__isnull=True).count()
     
     Due_For_Regs9 = Registration.objects.filter(Registration_month="SEP").count()
-    Completed9 = Registration.objects.exclude(Registration_month="SEP",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    Completed9 = Registration.objects.filter(Registration_month="SEP").exclude(Date_registered__isnull=True).count()
     
     Due_For_Regs0 = Registration.objects.filter(Registration_month="OCT").count()
-    Completed0 = Registration.objects.exclude(Registration_month="OCT",REMARKS_REGISTERED__isnull=True).exclude(REMARKS_REGISTERED__exact='').count()
+    Completed0 = Registration.objects.filter(Registration_month="OCT").exclude(Date_registered__isnull=True).count()
 
     from openpyxl import Workbook, load_workbook
     output = HttpResponse(content_type='application/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
