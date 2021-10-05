@@ -50,7 +50,7 @@ def vehicle_submit(request):
         Date_final = request.POST.get('Date_final')
         Routing_Remarks = request.POST.get('Routing_Remarks')
         v_sla = request.POST.get('v_sla')
-        rfp_number = request.POST.get('rfp')
+        PO_no = request.POST.get('rfp')
         invoice_number = request.POST.get('invno')
         equip_no = request.POST.get('equip_no')
         asset_no = request.POST.get('asset_no')
@@ -62,7 +62,7 @@ def vehicle_submit(request):
         Plate_no = Plate_Number,V_model = Model_Year,V_brand = Brand,V_make = Make,V_dealer = Dealer,LTO_documents = date_received,
         Docs_plate_no = Docs_plate_no,LTO_stickers = LTO_stickers,Sticker_fields = Sticker_fields,Date_initial = Date_initial,
         First_payment = First_payment,LTO_charges = LTO_Charges,Outstanding_balance = Outstanding_Balance,Date_final = Date_final,
-        Routing_remarks = Routing_Remarks,V_SLA = v_sla,rfp_number = rfp_number,invoice_number = invoice_number, equip_no = equip_no,
+        Routing_remarks = Routing_Remarks,V_SLA = v_sla,PO_no = PO_no,invoice_number = invoice_number, equip_no = equip_no,
         asset_no = asset_no, sap_no = sap_no, mat_no = mat_no, Dealer_name = Dealer_name)
         saveto_v.save()
 

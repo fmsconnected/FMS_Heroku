@@ -45,7 +45,7 @@ class VehiclePayment(models.Model):
 			('Completed', 'Completed'),
 		)
 	Activity_id = models.CharField(max_length=20, default=increment_Activity_id)
-	PO_no = models.CharField(max_length=100, default=increment_PO_no)
+	PO_no = models.CharField(max_length=100, null=True, blank=True)
 	A_employee_ID = models.CharField(max_length=50, null=True, blank=True)
 	E_First_name = models.CharField(max_length=50, null=True, blank=True)
 	E_Last_name = models.CharField(max_length=50, null=True, blank=True)

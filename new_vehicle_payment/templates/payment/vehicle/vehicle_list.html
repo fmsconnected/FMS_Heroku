@@ -53,6 +53,7 @@
                             <th>Sap PR Number</th>
                             <th>Mat Doc Number</th>
                             <th>Dealer Name</th>
+                            <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -71,6 +72,7 @@
                             <td>{{ VehiclePayment.sap_no }}</td>
                             <td>{{ VehiclePayment.mat_no }}</td>
                             <td>{{ VehiclePayment.Dealer_name }}</td>
+                            <td>{{ VehiclePayment.Status }}</td>
                             <td>
                                 <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'Vehicle_delete' VehiclePayment.pk %}">
                                 <span class="fa fa-trash"></span>
