@@ -40,6 +40,10 @@ def increment_PO_no():
 
 
 class VehiclePayment(models.Model):
+	status = (
+			('Ongoing', 'Ongoing'),
+			('Completed', 'Completed'),
+		)
 	Activity_id = models.CharField(max_length=20, default=increment_Activity_id)
 	PO_no = models.CharField(max_length=100, default=increment_PO_no)
 	A_employee_ID = models.CharField(max_length=50, null=True, blank=True)
@@ -71,6 +75,7 @@ class VehiclePayment(models.Model):
 	asset_no = models.CharField(max_length=100, null=True, blank=True)
 	sap_no = models.CharField(max_length=100, null=True, blank=True)
 	mat_no = models.CharField(max_length=100, null=True, blank=True)
+	Status = models.CharField(max_length=100, null=True, blank=True, choices=status)
 	Dealer_name = models.CharField(max_length=100, null=True, blank=True)
 	Deadline = models.DateTimeField()	
 

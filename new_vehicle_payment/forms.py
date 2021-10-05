@@ -28,12 +28,18 @@ class VehiclePaymentform(forms.ModelForm):
 
 		
 	class Meta:
+
 		model = VehiclePayment
 		fields = ['A_employee_ID', 'E_First_name', 'E_Last_name', 'V_deliverDate','Plate_no',
 		            'V_model','V_brand','V_make','V_dealer','LTO_documents',
 		            'Docs_plate_no','LTO_stickers','Sticker_fields','Date_initial', 'First_payment', 'LTO_charges',
 		            'Outstanding_balance','Date_final','Routing_remarks','V_SLA','rfp_number','invoice_number','equip_no','asset_no',
-		            'sap_no','mat_no','Dealer_name']
+		            'sap_no','mat_no','Dealer_name','Status']
+		status = (
+			('Ongoing', 'Ongoing'),
+			('Completed', 'Completed'),
+		)
+
 		widgets = {
 			'A_employee_ID': forms.TextInput(attrs={'class':'form-control'}),
 			'E_First_name': forms.TextInput(attrs={'class':'form-control'}),
@@ -61,5 +67,6 @@ class VehiclePaymentform(forms.ModelForm):
 		    'asset_no' : forms.TextInput(attrs={'class': 'form-control', 'readonly':'true'}),
 		    'sap_no' : forms.TextInput(attrs={'class': 'form-control', 'readonly':'true'}),
 		    'mat_no' : forms.TextInput(attrs={'class': 'form-control', 'readonly':'true'}),
-		    'Dealer_name' : forms.TextInput(attrs={'class': 'form-control', 'readonly':'true'})
+		    'Dealer_name' : forms.TextInput(attrs={'class': 'form-control', 'readonly':'true'}),
+		    'Status': forms.Select(attrs={'class':'form-control','choices':'status', 'required':'true'}),
 		}
