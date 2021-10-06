@@ -19,7 +19,9 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-
+from bootstrap_modal_forms.generic import (
+                                           BSModalDeleteView
+     )
 from django.views.generic import (
     ListView,
     CreateView,

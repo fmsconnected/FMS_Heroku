@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3 align="center"><b>Fleet Card Driver Payment</b></h3>&nbsp;
+    </div>
+<form method="POST" action="">
+{% csrf_token %}
+        <div class="col-sm-4">
+            <label>Status</label>
+            {{ form.STATUS}}
+        </div>
+        <div class="col-sm-4">
+        <label>Date of SOA</label>
+            {{ form.SOA_DATE}}
+        </div>
+        <div class="col-sm-4">
+            <label>SOA Number</label>
+            {{ form.SOA_NO }}
+        </div>
+        <div class="col-sm-4">
+            <label>Amount</label>
+            {{ form.AMOUNT }}
+        </div>
+        <div class="col-sm-4">
+            <label>Cost Center</label>
+            {{ form.COST_CENTER }}
+        </div>
+        <div class="col-sm-4">
+            <label>DTR Cut-Off</label>
+            {{ form.DTR_CUTOFF }}
+        </div>
+
+        <div class="col-sm-4">
+            <label>Reference Number</label>
+            {{ form.REF_NO }}
+        </div>
+        <div class="col-sm-4">
+            <label>Remarks</label>
+            {{form.REMARKS}}
+        </div>
+
+</div>
+    <div class="card-footer">
+        <button type="Submit" class="buttonsubmit btn-secondary" >Submit</button>
+        <a href="{% url 'FCD_list' %}" class="btn">Close</a>
+        <button class="button" type="reset" value="Reset">Clear</button>
+    </div>
+
+</form>
+{% endblock %}
