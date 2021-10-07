@@ -41,9 +41,6 @@ from .models import (
 )
 
 class fleetcarddriver_list(ListView):
-    date = datetime.datetime.today().date()
-    print("Date:",date)
-
     model = fleet_card_driver
     template_name = 'fcd_list.html'
 
@@ -67,6 +64,14 @@ class fleetcarddriver_details(DetailView):
     model = fleet_card_driver
     template_name = 'fcd_details.html'
 
+class fcdViewSet(viewsets.ModelViewSet):
+    queryset = fleet_card_driver.objects.all().order_by('id')
+    serializer_class = fleet_driver_serializer
+
+    # def get_queryset(self):
+    #     qs = fleet_card_driver.objects.all()
+    #     qs = self.get_serializer_class().setup_eager_loading(qs)
+    #     return qs
 
 def fcd_export(request):
     fcm_queryset = fleet_card_driver.objects.all()

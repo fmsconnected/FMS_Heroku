@@ -14,7 +14,7 @@
 
 <br>
 
-<table width="90%" class="table table-bordered table-hover" border="2px">
+<table id="table" width="90%" class="table table-bordered table-hover" border="2px">
     <tr>
       <th width="25%">Activity ID </th><td width="25%">{{ object.Activity_id }}</td>
     </tr>
@@ -42,5 +42,34 @@
 
     <div class="card-footer">
       <a href="{% url 'FCD_update' object.id %}" class="buttonsubmit">UPDATE</a><a href="{% url 'FCD_list' %}" type="button" class="btn">CLOSE</a>
+      <button class="button" data-toggle="modal" data-target="#fm-modal-grid">Delete</button>
     </div>
+<div class="modal fade" id="fm-modal-grid" tabindex="-1"
+     role="dialog" aria-labelledBy="fm-modal-grid"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+              <h2>Fleet Card Driver Payment</h2>
+                <button class="close" data-dismiss="modal" aria-label="Cerrar">
+
+                    <span aria-hidden="false" style="font-size: 40px">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <form action="{% url 'FCD_delete' object.id %}" method="POST">
+                        {% csrf_token %}
+                        <h3>Delete</h3>
+                        <br>
+                        <p>Are you sure you want to delete Activity Id: <u>{{object.Activity_id}}</u> ?</p>
+                          <button class="btndanger">Ok</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

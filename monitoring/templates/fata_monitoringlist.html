@@ -33,6 +33,7 @@
                     <thead>
                         <tr>
                             <th>Activity No</th>
+                            <th>Status</th>
                             <th>FATA Number</th>
                             <th>Date Transfered</th>
                             <th>Date Received</th>
@@ -47,6 +48,7 @@
                         {% for Fata_monitoring in object_list %}
                         <tr class="odd gradeX">
                             <td><a href="{% url 'Monitoring_details' Fata_monitoring.id %}"><u>{{ Fata_monitoring.Activity_id }}</u></a></td>
+                            <td>{{ Fata_monitoring.Status }}</td>
                             <td>{{ Fata_monitoring.Fata_no }}</td>
                             <td>{{ Fata_monitoring.Date_transfer }}</td>
                             <td>{{ Fata_monitoring.Date_received }}</td>

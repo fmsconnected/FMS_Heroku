@@ -72,13 +72,14 @@ def monitoring_submit(request):
 		Clearing_accountability = request.POST.get('Clearing_accountability')
 		Globe_fixed_asset = request.POST.get('Globe_fixed_asset')
 		Innove_fixed_asset = request.POST.get('Innove_fixed_asset')
+		status = request.POST.get('status')
 		
 
 		saveto_fata = Fata_monitoring(Fata_no=Fata_no ,Date_transfer=Date_transfer ,Date_received=Date_received ,Plate_no=Plate_no ,
 			Vehicle_make=v_make ,Vehicle_brand=v_brand ,Certificate_of_Reg=Certificate_of_Reg ,Vehicle_model=v_model ,
 			Transferor_employee=Transferor_employee ,Transferor_Fname=Transferor_Fname ,Transferor_Lname=Transferor_Lname ,
 			Recipient_Employee=Recipient_Employee ,Recipient_Fname=Recipient_Fname ,Recipient_Lname=Recipient_Lname ,Date_endorsed_Globe=Date_endorsed_Globe ,
-			Date_endorsed_Innove=Date_endorsed_Innove ,Clearing_accountability=Clearing_accountability ,Globe_fixed_asset=Globe_fixed_asset ,Innove_fixed_asset=Innove_fixed_asset)
+			Date_endorsed_Innove=Date_endorsed_Innove ,Clearing_accountability=Clearing_accountability ,Globe_fixed_asset=Globe_fixed_asset ,Innove_fixed_asset=Innove_fixed_asset, Status=status)
 		saveto_fata.save()
 
 		return HttpResponseRedirect('/Monitoring/Monitoring/')

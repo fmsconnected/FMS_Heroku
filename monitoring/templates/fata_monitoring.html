@@ -22,8 +22,8 @@
 </div>
 <div class="w3-bar w3-black">
   <button class="w3-bar-item w3-button" onclick="FATAmonitoring('New FATA Monitoring')">New FATA Monitoring</button>
-  <button class="w3-bar-item w3-button" onclick="FATAmonitoring('Inbound Process')">Inbound Process</button>
-  <button class="w3-bar-item w3-button" onclick="FATAmonitoring('OutBound Process')">Outbound Process</button>
+  <!-- <button class="w3-bar-item w3-button" onclick="FATAmonitoring('Inbound Process')">Inbound Process</button>
+  <button class="w3-bar-item w3-button" onclick="FATAmonitoring('OutBound Process')">Outbound Process</button> -->
 </div>
 <form method="POST">
 {% csrf_token %}
@@ -36,12 +36,12 @@
     </div>
 
     <div class="col-sm-4">
-        <label>Date of Transfer:</label>
+        <label>Date Forwarded to Assignee</label>
         {{ form.Date_transfer }}
     </div>
     <div class="col-sm-4">
-        <label>Date Received:</label>
-        {{ form.Date_received }}
+        <label>Status</label>
+        {{ form.Status }}
     </div>
     <br><br>
     </fieldset>
@@ -108,14 +108,14 @@
     <br><br>
     </fieldset>
         <div class="card-footer">
-            <button type="submit" class="button">SUBMIT</button>
-            <button type="Reset" class="btnc">CLEAR ALL</button>
+            <button type="submit" class="buttonsubmit">SUBMIT</button>
+            <button type="Reset" class="button">CLEAR ALL</button>
             <a href="{% url 'Monitoring_list' %}" class="btn">CLOSE</a>
         </div>
   </div>
 
 
-  <div id="OutBound Process" class="w3-container FATA" style="display:none">
+  <div id="OutBound Process" class="w3-container FATA" style="display:none" hidden>
     <fieldset>
       <legend align="left">Document Routing 2</legend>
     <div class="col-sm-6">
@@ -137,7 +137,7 @@
         </div>
   </div>
 
-<div id="Inbound Process" class="w3-container FATA" style="display:none">
+<div id="Inbound Process" class="w3-container FATA" style="display:none" hidden>
   <fieldset>
   <legend align="left">Document Routing 1</legend>
   <div class="col-sm-6">

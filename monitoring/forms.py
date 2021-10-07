@@ -17,14 +17,19 @@ class FATAmonitoringForm(forms.ModelForm):
         self.fields['Date_endorsed_Globe'].required = False
         self.fields['Date_endorsed_Innove'].required = False
         self.fields['Clearing_accountability'].required = False
+        self.fields['Status'].required = True
 
     class Meta:
         model = Fata_monitoring
         fields = ['Fata_no','Date_transfer', 'Date_received', 'Plate_no', 'Vehicle_make','Vehicle_brand',
                     'Certificate_of_Reg','Vehicle_model','Transferor_employee','Transferor_Fname','Transferor_Lname',
                     'Recipient_Employee','Recipient_Fname','Recipient_Lname','Date_endorsed_Globe','Date_endorsed_Innove',
-                    'Clearing_accountability','Globe_fixed_asset','Innove_fixed_asset']
-                    
+                    'Clearing_accountability','Globe_fixed_asset','Innove_fixed_asset','Status']
+        status =(
+            ("Ongoing","Ongoing"),
+            ("Completed","Completed")
+        )
+
         widgets= {
             "Fata_no": forms.TextInput(attrs={'class':'form-control','type':'number'}),
             "Date_transfer": forms.TextInput(attrs={'class':'form-control','type':'date'}),
@@ -44,7 +49,8 @@ class FATAmonitoringForm(forms.ModelForm):
             "Date_endorsed_Innove": forms.TextInput(attrs={'class':'form-control','type':'date'}),
             "Clearing_accountability": forms.TextInput(attrs={'class':'form-control'}),
             "Globe_fixed_asset": forms.TextInput(attrs={'class':'form-control'}),
-            "Innove_fixed_asset": forms.TextInput(attrs={'class':'form-control'})
+            "Innove_fixed_asset": forms.TextInput(attrs={'class':'form-control'}),
+            "Status":forms.Select(attrs={'class':'form-control','choices':'status'}),
 
         }
 class reg_updateForm(forms.ModelForm):

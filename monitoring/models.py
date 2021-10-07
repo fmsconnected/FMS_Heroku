@@ -21,6 +21,10 @@ def increment_Activity_id():
 
 
 class Fata_monitoring(models.Model):
+	status =(
+		("Ongoing","Ongoing"),
+		("Completed","Completed")
+		)
 	Activity_id = models.CharField(max_length=100, default=increment_Activity_id)
 	Fata_no = models.CharField(max_length=100, blank=True, null=True)
 	Date_transfer = models.CharField(max_length=100, blank=True, null=True)
@@ -46,6 +50,7 @@ class Fata_monitoring(models.Model):
 	Globe_fixed_asset = models.CharField(max_length=50, blank=True, null=True)
 	Innove_fixed_asset = models.CharField(max_length=50, blank=True, null=True)
 	Remarks =  models.CharField(max_length=255, blank=True, null=True)
+	Status =  models.CharField(max_length=255, blank=True, null=True, choices=status)
 	Date_initiated = models.DateField(auto_now=True, null=True)
 	history = HistoricalRecords()
 

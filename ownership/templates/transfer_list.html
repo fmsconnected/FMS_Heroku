@@ -43,7 +43,7 @@
                         <tr>
                             <th>Activity ID</th>
                             <th>Vendee Full Name</th>
-                            <th>Requisitioner Full Name</th>
+                            <!-- <th>Requisitioner Full Name</th> -->
                             <th>Plate Number</th>
                             <th>CS Number</th>
                             <th>SLA</th>
@@ -57,7 +57,7 @@
                         <tr class="odd gradeX">
                             <td><a href="{% url 'ownership_details' Ownership.id %}"><u>{{ Ownership.Activity_id }}</u></a></td>
                             <td>{{ Ownership.v_fname }} {{ Ownership.v_lname }}</td>
-                            <td>{{ Ownership.req_Fname }} {{ Ownership.req_Lname }}</td>
+                            <!-- <td>{{ Ownership.req_Fname }} {{ Ownership.req_Lname }}</td> -->
                             <td>{{ Ownership.plate_no }}</td>
                             <td>{{ Ownership.cond_sticker }}</td>
                             <td>{{ Ownership.TOO_SLA }}/Days</td>

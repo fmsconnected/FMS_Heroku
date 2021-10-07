@@ -22,8 +22,8 @@
 </div>
 <div class="w3-bar w3-black">
   <button class="w3-bar-item w3-button" onclick="FATAmonitoring('New FATA Monitoring')">New FATA Monitoring</button>
-  <button class="w3-bar-item w3-button" onclick="FATAmonitoring('Inbound Process')">Inbound Process</button>
-  <button class="w3-bar-item w3-button" onclick="FATAmonitoring('OutBound Process')">OutBound Process</button>
+  <!-- <button class="w3-bar-item w3-button" onclick="FATAmonitoring('Inbound Process')">Inbound Process</button>
+  <button class="w3-bar-item w3-button" onclick="FATAmonitoring('OutBound Process')">OutBound Process</button> -->
 </div>
 <form method="POST" action="{% url 'Monitoring_submit' %}">
 {% csrf_token %}
@@ -36,12 +36,18 @@
     </div>
 
     <div class="col-sm-4">
-        <label>Date Of Transfer:</label>
+        <label>Date Forwarded to Assignee</label>
         <input type="Date" name="Date_transfer" id="Date_transfer" class="form-control" required>
     </div>
     <div class="col-sm-4">
-        <label>Date Received:</label>
-        <input type="Date" name="Date_received" id="Date_received" class="form-control" required>
+        <!-- <label>Date Received:</label>
+        <input type="Date" name="Date_received" id="Date_received" class="form-control" required> -->
+        <label>Status</label>
+        <select name="status" id="status" class="form-control" required>
+            <option></option>
+            <option value="Ongoing">Ongoing</option>
+            <option value="Completed">Completed</option>
+        </select>
     </div>
     <br><br>
     </fieldset>
