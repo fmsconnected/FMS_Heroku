@@ -33,7 +33,6 @@
                     <thead>
                         <tr>
                             <th>Activity No</th>
-                            <th>Status</th>
                             <th>FATA Number</th>
                             <th>Date Transfered</th>
                             <th>Date Received</th>
@@ -41,6 +40,7 @@
                             <th>Vehicle Make</th>
                             <th>Transferor Name</th>
                             <th>Recipient Name</th>
+                             <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -48,7 +48,6 @@
                         {% for Fata_monitoring in object_list %}
                         <tr class="odd gradeX">
                             <td><a href="{% url 'Monitoring_details' Fata_monitoring.id %}"><u>{{ Fata_monitoring.Activity_id }}</u></a></td>
-                            <td>{{ Fata_monitoring.Status }}</td>
                             <td>{{ Fata_monitoring.Fata_no }}</td>
                             <td>{{ Fata_monitoring.Date_transfer }}</td>
                             <td>{{ Fata_monitoring.Date_received }}</td>
@@ -56,6 +55,7 @@
                             <td>{{ Fata_monitoring.Vehicle_make }}</td>
                             <td>{{ Fata_monitoring.Transferor_Fname }} {{ Fata_monitoring.Transferor_Lname }}</td>
                             <td>{{ Fata_monitoring.Recipient_Fname }} {{ Fata_monitoring.Recipient_Lname }}</td>
+                            <td>{{ Fata_monitoring.Status }}</td>
                             <td>
                                 <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'Monitoring_delete' Fata_monitoring.pk %}">
                                 <span class="fa fa-trash"></span>
