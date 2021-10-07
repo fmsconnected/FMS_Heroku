@@ -95,6 +95,10 @@ class Ownership(models.Model):
             ('DONE TRANSFERRED','DONE TRANSFERRED'),
             ('FOR PULL OUT ORCR','FOR PULL OUT ORCR'),
         )
+    d_status = (
+            ('Ongoing', 'Ongoing'),
+            ('Completed','Completed'),
+            )
     Activity_id = models.CharField(max_length=100, default=increment_Activity_id)
     date_application = models.DateField(auto_now=False, null=True, blank=True)
     req_employee_id = models.CharField(max_length=50, null=True, blank=True)
@@ -142,6 +146,7 @@ class Ownership(models.Model):
     date_initiated = models.DateField(auto_now=True, null=True, blank=True)
     date_received_by = models.CharField(max_length=100, null=True, blank=True)
     status = models.CharField(max_length=100, null=True, blank=True,choices=status)
+    D_status = models.CharField(max_length=100, null=True, blank=True,choices=d_status)
     history = HistoricalRecords()
     Deadline = models.DateTimeField(null=True, blank=True)
 

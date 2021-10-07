@@ -28,10 +28,21 @@ function transferownership(trans) {
 {% csrf_token %}
     <div id="Deed of Sale Creation" class="w3-container ownership" >
     <fieldset>
+        <legend align="left">Status</legend>
+        <div class="col-sm-6">
+            <label>Status</label>
+            <select name="d_status" id="d_status" class="form-control">
+                <option></option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Completed">Completed</option>
+            </select>
+        </div>
+    </fieldset>
+    <fieldset>
         <legend align="left">Deed of Sale Creation 1</legend>
+        
         <div class="col-sm-6">
             <label>Transfer Fee:</label>
-            <!-- <input style= "text-transform:" type="text" name="transfer_fee" id="transfer_fee" class="form-control"> -->
             <select name="transfer_fee" id="transfer_fee" class="form-control">
                 <option></option>
                 <option value="JXMTSI">JXMTSI</option>
@@ -290,7 +301,7 @@ function transferownership(trans) {
         </div>
         <div class="col-sm-6">
             <label>Status</label>
-            <select name="status" id="status" class="form-control" required>
+            <select name="status" id="status" class="form-control" >
                 <option value="">----------</option>
                 <option value="ON GOING ROUTING FOR APPROVAL">ON GOING ROUTING FOR APPROVAL</option>
                 <option value="NOTARIZED">NOTARIZED</option>

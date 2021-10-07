@@ -94,6 +94,7 @@ def ownership_submit(request):
 		date_received_by = request.POST.get('received_by')
 		TOO_SLA = request.POST.get('TOO_SLA')
 		status = request.POST.get('status')
+		d_status = request.POST.get('d_status')
 		
 		saveto_own = Ownership(date_application = date_application,req_employee_id = req_employee_id,req_Fname = req_Fname,req_Lname = req_Lname,
 			req_band = req_band,req_cost = req_cost,req_title = req_title,plate_no= plate_no,cond_sticker = cond_sticker,vehicle_model = vehicle_model,
@@ -104,7 +105,7 @@ def ownership_submit(request):
 			date_notarized = date_notarized,endorosed_to_insurance =endorosed_to_insurance ,requested_for_pullout = requested_for_pullout,
 			forwarded_fleet_liason = forwarded_fleet_liason,tmg_date_in =tmg_date_in ,tmg_location = tmg_location,
 			tmg_date_return = tmg_date_return,lto_date_in = lto_date_in,lto_date_out = lto_date_out, lto_location = lto_location,
-			date_transfered_completed = date_transfered_completed,date_comletion_vismin = date_comletion_vismin, date_received_by = date_received_by, TOO_SLA=TOO_SLA, status=status)
+			date_transfered_completed = date_transfered_completed,date_comletion_vismin = date_comletion_vismin, date_received_by = date_received_by, TOO_SLA=TOO_SLA, status=status, D_status=d_status)
 		saveto_own.save()
 
 		return HttpResponseRedirect('/Ownership/Ownership/')

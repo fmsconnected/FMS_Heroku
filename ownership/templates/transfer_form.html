@@ -28,7 +28,15 @@ function transferownership(trans) {
 {% csrf_token %}
     <div id="Deed of Sale Creation" class="w3-container ownership" style="display:none">
     <fieldset>
+        <legend align="left">Status</legend>
+        <div class="col-sm-6">
+            <label>Status</label>
+            {{ form.D_status }}
+        </div>
+    </fieldset>
+    <fieldset>
         <legend align="left">Deed of Sale Creation 1</legend>
+        
         <div class="col-sm-6">
             <label>Transfer Fee</label>
             {{ form.transfer_fee }}
@@ -65,8 +73,8 @@ function transferownership(trans) {
         </div>
     </fieldset>
     <div class="card-footer">
-      <button type="submit" class="button">SUBMIT</button>
-      <button type="Reset" class="btnc">CLEAR ALL</button>
+      <button type="submit" class="buttonsubmit">SUBMIT</button>
+      <button type="Reset" class="button">CLEAR ALL</button>
       <a href="{% url 'ownership_list' %}" class="btn">CLOSE</a>
     </div>
     </div>

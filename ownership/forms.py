@@ -56,6 +56,7 @@ class ownershipForm(forms.ModelForm):
         # self.fields['return_endorsementfleet'].required = False
         self.fields['forwarded_fleet_liason'].required = False
         self.fields['lto_location'].required = False
+        self.fields['D_status'].required = True
 
     class Meta:
         model = Ownership
@@ -66,7 +67,7 @@ class ownershipForm(forms.ModelForm):
                     'deed_signed','routed_to_jd','approved_by_jd','return_fleet_admin','forwarded_to_liason','date_notarized',
                     'endorosed_to_insurance','requested_for_pullout','forwarded_fleet_liason',
                     'tmg_date_in','tmg_location','tmg_date_return' ,'lto_date_in','lto_date_out', 'lto_location',
-                    'date_transfered_completed','date_comletion_vismin','TOO_SLA', 'date_received_by','status']
+                    'date_transfered_completed','date_comletion_vismin','TOO_SLA', 'date_received_by','status','D_status']
                     
         vendor=(
             ('Globe Telecome','Globe Telecome'),
@@ -134,6 +135,10 @@ class ownershipForm(forms.ModelForm):
             ('DONE TRANSFERRED','DONE TRANSFERRED'),
             ('FOR PULL OUT ORCR','FOR PULL OUT ORCR'),
         )
+        d_status = (
+            ('Ongoing', 'Ongoing'),
+            ('Completed','Completed'),
+            )
         widgets= {
             
             'date_application': forms.TextInput(attrs={'class':'form-control','type':'date'}),
@@ -183,6 +188,7 @@ class ownershipForm(forms.ModelForm):
             'date_transfered_completed' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'date_comletion_vismin' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'date_received_by' : forms.TextInput(attrs={'class': 'form-control'}),
+            'D_status': forms.Select(attrs={'class':'form-control','choices':'d_status'}),
             'TOO_SLA' : forms.TextInput(attrs={'class':'form-control','value':'30','hidden':'true'}),
 
         }
