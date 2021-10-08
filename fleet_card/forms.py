@@ -9,7 +9,7 @@ from .models import (
 class fleet_card_form(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(fleet_card_form, self).__init__(*args, **kwargs)
-        # self.fields['Date_received'].required = True
+        self.fields['STATUS'].required = True
     # self.fields['Unit'].required = False
     # self.fields['Sub_unit'].required = False
 
@@ -49,9 +49,12 @@ class fleet_card_form(forms.ModelForm):
             ('SINGLE CARD','SINGLE CARD'),
             ('DRIVERS CARD','DRIVERS CARD'),
         )
-
+        status = (
+        ('Ongoing','Ongoing'),
+        ('Completed','Completed'),
+        )
         widgets = {
-            'STATUS': forms.TextInput(attrs={'class': 'form-control'}),
+            'STATUS': forms.Select(attrs={'class': 'form-control', 'choices':'status'}),
             'RECEIVED_REQUEST':forms.TextInput(attrs={'class': 'form-control', 'type': 'date'}),
             'DATE_VERIFIED':forms.TextInput(attrs={'class': 'form-control', 'type': 'date'}),
             'DATE_RECEIVED':forms.TextInput(attrs={'class': 'form-control', 'type': 'date'}),

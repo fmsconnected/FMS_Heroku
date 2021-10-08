@@ -39,10 +39,13 @@ class fleet_card(models.Model):
 		('SINGLE CARD','SINGLE CARD'),
 		('DRIVERS CARD','DRIVERS CARD'),
 		)
-
+	status = (
+		('Ongoing','Ongoing'),
+		('Completed','Completed'),
+		)
 	Activity_id = models.CharField(
 	max_length=100, default=increment_Activity_id)
-	STATUS = models.CharField(max_length=100, blank=True, null=True)
+	STATUS = models.CharField(max_length=100, blank=True, null=True, choices=status)
 	RECEIVED_REQUEST = models.CharField(max_length=100, blank=True, null=True)
 	DATE_VERIFIED = models.CharField(max_length=100, blank=True, null=True)
 	DATE_RECEIVED = models.CharField(max_length=100, blank=True, null=True)
