@@ -28,7 +28,8 @@ class fleet_card_form(forms.ModelForm):
             'PLATE_NUMBER',
             'CARD_TYPE',
             'CABONILLA',
-            'STATION'
+            'STATION',
+            'REMARKS'
         ]
 
         station= (
@@ -67,6 +68,7 @@ class fleet_card_form(forms.ModelForm):
             'CARD_TYPE':forms.Select(attrs={'class': 'form-control','choices': 'card_type'}),
             'CABONILLA':forms.TextInput(attrs={'class': 'form-control'}),
             'STATION':forms.Select(attrs={'class': 'form-control','choices': 'station'}),
+            'REMARKS':forms.TextInput(attrs={'class': 'form-control'}),
 
         }
 
