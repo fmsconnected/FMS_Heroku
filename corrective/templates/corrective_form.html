@@ -27,6 +27,17 @@ function vrepair(repair) {
 {% csrf_token %}
     <div id="Vehicle Repair Request" class="w3-container vr">
     <fieldset>
+        <LEGEND align="left">Status</LEGEND>
+        <div class="col-sm-6">
+            <label>Status</label>
+            <select type="text" name="status" id="status" class="form-control" required>
+                <option></option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Completed">Completed</option>
+            </select>
+        </div>
+    </fieldset>
+    <fieldset>
         <legend align="left">Requisitioner Details</legend><br>
         <div style="display: flex; justify-content: flex-end">
         <div class="col-sm-6">
@@ -177,18 +188,9 @@ function vrepair(repair) {
             <label>Scope of Work 1</label>
             <input type="text" name="scope_work1" id="scope_work1" class="form-control">
         </div>
-        
-        <div class="col-sm-6">
-            <!-- <label>Scope of Work 2</label> -->
-            <input type="text" name="scope_work2" id="scope_work2" class="form-control" hidden>
-        </div>
         <div class="col-sm-6">
             <label>Recommendation</label>
             <input type="text" name="recomendations" id="recomendations" class="form-control">
-        </div>
-        <div class="col-sm-6">
-            <!-- <label>Service Reminder</label> -->
-            <input type="text" name="service_reminder" id="service_reminder" class="form-control" hidden>
         </div>
         <div class="col-sm-6">
             <label>Vehicle Repair Request Verified By</label>
@@ -197,6 +199,16 @@ function vrepair(repair) {
                 <option value="Shane Santos">Shane Santos</option>
             </select>
         </div>
+        <div class="col-sm-6">
+            <!-- <label>Scope of Work 2</label> -->
+            <input type="text" name="scope_work2" id="scope_work2" class="form-control" hidden>
+        </div>
+        
+        <div class="col-sm-6">
+            <!-- <label>Service Reminder</label> -->
+            <input type="text" name="service_reminder" id="service_reminder" class="form-control" hidden>
+        </div>
+        
     </fieldset>
     <div class="card-footer">
         <button type="submit" class="buttonsubmit">UPDATE</butoon>

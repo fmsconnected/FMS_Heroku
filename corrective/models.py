@@ -37,6 +37,10 @@ class Corrective(models.Model):
 		('Ser Roy Perluval Dela Cruz','Ser Roy Perluval Dela Cruz'),
 		('Adolfo Carlos Umali','Adolfo Carlos Umali'),
 	)
+	status = (
+		("Ongoing","Ongoing"),
+		("Completed","Completed"),
+		)
 	Activity_id = models.CharField(max_length=100,null=True, default=increment_Activity_id)
 	request_date = models.DateField(auto_now=False, null=True)
 	employee = models.CharField(max_length=100, null=True, blank=True)
@@ -81,6 +85,7 @@ class Corrective(models.Model):
 	approvedby = models.CharField(max_length=100, null=True, choices=approvedby, blank=True)
 	meter_reading = models.CharField(max_length=100, null=True, blank=True)
 	date_initiated = models.DateField(auto_now=True, null=True, blank=True)
+	status = models.CharField(max_length=100, null=True, blank=True, choices=status)
 	history = HistoricalRecords()
 
 	def __str__(self):

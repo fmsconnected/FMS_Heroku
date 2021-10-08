@@ -27,6 +27,13 @@ function vrepair(repair) {
 {% csrf_token %}
     <div id="Vehicle Repair Request" class="w3-container vr">
     <fieldset>
+        <LEGEND align="left">Status</LEGEND>
+        <div class="col-sm-6">
+            <label>Status</label>
+            {{ form.status }}
+        </div>
+    </fieldset>
+    <fieldset>
         <legend align="left">Requisitioner Details</legend><br>
         
         <div class="col-sm-6">

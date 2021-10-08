@@ -30,6 +30,7 @@ class correctiveform(forms.ModelForm):
 		self.fields['approvedby'].required = False
 		self.fields['meter_reading'].required = False
 		self.fields['memo_app'].required = False
+		self.fields['status'].required = True
 
 	class Meta:
 		model = Corrective
@@ -38,7 +39,7 @@ class correctiveform(forms.ModelForm):
 		'plate_no','v_brand','engine','v_make','v_model','chassis','band','cond_sticker','equipment_no','fleet_area',
 		'maintenance_type1','scope_work1','maintenance_type2','scope_work2','recommendations','service_reminder','verified_by', 
 		'particulars','category','work_order1','work_order2','work_order3','datework_created','Shop_vendor','date_forwarded','estimate_no',
-		'maintenance_amount','less_discount','estimate_remarks','estimate_attached','approvedby','meter_reading','memo_app'
+		'maintenance_amount','less_discount','estimate_remarks','estimate_attached','approvedby','meter_reading','memo_app','status'
 		]
 		area= (
 			('The Globe Tower', 'The Globe Tower'),
@@ -62,7 +63,10 @@ class correctiveform(forms.ModelForm):
 			('Ser Roy Perluval Dela Cruz','Ser Roy Perluval Dela Cruz'),
 			('Adolfo Carlos Umali','Adolfo Carlos Umali'),
 		)
-
+		status = (
+		("Ongoing","Ongoing"),
+		("Completed","Completed"),
+		)
 		widgets ={
 			'request_date': forms.TextInput(attrs={'class':'form-control','type':'date'}),
 			'employee' : forms.TextInput(attrs={'class':'form-control'}),
@@ -106,4 +110,5 @@ class correctiveform(forms.ModelForm):
 			'estimate_attached' : forms.TextInput(attrs={'class':'form-control'}),
 			'approvedby' : forms.Select(attrs={'class':'form-control','choices':'approvedby'}),
 			'meter_reading' : forms.TextInput(attrs={'class':'form-control'}),
+			'status':  forms.Select(attrs={'class':'form-control','choices':'status'}),
 		}

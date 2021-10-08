@@ -91,6 +91,7 @@ def correctivesubmit(request):
         estimate_attach = request.POST.get('estimate_attach')
         approved_by = request.POST.get('approved_by')
         kilo_reading = request.POST.get('kilo_reading')
+        status = request.POST.get('status')
 
         saveto_corretive = Corrective(request_date=request_date, employee=emp_id, cost_center=cost_center, first_name=fname,
             last_name=lname, contact_no=c_no, company=company, department=department, group_section=group,
@@ -101,7 +102,7 @@ def correctivesubmit(request):
             work_order1=work_order1, work_order2=work_order2, work_order3=work_order3, datework_created=date_work_created,
             Shop_vendor=repair_shop, date_forwarded=date_forward, estimate_no=estimate_no, maintenance_amount=maintenance_amount,
             less_discount=less_discount, estimate_remarks=estimate_remark, estimate_attached=estimate_attach, approvedby=approved_by,
-            meter_reading=kilo_reading, memo_app=memo_app,
+            meter_reading=kilo_reading, memo_app=memo_app,status=status
     )
         saveto_corretive.save()
 

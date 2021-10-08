@@ -41,6 +41,7 @@
                             <th>Conduction Sticker</th>
                             <th>Work Order Number</th>
                             <th>Date Initiated</th>
+                            <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -56,6 +57,7 @@
                             <td>{{ corrective.cond_sticker }}</td>
                             <td>{{ corrective.work_order1 }}</td>
                             <td>{{ corrective.date_initiated | date:'D d M Y'}}</td>
+                            <td>{{ corrective.status }}</td>
                             <td>
                                 <button type="button" class="delete-corrective btn-sm btn-danger rounded" data-id="{% url 'corrective_delete' corrective.pk %}">
                                 <span class="fa fa-trash"></span>
