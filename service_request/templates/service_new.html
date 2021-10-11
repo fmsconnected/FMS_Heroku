@@ -27,6 +27,17 @@ function servicevehicle(service) {
 <input type="text" name="deadline" id="deadline" hidden="true">
     <div id="Service Vehicle Request" class="w3-container vehicle">
     <fieldset>
+        <div class="col-sm-6">
+        <legend>Status</legend>
+        <label>Status</label>
+        <select class="form-control" name="sv_status" id="sv_status" required>
+            <option></option>
+            <option value="Ongoing">Ongoing</option>
+            <option value="Completed">Completed</option>
+        </select>
+        </div>
+    </fieldset>
+    <fieldset>
         <legend align="left">Replacement Details</legend><br>
         <div class="col-sm-6">
             <label>Requisitioner Employee ID</label>
@@ -40,7 +51,7 @@ function servicevehicle(service) {
         </div>
         <div class="col-sm-6">
             <label>Request Received Date</label>
-            <input style= "text-transform:" type="date" name="request_date" id="request_date" class="form-control">
+            <input style= "text-transform:" type="date" name="request_date" id="request_date" class="form-control" required>
         </div>
         <div class="col-sm-6">
             <label>Requisitioner Last Name</label>

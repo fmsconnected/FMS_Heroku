@@ -27,8 +27,14 @@ function servicevehicle(service) {
 {% csrf_token %}
     <div id="Service Vehicle Request" class="w3-container vehicle">
     <fieldset>
+        <div class="col-sm-6">
+        <legend>Status</legend>
+            <label>Status</label>
+            {{form.Status}}
+        </div>
+    </fieldset>
+    <fieldset>
         <legend align="left">Replacement Details</legend><br>
-        
         <div class="col-sm-6">
             <label>Requisitioner Employee ID</label>
             {{ form.req_employee_id }}

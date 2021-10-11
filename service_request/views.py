@@ -54,14 +54,14 @@ from bootstrap_modal_forms.generic import (
 
 class serviceListView(ListView):
     model = service_vehicle
-    template_name = 'service_vehicle/service_list.html'
+    template_name = 'service_list.html'
 
 def serviceCreate(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
     emplist = EmployeeMasterlist.objects.all()
     vlist = Leasing.objects.all()
-    return render(request, 'service_vehicle/service_new.html',{'Title':'Car - Car Request', 'emplist':emplist,'vlist':vlist})
+    return render(request, 'service_new.html',{'Title':'Car - Car Request', 'emplist':emplist,'vlist':vlist})
 
 def servicesubmit(request):
     if request.method == 'POST':
@@ -101,6 +101,7 @@ def servicesubmit(request):
         vehicle_make = request.POST.get('vehicle_make')
         vehicle_fuel_type = request.POST.get('vehicle_fuel_type')
         svv_sla = request.POST.get('svv_sla')
+        sv_status = request.POST.get('sv_status')
 
         saveto_service = service_vehicle(request_date=request_date, req_employee_id=req_employee_id, req_lname=req_lname, req_fname =req_fname,
             assignee_employee_id=assignee_employee_id, assignee_group=Assignee_Group, assignee_fname=assignee_fname, assignee_lname=assignee_lname,
@@ -109,7 +110,7 @@ def servicesubmit(request):
             new_temporary_atd=new_temporary_atd, prefered_vehicle=prefered_vehicle, justification=justification, E_plate_no=E_plate_no, E_con_sticker=E_con_sticker,
             E_model_year =E_model_year, E_brand=E_brand, E_make=E_make, E_type=E_type, approved_by=approved_by, approved_date=approved_date,
             vehicle_provider =vehicle_provider, vehicle_plate_no=vehicle_plate_no, vehicle_CS_no=vehicle_CS_no, vehicle_model =vehicle_model,
-            vehicle_brand =vehicle_brand, vehicle_make=vehicle_make, vehicle_fuel_type=vehicle_fuel_type, SVV_SLA =svv_sla, Deadline=deadline)
+            vehicle_brand =vehicle_brand, vehicle_make=vehicle_make, vehicle_fuel_type=vehicle_fuel_type, SVV_SLA =svv_sla, Deadline=deadline,Status=sv_status)
         saveto_service.save()
 
         return HttpResponseRedirect('/ServiceRequest/Service/')
@@ -117,7 +118,7 @@ def servicesubmit(request):
 class serviceCreateView(SuccessMessageMixin, CreateView):
     model = service_vehicle
     form_class = serviceform
-    template_name = 'service_vehicle/service_form.html'
+    template_name = 'service_form.html'
 
     def get_success_message(self, cleaned_data):
         print(cleaned_data)
@@ -126,7 +127,7 @@ class serviceCreateView(SuccessMessageMixin, CreateView):
 class serviceUpdateView(SuccessMessageMixin, UpdateView):
     model = service_vehicle
     form_class = serviceform
-    template_name = 'service_vehicle/service_form.html'
+    template_name = 'service_form.html'
     
     def get_success_message(self, cleaned_data):
     	print(cleaned_data)
@@ -134,11 +135,11 @@ class serviceUpdateView(SuccessMessageMixin, UpdateView):
 
 class serviceDetailView(DetailView):
     model = service_vehicle
-    template_name = 'service_vehicle/service_details.html'
+    template_name = 'service_details.html'
 
 class serviceDeleteView(BSModalDeleteView):
     model = service_vehicle
-    template_name = 'service_vehicle/service_delete.html'
+    template_name = 'service_delete.html'
     success_message = 'Success: Service Vehicle Request was deleted.'
     success_url = reverse_lazy('service_list')
 
@@ -146,14 +147,14 @@ def serviceHistoryView(request):
     if request.method == "GET":
        obj = service_vehicle.history.all()
 
-       return render(request, 'service_vehicle/service_history.html', context={'object': obj})
+       return render(request, 'service_history.html', context={'object': obj})
 
 def service_report(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
     emplist = EmployeeMasterlist.objects.all()
     vlist = Leasing.objects.all()
-    return render(request, 'service_vehicle/service_vehicle_report.html')
+    return render(request, 'service_vehicle_report.html')
 
 
 def svr_deadline(request):
@@ -166,7 +167,7 @@ def svr_deadline(request):
     dl4 = service_vehicle.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=4))
     dl5 = service_vehicle.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=5))
     dl6 = service_vehicle.objects.filter(Deadline__date = datetime.datetime.today())
-    return  render(request, 'service_vehicle/svrdeadline.html',{'title':'Service - Service vehicle Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5, 'dl6':dl6})
+    return  render(request, 'svrdeadline.html',{'title':'Service - Service vehicle Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5, 'dl6':dl6})
 
 
 def service_request_excel(request):
@@ -218,6 +219,7 @@ def service_request_excel(request):
         'SLA' ,
         'Date Initiated' ,
         'Deadline',
+        'Status',
 
     ]
     row_num = 1
@@ -266,6 +268,7 @@ def service_request_excel(request):
             service.SVV_SLA ,
             service.date_initiated ,
             service.Deadline,
+            service.Status,
         ]
         
         for col_num, cell_value in enumerate(row, 1):

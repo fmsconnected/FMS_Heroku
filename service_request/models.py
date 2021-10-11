@@ -52,7 +52,11 @@ class service_vehicle(models.Model):
 		('Peugeot', 'Peugeot'),
 		('Subaro', 'Subaro'),
 	)
-
+	status = (
+		("Ongoing","Ongoing"),
+		("Completed","Completed"),
+		)
+	
 	Activity_id = models.CharField(max_length=100,null=True, default=increment_Activity_id)
 	request_date = models.CharField(max_length=100, null=True, blank=True)
 	req_employee_id = models.CharField(max_length=100, null=True, blank=True)
@@ -91,6 +95,7 @@ class service_vehicle(models.Model):
 	SVV_SLA = models.CharField(max_length=10, null=True, blank=True)
 	date_initiated = models.DateField(auto_now=True, null=True)
 	history = HistoricalRecords()
+	Status = models.CharField(max_length=200, null=True, blank=True, choices=status)
 	Deadline = models.DateTimeField(auto_now=False, null=True, blank=True)
 
 	# def save(self, *args, **kwargs):

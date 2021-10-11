@@ -48,7 +48,7 @@
                             <th>Requeste Date</th>
                             <th>Date Deadline</th>
                             <th>Date Initiated</th>
-                            
+                            <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -64,6 +64,7 @@
                             <td>{{ service_vehicle.request_date}}</td>
                             <td>{{ service_vehicle.Deadline | date:'d M Y'}}</td>
                             <td>{{ service_vehicle.date_initiated | date:'d M Y'}}</td>
+                            <td>{{ service_vehicle.Status}}</td>
                             <td>
                                 <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'service_delete' service_vehicle.pk %}">
                                 <span class="fa fa-trash"></span>

@@ -39,6 +39,7 @@ class serviceform(forms.ModelForm):
 		self.fields['vehicle_make'].required = False
 		self.fields['vehicle_fuel_type'].required = False
 		self.fields['SVV_SLA'].required = False
+		self.fields['Status'].required = True
 
 	class Meta:
 		model = service_vehicle
@@ -48,7 +49,7 @@ class serviceform(forms.ModelForm):
 			'assignee_atd','new_employee_id','new_employee_fname','new_employee_lname','new_employee_cost',
 			'new_temporary_atd','prefered_vehicle','justification','E_plate_no','E_con_sticker','E_model_year','E_brand',
 			'E_make','E_type','approved_by','approved_date','vehicle_provider','vehicle_plate_no','vehicle_CS_no',
-			'vehicle_model','vehicle_brand','vehicle_make','vehicle_fuel_type','SVV_SLA'
+			'vehicle_model','vehicle_brand','vehicle_make','vehicle_fuel_type','SVV_SLA','Status'
 		]
 		vtype= (
 			('Sedan', 'Sedan'),
@@ -82,7 +83,10 @@ class serviceform(forms.ModelForm):
 			('Peugeot', 'Peugeot'),
 			('Subaro', 'Subaro'),
 			)
-
+		status = (
+			("Ongoing","Ongoing"),
+			("Completed","Completed"),
+		)
 		widgets = {	
 			'request_date': forms.TextInput(attrs={'class':'form-control','type':'date'}),
 			'req_employee_id': forms.TextInput(attrs={'class':'form-control', 'readonly':'True'}),
@@ -118,5 +122,6 @@ class serviceform(forms.ModelForm):
 			'vehicle_brand': forms.Select(attrs={'class':'form-control','choices':'vbrand'}),
 			'vehicle_make': forms.TextInput(attrs={'class':'form-control'}),
 			'vehicle_fuel_type': forms.TextInput(attrs={'class':'form-control'}),
-			'SVV_SLA': forms.TextInput(attrs={'class':'form-control','value':'90','hidden':'true'})
+			'SVV_SLA': forms.TextInput(attrs={'class':'form-control','value':'90','hidden':'true'}),
+			'Status': forms.Select(attrs={'class':'form-control','choices':'status'}),
 		}
