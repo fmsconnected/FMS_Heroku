@@ -28,6 +28,7 @@ class reportform(forms.ModelForm):
         self.fields['date_cert_received'].required = False
         self.fields['date_forwarded'].required = False
         self.fields['MVAR_SLA'].required = False
+        self.fields['Status'].required = True
 
     class Meta:
         model = vehicle_report
@@ -35,11 +36,16 @@ class reportform(forms.ModelForm):
         fields =['received_date','v_accident_type', 'support_docs', 'plate_number', 'v_model','v_make',
         'cond_sticker','a_employee_id','a_employee_fname','a_employee_lname','a_employee_no',
         'a_employee_company','a_employee_group','a_employee_division','a_employee_dept','sup_employee_id','sup_employee_fname','sup_employee_lname',
-        'inform_assignee','date_of_inspection','inspection_remarks','date_filed_alarm','date_cert_received','date_forwarded','MVAR_SLA']
+        'inform_assignee','date_of_inspection','inspection_remarks','date_filed_alarm','date_cert_received','date_forwarded','MVAR_SLA','Status']
 
+        status = (
+                ("Ongoing","Ongoing"),
+                ("Completed","Completed"),
+            )
 
         widgets= {
             
+        
             'received_date': forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'v_accident_type': forms.TextInput(attrs={'class':'form-control'}),
             'support_docs': forms.TextInput(attrs={'class':'form-control'}),
@@ -64,6 +70,7 @@ class reportform(forms.ModelForm):
             'date_filed_alarm': forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'date_cert_received': forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'date_forwarded': forms.TextInput(attrs={'class':'form-control','type':'date'}),
-            'MVAR_SLA': forms.TextInput(attrs={'class':'form-control','value':'5','hidden':'true'})
+            'MVAR_SLA': forms.TextInput(attrs={'class':'form-control','value':'5','hidden':'true'}),
+            'Status': forms.Select(attrs={'class':'form-control','choices':'status'}),
 
         }

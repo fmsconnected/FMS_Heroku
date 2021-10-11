@@ -18,17 +18,19 @@ def increment_Activity_id():
 	return new_in_id
 
 class vehicle_report(models.Model):
-
+    status = (
+        ("Ongoing","Ongoing"),
+        ("Completed","Completed"),
+        )
+    
     Activity_id = models.CharField(max_length=100,null=True, default=increment_Activity_id)
     received_date = models.DateField(auto_now=False, blank=True, null=True)
     v_accident_type = models.CharField(max_length=100, blank=True, null=True)
     support_docs = models.CharField(max_length=100, blank=True, null=True)
-    # plate_number = models.ForeignKey('masterlist.VehicleMasterList', on_delete=models.DO_NOTHING)
     plate_number = models.CharField(max_length=100, blank=True, null=True)
     v_model = models.CharField(max_length=100, blank=True, null=True)
     v_make = models.CharField(max_length=100, blank=True, null=True)
     cond_sticker = models.CharField(max_length=100, blank=True, null=True)
-    # a_employee_id = models.ForeignKey('masterlist.EmployeeMasterlist', on_delete=models.DO_NOTHING)
     a_employee_id = models.CharField(max_length=100, blank=True, null=True)
     a_employee_fname = models.CharField(max_length=100, blank=True, null=True)
     a_employee_lname = models.CharField(max_length=100, blank=True, null=True)
@@ -49,6 +51,7 @@ class vehicle_report(models.Model):
     date_initiated = models.DateField(auto_now=True, null=True)
     MVAR_SLA = models.CharField(max_length=10, null=True)
     history = HistoricalRecords()
+    Status = models.CharField(max_length=100, blank=True, null=True, choices=status)
     Deadline = models.DateTimeField()
 
     def save(self, *args, **kwargs):

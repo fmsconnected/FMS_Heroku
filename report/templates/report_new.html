@@ -27,6 +27,17 @@ function vehiclereport(motor) {
 {% csrf_token %}
     <div id="Motor Vehicle Accident Report" class="w3-container report">
     <fieldset>
+        <div class="col-sm-6">
+            <label>Status</label>
+            <select class="form-control" name="vr_status" id="vr_status">
+                <option></option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Completed">Completed</option>
+            </select>
+            
+        </div>
+    </fieldset>
+    <fieldset>
         <legend align="left">Motor Vehicle Accident Report</legend><br>
         <div class="col-sm-6">
             <label>MVAR Received Date</label>

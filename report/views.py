@@ -63,11 +63,12 @@ def report_submit(request):
 		date_received = request.POST.get('date_received')
 		date_forward = request.POST.get('date_forward')
 		SLA = request.POST.get('MVAR_SLA')
+		vr_status = request.POST.get('vr_status')
 
 		saveto_report = vehicle_report(received_date=mvar_date, v_accident_type=acc_type, support_docs=supp_docs, plate_number=plate_number, v_model=v_model, v_make=v_make, 
 			cond_sticker=c_sticker, a_employee_id=a_emp_id, a_employee_fname=a_emp_fname, a_employee_lname=a_emp_lname, a_employee_no=a_emp_number, a_employee_company=a_emp_company, a_employee_group=a_emp_group, 
 			a_employee_division=a_emp_div, a_employee_dept=a_emp_dept, sup_employee_id=ai_emp_id, sup_employee_fname=ai_emp_fname, sup_employee_lname=ai_emp_lname, inform_assignee=inform_inspection, 
-			date_of_inspection=date_inspection, inspection_remarks=inspection_remarks, date_filed_alarm=date_filed, date_cert_received=date_received, date_forwarded=date_forward, MVAR_SLA=SLA)
+			date_of_inspection=date_inspection, inspection_remarks=inspection_remarks, date_filed_alarm=date_filed, date_cert_received=date_received, date_forwarded=date_forward, MVAR_SLA=SLA, Status=vr_status)
 		saveto_report.save()
 
 		def get_success_message(self, cleaned_data):
@@ -152,6 +153,7 @@ def report_excel(request):
 			    'Date Forward Documents to Insurance Company' ,
 			    'Date Initiated' ,
 			    'SLA' ,
+			    'Status',
 
     ]
     row_num = 1
@@ -189,6 +191,7 @@ def report_excel(request):
 			    report.date_forwarded ,
 			    report.date_initiated ,
 			    report.MVAR_SLA ,
+			    report.Status,
         ]
         
         for col_num, cell_value in enumerate(row, 1):

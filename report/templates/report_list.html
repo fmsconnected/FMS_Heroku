@@ -44,6 +44,7 @@
                             <th>SLA</th>
                             <th>Date Initiated</th>
                             <th>Date Deadline</th>
+                            <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -57,6 +58,7 @@
                             <td>{{ vehicle_report.MVAR_SLA }}</td>
                             <td>{{ vehicle_report.date_initiated | date:'D d M Y'}}</td>
                             <td>{{ vehicle_report.Deadline | date:'D d M Y'}}</td>
+                            <td>{{ vehicle_report.Status}}</td>
                             <td>
                                 <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'report_delete' vehicle_report.pk %}">
                                 <span class="fa fa-trash"></span>
