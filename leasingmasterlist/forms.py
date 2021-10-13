@@ -27,6 +27,7 @@ class leasing_form(forms.ModelForm):
             self.fields['months_24'].required = False
             self.fields['engine_no'].required = False
             self.fields['vleasing_status'].required = False
+            self.fields['email'].required = True
             
       class Meta:
             model = Leasing
@@ -36,7 +37,7 @@ class leasing_form(forms.ModelForm):
                   'DEPARTMENT', 'SECTION', 'IS_EMPLOYEE_ID', 'IS_LASTNAME', 'IS_FIRSTNAME', 'LOCATION', 'AREA', 
                   'ACQUISITION_DATE', 'remarks', 'acquisition_cost', 'months_36', 'amount1', 'date_in_1', 'date_out_1', 
                   'months_24', 'amount_Vat_EX', 'date_in_2', 'date_out_2', 'extension', 'amount2', 'date_in_3', 'date_out_3', 
-                  'chasis_no', 'engine_no', 'CONTRACT_NUMBER','vleasing_status'
+                  'chasis_no', 'engine_no', 'CONTRACT_NUMBER','vleasing_status','email'
             ]
 
             Vbrand= (
@@ -125,5 +126,6 @@ class leasing_form(forms.ModelForm):
                   'engine_no' : forms.TextInput(attrs={'class':'form-control'}),
                   'CONTRACT_NUMBER' : forms.TextInput(attrs={'class':'form-control'}),
                   'vleasing_status': forms.Select(attrs={'class':'form-control','choices':'vstatus'}),
+                  'email': forms.TextInput(attrs={'class':'form-control'}),
             }
 

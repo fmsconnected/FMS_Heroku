@@ -85,7 +85,7 @@ class Leasing(models.Model):
 	IS_FIRSTNAME= models.CharField(max_length=100, null=True, blank=True)
 	LOCATION= models.CharField(max_length=100, null=True, blank=True)
 	AREA= models.CharField(max_length=100, null=True, blank=True)
-	ACQUISITION_DATE= models.CharField(max_length=100, null=True, blank=True)
+	ACQUISITION_DATE= models.DateField(auto_now=False, null=True, blank=True)
 	remarks= models.CharField(max_length=250, null=True, blank=True)
 	acquisition_cost= models.CharField(max_length=100, null=True, blank=True)
 	months_36= models.CharField(max_length=100, null=True, blank=True)
@@ -104,6 +104,7 @@ class Leasing(models.Model):
 	engine_no= models.CharField(max_length=100, null=True, blank=True)
 	CONTRACT_NUMBER= models.CharField(max_length=20, null=True, blank=True)
 	vleasing_status = models.CharField(max_length=100, null=True, blank=True, choices=vstatus)
+	email = models.CharField(max_length=200, null=True, blank=True)
 	history = HistoricalRecords()
 	
 	def __str__(self):

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width-device-width, initial-scale-1.0">
+</head>
+<style type="text/css">
+    ul.b {
+  list-style-position: inside;
+  }
+  h3{
+    color: blue;
+  }
+</style>
+<body>
+<h2><b> Hi Ka Globe,</b></h2><br>
+
+<p>Good day,<br><br>
+
+Please be advised that your Service Vehicle is already due for replacement (5 years) for the Month of {{month}} {{year}}. If for replacement, Vendor gave us extension while waiting for the replacement units. You may purchase the existing Service but kindly coordinate directly to the Vendor (ORIX/DIAMOND/CLICK). Kindly see and fill up the attached SVRF (service vehicle request form) below, send back to me once approved up to your Department head. If you have approved SVRF kindly resend here. </p>
+
+<table width="100%" class="table table-bordered table-hover" border="5px">
+	<tr>
+		<th>Plate Number</th>
+		<th>CS Number</th>
+		<th>Model</th>
+		<th>Brand</th>
+		<th>Vehicle Make</th>
+		<th>Vehicle Type</th>
+		<th>Assignee</th>
+		<th>Acq Date</th>
+	</tr>
+	<tr>
+		<td>{{plate}}</td>
+		<td>{{cs}}</td>
+		<td>{{model}}</td>
+		<td>{{brand}}</td>
+		<td>{{make}}</td>
+		<td>{{type}}</td>
+		<td>{{lname}}{{fname}}</td>
+		<td>{{acq_date}}</td>
+	</tr>
+
+</table>
+ <p>You can use your existing vehicle while waiting.<br>
+<b>Note:</b> Please advise if plate number is correct for our validation.<br>
+Will wait for your immediate response on this. Thanks </p>
+
+</body>
+</html>

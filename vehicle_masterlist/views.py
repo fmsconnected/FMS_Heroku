@@ -85,6 +85,7 @@ def VmasterlistCreate(request):
         l_remark = request.POST.get('l_remark')
         email = request.POST.get('email')
         vehicle_status = request.POST.get('vstatus')
+        email= request.POST.get('email')
         
         if or_date == '':
             or_date = None
@@ -141,7 +142,7 @@ def VmasterlistCreate(request):
             DEPARTMENT=dept, SECTION=sec, IS_ID=is_emp, IS_NAME=IS_NAME, LOCATION=loc,
             ACQ_DATE=aqui_date, ACQ_COST=aqui_cost, ASSET_NO=asset, PO_NO=po_no, PLATE_NUMBER_RELEASE_DATE=plate_date, ORIGINAL_OR_DATE=or_date,EQUIPMENT_NO=eq_no,
             SAP_PR=sap_pr,Vehicle_IVN_no=ivn_no,Unit_MATDOC=mathdoc,dealer=dealer, dealer_name=dealer_name, Remarks=remarks, Status=status, leasing_remark=l_remark,
-            vehicle_status = vehicle_status
+            vehicle_status = vehicle_status,EMAIL=email
             )
         saveto_end.save()
 
@@ -187,6 +188,7 @@ def VmasterlistUpdate(request):
         l_remark = request.POST.get('l_remark')
         email = request.POST.get('email')
         vehicle_status = request.POST.get('vstatus')
+        email = request.POST.get('email')
         
         if or_date == '':
             or_date = None
@@ -243,7 +245,7 @@ def VmasterlistUpdate(request):
             DEPARTMENT=dept, SECTION=sec, IS_ID=is_emp, IS_NAME=IS_NAME, LOCATION=loc,
             ACQ_DATE=aqui_date, ACQ_COST=aqui_cost, ASSET_NO=asset, PO_NO=po_no, PLATE_NUMBER_RELEASE_DATE=plate_date, ORIGINAL_OR_DATE=or_date,EQUIPMENT_NO=eq_no,
             SAP_PR=sap_pr,Vehicle_IVN_no=ivn_no,Unit_MATDOC=mathdoc,dealer=dealer, dealer_name=dealer_name, Remarks=remarks, Status=status, leasing_remark=l_remark,
-            vehicle_status = vehicle_status
+            vehicle_status = vehicle_status,EMAIL=email
             )
         saveto_end.save()
 

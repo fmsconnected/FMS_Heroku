@@ -47,6 +47,7 @@ class Vmasterlist(forms.ModelForm):
             self.fields['PLATE_NUMBER_RELEASE_DATE'].required = False
             self.fields['leasing_remark'].required = False
             self.fields['vehicle_status'].required = False
+            self.fields['EMAIL'].required=True
 
       class Meta:
             model = VehicleMasterList
@@ -55,7 +56,7 @@ class Vmasterlist(forms.ModelForm):
                   'VEHICLE_MAKE','ENGINE_NO','CHASSIS_NO','MV_FILE_NO','VEHICLE_TYPE','ASSIGNEE_LAST_NAME','ASSIGNEE_FIRST_NAME','VEHICLE_CATEGORY','Employee',
                   'BAND_LEVEL','BENEFIT_GROUP','COST_CENTER','GROUP','DIVISION','DEPARTMENT','SECTION','IS_ID','IS_NAME','LOCATION','ORIGINAL_OR_DATE',
                   'ACQ_DATE','ACQ_COST','ASSET_NO','EQUIPMENT_NO', 'SAP_PR','Vehicle_IVN_no','Unit_MATDOC','dealer',
-                  'dealer_name','PO_NO','PLATE_NUMBER_RELEASE_DATE','Last_Registration_Date','Smoke_Emission_Date', 'COC_Date', 'Remarks', 'Status', 'leasing_remark','vehicle_status'
+                  'dealer_name','PO_NO','PLATE_NUMBER_RELEASE_DATE','Last_Registration_Date','Smoke_Emission_Date', 'COC_Date', 'Remarks', 'Status', 'leasing_remark','vehicle_status','EMAIL'
             ]
 
             Vbrand= (
@@ -166,8 +167,9 @@ class Vmasterlist(forms.ModelForm):
                   'COC_Date': forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
                   'Remarks': forms.Select(attrs={'class':'form-control', 'choices':'remarks'}),
                   'Status': forms.Select(attrs={'class':'form-control', 'choices':'status'}),
-                  'leasing_remark' : forms.Select(attrs={'class':'form-control'}),
+                  'leasing_remark' : forms.TextInput(attrs={'class':'form-control'}),
                   'vehicle_status':forms.Select(attrs={'class':'form-control', 'choices':'vstatus'}),
+                  'EMAIL': forms.TextInput(attrs={'class':'form-control','type':'email'}),
             }     
 
 class Vmaster(forms.ModelForm):
