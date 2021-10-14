@@ -20,16 +20,17 @@ sched = BlockingScheduler()
 @sched.scheduled_job('interval', minutes=1)
 def send_leasing_email():
     date = datetime.datetime.today()
-    month = datetime.datetime.now().month
+    month = datetime.datetime.now().month + 2
     months = ['zero','January','February','March','April','May','June','July','August','September','October','November','December']
-    month_name = months[date.month]
+    month_name = months[month]
     year = datetime.datetime.now().year
     year4 = datetime.datetime.now().year - 5
     date_now = datetime.datetime.now().date()
     sent_status = Leasing.objects.all()
+    print("Month +2",month_name)
     print("1st Email Leasing")
     file_path = os.path.abspath('leasingmasterlist/management/files/Service_Vehicle_Request_Form_2021.xls')
-    car_status = Leasing.objects.filter(ACQUISITION_DATE__year=year4)
+    car_status = Leasing.objects.filter(ACQUISITION_DATE__year=year4, ACQUISITION_DATE__month=month)
     plate = ""
     for carreg in car_status:
             # print(carreg.plate_no)
@@ -38,8 +39,8 @@ def send_leasing_email():
     if plate != "":
         for item in car_status:
             data ={
-                'month':month_name,
-                'year':year4,
+                'month__':month_name,
+                'year':year,
                 'plate':item.PLATE_NUMBER,
                 'cs':item.CS_NO,
                 'model':item.MODEL,
@@ -55,10 +56,9 @@ def send_leasing_email():
             plain_message = item.PLATE_NUMBER
             to_email = [item.email]
             from_email = 'Fleet Management System <fmsjxmtsi@gmail.com>'
-            cc_email= ['zpaconcepcion@globe.com.ph ']
+            cc_email= ['zpaconcepcion@globe.com.ph' , 'sftaboon@globe.com.ph']
             toaddrs = to_email + cc_email
             mail = EmailMultiAlternatives(subject,html_message, from_email, toaddrs)
-            # mail.attach_alternative('p.pdf')
             mail.content_subtype='html'
             mail.attach_file(file_path)
             email_res = mail.send()
