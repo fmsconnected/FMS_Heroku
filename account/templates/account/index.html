@@ -224,12 +224,8 @@ function setChart(){
     type: 'horizontalBar',
     data: {
         labels: ["FATA Monitoring","Corrective Maintenance", "Customer Care", "Transfer Ownership", "TOO Billing", "Car Rental Request", "Gas Card Request","Service Vehicle Request","Preventive Maintenance", "Insurance", "New Vehicle Payment", "Car Rental Payment"
-        , "Fuel Supplier Payment", "Vehicle Repair Payment"],
-        datasets: [{
-            label: 'Requested',
-            data: defaultData,
-            backgroundColor:'rgba(23, 128, 173)',
-        },
+        , "Fuel Supplier Payment", "Vehicle Repair Payment", "Fleet Card","Fleet Card Driver Payment"],
+        datasets: [
           {
             label: 'Ongoing',
             fill: true,
@@ -240,7 +236,7 @@ function setChart(){
             label: 'Completed',
             fill: true,
             data: completed_item_data,
-            backgroundColor:'rgba(196, 195, 187)',
+            backgroundColor:'rgba(23, 128, 173)',
 
         }]
     },
