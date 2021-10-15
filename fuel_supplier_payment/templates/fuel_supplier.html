@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script>
+  function fuelsupplier(cityName) {
+    var i;
+    var x = document.getElementsByClassName("Fsupplier");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    document.getElementById(cityName).style.display = "block";  
+  }
+  </script>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3 align="center"><b>Fuel Supplier Payment</b></h3>&nbsp;
+    </div>
+</div>
+<div class="w3-bar w3-black">
+  <button class="w3-bar-item w3-button" onclick="fuelsupplier('Fuel Supplier Payment')">Fuel Supplier Payment</button>
+  <button class="w3-bar-item w3-button" onclick="fuelsupplier('OutBound Process')">Outbound Process Tab</button>
+</div>
+<form method="POST" action="">
+{% csrf_token %}
+<div id="Fuel Supplier Payment" class="w3-container Fsupplier">
+
+  <fieldset>
+    <legend align="left">Statement Of Account Processing</legend><br>
+      <div class="col-sm-4">
+        <label>Date Receive SOA</label>{{ form.SOA_Date_received }}</div>
+      <div class="col-sm-4">
+        <label>Fuel Provider</label>{{ form.Fuel_provider }}</div>
+      <div class="col-sm-4">
+        <label>SOA Current Amount</label>{{ form.SOA_current_amount }}</div>
+      <div class="col-sm-4">
+        <label>SOA Outstanding Amount</label>{{ form.SOA_outstanding_amount }}</div>
+      <div class="col-sm-4">
+        <label>Payee</label>{{ form.Payee }}</div>
+      <div class="col-sm-4">
+        <label>SOA Billing Date</label>{{ form.SOA_billdate }}</div>
+  </fieldset>
+  <fieldset>
+    <legend>RFS Processing</legend>
+    <div class="col-sm-4">
+      <label>SOA ATTACHED</label>{{ form.SOA_attached }}
+      </div>
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+      <label>Status</label>{{ form.status }}
+    </div>
+  </fieldset>
+  <div class="card-footer">
+    <button type="Submit" class="buttonsubmit">SUBMIT</button>
+    <button type="Reset" class="button">CLEAR ALL</button>
+    <a href="{% url 'Fuel_supplierList' %}" type="button" class="btn">CLOSE</a>
+  </div>
+</div>
+<div id="OutBound Process" class="w3-container Fsupplier" style="display:none">
+  <fieldset>
+    <legend align="left">RPS Process</legend><br>
+      <div class="col-sm-4">
+        <label>Date Forwarded to Accounting</label>{{ form.Date_forwarded }}
+      </div>
+      <div class="col-sm-4">
+        {{ form.F_SLA }}
+      </div>
+  </fieldset>
+  <div class="card-footer">
+    <button type="Submit" class="buttonsubmit">UPDATE</button>
+  </div>
+</div>
+</form>
+{% endblock %}

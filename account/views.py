@@ -13,10 +13,10 @@ from payment.models import (
     Fuel_supplier,
     Vehicle_Repair_payment
 )
-from new_vehicle_payment.models import (VehiclePayment)
-from car_rental_payment.models import (CarRental)
-from car_rental_request.models import (CarRentalRequest)
-from service_request.models import (service_vehicle)
+from new_vehicle_payment.models import VehiclePayment
+from car_rental_payment.models import CarRental
+from car_rental_request.models import CarRentalRequest
+from service_request.models import service_vehicle
 from request.models import (
     Gas_card,
     Vehicle_Repair,)
@@ -159,8 +159,8 @@ class ChartData_ongoing(APIView):
         svr = service_vehicle.objects.filter(Status="Ongoing").count()
         vrr = Vehicle_Repair.objects.filter(date_initiated__month= date.month,approvedby="" ).count()
         vr = vehicle_report.objects.filter(Status="Ongoing").count()
-        vpr = VehiclePayment.objects.filter(Date_initiated__month= date.month, Date_initial="" ).count()
-        crp = CarRental.objects.filter(Date_initiated__month= date.month, R_Cost="" ).count()
+        vpr = VehiclePayment.objects.filter(Status="Ongoing").count()
+        crp = CarRental.objects.filter(status="Ongoing").count()
         fs = Fuel_supplier.objects.filter(Date_initiated__month= date.month, Date_forwarded="" ).count()
         vrp = Vehicle_Repair_payment.objects.filter(date_initiated__month= date.month, invoice_date="" ).count()
         registration = VehicleMasterList.objects.filter(PLATE_ENDING=month, vehicle_status="Active",CR_NAME="GLOBE").count()
@@ -184,8 +184,8 @@ class ChartData_completed(APIView):
 
     def get(self, request, format=None):
         date = datetime.datetime.today()
-        vpr = VehiclePayment.objects.exclude(Date_initiated__month= date.month, Date_initial="" ).exclude(Date_initial__exact='').count()
-        crp = CarRental.objects.exclude(Date_initiated__month= date.month, R_Cost="" ).exclude(R_Cost__exact='').count()
+        vpr = VehiclePayment.objects.filter(Status="Completed").count()
+        crp = CarRental.objects.filter(status="Completed").count()
         fs = Fuel_supplier.objects.exclude(Date_initiated__month= date.month, Date_forwarded="" ).exclude(Date_forwarded__exact='').count()
         vrp = Vehicle_Repair_payment.objects.exclude(date_initiated__month= date.month, invoice_date="" ).exclude(invoice_date__exact='').count()
         crr = CarRentalRequest.objects.exclude(Date_initiated__month= date.month, Plate_no="").exclude(Plate_no__exact='').count()

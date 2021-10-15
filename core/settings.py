@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'service_request.apps.ServiceRequestConfig',
     'new_vehicle_payment.apps.NewVehiclePaymentConfig',
     'fleet_card_driver.apps.FleetCardDriverConfig',
+    'fuel_supplier_payment.apps.FuelSupplierPaymentConfig',
     
 
 ]
