@@ -60,7 +60,7 @@ def requestCreate(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
     emplist = EmployeeMasterlist.objects.all()
-    return render(request, 'car_rental/carrequest_new.html',{'Title':'Car - Car Request', 'emplist':emplist})
+    return render(request, 'carrequest_new.html',{'Title':'Car - Car Request', 'emplist':emplist})
 
 def requestsubmit(request):
     if request.method == 'POST':
@@ -106,23 +106,23 @@ def requestsubmit(request):
 
 class requestListView(ListView):
 	model = CarRentalRequest
-	template_name = 'car_rental/carrequest_list.html'
+	template_name = 'carrequest_list.html'
 
 class requestDetailView(DetailView):
 	model = CarRentalRequest
-	template_name = 'car_rental/carrequest_details.html'
+	template_name = 'carrequest_details.html'
 
 class requestUpdateView(SuccessMessageMixin, UpdateView):
     model = CarRentalRequest
     form_class = carrequestform
-    template_name = 'car_rental/carrequest_form.html'
+    template_name = 'carrequest_form.html'
     def get_success_message(self, cleaned_data):
     	print(cleaned_data)
     	return "Car Rental Request Updated Successfully!"
 
 class requestDeleteView(BSModalDeleteView):
     model = CarRentalRequest
-    template_name = 'car_rental/car_delete.html'
+    template_name = 'car_delete.html'
     success_message = 'Success: Report was deleted.'
     success_url = reverse_lazy('carrequest_list')
 
@@ -130,7 +130,7 @@ def requestHistoryView(request):
     if request.method == "GET":
        obj = CarRentalRequest.history.all()
 
-       return render(request, 'car_rental/carrequest_history.html', context={'object': obj})
+       return render(request, 'carrequest_history.html', context={'object': obj})
 def crr_deadline(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
@@ -138,7 +138,7 @@ def crr_deadline(request):
     dl = CarRentalRequest.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=1))
     dl2 = CarRentalRequest.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=2))
     dl3 = CarRentalRequest.objects.filter(Deadline__date = datetime.datetime.today())
-    return  render(request, 'car_rental/crrdeadline.html',{'title':'Car Request - Car Request Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3})
+    return  render(request, 'crrdeadline.html',{'title':'Car Request - Car Request Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3})
 
 
 def car_request_excel(request):
