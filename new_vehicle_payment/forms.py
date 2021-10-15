@@ -25,6 +25,7 @@ class VehiclePaymentform(forms.ModelForm):
 		self.fields['sap_no'].required = False
 		self.fields['mat_no'].required = False
 		self.fields['Dealer_name'].required = False
+		self.fields['Status'].required = True
 
 		
 	class Meta:

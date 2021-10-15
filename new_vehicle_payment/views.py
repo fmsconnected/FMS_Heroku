@@ -26,7 +26,7 @@ def vehiclecreate(request):
         return super().dispatch(*args, **kwargs)
     elist = EmployeeMasterlist.objects.all()
     vlist = VehicleMasterList.objects.all()
-    return render(request, 'payment/vehicle/vehiclepayment_form.html',{'elist':elist,'vlist':vlist})
+    return render(request, 'vehiclepayment_form.html',{'elist':elist,'vlist':vlist})
 
 def vehicle_submit(request):
     if request.method == 'POST':
@@ -57,29 +57,30 @@ def vehicle_submit(request):
         sap_no = request.POST.get('sap_no')
         mat_no = request.POST.get('mat_no')
         Dealer_name = request.POST.get('Dealer_name')
+        status = request.POST.get('status')
         
         saveto_v = VehiclePayment(A_employee_ID = a_emp_id,E_First_name = emp_fname,E_Last_name = emp_lname,V_deliverDate = Delivery_Date,
         Plate_no = Plate_Number,V_model = Model_Year,V_brand = Brand,V_make = Make,V_dealer = Dealer,LTO_documents = date_received,
         Docs_plate_no = Docs_plate_no,LTO_stickers = LTO_stickers,Sticker_fields = Sticker_fields,Date_initial = Date_initial,
         First_payment = First_payment,LTO_charges = LTO_Charges,Outstanding_balance = Outstanding_Balance,Date_final = Date_final,
         Routing_remarks = Routing_Remarks,V_SLA = v_sla,PO_no = PO_no,invoice_number = invoice_number, equip_no = equip_no,
-        asset_no = asset_no, sap_no = sap_no, mat_no = mat_no, Dealer_name = Dealer_name)
+        asset_no = asset_no, sap_no = sap_no, mat_no = mat_no, Dealer_name = Dealer_name, Status=status)
         saveto_v.save()
 
         return HttpResponseRedirect('/NVP/Vehicle/')
 
 class VehicleListView(ListView):
     model = VehiclePayment
-    template_name = 'payment/vehicle/vehicle_list.html'
+    template_name = 'vehicle_list.html'
 
 class VehicleDetailView(DetailView):
     model = VehiclePayment
-    template_name = 'payment/vehicle/vehiclepayment_summary.html'
+    template_name = 'vehiclepayment_summary.html'
 
 class VehicleUpdateView(SuccessMessageMixin, UpdateView):
     model = VehiclePayment
     form_class = VehiclePaymentform
-    template_name = 'payment/vehicle/vehiclepayment_new.html'
+    template_name = 'vehiclepayment_new.html'
 
     def get_success_message(self, cleaned_data):
         print(cleaned_data)
@@ -87,7 +88,7 @@ class VehicleUpdateView(SuccessMessageMixin, UpdateView):
 
 class VehicleDeleteView(BSModalDeleteView):
     model = VehiclePayment
-    template_name = 'payment/vehicle/vehicle_delete.html'
+    template_name = 'vehicle_delete.html'
     success_message = 'Success: Item was deleted.'
     success_url = reverse_lazy('Vehicle_list')
 
@@ -95,7 +96,7 @@ def VehicleHistoryView(request):
     if request.method == "GET":
        obj = VehiclePayment.history.all()
 
-       return render(request, 'payment/vehicle/vehicle_history.html', context={'object': obj})
+       return render(request, 'vehicle_history.html', context={'object': obj})
 def nvp_deadline(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
@@ -106,7 +107,7 @@ def nvp_deadline(request):
     dl4 = VehiclePayment.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=4))
     dl5 = VehiclePayment.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=5))
     dl6 = VehiclePayment.objects.filter(Deadline__date = datetime.datetime.today())
-    return  render(request, 'payment/vehicle/vehicledeadline.html',{'title':'Vehicle - Vehicle Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5, 'dl6':dl6})
+    return  render(request, 'vehicledeadline.html',{'title':'Vehicle - Vehicle Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5, 'dl6':dl6})
 
             
 

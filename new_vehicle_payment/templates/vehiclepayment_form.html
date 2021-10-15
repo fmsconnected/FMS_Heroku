@@ -27,6 +27,17 @@
 {% csrf_token %}
   <div id="New vehicle Payment" class="w3-container vehicle">
     <fieldset>
+      <legend>Status</legend>
+      <div class="col-sm-4">
+        <label>Status</label>
+        <select name="status" id="status" class="form-control" required>
+          <option></option>
+          <option value="Ongoing">Ongoing</option>
+          <option value="Completed">Completed</option>
+        </select>
+      </div>
+    </fieldset>
+    <fieldset>
     <legend align="left">Purchase Order Details</legend><br>
     <div class="col-sm-4">
         <label>Assignee Employee ID</label>
