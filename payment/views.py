@@ -601,7 +601,7 @@ def fuel_excel(request):
     'Outstanding Amount',
     'Payee',
     'Attached',
-    'Payment Deadline',
+    'Deadline',
     'Date Forwarded',
     'Date Initiated',
     ]
@@ -623,11 +623,11 @@ def fuel_excel(request):
                 fuel.SOA_outstanding_amount,
                 fuel.Payee,
                 fuel.SOA_attached,
-                fuel.Payment_deadline,
+                fuel.Deadline,
                 fuel.Date_forwarded,
                 fuel.Date_initiated,
         ]
-        
+
         for col_num, cell_value in enumerate(row, 1):
             cell = worksheet.cell(row=row_num, column=col_num)
             cell.value = cell_value
