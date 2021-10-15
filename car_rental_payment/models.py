@@ -39,6 +39,10 @@ def increment_I_number():
 	return new_in_id
 
 class CarRental(models.Model):
+	status = (
+			('Ongoing', 'Ongoing'),
+			('Completed', 'Completed'),
+		)
 	#<-- assignee details---->
 	Activity_id = models.CharField(max_length=100,null=True, default=increment_Activity_id)
 	Bill_date = models.CharField(max_length=100, null=True, blank=True)
@@ -81,6 +85,7 @@ class CarRental(models.Model):
 	I_amount = models.CharField(max_length=100, null=True, blank=True)
 	R_purpose = models.CharField(max_length=100, null=True, blank=True)
 	C_SLA = models.CharField(max_length=10, null=True, blank=True)
+	status =models.CharField(max_length=100, null=True, blank=True, choices=status)
 	Deadline = models.DateTimeField()
 	history = HistoricalRecords()
 

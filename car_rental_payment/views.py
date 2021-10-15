@@ -23,7 +23,7 @@ from bootstrap_modal_forms.generic import (
 
 class CarListView(ListView):
     model = CarRental
-    template_name = 'payment/car/carrental_list.html'
+    template_name = 'carrental_list.html'
 
 def car_deadline(request):
     def dispatch(self, *args, **kwargs):
@@ -34,19 +34,19 @@ def car_deadline(request):
     dl4 = CarRental.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=4))
     dl5 = CarRental.objects.filter(Deadline__date = datetime.datetime.today() + timedelta(days=5))
     dl6 = CarRental.objects.filter(Deadline__date = datetime.datetime.today())
-    return  render(request, 'payment/car/cardeadline.html',{'title':'Car - Car Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5, 'dl6':dl6})
+    return  render(request, 'cardeadline.html',{'title':'Car - Car Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5, 'dl6':dl6})
 
 
 class CarRentalDetailView(DetailView):
     model = CarRental
-    template_name = 'payment/car/carrental_summary.html'
+    template_name = 'carrental_summary.html'
 
 def Carrentalpayment(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
     e_list = EmployeeMasterlist.objects.all()
     v_list = VehicleMasterList.objects.all()
-    return render(request, 'payment/car/car_rental1.html',{'title': 'Car - Car Rental', 'e_list': e_list, 'v_list': v_list})
+    return render(request, 'car_rental1.html',{'title': 'Car - Car Rental', 'e_list': e_list, 'v_list': v_list})
 
 
 def Carrental_submit(request):
@@ -86,6 +86,7 @@ def Carrental_submit(request):
         car_provider = request.POST.get('car_provider')
         sqa_number = request.POST.get('sqa_number')
         rfp_no2 = request.POST.get('rfp_no2')
+        status = request.POST.get('status')
 
         #############################
         ######Date calculator########
@@ -103,7 +104,7 @@ def Carrental_submit(request):
             D_vehicle=Delivered_V, S_rental=S_rental, E_rental=E_rental, R_duration=Rduration, R_Cost=R_cost,
             G_cost=Gas_cost, T_fee=Toll_fee, P_fee=Park_fee, Del_fee=Del_fee, Dri_fee=Driverfee, M_cost=Meal_cost,
             O_expenses=Other_exp, T_expenses=Total, Date_initiated=Date_initiated, C_SLA=C_SLA, car_provider = car_provider, sqa_number = sqa_number,
-            rfp_no2 = rfp_no2)
+            rfp_no2 = rfp_no2, status=status)
         saveto_CRP.save()
 
         return HttpResponseRedirect('/Car/Car/')
@@ -142,6 +143,7 @@ def Carrental_update(request, pk):
         car_provider = request.POST.get('Vprovider')
         sqa_number = request.POST.get('sqa_number')
         rfp_no2 = request.POST.get('rfp_no2')
+        status = request.POST.get('status')
 
         #############################
         ######Date calculator########
@@ -156,20 +158,20 @@ def Carrental_update(request, pk):
             O_cost_center=Other_cost, Plate_no=Plate_no, V_brand=V_brand, V_make=V_make,
             D_vehicle=Delivered_V, S_rental=S_rental, E_rental=E_rental, R_duration=Rduration, R_Cost=R_cost,
             G_cost=Gas_cost, T_fee=Toll_fee, P_fee=Park_fee, Del_fee=Del_fee, Dri_fee=Driverfee, M_cost=Meal_cost,
-            O_expenses=Other_exp, T_expenses=Total,sqa_number=sqa_number,car_provider=car_provider)
+            O_expenses=Other_exp, T_expenses=Total,sqa_number=sqa_number,car_provider=car_provider, status=status)
 
         return HttpResponseRedirect('/Car/Car/')
 
 class carrentalDeleteView(BSModalDeleteView):
     model = CarRental
-    template_name = 'payment/car/carrental_delete.html'
+    template_name = 'carrental_delete.html'
     success_message = 'Success: Item was deleted.'
     success_url = reverse_lazy('carrental_list')
 
 def carrentalHistoryView(request):
     if request.method == "GET":
         obj = CarRental.history.all()
-        return render(request, 'payment/car/carrental_history.html', context={'object': obj})
+        return render(request, 'carrental_history.html', context={'object': obj})
 
 def rent(request):
     emp = EmployeeMasterlist.objects.all()

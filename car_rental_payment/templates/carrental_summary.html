@@ -186,6 +186,16 @@
         <div class="modal-body">
         <div class="tab-content">
         <div class="row">
+              <div class="col-sm-12" align="right">
+                  <div class="form-group">
+                  <label>Status</label>
+                  <select align="right" style="width: 250px; text-transform:" type="text" name="status" id="status" class="text-center" value="{{object.status}}" required>
+                      <option></option>
+                      <option value="Ongoing">Ongoing</option>
+                      <option value="Completed">Completed</option>
+                  </select>
+                  </div>
+              </div>
               <div class="col-sm-4">
                   <label>Bill Date</label>
                   <input style= "text-transform:" type="date" name="Bdate" id="Bdate" class="form-control" value="{{ object.Bill_date }}" readonly>

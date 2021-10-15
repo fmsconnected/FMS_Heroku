@@ -44,6 +44,7 @@
                             <th>Provider</th>
                             <th>SOA Number</th>
                             <th>RFP Number</th>
+                            <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -61,6 +62,7 @@
                             <td>{{ CarRental.car_provider}} </td>
                             <td>{{ CarRental.sqa_number}} </td>
                             <td>{{ CarRental.rfp_no2 }}</td>
+                            <td>{{ CarRental.status }}</td>
                             <td>
                                 <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'carrental_delete' CarRental.pk %}">
                                 <span class="fa fa-trash"></span>
