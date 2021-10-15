@@ -95,7 +95,7 @@ def fuel_excel(request):
     'Outstanding Amount',
     'Payee',
     'Attached',
-    'Payment Deadline',
+    'Deadline',
     'Date Forwarded',
     'Date Initiated',
     ]
@@ -117,7 +117,7 @@ def fuel_excel(request):
                 fuel.SOA_outstanding_amount,
                 fuel.Payee,
                 fuel.SOA_attached,
-                fuel.Payment_deadline,
+                fuel.Deadline,
                 fuel.Date_forwarded,
                 fuel.Date_initiated,
         ]
