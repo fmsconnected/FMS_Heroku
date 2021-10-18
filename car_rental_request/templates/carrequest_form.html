@@ -18,7 +18,7 @@ function carrequest(car) {
         <h3 class="page-header"><b>Car Rental Request</b></h3>&nbsp;
     </div>
 </div>
- <div class="w3-bar w3-black">
+<div class="w3-bar w3-black">
   <button class="w3-bar-item w3-button" onclick="carrequest('Car Rental Request')">Car Rental Request</button>
   <button class="w3-bar-item w3-button" onclick="carrequest('OutBound Process')">Outbound Process</button>
   <button class="w3-bar-item w3-button" onclick="carrequest('Approved Process')">Approved Process</button>
@@ -30,10 +30,14 @@ function carrequest(car) {
     <fieldset>
       <legend align="left">Assignee Details</legend><br>
       <div style="display: flex; justify-content: flex-end">
-      <div class="col-sm-4">
-          <label>Employee ID</label>
-        {{ form.A_Employee }}
-      </div>
+        <div class="col-sm-4">
+            <label>Employee ID</label>
+          {{ form.A_Employee }}
+        </div>
+        <div class="col-sm-4">
+            <label>Status</label>
+          {{ form.status }}
+        </div>
       </div>
       <br><br>
       <div class="col-sm-4">
@@ -48,7 +52,6 @@ function carrequest(car) {
           <label>Last Name</label>
         {{ form.Assignee_Lname }}
       </div>
-
       <div class="col-sm-4">
           <label>Contact Number</label>
           {{ form.Assignee_No }}
@@ -140,24 +143,23 @@ function carrequest(car) {
     </div>
     </fieldset>
     <div class="card-footer">
-      <button type="submit" class="bubuttonsubmittton">PROCEED</button>
+      <button type="submit" class="buttonsubmit">PROCEED</button>
       <button type="Reset" class="button">CLEAR ALL</button>
       <a href="{% url 'carrequest_list' %}" type="button" class="btn">CLOSE</a>
     </div>
     <br><br><br>
   </div>
-
   <div id="OutBound Process" class="w3-container request">
     <fieldset>
-      <legend align="left">Vehicle Details</legend>
-    <div class="col-sm-6">
-      <label>Type of Vehicle</label>
-      {{ form.Type_of_vehicle }}
-    </div>
-    <div class="col-sm-6">
-      <label>Plate Number</label>
-      {{ form.Plate_no }}
-    </div>
+    <legend align="left">Vehicle Details</legend>
+      <div class="col-sm-6">
+        <label>Type of Vehicle</label>
+        {{ form.Type_of_vehicle }}
+      </div>
+      <div class="col-sm-6">
+        <label>Plate Number</label>
+        {{ form.Plate_no }}
+      </div>
     </fieldset>
 
     <div class="card-footer">
@@ -165,20 +167,20 @@ function carrequest(car) {
     </div>
   </div>
 
-<div id="Approved Process" class="w3-container request">
-  <fieldset>
-  <legend align="left">Approval Process</legend>
-  <div class="col-sm-6">
-      <label>Immediate Supervisor</label>
-      {{ form.Immediate_supervisor }}
+  <div id="Approved Process" class="w3-container request">
+    <fieldset>
+    <legend align="left">Approval Process</legend>
+      <div class="col-sm-6">
+          <label>Immediate Supervisor</label>
+          {{ form.Immediate_supervisor }}
+      </div>
+      <div class="col-sm-6">
+          {{ form.CR_SLA }}
+      </div>
+    </fieldset>
+    <div class="card-footer">
+      <button type="submit" class="buttonsubmit">UPDATE</button>
+    </div>
   </div>
-  <div class="col-sm-6">
-      {{ form.CR_SLA }}
-  </div>
-  </fieldset>
-  <div class="card-footer">
-    <button type="submit" class="buttonsubmit">UPDATE</button>
-  </div>
-</div>
 </form>
 {% endblock %}

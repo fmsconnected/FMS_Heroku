@@ -16,6 +16,7 @@ class carrequestform(forms.ModelForm):
 		self.fields['Plate_no'].required = False
 		self.fields['Immediate_supervisor'].required = False
 		self.fields['Up_to'].required = False
+		self.fields['status'].required = True
 
 	class Meta:
 		model = CarRentalRequest
@@ -24,7 +25,7 @@ class carrequestform(forms.ModelForm):
 				'Assignee_Company','Assignee_band','Assignee_Dept','Assignee_Cost','Assignee_Div','Assignee_Loc',
 				'Assignee_Section','Assignee_Designation','Assignee_ATD','Vendor_name','Date','Up_to','Time',
 				'Place_of_del','type_rental','Cost_center','Rental_period','Destination','Delivery_date',
-				'End_user','Type_of_vehicle','Plate_no','Immediate_supervisor','CR_SLA'
+				'End_user','Type_of_vehicle','Plate_no','Immediate_supervisor','CR_SLA','status'
 		]
 		CHOICES= (
 			('Ser Roy DelaCruz', 'Ser Roy DelaCruz'),
@@ -39,6 +40,10 @@ class carrequestform(forms.ModelForm):
 				('SUV', 'SUV'),
 				('VAN', 'VAN'),
 			)
+		status = (
+			('Ongoing', 'Ongoing'),
+			('Completed', 'Completed'),
+		)
 		widgets = {
 			'A_Employee' : forms.TextInput(attrs={'class':'form-control'}),
 			'Date_received': forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
@@ -68,5 +73,6 @@ class carrequestform(forms.ModelForm):
 			'Type_of_vehicle': forms.Select(attrs={'class':'form-control', 'choices':'Vtype'}),
 			'Plate_no': forms.TextInput(attrs={'class':'form-control'}),
 			'Immediate_supervisor': forms.Select(attrs={'class':'form-control','choices':'CHOICES'}),
-			'CR_SLA' : forms.TextInput(attrs={'class':'form-control','value':'2','hidden':'true'})
+			'CR_SLA' : forms.TextInput(attrs={'class':'form-control','value':'2','hidden':'true'}),
+			'status': forms.Select(attrs={'class':'form-control','choices':'status'}),
 		}

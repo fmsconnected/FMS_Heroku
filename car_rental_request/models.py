@@ -34,7 +34,10 @@ class CarRentalRequest(models.Model):
 		('SUV', 'SUV'),
 		('VAN', 'VAN'),
 	)
-
+	status = (
+			('Ongoing', 'Ongoing'),
+			('Completed', 'Completed'),
+		)
 	Activity_id = models.CharField(max_length=100,null=True, default=increment_Activity_id)
 	A_Employee = models.CharField(max_length=100, null=True, blank=True)
 	Date_received = models.CharField(max_length=100, null=True, blank=True)
@@ -66,6 +69,7 @@ class CarRentalRequest(models.Model):
 	Immediate_supervisor = models.CharField(max_length=50, null=True, choices=CHOICES, blank=True)
 	CR_SLA = models.CharField(max_length=10, null=True, blank=True)
 	Date_initiated = models.DateField(auto_now=True, blank=True)
+	status = models.CharField(max_length=100, null=True, blank=True, choices=status)
 	history = HistoricalRecords()
 	Deadline = models.DateTimeField()
 
