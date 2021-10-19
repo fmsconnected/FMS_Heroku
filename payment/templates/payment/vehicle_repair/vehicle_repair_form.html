@@ -28,6 +28,14 @@ function vrepair(repair) {
     <fieldset>
         <legend align="left">Requisitioner Details</legend><br>
         <div style="display: flex; justify-content: flex-end">
+        <div class="col-sm-2">
+            <label>Status</label>
+            <select type="Text" name="status" id="status" class="form-control" required>
+                <option></option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Completed">Completed</option>
+            </select>
+        </div>
         <div class="col-sm-6">
             <label>Request Date</label>
             <input type="Date" name="request_date" id="request_date" class="form-control" required>

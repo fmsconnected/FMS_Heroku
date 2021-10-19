@@ -28,10 +28,15 @@ function vrepair(repair) {
     <fieldset>
         <legend align="left">Requisitioner Details</legend><br>
         <div style="display: flex; justify-content: flex-end">
+        <div class="col-sm-2">
+            <label>Status</label>
+            {{ form.Status }}
+        </div>   
         <div class="col-sm-6">
             <label>Request Date</label>
             {{ form.request_date }}
         </div>
+        
         </div>
         <div class="col-sm-6">
             <label>Employee ID</label>
@@ -114,7 +119,7 @@ function vrepair(repair) {
     </fieldset>
     <div class="card-footer">
       <button type="submit" class="button">UPDATE</button>
-      <button class="btnc" type="reset">CLEAR ALL</button>
+      <!-- <button class="btn" type="reset">CLEAR ALL</button> -->
       <a href="{% url 'vehiclerepair_payment' %}" type="button" class="btn">CLOSE</a>
     </div>
     </div>

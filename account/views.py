@@ -155,22 +155,22 @@ class ChartData_ongoing(APIView):
         own = Ownership.objects.filter(D_status="Ongoing").count()
         # bill = Billing.objects.filter(date_initiated__month=date.month, cost_center="").count()
         crr = CarRentalRequest.objects.filter(status="Ongoing").count()
-        gcr = Gas_card.objects.filter(date_initiated__month= date.month, fleet_date_release="" ).count()
+        # gcr = Gas_card.objects.filter(date_initiated__month= date.month, fleet_date_release="" ).count()
         svr = service_vehicle.objects.filter(Status="Ongoing").count()
         vrr = Vehicle_Repair.objects.filter(date_initiated__month= date.month,approvedby="" ).count()
         vr = vehicle_report.objects.filter(Status="Ongoing").count()
         vpr = VehiclePayment.objects.filter(Status="Ongoing").count()
         crp = CarRental.objects.filter(status="Ongoing").count()
         fs = Fuel_supplier.objects.filter(status="Ongoing").count()
-        vrp = Vehicle_Repair_payment.objects.filter(date_initiated__month= date.month, invoice_date="" ).count()
+        vrp = Vehicle_Repair_payment.objects.filter(Status="Ongoing").count()
         registration = VehicleMasterList.objects.filter(PLATE_ENDING=month, vehicle_status="Active",CR_NAME="GLOBE").count()
         fc = fleet_card.objects.filter(STATUS="Ongoing").count()
         fcd = fleet_card_driver.objects.filter(STATUS="Ongoing").count()
         ongoing_labels = ["FATA Monitoring",
-        "Corrective Maintenance", "Transfer Ownership", "Car Rental Request", "Gas Card Request",
+        "Corrective Maintenance", "Transfer Ownership", "Car Rental Request",
         "Service Vehicle Request", "Preventive Maintenance", "Insurance", "New Vehicle Payment",
         "Car Rental Payment", "Fuel Supplier Payment", "Vehicle Repair Payment","Fleet Card Driver Payment"],
-        item_data = [fm,cor,own,crr,gcr,svr, vrr, vr,vpr,crp,fs,vrp,fc,fcd]
+        item_data = [fm,cor,own,crr,svr, vrr, vr,vpr,crp,fs,vrp,fc,fcd]
         ongoing_data = {
                 "default_ongoing": item_data,
         }
@@ -187,9 +187,9 @@ class ChartData_completed(APIView):
         vpr = VehiclePayment.objects.filter(Status="Completed").count()
         crp = CarRental.objects.filter(status="Completed").count()
         fs = Fuel_supplier.objects.filter(status="Completed").count()
-        vrp = Vehicle_Repair_payment.objects.exclude(date_initiated__month= date.month, invoice_date="" ).exclude(invoice_date__exact='').count()
+        vrp = Vehicle_Repair_payment.objects.filter(Status="Completed").count()
         crr = CarRentalRequest.objects.filter(status="Completed").count()
-        gcr = Gas_card.objects.exclude(date_initiated__month= date.month, fleet_date_release="" ).exclude(fleet_date_release__exact='').count()
+        # gcr = Gas_card.objects.exclude(date_initiated__month= date.month, fleet_date_release="" ).exclude(fleet_date_release__exact='').count()
         svr = service_vehicle.objects.filter(Status="Completed").count()
         vrr = Vehicle_Repair.objects.exclude(date_initiated__month= date.month,approvedby="" ).exclude(approvedby__exact='').count()
         vr = vehicle_report.objects.filter(Status="Completed").count()
@@ -200,7 +200,7 @@ class ChartData_completed(APIView):
         fcd = fleet_card_driver.objects.filter(STATUS="Completed").count()
         cus = CS_log.objects.exclude(Date_received__month= date.month, Date_resolved="").exclude(Date_resolved__exact='').count()
         bill = Billing.objects.exclude(date_initiated__month=date.month, cost_center="").exclude(cost_center__exact='').count()
-        item_completed_data = [fm,cor, own,crr,gcr,svr, vrr, vr,vpr,crp,fs,vrp,fc,fcd]
+        item_completed_data = [fm,cor, own,crr,svr, vrr, vr,vpr,crp,fs,vrp,fc,fcd]
         completed_data = {
                 "datacompleted": item_completed_data,
         }

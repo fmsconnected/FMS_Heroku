@@ -53,6 +53,7 @@
                             <th>RFP Number</th>
                             <th>Invoice Number</th>
                             <th>Invoice Date</th>
+                            <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -84,6 +85,7 @@
                             <td>{{ vrp.rfp_no }}</td>
                             <td>{{ vrp.invoice_num }}</td>
                             <td>{{ vrp.invoice_date }}</td>
+                            <td>{{ vrp.Status }}</td>
                             <td>
                                 <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'vehiclerepair_payment_delete' vrp.pk %}">
                                 <span class="fa fa-trash"></span>

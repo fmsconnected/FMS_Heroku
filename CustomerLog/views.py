@@ -181,7 +181,7 @@ def CS_deadline(request):
     return render(request, 'CS/CS_deadline.html', {'title': 'Customer Care Log', 'dl': dl, 'dl2': dl2, 'dl3': dl3, 'dl4': dl4, 'dl5': dl5, 'dl7': dl7, 'dl8': dl8})
 
 
-@ user_passes_test(in_group)
+# @ user_passes_test(in_group)
 def customer_log_excel(request):
     customer_queryset = CS_log.objects.all()
     response = HttpResponse(
