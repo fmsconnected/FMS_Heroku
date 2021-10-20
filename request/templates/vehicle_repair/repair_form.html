@@ -28,7 +28,10 @@ function vrepair(repair) {
     <div id="Vehicle Repair Request" class="w3-container vr">
     <fieldset>
         <legend align="left">Requisitioner Details</legend><br>
-        
+        <div class="col-sm-6">
+            <label>Status</label>
+            {{ form.status }}
+        </div>
         <div class="col-sm-6">
             <label>Employee ID</label>
             {{ form.employee }}
