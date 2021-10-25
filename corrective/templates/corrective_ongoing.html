@@ -14,18 +14,18 @@
 
 <div class="breadcrumbs">
     <div class="col-sm-12">
-        <h3 class="page-header"><b>Corrective Maintenance</b></h3>
+        <h3 class="page-header"><b>Corrective Maintenance Ongoing</b></h3>
     </div>
 </div>
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link active" href="#">Corrective Maintenance</a>
+        <a class="nav-link" href="{% url 'corrective_list' %}">Corrective Maintenance</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'corrective_ongoing' %}">Ongoing</a>
+        <a class="nav-link active" href="#">Ongoing</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Completed</a>
+        <a class="nav-link" href="{% url 'corrective_completed' %}">Completed</a>
     </li>
 </ul>
 <div class="content mt-3">
@@ -57,7 +57,7 @@
                         </tr>
                     </thead>
                      <tbody>
-                        {% for corrective in object_list %}
+                        {% for corrective in object %}
                         <tr class="odd gradeX">
                             <td><a href="{% url 'corrective_details' corrective.id %}">{{ corrective.Activity_id }}</a></td>
                             <td>{{ corrective.first_name }} {{ corrective.last_name }}</td>

@@ -8,15 +8,15 @@
 
 <div class="breadcrumbs">
     <div class="col-sm-12">
-        <h3><b>Car Rental Payment</b></h3>
+        <h3><b>Car Rental Payment Ongoing</b></h3>
     </div>
 </div>
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active" href="{% url 'carrental_list' %}">Car Rental Payment</a>
+    <a class="nav-link " href="{% url 'carrental_list' %}">Car Rental Payment</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link " href="{% url 'car_ongoing' %}">Ongoing</a>
+    <a class="nav-link active" href="#">Ongoing</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="{% url 'car_completed' %}">Completed</a>
@@ -55,7 +55,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for CarRental in object_list %}
+                        {% for CarRental in ongoing %}
                         <tr class="odd gradeX">
                             <td><a href="{% url 'Carrental_summary' CarRental.id %}"><u>{{ CarRental.Activity_id }}</u></a></td>
                             <td>{{ CarRental.F_name }} {{ CarRental.L_name }}</td>

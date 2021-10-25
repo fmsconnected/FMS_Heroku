@@ -39,7 +39,18 @@ from bootstrap_modal_forms.generic import (
 class correctiveListView(ListView):
     model = Corrective
     template_name='corrective_list.html'
-    
+
+def correctiveOngoing(request):
+    if request.method == "GET":
+       obj = Corrective.objects.filter(status="Ongoing")
+
+       return render(request, 'corrective_ongoing.html', context={'object': obj})
+def correctiveCompleted(request):
+    if request.method == "GET":
+       obj = Corrective.objects.filter(status="Completed")
+
+       return render(request, 'corrective_completed.html', context={'object': obj})
+
 def correctiveCreate(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)

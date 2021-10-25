@@ -36,6 +36,16 @@ def car_deadline(request):
     dl6 = CarRental.objects.filter(Deadline__date = datetime.datetime.today())
     return  render(request, 'cardeadline.html',{'title':'Car - Car Deadline', 'dl':dl, 'dl2':dl2, 'dl3':dl3, 'dl4':dl4, 'dl5':dl5, 'dl6':dl6})
 
+def car_ongoing(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    ongoing = CarRental.objects.filter(status = "Ongoing")
+    return  render(request, 'carrental_ongoing.html',{'title':'Car - Car Rental', 'ongoing':ongoing})
+def car_completed(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    completed = CarRental.objects.filter(status = "Completed")
+    return  render(request, 'carrental_completed.html',{'title':'Car - Car Rental', 'completed':completed})
 
 class CarRentalDetailView(DetailView):
     model = CarRental

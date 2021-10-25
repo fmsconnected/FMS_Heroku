@@ -12,5 +12,7 @@ urlpatterns = [
 	path('Corrective/Export', views.corrective_excel, name='corrective_export'),
 	path('Corrective/Report/Details',views.vehicle_maintenance_report_details, name='v_maitenance_details'),
 	path('Corrective/Report/Export', views.vehicle_maintenance_report, name='v_maitenance_report'),
+	path('Corrective/Ongoing', views.correctiveOngoing, name='corrective_ongoing'),
+	path('Corrective/Completed', views.correctiveCompleted, name='corrective_completed'),
 
 	]

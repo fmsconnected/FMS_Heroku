@@ -19,6 +19,8 @@ urlpatterns = [
 	path('Car/export', views.car_excel, name = 'car_export'),
 	path('Daily/Summary/', views.car_report_details, name='car_dailyreport_details'),
 	path('Daily/Export/',views.car_report, name='car_dailyreport_export'),
+	path('Car/Ongoing', views.car_ongoing, name='car_ongoing'),
+	path('Car/Completed', views.car_completed, name='car_completed'),
 
 ]
 
