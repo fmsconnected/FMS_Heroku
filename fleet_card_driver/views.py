@@ -44,6 +44,14 @@ class fleetcarddriver_list(ListView):
     model = fleet_card_driver
     template_name = 'fcd_list.html'
 
+class fleetcarddriver_ongoing(ListView):
+    model = fleet_card_driver
+    template_name = 'fcd_ongoing.html'
+
+class fleetcarddriver_completed(ListView):
+    model = fleet_card_driver
+    template_name = 'fcd_completed.html'
+
 class fleetcarddriver_create(CreateView):
     model = fleet_card_driver
     form_class = fleetcarddriver_form

@@ -14,13 +14,13 @@
 </div>
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link active" href="#">Fleet Card Driver</a>
+        <a class="nav-link" href="{% url 'FCD_list' %}">Fleet Card Driver</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Ongoing</a>
+        <a class="nav-link active" href="#">Ongoing</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Completed</a>
+        <a class="nav-link" href="{% url 'FCD_completed' %}">Completed</a>
     </li>
 </ul>
 <div class="content mt-3">
@@ -83,6 +83,10 @@ $(document).ready(function() {
         "bdeferRender": true,
         "autoWidth":true,
         "bprocessing": true,
+        "searchCols": [
+            null,
+            { "search": 'Ongoing' },
+              ],
         "language": {
             processing: '<i class="fa fa-spinner fa-spin fa-5x fa-fw" style="position:fixed; z-index: 10; top:400px; font-size: 2em; color: #39c0bc;"></i>'
         },
