@@ -11,4 +11,6 @@ urlpatterns = [
 	path('Request/Delete/<int:pk>/', views.requestDeleteView.as_view(), name='carrequest_delete'),
 	path('Request/History/', views.requestHistoryView, name='carrequest_history'),
 	path('Request/Export', views.car_request_excel, name='carrequest_export'),
+	path('Request/Ongoing', views.request_ongoing, name='crr_ongoing'),
+	path('Request/Completed', views.request_completed, name='crr_completed'),
 	]

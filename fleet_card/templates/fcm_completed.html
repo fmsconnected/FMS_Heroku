@@ -14,13 +14,13 @@
 </div>
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link active" href="#">Fleet Card</a>
+        <a class="nav-link " href="{% url 'Fcm_list' %}">Fleet Card</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{% url 'fcm_ongoing' %}">Ongoing</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'fcm_completed' %}">Completed</a>
+        <a class="nav-link active" href="#">Completed</a>
     </li>
 </ul>
 <div class="content mt-3">
@@ -56,7 +56,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for fcm in object_list %}
+                        {% for fcm in completed %}
                         <tr class="odd gradeX">
                             <td><a href="{% url 'fcm_details' fcm.id %}"><u>{{ fcm.Activity_id }}</a></u></td>
                             <td>{{ fcm.STATUS }}</td>

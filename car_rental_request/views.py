@@ -132,6 +132,18 @@ def requestHistoryView(request):
        obj = CarRentalRequest.history.all()
 
        return render(request, 'carrequest_history.html', context={'object': obj})
+def request_ongoing(request):
+    if request.method == "GET":
+       ongoing = CarRentalRequest.objects.filter(status="Ongoing")
+
+       return render(request, 'carrequest_ongoing.html', context={'ongoing': ongoing})
+
+def request_completed(request):
+    if request.method == "GET":
+       completed = CarRentalRequest.objects.filter(status="Completed")
+
+       return render(request, 'carrequest_completed.html', context={'completed': completed})
+
 def crr_deadline(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)

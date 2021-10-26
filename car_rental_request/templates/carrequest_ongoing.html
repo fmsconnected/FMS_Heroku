@@ -14,10 +14,10 @@
 </div>
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active">Car Rental Request</a>
+    <a class="nav-link " href="{% url 'carrequest_list' %}">Car Rental Request</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link " href="{% url 'crr_ongoing' %}">Ongoing</a>
+    <a class="nav-link active" href=#>Ongoing</a>
   </li>
   <li class="nav-item">
     <a class="nav-link " href="{% url 'crr_completed' %}">Completed</a>
@@ -50,7 +50,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for CarRentalRequest in object_list %}
+                        {% for CarRentalRequest in ongoing %}
                         <tr class="odd gradeX">
                             <td><a href="{% url 'carrequest_details' CarRentalRequest.id %}"><u>{{ CarRentalRequest.Activity_id }}</u></a></td>
                             <td>{{ CarRentalRequest.Assignee_Fname }} {{ CarRentalRequest.Assignee_Lname }}</td>

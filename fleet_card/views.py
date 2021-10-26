@@ -67,7 +67,14 @@ class fleet_cardDetails(DetailView):
     model = fleet_card
     template_name = 'fcm_details.html'
 
+def fcm_ongoing(request):
+    ongoing = fleet_card.objects.filter(STATUS="Ongoing")
+    return render(request, 'fcm_ongoing.html',{'Title':'FCM - Ongoing','ongoing':ongoing})
 
+def fcm_completed(request):
+    completed = fleet_card.objects.filter(STATUS="Completed")
+    return render(request, 'fcm_completed.html',{'Title':'FCM - Completed','completed':completed})
+    
 def fcm_export(request):
     fcm_queryset = fleet_card.objects.all()
     response = HttpResponse(
