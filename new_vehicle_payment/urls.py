@@ -20,6 +20,8 @@ urlpatterns = [
 	path('Vehicle/export', views.vehicle_excel, name='vehicle_export'),
 	path('Daily/Summary/', views.car_report_details, name='car_dailyreport_details'),
 	path('Daily/Export/',views.car_report, name='car_dailyreport_export'),
+	path('Vehicle/Ongoing',views.vehicle_completed, name='vehicle_completed'),
+	path('Vehicle/Completed',views.vehicle_ongoing, name='vehicle_ongoing'),
 
 ]
 

@@ -18,6 +18,8 @@ urlpatterns = [
 	path('Fuel/Delete/<int:pk>', FuelDeleteView.as_view(), name='Fuel_delete'),
 	path('Fuel/History/', views.FuelHistoryView, name='Fuel_history'),
 	path('Fuel/export', views.fuel_excel, name='fuel_export'),
+	path('Fuel/Ongoing', views.Fuel_ongoing, name='fuel_ongoing'),
+	path('Fuel/Completed', views.Fuel_completed, name='fuel_completed'),
 
 ]
 

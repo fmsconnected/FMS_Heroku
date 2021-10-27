@@ -14,10 +14,10 @@
 </div>
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active">Fuel Supplier Payment</a>
+    <a class="nav-link">Fuel Supplier Payment</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{% url 'fuel_ongoing' %}">Ongoing</a>
+    <a class="nav-link active" href="#">Ongoing</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="{% url 'fuel_completed' %}">Completed</a>
@@ -53,7 +53,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for Fuel_supplier in object_list %}
+                        {% for Fuel_supplier in ongoing %}
                         <tr class="odd gradeX">
                             <td><a href="{% url 'Fuel-summary' Fuel_supplier.id %}">{{ Fuel_supplier.Activity_id }}</a></td>
                             <td>{{ Fuel_supplier.Fuel_provider }} </td>

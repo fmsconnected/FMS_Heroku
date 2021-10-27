@@ -63,6 +63,20 @@ def FuelHistoryView(request):
 
        return render(request, 'fuel_supplier_history.html', context={'object': obj})
 
+def Fuel_ongoing(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    ongoing = Fuel_supplier.objects.filter(status="Ongoing")
+
+    return render(request, 'fuel_ongoing.html', context={'ongoing': ongoing})
+
+def Fuel_completed(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    completed = Fuel_supplier.objects.filter(status="Completed")
+
+    return render(request, 'fuel_completed.html', context={'completed': completed})
+
 def fuel_deadline(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)

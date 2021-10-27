@@ -28,6 +28,18 @@ def vehiclecreate(request):
     vlist = VehicleMasterList.objects.all()
     return render(request, 'vehiclepayment_form.html',{'elist':elist,'vlist':vlist})
 
+def vehicle_ongoing(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    ongoing = VehiclePayment.objects.filter(Status="Ongoing")
+    return render(request, 'vehicle_ongoing.html',{'ongoing':ongoing})
+
+def vehicle_completed(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    completed = VehiclePayment.objects.filter(Status="Completed")
+    return render(request, 'vehicle_completed.html',{'completed':completed})
+
 def vehicle_submit(request):
     if request.method == 'POST':
         a_emp_id = request.POST.get('a_emp_id')
