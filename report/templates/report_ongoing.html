@@ -18,10 +18,10 @@
 </div>
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active">Report</a>
+    <a class="nav-link " href="{% url 'report_list' %}">Report</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link " href="{% url 'report_ongoing' %}">Ongoing</a>
+    <a class="nav-link active" href="#">Ongoing</a>
   </li>
   <li class="nav-item">
     <a class="nav-link " href="{% url 'report_completed' %}">Completed</a>
@@ -55,7 +55,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for vehicle_report in object_list %}
+                        {% for vehicle_report in ongoing %}
                         <tr class="odd gradeX">
                             <td><a href="{% url 'insurancereport_details' vehicle_report.id %}"><u>{{ vehicle_report.Activity_id }}</u></a></td>
                             <td>{{ vehicle_report.a_employee_fname }} {{ vehicle_report.a_employee_lname }}</td>

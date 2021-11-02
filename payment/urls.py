@@ -13,6 +13,8 @@ urlpatterns = [
 	path('VehicleRepair/History', views.vrepairlHistoryView, name='vehicle_repair_history'),
 	path('Daily/Summary/', views.car_report_details, name='car_dailyreport_details'),
 	path('Daily/Export/',views.car_report, name='car_dailyreport_export'),
+	path('VehicleRepair/Ongoing', views.vrp_ongoing, name="vrp_ongoing"),
+	path('VehicleRepair/Completed', views.vrp_completed, name="vrp_completed"),
 
 ]
 

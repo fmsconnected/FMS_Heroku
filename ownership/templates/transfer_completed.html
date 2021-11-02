@@ -18,14 +18,13 @@
 </div>
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active">Transfer of Ownership</a>
-  </li>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link" href="{% url 'ownership_ongoing' %}">Ongoing</a>
+    <a class="nav-link" href="{% url 'ownership_list' %}">Transfer of Ownership</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{% url 'ownership_completed' %}">Completed</a>
+    <a class="nav-link " href="{% url 'ownership_ongoing' %}">Ongoing</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Completed</a>
   </li>
   <li class="nav-item">
     <a class="nav-link " href="{% url 'toodeadline' %}">Coming Deadline</a>
@@ -50,7 +49,6 @@
                         <tr>
                             <th>Activity ID</th>
                             <th>Vendee Full Name</th>
-                            <!-- <th>Requisitioner Full Name</th> -->
                             <th>Plate Number</th>
                             <th>CS Number</th>
                             <th>SLA</th>
@@ -61,11 +59,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for Ownership in object_list %}
+                        {% for Ownership in completed %}
                         <tr class="odd gradeX">
                             <td><a href="{% url 'ownership_details' Ownership.id %}"><u>{{ Ownership.Activity_id }}</u></a></td>
                             <td>{{ Ownership.v_fname }} {{ Ownership.v_lname }}</td>
-                            <!-- <td>{{ Ownership.req_Fname }} {{ Ownership.req_Lname }}</td> -->
                             <td>{{ Ownership.plate_no }}</td>
                             <td>{{ Ownership.cond_sticker }}</td>
                             <td>{{ Ownership.TOO_SLA }}/Days</td>

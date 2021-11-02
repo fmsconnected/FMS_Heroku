@@ -15,13 +15,13 @@
 </div>
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active" href="#">Vehicle Repair Payment</a>
+    <a class="nav-link" href="{% url 'vehiclerepair_payment' %}">Vehicle Repair Payment</a>
   </li>
   <li class="nav-item">
     <a class="nav-link " href="{% url 'vrp_ongoing' %}">Ongoing</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{% url 'vrp_completed' %}">Completed</a>
+    <a class="nav-link active" href="#">Completed</a>
   </li>
 </ul>
 <div class="content mt-3" >
@@ -68,7 +68,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for vrp in object_list %}
+                        {% for vrp in completed %}
                         <tr class="odd gradeX">
                             <td><a href="{%url 'vehicle_repair_details' vrp.id %}">{{ vrp.Activity_id }}</a></td>
                             <td>{{ vrp.request_date | date:'D d M Y'}}</td>

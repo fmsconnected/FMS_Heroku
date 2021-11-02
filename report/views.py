@@ -32,6 +32,18 @@ def report_new(request):
     vlist = VehicleMasterList.objects.all()
     return render(request, 'report_new.html',{'title': 'Report - Vehicle Report', 'elist': elist, 'vlist': vlist})
 
+def report_ongoing(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    ongoing = vehicle_report.objects.filter(Status="Ongoing")
+    return render(request, 'report_ongoing.html',{'title': 'Report - Vehicle Report', 'ongoing': ongoing})
+
+def report_completed(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    completed = vehicle_report.objects.filter(Status="Completed")
+    return render(request, 'report_completed.html',{'title': 'Report - Vehicle Report', 'completed': completed})
+
 class reportListView(ListView):
 	model = vehicle_report
 	template_name = 'report_list.html'

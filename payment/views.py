@@ -38,6 +38,18 @@ def vrepair_payment_create(request):
     vlist = VehicleMasterList.objects.all()
     return render(request, 'payment/vehicle_repair/vehicle_repair_form.html',{'emplist':emplist,'vlist':vlist})
 
+def vrp_ongoing(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    ongoing = Vehicle_Repair_payment.objects.filter(Status="Ongoing")
+    return render(request, 'payment/vehicle_repair/vrp_ongoing.html',{'ongoing':ongoing})
+
+def vrp_completed(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    completed = Vehicle_Repair_payment.objects.filter(Status="Completed")
+    return render(request, 'payment/vehicle_repair/vrp_completed.html',{'completed':completed})
+
 class vrepairDetailView(DetailView):
     model = Vehicle_Repair_payment
     template_name = 'payment/vehicle_repair/vehicle_repair_details.html'

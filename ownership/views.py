@@ -42,6 +42,18 @@ def ownershipcreate(request):
     v_list = VehicleMasterList.objects.all()
     return render(request, 'transfer_new.html',{'Title':'Ownership - Transfer of Ownership', 'e_list':e_list,'v_list':v_list})
 
+def ownership_ongoing(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    ongoing = Ownership.objects.filter(D_status="Ongoing")
+    return render(request, 'transfer_ongoing.html',{'Title':'Ownership - Transfer of Ownership', 'ongoing':ongoing})
+
+def ownership_completed(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    completed = Ownership.objects.filter(D_status="Completed")
+    return render(request, 'transfer_completed.html',{'Title':'Ownership - Transfer of Ownership', 'completed':completed})
+
 
 def ownership_submit(request):
 	if request.method == 'POST':

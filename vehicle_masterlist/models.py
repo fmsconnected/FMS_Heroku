@@ -145,6 +145,7 @@ class VehicleMasterList(models.Model):
 	vehicle_status = models.CharField(max_length=100, null=True, blank=True, choices=vstatus)
 	Status_2 = models.CharField(max_length=10, null=True, blank=True)
 	Status_3 = models.CharField(max_length=10, null=True, blank=True)
+	Status_4 = models.CharField(max_length=10, null=True, blank=True)
 	Date_email_log = models.CharField(max_length=20, null=True, blank=True)
 	history = HistoricalRecords()
 

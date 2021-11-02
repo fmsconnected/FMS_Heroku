@@ -11,5 +11,7 @@ urlpatterns = [
 	path('Report/Details/<int:pk>', views.reportDetails.as_view(), name='insurancereport_details'),
 	path('Report/Delete/<int:pk>', views.reportDeleteView.as_view(), name='report_delete'),
 	path('Report/History/', views.reportHistoryView, name='report_history'),
+	path('Report/Ongoing', views.report_ongoing, name= 'report_ongoing'),
+	path('Report/Completed', views.report_completed, name= 'report_completed'),
 
 ]
