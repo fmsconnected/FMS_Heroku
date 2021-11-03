@@ -320,6 +320,18 @@ def repairCreate(request):
     vlist = VehicleMasterList.objects.all()
     return render(request, 'vehicle_repair/repair_new.html',{'Title':'Vehicle - Vehicle Repair','emplist':emplist,'vlist':vlist})
 
+def repair_ongoing(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    ongoing = Vehicle_Repair.objects.filter(status="Ongoing")
+    return render(request, 'vehicle_repair/repair_ongoing.html',{'Title':'Vehicle - Vehicle Repair','ongoing':ongoing})
+
+def repair_completed(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    completed = Vehicle_Repair.objects.filter(status="Completed")
+    return render(request, 'vehicle_repair/repair_completed.html',{'Title':'Vehicle - Vehicle Repair','completed':completed})
+
 def repairsubmit(request):
     if request.method == 'POST':
         request_date = request.POST.get('request_date')

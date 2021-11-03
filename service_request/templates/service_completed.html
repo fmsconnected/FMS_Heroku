@@ -19,13 +19,13 @@
 </div>
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active">Service Vehicle Request</a>
+    <a class="nav-link "href="{% url 'service_list' %}">Service Vehicle Request</a>
   </li>
   <li class="nav-item">
     <a class="nav-link "href="{% url 'svr_ongoing' %}">Ongoing</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link "href="{% url 'svr_completed' %}">Completed</a>
+    <a class="nav-link active">Completed</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="{% url 'svrdeadline' %}">Coming Deadline</a>
@@ -59,7 +59,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for service_vehicle in object_list %}
+                        {% for service_vehicle in completed %}
                         <tr class="odd gradeX">
                             <td><a href="{% url 'service_details' service_vehicle.id %}"><u>{{ service_vehicle.Activity_id }}</u></a></td>
                             <td>{{ service_vehicle.req_employee_id }}</td>

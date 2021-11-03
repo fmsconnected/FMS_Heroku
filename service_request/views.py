@@ -63,6 +63,18 @@ def serviceCreate(request):
     vlist = Leasing.objects.all()
     return render(request, 'service_new.html',{'Title':'Car - Car Request', 'emplist':emplist,'vlist':vlist})
 
+def service_ongoing(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    ongoing = service_vehicle.objects.filter(Status="Ongoing")
+    return render(request, 'service_ongoing.html',{'Title':'Car - Car Request', 'ongoing':ongoing})
+
+def service_completed(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    completed = service_vehicle.objects.filter(Status="Completed")
+    return render(request, 'service_completed.html',{'Title':'Car - Car Request', 'completed':completed})
+
 def servicesubmit(request):
     if request.method == 'POST':
         req_employee_id = request.POST.get('req_employee_id')

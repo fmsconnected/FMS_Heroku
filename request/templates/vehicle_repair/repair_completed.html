@@ -64,18 +64,18 @@
 </div>
 
 <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active">Preventive Maintenance</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'repairongoing' %}">Ongoing</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'repaircompleted' %}">Completed</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'vrpdeadline' %}">Coming Deadline</a>
-  </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'repair_list' %}">Preventive Maintenance</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'repairongoing' %}">Ongoing</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active">Completed</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vrpdeadline' %}">Coming Deadline</a>
+    </li>
 </ul>
 <div class="content mt-3">
     <div class="animated fadeIn">
@@ -105,7 +105,7 @@
                         </tr>
                     </thead>
                      <tbody>
-                        {% for Vehicle_Repair in object_list %}
+                        {% for Vehicle_Repair in completed %}
                         <tr class="odd gradeX">
                             <td><a href="{% url 'repair_details' Vehicle_Repair.id %}">{{ Vehicle_Repair.Activity_id }}</a></td>
                             <td>{{ Vehicle_Repair.first_name }} {{ Vehicle_Repair.last_name }}</td>

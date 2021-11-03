@@ -4,6 +4,8 @@ from . import views
 urlpatterns = [
 	path('Service/', views.serviceListView.as_view(), name='service_list'),
 	path('Service/Deadline', views.svr_deadline, name='svrdeadline'),
+	path('Service/Ongoing', views.service_ongoing, name='svr_ongoing'),
+	path('Service/Completed', views.service_completed, name='svr_completed'),
 	path('Service/New', views.serviceCreate, name='service_new'),
 	path('Service/Submit', views.servicesubmit, name='service_submit'),
 	path('Service/Details/<int:pk>', views.serviceDetailView.as_view(), name='service_details'),
