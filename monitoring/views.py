@@ -51,6 +51,18 @@ def monitoring_create(request):
     v_list = VehicleMasterList.objects.all()
     return render(request, 'fata_monitoring_new.html',{'Title':'Monitoring - Fata Monitoring', 'e_list':e_list,'v_list':v_list})
 
+def monitoring_ongoing(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    ongoing = Fata_monitoring.objects.filter(Status="Ongoing")
+    return render(request, 'fata_ongoing.html',{'Title':'Monitoring - Fata Monitoring', 'ongoing':ongoing})
+
+def monitoring_completed(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    completed = Fata_monitoring.objects.filter(Status="Completed")
+    return render(request, 'fata_completed.html',{'Title':'Monitoring - Fata Monitoring', 'completed':completed})
+
 def monitoring_submit(request):
 	if request.method == 'POST':
 		Fata_no = request.POST.get('Fata_no')

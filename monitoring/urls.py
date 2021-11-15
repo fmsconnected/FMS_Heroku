@@ -4,6 +4,8 @@ from . import views
 urlpatterns = [
 	path('Monitoring/', views.monitoringListView.as_view(), name= 'Monitoring_list'),
 	path('Monitoring/New', views.monitoring_create, name='Monitoring_new'),
+	path('Monitoring/Ongoing', views.monitoring_ongoing, name='fata_ongoing'),
+	path('Monitoring/Completed', views.monitoring_completed, name='fata_completed'),
 	path('Monitoring/Submit', views.monitoring_submit, name='Monitoring_submit'),
 	path('Monitoring/Update/<int:pk>', views.monitoringUpdate.as_view(), name='Monitoring_update'),
 	path('Monitoring/Details/<int:pk>', views.monitoringDetails.as_view(), name='Monitoring_details'),

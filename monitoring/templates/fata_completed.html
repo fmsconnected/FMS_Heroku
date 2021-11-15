@@ -18,13 +18,13 @@
 </div>
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active">Fuel Supplier Payment</a>
+    <a class="nav-link " href="{% url 'Monitoring_list' %}">Fuel Supplier Payment</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{% url 'fata_ongoing' %}">Ongoing</a>
+    <a class="nav-link " href="{% url 'fata_ongoing' %}">Ongoing</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{% url 'fata_completed' %}">Completed</a>
+    <a class="nav-link active">Completed</a>
   </li>
 </ul>
 <div class="content mt-3">
@@ -55,7 +55,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for Fata_monitoring in object_list %}
+                        {% for Fata_monitoring in completed %}
                         <tr class="odd gradeX">
                             <td><a href="{% url 'Monitoring_details' Fata_monitoring.id %}"><u>{{ Fata_monitoring.Activity_id }}</u></a></td>
                             <td>{{ Fata_monitoring.Fata_no }}</td>
