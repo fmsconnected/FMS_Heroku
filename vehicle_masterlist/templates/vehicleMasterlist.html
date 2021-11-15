@@ -40,7 +40,6 @@
                     <thead>
                         <tr>
                             <th>Activity No</th>
-                            <th>NO</th>
                             <th>Plate Number</th>
                             <th>Conductions Sticker Number</th>
                             <th>CR Name</th>
@@ -86,9 +85,6 @@
                             <th>Email</th>
                             <th>Remarks</th>
                             <th>Latest Remarks</th>
-                            <th>Vehicle Status</th>
-                            <th>Email Status</th>
-                        </tr>
                     </thead>
                     </table>
                     </div>
@@ -137,7 +133,6 @@ $(document).ready(function() {
                 return data;
                 }
             },
-            {"data":"NO"},
             {"data":"PLATE_NO"},
             {"data":"CS_NO"},
             {"data":"CR_NAME"},
@@ -163,7 +158,6 @@ $(document).ready(function() {
             {"data":"SECTION"},
             {"data":"IS_ID"},
             {"data":"IS_NAME"},
-            // {"data":"IS_FIRST_NAME"},
             {"data":"LOCATION"},
             {"data":"ORIGINAL_OR_DATE"},
             {"data":"ACQ_DATE"},
@@ -183,10 +177,7 @@ $(document).ready(function() {
             {"data":"AREA"},
             {"data":"EMAIL"},
             {"data":"Remarks"},
-            // {"data":"Status"},
             {"data":"leasing_remark"},
-            {"data":"vehicle_status"},
-            {"data":"Status_2"},
         ]
     });
     $('#vtable').on( 'click', 'tr', function () {
