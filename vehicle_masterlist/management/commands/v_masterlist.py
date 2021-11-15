@@ -18,7 +18,7 @@ from vehicle_masterlist.models import VehicleMasterList
 
 django.setup()
 sched = BlockingScheduler()
-@sched.scheduled_job('interval', minutes=30)
+@sched.scheduled_job('interval', minutes=10)
 def send_masterlist_email():
     given_date = datetime.datetime.now().date()
     sec_week_of_month = given_date.replace(day=1)
@@ -56,7 +56,7 @@ def send_masterlist_email():
                     'acq_date':item.ACQ_DATE,
                     'acq_cost':item.ACQ_COST,
                 }
-                subject = 'Fleet Management System Automated Email- ' + (item.PLATE_NO)
+                subject = 'Fleet Management System Automated Email-' + (item.PLATE_NO)
                 html_message = render_to_string('email_template.html',data)
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
