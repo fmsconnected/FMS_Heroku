@@ -31,7 +31,8 @@ def send_masterlist_email():
     if month == 11:
         # if given_date == sec_week_of_month:
         print("1st Email VehicleMasterList")
-        car_status = VehicleMasterList.objects.filter(vehicle_status="Active", Status_4="No")
+        exc = Q(EMAIL__null=True) | Q(EMAIL="#N/A")
+        car_status = VehicleMasterList.objects.filter(vehicle_status="Active", Status_4="No").exclude(exc)
         plate = ""
         for carreg in car_status:
                 # print(carreg.plate_no)
