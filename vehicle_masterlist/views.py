@@ -511,6 +511,10 @@ def vehicle_excel(request):
             'Status',
             'Other Remarks',
             'Vehicle Status',
+            'Status',
+            'Status_2',
+            'Status_3',
+            'Status_4',
     ]
     row_num = 1
 
@@ -569,6 +573,10 @@ def vehicle_excel(request):
                 vehicle.Status,
                 vehicle.leasing_remark,
                 vehicle.vehicle_status,
+                vehicle.Status,
+                vehicle.Status_2,
+                vehicle.Status_3,
+                vehicle.Status_4,
         ]
         
         for col_num, cell_value in enumerate(row, 1):
