@@ -511,6 +511,7 @@ def vehicle_excel(request):
             'Status',
             'Other Remarks',
             'Vehicle Status',
+            'EMAIL',
             'Status',
             'Status_2',
             'Status_3',
@@ -573,6 +574,7 @@ def vehicle_excel(request):
                 vehicle.Status,
                 vehicle.leasing_remark,
                 vehicle.vehicle_status,
+                vehicle.EMAIL,
                 vehicle.Status,
                 vehicle.Status_2,
                 vehicle.Status_3,
@@ -634,6 +636,7 @@ def vehicle_excel(request):
             'COC_Date',
             'Remarks',
             'Status',
+            'Email',
             'Other Remarks',
             'Vehicle Status',
     ]
@@ -692,6 +695,7 @@ def vehicle_excel(request):
                 vehicle.COC_Date,
                 vehicle.Remarks,
                 vehicle.Status,
+                vehicle.EMAIL,
                 vehicle.leasing_remark,
                 vehicle.vehicle_status,
         ]
@@ -751,6 +755,7 @@ def vehicle_excel(request):
             'COC_Date',
             'Remarks',
             'Status',
+            'Email',
             'Other Remarks',
             'Vehicle Status',
     ]
@@ -809,6 +814,7 @@ def vehicle_excel(request):
                 vehicle.COC_Date,
                 vehicle.Remarks,
                 vehicle.Status,
+                vehicle.EMAIL,
                 vehicle.leasing_remark,
                 vehicle.vehicle_status,
         ]
