@@ -151,7 +151,7 @@ class VehicleMasterList(models.Model):
 
 	def __str__(self):
 		return self.PLATE_NO
-				
+		# return str(self.id)
 	def get_absolute_url(self):
 		return reverse('vehicle-list')
 
