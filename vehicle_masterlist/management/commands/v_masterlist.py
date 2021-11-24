@@ -18,7 +18,7 @@ from vehicle_masterlist.models import VehicleMasterList
 
 django.setup()
 sched = BlockingScheduler()
-@sched.scheduled_job('interval', hours=23)
+@sched.scheduled_job('interval', hours=24)
 def send_masterlist_email():
     given_date = datetime.datetime.now().date()
     sec_week_of_month = given_date.replace(day=1)
