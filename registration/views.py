@@ -73,28 +73,29 @@ def regUpdate(request, pk):
 
         reg = ''
         endplate = ''
-        if PLATE_NO != '':
-            endplate = int(PLATE_NO[-1])
-            if endplate == 1:
-                reg = 'JAN'
-            elif endplate == 2:
-                reg = 'FEB'
-            elif endplate == 3:
-                reg = 'MAR'
-            elif endplate == 4:
-                reg = 'APR'
-            elif endplate == 5:
-                reg = 'MAY'
-            elif endplate == 6:
-                reg = 'JUN'
-            elif endplate == 7:
-                reg = 'JUL'
-            elif endplate == 8:
-                reg = 'AUG'
-            elif endplate == 9:
-                reg = 'SEP'
-            elif endplate == 0:
-                reg = 'OCT' 
+        if PLATE_NO != 'None':
+            if PLATE_NO != '':
+                endplate = int(PLATE_NO[-1])
+                if endplate == 1:
+                    reg = 'JAN'
+                elif endplate == 2:
+                    reg = 'FEB'
+                elif endplate == 3:
+                    reg = 'MAR'
+                elif endplate == 4:
+                    reg = 'APR'
+                elif endplate == 5:
+                    reg = 'MAY'
+                elif endplate == 6:
+                    reg = 'JUN'
+                elif endplate == 7:
+                    reg = 'JUL'
+                elif endplate == 8:
+                    reg = 'AUG'
+                elif endplate == 9:
+                    reg = 'SEP'
+                elif endplate == 0:
+                    reg = 'OCT' 
 	
     Registration.objects.filter(id=pk).update(PLATE_NO=PLATE_NO, Plate_ending=endplate, CS_NO=CS_NO, CR_NAME=CR_NAME, MODEL=MODEL,BRAND=BRAND,VEHICLE_MAKE=VEHICLE_MAKE,ENGINE_NO=ENGINE_NO,CHASSIS_NO=CHASSIS_NO,MV_FILE_NO=MV_FILE_NO,COC=COC,SMOKE_TPL=SMOKE_TPL,REMARKS_REGISTERED=REMARKS_REGISTERED,DATE_EMAILED=DATE_EMAILED,JUSTIFICATION_REMARKS=JUSTIFICATION_REMARKS,Registration_month=reg, sent_email=email_status, email=email, Date_registered=date_reg)
     return HttpResponseRedirect('/Registration/Details/{}'.format(pk))
@@ -179,7 +180,7 @@ def othersRegView(request):
 
 def trailerRegView(request):
     context = {
-            'trailer_list': Registration.objects.filter(BRAND__contains="TRAILER",PLATE_NO__isnull=True)
+            'trailer_list': Registration.objects.filter(BRAND__contains="TRAILER")
         }
 
     return render(request, 'reg_trailer.html', context)
