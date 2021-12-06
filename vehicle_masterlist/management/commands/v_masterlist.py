@@ -68,8 +68,8 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsjxmtsi@gmail.com>'
-                # cc_email= ['sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph','zscsantos@globe.com.ph']
-                toaddrs = recipient_list
+                cc_email= ['sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph','zscsantos@globe.com.ph']
+                toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
                 print("1st Email VehicleMasterList Send")
