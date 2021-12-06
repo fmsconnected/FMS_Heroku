@@ -24,14 +24,20 @@ def send_masterlist_email():
     sec_week_of_month = given_date.replace(day=1)
     month = datetime.datetime.now().month
     year = datetime.datetime.now().year
-    year1 = datetime.datetime.now().year - 1
-    year2 = datetime.datetime.now().year - 2
+    year1 = datetime.datetime.now().year + 1
+    year2 = datetime.datetime.now().year - 1
     date_now = datetime.datetime.now().date()
     sent_status = VehicleMasterList.objects.all()
+    print("year",year)
+    print("year1",year1)
+    print("year2",year2)
     if month == 12:
         # if given_date == sec_week_of_month:
         print("1st Email VehicleMasterList")
-        car_status = VehicleMasterList.objects.filter(vehicle_status="Active", Status_4="No")[:80]
+        # car_status = VehicleMasterList.objects.filter(vehicle_status="Active", Status_4="No")[:80]
+        exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
+        car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
+            PLATE_ENDING="1", Status="No").exclude(exc)[:80]
         print(car_status)
         plate = ""
         for carreg in car_status:
@@ -62,10 +68,10 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsjxmtsi@gmail.com>'
-                cc_email= ['dennis.alonzo@jxmtsi.com','zjaperez@globe.com.ph','zsbwarde@globe.com.ph','zscsantos@globe.com.ph']
-                toaddrs = recipient_list + cc_email
+                # cc_email= ['sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph','zscsantos@globe.com.ph']
+                toaddrs = recipient_list
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
-                # VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status_4="Yes")
+                VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
                 print("1st Email VehicleMasterList Send")
 
 sched.start()
