@@ -127,29 +127,29 @@ def registrationCreate(request):
 
         reg = ''
         endplate = ''
-        if PLATE_NO != 'None':
-            if PLATE_NO != '':
-                endplate = int(PLATE_NO[-1])
-                if endplate == 1:
-                    reg = 'JAN'
-                elif endplate == 2:
-                    reg = 'FEB'
-                elif endplate == 3:
-                    reg = 'MAR'
-                elif endplate == 4:
-                    reg = 'APR'
-                elif endplate == 5:
-                    reg = 'MAY'
-                elif endplate == 6:
-                    reg = 'JUN'
-                elif endplate == 7:
-                    reg = 'JUL'
-                elif endplate == 8:
-                    reg = 'AUG'
-                elif endplate == 9:
-                    reg = 'SEP'
-                elif endplate == 0:
-                    reg = 'OCT' 
+        # if PLATE_NO != 'None':
+        if PLATE_NO != '':
+            endplate = int(PLATE_NO[-1])
+            if endplate == 1:
+                reg = 'JAN'
+            elif endplate == 2:
+                reg = 'FEB'
+            elif endplate == 3:
+                reg = 'MAR'
+            elif endplate == 4:
+                reg = 'APR'
+            elif endplate == 5:
+                reg = 'MAY'
+            elif endplate == 6:
+                reg = 'JUN'
+            elif endplate == 7:
+                reg = 'JUL'
+            elif endplate == 8:
+                reg = 'AUG'
+            elif endplate == 9:
+                reg = 'SEP'
+            elif endplate == 0:
+                reg = 'OCT' 
 
         saveto_end = Registration(PLATE_NO=PLATE_NO,Plate_ending= endplate, CS_NO=CS_NO, CR_NAME=CR_NAME, MODEL=MODEL,BRAND=BRAND,
             VEHICLE_MAKE=VEHICLE_MAKE, ENGINE_NO=ENGINE_NO, CHASSIS_NO=CHASSIS_NO, MV_FILE_NO=MV_FILE_NO,
