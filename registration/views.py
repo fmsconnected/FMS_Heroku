@@ -127,7 +127,7 @@ def registrationCreate(request):
 
         reg = ''
         endplate = ''
-        # if PLATE_NO != 'None':
+        # if PLATE_NO != ' ':
         if PLATE_NO != '':
             endplate = int(PLATE_NO[-1])
             if endplate == 1:
