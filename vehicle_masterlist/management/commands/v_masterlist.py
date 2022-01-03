@@ -18,26 +18,26 @@ from vehicle_masterlist.models import VehicleMasterList
 
 django.setup()
 sched = BlockingScheduler()
-@sched.scheduled_job('interval', minutes=5)
+@sched.scheduled_job('interval', minutes=15)
 def send_masterlist_email():
     given_date = datetime.datetime.now().date()
     sec_week_of_month = given_date.replace(day=1)
     month = datetime.datetime.now().month
     year = datetime.datetime.now().year
-    year1 = datetime.datetime.now().year + 1
-    year2 = datetime.datetime.now().year - 1
+    year1 = datetime.datetime.now().year - 1
+    year2 = datetime.datetime.now().year - 2
     date_now = datetime.datetime.now().date()
     sent_status = VehicleMasterList.objects.all()
     print("year",year)
     print("year1",year1)
     print("year2",year2)
-    if month == 12:
+    if month == 1:
         # if given_date == sec_week_of_month:
         print("1st Email VehicleMasterList")
         # car_status = VehicleMasterList.objects.filter(vehicle_status="Active", Status_4="No")[:80]
         exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
         car_status = VehicleMasterList.objects.filter(vehicle_status="Active",
-            PLATE_ENDING="1", Status="No").exclude(exc)[:80]
+            PLATE_ENDING="2", Status="No").exclude(exc)[:80]
         print(car_status)
         plate = ""
         for carreg in car_status:
