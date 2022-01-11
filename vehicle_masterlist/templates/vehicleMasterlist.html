@@ -130,7 +130,7 @@ $(document).ready(function() {
         "columns": [
             {"data": "Activity_Id",
             "render": function(data, type, row, meta){
-                if(type === 'POST'){
+                if(type === 'display'){
                     data = '<a href="Details/' + row.id + '">' + data + '</a>';
                     }
                 return data;
