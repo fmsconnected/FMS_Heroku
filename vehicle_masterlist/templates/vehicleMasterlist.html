@@ -105,18 +105,18 @@ $(document).ready(function() {
     var table = $('#vtable').DataTable({
         "serverSide": true,
         // "serverSide": true,
-        "scrollX": true,
-        "scrollY": "300px",
+        // "scrollX": true,
+        "scrollY": "500px",
         "deferLoading": true,
         "deferRender": true,
         "autoWidth":true,
-        "processing": true,
+        // "processing": true,
         "paging": true,
         // "lengthMenu":[[10,25,50,100,-1],[10,25,50,100,"All"]], 
         // "pageLength": 10,
-        "language": {
-            processing: '<i class="fa fa-spinner fa-spin fa-5x fa-fw" style="position:fixed; z-index: 10; top:400px; font-size: 2em; color: #39c0bc;"></i>'
-        },
+        // "language": {
+        //     processing: '<i class="fa fa-spinner fa-spin fa-5x fa-fw" style="position:fixed; z-index: 10; top:400px; font-size: 2em; color: #39c0bc;"></i>'
+        // },
         "ajax": {
             dataFilter: function(data){
                 var json = jQuery.parseJSON( data );
