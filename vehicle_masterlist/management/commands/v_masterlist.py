@@ -68,8 +68,8 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                # cc_email= ['zscsantos@globe.com.ph']
-                toaddrs = recipient_list
+                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
                 print("1st Email VehicleMasterList Send")
@@ -108,8 +108,8 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                # cc_email= ['zscsantos@globe.com.ph']
-                toaddrs = recipient_list
+                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
                 print("1st Email VehicleMasterList Send")
@@ -148,8 +148,8 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                # cc_email= ['zscsantos@globe.com.ph']
-                toaddrs = recipient_list
+                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
                 print("1st Email VehicleMasterList Send")
@@ -188,8 +188,8 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                # cc_email= ['zscsantos@globe.com.ph']
-                toaddrs = recipient_list
+                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
                 print("1st Email VehicleMasterList Send")
@@ -228,8 +228,8 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                # cc_email= ['zscsantos@globe.com.ph']
-                toaddrs = recipient_list
+                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
                 print("1st Email VehicleMasterList Send")
@@ -268,8 +268,8 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                # cc_email= ['zscsantos@globe.com.ph']
-                toaddrs = recipient_list
+                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
                 print("1st Email VehicleMasterList Send")
@@ -308,8 +308,8 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                # cc_email= ['zscsantos@globe.com.ph']
-                toaddrs = recipient_list
+                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
                 print("1st Email VehicleMasterList Send")
@@ -348,8 +348,8 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                # cc_email= ['zscsantos@globe.com.ph']
-                toaddrs = recipient_list
+                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
                 print("1st Email VehicleMasterList Send")
@@ -388,8 +388,8 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                # cc_email= ['zscsantos@globe.com.ph']
-                toaddrs = recipient_list
+                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
                 print("1st Email VehicleMasterList Send")
@@ -428,8 +428,8 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                # cc_email= ['zscsantos@globe.com.ph']
-                toaddrs = recipient_list
+                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
                 print("1st Email VehicleMasterList Send")
@@ -484,8 +484,8 @@ def account_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    # cc_email= ['zscsantos@globe.com.ph']
-                    toaddrs = recipient_list
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Account Confirmation Send")  
     if month == 1:
@@ -524,8 +524,8 @@ def account_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    # cc_email= ['zscsantos@globe.com.ph']
-                    toaddrs = recipient_list
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Account Confirmation Send")
     if month == 2:
@@ -564,8 +564,8 @@ def account_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    # cc_email= ['zscsantos@globe.com.ph']
-                    toaddrs = recipient_list
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Account Confirmation Send")
 
@@ -605,8 +605,8 @@ def account_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    # cc_email= ['zscsantos@globe.com.ph']
-                    toaddrs = recipient_list
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Account Confirmation Send")
     if month == 4:
@@ -645,8 +645,8 @@ def account_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    # cc_email= ['zscsantos@globe.com.ph']
-                    toaddrs = recipient_list
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Account Confirmation Send")
     if month == 5:
@@ -685,8 +685,8 @@ def account_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    # cc_email= ['zscsantos@globe.com.ph']
-                    toaddrs = recipient_list
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Account Confirmation Send")
     if month == 6:
@@ -725,8 +725,8 @@ def account_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    # cc_email= ['zscsantos@globe.com.ph']
-                    toaddrs = recipient_list
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Account Confirmation Send")
     if month == 7:
@@ -765,8 +765,8 @@ def account_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    # cc_email= ['zscsantos@globe.com.ph']
-                    toaddrs = recipient_list
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Account Confirmation Send")
     if month == 8:
@@ -805,8 +805,8 @@ def account_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    # cc_email= ['zscsantos@globe.com.ph']
-                    toaddrs = recipient_list
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Account Confirmation Send")
     if month == 9:
@@ -845,8 +845,8 @@ def account_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    # cc_email= ['zscsantos@globe.com.ph']
-                    toaddrs = recipient_list
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Account Confirmation Send")
 
@@ -900,8 +900,8 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    # cc_email= ['zscsantos@globe.com.ph']
-                    toaddrs = recipient_list
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration Send")
     if month == 1:
@@ -940,8 +940,8 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    # cc_email= ['zscsantos@globe.com.ph']
-                    toaddrs = recipient_list
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration Send")      
     if month == 2:
@@ -980,8 +980,8 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    # cc_email= ['zscsantos@globe.com.ph']
-                    toaddrs = recipient_list
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration Send")          
     if month == 3:
@@ -1020,8 +1020,8 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    # cc_email= ['zscsantos@globe.com.ph']
-                    toaddrs = recipient_list
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration Send")           
     if month == 4:
@@ -1060,8 +1060,8 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    # cc_email= ['zscsantos@globe.com.ph']
-                    toaddrs = recipient_list
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration Send")         
     if month == 5:
@@ -1100,8 +1100,8 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    # cc_email= ['zscsantos@globe.com.ph']
-                    toaddrs = recipient_list
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration Send")      
     if month == 6:
@@ -1140,8 +1140,8 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    # cc_email= ['zscsantos@globe.com.ph']
-                    toaddrs = recipient_list
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration Send")    
     if month == 7:
@@ -1180,8 +1180,8 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    # cc_email= ['zscsantos@globe.com.ph']
-                    toaddrs = recipient_list
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration Send")            
     if month == 8:
@@ -1220,8 +1220,8 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    # cc_email= ['zscsantos@globe.com.ph']
-                    toaddrs = recipient_list
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration Send")           
     if month == 9:
@@ -1260,8 +1260,8 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    # cc_email= ['zscsantos@globe.com.ph']
-                    toaddrs = recipient_list
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration Send")
 

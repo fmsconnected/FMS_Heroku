@@ -47,7 +47,7 @@
                             <th>Registration Month</th>
                             <th>Model</th>
                             <th>Brand</th>
-                            <th>Vehicle Make</th>
+                            <!-- <th>Vehicle Make</th>
                             <th>Engine Number</th>
                             <th>Chassis Number</th>
                             <th>MV file Number</th>
@@ -84,7 +84,7 @@
                             <th>Area</th>
                             <th>Email</th>
                             <th>Remarks</th>
-                            <th>Latest Remarks</th>
+                            <th>Latest Remarks</th> -->
                             <th>[Account] Confirmation</th>
                             <th>[Smoke] Confirmation</th>
                     </thead>
@@ -103,14 +103,15 @@
 
 $(document).ready(function() {
     var table = $('#vtable').DataTable({
-        "bserverSide": true,
+        "serverSide": true,
         // "serverSide": true,
         "scrollX": true,
         "scrollY": "500px",
-        "bdeferLoading": true,
-        "bdeferRender": true,
+        "deferLoading": true,
+        "deferRender": true,
         "autoWidth":true,
-        "bprocessing": true,
+        "processing": true,
+        "paging": false,
         // "lengthMenu":[[10,25,50,100,-1],[10,25,50,100,"All"]], 
         // "pageLength": 10,
         "language": {
@@ -129,7 +130,7 @@ $(document).ready(function() {
         "columns": [
             {"data": "Activity_Id",
             "render": function(data, type, row, meta){
-                if(type === 'display'){
+                if(type === 'POST'){
                     data = '<a href="Details/' + row.id + '">' + data + '</a>';
                     }
                 return data;
@@ -142,44 +143,44 @@ $(document).ready(function() {
             {"data":"REGISTRATION_MONTH"},
             {"data":"MODEL"},
             {"data":"BRAND"},
-            {"data":"VEHICLE_MAKE"},
-            {"data":"ENGINE_NO"},
-            {"data":"CHASSIS_NO"},
-            {"data":"MV_FILE_NO"},
-            {"data":"VEHICLE_TYPE"},
-            {"data":"Employee"},
-            {"data":"ASSIGNEE_LAST_NAME"},
-            {"data":"ASSIGNEE_FIRST_NAME"},
-            {"data":"VEHICLE_CATEGORY"},
-            {"data":"BAND_LEVEL"},
-            {"data":"BENEFIT_GROUP"},
-            {"data":"COST_CENTER"},
-            {"data":"GROUP"},
-            {"data":"DIVISION"},
-            {"data":"DEPARTMENT"},
-            {"data":"SECTION"},
-            {"data":"IS_ID"},
-            {"data":"IS_NAME"},
-            {"data":"LOCATION"},
-            {"data":"ORIGINAL_OR_DATE"},
-            {"data":"ACQ_DATE"},
-            {"data":"ACQ_COST"},
-            {"data":"ASSET_NO"},
-            {"data":"EQUIPMENT_NO"},
-            {"data":"PO_NO"},
-            {"data":"SAP_PR"},
-            {"data":"Vehicle_IVN_no"},
-            {"data":"Unit_MATDOC"},
-            {"data":"dealer"},
-            {"data":"dealer_name"},
-            {"data":"PLATE_NUMBER_RELEASE_DATE"},
-            {"data":"Last_Registration_Date"},
-            {"data":"Smoke_Emission_Date"},
-            {"data":"COC_Date"},
-            {"data":"AREA"},
-            {"data":"EMAIL"},
-            {"data":"Remarks"},
-            {"data":"leasing_remark"},
+            // {"data":"VEHICLE_MAKE"},
+            // {"data":"ENGINE_NO"},
+            // {"data":"CHASSIS_NO"},
+            // {"data":"MV_FILE_NO"},
+            // {"data":"VEHICLE_TYPE"},
+            // {"data":"Employee"},
+            // {"data":"ASSIGNEE_LAST_NAME"},
+            // {"data":"ASSIGNEE_FIRST_NAME"},
+            // {"data":"VEHICLE_CATEGORY"},
+            // {"data":"BAND_LEVEL"},
+            // {"data":"BENEFIT_GROUP"},
+            // {"data":"COST_CENTER"},
+            // {"data":"GROUP"},
+            // {"data":"DIVISION"},
+            // {"data":"DEPARTMENT"},
+            // {"data":"SECTION"},
+            // {"data":"IS_ID"},
+            // {"data":"IS_NAME"},
+            // {"data":"LOCATION"},
+            // {"data":"ORIGINAL_OR_DATE"},
+            // {"data":"ACQ_DATE"},
+            // {"data":"ACQ_COST"},
+            // {"data":"ASSET_NO"},
+            // {"data":"EQUIPMENT_NO"},
+            // {"data":"PO_NO"},
+            // {"data":"SAP_PR"},
+            // {"data":"Vehicle_IVN_no"},
+            // {"data":"Unit_MATDOC"},
+            // {"data":"dealer"},
+            // {"data":"dealer_name"},
+            // {"data":"PLATE_NUMBER_RELEASE_DATE"},
+            // {"data":"Last_Registration_Date"},
+            // {"data":"Smoke_Emission_Date"},
+            // {"data":"COC_Date"},
+            // {"data":"AREA"},
+            // {"data":"EMAIL"},
+            // {"data":"Remarks"},
+            // {"data":"leasing_remark"},
             {"data":"confirmation"},
             {"data":"smoke"},
         ]
