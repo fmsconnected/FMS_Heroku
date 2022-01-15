@@ -908,8 +908,7 @@ def reg_email():
         if sec_week_of_month == given_date:
             print("2nd Email Registration")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
-            car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="Yes",
-                PLATE_ENDING="2", Status="Yes").exclude(exc)[:80]
+            car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",PLATE_ENDING="2").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
