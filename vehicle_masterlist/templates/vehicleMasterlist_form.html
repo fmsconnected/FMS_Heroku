@@ -11,6 +11,12 @@
 {% csrf_token %}
     {{ form.PLATE_ENDING }}
     <div class="col-sm-4">
+        <label>[Account] Confirmation</label>{{ form.confirmation }}
+    </div>
+    <div class="col-sm-4">
+        <label>[Smoke] Confirmation</label>{{ form.smoke }}
+    </div>
+    <div class="col-sm-4">
         <label>Plate Number</label>{{ form.PLATE_NO }}
     </div>
     <div class="col-sm-4">
@@ -127,8 +133,8 @@
     </div>
     <div class="col-sm-4">
         <label>Email</label>{{form.EMAIL}}
-        
     </div>
+
 </div>
     <div class="card-footer">
         <button type="submit" class="buttonsubmit">PROCEED</a></button>

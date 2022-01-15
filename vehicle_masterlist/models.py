@@ -85,7 +85,10 @@ class VehicleMasterList(models.Model):
 			('Yes', 'Yes'),
 			('No', 'No'),
 		)
-
+	email = (
+			('Yes', 'Yes'),
+			('No', 'No'),
+		)
 	vstatus = (
 			('Sold', 'Sold'),
 			('Transferred', 'Transferred'),
@@ -146,6 +149,8 @@ class VehicleMasterList(models.Model):
 	Status_2 = models.CharField(max_length=10, null=True, blank=True)
 	Status_3 = models.CharField(max_length=10, null=True, blank=True)
 	Status_4 = models.CharField(max_length=10, null=True, blank=True)
+	confirmation = models.CharField(max_length=10, null=True, blank=True, choices=email)
+	smoke = models.CharField(max_length=10, null=True, blank=True, choices=email)
 	Date_email_log = models.CharField(max_length=20, null=True, blank=True)
 	history = HistoricalRecords()
 
