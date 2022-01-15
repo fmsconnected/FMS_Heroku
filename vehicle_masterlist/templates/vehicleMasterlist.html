@@ -181,7 +181,11 @@ $(document).ready(function() {
             // {"data":"EMAIL"},
             // {"data":"Remarks"},
             // {"data":"leasing_remark"},
-            {"data":"confirmation"},
+            {"data":"confirmation",
+                "className": "dt-center editor-edit",
+                "defaultContent": '<i class="fa fa-pencil"/>',
+                "orderable": false
+            },
             {"data":"smoke"},
         ]
     });
@@ -198,8 +202,17 @@ $(document).ready(function() {
         api = table.api();
         console.log(api.page());    
     });
+    $('#vtable').on('click', 'td.editor-edit', function (e) {
+        e.preventDefault();
+ 
+        editor.edit( $(this).closest('tr'), {
+            title: 'Edit record',
+            buttons: 'Update'
+        } );
+    } );
 
 });
+
 </script>
 
 {% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3>Vechicle Email Confirmation Details</h3>&nbsp;
+    </div>
+
+<table width="90%" class="table table-bordered table-hover" border="5px">
+  <tr>
+      <th>[Account] Confirmation</th>
+      <td>{{ object.confirmation }}</td>
+  </tr>
+  <tr>
+      <th>[Smoke] Confirmation</th>
+      <td>{{ object.smoke }}</td>
+  </tr>
+</table>
+    <div class="card-footer">
+      <button class="buttonsubmit" style="width:150px;" data-toggle="modal" data-target="#updateModal">Update</button>
+    </div>
+</div>
+</div>
+<form method="POST" action="{% url 'vehicle_status' object.id %}">
+{% csrf_token %}
+<div class="modal fade bd-example-modal-lg" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Update Vehicle Masterlist</h3>
+      </div>
+      <div class="modal-body">
+        <div class="col-sm-4">
+            <label>[Account] Confirmation</label><!-- {{ form.confirmation }} -->
+            <select name="confirmation" id=confirmation value="{{ object.confirmation }}"class="form-control">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="col-sm-4">
+            <label>[Smoke] Confirmation</label><!-- { form.smoke }} -->
+            <select name="smoke" id=smoke value="{{ object.smoke }}"class="form-control">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+      </div>
+              <div class="modal-footer">
+                <button type="submit" class="buttonsubmit">Proceed</a></button>
+               <button class="btn" data-dismiss="modal">Cancel</button>
+            </div>
+          
+</form>
+{% endblock %}

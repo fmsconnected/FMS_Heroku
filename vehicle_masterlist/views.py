@@ -264,6 +264,17 @@ class vehicleMasterUpdate(UpdateView):
     form_class = Vmasterlist
     template_name = 'vehicleMasterlist_form.html'
 
+class confirmationDetails(DetailView):
+    model = VehicleMasterList
+    template_name = 'confirmation.html'
+
+def vmUpdate(request,id):
+    if request.method == 'POST':
+        confirmation=request.POST.get('confirmation')
+        smoke=request.POST.get('smoke')
+    VehicleMasterList.objects.filter(id=pk).update(confirmation=confirmation,smoke=smoke)
+    return HttpResponseRedirect('/VehicleMasterlist/VehicleMasterlist/')
+
 class releaseUpdate(UpdateView):
     model = VehicleMasterList
     form_class = Vmaster
@@ -393,6 +404,8 @@ def vehicle_excel(request):
             'Status',
             'Other Remarks',
             'Vehicle Status',
+            'confirmation',
+            'smoke',
     ]
     row_num = 1
 
@@ -453,6 +466,8 @@ def vehicle_excel(request):
                 vehicle.Status,
                 vehicle.leasing_remark,
                 vehicle.vehicle_status,
+                vehicle.confirmation,
+                vehicle.smoke,
         ]
         
         for col_num, cell_value in enumerate(row, 1):
