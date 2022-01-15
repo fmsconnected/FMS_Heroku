@@ -18,7 +18,7 @@ from vehicle_masterlist.models import VehicleMasterList
 
 django.setup()
 sched = BlockingScheduler()
-@sched.scheduled_job('interval', minutes=1)
+@sched.scheduled_job('interval', minutes=10)
 def send_masterlist_email():
     given_date = datetime.datetime.now().date()
     sec_week_of_month = given_date.replace(day=15)
@@ -438,7 +438,7 @@ def send_masterlist_email():
 ######## 2nd Email ########
 ### Status Confirmation ###
 ###########################
-@sched.scheduled_job('interval', minutes=1)
+@sched.scheduled_job('interval', minutes=10)
 def account_email():
     given_date = datetime.datetime.now().date()
     sec_week_of_month = given_date.replace(day=15)
@@ -854,7 +854,7 @@ def account_email():
 ######## 2nd Email ########
 ### Registration Confirmation ####
 ###########################
-@sched.scheduled_job('interval', minutes=1)
+@sched.scheduled_job('interval', minutes=10)
 def reg_email():
     given_date = datetime.datetime.now().date()
     sec_week_of_month = given_date.replace(day=15)
@@ -1269,7 +1269,7 @@ def reg_email():
 ######## 2nd Email ########
 ### Registration and Account Confirmation ####
 ###########################
-@sched.scheduled_job('interval', minutes=1)
+@sched.scheduled_job('interval', minutes=10)
 def reg_email():
     given_date = datetime.datetime.now().date()
     sec_week_of_month = given_date.replace(day=15)
