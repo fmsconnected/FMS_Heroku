@@ -18,7 +18,7 @@ from vehicle_masterlist.models import VehicleMasterList
 
 django.setup()
 sched = BlockingScheduler()
-@sched.scheduled_job('interval', minutes=10)
+@sched.scheduled_job('interval', minutes=1)
 def send_masterlist_email():
     given_date = datetime.datetime.now().date()
     sec_week_of_month = given_date.replace(day=15)
@@ -438,7 +438,7 @@ def send_masterlist_email():
 ######## 2nd Email ########
 ### Status Confirmation ###
 ###########################
-@sched.scheduled_job('interval', minutes=10)
+@sched.scheduled_job('interval', minutes=1)
 def account_email():
     given_date = datetime.datetime.now().date()
     sec_week_of_month = given_date.replace(day=15)
@@ -854,7 +854,7 @@ def account_email():
 ######## 2nd Email ########
 ### Registration Confirmation ####
 ###########################
-@sched.scheduled_job('interval', minutes=10)
+@sched.scheduled_job('interval', minutes=1)
 def reg_email():
     given_date = datetime.datetime.now().date()
     sec_week_of_month = given_date.replace(day=15)
@@ -1269,7 +1269,7 @@ def reg_email():
 ######## 2nd Email ########
 ### Registration and Account Confirmation ####
 ###########################
-@sched.scheduled_job('interval', minutes=10)
+@sched.scheduled_job('interval', minutes=1)
 def reg_email():
     given_date = datetime.datetime.now().date()
     sec_week_of_month = given_date.replace(day=15)
@@ -1281,7 +1281,7 @@ def reg_email():
     sent_status = VehicleMasterList.objects.all()
     if month == 12:
         if sec_week_of_month == given_date:
-            print("2nd Email Registration")
+            print("2nd Email Registration and Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="No",
                 PLATE_ENDING="1", Status="Yes").exclude(exc)[:80]
@@ -1318,10 +1318,10 @@ def reg_email():
                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
-                    print("2nd Email Registration Send")
+                    print("2nd Email Registration and Confirmation Send")
     if month == 1:
         if sec_week_of_month == given_date:
-            print("2nd Email Registration")
+            print("2nd Email Registration and Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="No",
                 PLATE_ENDING="2", Status="Yes").exclude(exc)[:80]
@@ -1358,10 +1358,10 @@ def reg_email():
                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
-                    print("2nd Email Registration Send")      
+                    print("2nd Email Registration and Confirmation Send")      
     if month == 2:
         if sec_week_of_month == given_date:
-            print("2nd Email Registration")
+            print("2nd Email Registration and Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="No",
                 PLATE_ENDING="3", Status="Yes").exclude(exc)[:80]
@@ -1398,10 +1398,10 @@ def reg_email():
                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
-                    print("2nd Email Registration Send")          
+                    print("2nd Email Registration and Confirmation Send")          
     if month == 3:
         if sec_week_of_month == given_date:
-            print("2nd Email Registration")
+            print("2nd Email Registration and Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="No",
                 PLATE_ENDING="4", Status="Yes").exclude(exc)[:80]
@@ -1438,10 +1438,10 @@ def reg_email():
                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
-                    print("2nd Email Registration Send")           
+                    print("2nd Email Registration and Confirmation Send")           
     if month == 4:
         if sec_week_of_month == given_date:
-            print("2nd Email Registration")
+            print("2nd Email Registration and Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="No",
                 PLATE_ENDING="5", Status="Yes").exclude(exc)[:80]
@@ -1481,7 +1481,7 @@ def reg_email():
                     print("2nd Email Registration Send")         
     if month == 5:
         if sec_week_of_month == given_date:
-            print("2nd Email Registration")
+            print("2nd Email Registration and Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="No",
                 PLATE_ENDING="6", Status="Yes").exclude(exc)[:80]
@@ -1521,7 +1521,7 @@ def reg_email():
                     print("2nd Email Registration Send")      
     if month == 6:
         if sec_week_of_month == given_date:
-            print("2nd Email Registration")
+            print("2nd Email Registration and Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="No",
                 PLATE_ENDING="7", Status="Yes").exclude(exc)[:80]
@@ -1558,10 +1558,10 @@ def reg_email():
                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
-                    print("2nd Email Registration Send")    
+                    print("2nd Email Registration and Confirmation Send")    
     if month == 7:
         if sec_week_of_month == given_date:
-            print("2nd Email Registration")
+            print("2nd Email Registration and Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="No",
                 PLATE_ENDING="8", Status="Yes").exclude(exc)[:80]
@@ -1601,7 +1601,7 @@ def reg_email():
                     print("2nd Email Registration Send")            
     if month == 8:
         if sec_week_of_month == given_date:
-            print("2nd Email Registration")
+            print("2nd Email Registration and Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="No",
                 PLATE_ENDING="9", Status="Yes").exclude(exc)[:80]
@@ -1638,10 +1638,10 @@ def reg_email():
                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
-                    print("2nd Email Registration Send")           
+                    print("2nd Email Registration and Confirmation Send")           
     if month == 9:
         if sec_week_of_month == given_date:
-            print("2nd Email Registration")
+            print("2nd Email Registration and Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="No",
                 PLATE_ENDING="0", Status="Yes").exclude(exc)[:80]
@@ -1678,6 +1678,6 @@ def reg_email():
                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
-                    print("2nd Email Registration Send")
+                    print("2nd Email Registration and Confirmation Send")
 
 sched.start()
