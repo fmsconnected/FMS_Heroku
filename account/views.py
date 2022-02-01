@@ -12,6 +12,7 @@ from django.shortcuts import render
 from payment.models import (
     Vehicle_Repair_payment
 )
+from django.db.models import Q
 from fuel_supplier_payment.models import Fuel_supplier
 from new_vehicle_payment.models import VehiclePayment
 from car_rental_payment.models import CarRental
@@ -58,6 +59,7 @@ from CustomerLog.models import (
 from registration.models import Registration
 from fleet_card.models import fleet_card
 from fleet_card_driver.models import fleet_card_driver
+
 def index(request):
     regs_months = ""
     current_user = request.user
@@ -79,7 +81,6 @@ def index(request):
     count14 = Billing.objects.count()
     count15 = Leasing.objects.count()
     count16 = CS_log.objects.filter(Ageing="").count()
-    print("months",regs_months)
     not_registered = Registration.objects.filter(Plate_ending=regs_months,Date_registered__isnull=True ).count()
     registered = Registration.objects.filter(Plate_ending=regs_months ).exclude(Date_registered__isnull=True).count()
     return render(request, 'account/index.html', {'title': 'FLEET', 'month':month, 'count11': count11,
@@ -141,6 +142,70 @@ class ChartData(APIView):
         }
         return Response(data)
 
+class reg(APIView):
+    authentication_classes = []
+    permission_classes = []
+    
+    def get(self, request, format=None):
+        year = datetime.datetime.now().year
+        year1 = datetime.datetime.now().year - 1
+        year2 = datetime.datetime.now().year - 2
+        date_now = datetime.datetime.now().date()
+        exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2) 
+        jan = Registration.objects.filter(Plate_ending="1", Date_registered__isnull=False).exclude(exc).count()
+        feb = Registration.objects.filter(Plate_ending="2", Date_registered__isnull=False).exclude(exc).count()
+        mar = Registration.objects.filter(Plate_ending="3", Date_registered__isnull=False).exclude(exc).count()
+        apr = Registration.objects.filter(Plate_ending="4", Date_registered__isnull=False).exclude(exc).count()
+        may = Registration.objects.filter(Plate_ending="5", Date_registered__isnull=False).exclude(exc).count()
+        jun = Registration.objects.filter(Plate_ending="6", Date_registered__isnull=False).exclude(exc).count()
+        jul = Registration.objects.filter(Plate_ending="7", Date_registered__isnull=False).exclude(exc).count()
+        aug = Registration.objects.filter(Plate_ending="8", Date_registered__isnull=False).exclude(exc).count()
+        sep = Registration.objects.filter(Plate_ending="9", Date_registered__isnull=False).exclude(exc).count()
+        octb = Registration.objects.filter(Plate_ending="0", Date_registered__isnull=False).exclude(exc).count()
+
+        
+        reglabels = ["January","February", "March", "April", "May", "June", "July","August",
+        "September", "October"]
+        regdefault_items = [jan,feb,mar, apr, may, jun, jul, aug, sep, octb]
+        regdata = {
+                "reglabels": reglabels,
+                "regdefault": regdefault_items,
+        }
+        print("reg",regdefault_items)
+        return Response(regdata)
+
+class unreg(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        year = datetime.datetime.now().year
+        year1 = datetime.datetime.now().year - 1
+        year2 = datetime.datetime.now().year - 2
+        date_now = datetime.datetime.now().date()
+        exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2) 
+        unjan = Registration.objects.filter(Plate_ending="1", Date_registered__isnull=True).exclude(exc).count()
+        unfeb = Registration.objects.filter(Plate_ending="2", Date_registered__isnull=True).exclude(exc).count()
+        unmar = Registration.objects.filter(Plate_ending="3", Date_registered__isnull=True).exclude(exc).count()
+        unapr = Registration.objects.filter(Plate_ending="4", Date_registered__isnull=True).exclude(exc).count()
+        unmay = Registration.objects.filter(Plate_ending="5", Date_registered__isnull=True).exclude(exc).count()
+        unjun = Registration.objects.filter(Plate_ending="6", Date_registered__isnull=True).exclude(exc).count()
+        unjul = Registration.objects.filter(Plate_ending="7", Date_registered__isnull=True).exclude(exc).count()
+        unaug = Registration.objects.filter(Plate_ending="8", Date_registered__isnull=True).exclude(exc).count()
+        unsep = Registration.objects.filter(Plate_ending="9", Date_registered__isnull=True).exclude(exc).count()
+        unoctb = Registration.objects.filter(Plate_ending="0", Date_registered__isnull=True).exclude(exc).count()
+
+        
+        unreglabels = ["January","February", "March", "April", "May", "June", "July","August",
+        "September", "October"]
+        unregdefault_items = [unjan,unfeb,unmar, unapr, unmay, unjun, unjul, unaug, unsep, unoctb]
+        unregdata = {
+                "unreglabels": unreglabels,
+                "unregdefault": unregdefault_items,
+        }
+        print("unregdata",unregdefault_items)
+        return Response(unregdata)
+
 class ChartData_ongoing(APIView):
     authentication_classes = []
     permission_classes = []
@@ -149,13 +214,10 @@ class ChartData_ongoing(APIView):
     def get(self, request, format=None):
         date = datetime.datetime.today()
         month = datetime.datetime.now().month
-        print(month)
         fm = Fata_monitoring.objects.filter(Status= "Ongoing").count()
         cor = Corrective.objects.filter(status="Ongoing").count()
         own = Ownership.objects.filter(D_status="Ongoing").count()
-        # bill = Billing.objects.filter(date_initiated__month=date.month, cost_center="").count()
         crr = CarRentalRequest.objects.filter(status="Ongoing").count()
-        # gcr = Gas_card.objects.filter(date_initiated__month= date.month, fleet_date_release="" ).count()
         svr = service_vehicle.objects.filter(Status="Ongoing").count()
         vrr = Vehicle_Repair.objects.filter(status="Ongoing").count()
         vr = vehicle_report.objects.filter(Status="Ongoing").count()
@@ -176,7 +238,6 @@ class ChartData_ongoing(APIView):
         ongoing_data = {
                 "default_ongoing": item_data,
         }
-        print('registration',item_data)
 
         return Response(ongoing_data)
 
@@ -191,7 +252,6 @@ class ChartData_completed(APIView):
         fs = Fuel_supplier.objects.filter(status="Completed").count()
         vrp = Vehicle_Repair_payment.objects.filter(Status="Completed").count()
         crr = CarRentalRequest.objects.filter(status="Completed").count()
-        # gcr = Gas_card.objects.exclude(date_initiated__month= date.month, fleet_date_release="" ).exclude(fleet_date_release__exact='').count()
         svr = service_vehicle.objects.filter(Status="Completed").count()
         vrr = Vehicle_Repair.objects.filter(status="Completed").count()
         vr = vehicle_report.objects.filter(Status="Completed").count()

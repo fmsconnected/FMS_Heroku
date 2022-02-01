@@ -22,5 +22,7 @@ urlpatterns = [
     path('api/Emonitoring/', Emasterlist.as_view()),
     path('api/Lmonitoring/', Lmasterlist.as_view()),
     path('api/Petron/Report/',monthly_report_jan_summary.as_view()),
+    path('api/monitoring/Reg/', views.reg.as_view()),
+    path('api/monitoring/unReg/', views.unreg.as_view()),
     # path('api/Shell/Report/', monthly_report_shell_summary.as_view()),
 ]

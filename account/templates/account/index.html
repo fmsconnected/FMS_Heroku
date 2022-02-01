@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script> 
+
 <script>
 {% block jquery %}
 var endpoint = 'api/monitoring/'
 var endpointongoing = 'api/monitoring/Ongoing/'
 var endpointcompleted = 'api/monitoring/Completed/'
+var endpointreg = 'api/monitoring/Reg/'
+var endpointunreg = 'api/monitoring/unReg/'
 var petron_report = 'api/Petron/Report/'
 var shell_report = ''
 var defaultData = []
@@ -11,6 +15,10 @@ var current_ongoing_data = []
 var completed_item_data = []
 var labels = [];
 var ongoing_labels = []
+var reglabels = []
+var current_reg_data = []
+var unreglabels = []
+var current_unreg_data = []
 var completed_labels = []
 var petron_item_data =[]
 var shell_item_data = []
@@ -34,6 +42,35 @@ $.ajax({
         console.log(error_data)
     }
 })
+//Registration//
+$.ajax({
+    method: "GET",
+    url: endpointreg,
+    success: function(regdata){
+        reglabels = regdata.reglabels
+        current_reg_data = regdata.regdefault
+        setChart()
+    },
+    error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+    }
+})
+//unRegistration//
+$.ajax({
+    method: "GET",
+    url: endpointunreg,
+    success: function(unregdata){
+        unreglabels = unregdata.unreglabels
+        current_unreg_data = unregdata.unregdefault
+        setChart()
+    },
+    error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+    }
+})
+
 
 //Ongoing Chart
 $.ajax({
@@ -42,7 +79,7 @@ $.ajax({
     success: function(ongoing_data){
         ongoing_labels = ongoing_data.ongoing_labels
         current_ongoing_data = ongoing_data.default_ongoing
-        ongoing_chart()
+        setChart()
     },
     error: function(error_data){
         console.log("error")
@@ -102,6 +139,7 @@ function setChart(){
     var ctx4 = document.getElementById("petron_report_monthly");
     var ctx5 = document.getElementById("shell_report_monthly");
     var ctx6 = document.getElementById("prog");
+    var ctx7 = document.getElementById("reg");
     // var myChart = new Chart(ctx2, {
     // type: 'pie',
     // data: {
@@ -220,6 +258,65 @@ function setChart(){
     //     }
     // }
     // });
+    var reg_chart = new Chart(ctx7, {
+    type: 'bar',
+    data: {
+        labels: ["January","February", "March", "April", "May", "June", "July","August",
+        "September", "October"],
+        datasets: [
+          {
+            label: 'Registered',
+            fill: true,
+            data:current_reg_data,
+            backgroundColor:'rgba(207, 154, 50)',
+        },
+        {
+            label: 'UnRegistered',
+            fill: true,
+            data: current_unreg_data,
+            backgroundColor:'rgba(23, 128, 173)',
+
+        }]
+    },
+    options: {
+        tooltips: {
+                enabled: true
+            },
+            hover: {
+                animationDuration: 1
+            },
+            animation: {
+            duration: 1,
+            onComplete: function () {
+                var chartInstance = this.chart,
+                    ctx7 = chartInstance.ctx7;
+                    ctx7.textAlign = 'center';
+                    ctx7.fillStyle = "rgba(0, 0, 0, 1)";
+                    ctx7.textBaseline = 'bottom';
+                    // Loop through each data in the datasets
+                    this.data.datasets.forEach(function (dataset, i) {
+                        var meta = chartInstance.controller.getDatasetMeta(i);
+                        meta.data.forEach(function (bar, index) {
+                            var data = dataset.data[index];
+                            ctx7.fillText(data, bar._model.x, bar._model.y - 5);
+                        });
+                    });
+                }
+            }
+      }
+    
+    });
+    var image = reg_chart.toBase64Image();
+    console.log(image);
+
+    document.getElementById('download').onclick = function() {
+      // Trigger the download
+      var a = document.createElement('a');
+      a.href = reg_chart.toBase64Image();
+      a.download = 'VehicleRegistration.jpg';
+      a.click();
+    }
+
     var prog_chart = new Chart(ctx6, {
     type: 'horizontalBar',
     data: {
@@ -335,13 +432,21 @@ function setChart(){
         window.myBar = new Chart(ctx6).Bar(prog_chart, {
             responsive : true
         });
+        var ctx7 = document.getElementById("reg").getContext("2d");
+        window.myBar = new Chart(ctx7).Bar(reg_chart, {
+            responsive : true
+        });
+        ctx7.render();
+        document.getElementById("exportChart").addEventListener("click",function(){
+            ctx7.exportChart({format: "jpg"});
+        });
     }
     
 }
 
-
 {% endblock %}
 </script>
+
 {% block content %}
  <!-- Content Wrapper. Contains page content -->
     <!-- Content Header (Page header) -->
@@ -515,6 +620,7 @@ function setChart(){
             </div>
           </div><!-- /.card-body -->
         </div>
+        <br><br>
 
         <div class="card ">
           <div class="card-header">
@@ -532,6 +638,28 @@ function setChart(){
                 </div>
             </div>
         </div><!-- /.card-body -->
+        <!-----Registered------->
+<!-- 
+        <div class="card ">
+            <br><br>
+          <div class="card-header">
+            <h3 class="card-title">
+              <i class="fas fa-chart-pie mr-1"></i>
+              Vehicle Registration<br>
+              <button id="download">Save Image</button>
+            </h3>
+          </div>
+        <div class="card-body" id="vehicle_reg">
+            <div class="tab-content p-0">
+                <div class="card-body">
+                    <div class="tab-content p-0">
+                        <canvas id="reg" style="height: 400px; max-width: 100%;"></canvas>
+                        
+                    </div>  
+                </div>
+            </div>
+        </div> -->
+
         <div class="card ">
           <div class="card-header">
             <h3 class="card-title">
