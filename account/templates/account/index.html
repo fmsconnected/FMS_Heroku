@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
-
+<!-- <script src="path/to/chartjs/dist/Chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.3.0/dist/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@1.0.0"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0-rc.1/chartjs-plugin-datalabels.min.js" integrity="sha512-+UYTD5L/bU1sgAfWA0ELK5RlQ811q8wZIocqI7+K0Lhh8yVdIoAMEs96wJAIbgFvzynPm36ZCXtkydxu1cs27w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 <script>
 {% block jquery %}
 var endpoint = 'api/monitoring/'
@@ -138,6 +141,7 @@ function setChart(){
     var ctx4 = document.getElementById("petron_report_monthly");
     var ctx5 = document.getElementById("shell_report_monthly");
     var ctx6 = document.getElementById("prog");
+    var ctx7 = document.getElementById("reg");
     // var myChart = new Chart(ctx2, {
     // type: 'pie',
     // data: {
@@ -256,6 +260,69 @@ function setChart(){
     //     }
     // }
     // });
+
+    var reg_chart = new Chart(ctx7, {
+    type: 'bar',
+    data: {
+        labels: ["January","February", "March", "April", "May", "June", "July","August",
+        "September", "October"],
+        datasets: [{
+            label: 'Registered',
+            fill: true,
+            data: current_reg_data,
+            backgroundColor:'rgba(207, 154, 50)',
+            datalabels: {
+                color: 'white',
+                anchor: 'end',
+                align: 'start',
+                offset: 10
+            },
+            font: {
+                weight: 'bold',
+                size: 16,
+            }
+        },
+            {
+            label: 'UnRegistered',
+            fill: true,
+            data: current_unreg_data,
+            backgroundColor:'rgba(23, 128, 173)',
+            datalabels: {
+                color: 'white',
+                anchor: 'end',
+                align: 'start',
+                offset: 10
+            },
+            font: {
+                weight: 'bold',
+                size: 16,
+            }
+
+        }]
+
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    reverse: false
+                }
+            }]
+        }
+    },
+    plugins: [ChartDataLabels]
+    });
+    var image = reg_chart.toBase64Image();
+    console.log(image);
+
+    document.getElementById('download').onclick = function() {
+      // Trigger the download
+      var a = document.createElement('a');
+      a.href = reg_chart.toBase64Image();
+      a.download = 'VehicleRegistration.jpg';
+      a.click();
+    }
+
     var prog_chart = new Chart(ctx6, {
     type: 'horizontalBar',
     data: {
@@ -267,12 +334,32 @@ function setChart(){
             fill: true,
             data: current_ongoing_data,
             backgroundColor:'rgba(207, 154, 50)',
+            datalabels: {
+                color: 'white',
+                anchor: 'end',
+                align: 'start',
+                offset: 4,
+            },
+            font: {
+                weight: 'bold',
+                size: 16,
+            }
         },
         {
             label: 'Completed',
             fill: true,
             data: completed_item_data,
             backgroundColor:'rgba(23, 128, 173)',
+            datalabels: {
+                color: 'white',
+                anchor: 'end',
+                align: 'start',
+                offset: 4,
+            },
+            font: {
+                weight: 'bold',
+                size: 16,
+            }
 
         }]
     },
@@ -284,8 +371,10 @@ function setChart(){
                 }
             }]
         }
-    }
+    },
+    plugins: [ChartDataLabels]
     });
+
     var petron_chart = new Chart(ctx4, {
     type: 'bar',
     data: {
@@ -371,6 +460,10 @@ function setChart(){
         window.myBar = new Chart(ctx6).Bar(prog_chart, {
             responsive : true
         });
+        var ctx7 = document.getElementById("reg").getContext("2d");
+        window.myBar = new Chart(ctx7).Bar(reg_chart, {
+            responsive : true
+        });
     }
     
 }
@@ -382,7 +475,8 @@ function setChart(){
  <!-- Content Wrapper. Contains page content -->
     <!-- Content Header (Page header) -->
 <!-- <div class="content-wrapper"> -->
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@1.0.0"></script>
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -568,7 +662,27 @@ function setChart(){
                 </div>
             </div>
         </div>
-        <!-----Registered------->
+                <!-----Registered------->
+
+        <div class="card ">
+            <br><br>
+          <div class="card-header">
+            <h3 class="card-title">
+              <i class="fas fa-chart-pie mr-1"></i>
+              Vehicle Registration<br>
+              <button id="download">Save Image</button>
+            </h3>
+          </div>
+        <div class="card-body" id="vehicle_reg">
+            <div class="tab-content p-0">
+                <div class="card-body">
+                    <div class="tab-content p-0">
+                        <canvas id="reg" style="height: 400px; max-width: 100%;"></canvas>
+                        
+                    </div>  
+                </div>
+            </div>
+        </div>
 
         <div class="card ">
           <div class="card-header">
