@@ -5,6 +5,32 @@
     setTimeout(function(){ 
         $('#myAlert').fadeIn('slow'); 
     }, 1000);
+
+    // Set the date we're counting down to
+    var countDownDate = new Date('{{ deadline }}');
+    console.log("date",countDownDate)
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+      // Get today's date and time
+        var now = new Date().getTime();
+        
+      // Find the distance between now and the count down date
+        var distance = (countDownDate.getTime() - now) / 1000;
+        
+      // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor((distance / (60 * 60 * 24)));
+        console.log("days",days)
+      // Output the result in an element with id="demo"
+        $("#days").html(days + "<span>/Days</span>");
+
+      // If the count down is over, write some text 
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("days").innerHTML = "EXPIRED";
+        }
+    }, 1000);
 </script>
 
 <style type="text/css">
@@ -93,6 +119,7 @@
                             <th>Plate Number</th>
                             <th>Brand</th>
                             <th>Make</th>
+                            <th>SLA</th>
                             <th>Model</th>
                             <th>Conduction Sticker</th>
                             <th>Work Order Number</th>
@@ -110,6 +137,7 @@
                             <td>{{ battery.plate_no }}</td>
                             <td>{{ battery.v_brand }}</td>
                             <td>{{ battery.v_make }}</td>
+                            <td><span id=days></span></td>
                             <td>{{ battery.v_model }}</td>
                             <td>{{ battery.cond_sticker }}</td>
                             <td>{{ battery.work_order1 }}</td>

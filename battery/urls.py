@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 urlpatterns = [
-    path('List/', views.batteryListView.as_view(), name='battery_List'),
+    path('List/', views.batteryListView, name='battery_List'),
     path('Create/', views.batterycreate, name='battery_create'),
     path('Submit/', views.batterysubmit, name='battery_submit'),
     path('Delete/<int:pk>',views.batteryDelete.as_view(), name='battery_delete'),

@@ -109,6 +109,7 @@ class battery(models.Model):
 
 	def __str__(self):
 		return self.plate_no
+		return self.Deadline
 
 	def get_absolute_url(self):
 		return reverse('battery_List')

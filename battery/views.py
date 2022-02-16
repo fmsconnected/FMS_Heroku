@@ -8,8 +8,9 @@ from django.views import generic
 from django.shortcuts import render,HttpResponseRedirect, get_list_or_404,HttpResponse
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
+from django.utils import timezone
 import datetime
-from datetime import date, timedelta
+from datetime import date,timedelta
 from .models import (
 		battery,
 )
@@ -30,9 +31,18 @@ from django.views.generic import (
 from . forms import batteryform
 from bootstrap_modal_forms.generic import BSModalDeleteView
 
-class batteryListView(ListView):
-    model = battery
-    template_name='battery_list.html'
+# class batteryListView(ListView):
+#     model = battery
+#     template_name='battery_list.html'
+
+def batteryListView(request):
+    db=battery.objects.last()
+    context = {
+        'deadline': db.Deadline.strftime("%Y-%m-%d"),
+        'object_list': battery.objects.all()
+    }
+    print("datContext",context)
+    return render(request,'battery_list.html',context=context)
 
 def batterycreate(request):
     def dispatch(self, *args, **kwargs):
