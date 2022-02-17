@@ -23,7 +23,7 @@ sched = BlockingScheduler()
 ######## 2nd Email ########
 ### Status Confirmation ###
 ###########################
-@sched.scheduled_job('interval', minutes=5)
+@sched.scheduled_job('interval', minutes=2)
 def account_email():
     given_date = datetime.datetime.now().date()
     sec_week_of_month = given_date.replace(day=17)
@@ -439,7 +439,7 @@ def account_email():
 ######## 2nd Email ########
 ### Registration Confirmation ####
 ###########################
-@sched.scheduled_job('interval', minutes=5)
+# @sched.scheduled_job('interval', minutes=5)
 def reg_email():
     given_date = datetime.datetime.now().date()
     sec_week_of_month = given_date.replace(day=17)
@@ -854,7 +854,7 @@ def reg_email():
 ####### 2nd Email ########
 ## Registration and Account Confirmation ####
 ##########################
-@sched.scheduled_job('interval', minutes=5)
+# @sched.scheduled_job('interval', minutes=5)
 def reg_email():
     given_date = datetime.datetime.now().date()
     sec_week_of_month = given_date.replace(day=17)
