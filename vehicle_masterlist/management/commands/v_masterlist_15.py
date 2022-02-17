@@ -26,7 +26,7 @@ sched = BlockingScheduler()
 @sched.scheduled_job('interval', minutes=5)
 def account_email():
     given_date = datetime.datetime.now().date()
-    sec_week_of_month = given_date.replace(day=15)
+    sec_week_of_month = given_date.replace(day=17)
     month = datetime.datetime.now().month
     year = datetime.datetime.now().year
     year1 = datetime.datetime.now().year - 1
@@ -442,7 +442,7 @@ def account_email():
 @sched.scheduled_job('interval', minutes=5)
 def reg_email():
     given_date = datetime.datetime.now().date()
-    sec_week_of_month = given_date.replace(day=15)
+    sec_week_of_month = given_date.replace(day=17)
     month = datetime.datetime.now().month
     year = datetime.datetime.now().year
     year1 = datetime.datetime.now().year - 1
@@ -857,7 +857,7 @@ def reg_email():
 @sched.scheduled_job('interval', minutes=5)
 def reg_email():
     given_date = datetime.datetime.now().date()
-    sec_week_of_month = given_date.replace(day=15)
+    sec_week_of_month = given_date.replace(day=17)
     month = datetime.datetime.now().month
     year = datetime.datetime.now().year
     year1 = datetime.datetime.now().year - 1
