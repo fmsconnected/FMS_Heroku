@@ -341,7 +341,7 @@ def vehicle_telicphil(request):
 def vehicle_excel(request):
     v_queryset = VehicleMasterList.objects.all()  
     v_queryset_active = VehicleMasterList.objects.filter(vehicle_status='Active')   
-    v_queryset_solved = VehicleMasterList.objects.filter(vehicle_status='Sold')
+    v_queryset_sold = VehicleMasterList.objects.filter(vehicle_status='Sold')
     v_queryset_trans = VehicleMasterList.objects.filter(vehicle_status='Transferred') 
     v_queryset_BAYANTEL = VehicleMasterList.objects.filter(CR_NAME__contains="BAYANTEL") 
     v_queryset_teli = VehicleMasterList.objects.filter(CR_NAME__contains="TELICPHIL") 
@@ -600,8 +600,8 @@ def vehicle_excel(request):
             cell = ws1.cell(row=row_num, column=col_num)
             cell.value = cell_value
 
-    ws2 = wb.create_sheet("Vehicle Solved")
-    ws2.title = "Vehicle Solved"
+    ws2 = wb.create_sheet("Vehicle Sold")
+    ws2.title = "Vehicle Sold"
 
     columns = [
             
@@ -661,7 +661,7 @@ def vehicle_excel(request):
         cell = ws2.cell(row=row_num, column=col_num)
         cell.value = column_title
 
-    for vehicle in v_queryset_solved:
+    for vehicle in v_queryset_sold:
         row_num += 1
         row = [
                 vehicle.NO,

@@ -113,7 +113,7 @@ function transferownership(trans) {
             <input name="plate_no" id="plate_no" list="vehicle_list" class="form-control" required>
             <datalist id="vehicle_list">               
             {% for plate in v_list %}
-              <option data-value="{{ plate.PLATE_NO }} | {{ plate.CS_NO }} | {{ plate.MODEL }} | {{ plate.BRAND }}| {{ plate.VEHICLE_MAKE }}" value="{{ plate.PLATE_NO }}"></option>
+              <option data-value="{{ plate.PLATE_NO }} | {{ plate.CS_NO }} | {{ plate.MODEL }} | {{ plate.BRAND }} | {{ plate.VEHICLE_MAKE }}" value="{{ plate.PLATE_NO }}"></option>
             {% endfor %}
             </datalist>
         </div>
