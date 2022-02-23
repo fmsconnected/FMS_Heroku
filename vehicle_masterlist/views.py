@@ -427,7 +427,7 @@ def vehicle_excel(request):
         # ordate = vehicle.ORIGINAL_OR_DATE.strftime('%m/%d/%Y')
         # platerelease = vehicle.PLATE_NUMBER_RELEASE_DATE.strftime('%m/%d/%Y')
         row = [
-                vehicle.Activity_id,
+                vehicle.Activity_Id,
                 vehicle.NO,
                 vehicle.PLATE_NO,
                 vehicle.CS_NO,
@@ -551,7 +551,7 @@ def vehicle_excel(request):
     for vehicle in v_queryset_active:
         row_num += 1
         row = [
-                vehicle.Activity_id,
+                vehicle.Activity_Id,
                 vehicle.NO,
                 vehicle.PLATE_NO,
                 vehicle.CS_NO,
@@ -675,7 +675,7 @@ def vehicle_excel(request):
     for vehicle in v_queryset_sold:
         row_num += 1
         row = [
-                vehicle.Activity_id,
+                vehicle.Activity_Id,
                 vehicle.NO,
                 vehicle.PLATE_NO,
                 vehicle.CS_NO,
@@ -795,7 +795,7 @@ def vehicle_excel(request):
     for vehicle in v_queryset_trans:
         row_num += 1
         row = [
-                vehicle.Activity_id,
+                vehicle.Activity_Id,
                 vehicle.NO,
                 vehicle.PLATE_NO,
                 vehicle.CS_NO,
@@ -916,7 +916,7 @@ def vehicle_excel(request):
         # ordate = vehicle.ORIGINAL_OR_DATE.strftime('%m/%d/%Y')
         # platerelease = vehicle.PLATE_NUMBER_RELEASE_DATE.strftime('%m/%d/%Y')
         row = [
-                vehicle.Activity_id,
+                vehicle.Activity_Id,
                 vehicle.NO,
                 vehicle.PLATE_NO,
                 vehicle.CS_NO,
@@ -1034,7 +1034,7 @@ def vehicle_excel(request):
         # ordate = vehicle.ORIGINAL_OR_DATE.strftime('%m/%d/%Y')
         # platerelease = vehicle.PLATE_NUMBER_RELEASE_DATE.strftime('%m/%d/%Y')
         row = [
-                vehicle.Activity_id,
+                vehicle.Activity_Id,
                 vehicle.NO,
                 vehicle.PLATE_NO,
                 vehicle.CS_NO,

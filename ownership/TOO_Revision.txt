@@ -35,16 +35,16 @@ Transfer of Ownership
 	-Date Routed to gt rename Routed to GT
 		-Excel - Out/RDC
 
-	-Date Received Pull out OR/CR 
+	-Date Received Pull out OR/CR ---- Done
 		-Excel - Request OR/CR from IPC
 
-	-Add field
+	-Add field ---- Done
 		-Date Received OR/CR
 
--TMG
+-TMG  --- DOne
 	-TMG location Removed
 
--LTO
+-LTO  ---- Done
 	-LTO Date In rename to
 		-LTO Date Seeded
 	-LTO Date Out rename to
