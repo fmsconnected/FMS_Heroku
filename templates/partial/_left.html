@@ -5,266 +5,14 @@
 <script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>
 
 <style type="text/css">
-    th{
-        font-size: 13px;
-        text-align: left;
-    }
-    td{
-        font-size: 12px;
-        text-align: left;
-    }
-
-
-.myDiv {
-  border: 1px outset red;
-  background-color: lightblue;
-  text-align: center;
-}
-.modal-header{
-    color: #ebebe0;
-    background-color: #668EB9;
-}
-.card-header{
-  color: #ebebe0;
-  background-color: #668EB9;
-}
-.card-footer{
-  color: #ebebe0;
-  background-color: #668EB9;
-}
-
-p {
-  color: #000000;
-}
-/*btn submit*/
-.buttonsubmit {
-    -webkit-border-radius: 9px;
-    -moz-border-radius: 9px;
-    border-radius: 9px;
-    color: #FFFFFF;
-    font-family: Helvetica;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 9px;
-    background-color: #24a0ed;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    text-align: center;
-    float: right;
-    width:150px;
-}
-
-.buttonsubmit:hover {
-   background: #24a0ed;
-   border: dotted #0059A0 1px;
-   -webkit-border-radius: 9px;
-   -moz-border-radius: 9px;
-   border-radius: 9px;
-   text-decoration: none;
-   width:150px;
-}
-
-
-/*btnclear*/
-.button {
-   -webkit-border-radius: 9px;
-   -moz-border-radius: 9px;
-   border-radius: 9px;
-   color: #FFFFFF;
-   font-family: Helvetica;
-   font-size: 15px;
-   font-weight: 600;
-   padding: 9px;
-   background-color: #df4759;
-   text-decoration: none;
-   display: inline-block;
-   cursor: pointer;
-   text-align: center;
-   float: right;
-   width:150px;
-}
-
-.button:hover {
-   background: #df4759;
-   border: dotted #DD380D 1px;
-   -webkit-border-radius: 9px;
-   -moz-border-radius: 9px;
-   border-radius: 9px;
-   text-decoration: none;
-   width:150px;
-}
-
-
-
-/*btnClose*/
-.btn {
-   -webkit-border-radius: 9px;
-   -moz-border-radius: 9px;
-   color: #e7e7e7;
-   font-family: Helvetica;
-   font-size: 15px;
-   font-weight: 600;
-   padding: 9px;
-   background-color: #e7e7e7;
-   text-decoration: none;
-   display: inline-block;
-   cursor: pointer;
-   text-align: center;
-   float: right;
-   width:150px;
-}
-
-.btn:hover {
-   background: #e7e7e7;
-   -webkit-border-radius: 9px;
-   -moz-border-radius: 9px;
-   border-radius: 9px;
-   text-decoration: none;
-   width:150px;
-}
-
-.btndanger {
-  padding: 9px;
-  font-size: 14px;
-  text-align: center;
-  font-weight: bold;
-  /*text-decoration-color: #000000;*/
-  cursor: pointer;
-  outline: none;
-  color: white;
-  background-color: #d9534f;
-  border: none;
-  border-radius: 9px;
-  float: right;
-  width:150px;
-  /*box-shadow: 0 9px #999;*/
-}
-.btndanger:hover {background-color: #fc4300;width:150px;}
-
-
-.btnc {
-  padding: 9px;
-  font-size: 14px;
-  text-align: center;
-  font-weight: bold;
-  /*text-decoration-color: #000000;*/
-  cursor: pointer;
-  outline: none;
-  color: #F9F7F7;
-  background-color: #808080;
-  border: none;
-  border-radius: 9px;
-  float: right;
-  width:150px;
-  /*box-shadow: 0 9px #999;*/
-}
-
-.btnc:hover {background-color: #AAB7B8;width:150px;}
-a{color: #000000;}
-.btnc:active {
-  background-color: #808080;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-</style>
+th{font-size:13px;text-align:left}td{font-size:12px;text-align:left}.myDiv{border:1px outset red;background-color:#add8e6;text-align:center}.modal-header{color:#ebebe0;background-color:#668EB9}.card-header{color:#ebebe0;background-color:#668EB9}.card-footer{color:#ebebe0;background-color:#668EB9}p{color:#000}.buttonsubmit{-webkit-border-radius:9px;-moz-border-radius:9px;border-radius:9px;color:#FFF;font-family:Helvetica;font-size:15px;font-weight:600;padding:9px;background-color:#24a0ed;text-decoration:none;display:inline-block;cursor:pointer;text-align:center;float:right;width:150px}.buttonsubmit:hover{background:#24a0ed;border:dotted #0059A0 1px;-webkit-border-radius:9px;-moz-border-radius:9px;border-radius:9px;text-decoration:none;width:150px}.button{-webkit-border-radius:9px;-moz-border-radius:9px;border-radius:9px;color:#FFF;font-family:Helvetica;font-size:15px;font-weight:600;padding:9px;background-color:#df4759;text-decoration:none;display:inline-block;cursor:pointer;text-align:center;float:right;width:150px}.button:hover{background:#df4759;border:dotted #DD380D 1px;-webkit-border-radius:9px;-moz-border-radius:9px;border-radius:9px;text-decoration:none;width:150px}.btn{-webkit-border-radius:9px;-moz-border-radius:9px;color:#e7e7e7;font-family:Helvetica;font-size:15px;font-weight:600;padding:9px;background-color:#e7e7e7;text-decoration:none;display:inline-block;cursor:pointer;text-align:center;float:right;width:150px}.btn:hover{background:#e7e7e7;-webkit-border-radius:9px;-moz-border-radius:9px;border-radius:9px;text-decoration:none;width:150px}.btndanger{padding:9px;font-size:14px;text-align:center;font-weight:700;cursor:pointer;outline:none;color:#fff;background-color:#d9534f;border:none;border-radius:9px;float:right;width:150px}.btndanger:hover{background-color:#fc4300;width:150px}.btnc{padding:9px;font-size:14px;text-align:center;font-weight:700;cursor:pointer;outline:none;color:#F9F7F7;background-color:gray;border:none;border-radius:9px;float:right;width:150px}.btnc:hover{background-color:#AAB7B8;width:150px}a{color:#000}.btnc:active{background-color:gray;box-shadow:0 5px #666;transform:translateY(4px)}</style>
 <style>
-body {font-family: Arial;}
-
-/* Style the tab */
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-}
-
-/* Style the buttons inside the tab */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 17px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
-</style>
+body{font-family:Arial}.tab{overflow:hidden;border:1px solid #ccc;background-color:#f1f1f1}.tab button{background-color:inherit;float:left;border:none;outline:none;cursor:pointer;padding:14px 16px;transition:.3s;font-size:17px}.tab button:hover{background-color:#ddd}.tab button.active{background-color:#ccc}.tabcontent{display:none;padding:6px 12px;border:1px solid #ccc;border-top:none}</style>
 <style type="text/css">
-    #left-panel {
-      /*background-color: #3b5998;*/
-    background-image: url('/static/images/fms.jpeg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    }
-    #main-menu {
-      /*background-color: #3b5998;*/
-    background-image: url('/static/images/fms.jpeg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    }
-
-</style>
+#left-panel{background-image:url(/static/images/fms.jpeg);background-repeat:no-repeat;background-attachment:fixed;background-size:cover}#main-menu{background-image:url(/static/images/fms.jpeg);background-repeat:no-repeat;background-attachment:fixed;background-size:cover}</style>
 <style type="text/css">
-
 /* ============ desktop view ============ */
-@media all and (min-width: 992px) {
-
-  .dropdown-menu li{
-    position: relative;
-  }
-  .dropdown-menu .submenu{ 
-    display: none;
-    position: absolute;
-    left:100%; top:-7px;
-  }
-  .dropdown-menu .submenu-left{ 
-    right:100%; left:auto;
-  }
-
-  .dropdown-menu > li:hover{ 
-    background-color: #000000 !important;
-  }
-  .dropdown-item{ 
-    text-decoration-color: #000000;
-  }
-  .dropdown-menu > li:hover > .submenu{
-    display: block;
-  }
-} 
-/* ============ desktop view .end// ============ */
-
-/* ============ small devices ============ */
-@media (max-width: 991px) {
-
-.dropdown-menu .dropdown-menu{
-    margin-left:0.7rem; margin-right:0.7rem; margin-bottom: .5rem;
-}
-
-} 
-/* ============ small devices .end// ============ */
-
-</style>
+@media all and (min-width: 992px){.dropdown-menuliposition:relative}.dropdown-menu .submenu{display:none;position:absolute;left:100%;top:-7px}.dropdown-menu .submenu-left{right:100%;left:auto}.dropdown-menu > li:hover{background-color:#000!important}.dropdown-item{text-decoration-color:#000}.dropdown-menu > li:hover > .submenu{display:block}@media (max-width: 991px){.dropdown-menu .dropdown-menu{margin-left:.7rem;margin-right:.7rem;margin-bottom:.5rem}}</style>
 
 
 <script type="text/javascript">
@@ -485,7 +233,7 @@ body {font-family: Arial;}
             </li>
           </ul>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
             <p>
@@ -507,7 +255,7 @@ body {font-family: Arial;}
               </a>
             </li>
           </ul>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
@@ -531,13 +279,36 @@ body {font-family: Arial;}
             </li>
           </ul>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="{% url 'service_list' %}" class="nav-link">
             <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
             <p>
               Service Vehicle Request
             </p>
           </a>
+        </li> -->
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
+            <p>
+              Vehicle Request
+              <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{% url 'carrequest_list' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Car Rental Request</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'service_list' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Service Vehicle Request</p>
+              </a>
+            </li>
+          </ul>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
@@ -612,7 +383,7 @@ body {font-family: Arial;}
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-clipboard-list" style="color:#FFD662FF"></i>
             <p>
-              Monitoring
+              Vehicle Registration
               <i class="right fas fa-angle-left" style="color:#FFD662FF"></i>
             </p>
           </a>
@@ -623,12 +394,12 @@ body {font-family: Arial;}
                 <p>Registration Monitoring</p>
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a href="{% url 'Monitoring_jan_reg_due' %}" class="nav-link">
                 <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
                 <p>Registrations Months Due Date</p>
               </a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a href="{% url 'Monitoring_plate' %}" class="nav-link">
                 <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
@@ -641,12 +412,12 @@ body {font-family: Arial;}
                 <p>FATA Monitoring</p>
               </a>
             </li>
-            <!-- <li class="nav-item">
-              <a href="{% url 'Fcm_list' %}" class="nav-link">
+            <li class="nav-item">
+              <a href="#" class="nav-link">
                 <i class="far fa-circle nav-icon" style="color:#FFD662FF"></i>
-                <p>Fleet Card Monitoring</p>
+                <p>Vehicle Confirmation</p>
               </a>
-            </li> -->
+            </li>
           </ul>
         </li>
         <li class="nav-item">

@@ -82,11 +82,17 @@ def VmasterlistCreate(request):
         or_date = request.POST.get('or_date')
         remarks = request.POST.get('remarks')
         status = request.POST.get('status')
+        COC_Date = request.POST.get('COC_Date')
+        Smoke_Emission_Date = request.POST.get('Smoke_Emission_Date')
+        Last_Registration_Date = request.POST.get('Last_Registration_Date')
         l_remark = request.POST.get('l_remark')
         email = request.POST.get('email')
         vehicle_status = request.POST.get('vstatus')
         email= request.POST.get('email')
-        
+        Status = request.POST.get('Status')
+        confirmation = request.POST.get('confirmation')
+        smoke = request.POST.get('smoke')
+    
         if or_date == '':
             or_date = None
         else:
@@ -103,13 +109,15 @@ def VmasterlistCreate(request):
             plate_date = datetime.datetime.strptime(plate_date,'%Y-%m-%d')
 
 
-        employee_list = EmployeeMasterlist.objects.all()
+        employee_list = ''
+        emp_save = ''
+        employee_list == EmployeeMasterlist.objects.all()
         for e_id in employee_list:
             if e_id.Employee_Id == emp_id:
-                emp_save = e_id
+                emp_save == e_id
             
         if emp_id == '':
-            emp_save = None
+            emp_save == None
             
         reg = ''
         endplate = ''
@@ -135,20 +143,21 @@ def VmasterlistCreate(request):
                 reg = 'SEP'
             elif endplate == 0:
                 reg = 'OCT'
-
+            
         saveto_end = VehicleMasterList(PLATE_NO=plate, CS_NO=cs, CR_NAME=cr_name, MODEL=model, BRAND=brand,PLATE_ENDING=endplate, REGISTRATION_MONTH=reg,
             VEHICLE_MAKE=vmake, ENGINE_NO=eng_no, CHASSIS_NO=chassis_no, MV_FILE_NO=mvfile, VEHICLE_TYPE=vtype, VEHICLE_CATEGORY=vcat,
             Employee=emp_save, BAND_LEVEL=band, BENEFIT_GROUP=benefit, COST_CENTER=cost, GROUP=group, DIVISION=div,
             DEPARTMENT=dept, SECTION=sec, IS_ID=is_emp, IS_NAME=IS_NAME, LOCATION=loc,
             ACQ_DATE=aqui_date, ACQ_COST=aqui_cost, ASSET_NO=asset, PO_NO=po_no, PLATE_NUMBER_RELEASE_DATE=plate_date, ORIGINAL_OR_DATE=or_date,EQUIPMENT_NO=eq_no,
             SAP_PR=sap_pr,Vehicle_IVN_no=ivn_no,Unit_MATDOC=mathdoc,dealer=dealer, dealer_name=dealer_name, Remarks=remarks, Status=status, leasing_remark=l_remark,
-            vehicle_status = vehicle_status,EMAIL=email
+            vehicle_status = vehicle_status,EMAIL=email,COC_Date=COC_Date,Smoke_Emission_Date=Smoke_Emission_Date,Last_Registration_Date=Last_Registration_Date,
+            confirmation=confirmation, smoke=smoke
             )
         saveto_end.save()
 
     return HttpResponseRedirect('/VehicleMasterlist/VehicleMasterlist/')
 
-def VmasterlistUpdate(request):
+def VmasterlistUpdate(request, pk):
     if request.method == 'POST':
         plate = request.POST.get('plate_no')
         cs = request.POST.get('cs')
@@ -189,6 +198,11 @@ def VmasterlistUpdate(request):
         email = request.POST.get('email')
         vehicle_status = request.POST.get('vstatus')
         email = request.POST.get('email')
+        COC_Date = request.POST.get('coc_date')
+        Smoke_Emission_Date = request.POST.get('Smoke_Emission_Date')
+        Last_Registration_Date = request.POST.get('Last_Registration_Date')
+        confirmation = request.POST.get('confirmation')
+        smoke = request.POST.get('smoke')
         
         if or_date == '':
             or_date = None
@@ -205,14 +219,9 @@ def VmasterlistUpdate(request):
         else:
             plate_date = datetime.datetime.strptime(plate_date,'%Y-%m-%d')
 
-
-        employee_list = EmployeeMasterlist.objects.all()
-        for e_id in employee_list:
-            if e_id.Employee_Id == emp_id:
-                emp_save = e_id
             
-        if emp_id == '':
-            emp_save = None
+        # if emp_id == '':
+        #     emp_save = None
             
         reg = ''
         endplate = ''
@@ -238,18 +247,18 @@ def VmasterlistUpdate(request):
                 reg = 'SEP'
             elif endplate == 0:
                 reg = 'OCT'
-
-        saveto_end = VehicleMasterList(PLATE_NO=plate, CS_NO=cs, CR_NAME=cr_name, MODEL=model, BRAND=brand,PLATE_ENDING=endplate, REGISTRATION_MONTH=reg,
+        VehicleMasterList.objects.filter(id=pk).update(PLATE_NO=plate, CS_NO=cs, CR_NAME=cr_name, MODEL=model, BRAND=brand,PLATE_ENDING=endplate, REGISTRATION_MONTH=reg,
             VEHICLE_MAKE=vmake, ENGINE_NO=eng_no, CHASSIS_NO=chassis_no, MV_FILE_NO=mvfile, VEHICLE_TYPE=vtype, VEHICLE_CATEGORY=vcat,
-            Employee=emp_save, BAND_LEVEL=band, BENEFIT_GROUP=benefit, COST_CENTER=cost, GROUP=group, DIVISION=div,
+            Employee=emp_id, BAND_LEVEL=band, BENEFIT_GROUP=benefit, COST_CENTER=cost, GROUP=group, DIVISION=div,
             DEPARTMENT=dept, SECTION=sec, IS_ID=is_emp, IS_NAME=IS_NAME, LOCATION=loc,
             ACQ_DATE=aqui_date, ACQ_COST=aqui_cost, ASSET_NO=asset, PO_NO=po_no, PLATE_NUMBER_RELEASE_DATE=plate_date, ORIGINAL_OR_DATE=or_date,EQUIPMENT_NO=eq_no,
-            SAP_PR=sap_pr,Vehicle_IVN_no=ivn_no,Unit_MATDOC=mathdoc,dealer=dealer, dealer_name=dealer_name, Remarks=remarks, Status=status, leasing_remark=l_remark,
-            vehicle_status = vehicle_status,EMAIL=email
+            SAP_PR=sap_pr,Vehicle_IVN_no=ivn_no,Unit_MATDOC=mathdoc,dealer=dealer, dealer_name=dealer_name, Remarks=remarks, leasing_remark=l_remark,
+            vehicle_status = vehicle_status,EMAIL=email,COC_Date=COC_Date,Smoke_Emission_Date=Smoke_Emission_Date,Last_Registration_Date=Last_Registration_Date,
+            confirmation=confirmation, smoke=smoke
             )
-        saveto_end.save()
 
     return HttpResponseRedirect('/VehicleMasterlist/VehicleMasterlist/')
+
 
 def vehicle(request):
     elist = EmployeeMasterlist.objects.all()
@@ -355,7 +364,7 @@ def vehicle_excel(request):
     ws.title = "All data"
 
     columns = [
-            
+            'ID',
             'NO',
             'PLATE_NO',
             'CS_NO',
@@ -418,6 +427,7 @@ def vehicle_excel(request):
         # ordate = vehicle.ORIGINAL_OR_DATE.strftime('%m/%d/%Y')
         # platerelease = vehicle.PLATE_NUMBER_RELEASE_DATE.strftime('%m/%d/%Y')
         row = [
+                vehicle.Activity_id,
                 vehicle.NO,
                 vehicle.PLATE_NO,
                 vehicle.CS_NO,
@@ -477,7 +487,7 @@ def vehicle_excel(request):
     ws1 = wb.create_sheet("Vehicle Active")
     ws1.title = "Vehicle Active"
     columns = [
-            
+            'ID',
             'NO',
             'PLATE_NO',
             'CS_NO',
@@ -541,6 +551,7 @@ def vehicle_excel(request):
     for vehicle in v_queryset_active:
         row_num += 1
         row = [
+                vehicle.Activity_id,
                 vehicle.NO,
                 vehicle.PLATE_NO,
                 vehicle.CS_NO,
@@ -604,7 +615,7 @@ def vehicle_excel(request):
     ws2.title = "Vehicle Sold"
 
     columns = [
-            
+            'ID',
             'NO',
             'PLATE_NO',
             'CS_NO',
@@ -664,6 +675,7 @@ def vehicle_excel(request):
     for vehicle in v_queryset_sold:
         row_num += 1
         row = [
+                vehicle.Activity_id,
                 vehicle.NO,
                 vehicle.PLATE_NO,
                 vehicle.CS_NO,
@@ -723,7 +735,7 @@ def vehicle_excel(request):
     ws3.title = "Vehicle Transferred"
 
     columns = [
-            
+            'ID',
             'NO',
             'PLATE_NO',
             'CS_NO',
@@ -783,6 +795,7 @@ def vehicle_excel(request):
     for vehicle in v_queryset_trans:
         row_num += 1
         row = [
+                vehicle.Activity_id,
                 vehicle.NO,
                 vehicle.PLATE_NO,
                 vehicle.CS_NO,
@@ -843,6 +856,7 @@ def vehicle_excel(request):
     ws4.title = "Vehicle BAYANTEL"
 
     columns = [
+            'ID',
             'NO',
             'PLATE_NO',
             'CS_NO',
@@ -902,6 +916,7 @@ def vehicle_excel(request):
         # ordate = vehicle.ORIGINAL_OR_DATE.strftime('%m/%d/%Y')
         # platerelease = vehicle.PLATE_NUMBER_RELEASE_DATE.strftime('%m/%d/%Y')
         row = [
+                vehicle.Activity_id,
                 vehicle.NO,
                 vehicle.PLATE_NO,
                 vehicle.CS_NO,
@@ -959,6 +974,7 @@ def vehicle_excel(request):
     ws5.title = "Vehicle TELICPHIL"
 
     columns = [
+            'ID',
             'NO',
             'PLATE_NO',
             'CS_NO',
@@ -1018,6 +1034,7 @@ def vehicle_excel(request):
         # ordate = vehicle.ORIGINAL_OR_DATE.strftime('%m/%d/%Y')
         # platerelease = vehicle.PLATE_NUMBER_RELEASE_DATE.strftime('%m/%d/%Y')
         row = [
+                vehicle.Activity_id,
                 vehicle.NO,
                 vehicle.PLATE_NO,
                 vehicle.CS_NO,

@@ -18,11 +18,10 @@ function transferownership(trans) {
         <h2 align="center"><b>Transfer of Ownership</b></h2>&nbsp;
     </div>
 </div>
- <div class="w3-bar w3-black">
-    <button class="w3-bar-item w3-button" onclick="transferownership('Deed of Sale Creation')">Deed of Sale Creation</button>
-    <button class="w3-bar-item w3-button" onclick="transferownership('Transfer of Ownership')">Transfer of Ownership</button>
-    <button class="w3-bar-item w3-button" onclick="transferownership('Outbound Process')">Outbound Process</button>
-    <button class="w3-bar-item w3-button" onclick="transferownership('TOO Completion')">TOO Completion</button>
+    <div class="w3-bar w3-black">
+        <button class="w3-bar-item w3-button" onclick="transferownership('Deed of Sale Creation')">Deed of Sale Creation</button>
+        <button class="w3-bar-item w3-button" onclick="transferownership('Transfer of Ownership')">Transfer of Ownership</button>
+        <button class="w3-bar-item w3-button" onclick="transferownership('Outbound Process')">Outbound Process</button>
     </div>
 <form method="POST" action="{% url 'ownership_submit' %}">
 {% csrf_token %}
@@ -32,9 +31,7 @@ function transferownership(trans) {
         <div class="col-sm-6">
             <label>Status</label>
             <select name="d_status" id="d_status" class="form-control">
-                <option></option>
                 <option value="Ongoing">Ongoing</option>
-                <option value="Completed">Completed</option>
             </select>
         </div>
     </fieldset>
@@ -42,20 +39,20 @@ function transferownership(trans) {
         <legend align="left">Deed of Sale Creation 1</legend>
         
         <div class="col-sm-6">
-            <label>Transfer Fee:</label>
+            <label>Transfer Fee</label>
             <select name="transfer_fee" id="transfer_fee" class="form-control">
                 <option></option>
                 <option value="JXMTSI">JXMTSI</option>
-                <option value="Department">Department</option>
+                <option value="Department">BAND C</option>
             </select>
         </div>
 
-        <div class="col-sm-6">
-            <label>Document Completed Date:</label>
+        <!-- <div class="col-sm-6">
+            <label>Document Completed Date</label>
             <input style= "text-transform:" type="date" name="doc_date_completed" id="doc_date_completed" class="form-control">
-        </div>
+        </div> -->
         <div class="col-sm-6">
-            <label>Date Created Deed of Sales:</label>
+            <label>Date of Deed of Sale Creation/Emailed</label>
             <input style= "text-transform:" type="date" name="deedofsale_date" id="deedofsale_date" class="form-control">
         </div>
 
@@ -63,33 +60,33 @@ function transferownership(trans) {
     <fieldset>
         <legend align="left">Official Receipt Routing</legend>
         <div class="col-sm-6">
-            <label>Confirmation Status:</label>
+            <label>Confirmation Status</label>
             <select name="confirmation_status" id="confirmation_status" class="form-control">
                 <option value="">----------</option>
                 <option value="Final Pay">Final Pay</option>
-                <option value="Confirmed">Confirmed</option>
+                <option value="Setteled">Setteled</option>
             </select>
         </div>
         <div class="col-sm-6">
-            <label>Date OR Emailed to Cashier:</label>
+            <label>OR Date</label>
             <input style= "text-transform:" type="date" name="emailed_to_casher" id="emailed_to_casher" class="form-control">
         </div>
 
         <div class="col-sm-6">
-            <label>Date OR Received from Cashier:</label>
+            <label>Date OR Received from Cashier</label>
             <input style= "text-transform:" type="date" name="received_from_casher" id="received_from_casher" class="form-control">
         </div>
 
     </fieldset>
-    <fieldset>
+<!--     <fieldset>
         <legend align="left">Deed of Sale Creation 2</legend>
 
         <div class="col-sm-6">
-            <label>Signed Deed Of Sale Completed Date:</label>
+            <label>Signed Deed Of Sale Completed Date</label>
             <input style= "text-transform:" type="date" name="deed_signed" id="deed_signed" class="form-control">
         </div>
 
-    </fieldset>
+    </fieldset> -->
     <div class="card-footer">
       <button type="submit" class="buttonsubmit">SUBMIT</button>
       <button type="Reset" class="button">CLEAR ALL</button>
@@ -100,8 +97,8 @@ function transferownership(trans) {
     <fieldset>
         <legend align="left">DEED of Absolute Sale(DOAS)</legend><br>
         <div class="col-sm-6">
-            <label>Date Application Received:</label>
-            <input style= "text-transform:" type="date" name="date_application" id="date_application" class="form-control" required>
+            <label>Date Application Received</label>
+            <input style= "text-transform:" type="date" name="date_application" id="date_application" class="form-control">
         </div>
     <br><br>
     </fieldset>
@@ -109,7 +106,7 @@ function transferownership(trans) {
     <fieldset>
         <legend align="left">Vehicle Details</legend>
         <div class="col-sm-6">
-            <label>Plate Number:</label>
+            <label>Plate Number</label>
             <input name="plate_no" id="plate_no" list="vehicle_list" class="form-control" required>
             <datalist id="vehicle_list">               
             {% for plate in v_list %}
@@ -119,21 +116,21 @@ function transferownership(trans) {
         </div>
 
         <div class="col-sm-6">
-            <label>Conduction Sticker:</label>
+            <label>Conduction Sticker</label>
             <input style= "text-transform:" type="text" name="cond_sticker" id="cond_sticker" class="form-control" readonly>
         </div>
         <div class="col-sm-6">
-            <label>Vehicle Model Year:</label>
+            <label>Vehicle Model Year</label>
             <input style= "text-transform:" type="number" name="vehicle_model" id="vehicle_model" class="form-control" readonly>
         </div>
 
         <div class="col-sm-6">
-            <label>Vehicle Brand:</label>
+            <label>Vehicle Brand</label>
             <input style= "text-transform:" type="text" name="Vehicle_Brand" id="Vehicle_Brand" class="form-control" readonly>
         </div>
 
         <div class="col-sm-6">
-            <label>Vehicle Make:</label>
+            <label>Vehicle Make</label>
             <input style= "text-transform:" type="text" name="vehicle_make" id="vehicle_make" class="form-control" readonly>
         </div>
 
@@ -142,40 +139,46 @@ function transferownership(trans) {
     <legend align="left">Vendor and Vendee Details</legend>
 
         <div class="col-sm-6">
-            <label>Vendor:</label>
+            <label>Vendor</label>
             <select class="form-control" name="Vendor" id="Vendor">
                 <option value="">----------</option>
-                <option value="Globe Telecome">Globe Telecome</option>
+                <option value="Globe Telecom INC">Globe Telecom INC</option>
                 <option value="Innove">Innove</option>
                 <option value="Bayantel Communication">Bayantel Communication</option>
             </select>
         </div>
 
         <div class="col-sm-6">
-            <label>Other Vendor Name:</label>
+            <label>Other Vendor Name</label>
             <input style= "text-transform:" type="text" name="Other_Vendor_Name" id="Other_Vendor_Name" class="form-control">
         </div>
 
         <div class="col-sm-6">
-            <label>Vendee Employee ID:</label>
-            <input style= "text-transform:" type="text" name="v_employee_id" id="v_employee_id" class="form-control">
+            <label>Vendee Employee ID</label>
+            <input type="text" name="v_employee_id" id="v_employee_id" class="form-control" list="elist">
+            <datalist id="elist">               
+            {% for emp_id in e_list %}
+              <option data-value="{{ emp_id.Employee_Id }} | {{ emp_id.First_name }} | {{ emp_id.Last_name }} | {{ emp_id.Band }}" value="{{ emp_id.Employee_Id }}">
+              </option>
+            {% endfor %}
+            </datalist>
         </div>
         <div class="col-sm-6">
-            <label>Vendee First Name:</label>
-            <input style= "text-transform:" type="text" name="v_fname" id="v_fname" class="form-control">
+            <label>Vendee First Name</label>
+            <input type="text" name="v_fname" id="v_fname" class="form-control" readonly>
         </div>
         <div class="col-sm-6">
-            <label>Vendee Last Name:</label>
-            <input style= "text-transform:" type="text" name="v_lname" id="v_lname" class="form-control">
+            <label>Vendee Last Name</label>
+            <input type="text" name="v_lname" id="v_lname" class="form-control" readonly>
         </div>
 
         <div class="col-sm-6">
-            <label>Vendee Band:</label>
-            <input style= "text-transform:" type="text" name="v_band" id="v_band" class="form-control">
+            <label>Vendee Band</label>
+            <input type="text" name="v_band" id="v_band" class="form-control" readonly>
         </div>
 
         <div class="col-sm-6">
-            <label>TOO Purpose:</label>
+            <label>TOO Purpose</label>
             <select name="TOO_Purpose" id="TOO_Purpose" class="form-control">
                 <option value="">----------</option>
                 <option value="Deceased">Deceased</option>
@@ -205,7 +208,7 @@ function transferownership(trans) {
         <legend align="left">Documents Routing 1</legend>
 
         <div class="col-sm-6">
-            <label>Date Routed to GT</label>
+            <label>Routed to GT</label>
             <input style= "text-transform:" type="date" name="routed_to_jd" id="routed_to_jd" class="form-control" >
         </div>
 
@@ -217,7 +220,7 @@ function transferownership(trans) {
     <fieldset>
         <legend align="left">Documents Notarized</legend>
         <div class="col-sm-6">
-            <label>Date Notarized:</label>
+            <label>Date Notarized</label>
             <input style= "text-transform:" type="date" name="date_notarized" id="date_notarized" class="form-control" >
         </div>
 
@@ -229,8 +232,12 @@ function transferownership(trans) {
             <input style= "text-transform:" type="date" name="endorosed_to_insurance" id="endorosed_to_insurance" class="form-control" >
         </div>
         <div class="col-sm-6">
-            <label>Date Received Pull-Out of OR/CR:</label>
+            <label>Request OR/CR from IPC</label>
             <input style= "text-transform:" type="date" name="requested_for_pullout" id="requested_for_pullout" class="form-control" >
+        </div>
+        <div class="col-sm-6">
+            <label>Date Received OR/CR</label>
+            <input style= "text-transform:" type="date" name="recieved_for_pullout" id="recieved_for_pullout" class="form-control" >
         </div>
 
     </fieldset>
@@ -238,40 +245,40 @@ function transferownership(trans) {
     <fieldset>
         <legend align="left">TMG Processing</legend>
         <div class="col-sm-6">
-            <label>TMG Sched:</label>
+            <label>TMG Sched</label>
             <input style= "text-transform:" type="date" name="tmg_date_in" id="tmg_date_in" class="form-control" >
         </div>
-        <div class="col-sm-6">
-            <label>TMG Location:</label>
+<!--         <div class="col-sm-6">
+            <label>TMG Location</label>
             <select name="tmg_location" id="tmg_location" class="form-control">
                 <option value="">----------</option>
                 <option value="Caloocan">Caloocan City</option>
                 <option value="Pasay">Pasay City</option>
                 <option value="Pasig">Pasig City</option>
-            </select>
+            </select> -->
 
-        </div>
+        <!-- </div> -->
 
         <div class="col-sm-6">
-            <label>TMG Released:</label>
+            <label>TMG Released</label>
             <input style= "text-transform:" type="date" name="tmg_date_return" id="tmg_date_return" class="form-control">
         </div>
     </fieldset>
     <fieldset>
         <legend align="left">LTO Processing</legend>
         <div class="col-sm-6">
-            <label>LTO Date In:</label>
+            <label>LTO Date Seeded</label>
             <input style= "text-transform:" type="date" name="lto_date_in" id="tmg_date_out" class="form-control" >
         </div>
 
         <div class="col-sm-6">
-            <label>LTO Date Out:</label>
+            <label>LTO Date Transfered</label>
             <input style= "text-transform:" type="date" name="lto_date_out" id="lto_date_out" class="form-control" >
         </div>
 
 
         <div class="col-sm-6">
-            <label>LTO Location:</label>
+            <label>LTO Location</label>
             <select name="lto_location" id="lto_location" class="form-control">
                 <option value="">----------</option>
                 <option value="Makati">Makati</option>
@@ -313,7 +320,18 @@ function transferownership(trans) {
                 <option value="DONE TRANSFERRED">DONE TRANSFERRED</option>
                 <option value="FOR PULL OUT ORCR">FOR PULL OUT ORCR</option>
             </select>
-
+        </div>
+        <div class="col-sm-6">
+            <label>Received By</label>
+            <input style= "text-transform:" type="text" name="received_by" id="received_by" class="form-control" >
+        </div>
+        <div class="col-sm-6">
+            <label>Date Received</label>
+            <input style= "text-transform:" type="date" name="date_transfered_completed" id="date_transfered_completed" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label>Date Transfer Completed for Visayas/Mindanao</label>
+            <input style= "text-transform:" type="date" name="date_comletion_vismin" id="date_comletion_vismin" class="form-control" >
         </div>
     </fieldset>
     <div class="card-footer">
@@ -326,17 +344,17 @@ function transferownership(trans) {
         <button type="submit" class="buttonsubmit">UPDATE</button>
     </div>
     </div>
-    <div id="TOO Completion" class="w3-container ownership" style="display:none">
+<!--     <div id="TOO Completion" class="w3-container ownership" style="display:none">
     <fieldset>
         <legend align="left">Transfer Of Ownership Completion (NCR) </legend>
 
         <div class="col-sm-6">
-            <label>Date Received:</label>
+            <label>Date Received</label>
             <input style= "text-transform:" type="date" name="date_transfered_completed" id="date_transfered_completed" class="form-control">
         </div>
 
         <div class="col-sm-6">
-            <label>Received By:</label>
+            <label>Received By</label>
             <input style= "text-transform:" type="text" name="received_by" id="received_by" class="form-control" >
         </div>
 
@@ -344,32 +362,30 @@ function transferownership(trans) {
     <fieldset>
         <legend align="left">Transfer Of Ownership Completion (Visayas/Mindanao) </legend>
         <div class="col-sm-6">
-            <label>Date Transfer Completed for Visayas/Mindanao:</label>
+            <label>Date Transfer Completed for Visayas/Mindanao</label>
             <input style= "text-transform:" type="date" name="date_comletion_vismin" id="date_comletion_vismin" class="form-control" >
         </div>
 
-    </fieldset>
+    </fieldset> -->
     <input style= "text-transform:" type="text" name="TOO_SLA" id="TOO_SLA" value="30" hidden class="form-control">
-    <div class="card-footer">
+<!--     <div class="card-footer">
         <button type="submit" class="buttonsubmit">UPDATE</button>
     </div>
-    </div>
+    </div> -->
 </div>
 </form>
 
 <!--for employee auto-fill-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
-$('#req_employee_id').on('change', function () {
-    var value = $('#req_employee_id').val();
-    var val = ($('#emp_list [value="' + value + '"]').data('value'));
+$('#v_employee_id').on('change', function () {
+    var value = $('#v_employee_id').val();
+    var val = ($('#elist [value="' + value + '"]').data('value'));
     var parts = val.split(" | ");
-    $('#req_employee_id').val(parts[0]);
-    $('#req_Lname').val(parts[1]);
-    $('#req_Fname').val(parts[2]);
-    $('#req_band').val(parts[3]);
-    $('#req_cost').val(parts[4]);
-    $('#received_by').val(parts[5]);
+    $('#v_employee_id').val(parts[0]);
+    $('#v_fname').val(parts[1]);
+    $('#v_lname').val(parts[2]);
+    $('#v_band').val(parts[3]);
 });
 </script>
 <!--for vehicle auto-fill-->

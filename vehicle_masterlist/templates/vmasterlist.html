@@ -21,6 +21,22 @@ $('#emp_id').on('change', function () {
 
 <form method="POST" action="{% url 'vehicleMasterlist_submit' %}">
 {% csrf_token %}
+    <div class="col-sm-12">
+        <div class="col-sm-4">
+          <label>Vehicle Confirmation</label>
+          <select name="confirmation" id="confirmation" class="form-control">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <label>Emission Confirmation</label>
+          <select name="smoke" id="smoke" class="form-control" >
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+          </select>
+        </div>
+    </div>
     <div class="col-sm-4">
         <label>Plate Number</label>
         <input type="text" name="plate_no" id="plate_no" class="form-control">
@@ -115,7 +131,7 @@ $('#emp_id').on('change', function () {
     <div class="col-sm-4">
         <label>Employee Id</label>
         <input name="emp_id" id="emp_id" class="form-control" list="emp_list" required>
-            <datalist id="emp_list">               
+        <datalist id="emp_list">               
             {% for emp_id in elist %}
               <option data-value="{{ emp_id.Employee_Id }}" value="{{ emp_id.Employee_Id }}">
               </option>
@@ -229,19 +245,38 @@ $('#emp_id').on('change', function () {
     <div class="col-sm-4">
         <label>Email Status</label>
         <select class="form-control" name="status" required>
-            <option></option>
-            <option value="Yes">Yes</option>
             <option value="No">No</option>
+            <option value="Yes">Yes</option>
         </select>
         
     </div>
     <div class="col-sm-4">
+        <label> COC</label>
+        <select  name="COC_Date" id="COC_Date" class="form-control">
+            <option></option>
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+        </select>
+    </div>
+    <div class="col-sm-4">
+        <label> Smoke Emission</label>
+        <select name="Smoke_Emission_Date" id="Smoke_Emission_Date" class="form-control">
+            <option></option>
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+        </select>
+    </div>
+    <div class="col-sm-4">
+        <label> Last Registration Date</label>
+        <input type="Date" name="Last_Registration_Date" id="Last_Registration_Date" class="form-control">
+    </div>
+    <div class="col-sm-4">
         <label> Latest Remark's</label>
-        <input type="test" name="l_remark" id="l_remark" class="form-control">
+        <input type="Text" name="l_remark" id="l_remark" class="form-control">
     </div>
     <div class="col-sm-4">
         <label>Vehicle Status</label>
-        <select name="vstatus" id="vstatus" class="form-control">
+        <select name="vstatus" id="vstatus" class="form-control" required>
             <option></option>
             <option value="Sold">Sold</option>
             <option value="Active">Active</option>
@@ -250,9 +285,10 @@ $('#emp_id').on('change', function () {
         </select>
     </div>
     <div class="col-sm-4">
-        <label> Emai</label>
+        <label> Email</label>
         <input type="email" name="email" id="email" class="form-control">
     </div>
+        <input type="text" name="Status" value="No" hidden>
 </div>
     <div class="card-footer">
         <button type="submit" class="buttonsubmit">PROCEED</button>

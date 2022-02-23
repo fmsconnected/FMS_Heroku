@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+$('#emp_id').on('change', function () {
+    var value = $('#emp_id').val();
+    var val = ($('#emp_list [value="' + value+ '"]').data('value'));
+    // var parts = val.split(" | ");
+    // $('#emp_id').val(parts[0]);
+});
+</script>
 <div class="col-md-12">
     <div class="card">
     <div class="card-header">
@@ -46,7 +54,7 @@
     </tr>
     <tr>
       <th>Vehicle Category</th><td>{{ object.VEHICLE_CATEGORY }}</td>
-      <th>Employee ID </th> <td>{{ object.Employee_Id }}</td>
+      <th>Employee ID </th> <td>{{ object.Employee }}</td>
     </tr>
     <tr>
       <th>Band Level</th><td>{{ object.BAND_LEVEL }}</td>
@@ -99,15 +107,312 @@
     </tr>
 
     <tr>
-      <th>Vehicle Status</th><td>{{objects.vehilcle_status}}</td>
+      <th>Vehicle Status</th><td>{{objects.vehicle_status}}</td>
     </tr>
 </table>
     <div class="card-footer">
-      <a href="{% url 'vehicle-update' object.id %}" class="buttonsubmit" >Update</a>
+      <!-- <a href="{% url 'vehicle-update' object.id %}" class="buttonsubmit" >Update</a> -->
+      <a data-toggle="modal" data-target="#updateModal" class="buttonsubmit">Update</a>
       <a href="{% url 'vehicle-list'%}" class="btn" >Close</a>
 
       <!-- <button class="button" data-toggle="modal" data-target="#updateModal">UPDATE release</button> -->
     </div>
 </div>
+<!--Update Modal--->
+<form method="POST" action="{% url 'vehicle-update' object.id %}">
+{% csrf_token %}
+  <div class="modal fade bd-example-modal-xl" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Update Vehicle Masterlist</h2>
+        </div>
+        <div class="modal-body">
+        <div class="tab-content">
+        <div class="row">
+              <div class="col-sm-4">
+                  <label>Vehicle Confirmation</label>
+                  <select name="confirmation" id="confirmation" class="form-control"value="{{object.confirmation}}">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                  </select>
+              </div>
+              <div class="col-sm-4">
+                  <label>Emission Confirmation</label>
+                  <select name="smoke" id="smoke" class="form-control" value="{{object.smoke}}" >
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                  </select>
+              </div>
+              <div class="col-sm-4">
+              </div>
+
+              <div class="col-sm-4">
+                  <label>Plate Number</label>
+                  <input type="text" name="plate_no" id="plate_no" class="form-control"value="{{object.PLATE_NO}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Conduction Sticker Number</label>
+                  <input type="text" name="cs" id="cs" class="form-control" value="{{object.CS_NO}}" required>
+              </div>
+              <div class="col-sm-4">
+                  <label>CR Name</label>
+                  <select name="cr_name" class="form-control" value="{{object.CR_NAME}}">
+                      <option value="">--------</option>
+                      <option value="TELICPHIL">TELICPHIL</option>
+                      <option value="GLOBE">GLOBE</option>
+                      <option value="BAYANTEL">BAYANTEL</option>
+                  </select>
+              </div>
+              <div class="col-sm-4">
+                  <label>Model</label>
+                  <input type="text" name="model" id="model" class="form-control" value="{{object.MODEL}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Brand</label>
+                  <select name="cars" class="form-control" value="{{object.BRAND}}">
+                      <option value="">--------</option>
+                      <option value="Honda">Honda</option>
+                      <option value="Toyota">Toyota</option>
+                      <option value="Mitsubishi">Mitsubishi</option>
+                      <option value="Ford">Ford</option>
+                      <option value="Masda">Masda</option>
+                      <option value="Isuzu">Isuzu</option>
+                      <option value="Hyundai">Hyundai</option>
+                      <option value="Nissan">Nissan</option>
+                      <option value="Suzuki">Suzuki</option>
+                      <option value="Chevrolet">Chevrolet</option>
+                      <option value="Jeep">Jeep</option>
+                      <option value="Audi">Audi</option>
+                      <option value="BMW">BMW</option>
+                      <option value="Bently">Bently</option>
+                      <option value="Cadillac">Cadillac</option>
+                      <option value="Chrysler">Chrysler</option>
+                      <option value="Dodge">Dodge</option>
+                      <option value="GMC">GMC</option>
+                      <option value="Genesis">Genesis</option>
+                      <option value="Jaguar">Jaguar</option>
+                      <option value="Land Rover">Land Rover</option>
+                      <option value="Lexus">Lexus</option>
+                      <option value="Lincoln">Lincoln</option>
+                      <option value="Lotus">Lotus</option>
+                      <option value="Maserati">Maserati</option>
+                      <option value="Mercedes-Benz">Mercedes-Benz</option>
+                      <option value="Mini">Mini</option>
+                      <option value="Porsche">Porsche</option>
+                      <option value="Ram">Ram</option>
+                      <option value="Rolls-Royce">Rolls-Royce</option>
+                      <option value="Saab">Saab</option>
+                      <option value="Scion">Scion</option>
+                      <option value="Subaru">Subaru</option>
+                      <option value="Tesla">Tesla</option>
+                      <option value="Volkswagen">Volkswagen</option>
+                      <option value="Volvo">Volvo</option>
+                      <option value="Saturn">Saturn</option>
+                      <option value="Kia">Kia</option>
+                      <option value="Geely">Geely</option>
+                      <option value="MG">MG</option>
+                  </select>
+              </div>
+              <div class="col-sm-4">
+                  <label>Vehicle Make</label>
+                  <input type="text" name="vmake" id="vmake" class="form-control" value="{{object.VEHICLE_MAKE}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Engine Number</label>
+                  <input type="text" name="eng_no" id="eng_no" class="form-control" value="{{object.ENGINE_NO}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Chassis Number</label>
+                  <input type="text" name="chassis_no" id="chassis_no" class="form-control" value="{{object.CHASSIS_NO}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>MV File Number</label>
+                  <input type="text" name="mvfile" id="mvfile" class="form-control" value="{{object.MV_FILE_NO}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Vehicle Type</label>
+                  <input type="text" name="vtype" id="vtype" class="form-control" value="{{object.VEHICLE_TYPE}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Vehicle Category</label>
+                  <input type="text" name="vcat" id="vcat" class="form-control" value="{{object.VEHICLE_CATEGORY}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Employee Id</label>
+                  <input name="emp_id" id="emp_id" class="form-control" list="emp_list" required value="{{object.Employee}}">
+                      <!-- <datalist id="emp_list">               
+                      {% for emp_id in elist %}
+                        <option data-value="{{ emp_id.Employee_Id }}" value="{{ emp_id.Employee_Id }}">
+                        </option>
+                      {% endfor %}
+                      </datalist>
+                      <p id="msg"></p> -->
+              </div>
+              <div class="col-sm-4">
+                  <label>Band Level</label>
+                  <input type="text" name="band" id="band" class="form-control" value="{{object.BAND_LEVEL}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Band Benefit</label>
+                  <input type="text" name="benefit" id="benefit" class="form-control" value="{{object.BENEFIT_GROUP}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Cost Center</label>
+                  <input type="text" name="cost" id="cost" class="form-control" value="{{object.COST_CENTER}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Group</label>
+                  <input type="text" name="group" id="group" class="form-control" value="{{object.GROUP}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Division</label>
+                  <input type="text" name="div" id="div" class="form-control" value="{{object.DIVISION}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Department</label>
+                  <input type="text" name="dept" id="dept" class="form-control" value="{{object.DEPARTMENT}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Section</label>
+                  <input type="text" name="sec" id="sec" class="form-control" value="{{object.SECTION}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>IS (Employee ID)</label>
+                  <input type="text" name="is_emp" id="is_emp" class="form-control" value="{{object.IS_ID}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>IS (Name)</label>
+                  <input type="text" name="is_fname" id="is_fname" class="form-control"value="{{object.IS_NAME}}">
+              </div>
+              <!-- <div class="col-sm-4">
+                  <label>IS (Lastname)</label>
+                  <input type="text" name="is_lname" id="is_lname" class="form-control">
+              </div> -->
+              <div class="col-sm-4">
+                  <label>Location</label>
+                  <input type="text" name="loc" id="loc" class="form-control" value="{{object.LOCATION}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Aquisition Date</label>
+                  <input type="date" name="aqui_date" id="aqui_date" class="form-control" value="{{ object.ACQ_DATE }}" required>
+              </div>
+                  <div class="col-sm-4">
+                  <label>Aquisition Cost</label>
+                  <input type="text" name="aqui_cost" id="aqui_cost" class="form-control" value="{{ object.ACQ_COST }}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Asset Number</label>
+                  <input type="text" name="asset" id="asset" class="form-control" value="{{object.ASSET_NO}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>PO Number</label>
+                  <input type="text" name="po_no" id="po_no" class="form-control" value="{{object.PO_NO}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>SAP PR Number</label>
+                  <input type="text" name="sap_pr" id="sap_pr" class="form-control" value="{{object.SAP_PR}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Vehicle IVN Number</label>
+                  <input type="text" name="ivn_no" id="ivn_no" class="form-control" value="{{object.Vehicle_IVN_no}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Unit MATDOC</label>
+                  <input type="text" name="mathdoc" id="mathdoc" class="form-control" value="{{object.Unit_MATDOC}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Equipment Number</label>
+                  <input type="text" name="eq_no" id="eq_no" class="form-control" value="{{object.EQUIPMENT_NO}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Dealership</label>
+                  <input type="text" name="dealer" id="dealer" class="form-control" value="{{object.dealer}}">
+              </div> 
+              <div class="col-sm-4">
+                  <label>Dealer Name</label>
+                  <input type="text" name="dealer_name" id="dealer_name" class="form-control" value="{{object.dealer_name}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Plate Release Date</label>
+                  <input type="date" name="plate_date" id="plate_date" class="form-control" value="{{object.PLATE_NUMBER_RELEASE_DATE}}">
+              </div><div class="col-sm-4">
+                  <label>Original OR Date</label>
+                  <input type="date" name="or_date" id="or_date" class="form-control" value="{{object.ORIGINAL_OR_DATE}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Remarks</label>
+                  <select name="remarks" id="remarks" class="form-control" value="{{object.Remarks}}">
+                      <option></option>
+                      <option value="Without Last Registration Date">Without Last Registration Date</option>
+                      <option value="Without Smoke Emission Date">Without Smoke Emission Date</option>
+                      <option value="Without COC Date">Without COC Date</option>
+                      <option value="No Smoke and COC">No Smoke and COC</option>
+                      <option value="For Registration">For Registration</option>
+                      <option value="Complete">Complete</option>
+                  </select>
+              </div>
+              <div class="col-sm-4">
+                  <label>Email Status</label>
+                  <select class="form-control" name="status" value="{{object.Status}}" required>
+                      <option value="No">No</option>
+                      <option value="Yes">Yes</option>
+                      
+                  </select>
+                  
+              </div>
+              <div class="col-sm-4">
+                  <label> COC</label>
+                  <select name="coc_date" id="coc_date" value="{{object.COC_Date }}" class="form-control" required>
+                    <option></option>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                  </select>
+              </div>
+              <div class="col-sm-4">
+                  <label> Smoke Emission</label>
+                  <select name="Smoke_Emission_Date" id="Smoke_Emission_Date" class="form-control" value="{{object.Smoke_Emission_Date}}" required>
+                    <option></option>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                  </select>
+              </div>
+              <div class="col-sm-4">
+                  <label> Last Registration Date</label>
+                  <input type="Date" name="Last_Registration_Date" id="Last_Registration_Date" class="form-control" value="{{object.Last_Registration_Date}}">
+              </div>
+              <div class="col-sm-4">
+                  <label> Latest Remark's</label>
+                  <input type="Text" name="l_remark" id="l_remark" class="form-control" value="{{object.leasing_remark}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Vehicle Status</label>
+                  <select name="vstatus" id="vstatus" class="form-control" value="{{ object.vehicle_status }}" required>
+                      <option></option>
+                      <option value="Sold">Sold</option>
+                      <option value="Active">Active</option>
+                      <option value="Transferred">Transferred</option>
+                      
+                  </select>
+              </div>
+              <div class="col-sm-4">
+                  <label> Email</label>
+                  <input type="email" name="email" id="email" class="form-control" value="{{object.EMAIL}}" required>
+              </div>
+
+        </div>
+        <br><br>
+        <div class="card-footer">
+            <button type="submit" class="buttonsubmit">PROCEED</button>
+            <button type="Reset" class="button">CLEAR ALL</button>
+            <a href="{% url 'vehicle-list' %}" class="btn">CLOSE</a>
+        </div>
+            <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 </div>
 {% endblock %}

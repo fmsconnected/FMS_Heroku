@@ -5,15 +5,10 @@ from .models import (
     )
 
 
-
+                 
 class ownershipForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ownershipForm, self).__init__(*args, **kwargs)
-        self.fields['req_Fname'].required = False
-        self.fields['req_Lname'].required = False
-        self.fields['req_band'].required = False
-        self.fields['req_cost'].required = False
-        self.fields['req_title'].required = False
         self.fields['v_fname'].required = False
         self.fields['cond_sticker'].required = False
         self.fields['vehicle_model'].required = False
@@ -25,21 +20,17 @@ class ownershipForm(forms.ModelForm):
         self.fields['v_band'].required = False
         self.fields['purpose'].required = False
         self.fields['transfer_fee'].required = False
-        self.fields['doc_date_completed'].required = False
         self.fields['deedofsale_date'].required = False
         self.fields['confirmation_status'].required = False
         self.fields['emailed_to_casher'].required = False
         self.fields['received_from_casher'].required = False
-        self.fields['deed_signed'].required = False
         self.fields['routed_to_jd'].required = False
         self.fields['vehicle_model'].required = False
         self.fields['vehicle_brand'].required = False
         self.fields['routed_to_jd'].required = False
         self.fields['approved_by_jd'].required = False
-        # self.fields['return_fleet_admin'].required = False
-        self.fields['forwarded_to_liason'].required = False
+        # self.fields[].required = False
         self.fields['tmg_date_in'].required = False
-        self.fields['tmg_location'].required = False
         self.fields['tmg_date_return'].required = False       
         self.fields['lto_date_in'].required = False
         self.fields['lto_date_out'].required = False
@@ -54,19 +45,17 @@ class ownershipForm(forms.ModelForm):
         self.fields['requested_for_pullout'].required = False
         # self.fields['date_pulled'].required = False
         # self.fields['return_endorsementfleet'].required = False
-        self.fields['forwarded_fleet_liason'].required = False
         self.fields['lto_location'].required = False
         self.fields['D_status'].required = True
 
     class Meta:
         model = Ownership
-        fields = ['date_application','req_employee_id', 'req_Fname', 'req_Lname', 'req_band','req_cost',
-                    'req_title','plate_no','cond_sticker','vehicle_model','vehicle_brand','vehicle_make','vendor',
-                    'vendor_name','v_employee_id','v_fname','v_lname','v_band','purpose','transfer_fee','doc_date_completed',
+        fields = ['date_application','plate_no','cond_sticker','vehicle_model','vehicle_brand','vehicle_make','vendor',
+                    'vendor_name','v_employee_id','v_fname','v_lname','v_band','purpose','transfer_fee',
                     'deedofsale_date','confirmation_status','emailed_to_casher','received_from_casher',
-                    'deed_signed','routed_to_jd','approved_by_jd','return_fleet_admin','forwarded_to_liason','date_notarized',
-                    'endorosed_to_insurance','requested_for_pullout','forwarded_fleet_liason',
-                    'tmg_date_in','tmg_location','tmg_date_return' ,'lto_date_in','lto_date_out', 'lto_location',
+                    'routed_to_jd','approved_by_jd','date_notarized',
+                    'endorosed_to_insurance','requested_for_pullout',
+                    'tmg_date_in','tmg_date_return' ,'lto_date_in','lto_date_out', 'lto_location',
                     'date_transfered_completed','date_comletion_vismin','TOO_SLA', 'date_received_by','status','D_status']
                     
         vendor=(
@@ -142,12 +131,6 @@ class ownershipForm(forms.ModelForm):
         widgets= {
             
             'date_application': forms.TextInput(attrs={'class':'form-control','type':'date'}),
-            'req_employee_id': forms.TextInput(attrs={'class':'form-control'}),
-            'req_Fname': forms.TextInput(attrs={'class':'form-control'}),
-            'req_Lname': forms.TextInput(attrs={'class':'form-control'}),
-            'req_band': forms.TextInput(attrs={'class':'form-control'}),
-            'req_cost': forms.TextInput(attrs={'class':'form-control'}),
-            'req_title': forms.TextInput(attrs={'class':'form-control'}),
             'plate_no': forms.TextInput(attrs={'class':'form-control'}),
             'cond_sticker' : forms.TextInput(attrs={'class':'form-control'}),
             'vehicle_model' : forms.TextInput(attrs={'class':'form-control'}),
@@ -161,24 +144,18 @@ class ownershipForm(forms.ModelForm):
             'v_band' : forms.TextInput(attrs={'class':'form-control'}),
             'purpose' : forms.Select(attrs={'class':'form-control','choices':'purpose'}),
             'transfer_fee' : forms.TextInput(attrs={'class':'form-control', 'choices':'fee'}),
-            'doc_date_completed' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'deedofsale_date': forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'confirmation_status' : forms.Select(attrs={'class':'form-control','choices':'confirm'}),
             'emailed_to_casher' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'received_from_casher' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
-            'deed_signed' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'routed_to_jd' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'approved_by_jd' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
-            'return_fleet_admin' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
-            'forwarded_to_liason' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'date_notarized' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'endorosed_to_insurance': forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'requested_for_pullout' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             # 'date_pulled' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             # 'return_endorsementfleet' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
-            'forwarded_fleet_liason' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'tmg_date_in' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
-            'tmg_location' : forms.Select(attrs={'class':'form-control','choices':'TMGloc'}),
             'tmg_date_return' : forms.TextInput(attrs={'class':'form-control','type':'date'}),        
             'lto_date_in' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'lto_location' : forms.Select(attrs={'class':'form-control','choices':'Location'}),
@@ -195,11 +172,6 @@ class ownershipForm(forms.ModelForm):
 class bidderForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(bidderForm, self).__init__(*args, **kwargs)
-        self.fields['req_Fname'].required = False
-        self.fields['req_Lname'].required = False
-        self.fields['req_band'].required = False
-        self.fields['req_cost'].required = False
-        self.fields['req_title'].required = False
         self.fields['v_fname'].required = False
         self.fields['cond_sticker'].required = False
         self.fields['vehicle_model'].required = False
@@ -211,20 +183,16 @@ class bidderForm(forms.ModelForm):
         self.fields['v_band'].required = False
         self.fields['purpose'].required = False
         self.fields['transfer_fee'].required = False
-        self.fields['doc_date_completed'].required = False
         self.fields['deedofsale_date'].required = False
         self.fields['confirmation_status'].required = False
         self.fields['emailed_to_casher'].required = False
         self.fields['received_from_casher'].required = False
-        self.fields['deed_signed'].required = False
         self.fields['routed_to_jd'].required = False
         self.fields['vehicle_model'].required = False
         self.fields['vehicle_brand'].required = False
         self.fields['routed_to_jd'].required = False
         self.fields['approved_by_jd'].required = False
-        self.fields['forwarded_to_liason'].required = False
         self.fields['tmg_date_in'].required = False
-        self.fields['tmg_location'].required = False
         self.fields['tmg_date_return'].required = False       
         self.fields['lto_date_in'].required = False
         self.fields['lto_date_out'].required = False
@@ -235,18 +203,16 @@ class bidderForm(forms.ModelForm):
         self.fields['date_notarized'].required = False
         self.fields['endorosed_to_insurance'].required = False
         self.fields['requested_for_pullout'].required = False
-        self.fields['forwarded_fleet_liason'].required = False
         self.fields['lto_location'].required = False
 
     class Meta:
         model = Ownership
-        fields = ['date_application','req_employee_id', 'req_Fname', 'req_Lname', 'req_band','req_cost',
-                    'req_title','plate_no','cond_sticker','vehicle_model','vehicle_brand','vehicle_make','vendor',
-                    'vendor_name','v_employee_id','v_fname','v_lname','v_band','purpose','transfer_fee','doc_date_completed',
+        fields = ['date_application','plate_no','cond_sticker','vehicle_model','vehicle_brand','vehicle_make','vendor',
+                    'vendor_name','v_employee_id','v_fname','v_lname','v_band','purpose','transfer_fee',
                     'deedofsale_date','confirmation_status','emailed_to_casher','received_from_casher',
-                    'deed_signed','routed_to_jd','approved_by_jd','return_fleet_admin','forwarded_to_liason','date_notarized',
-                    'endorosed_to_insurance','requested_for_pullout','forwarded_fleet_liason',
-                    'tmg_date_in','tmg_location','tmg_date_return' ,'lto_date_in','lto_date_out', 'lto_location',
+                    'routed_to_jd','approved_by_jd','date_notarized',
+                    'endorosed_to_insurance','requested_for_pullout',
+                    'tmg_date_in','tmg_date_return' ,'lto_date_in','lto_date_out', 'lto_location',
                     'date_transfered_completed','date_comletion_vismin','TOO_SLA', 'date_received_by',]
                     
         vendor=(
@@ -305,12 +271,6 @@ class bidderForm(forms.ModelForm):
         widgets= {
             
             'date_application': forms.TextInput(attrs={'class':'form-control','type':'date'}),
-            'req_employee_id': forms.TextInput(attrs={'class':'form-control'}),
-            'req_Fname': forms.TextInput(attrs={'class':'form-control'}),
-            'req_Lname': forms.TextInput(attrs={'class':'form-control'}),
-            'req_band': forms.TextInput(attrs={'class':'form-control'}),
-            'req_cost': forms.TextInput(attrs={'class':'form-control'}),
-            'req_title': forms.TextInput(attrs={'class':'form-control'}),
             'plate_no': forms.TextInput(attrs={'class':'form-control'}),
             'cond_sticker' : forms.TextInput(attrs={'class':'form-control'}),
             'vehicle_model' : forms.TextInput(attrs={'class':'form-control'}),
@@ -324,22 +284,16 @@ class bidderForm(forms.ModelForm):
             'v_band' : forms.TextInput(attrs={'class':'form-control'}),
             'purpose' : forms.Select(attrs={'class':'form-control','choices':'purpose'}),
             'transfer_fee' : forms.TextInput(attrs={'class':'form-control', 'choices':'fee'}),
-            'doc_date_completed' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'deedofsale_date': forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'confirmation_status' : forms.Select(attrs={'class':'form-control','choices':'confirm'}),
             'emailed_to_casher' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'received_from_casher' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
-            'deed_signed' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'routed_to_jd' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'approved_by_jd' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
-            'return_fleet_admin' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
-            'forwarded_to_liason' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'date_notarized' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'endorosed_to_insurance': forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'requested_for_pullout' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
-            'forwarded_fleet_liason' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'tmg_date_in' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
-            'tmg_location' : forms.Select(attrs={'class':'form-control','choices':'TMGloc'}),
             'tmg_date_return' : forms.TextInput(attrs={'class':'form-control','type':'date'}),        
             'lto_date_in' : forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'lto_location' : forms.Select(attrs={'class':'form-control','choices':'Location'}),

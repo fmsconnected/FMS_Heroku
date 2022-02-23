@@ -8,8 +8,8 @@
     </div>
 
 <table width="90%" class="table table-bordered table-hover" border="5px">
-  <tr>
-      <th>Number</th><td>{{ object.NO }}</td>
+<tr>
+      <th>Vehicle Number</th><td>{{ object.NO }}</td>
       <th>Activity ID</th><td>{{ object.Activity_Id }}</td>
   </tr>
     <tr>
@@ -21,12 +21,16 @@
       <th width="25%">Conduction Sticker</th><td width="25%">{{ object.CS_NO }}</td>
     </tr>
     <tr>
+      <th>Ending </th> <td>{{ object.PLATE_ENDING }}</td>
       <th>CR Name </th> <td>{{ object.CR_NAME }}</td>
-      <th>Model </th> <td>{{ object.MODEL }}</td>
+    </tr>
+    <tr>
+      <th>Registration Month</th><td>{{ object.REGISTRATION_MONTH }}</td>
+      <th>Model </th> <td>{{ object.Model }}</td>
     </tr>
     <tr>
       <th>Brand</th> <td>{{ object.BRAND }}</td>
-      <th>Vehicle_make</th> <td>{{ object.VEHICLE_MAKE }}</td>
+      <th>Vehicle Make</th> <td>{{ object.VEHICLE_MAKE }}</td>
     </tr>
     <tr>
       <th>Engine Number </th> <td>{{ object.ENGINE_NO }}</td>
@@ -34,23 +38,65 @@
     </tr>
     <tr>
       <th>MV File Number</th><td>{{ object.MV_FILE_NO }}</td>
-      <th>COC</th><td>{{ object.COC }}</td>
+      <th>Vehicle Type</th><td>{{ object.VEHICLE_TYPE }}</td>
     </tr>
     <tr>
-      <th>Smoke/TPL</th><td>{{ object.SMOKE_TPL }}</td>
-      <th>Remarks/Registered</th> <td>{{ object.REMARKS_REGISTERED }}</td>
+      <th>First Name Assignee</th><td>{{ object.ASSIGNEE_FIRST_NAME }}</td>
+      <th>Last Name assignee</th> <td>{{ object.ASSIGNEE_LAST_NAME }}</td>
     </tr>
     <tr>
-      <th>Date Emailed</th><td>{{ object.DATE_EMAILED }}</td>
-      <th>Justification Remarks </th> <td>{{ object.JUSTIFICATION_REMARKS }}</td>
+      <th>Vehicle Category</th><td>{{ object.VEHICLE_CATEGORY }}</td>
+      <th>Employee ID </th> <td>{{ object.Employee }}</td>
     </tr>
     <tr>
-      <th>Email Status</th><td>{{ object.sent_email }}</td>
-      <th>Email </th> <td>{{ object.email }}</td>
+      <th>Band Level</th><td>{{ object.BAND_LEVEL }}</td>
+      <th>Band Benefit</th> <td>{{ object.BENEFIT_GROUP }}</td>
+    </tr>
+    <tr>
+      <th>Original OR Date</th><td>{{ object.ORIGINAL_OR_DATE}}</td>
+      <th>Cost Center</th> <td>{{ object.COST_CENTER }}</td>
+    </tr>
+    <tr>
+      <th>Group </th> <td>{{ object.GROUP }}</td>
+      <th>Division</th> <td>{{ object.DIVISION }}</td>
+    </tr>  
+    <tr>
+      <th>Department </th> <td>{{ object.DEPARTMENT }}</td>
+      <th>Section</th> <td>{{ object.SECTION }}</td>
+    </tr>
+    <tr>
+      <th>IS (Employee ID)</th><td>{{ object.IS_ID }}</td>
+      <th>IS (Firstname)</th><td>{{ object.IS_NAME }}</td>
+    </tr>
+    <tr>
+      <!-- <th>IS (Lastname)</th><td>{{ object.IS_LAST_NAME }}</td> -->
+      <th>Location </th> <td>{{ object.LOCATION }}</td>
+    </tr>
+
+    <tr>
+      <th>Aquisition Date</th><td>{{ object.ACQ_DATE }}</td>
+      <th>Aquisition Cost</th><td>{{ object.ACQ_COST }}</td>
+    </tr>
+    <tr>
+      <th>Asset Number</th><td>{{ object.ASSET_NO }}</td>
+      <th>PO Number </th> <td>{{ object.PO_NO }}</td>
+    </tr>
+    <tr>
+      <th>Equipment Number </th> <td>{{ object.EQUIPMENT_NO }}</td>
+      <th>Plate Number Release Date</th> <td>{{ object.PLATE_NUMBER_RELEASE_DATE }}</td>
+    </tr>  
+    <tr>
+      <th>Remarks: </th> <td>{{ object.Remarks }}</td>
+      <th>Status:</th> <td>{{ object.Status }}</td>
+    </tr>
+
+    <tr>
+      <th>Vehicle Status</th><td>{{objects.vehicle_status}}</td>
     </tr>
 </table>
     <div class="card-footer">
-      <button class="buttonsubmit" style="width:150px;" data-toggle="modal" data-target="#updateModal">Update</button>&nbsp;
+      <a href="{% url 'reg_update' object.id%}" class="buttonsubmit" >Update</a>
+      <!-- <button class="buttonsubmit" style="width:150px;" data-toggle="modal" data-target="#updateModal">Update</button> -->&nbsp;
      <!--  <a data-toggle="modal" data-target="#printModal"  class="buttonsubmit">Print</a>&nbsp; -->
       <a href="{% url 'registration_jan_reg'%}" class="btn" >Close</a>
       
@@ -66,92 +112,5 @@
         </div>
     </div>
     </div>
-</div>
-<!----Update---->
-<form method="POST" action="{% url 'reg_update' object.id %}">
-{% csrf_token %}
-<div class="modal fade bd-example-modal-lg" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title">Update Vehicle Registrations</h3>
-      </div>
-
-          <div class="modal-body">
-            <div class="col-sm-4">
-            <label>Plate Number</label>
-            <input type="text" name="plate_no" id="plate_no" class="form-control" value={{object.PLATE_NO}}>
-        </div>
-        <div class="col-sm-4">
-            <label>Conduction Sticker Number</label>
-            <input type="text" name="cs" id="cs" class="form-control" value="{{object.CS_NO}}">
-        </div>
-        <div class="col-sm-4">
-            <label>CR Name</label>
-            <input type="text" name="cr_name" class="form-control" value="{{object.CR_NAME}}">
-        </div>
-        <div class="col-sm-4">
-            <label>Model</label>
-            <input type="text" name="model" id="model" class="form-control" value="{{object.MODEL}}">
-        </div>
-        <div class="col-sm-4">
-            <label>Brand</label>
-            <input type="text" name="brand" id="brand" class="form-control" value="{{object.BRAND}}">
-        </div>
-        <div class="col-sm-4">
-            <label>Vehicle Make</label>
-            <input type="text" name="vmake" id="vmake" class="form-control" value="{{object.VEHICLE_MAKE}}">
-        </div>
-        <div class="col-sm-4">
-            <label>Engine Number</label>
-            <input type="text" name="eng_no" id="eng_no" class="form-control" value="{{object.ENGINE_NO}}">
-        </div>
-        <div class="col-sm-4">
-            <label>Chassis Number</label>
-            <input type="text" name="chassis_no" id="chassis_no" class="form-control" value="{{object.CHASSIS_NO}}">
-        </div>
-        <div class="col-sm-4">
-            <label>MV File Number</label>
-            <input type="text" name="mvfile" id="mvfile" class="form-control" value="{{object.MV_FILE_NO}}">
-        </div>
-        <div class="col-sm-4">
-            <label>COC</label>
-            <input type="text" name="coc" id="coc" class="form-control" value="{{object.COC}}">
-        </div>
-        <div class="col-sm-4">
-            <label>Smoke/TPL</label>
-            <input type="text" name="smoke" id="smoke" class="form-control" value="{{object.SMOKE_TPL}}">
-        </div>
-        <div class="col-sm-4">
-            <label>Remarks/Registered</label>
-            <input name="remarks_registered" id="remarks_registered" class="form-control" value="{{object.REMARKS_REGISTERED}}">
-        </div>
-        <div class="col-sm-4">
-            <label>Date Emailed</label>
-            <input type="Date" name="demail" id="demail" class="form-control" value="{{object.DATE_EMAILED}}">
-        </div>
-        <div class="col-sm-4">
-            <label>Remarks/Justification</label>
-            <input name="remarks_justification" id="remarks_justification" class="form-control" value="{{object.JUSTIFICATION_REMARKS}}">
-        </div>
-        <div class="col-sm-4">
-        <!-- <label>Email Status</label> -->
-        <input type="text" name="email_status" id="email_status" class="form-control" class="form-control" value="{{ object.sent_email}}" hidden>
-        </input>
-    </div>
-      <div class="col-sm-4">
-        <label>Email</label>
-        <input name="email" id="email" class="form-control" type="email" value="{{ object.email }}">
-      </div>
-      <div class="col-sm-4">
-        <label>Date Registered</label>
-        <input name="date_reg" id="date_reg" class="form-control" type="Date" value="{{ object.Date_registered }}">
-      </div>
-    </div>
-    <div class="card-footer">
-        <button type="submit" class="buttonsubmit">Submit</button>
-        <a href="{% url 'registration_jan_reg' %}" class="btn">Close</a>
-    </div>
-          
-</form>
+</div
 {% endblock %}

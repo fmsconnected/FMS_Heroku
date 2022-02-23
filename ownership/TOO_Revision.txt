@@ -1,0 +1,66 @@
+TOO Revision
+-Remove Date Iniated
+-Removed Wining Bidder
+
+
+
+.CREATE
+-Transfer fee
+	-JXM and  BAND C -----Done
+-Date  Created Deed of sale rename
+	-Date of Deed of Sale Creation/Emailed-----DOne
+	-same as Date Iniated 
+remove 
+	-Document Completed Date  -----Done
+-Confirmation Status -----DOne
+	-Payment Status
+		-Final Pay
+		-Setteled
+-Date OR EMailed Casher rename - Done
+	-OR Date
+-Remove
+	Dead of sale creation 2  ---- DOne
+-remove
+	Document Completed Date: -- DOne
+
+Transfer of Ownership
+-DOAS not Required - --DOne
+	Create Table for monitoring
+	if DOAS not empty move to Onprocess table
+-lookup HR
+	Vendee Emp ID
+-Rename Vendor - ----DOne
+	-Globe Telecom INC
+--Outbound process
+	-Date Routed to gt rename Routed to GT
+		-Excel - Out/RDC
+
+	-Date Received Pull out OR/CR 
+		-Excel - Request OR/CR from IPC
+
+	-Add field
+		-Date Received OR/CR
+
+-TMG
+	-TMG location Removed
+
+-LTO
+	-LTO Date In rename to
+		-LTO Date Seeded
+	-LTO Date Out rename to
+		-LTO Date Transfered
+	-once LTO Date Transfered "COMPLETED" status
+
+-TOO COmpletion move to outbound process
+	-Under LTO procesing
+	-Date  Transfered Completed Rename Date Recieved
+	(Recieved by and Date Recieved)
+
+
+------------------------
+Preventive
+-Remove Verification Process
+-Date Deadline 45 days
+-send email
+-removed ongoing and completed
+

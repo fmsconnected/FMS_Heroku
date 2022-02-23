@@ -72,7 +72,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                   <h6>Registration Monitoring Table (February)</h6>
                   <a href="{% url 'reg_excel' %}" style="float: left"><u><b>Export All Record</b></u></a><br>
                   <a href="{% url 'reg_dailyreport_detail' %}" style="float: left"><u><b>View Report</b></u></a>
-                  <a href="{% url 'registration_new' %}" style="float:right"><u>Add Registration</u></a>
+                  <a href="{% url 'vehicle_new' %}" style="float:right"><u>Add Registration</u></a>
                 </div>
                 <!-- <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%"> -->
                     <table id="example" class="display nowrap" style="width:100%">
@@ -101,7 +101,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                     <tbody>
                         {% for object in feb_list %}
                         <tr class="odd gradeX">
-                            <td><a href="{% url 'vregistration_details' object.id %}">{{ object.PLATE_NO }}</a></td>
+                            <td><a href="{% url 'vehicle_details' object.id %}">{{ object.PLATE_NO }}</a></td>
                             <td>{{ object.CS_NO }}</td>
                             <td>{{ object.CR_NAME }}</td>
                             <td>{{ object.MODEL }}</td>

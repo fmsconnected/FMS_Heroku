@@ -29,9 +29,12 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from django.db.models import Q
 from . forms import (
-    Registration_form,
+    reg_update_Form,
     
 )
+from vehicle_masterlist.models import(
+    VehicleMasterList
+    )
 from django.views.generic import (
                 				CreateView,
                 				ListView,
@@ -51,60 +54,32 @@ from .serializers import (
 def registration_new(request):
     return render(request, 'registration_form.html')
 
-def regUpdate(request, pk):
-    if request.method == 'POST':
-        PLATE_NO = request.POST.get('plate_no')
-        CS_NO = request.POST.get('cs')
-        CR_NAME = request.POST.get('cr_name')
-        MODEL = request.POST.get('model')
-        BRAND = request.POST.get('brand')
-        VEHICLE_MAKE = request.POST.get('vmake')
-        ENGINE_NO = request.POST.get('eng_no')
-        CHASSIS_NO = request.POST.get('chassis_no')
-        MV_FILE_NO = request.POST.get('mvfile')
-        COC = request.POST.get('coc')
-        SMOKE_TPL = request.POST.get('smoke')
-        REMARKS_REGISTERED = request.POST.get('remarks_registered')
-        DATE_EMAILED = request.POST.get('demail')
-        JUSTIFICATION_REMARKS = request.POST.get('remarks_justification')
-        email_status = request.POST.get('email_status')
-        email = request.POST.get('email')
-        date_reg = request.POST.get('date_reg')
+# def regUpdate(request, pk):
+#     if request.method == 'POST':
+#         Last_Registration_Date = request.POST.get('Last_Registration_Date')
+#         Smoke_Emission_Date = request.POST.get('Smoke_Emission_Date')
+#         COC_Date = request.POST.get('COC_Date')
+#         Remarks = request.POST.get('Remarks')
 
-        reg = ''
-        endplate = ''
-        if PLATE_NO != 'None':
-            if PLATE_NO != '':
-                endplate = int(PLATE_NO[-1])
-                if endplate == 1:
-                    reg = 'JAN'
-                elif endplate == 2:
-                    reg = 'FEB'
-                elif endplate == 3:
-                    reg = 'MAR'
-                elif endplate == 4:
-                    reg = 'APR'
-                elif endplate == 5:
-                    reg = 'MAY'
-                elif endplate == 6:
-                    reg = 'JUN'
-                elif endplate == 7:
-                    reg = 'JUL'
-                elif endplate == 8:
-                    reg = 'AUG'
-                elif endplate == 9:
-                    reg = 'SEP'
-                elif endplate == 0:
-                    reg = 'OCT' 
 	
-    Registration.objects.filter(id=pk).update(PLATE_NO=PLATE_NO, Plate_ending=endplate, CS_NO=CS_NO, CR_NAME=CR_NAME, MODEL=MODEL,BRAND=BRAND,VEHICLE_MAKE=VEHICLE_MAKE,ENGINE_NO=ENGINE_NO,CHASSIS_NO=CHASSIS_NO,MV_FILE_NO=MV_FILE_NO,COC=COC,SMOKE_TPL=SMOKE_TPL,REMARKS_REGISTERED=REMARKS_REGISTERED,DATE_EMAILED=DATE_EMAILED,JUSTIFICATION_REMARKS=JUSTIFICATION_REMARKS,Registration_month=reg, sent_email=email_status, email=email, Date_registered=date_reg)
-    return HttpResponseRedirect('/Registration/Details/{}'.format(pk))
+#     VehicleMasterList.objects.filter(id=pk).update(Last_Registration_Date=Last_Registration_Date, Smoke_Emission_Date=Smoke_Emission_Date,
+#      COC_Date=COC_Date, Remarks=Remarks)
+#     return HttpResponseRedirect('/Registration/Details/{}'.format(pk))
 
 
 class registrationViewSet(viewsets.ModelViewSet):
-    queryset = Registration.objects.all().order_by('id')
+    queryset = VehicleMasterList.objects.all().order_by('id')
     serializer_class = RegistrationSerializer
 
+class regUpdate(UpdateView):
+    model = VehicleMasterList
+    form_class = reg_update_Form
+    template_name = 'regupdate.html'
+    success_url = reverse_lazy('/Registration/January/')
+
+class registrationDetails(DetailView):
+    model = VehicleMasterList
+    template_name = 'registration_details.html'
 
 def registrationCreate(request):
     if request.method == 'POST':
@@ -160,9 +135,6 @@ def registrationCreate(request):
 
     return HttpResponseRedirect('/Registration/January')
 
-class registrationDetails(DetailView):
-    model = Registration
-    template_name = 'registration_details.html'
 
 
 class registrationDeleteView(BSModalDeleteView):
@@ -171,97 +143,115 @@ class registrationDeleteView(BSModalDeleteView):
     success_message = 'Success: Item was deleted.'
     success_url = reverse_lazy('vehicle-list')
 
+year = datetime.datetime.now().year
+year1 = datetime.datetime.now().year - 1
+year2 = datetime.datetime.now().year - 2
 
 def othersRegView(request):
+    exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'other_list': Registration.objects.filter(PLATE_NO__isnull=True)
+            'other_list': VehicleMasterList.objects.filter(PLATE_NO__isnull=True).exclude(exc)
         }
 
     return render(request, 'reg_others.html', context)
 
 def trailerRegView(request):
+    exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'trailer_list': Registration.objects.filter(BRAND__contains="TRAILER")
-        }
+            'trailer_list': VehicleMasterList.objects.filter(BRAND__contains="TRAILER").exclude(exc)
+    .exclude(exc)    
+    }
 
     return render(request, 'reg_trailer.html', context)
 
 
 def janRegView(request):
+    exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'jan_list': Registration.objects.filter(Registration_month__contains="JAN")
+            'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__startswith="JAN").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
         }
+    print(context)
 
     return render(request, 'regJan_monitoring.html', context)
 
 def febRegView(request):
+    exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'feb_list': Registration.objects.filter(Registration_month__contains="FEB")
+            'feb_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="FEB").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
         }
 
     return render(request, 'regFeb_monitoring.html', context)
 
 def marRegView(request):
+    exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'mar_list': Registration.objects.filter(Registration_month__contains="MAR")
+            'mar_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="MAR").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
         }
 
     return render(request, 'regMar_monitoring.html', context)
 
 def aprRegView(request):
+    exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'apr_list': Registration.objects.filter(Registration_month__contains="APR")
+            'apr_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="APR").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
 
         }
 
     return render(request, 'regApr_monitoring.html', context)
 
 def mayRegView(request):
+    exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'may_list': Registration.objects.filter(Registration_month__contains="MAY")
+            'may_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="MAY").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
         }
 
     return render(request, 'regMay_monitoring.html', context)
 
 def junRegView(request):
+    exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'jun_list': Registration.objects.filter(Registration_month__contains="JUN")
+            'jun_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JUN").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
         }
 
     return render(request, 'regJun_monitoring.html', context)
 
 def julRegView(request):
+    exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'jul_list': Registration.objects.filter(Registration_month__contains="JUL")
+            'jul_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JUL").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
         }
     return render(request, 'regJul_monitoring.html', context)
 
 def augRegView(request):
+    exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'aug_list': Registration.objects.filter(Registration_month__contains="AUG")
+            'aug_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="AUG").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
         }
 
     return render(request, 'regAug_monitoring.html', context)
 
 def sepRegView(request):
+    exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'sep_list': Registration.objects.filter(Registration_month__contains="SEP")
+            'sep_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="SEP").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
         }
 
     return render(request, 'regSep_monitoring.html', context)
 
 def octRegView(request):
+    exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'oct_list': Registration.objects.filter(Registration_month__contains="OCT")
+            'oct_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="OCT").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
         }
 
     return render(request, 'regOct_monitoring.html', context)
 
 def summary(request):
-        context = {
-            'reg_report':Registration.objects.all()
-        }
-        return render(request, 'summaryV2.html', context)
+    exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
+    context = {
+        'reg_report':VehicleMasterList.objects.all()
+    }
+    return render(request, 'summaryV2.html', context)
 
 
 class registrationsPDFView(View):

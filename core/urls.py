@@ -34,6 +34,10 @@ router.register(r'PetronPivot', views.petronpivot),
 
 from monthly_report_shell import views
 router.register(r'MonthlyReportShell', views.shell_report_ViewSet),
+
+from ownership import views
+router.register(r'Ownership', views.ownViewSet),
+
 from fleet_card_driver import views
 router.register(r'FCD', views.fcdViewSet, basename='FCD'),
 

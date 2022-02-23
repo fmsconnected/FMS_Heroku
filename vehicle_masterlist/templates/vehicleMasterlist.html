@@ -85,8 +85,10 @@
                             <th>Email</th>
                             <th>Remarks</th>
                             <th>Latest Remarks</th> -->
-                            <th>[Account] Confirmation</th>
-                            <th>[Smoke] Confirmation</th>
+                            <th>COC</th>
+                            <th>Smoke Emission</th>
+                            <th>Vehicle Confirmation</th>
+                            <th>Emission Confirmation</th>
                     </thead>
                     </table>
                     </div>
@@ -104,8 +106,8 @@
 $(document).ready(function() {
     var table = $('#vtable').DataTable({
         "serverSide": true,
-        // "serverSide": true,
-        // "scrollX": true,
+        "serverSide": true,
+        "scrollX": true,
         "scrollY": "500px",
         "deferLoading": true,
         "deferRender": true,
@@ -181,6 +183,8 @@ $(document).ready(function() {
             // {"data":"EMAIL"},
             // {"data":"Remarks"},
             // {"data":"leasing_remark"},
+            {"data":"COC_Date"},
+            {"data":"Smoke_Emission_Date"},
             {"data":"confirmation",
                 "className": "dt-center editor-edit",
                 "defaultContent": '<i class="fa fa-pencil"/>',

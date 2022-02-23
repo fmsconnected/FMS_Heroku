@@ -9,29 +9,22 @@
 <form method="POST">
 {% csrf_token %}
     <div class="col-sm-4">
-        <label><b>Last Registration Date:</b></label>{{ form.Last_Registration_Date}}
+        <label><b>Last Registration Date</b></label>{{ form.Last_Registration_Date}}
     </div>
     <div class="col-sm-4">
-        <label><b>Smoke Emission Date:</b></label>{{ form.Smoke_Emission_Date}}
+        <label><b>Smoke Emission</b></label>{{ form.Smoke_Emission_Date}}
     </div>
     <div class="col-sm-4">
-        <label><b>COC Date:</b></label>{{ form.COC_Date}}
+        <label><b>COC</b></label>{{ form.COC_Date}}
     </div>
     <div class="col-sm-4">
-        <label>Remarks</label>{{ form.Remarks}}
+        <label>Remarks</label>{{ form.Remarks }}
     </div>
-    <div class="col-sm-4">
-        <label>Email</label> {{ form.email }}
-    </div>
-    <div class="col-sm-4">
-        <label>Email Status</label> {{ form.Status }}
     </div>
 </div>
     <div class="card-footer">
-        <button type="submit" class="button">PROCEED</a></button>
-        <button class="btnc" type="reset" value="Reset">CLEAR FIELDS</button>
-       <a href="{% url 'Monitoring_jan_reg'%}" class="btn" style="color:white">CANCEL</a>
-
+        <button type="submit" class="button">SUBMIT</a></button>
+        <a href="{% url 'registration_jan_reg' %}" class="btn">Close</a>
     </div>
 
 </form>

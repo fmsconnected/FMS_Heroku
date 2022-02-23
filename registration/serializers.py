@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from .models import (
-    Registration,
+from vehicle_masterlist.models import (
+    VehicleMasterList,
     )
 
 
@@ -8,7 +8,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
 
     class Meta:
-        model = Registration
+        model = VehicleMasterList
         fields = (
             '__all__'
         )
