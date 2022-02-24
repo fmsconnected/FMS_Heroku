@@ -91,8 +91,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                             <th>COC</th>
                             <th>Date Emailed</th>
                             <th>Email</th>
-                            <th>Justification Remarks</th>
-                            <!-- <th>Remark Registered</th> -->
+                            <th>Remarks</th>
                             <th>Date Registered</th>
                            
                         </tr>
@@ -110,13 +109,12 @@ tr:nth-child(even){background-color: #f2f2f2}
                             <td>{{ object.ENGINE_NO }}</td>
                             <td>{{ object.CHASSIS_NO }}</td>
                             <td>{{ object.MV_FILE_NO }}</td>    
-                            <td>{{ object.SMOKE_TPL }}</td>
-                            <td>{{ object.COC }}</td>
-                            <td>{{ object.DATE_EMAILED }}</td>   
-                            <td>{{ object.email }}</td>
-                            <td>{{ object.JUSTIFICATION_REMARKS }}</td> 
-                            <!-- <td>{{ object.REMARKS_REGISTERED }}</td>       -->
-                            <td>{{ object.Date_registered }}</td>  
+                            <td>{{ object.Smoke_Emission_Date }}</td>
+                            <td>{{ object.COC_Date }}</td>
+                            <td>{{ object.Date_email_log }}</td>   
+                            <td>{{ object.EMAIL }}</td>
+                            <td>{{ object.Remarks }}</td> 
+                            <td>{{ object.Last_Registration_Date }}</td>       
                         </tr>
                         {% endfor %}
                     </tbody>
