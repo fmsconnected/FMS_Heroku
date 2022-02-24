@@ -167,7 +167,7 @@ def trailerRegView(request):
 def janRegView(request):
     exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__startswith="JAN").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
+            'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__startswith="JAN",vehicle_status="Active").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
         }
     print(context)
 
@@ -176,7 +176,7 @@ def janRegView(request):
 def febRegView(request):
     exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'feb_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="FEB").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
+            'feb_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="FEB",vehicle_status="Active").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
         }
 
     return render(request, 'regFeb_monitoring.html', context)
@@ -184,7 +184,7 @@ def febRegView(request):
 def marRegView(request):
     exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'mar_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="MAR").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
+            'mar_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="MAR",vehicle_status="Active").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
         }
 
     return render(request, 'regMar_monitoring.html', context)
@@ -192,7 +192,7 @@ def marRegView(request):
 def aprRegView(request):
     exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'apr_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="APR").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
+            'apr_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="APR",vehicle_status="Active").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
 
         }
 
@@ -201,7 +201,7 @@ def aprRegView(request):
 def mayRegView(request):
     exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'may_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="MAY").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
+            'may_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="MAY",vehicle_status="Active").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
         }
 
     return render(request, 'regMay_monitoring.html', context)
@@ -209,21 +209,21 @@ def mayRegView(request):
 def junRegView(request):
     exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'jun_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JUN").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
+            'jun_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JUN",vehicle_status="Active").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
             }
     return render(request, 'regJun_monitoring.html', context)
 
 def julRegView(request):
     exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'jul_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JUL").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
+            'jul_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JUL",vehicle_status="Active").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
         }
     return render(request, 'regJul_monitoring.html', context)
 
 def augRegView(request):
     exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'aug_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="AUG").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
+            'aug_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="AUG",vehicle_status="Active").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
         }
 
     return render(request, 'regAug_monitoring.html', context)
@@ -231,7 +231,7 @@ def augRegView(request):
 def sepRegView(request):
     exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'sep_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="SEP").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
+            'sep_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="SEP",vehicle_status="Active").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
         }
 
     return render(request, 'regSep_monitoring.html', context)
@@ -239,7 +239,7 @@ def sepRegView(request):
 def octRegView(request):
     exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'oct_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="OCT").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
+            'oct_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="OCT",vehicle_status="Active").filter(Q(Smoke_Emission_Date__startswith="No") | Q(COC_Date__startswith="No")).exclude(exc)
         }
 
     return render(request, 'regOct_monitoring.html', context)
