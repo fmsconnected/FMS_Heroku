@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_datatables',
     'ajax_select',
+    'bootstrap3',
     'bootstrap_modal_forms',
     'widget_tweaks',
     'simple_history',

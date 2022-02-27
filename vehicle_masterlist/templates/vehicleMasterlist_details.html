@@ -111,10 +111,10 @@ $('#emp_id').on('change', function () {
     </tr>
 </table>
     <div class="card-footer">
-      <!-- <a href="{% url 'vehicle-update' object.id %}" class="buttonsubmit" >Update</a> -->
+      <!-- <a href="{% url 'vehicle_update' object.id %}" class="buttonsubmit" >Update</a> -->
       <a data-toggle="modal" data-target="#updateModal" class="buttonsubmit">Update</a>
-      <a href="{% url 'vehicle-list'%}" class="btn" >Close</a>
-
+      <!-- <a href="{% url 'vehicle-list'%}" class="btn" >Close</a>
+ -->
       <!-- <button class="button" data-toggle="modal" data-target="#updateModal">UPDATE release</button> -->
     </div>
 </div>
@@ -295,7 +295,7 @@ $('#emp_id').on('change', function () {
               </div>
               <div class="col-sm-4">
                   <label>Aquisition Date</label>
-                  <input type="date" name="aqui_date" id="aqui_date" class="form-control" value="{{ object.ACQ_DATE }}" required>
+                  <input type="date" name="aqui_date" id="aqui_date" class="form-control" value="{{ object.ACQ_DATE|date:'Y-m-d' }}" required>
               </div>
                   <div class="col-sm-4">
                   <label>Aquisition Cost</label>
@@ -335,10 +335,10 @@ $('#emp_id').on('change', function () {
               </div>
               <div class="col-sm-4">
                   <label>Plate Release Date</label>
-                  <input type="date" name="plate_date" id="plate_date" class="form-control" value="{{object.PLATE_NUMBER_RELEASE_DATE}}">
+                  <input type="date" name="plate_date" id="plate_date" class="form-control" value="{{object.PLATE_NUMBER_RELEASE_DATE|date:'Y-m-d' }}">
               </div><div class="col-sm-4">
                   <label>Original OR Date</label>
-                  <input type="date" name="or_date" id="or_date" class="form-control" value="{{object.ORIGINAL_OR_DATE}}">
+                  <input type="date" name="or_date" id="or_date" class="form-control" value="{{object.ORIGINAL_OR_DATE|date:'Y-m-d'}}">
               </div>
               <div class="col-sm-4">
                   <label>Remarks</label>
@@ -354,32 +354,32 @@ $('#emp_id').on('change', function () {
               </div>
               <div class="col-sm-4">
                   <label>Email Status</label>
-                  <select class="form-control" name="status" value="{{object.Status}}" required>
-                      <option value="No">No</option>
+                  <input class="form-control" name="status" value="{{object.Status}}" required>
+<!--                       <option value="No">No</option>
                       <option value="Yes">Yes</option>
                       
-                  </select>
+                  </select> -->
                   
               </div>
               <div class="col-sm-4">
                   <label> COC</label>
-                  <select name="coc_date" id="coc_date" value="{{object.COC_Date }}" class="form-control" required>
-                    <option></option>
+                  <input name="coc_date" id="coc_date" value="{{object.COC_Date }}" class="form-control" required>
+<!--                     <option></option>
                     <option value="No">No</option>
                     <option value="Yes">Yes</option>
-                  </select>
+                  </select> -->
               </div>
               <div class="col-sm-4">
                   <label> Smoke Emission</label>
-                  <select name="Smoke_Emission_Date" id="Smoke_Emission_Date" class="form-control" value="{{object.Smoke_Emission_Date}}" required>
-                    <option></option>
+                  <input name="Smoke_Emission_Date" id="Smoke_Emission_Date" class="form-control" value="{{object.Smoke_Emission_Date}}" required>
+<!--                     <option></option>
                     <option value="No">No</option>
                     <option value="Yes">Yes</option>
-                  </select>
+                  </select> -->
               </div>
               <div class="col-sm-4">
                   <label> Last Registration Date</label>
-                  <input type="Date" name="Last_Registration_Date" id="Last_Registration_Date" class="form-control" value="{{object.Last_Registration_Date}}">
+                  <input type="Date" name="Last_Registration_Date" id="Last_Registration_Date" class="form-control" value="{{object.Last_Registration_Date|date:'Y-m-d'}}">
               </div>
               <div class="col-sm-4">
                   <label> Latest Remark's</label>
@@ -387,13 +387,13 @@ $('#emp_id').on('change', function () {
               </div>
               <div class="col-sm-4">
                   <label>Vehicle Status</label>
-                  <select name="vstatus" id="vstatus" class="form-control" value="{{ object.vehicle_status }}" required>
-                      <option></option>
+                  <input name="vstatus" id="vstatus" class="form-control" value="{{ object.vehicle_status }}" required>
+           <!--            <option></option>
                       <option value="Sold">Sold</option>
                       <option value="Active">Active</option>
                       <option value="Transferred">Transferred</option>
                       
-                  </select>
+                  </select> -->
               </div>
               <div class="col-sm-4">
                   <label> Email</label>

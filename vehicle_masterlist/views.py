@@ -156,6 +156,9 @@ def VmasterlistCreate(request):
         saveto_end.save()
 
     return HttpResponseRedirect('/VehicleMasterlist/VehicleMasterlist/')
+def vehicleupdate(request):
+    elist = EmployeeMasterlist.objects.all()
+    return render(request, 'vmasterlist_update.html', {'Title': 'Vehicle Masterlist','elist':elist})
 
 def VmasterlistUpdate(request, pk):
     if request.method == 'POST':
@@ -259,7 +262,6 @@ def VmasterlistUpdate(request, pk):
 
     return HttpResponseRedirect('/VehicleMasterlist/VehicleMasterlist/')
 
-
 def vehicle(request):
     elist = EmployeeMasterlist.objects.all()
     return render(request, 'vmasterlist.html', {'Title': 'Vehicle Masterlist','elist':elist})
@@ -268,10 +270,52 @@ class vehicleMasterDetails(DetailView):
     model = VehicleMasterList
     template_name = 'vehicleMasterlist_details.html'
 
-class vehicleMasterUpdate(UpdateView):
+class vehicleMasterUpdate(CreateView):
     model = VehicleMasterList
-    form_class = Vmasterlist
+    fields = '__all__'
     template_name = 'vehicleMasterlist_form.html'
+    # def get_form(self, *args, **kwargs):
+    #     form = super(vehicleMasterUpdate,self).get_form(*args, **kwargs) #instantiate using parent
+    #     form.fields['Employee'].queryset = VehicleMasterList.objects.filter(Employee=Employee)
+    #     return form
+
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed.
+        if form.instance.PLATE_NO != '':
+            endplate = int(form.instance.PLATE_NO[-1])
+            if endplate == 1:
+                form.instance.REGISTRATION_MONTH = 'JAN'
+                form.instance.PLATE_ENDING = '1'
+            elif endplate == 2:
+                form.instance.REGISTRATION_MONTH = 'FEB'
+                form.instance.PLATE_ENDING = '2'
+            if endplate == 3:
+                form.instance.REGISTRATION_MONTH = 'MAR'
+                form.instance.PLATE_ENDING = '3'
+            elif endplate == 4:
+                form.instance.REGISTRATION_MONTH = 'APR'
+                form.instance.PLATE_ENDING = '4'
+            if endplate == 5:
+                form.instance.REGISTRATION_MONTH = 'MAY'
+                form.instance.PLATE_ENDING = '5'
+            elif endplate == 6:
+                form.instance.REGISTRATION_MONTH = 'JUN'
+                form.instance.PLATE_ENDING = '6'
+            if endplate == 7:
+                form.instance.REGISTRATION_MONTH = 'JUL'
+                form.instance.PLATE_ENDING = '7'
+            elif endplate == 8:
+                form.instance.REGISTRATION_MONTH = 'AUG'
+                form.instance.PLATE_ENDING = '8'
+            if endplate == 9:
+                form.instance.REGISTRATION_MONTH = 'SEP'
+                form.instance.PLATE_ENDING = '9'
+            elif endplate == 0:
+                form.instance.REGISTRATION_MONTH = 'OCT'
+                form.instance.PLATE_ENDING = '0'
+
+        return super().form_valid(form)
+
 
 class confirmationDetails(DetailView):
     model = VehicleMasterList
