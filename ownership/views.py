@@ -58,7 +58,7 @@ def ownership_ongoing(request):
 def date_application(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
-    date_app = Ownership.objects.filter(date_application__isnull=False)
+    date_app = Ownership.objects.filter(date_application__isnull=True)
     return render(request, 'date_application.html',{'Title':'Ownership - Transfer of Ownership', 'date_app':date_app})
 
 def ownership_completed(request):
