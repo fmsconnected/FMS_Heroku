@@ -17,21 +17,21 @@
     </div>
 </div>
 <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link " href="{% url 'ownership_list' %}">Transfer of Ownership</a>
-  </li>
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'date_application' %}">Date Application</a>
+        <a class="nav-link " href="{% url 'ownership_list' %}">Transfer of Ownership</a>
     </li>
     <li class="nav-item">
-    <a class="nav-link active" href="#">Ongoing</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'ownership_completed' %}">Completed</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link " href="{% url 'toodeadline' %}">Coming Deadline</a>
-  </li>
+        <a class="nav-link active" href="#">Date Application</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'ownership_ongoing' %}">Ongoing</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'ownership_completed' %}">Completed</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link " href="{% url 'toodeadline' %}">Coming Deadline</a>
+    </li>
 </ul>
 
 <div class="content mt-3">
@@ -56,12 +56,13 @@
                             <th>SLA</th>
                             <th>Date Initiated</th>
                             <th>Date Deadline</th>
+                            <th>Date Application</th>
                             <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for Ownership in ongoing %}
+                        {% for Ownership in date_app %}
                         <tr class="odd gradeX">
                             <td><a href="{% url 'ownership_details' Ownership.id %}"><u>{{ Ownership.Activity_id }}</u></a></td>
                             <td>{{ Ownership.v_fname }} {{ Ownership.v_lname }}</td>
@@ -70,6 +71,7 @@
                             <td>{{ Ownership.TOO_SLA }}/Days</td>
                             <td>{{ Ownership.date_initiated | date:'D d M Y'}}</td>
                             <td>{{ Ownership.Deadline | date:'D d M Y'}}</td>
+                            <td>{{ Ownership.date_application | date:'D d M Y'}}</td>
                             <td>{{ Ownership.D_status}}</td>
                             <td>
                                 <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'ownership_delete' Ownership.pk %}">

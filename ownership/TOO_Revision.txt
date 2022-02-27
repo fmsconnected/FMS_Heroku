@@ -26,8 +26,8 @@ remove
 Transfer of Ownership
 -DOAS not Required - --DOne
 	Create Table for monitoring
-	if DOAS not empty move to Onprocess table
--lookup HR
+	if DOAS not empty move to Onprocess table  ---- Done
+-lookup HR ---- Done
 	Vendee Emp ID
 -Rename Vendor - ----DOne
 	-Globe Telecom INC

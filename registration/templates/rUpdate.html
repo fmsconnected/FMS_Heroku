@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <h3><b>Update Registrations</b></h3>&nbsp;
+    </div>
+
+<form method="POST">
+{% csrf_token %}
+    <div class="col-sm-4">
+        <label>Plate Release Date</label>{{ form.PLATE_NUMBER_RELEASE_DATE }}
+    </div>
+    <div class="col-sm-4">
+      <label><b>Last Registration Date</b></label>{{form.Last_Registration_Date}}
+    </div>
+    <div class="col-sm-4">
+      <label><b>Smoke Emission</b></label>{{ form.Smoke_Emission_Date}}
+    </div>
+    <div class="col-sm-4">
+      <label><b>COC</b></label>{{ form.COC_Date}}
+    </div>
+    <div class="col-sm-4">
+      <label>Remarks</label>{{ form.Remarks }}
+    </div>
+</div>
+    <div class="card-footer">
+        <button type="submit" class="button">SUBMIT</a></button>
+        <a href="{% url 'registration_jan_reg'%}" class="btn" >Close</a>
+    </div>
+
+</form>
+{% endblock %}

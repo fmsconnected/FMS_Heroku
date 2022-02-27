@@ -74,12 +74,28 @@ class registrationViewSet(viewsets.ModelViewSet):
 class regUpdate(UpdateView):
     model = VehicleMasterList
     form_class = reg_update_Form
-    template_name = 'regupdate.html'
-    success_url = reverse_lazy('/Registration/January/')
+    template_name = 'rUpdate.html'
+    success_url = reverse_lazy('registration_jan_reg')
 
 class registrationDetails(DetailView):
     model = VehicleMasterList
     template_name = 'registration_details.html'
+
+# def regUpdate(request, pk):
+#     if request.method == 'POST':
+#         plate_date = request.POST.get('plate_date')
+#         or_date = request.POST.get('or_date')
+#         remarks = request.POST.get('remarks')
+#         COC_Date = request.POST.get('coc_date')
+#         Smoke_Emission_Date = request.POST.get('Smoke_Emission_Date')
+#         Last_Registration_Date = request.POST.get('Last_Registration_Date')
+        
+            
+#         VehicleMasterList.objects.filter(id=pk).update(PLATE_NUMBER_RELEASE_DATE=plate_date, ORIGINAL_OR_DATE=or_date,Remarks=remarks,
+#             COC_Date=COC_Date,Smoke_Emission_Date=Smoke_Emission_Date,Last_Registration_Date=Last_Registration_Date
+#             )
+
+#     return HttpResponseRedirect('/Registration/January')
 
 def registrationCreate(request):
     if request.method == 'POST':

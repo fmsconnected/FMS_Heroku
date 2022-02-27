@@ -16,6 +16,7 @@ urlpatterns = [
     path('Ownership/Report/Details', views.ownership_report_details, name='ownership_report_details'),
     path('Ownership/Ongoing', views.ownership_ongoing, name="ownership_ongoing"),
     path('Ownership/Completed', views.ownership_completed, name="ownership_completed"),
+    path('Ownership/Date_application', views.date_application, name="date_application"),
 
     path('Billing/new', views.billing.as_view(), name='billing_new'),
     path('Billing/List', views.billing_list.as_view(), name='billing_list'),

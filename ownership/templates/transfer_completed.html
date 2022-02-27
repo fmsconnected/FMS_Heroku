@@ -20,6 +20,9 @@
   <li class="nav-item">
     <a class="nav-link" href="{% url 'ownership_list' %}">Transfer of Ownership</a>
   </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'date_application' %}">Date Application</a>
+    </li>
   <li class="nav-item">
     <a class="nav-link " href="{% url 'ownership_ongoing' %}">Ongoing</a>
   </li>
@@ -39,9 +42,8 @@
                 <div class="card-header">
                     <a href="{% url 'ownership_export' %}" style="float: left"><u><b>Export All Data</b></u>&nbsp;/&nbsp;</a>
                     <a href="{% url 'ownership_report_details' %}" style="float: left"><u><b>View Report</b></u></a>
-                    <a href="{% url 'ownership_bidder' %}" style="float:right;"><u><b>Add Winning Bidder</b></u></a><br>
-                    <a href="{% url 'ownership_new' %}" style="float:right"><u><b>Add Transfer of Ownership</b></u></a><br>
-                     <a href="{% url 'ownership_history' %}" style="float:right"><u><b>Transfer of Ownership History</b>
+                    <a href="{% url 'ownership_new' %}" style="float:right"><u><b>Create</b></u></a><br>
+                     <a href="{% url 'ownership_history' %}" style="float:right"><u><b>History</b>
                      </u></a>
                 </div>                         
                 <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">

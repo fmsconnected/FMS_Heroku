@@ -52,13 +52,19 @@ def ownershipcreate(request):
 def ownership_ongoing(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
-    ongoing = Ownership.objects.filter(D_status="Ongoing")
+    ongoing = Ownership.objects.filter(date_application__isnull=False)
     return render(request, 'transfer_ongoing.html',{'Title':'Ownership - Transfer of Ownership', 'ongoing':ongoing})
+
+def date_application(request):
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    date_app = Ownership.objects.filter(date_application__isnull=False)
+    return render(request, 'date_application.html',{'Title':'Ownership - Transfer of Ownership', 'date_app':date_app})
 
 def ownership_completed(request):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
-    completed = Ownership.objects.filter(D_status="Completed")
+    completed = Ownership.objects.filter(lto_date_out__isnull=False)
     return render(request, 'transfer_completed.html',{'Title':'Ownership - Transfer of Ownership', 'completed':completed})
 
 

@@ -100,7 +100,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                     <tbody>
                         {% for object in jul_list %}
                         <tr class="odd gradeX">
-                            <td><a href="{% url 'vehicle_details' object.id %}">{{ object.PLATE_NO }}</a></td>
+                            <td><a href="{% url 'vregistration_details' object.id %}">{{ object.PLATE_NO }}</a></td>
                             <td>{{ object.CS_NO }}</td>
                             <td>{{ object.CR_NAME }}</td>
                             <td>{{ object.MODEL }}</td>

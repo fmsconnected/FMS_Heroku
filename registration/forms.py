@@ -120,12 +120,12 @@ class reg_update_Form(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(reg_update_Form, self).__init__(*args, **kwargs)
         self.fields['Last_Registration_Date'].required = False
-        self.fields['Smoke_Emission_Date'].required = False
-        self.fields['COC_Date'].required = False
+        self.fields['Smoke_Emission_Date'].required = True
+        self.fields['COC_Date'].required = True
         self.fields['Remarks'].required = True
     class Meta:
         model = VehicleMasterList
-        fields = ['Last_Registration_Date','Smoke_Emission_Date','COC_Date','Remarks', 'Status'
+        fields = ['PLATE_NUMBER_RELEASE_DATE','Last_Registration_Date','Smoke_Emission_Date','COC_Date','Remarks', 'Status'
         ]
 
 
@@ -146,6 +146,7 @@ class reg_update_Form(forms.ModelForm):
         "Last_Registration_Date": forms.TextInput(attrs={'class':'form-control', 'type':'date'}),
         "Smoke_Emission_Date": forms.Select(attrs={'class':'form-control', 'choices':'status'}),
         "COC_Date": forms.Select(attrs={'class':'form-control', 'choices':'status'}),
-        "Remarks": forms.Select(attrs={'class':'form-control', 'choices':'remarks'})
+        "Remarks": forms.Select(attrs={'class':'form-control', 'choices':'remarks'}),
+        "PLATE_NUMBER_RELEASE_DATE":forms.TextInput(attrs={'class':'form-control', 'type':'date'})
         }
 

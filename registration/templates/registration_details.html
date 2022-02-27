@@ -1,14 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+$('#emp_id').on('change', function () {
+    var value = $('#emp_id').val();
+    var val = ($('#emp_list [value="' + value+ '"]').data('value'));
+    // var parts = val.split(" | ");
+    // $('#emp_id').val(parts[0]);
+});
+</script>
 <div class="col-md-12">
     <div class="card">
     <div class="card-header">
-        <h3>Vechicle Registrations Details</h3>&nbsp;
+        <h3>Vechicle Registration Details</h3>&nbsp;
     </div>
 
 <table width="90%" class="table table-bordered table-hover" border="5px">
-<tr>
+  <tr>
       <th>Vehicle Number</th><td>{{ object.NO }}</td>
       <th>Activity ID</th><td>{{ object.Activity_Id }}</td>
   </tr>
@@ -81,6 +89,14 @@
       <th>Asset Number</th><td>{{ object.ASSET_NO }}</td>
       <th>PO Number </th> <td>{{ object.PO_NO }}</td>
     </tr>
+    <!-- <tr>
+      <th>SAP PR</th><td>{{ object.SAP_PR }}</td>
+      <th>Vehicle IVN Number</th> <td>{{ object.Vehicle_IVN_no }}</td>
+    </tr>
+    <tr>
+      <th>Unit MATDOC</th> <td>{{ object.Unit_MATDOC }}</td>
+      <th>Grd'd date</th> <td>{{ object.Grdd_date }}</td>
+    </tr> -->
     <tr>
       <th>Equipment Number </th> <td>{{ object.EQUIPMENT_NO }}</td>
       <th>Plate Number Release Date</th> <td>{{ object.PLATE_NUMBER_RELEASE_DATE }}</td>
@@ -95,22 +111,92 @@
     </tr>
 </table>
     <div class="card-footer">
-      <a href="{% url 'reg_update' object.id%}" class="buttonsubmit" >Update</a>
-      <!-- <button class="buttonsubmit" style="width:150px;" data-toggle="modal" data-target="#updateModal">Update</button> -->&nbsp;
-     <!--  <a data-toggle="modal" data-target="#printModal"  class="buttonsubmit">Print</a>&nbsp; -->
+      <a href="{% url 'reg_update' object.id %}" class="buttonsubmit" >Update</a>
+      <!-- <a data-toggle="modal" data-target="#updateModal" class="buttonsubmit">Update</a> -->
       <a href="{% url 'registration_jan_reg'%}" class="btn" >Close</a>
-      
+
+      <!-- <button class="button" data-toggle="modal" data-target="#updateModal">UPDATE release</button> -->
     </div>
 </div>
-</div>
-<!-- Print Modal--->
-<div class="modal fade" id="printModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="width:50%;" role="document" align="center">
-    <div class="modal-content">
-        <div class="col-lg-12">
-            <a href="{% url 'registration_summary_print' object.id %}" class="button" type="submit" style="width:70%;">Print Registration Daily Summary</a>
+<!--Update Modal--->
+<form method="POST" action="{% url 'reg_update' object.id %}">
+{% csrf_token %}
+  <div class="modal fade bd-example-modal-xl" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Update Vehicle Registration</h2>
         </div>
+        <div class="modal-body">
+        <div class="tab-content">
+        <div class="row">
+              <div>
+                <label>Plate Release Date</label>{{ form.PLATE_NUMBER_RELEASE_DATE }}
+              </div>
+              <div class="col-sm-4">
+                  <label><b>Last Registration Date</b></label>{{ form.Last_Registration_Date }}
+              </div>
+              <div class="col-sm-4">
+                  <label><b>Smoke Emission</b></label>{{ form.Smoke_Emission_Date }}
+              </div>
+              <div class="col-sm-4">
+                  <label><b>COC</b></label>{{ form.COC_Date }}
+              </div>
+              <div class="col-sm-4">
+                  <label>Remarks</label>{{ form.Remarks }}
+              </div>
+              <!-- <div class="col-sm-4">
+                  <label>Plate Release Date</label>
+                  <input type="date" name="plate_date" id="plate_date" class="form-control" value="{{object.PLATE_NUMBER_RELEASE_DATE|date:'Y-m-d' }}">
+              </div><div class="col-sm-4">
+                  <label>Original OR Date</label>
+                  <input type="date" name="or_date" id="or_date" class="form-control" value="{{object.ORIGINAL_OR_DATE|date:'Y-m-d'}}">
+              </div>
+              <div class="col-sm-4">
+                  <label>Remarks</label>
+                  <select name="remarks" id="remarks" class="form-control" value="{{object.Remarks}}">
+                      <option></option>
+                      <option value="Without Last Registration Date">Without Last Registration Date</option>
+                      <option value="Without Smoke Emission Date">Without Smoke Emission Date</option>
+                      <option value="Without COC Date">Without COC Date</option>
+                      <option value="No Smoke and COC">No Smoke and COC</option>
+                      <option value="For Registration">For Registration</option>
+                      <option value="Complete">Complete</option>
+                  </select>
+              </div>
+              <div class="col-sm-4">
+                  <label> COC</label>
+                  <select name="coc_date" id="coc_date" value="{{object.COC_Date }}" class="form-control" required>
+                    <option></option>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                  </select>
+              </div>
+              <div class="col-sm-4">
+                  <label> Smoke Emission</label>
+                  <select name="Smoke_Emission_Date" id="Smoke_Emission_Date" class="form-control" value="{{object.Smoke_Emission_Date}}" required>
+                    <option></option>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                  </select>
+              </div>
+              <div class="col-sm-4">
+                  <label> Last Registration Date</label>
+                  <input type="Date" name="Last_Registration_Date" id="Last_Registration_Date" class="form-control" value="{{object.Last_Registration_Date|date:'Y-m-d'}}">
+              </div> -->
+        </div>
+        <br><br>
+        <div class="card-footer">
+            <button type="submit" class="buttonsubmit">PROCEED</button>
+            <button type="Reset" class="button">CLEAR ALL</button>
+            <a href="{% url 'vehicle-list' %}" class="btn">CLOSE</a>
+        </div>
+            <div class="modal-footer">
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
-</div
+  </div>
+</form>
+</div>
 {% endblock %}
