@@ -6,6 +6,7 @@ urlpatterns = [
 	
 	path('FCD_list', views.fleetcarddriver_list.as_view(), name='FCD_list'),
 	path('FCD_new', views.fleetcarddriver_create.as_view(), name='FCD_new'),
+	path('Details/<int:pk>', views.fleetcarddriver_details.as_view(), name='fcd_details'),
 	path('Update/<int:pk>', views.fleetcarddriver_update.as_view(), name='FCD_update'),
 	path('Delete/<int:pk>', views.fleetcarddriver_delete.as_view(), name='FCD_delete'),
 	path('export', views.fcd_export, name='FCD_export'),
