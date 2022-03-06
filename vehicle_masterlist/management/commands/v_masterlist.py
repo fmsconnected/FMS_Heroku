@@ -21,7 +21,6 @@ sched = BlockingScheduler()
 @sched.scheduled_job('interval', minutes=5)
 def send_masterlist_email():
     given_date = datetime.datetime.now().date()
-    sec_week_of_month = given_date.replace(day=15)
     month = datetime.datetime.now().month
     year = datetime.datetime.now().year
     year1 = datetime.datetime.now().year - 1

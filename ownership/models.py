@@ -101,9 +101,9 @@ class Ownership(models.Model):
             )
 
     Activity_id = models.CharField(max_length=100, default=increment_Activity_id)
-    date_application = models.CharField(max_length=100, null=True, blank=True)
+    date_application = models.DateField(auto_now=False,auto_now_add=False, null=True, blank=True)
     # req_employee_id = models.CharField(max_length=50, null=True, blank=True)
-    # req_Fname = models.CharField(max_length=100, null=True, blank=True)
+    # date_application = models.CharField(max_length=100, null=True, blank=True)
     # req_Lname =  models.CharField(max_length=100, null=True, blank=True)
     # req_band = models.CharField(max_length=100, null=True, blank=True)
     # req_cost =  models.CharField(max_length=100, null=True, blank=True)

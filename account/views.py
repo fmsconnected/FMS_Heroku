@@ -69,27 +69,64 @@ def index(request):
     date = datetime.datetime.today()
     months = ['zero','January','February','March','April','May','June','July','August','September','October','November','December']
     month = months[date.month]
+    year = datetime.datetime.now().year
     month_supplier = months[date.month-1]
     reg_months = datetime.datetime.now().month
     if reg_months == 10:
         regs_months = 0
     
     count11 = Corrective.objects.count()
-    count12 = EmployeeMasterlist.objects.count()
-    count13 = VehicleMasterList.objects.filter(vehicle_status="Active").count()
+    emp = EmployeeMasterlist.objects.count()
+    v_active = VehicleMasterList.objects.filter(vehicle_status="Active").count()
     sold = VehicleMasterList.objects.filter(vehicle_status="Sold").count()
     count14 = Billing.objects.count()
-    count15 = Leasing.objects.count()
+    leasing = Leasing.objects.count()
     count16 = CS_log.objects.filter(Ageing="").count()
     not_registered = VehicleMasterList.objects.filter(PLATE_ENDING=regs_months,Last_Registration_Date__isnull=True ).count()
     registered = VehicleMasterList.objects.filter(PLATE_ENDING=regs_months ).exclude(Last_Registration_Date__isnull=True).count()
-    return render(request, 'account/index.html', {'title': 'FLEET', 'month':month, 'count11': count11,
-                                                  'count12': count12, 'count13': count13, 'count14': count14, 'count15': count15, 
+    return render(request, 'account/index.html', {'title': 'FLEET', 'month':month,'year':year, 'count11': count11,
+                                                  'emp': emp, 'v_active': v_active, 'count14': count14, 'leasing': leasing, 
                                                   'count16':count16,'not_registered':not_registered,'registered':registered,
                                                   'month_supplier':month_supplier,'sold':sold})
 
 ########### Customer care log alert ###########
 
+##############---MASTERLIST -----#################
+class emp_masterlist(APIView):
+    authentication_classes = []
+    permission_classes = []
+    
+    def get(self, request, format=None):
+        emp = EmployeeMasterlist.objects.count()
+        v_active = VehicleMasterList.objects.filter(vehicle_status="Active").count()
+        sold = VehicleMasterList.objects.filter(vehicle_status="Sold").count()
+        leasing = Leasing.objects.count()
+
+        m_labels = ["Employee","Vehicle Active", "Vehicle Sold", "Leasing"]
+        m__items = [emp,v_active,sold, leasing]
+        data = {
+                "m_labels": m_labels,
+                "m__items": m__items,
+        }
+        return Response(data)
+
+class masterlist(APIView):
+    authentication_classes = []
+    permission_classes = []
+    
+    def get(self, request, format=None):
+        emp = EmployeeMasterlist.objects.count()
+        v_active = VehicleMasterList.objects.filter(vehicle_status="Active").count()
+        sold = VehicleMasterList.objects.filter(vehicle_status="Sold").count()
+        leasing = Leasing.objects.count()
+
+        m_labels = ["Employee","Vehicle Active", "Vehicle Sold", "Leasing"]
+        m__items = [emp,v_active,sold, leasing]
+        data = {
+                "m_labels": m_labels,
+                "m__items": m__items,
+        }
+        return Response(data)
 
 def cclog_alert(request):
     # def dispatch(self, *args, **kwargs):
@@ -151,7 +188,7 @@ class reg(APIView):
         year1 = datetime.datetime.now().year - 1
         year2 = datetime.datetime.now().year - 2
         date_now = datetime.datetime.now().date()
-        exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2) 
+        exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2) 
         jan = VehicleMasterList.objects.filter(PLATE_ENDING="1", Last_Registration_Date__isnull=False).exclude(exc).count()
         feb = VehicleMasterList.objects.filter(PLATE_ENDING="2", Last_Registration_Date__isnull=False).exclude(exc).count()
         mar = VehicleMasterList.objects.filter(PLATE_ENDING="3", Last_Registration_Date__isnull=False).exclude(exc).count()
@@ -164,9 +201,8 @@ class reg(APIView):
         octb = VehicleMasterList.objects.filter(PLATE_ENDING="0", Last_Registration_Date__isnull=False).exclude(exc).count()
 
         
-        reglabels = ["January","February", "March", "April", "May", "June", "July","August",
-        "September", "October"]
-        regdefault_items = [jan,feb,mar, apr, may, jun, jul, aug, sep, octb]
+        reglabels = ["January","February", "March", "April", "May"]
+        regdefault_items = [jan,feb,mar, apr, may,jun,jul,aug,sep,octb]
         regdata = {
                 "reglabels": reglabels,
                 "regdefault": regdefault_items,
@@ -183,7 +219,7 @@ class unreg(APIView):
         year1 = datetime.datetime.now().year - 1
         year2 = datetime.datetime.now().year - 2
         date_now = datetime.datetime.now().date()
-        exc = Q(MODEL=year) | Q(MODEL=year1) | Q(MODEL=year2) 
+        exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2) 
         unjan = VehicleMasterList.objects.filter(PLATE_ENDING="1", Last_Registration_Date__isnull=True).exclude(exc).count()
         unfeb = VehicleMasterList.objects.filter(PLATE_ENDING="2", Last_Registration_Date__isnull=True).exclude(exc).count()
         unmar = VehicleMasterList.objects.filter(PLATE_ENDING="3", Last_Registration_Date__isnull=True).exclude(exc).count()
@@ -196,9 +232,8 @@ class unreg(APIView):
         unoctb = VehicleMasterList.objects.filter(PLATE_ENDING="0", Last_Registration_Date__isnull=True).exclude(exc).count()
 
         
-        unreglabels = ["January","February", "March", "April", "May", "June", "July","August",
-        "September", "October"]
-        unregdefault_items = [unjan,unfeb,unmar, unapr, unmay, unjun, unjul, unaug, unsep, unoctb]
+        unreglabels = ["January","February", "March", "April", "May"]
+        unregdefault_items = [unjan,unfeb,unmar, unapr, unmay,unjun,unjul,unaug,unsep,unoctb]
         unregdata = {
                 "unreglabels": unreglabels,
                 "unregdefault": unregdefault_items,

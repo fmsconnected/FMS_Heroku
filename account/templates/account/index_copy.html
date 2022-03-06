@@ -1,24 +1,18 @@
 {% extends 'base.html' %}
- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script> 
 
 <script>
 {% block jquery %}
 var endpoint = 'api/monitoring/'
 var endpointongoing = 'api/monitoring/Ongoing/'
 var endpointcompleted = 'api/monitoring/Completed/'
-var endpointreg = 'api/monitoring/Reg/'
-var endpointunreg = 'api/monitoring/unReg/'
 var petron_report = 'api/Petron/Report/'
+
 var shell_report = ''
 var defaultData = []
 var current_ongoing_data = []
 var completed_item_data = []
 var labels = [];
 var ongoing_labels = []
-var reglabels = []
-var current_reg_data = []
-var unreglabels = []
-var current_unreg_data = []
 var completed_labels = []
 var petron_item_data =[]
 var shell_item_data = []
@@ -28,13 +22,14 @@ var petron_item_data_dis = []
 var petron_item_data_net = []
 
 
-// Request Chart
+////masterlist////
+var masterlist = 'api/Masterlist/'
+var m__items = []
 $.ajax({
     method: "GET",
-    url: endpoint,
+    url: masterlist,
     success: function(data){
-        labels = data.labels
-        defaultData = data.default
+        Data = data.m__items
         setChart()
     },
     error: function(error_data){
@@ -42,7 +37,10 @@ $.ajax({
         console.log(error_data)
     }
 })
-//Registration//
+//Registration - Jan-May//
+var endpointreg = 'api/monitoring/Reg/'
+var reglabels = []
+var current_reg_data = []
 $.ajax({
     method: "GET",
     url: endpointreg,
@@ -56,7 +54,11 @@ $.ajax({
         console.log(error_data)
     }
 })
-//unRegistration//
+
+//unRegistration - Jan-May//
+var endpointunreg = 'api/monitoring/unReg/'
+var unreglabels = []
+var current_unreg_data = []
 $.ajax({
     method: "GET",
     url: endpointunreg,
@@ -72,373 +74,171 @@ $.ajax({
 })
 
 
-//Ongoing Chart
-$.ajax({
-    method: "GET",
-    url: endpointongoing,
-    success: function(ongoing_data){
-        ongoing_labels = ongoing_data.ongoing_labels
-        current_ongoing_data = ongoing_data.default_ongoing
-        setChart()
-    },
-    error: function(error_data){
-        console.log("error")
-        console.log(error_data)
-    }
-})
-
-//Completed Chart
-$.ajax({
-    method: "GET",
-    url: endpointcompleted,
-    success: function(completed_data){
-        completed_item_data = completed_data.datacompleted
-        setChart()
-    },
-    error: function(error_data){
-        console.log("error")
-        console.log(error_data)
-    }
-})
-
-//petron_report
-$.ajax({
-    method: "GET",
-    url: petron_report,
-    success: function(petron_report_data){
-        petron_item_data = petron_report_data.petron_data_item
-        petron_item_data_dis = petron_report_data.petron_data_dis
-        petron_item_data_net = petron_report_data.petron_data_net
-        setChart()
-    },
-    error: function(error_data){
-        console.log("error")
-        console.log(error_data)
-    }
-})
-
-//shell_report
-$.ajax({
-    method: "GET",
-    url: shell_report,
-    success: function(shell_report_data){
-        shell_item_data = shell_report_data.shell_data
-        shell_reb_data = shell_report_data.shell_reb_data
-        shell_label = shell_report_data.shell_label
-        setChart()
-    },
-    error: function(error_data){
-        console.log("error")
-        console.log(error_data)
-    }
-})
 function setChart(){
-    // var ctx1 = document.getElementById("ongoing_data");
-    // var ctx2 = document.getElementById("myChart2");
-    // var ctx3 = document.getElementById("completed");
-    var ctx4 = document.getElementById("petron_report_monthly");
-    var ctx5 = document.getElementById("shell_report_monthly");
-    var ctx6 = document.getElementById("prog");
-    var ctx7 = document.getElementById("reg");
-    // var myChart = new Chart(ctx2, {
-    // type: 'pie',
-    // data: {
-    //     labels: labels,
-    //     datasets: [{
-    //         label: '# Data',
-    //         data: defaultData,
-    //         backgroundColor: [
-    //             'rgba(255, 0, 0, 1)',
-    //             'rgba(255, 255, 0, 1)',
-    //             'rgba(136, 204, 0, 1)',
-    //             'rgba(51, 153, 255, 1)',
-    //             'rgba(204, 0, 204, 1)',
-    //             'rgba(204, 102, 153, 1)',
-    //             'rgba(0, 0, 153, 1, 1)',
-    //             'rgba(0, 102, 153, 1)',
-    //             'rgba(255, 204, 255)',
-    //             'rgba(0, 153, 204, 1)',
-    //             'rgba(51, 204, 51, 1)',
-    //             'rgba(153, 153, 102, 1)',
-    //             'rgba(34, 51, 0, 1, 1)',
-    //             'rgba(102, 0, 102, 1)',
-    //             'rgba(128, 0, 0,1)',
-    //             'rgba(92, 24, 12, 1)',
-    //         ],
-    //     }]
-    // },
-    // options: {
-    //     scales: {
-    //         yAxes: [{
-    //             ticks: {
-    //                 beginAtZero:true
-    //             }
-    //         }]
-    //     }
-    // }
-    // });
-    // var completed_Data_list = new Chart(ctx3, {
-    //   type: 'bar',
-    // data: {
-    //     labels: ["FATA Monitoring",
-    //     "Corrective Maintenance", "Customer Care", "Transfer Ownership", "TOO Billing", "Car Rental Request", "Gas Card Request","Service Vehicle Request","Preventive Maintenance", "Insurance", "New Vehicle Payment", "Car Rental Payment"
-    //     , "Fuel Supplier Payment", "Vehicle Repair Payment"],
-    //     datasets: [{
-    //         label: '#Data',
-    //         data: completed_item_data,
-    //         backgroundColor: [
-    //             'rgba(255, 0, 0, 1)',
-    //             'rgba(255, 255, 0, 1)',
-    //             'rgba(136, 204, 0, 1)',
-    //             'rgba(51, 153, 255, 1)',
-    //             'rgba(204, 0, 204, 1)',
-    //             'rgba(204, 102, 153, 1)',
-    //             'rgba(0, 0, 153, 1, 1)',
-    //             'rgba(0, 102, 153, 1)',
-    //             'rgba(255, 204, 255)',
-    //             'rgba(0, 153, 204, 1)',
-    //             'rgba(51, 204, 51, 1)',
-    //             'rgba(153, 153, 102, 1)',
-    //             'rgba(34, 51, 0, 1, 1)',
-    //             'rgba(102, 0, 102, 1)',
-    //             'rgba(128, 0, 1, 1)',
-    //             'rgba(92, 24, 12, 1)',
-    //         ],
-    //     }]
-    // },
-    // options: {
-    //     scales: {
-    //         yAxes: [{
-    //             ticks: {
-    //                 beginAtZero:true
-    //             }
-    //         }]
-    //     }
-    // }
-    // });
+    var ctx2 = document.getElementById("plate");
+    var ctx3 = document.getElementById("masterlist");
+    var ctx4 = document.getElementById("reg");
 
-    // var ongoing_chart = new Chart(ctx1, {
-    // type: 'horizontalBar',
-    // data: {
-    //     labels: ["FATA Monitoring",
-    //     "Corrective Maintenance", "Transfer Ownership", "Car Rental Request", "Gas Card Request","Service Vehicle Request", "Preventive Maintenance", "Insurance", "New Vehicle Payment", "Car Rental Payment", "Fuel Supplier Payment", "Vehicle Repair Payment"],
-    //     datasets: [{
-    //         label: '#Data',
-    //         data: current_ongoing_data,
-    //         backgroundColor: [
-    //             'rgba(255, 0, 0, 1)',
-    //             'rgba(255, 255, 0, 1)',
-    //             'rgba(136, 204, 0, 1)',
-    //             'rgba(51, 153, 255, 1)',
-    //             'rgba(204, 0, 204, 1)',
-    //             'rgba(204, 102, 153, 1)',
-    //             'rgba(0, 0, 153, 1, 1)',
-    //             'rgba(0, 102, 153, 1)',
-    //             'rgba(255, 204, 255)',
-    //             'rgba(0, 153, 204, 1)',
-    //             'rgba(51, 204, 51, 1)',
-    //             'rgba(153, 153, 102, 1)',
-    //             'rgba(34, 51, 0, 1, 1)',
-    //             'rgba(102, 0, 102, 1)',
-    //             'rgba(128, 0, 0,1)',
-    //             'rgba(12, 0, 102, 1)',
-    //             'rgba(122, 0, 102, 1)',
-    //             'rgba(111, 0, 0,1)',
-    //             'rgba(201, 0, 102, 1)',
-    //         ],
-    //     }]
-    // },
-    // options: {
-    //     scales: {
-    //         yAxes: [{
-    //             ticks: {
-    //                 beginAtZero:true
-    //             }
-    //         }]
-    //     }
-    // }
-    // });
-    var reg_chart = new Chart(ctx7, {
+    var reg_chart = new Chart(ctx4, {
     type: 'bar',
     data: {
-        labels: ["January","February", "March", "April", "May", "June", "July","August",
-        "September", "October"],
-        datasets: [
-          {
+        labels: ["January","February", "March", "April", "May","June","July","August","September","October"],
+        datasets: [{
             label: 'Registered',
             fill: true,
-            data:current_reg_data,
-            backgroundColor:'rgba(207, 154, 50)',
+            data: current_reg_data,
+            backgroundColor:'rgba(252,194,0)',
+            datalabels: {
+                color: 'white',
+                anchor: 'end',
+                align: 'start',
+                offset: 10
+            },
+            font: {
+                weight: 'bold',
+                size: 16,
+            }
         },
-        {
+            {
             label: 'UnRegistered',
             fill: true,
             data: current_unreg_data,
-            backgroundColor:'rgba(23, 128, 173)',
+            backgroundColor:'rgba(0,128,128)',
+            datalabels: {
+                color: 'white',
+                anchor: 'end',
+                align: 'start',
+                offset: 10
+            },
+            font: {
+                weight: 'bold',
+                size: 16,
+            }
 
         }]
     },
     options: {
-        tooltips: {
-                enabled: true
-            },
-            hover: {
-                animationDuration: 1
-            },
-            animation: {
-            duration: 1,
-            onComplete: function () {
-                var chartInstance = this.chart,
-                    ctx7 = chartInstance.ctx7;
-                    ctx7.textAlign = 'center';
-                    ctx7.fillStyle = "rgba(0, 0, 0, 1)";
-                    ctx7.textBaseline = 'bottom';
-                    // Loop through each data in the datasets
-                    this.data.datasets.forEach(function (dataset, i) {
-                        var meta = chartInstance.controller.getDatasetMeta(i);
-                        meta.data.forEach(function (bar, index) {
-                            var data = dataset.data[index];
-                            ctx7.fillText(data, bar._model.x, bar._model.y - 5);
-                        });
-                    });
+        scales: {
+            yAxes: [{
+                ticks: {
+                    reverse: false
                 }
+            }]
+        }
+    },
+    plugins: [ChartDataLabels]
+    });
+
+    var plate_chart = new Chart(ctx2, {
+    type: 'doughnut',
+    data: {
+        datasets: [
+        {
+            data: [104],
+            fill: false,
+            backgroundColor:'rbg(242, 133, 0)',
+            borderWidth: 0,
+            weight:1,
+        },{
+            data: [60],
+            fill: true,
+            backgroundColor:'rgb(255,36,0)',
+            borderWidth: 0,
+            weight:1,
             }
-      }
+        ]
+        },
+        options: {
+
+            responsive: true,
+            rotation: 1 * Math.PI,/** This is where you need to work out where 89% is */
+            circumference: 1 * Math.PI,/** put in a much smaller amount  so it does not take up an entire semi circle */
+            legend: {
+                display: false
+            },
+            tooltip: {
+                enabled: false
+            },
+            cutoutPercentage: 70,
+        },
     
     });
-    var image = reg_chart.toBase64Image();
-    console.log(image);
 
-    document.getElementById('download').onclick = function() {
-      // Trigger the download
-      var a = document.createElement('a');
-      a.href = reg_chart.toBase64Image();
-      a.download = 'VehicleRegistration.jpg';
-      a.click();
-    }
-
-    var prog_chart = new Chart(ctx6, {
-    type: 'horizontalBar',
+    var masterlist_chart = new Chart(ctx3, {
+    type: 'line',
     data: {
-        labels: ["FATA Monitoring","Corrective Maintenance", "Transfer Ownership", "Car Rental Request","Service Vehicle Request","Preventive Maintenance", "Insurance", "New Vehicle Payment", "Car Rental Payment"
-        , "Fuel Supplier Payment", "Vehicle Repair Payment", "Fleet Card","Fleet Card Driver Payment"],
-        datasets: [
-          {
-            label: 'Ongoing',
-            fill: true,
-            data: current_ongoing_data,
-            backgroundColor:'rgba(207, 154, 50)',
-        },
-        {
-            label: 'Completed',
-            fill: true,
-            data: completed_item_data,
-            backgroundColor:'rgba(23, 128, 173)',
-
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-    });
-    var petron_chart = new Chart(ctx4, {
-    type: 'bar',
-    data: {
-        labels: ["NTT5_F01" ,"FIN23_C6","NTT5_H01" ,"NTT5_J01" ,"FIN23_C9" ,"NTT5_G01" ,"SG02_P" ,"CMG2_D3" ,"CMG2_B2","CMG5_G"],
+        labels: ["Employee","Vehicle Sold","Vehicle Active",'Vehicle Leasing'],
         datasets: [{
-            label: 'Sum of Product Amount',
-            data: ["476578.19","470886","427945.49","218998.42","213100","206067.56","171227.94","171179.37","169505.28","145304.77"],
-            backgroundColor:'rgba(23, 128, 173)',
-        },
-          {
-            label: 'Sum of Discount Amount',
+            data: [30,100,10,70],
             fill: true,
-            data: ["-29672.83","-27000.28","-26582.15","-13148.77","-13393","-12730.5","-12777.35","-13546.17","-13392.87","-11565.87"],
-            backgroundColor:'rgba(207, 154, 50)',
+            backgroundColor: [
+                'rgb(0,100,0)',
+                'rgb(255,0,0)',
+                'rgb(65,105,225)',
+                'rgb(255,255,0)',
+            ],
+            borderColor: 'rgb(242,122,0)',
+            borderWidth: 0,
+            datalabels: {
+                color: 'white',
+                anchor: 'end',
+                align: 'start',
+                offset: 10
+            },
+            font: {
+                weight: 'bold',
+                size: 16,
+            },
+            tension: 0.3
+          }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
         },
-        {
-            label: 'Sum of Net Amount',
-            fill: true,
-            data: ["443344.16","440645.69","398172.98","204271.5","198099.85","191809.19","156917.25","156007.59","154505.2","132350.93"],
-            backgroundColor:'rgba(196, 195, 187)',
+        interaction: {
+            intersect: true,
+        },
+        scales: {
+            x: {
+                display: true,
+                title: {
+                    display: true
+                }
+            },
+            y: {
+                display: true,
+                title: {
+                    display: true,
+            },
+                suggestedMin: -10,
+                suggestedMax: 200
+            }
+        }
+    },
+    plugins: [ChartDataLabels]
+    });
 
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-    });
-    var shell_chart = new Chart(ctx5, {
-    type: 'bar',
-    data: {
-        labels: ["BB14-B10","BB14-B11","BB14-B2","NTT5-I01","NTT5-J01","BB14-B6","BB14-B3 ","BB14-B3","BB14-B5","BB14-B4"],
-        datasets: [{
-            label: 'Sum of DelcoGrossValue',
-            data: ["476578.19","470886","427945.49","265747.75","237679.54","171179.37","213100","218998.42","171227.94","206067.56"],
-            backgroundColor:'rgba(23, 128, 173)',
-        },
-          {
-            label: 'Sum of RebateCustAmount',
-            fill: true,
-            data: ["-29672.83","-27000.28","-26582.15","-16516.58","-14640.76","-13546.17","-13393","-13148.77","-12777.35","-12730.5"],
-            backgroundColor:'rgba(207, 154, 50)',
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-    });
     window.onload = function(){
-        // var ctx2 = document.getElementById("myChart2").getContext("2d");
-        // window.myBar = new Chart(ctx2).Bar(myChart, {
-        //     responsive : true
-        // });
-        
-        // var ctx1 = document.getElementById("ongoing_data").getContext("2d");
-        // window.myBar = new Chart(ctx1).Bar(ongoing_chart, {
-        //     responsive : true
-        // });
-        // var ctx3 = document.getElementById("completed").getContext("2d");
-        // window.myBar = new Chart(ctx3).Bar(completed_Data_list, {
-        //     responsive : true
-        // });
-        var ctx4 = document.getElementById("petron_report_monthly").getContext("2d");
-        window.myBar = new Chart(ctx4).Bar(petron_chart, {
+
+        var ctx2 = document.getElementById("plate").getContext("2d");
+        window.myBar = new Chart(ctx2).Bar(plate_chart, {
             responsive : true
         });
-        var ctx5 = document.getElementById("shell_report_monthly").getContext("2d");
-        window.myBar = new Chart(ctx5).Bar(shell_chart, {
+
+        var ctx3 = document.getElementById("masterlist").getContext("2d");
+        window.myBar = new Chart(ctx3).Bar(masterlist_chart, {
             responsive : true
         });
-        var ctx6 = document.getElementById("prog").getContext("2d");
-        window.myBar = new Chart(ctx6).Bar(prog_chart, {
+
+        var ctx4 = document.getElementById("reg").getContext("2d");
+        window.myBar = new Chart(ctx4).Bar(reg_chart, {
             responsive : true
-        });
-        var ctx7 = document.getElementById("reg").getContext("2d");
-        window.myBar = new Chart(ctx7).Bar(reg_chart, {
-            responsive : true
-        });
-        ctx7.render();
-        document.getElementById("exportChart").addEventListener("click",function(){
-            ctx7.exportChart({format: "jpg"});
         });
     }
     
@@ -448,264 +248,729 @@ function setChart(){
 </script>
 
 {% block content %}
- <!-- Content Wrapper. Contains page content -->
-    <!-- Content Header (Page header) -->
-<!-- <div class="content-wrapper"> -->
-
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6 float-sm-right">
-            <h1 class="m-0 float-sm-right">Dashboard</h1>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@1.0.0"></script>
         <div class="row">
-          <div class="col-lg-3 col-5">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h4 style="font-size: 20px">Total</h4>
-                <h4 style="font-size: 17px">Active Unit's - {{ count13 }}</h4>
-                <!-- <h4 style="font-size: 12px">{{ count13 }}</h4> -->
-                <h4 style="font-size: 17px">Sold Unit's - {{ sold }}</h4>
-                <!-- <h4 style="font-size: 12px">{{ sold }}</h4> -->
-                <h2 class="h5">Vehicle Masterlist</h2>
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title">Vehicle Registration</h5>
               </div>
-              <div class="icon">
-                <i class="fas fa-car"></i>
-              </div>
-              <a href="{% url 'vehicle-list' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p class="text-center">
+                      <strong>Year, {{ year }} - DATA</strong>
+                    </p>
 
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-2 col-5">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3 style="font-size: 20px">Total</h3>
-                <h3 style="font-size: 20px">{{ count12 }}</h3>
-                <h2 class="h5">Employee Masterlist</h2>
+                    <div class="chart" >
+                      <!-- Sales Chart Canvas -->
+                      <canvas id="reg" height="80" style="height: 80px;" ></canvas>
+                    </div>
+                    <!-- /.chart-responsive -->
+                  </div>
+                </div>
+                <!-- /.row -->
               </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
+              <!-- ./card-body -->
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-sm-3 col-6">
+                    <div class="description-block border-right">
+                      <span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 17%</span>
+                      <h5 class="description-header text-success">$35,210.43</h5>
+                      <span class="description-text text-success">TOTAL REVENUE</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-3 col-6">
+                    <div class="description-block border-right">
+                      <span class="description-percentage text-warning"><i class="fas fa-caret-left"></i> 0%</span>
+                      <h5 class="description-header text-warning">$10,390.90</h5>
+                      <span class="description-text text-warning">TOTAL COST</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-3 col-6">
+                    <div class="description-block border-right">
+                      <span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 20%</span>
+                      <h5 class="description-header text-success">$24,813.53</h5>
+                      <span class="description-text text-success">TOTAL PROFIT</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-3 col-6">
+                    <div class="description-block">
+                      <span class="description-percentage text-danger"><i class="fas fa-caret-down"></i> 18%</span>
+                      <h5 class="description-header text-danger">1200</h5>
+                      <span class="description-text text-danger">GOAL COMPLETIONS</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                </div>
+                <!-- /.row -->
               </div>
-              <a href="{% url 'employee-list' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <!-- /.card-footer -->
             </div>
+            <!-- /.card -->
           </div>
-
-          <!-- ./col -->
-          <div class="col-lg-2 col-5">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3 style="font-size: 20px">Total</h3>
-                <h3 style="font-size: 20px">{{ count15 }}</h3>
-                <h2 class="h5">Leasing Masterlist</h2>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="{% url 'leasing_list' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-2 col-5">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3 style="font-size: 20px">Total Pending</h3>
-                <h3 style="font-size: 20px">{{ count16 }}</h3>
-                <h2 class="h5">Customer Log's</h2>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="{% url 'CS_List' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-3 col-5">
-            <!-- small box -->
-            <div class="small-box bg-secondary">
-              <div class="inner">
-                <h4 style="font-size: 15px">Total Registered - {{month}}</h4>
-                <h4 style="font-size: 12px">{{ registered }}</h4>
-                <h4 style="font-size: 15px">Total not Registered - {{month}}</h4>
-                <h4 style="font-size: 12px">{{ not_registered }}</h4>
-                <h2 class="h5">Registration Monitoring</h2>
-              </div>
-              <a href="{% url 'registration_jan_reg' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <!-- ./col -->
+          <!-- /.col -->
         </div>
         <!-- /.row -->
+          <!---------###########----------->
+          <!---------Left Corner----------->
+          <!---------###########----------->
         <!-- Main row -->
-        <div class="row" hidden>
+        <div class="row">
           <!-- Left col -->
-          <section class="col-lg-7 connectedSortable">
-            <!-- Custom tabs (Charts with tabs)-->
-            <div class="card ">
+          <div class="col-md-9">
+            <!-- MAP & BOX PANE -->
+              <div class="card">
               <div class="card-header">
-                <h3 class="card-title">
-                  <i class="fas fa-chart-pie mr-1"></i>
-                  Request For the Month of <u>{{month}}</u>
-                </h3>
-              </div><!-- /.card-header -->
-              <div class="card-body">
-                <div class="tab-content p-0">
-                  <!-- Morris chart - Sales -->
-                  <div class="chart tab-pane active" id="revenue-chart"
-                       style="position: relative; height: 600px;">
-                      <canvas id="myChart2" height="300" style="height: 400px;"></canvas>
-                   </div>
-                </div>
-              </div><!-- /.card-body -->
-            </div>
-            
-            <!-- /.card -->
-            <!-- /.card -->
-          </section>
-
-          <!-- /.Left col -->
-          <!-- right col (We are only adding the ID to make the widgets sortable)-->
-          <section class="col-lg-5 connectedSortable">
-
-            <!-- Map card -->
-            <!-- /.card -->
-
-            <!-- solid sales graph -->
-            <div class="card bg-info.bg-gradient">
-              <div class="card-header border-0">
-                <h3 class="card-title">
-                  <i class="fas fa-th mr-1"></i>
-                  Ongoing For the Month of <u>{{month}}</u>
-                </h3>
-
-                <div class="card-tools">
-                </div>
+                <h3 class="card-title">Masterlist</h3>
               </div>
-              <div class="card-body "style="position: relative; height: 650px;">
-                <canvas class="chart" id="ongoing_data" style="height: 600px; max-width: 100%;"></canvas>
-              </div>
-            </div>
-            <!-- /.card -->
-            <!-- /.card -->
-          </section>
-          <!-- right col -->
-        </div>
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
-        <div class="card " hidden>
-          <div class="card-header">
-            <h3 class="card-title">
-              <i class="fas fa-chart-pie mr-1"></i>
-              Completed For the Month of <u>{{month}}</u>
-            </h3>
-          </div><!-- /.card-header -->
-          <div class="card-body">
-            <div class="tab-content p-0">
-              <!-- Morris chart - Sales -->
+              <!-- /.card-header -->
               <div class="card-body">
-                  <canvas id="completed" style="height: 500px; max-width: 100%;"></canvas>
-               </div>
-            </div>
-          </div><!-- /.card-body -->
-        </div>
-        <br><br>
-
-        <div class="card ">
-          <div class="card-header">
-            <h3 class="card-title">
-              <i class="fas fa-chart-pie mr-1"></i>
-              Progress
-            </h3>
-          </div><!-- /.card-header -->
-        <div class="card-body">
-            <div class="tab-content p-0">
-                <div class="card-body">
-                    <div class="tab-content p-0">
-                        <canvas id="prog" style="height: 800px; max-width: 100%;"></canvas>
-                    </div>  
-                </div>
-            </div>
-        </div><!-- /.card-body -->
-        <!-----Registered------->
-<!-- 
-        <div class="card ">
-            <br><br>
-          <div class="card-header">
-            <h3 class="card-title">
-              <i class="fas fa-chart-pie mr-1"></i>
-              Vehicle Registration<br>
-              <button id="download">Save Image</button>
-            </h3>
-          </div>
-        <div class="card-body" id="vehicle_reg">
-            <div class="tab-content p-0">
-                <div class="card-body">
-                    <div class="tab-content p-0">
-                        <canvas id="reg" style="height: 400px; max-width: 100%;"></canvas>
-                        
-                    </div>  
-                </div>
-            </div>
-        </div> -->
-
-        <div class="card ">
-          <div class="card-header">
-            <h3 class="card-title">
-              <i class="fas fa-chart-pie mr-1"></i>
-              Fuel Supplier Monthly Report <u>{{month_supplier}}</u>
-            </h3>
-            <div class="card-tools">
-                <ul class="nav nav-pills ml-auto" role="tablist">
-                    <li role="presentation" class="nav-item active">
-                        <a href="#petron" aria-controls="home" role="tab" data-toggle="tab" class="nav-link active" style="color: white;">PETRON</a></li>
-                    <li role="presentation" class="nav-item active">
-                        <a href="#shell" aria-controls="profile" role="tab" data-toggle="tab" class="nav-link " style="color: white;">SHELL</a></li>
-                </ul>
-            </div>
-          </div><!-- /.card-header -->
-        <div class="card-body">
-            <div class="tab-content p-0">
-              <!-- Morris chart - Sales -->
-                <div class="card-body">
-                    <div class="tab-content p-0">
-                      <!-- Morris chart - Sales -->
-                        <div class="chart tab-pane active" id="petron"
-                           style="position: relative; height: 800px;">
-                            <canvas id="petron_report_monthly" style="height: 800px; max-width: 100%;"></canvas>
-                        </div>
-                        <div class="chart tab-pane " id="shell" style="position: relative; height: 800px;">
-                            <canvas id="shell_report_monthly" style="height: 800px; max-width: 100%;"></canvas>
-                        </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="chart-responsive">
+                      <canvas id="masterlist" height="150"></canvas>
                     </div>
-                      
+                    <!-- ./chart-responsive -->
+                  </div>
+                  <!-- /.col -->
+                                    <div class="col-md-4">
+                    <p class="text-center">
+                      <strong>Masterlist</strong>
+                    </p>
+
+                    <div class="progress-group">
+                      Vehicle Active
+                      <span class="float-right"><b>{{ v_active }}</b> - Vehicle</span>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar bg-primary" style="width: 85%"></div>
+                      </div>
+                    </div>
+                    <div class="progress-group">
+                      Vehicle Sold
+                      <span class="float-right"><b>{{ sold }}</b> - Vehicle</span>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar bg-danger" style="width: 85%"></div>
+                      </div>
+                    </div>
+                    <!-- /.progress-group -->
+
+                    <div class="progress-group">
+                      Employee
+                      <span class="float-right"><b>{{ emp }}</b> - Employee</span>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar bg-success" style="width: 85%"></div>
+                      </div>
+                    </div>
+
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                      <span class="progress-text">Leasing</span>
+                      <span class="float-right"><b>{{ leasing }}</b> - Vehicle</span>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar bg-warning" style="width: 85%"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                  <!-- /.col -->
                 </div>
+                <!-- /.row -->
+              </div>
+              <!-- /.card-body -->
             </div>
-        </div><!-- /.card-body -->
-        <div>
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Vehicle Registration</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <div class="d-md-flex">
+                  <div class="p-1 flex-fill" style="overflow: hidden">
+                    <!-- Map will be created here -->
+                    <div id="reg" style="height: 325px; overflow: hidden">
+                      <div class="map"></div>
+                    </div>
+                  </div>
+                  <div class="card-pane-right bg-success pt-2 pb-2 pl-4 pr-4">
+                    <div class="description-block mb-4">
+                      <div class="sparkbar pad" data-color="#fff">90,70,90,70,75,80,70</div>
+                      <h5 class="description-header">8390</h5>
+                      <span class="description-text">June</span>
+                    </div>
+                    <!-- /.description-block -->
+                    <div class="description-block mb-4">
+                      <div class="sparkbar pad" data-color="#fff">90,50,90,70,61,83,63</div>
+                      <h5 class="description-header">30%</h5>
+                      <span class="description-text">July</span>
+                    </div>
+                    <!-- /.description-block -->
+                    <div class="description-block">
+                      <div class="sparkbar pad" data-color="#fff">90,50,90,70,61,83,63</div>
+                      <h5 class="description-header">70%</h5>
+                      <span class="description-text">August</span>
+                    </div>
+                    <div class="description-block">
+                      <div class="sparkbar pad" data-color="#fff">90,50,90,70,61,83,63</div>
+                      <h5 class="description-header">70%</h5>
+                      <span class="description-text">September</span>
+                    </div>
+                    <div class="description-block">
+                      <div class="sparkbar pad" data-color="#fff">90,50,90,70,61,83,63</div>
+                      <h5 class="description-header">70%</h5>
+                      <span class="description-text">October</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div><!-- /.card-pane-right -->
+                </div><!-- /.d-md-flex -->
+              </div>
+              
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <div class="row">
+              <div class="col-md-6">
+                <!-- DIRECT CHAT -->
+                <div class="card direct-chat direct-chat-warning">
+                  <div class="card-header">
+                    <h3 class="card-title">Direct Chat</h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <!-- Conversations are loaded here -->
+                    <div class="direct-chat-messages">
+                      <!-- Message. Default to the left -->
+                      <div class="direct-chat-msg">
+                        <div class="direct-chat-infos clearfix">
+                          <span class="direct-chat-name float-left">Alexander Pierce</span>
+                          <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+                        </div>
+                        <!-- /.direct-chat-infos -->
+                        <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
+                        <!-- /.direct-chat-img -->
+                        <div class="direct-chat-text">
+                          Is this template really for free? That's unbelievable!
+                        </div>
+                        <!-- /.direct-chat-text -->
+                      </div>
+                      <!-- /.direct-chat-msg -->
 
+                      <!-- Message to the right -->
+                      <div class="direct-chat-msg right">
+                        <div class="direct-chat-infos clearfix">
+                          <span class="direct-chat-name float-right">Sarah Bullock</span>
+                          <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
+                        </div>
+                        <!-- /.direct-chat-infos -->
+                        <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
+                        <!-- /.direct-chat-img -->
+                        <div class="direct-chat-text">
+                          You better believe it!
+                        </div>
+                        <!-- /.direct-chat-text -->
+                      </div>
+                      <!-- /.direct-chat-msg -->
+
+                      <!-- Message. Default to the left -->
+                      <div class="direct-chat-msg">
+                        <div class="direct-chat-infos clearfix">
+                          <span class="direct-chat-name float-left">Alexander Pierce</span>
+                          <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
+                        </div>
+                        <!-- /.direct-chat-infos -->
+                        <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
+                        <!-- /.direct-chat-img -->
+                        <div class="direct-chat-text">
+                          Working with AdminLTE on a great new app! Wanna join?
+                        </div>
+                        <!-- /.direct-chat-text -->
+                      </div>
+                      <!-- /.direct-chat-msg -->
+
+                      <!-- Message to the right -->
+                      <div class="direct-chat-msg right">
+                        <div class="direct-chat-infos clearfix">
+                          <span class="direct-chat-name float-right">Sarah Bullock</span>
+                          <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
+                        </div>
+                        <!-- /.direct-chat-infos -->
+                        <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
+                        <!-- /.direct-chat-img -->
+                        <div class="direct-chat-text">
+                          I would love to.
+                        </div>
+                        <!-- /.direct-chat-text -->
+                      </div>
+                      <!-- /.direct-chat-msg -->
+
+                    </div>
+                    <!--/.direct-chat-messages-->
+
+                    <!-- Contacts are loaded here -->
+                    <div class="direct-chat-contacts">
+                      <ul class="contacts-list">
+                        <li>
+                          <a href="#">
+                            <img class="contacts-list-img" src="dist/img/user1-128x128.jpg">
+
+                            <div class="contacts-list-info">
+                              <span class="contacts-list-name">
+                                Count Dracula
+                                <small class="contacts-list-date float-right">2/28/2015</small>
+                              </span>
+                              <span class="contacts-list-msg">How have you been? I was...</span>
+                            </div>
+                            <!-- /.contacts-list-info -->
+                          </a>
+                        </li>
+                        <!-- End Contact Item -->
+                        <li>
+                          <a href="#">
+                            <img class="contacts-list-img" src="dist/img/user7-128x128.jpg">
+
+                            <div class="contacts-list-info">
+                              <span class="contacts-list-name">
+                                Sarah Doe
+                                <small class="contacts-list-date float-right">2/23/2015</small>
+                              </span>
+                              <span class="contacts-list-msg">I will be waiting for...</span>
+                            </div>
+                            <!-- /.contacts-list-info -->
+                          </a>
+                        </li>
+                        <!-- End Contact Item -->
+                        <li>
+                          <a href="#">
+                            <img class="contacts-list-img" src="dist/img/user3-128x128.jpg">
+
+                            <div class="contacts-list-info">
+                              <span class="contacts-list-name">
+                                Nadia Jolie
+                                <small class="contacts-list-date float-right">2/20/2015</small>
+                              </span>
+                              <span class="contacts-list-msg">I'll call you back at...</span>
+                            </div>
+                            <!-- /.contacts-list-info -->
+                          </a>
+                        </li>
+                        <!-- End Contact Item -->
+                        <li>
+                          <a href="#">
+                            <img class="contacts-list-img" src="dist/img/user5-128x128.jpg">
+
+                            <div class="contacts-list-info">
+                              <span class="contacts-list-name">
+                                Nora S. Vans
+                                <small class="contacts-list-date float-right">2/10/2015</small>
+                              </span>
+                              <span class="contacts-list-msg">Where is your new...</span>
+                            </div>
+                            <!-- /.contacts-list-info -->
+                          </a>
+                        </li>
+                        <!-- End Contact Item -->
+                        <li>
+                          <a href="#">
+                            <img class="contacts-list-img" src="dist/img/user6-128x128.jpg">
+
+                            <div class="contacts-list-info">
+                              <span class="contacts-list-name">
+                                John K.
+                                <small class="contacts-list-date float-right">1/27/2015</small>
+                              </span>
+                              <span class="contacts-list-msg">Can I take a look at...</span>
+                            </div>
+                            <!-- /.contacts-list-info -->
+                          </a>
+                        </li>
+                        <!-- End Contact Item -->
+                        <li>
+                          <a href="#">
+                            <img class="contacts-list-img" src="dist/img/user8-128x128.jpg">
+
+                            <div class="contacts-list-info">
+                              <span class="contacts-list-name">
+                                Kenneth M.
+                                <small class="contacts-list-date float-right">1/4/2015</small>
+                              </span>
+                              <span class="contacts-list-msg">Never mind I found...</span>
+                            </div>
+                            <!-- /.contacts-list-info -->
+                          </a>
+                        </li>
+                        <!-- End Contact Item -->
+                      </ul>
+                      <!-- /.contacts-list -->
+                    </div>
+                    <!-- /.direct-chat-pane -->
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+                    <form action="#" method="post">
+                      <div class="input-group">
+                        <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                        <span class="input-group-append">
+                          <button type="button" class="btn btn-warning">Send</button>
+                        </span>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- /.card-footer-->
+                </div>
+                <!--/.direct-chat -->
+              </div>
+              <!-- /.col -->
+
+              <div class="col-md-6">
+                <!-- USERS LIST -->
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Latest Members</h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body p-0">
+                    <ul class="users-list clearfix">
+                      <li>
+                        <img src="dist/img/user1-128x128.jpg" alt="User Image">
+                        <a class="users-list-name" href="#">Alexander Pierce</a>
+                        <span class="users-list-date">Today</span>
+                      </li>
+                      <li>
+                        <img src="dist/img/user8-128x128.jpg" alt="User Image">
+                        <a class="users-list-name" href="#">Norman</a>
+                        <span class="users-list-date">Yesterday</span>
+                      </li>
+                      <li>
+                        <img src="dist/img/user7-128x128.jpg" alt="User Image">
+                        <a class="users-list-name" href="#">Jane</a>
+                        <span class="users-list-date">12 Jan</span>
+                      </li>
+                      <li>
+                        <img src="dist/img/user6-128x128.jpg" alt="User Image">
+                        <a class="users-list-name" href="#">John</a>
+                        <span class="users-list-date">12 Jan</span>
+                      </li>
+                      <li>
+                        <img src="dist/img/user2-160x160.jpg" alt="User Image">
+                        <a class="users-list-name" href="#">Alexander</a>
+                        <span class="users-list-date">13 Jan</span>
+                      </li>
+                      <li>
+                        <img src="dist/img/user5-128x128.jpg" alt="User Image">
+                        <a class="users-list-name" href="#">Sarah</a>
+                        <span class="users-list-date">14 Jan</span>
+                      </li>
+                      <li>
+                        <img src="dist/img/user4-128x128.jpg" alt="User Image">
+                        <a class="users-list-name" href="#">Nora</a>
+                        <span class="users-list-date">15 Jan</span>
+                      </li>
+                      <li>
+                        <img src="dist/img/user3-128x128.jpg" alt="User Image">
+                        <a class="users-list-name" href="#">Nadia</a>
+                        <span class="users-list-date">15 Jan</span>
+                      </li>
+                    </ul>
+                    <!-- /.users-list -->
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer text-center">
+                    <a href="javascript::">View All Users</a>
+                  </div>
+                  <!-- /.card-footer -->
+                </div>
+                <!--/.card -->
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+
+            <!-- TABLE: LATEST ORDERS -->
+            <div class="card">
+              <div class="card-header border-transparent">
+                <h3 class="card-title">Latest Orders</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <div class="table-responsive">
+                  <table class="table m-0">
+                    <thead>
+                    <tr>
+                      <th>Order ID</th>
+                      <th>Item</th>
+                      <th>Status</th>
+                      <th>Popularity</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                      <td>Call of Duty IV</td>
+                      <td><span class="badge badge-success">Shipped</span></td>
+                      <td>
+                        <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><a href="pages/examples/invoice.html">OR1848</a></td>
+                      <td>Samsung Smart TV</td>
+                      <td><span class="badge badge-warning">Pending</span></td>
+                      <td>
+                        <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                      <td>iPhone 6 Plus</td>
+                      <td><span class="badge badge-danger">Delivered</span></td>
+                      <td>
+                        <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                      <td>Samsung Smart TV</td>
+                      <td><span class="badge badge-info">Processing</span></td>
+                      <td>
+                        <div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><a href="pages/examples/invoice.html">OR1848</a></td>
+                      <td>Samsung Smart TV</td>
+                      <td><span class="badge badge-warning">Pending</span></td>
+                      <td>
+                        <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                      <td>iPhone 6 Plus</td>
+                      <td><span class="badge badge-danger">Delivered</span></td>
+                      <td>
+                        <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                      <td>Call of Duty IV</td>
+                      <td><span class="badge badge-success">Shipped</span></td>
+                      <td>
+                        <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.table-responsive -->
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer clearfix">
+                <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>
+                <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
+              </div>
+              <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <!---------###########----------->
+          <!---------Right Corner----------->
+          <!---------###########----------->
+          <div class="col-md-3">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Plate Monitoring</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <div class="chart-responsive">
+                      <canvas id="plate" height="150" ></canvas>
+                    </div>
+                    <!-- ./chart-responsive -->
+                  </div>
+                  <!-- /.col -->
+                  <!-- <div class="col-md-4">
+                    <ul class="chart-legend clearfix">
+                      <li><i class="far fa-circle text-info"></i> Total Request</li>
+                      <li><i class="far fa-circle text-success"></i> Total Request Completed</li>
+                    </ul>
+                  </div> -->
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer bg-white p-0">
+                <ul class="nav nav-pills flex-column">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <b>Total Request</b>
+                      <span class="float-right text-success">
+                        <i class="fas fa-arrow-up text-sm"></i>
+                        12%</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <b>Total Request Completed</b>
+                      <span class="float-right text-success">
+                        <i class="fas fa-arrow-up text-sm"></i> 4%
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Fleet Card</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="chart-responsive">
+                      <canvas id="plate" height="150" ></canvas>
+                    </div>
+                    <!-- ./chart-responsive -->
+                  </div>
+                  <!-- /.col -->
+                  <!-- <div class="col-md-4"> -->
+                   <!--  <ul class="chart-legend clearfix">
+                      <li><i class="far fa-circle text-danger"></i> Total Request</li>
+                      <li><i class="far fa-circle text-success"></i> Total Request Completed</li>
+                    </ul> -->
+                  <!-- </div> -->
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer bg-white p-0">
+                <ul class="nav nav-pills flex-column">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      Total Request
+                      <span class="float-right text-success">
+                        <i class="fas fa-arrow-up text-sm"></i>
+                        12%</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      Total Request Completed
+                      <span class="float-right text-success">
+                        <i class="fas fa-arrow-up text-sm"></i> 4%
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- /.footer -->
+            </div>
+            <!-- /.card -->
+
+            <!-- PRODUCT LIST -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Recently Added Products</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <ul class="products-list product-list-in-card pl-2 pr-2">
+                  <li class="item">
+                    <div class="product-img">
+                      <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
+                    </div>
+                    <div class="product-info">
+                      <a href="javascript:void(0)" class="product-title">Samsung TV
+                        <span class="badge badge-warning float-right">$1800</span></a>
+                      <span class="product-description">
+                        Samsung 32" 1080p 60Hz LED Smart HDTV.
+                      </span>
+                    </div>
+                  </li>
+                  <!-- /.item -->
+                  <li class="item">
+                    <div class="product-img">
+                      <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
+                    </div>
+                    <div class="product-info">
+                      <a href="javascript:void(0)" class="product-title">Bicycle
+                        <span class="badge badge-info float-right">$700</span></a>
+                      <span class="product-description">
+                        26" Mongoose Dolomite Men's 7-speed, Navy Blue.
+                      </span>
+                    </div>
+                  </li>
+                  <!-- /.item -->
+                  <li class="item">
+                    <div class="product-img">
+                      <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
+                    </div>
+                    <div class="product-info">
+                      <a href="javascript:void(0)" class="product-title">
+                        Xbox One <span class="badge badge-danger float-right">
+                        $350
+                      </span>
+                      </a>
+                      <span class="product-description">
+                        Xbox One Console Bundle with Halo Master Chief Collection.
+                      </span>
+                    </div>
+                  </li>
+                  <!-- /.item -->
+                  <li class="item">
+                    <div class="product-img">
+                      <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
+                    </div>
+                    <div class="product-info">
+                      <a href="javascript:void(0)" class="product-title">PlayStation 4
+                        <span class="badge badge-success float-right">$399</span></a>
+                      <span class="product-description">
+                        PlayStation 4 500GB Console (PS4)
+                      </span>
+                    </div>
+                  </li>
+                  <!-- /.item -->
+                </ul>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer text-center">
+                <a href="javascript:void(0)" class="uppercase">View All Products</a>
+              </div>
+              <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!--/. container-fluid -->
     </section>
-
     <!-- /.content -->
-<!-- </div> -->
+  </div>
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
   </aside>
-</div>
+  <!-- /.control-sidebar -->
+
 
 {% endblock %}
 
