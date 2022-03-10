@@ -242,17 +242,17 @@ class reg(APIView):
         year1 = datetime.datetime.now().year - 1
         year2 = datetime.datetime.now().year - 2
         date_now = datetime.datetime.now().date()
-        exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2) 
-        jan = VehicleMasterList.objects.filter(PLATE_ENDING="1", Last_Registration_Date__isnull=False).exclude(exc).count()
-        feb = VehicleMasterList.objects.filter(PLATE_ENDING="2", Last_Registration_Date__isnull=False).exclude(exc).count()
-        mar = VehicleMasterList.objects.filter(PLATE_ENDING="3", Last_Registration_Date__isnull=False).exclude(exc).count()
-        apr = VehicleMasterList.objects.filter(PLATE_ENDING="4", Last_Registration_Date__isnull=False).exclude(exc).count()
-        may = VehicleMasterList.objects.filter(PLATE_ENDING="5", Last_Registration_Date__isnull=False).exclude(exc).count()
-        jun = VehicleMasterList.objects.filter(PLATE_ENDING="6", Last_Registration_Date__isnull=False).exclude(exc).count()
-        jul = VehicleMasterList.objects.filter(PLATE_ENDING="7", Last_Registration_Date__isnull=False).exclude(exc).count()
-        aug = VehicleMasterList.objects.filter(PLATE_ENDING="8", Last_Registration_Date__isnull=False).exclude(exc).count()
-        sep = VehicleMasterList.objects.filter(PLATE_ENDING="9", Last_Registration_Date__isnull=False).exclude(exc).count()
-        octb = VehicleMasterList.objects.filter(PLATE_ENDING="0", Last_Registration_Date__isnull=False).exclude(exc).count()
+        exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2) | Q(Last_Registration_Date="")
+        jan = VehicleMasterList.objects.filter(PLATE_ENDING="1").exclude(exc).count()
+        feb = VehicleMasterList.objects.filter(PLATE_ENDING="2").exclude(exc).count()
+        mar = VehicleMasterList.objects.filter(PLATE_ENDING="3").exclude(exc).count()
+        apr = VehicleMasterList.objects.filter(PLATE_ENDING="4").exclude(exc).count()
+        may = VehicleMasterList.objects.filter(PLATE_ENDING="5").exclude(exc).count()
+        jun = VehicleMasterList.objects.filter(PLATE_ENDING="6").exclude(exc).count()
+        jul = VehicleMasterList.objects.filter(PLATE_ENDING="7").exclude(exc).count()
+        aug = VehicleMasterList.objects.filter(PLATE_ENDING="8").exclude(exc).count()
+        sep = VehicleMasterList.objects.filter(PLATE_ENDING="9").exclude(exc).count()
+        octb = VehicleMasterList.objects.filter(PLATE_ENDING="0").exclude(exc).count()
 
         
         reglabels = ["January","February", "March", "April", "May"]
@@ -273,17 +273,17 @@ class unreg(APIView):
         year1 = datetime.datetime.now().year - 1
         year2 = datetime.datetime.now().year - 2
         date_now = datetime.datetime.now().date()
-        exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2) |Q(Last_Registration_Date__isnull=True)
-        unjan = VehicleMasterList.objects.filter(PLATE_ENDING="1").exclude(exc).count()
-        unfeb = VehicleMasterList.objects.filter(PLATE_ENDING="2").exclude(exc).count()
-        unmar = VehicleMasterList.objects.filter(PLATE_ENDING="3").exclude(exc).count()
-        unapr = VehicleMasterList.objects.filter(PLATE_ENDING="4").exclude(exc).count()
-        unmay = VehicleMasterList.objects.filter(PLATE_ENDING="5").exclude(exc).count()
-        unjun = VehicleMasterList.objects.filter(PLATE_ENDING="6").exclude(exc).count()
-        unjul = VehicleMasterList.objects.filter(PLATE_ENDING="7").exclude(exc).count()
-        unaug = VehicleMasterList.objects.filter(PLATE_ENDING="8").exclude(exc).count()
-        unsep = VehicleMasterList.objects.filter(PLATE_ENDING="9").exclude(exc).count()
-        unoctb = VehicleMasterList.objects.filter(PLATE_ENDING="0").exclude(exc).count()
+        exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
+        unjan = VehicleMasterList.objects.filter(PLATE_ENDING="1", Last_Registration_Date="").count()
+        unfeb = VehicleMasterList.objects.filter(PLATE_ENDING="2", Last_Registration_Date="").exclude(exc).count()
+        unmar = VehicleMasterList.objects.filter(PLATE_ENDING="3", Last_Registration_Date="").exclude(exc).count()
+        unapr = VehicleMasterList.objects.filter(PLATE_ENDING="4", Last_Registration_Date="").exclude(exc).count()
+        unmay = VehicleMasterList.objects.filter(PLATE_ENDING="5", Last_Registration_Date="").exclude(exc).count()
+        unjun = VehicleMasterList.objects.filter(PLATE_ENDING="6", Last_Registration_Date="").exclude(exc).count()
+        unjul = VehicleMasterList.objects.filter(PLATE_ENDING="7", Last_Registration_Date="").exclude(exc).count()
+        unaug = VehicleMasterList.objects.filter(PLATE_ENDING="8", Last_Registration_Date="").exclude(exc).count()
+        unsep = VehicleMasterList.objects.filter(PLATE_ENDING="9", Last_Registration_Date="").exclude(exc).count()
+        unoctb = VehicleMasterList.objects.filter(PLATE_ENDING="0", Last_Registration_Date="").exclude(exc).count()
 
         
         unreglabels = ["January","February", "March", "April", "May"]
