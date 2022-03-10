@@ -83,14 +83,68 @@ def index(request):
     leasing = Leasing.objects.count()
     count16 = CS_log.objects.filter(Ageing="").count()
     not_registered = VehicleMasterList.objects.filter(PLATE_ENDING=regs_months,Last_Registration_Date__isnull=True ).count()
-    registered = VehicleMasterList.objects.filter(PLATE_ENDING=regs_months ).exclude(Last_Registration_Date__isnull=True).count()
+    registered = VehicleMasterList.objects.filter(PLATE_ENDING=regs_months).exclude(Last_Registration_Date__isnull=True).count()
+    data_all = fleet_card.objects.count()
+    data_completed = fleet_card.objects.filter(STATUS="Completed").count()
+    total = VehicleMasterList.objects.filter(PLATE_NO__isnull=True,vehicle_status="Active").count()
+    completed = VehicleMasterList.objects.filter(PLATE_NO__isnull=False, vehicle_status="Active").count()
+    tmg_total = Ownership.objects.filter(lto_date_in__isnull=True).count()
+    tmg_completed = Ownership.objects.filter(lto_date_in__isnull=False).count()
     return render(request, 'account/index.html', {'title': 'FLEET', 'month':month,'year':year, 'count11': count11,
                                                   'emp': emp, 'v_active': v_active, 'count14': count14, 'leasing': leasing, 
                                                   'count16':count16,'not_registered':not_registered,'registered':registered,
-                                                  'month_supplier':month_supplier,'sold':sold})
+                                                  'month_supplier': month_supplier, 'sold': sold, 'data_all': data_all, 'data_completed': data_completed,
+                                                  "total":total,"completed":completed,'tmg_total':tmg_total,"tmg_completed":tmg_completed})
 
-########### Customer care log alert ###########
+########### Fleet Card API ###########
+class fleet_card_all(APIView):
+    authentication_classes = []
+    permission_classes = []
+    
+    def get(self, request, format=None):
+        all_request = fleet_card.objects.count()
+        completed = fleet_card.objects.filter(STATUS="Completed").count()
+        data_completed = [completed]
+        data_all = [all_request]
+        
 
+        return Response(
+            data = {
+                "data_all": data_all,
+                "data_completed": data_completed,
+        })
+########### plate monritoring API ###########
+class plate_moniroting(APIView):
+    authentication_classes = []
+    permission_classes = []
+    
+    def get(self, request, format=None):
+        total = VehicleMasterList.objects.filter(PLATE_NO__isnull=True,vehicle_status="Active").count()
+        completed = VehicleMasterList.objects.filter(PLATE_NO__isnull=False, vehicle_status="Active").count()
+        completed = [completed]
+        total = [total]
+
+        return Response(
+            data = {
+                "total": total,
+                "completed": completed,
+        })
+########### lto ###########
+class lto_tmg(APIView):
+    authentication_classes = []
+    permission_classes = []
+    
+    def get(self, request, format=None):
+        tmg_total = Ownership.objects.filter(lto_date_in__isnull=True).count()
+        tmg_completed = Ownership.objects.filter(lto_date_in__isnull=False).count()
+        tmg_completed = [tmg_completed]
+        tmg_total = [tmg_total]
+
+        return Response(
+            data = {
+                "tmg_total": tmg_total,
+                "tmg_completed": tmg_completed,
+        })
 ##############---MASTERLIST -----#################
 class emp_masterlist(APIView):
     authentication_classes = []

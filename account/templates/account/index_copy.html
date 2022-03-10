@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
+<<<<<<< HEAD
+<!-- <script src="path/to/chartjs/dist/Chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.3.0/dist/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@1.0.0"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0-rc.1/chartjs-plugin-datalabels.min.js" integrity="sha512-+UYTD5L/bU1sgAfWA0ELK5RlQ811q8wZIocqI7+K0Lhh8yVdIoAMEs96wJAIbgFvzynPm36ZCXtkydxu1cs27w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+=======
 
+>>>>>>> 290dc076cff2f38543931c5b885b6c1a2cd0bcfc
 <script>
 {% block jquery %}
 var endpoint = 'api/monitoring/'
@@ -75,6 +82,139 @@ $.ajax({
 
 
 function setChart(){
+<<<<<<< HEAD
+    // var ctx1 = document.getElementById("ongoing_data");
+    // var ctx2 = document.getElementById("myChart2");
+    // var ctx3 = document.getElementById("completed");
+    var ctx4 = document.getElementById("petron_report_monthly");
+    var ctx5 = document.getElementById("shell_report_monthly");
+    var ctx6 = document.getElementById("prog");
+    var ctx7 = document.getElementById("reg");
+    // var myChart = new Chart(ctx2, {
+    // type: 'pie',
+    // data: {
+    //     labels: labels,
+    //     datasets: [{
+    //         label: '# Data',
+    //         data: defaultData,
+    //         backgroundColor: [
+    //             'rgba(255, 0, 0, 1)',
+    //             'rgba(255, 255, 0, 1)',
+    //             'rgba(136, 204, 0, 1)',
+    //             'rgba(51, 153, 255, 1)',
+    //             'rgba(204, 0, 204, 1)',
+    //             'rgba(204, 102, 153, 1)',
+    //             'rgba(0, 0, 153, 1, 1)',
+    //             'rgba(0, 102, 153, 1)',
+    //             'rgba(255, 204, 255)',
+    //             'rgba(0, 153, 204, 1)',
+    //             'rgba(51, 204, 51, 1)',
+    //             'rgba(153, 153, 102, 1)',
+    //             'rgba(34, 51, 0, 1, 1)',
+    //             'rgba(102, 0, 102, 1)',
+    //             'rgba(128, 0, 0,1)',
+    //             'rgba(92, 24, 12, 1)',
+    //         ],
+    //     }]
+    // },
+    // options: {
+    //     scales: {
+    //         yAxes: [{
+    //             ticks: {
+    //                 beginAtZero:true
+    //             }
+    //         }]
+    //     }
+    // }
+    // });
+    // var completed_Data_list = new Chart(ctx3, {
+    //   type: 'bar',
+    // data: {
+    //     labels: ["FATA Monitoring",
+    //     "Corrective Maintenance", "Customer Care", "Transfer Ownership", "TOO Billing", "Car Rental Request", "Gas Card Request","Service Vehicle Request","Preventive Maintenance", "Insurance", "New Vehicle Payment", "Car Rental Payment"
+    //     , "Fuel Supplier Payment", "Vehicle Repair Payment"],
+    //     datasets: [{
+    //         label: '#Data',
+    //         data: completed_item_data,
+    //         backgroundColor: [
+    //             'rgba(255, 0, 0, 1)',
+    //             'rgba(255, 255, 0, 1)',
+    //             'rgba(136, 204, 0, 1)',
+    //             'rgba(51, 153, 255, 1)',
+    //             'rgba(204, 0, 204, 1)',
+    //             'rgba(204, 102, 153, 1)',
+    //             'rgba(0, 0, 153, 1, 1)',
+    //             'rgba(0, 102, 153, 1)',
+    //             'rgba(255, 204, 255)',
+    //             'rgba(0, 153, 204, 1)',
+    //             'rgba(51, 204, 51, 1)',
+    //             'rgba(153, 153, 102, 1)',
+    //             'rgba(34, 51, 0, 1, 1)',
+    //             'rgba(102, 0, 102, 1)',
+    //             'rgba(128, 0, 1, 1)',
+    //             'rgba(92, 24, 12, 1)',
+    //         ],
+    //     }]
+    // },
+    // options: {
+    //     scales: {
+    //         yAxes: [{
+    //             ticks: {
+    //                 beginAtZero:true
+    //             }
+    //         }]
+    //     }
+    // }
+    // });
+
+    // var ongoing_chart = new Chart(ctx1, {
+    // type: 'horizontalBar',
+    // data: {
+    //     labels: ["FATA Monitoring",
+    //     "Corrective Maintenance", "Transfer Ownership", "Car Rental Request", "Gas Card Request","Service Vehicle Request", "Preventive Maintenance", "Insurance", "New Vehicle Payment", "Car Rental Payment", "Fuel Supplier Payment", "Vehicle Repair Payment"],
+    //     datasets: [{
+    //         label: '#Data',
+    //         data: current_ongoing_data,
+    //         backgroundColor: [
+    //             'rgba(255, 0, 0, 1)',
+    //             'rgba(255, 255, 0, 1)',
+    //             'rgba(136, 204, 0, 1)',
+    //             'rgba(51, 153, 255, 1)',
+    //             'rgba(204, 0, 204, 1)',
+    //             'rgba(204, 102, 153, 1)',
+    //             'rgba(0, 0, 153, 1, 1)',
+    //             'rgba(0, 102, 153, 1)',
+    //             'rgba(255, 204, 255)',
+    //             'rgba(0, 153, 204, 1)',
+    //             'rgba(51, 204, 51, 1)',
+    //             'rgba(153, 153, 102, 1)',
+    //             'rgba(34, 51, 0, 1, 1)',
+    //             'rgba(102, 0, 102, 1)',
+    //             'rgba(128, 0, 0,1)',
+    //             'rgba(12, 0, 102, 1)',
+    //             'rgba(122, 0, 102, 1)',
+    //             'rgba(111, 0, 0,1)',
+    //             'rgba(201, 0, 102, 1)',
+    //         ],
+    //     }]
+    // },
+    // options: {
+    //     scales: {
+    //         yAxes: [{
+    //             ticks: {
+    //                 beginAtZero:true
+    //             }
+    //         }]
+    //     }
+    // }
+    // });
+
+    var reg_chart = new Chart(ctx7, {
+    type: 'bar',
+    data: {
+        labels: ["January","February", "March", "April", "May", "June", "July","August",
+        "September", "October"],
+=======
     var ctx2 = document.getElementById("plate");
     var ctx3 = document.getElementById("masterlist");
     var ctx4 = document.getElementById("reg");
@@ -83,11 +223,16 @@ function setChart(){
     type: 'bar',
     data: {
         labels: ["January","February", "March", "April", "May","June","July","August","September","October"],
+>>>>>>> 290dc076cff2f38543931c5b885b6c1a2cd0bcfc
         datasets: [{
             label: 'Registered',
             fill: true,
             data: current_reg_data,
+<<<<<<< HEAD
+            backgroundColor:'rgba(207, 154, 50)',
+=======
             backgroundColor:'rgba(252,194,0)',
+>>>>>>> 290dc076cff2f38543931c5b885b6c1a2cd0bcfc
             datalabels: {
                 color: 'white',
                 anchor: 'end',
@@ -103,7 +248,11 @@ function setChart(){
             label: 'UnRegistered',
             fill: true,
             data: current_unreg_data,
+<<<<<<< HEAD
+            backgroundColor:'rgba(23, 128, 173)',
+=======
             backgroundColor:'rgba(0,128,128)',
+>>>>>>> 290dc076cff2f38543931c5b885b6c1a2cd0bcfc
             datalabels: {
                 color: 'white',
                 anchor: 'end',
@@ -114,6 +263,72 @@ function setChart(){
                 weight: 'bold',
                 size: 16,
             }
+<<<<<<< HEAD
+
+        }]
+
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    reverse: false
+                }
+            }]
+        }
+    },
+    plugins: [ChartDataLabels]
+    });
+    var image = reg_chart.toBase64Image();
+    console.log(image);
+
+    document.getElementById('download').onclick = function() {
+      // Trigger the download
+      var a = document.createElement('a');
+      a.href = reg_chart.toBase64Image();
+      a.download = 'VehicleRegistration.jpg';
+      a.click();
+    }
+
+    var prog_chart = new Chart(ctx6, {
+    type: 'horizontalBar',
+    data: {
+        labels: ["FATA Monitoring","Corrective Maintenance", "Transfer Ownership", "Car Rental Request","Service Vehicle Request","Preventive Maintenance", "Insurance", "New Vehicle Payment", "Car Rental Payment"
+        , "Fuel Supplier Payment", "Vehicle Repair Payment", "Fleet Card","Fleet Card Driver Payment"],
+        datasets: [
+          {
+            label: 'Ongoing',
+            fill: true,
+            data: current_ongoing_data,
+            backgroundColor:'rgba(207, 154, 50)',
+            datalabels: {
+                color: 'white',
+                anchor: 'end',
+                align: 'start',
+                offset: 4,
+            },
+            font: {
+                weight: 'bold',
+                size: 16,
+            }
+        },
+        {
+            label: 'Completed',
+            fill: true,
+            data: completed_item_data,
+            backgroundColor:'rgba(23, 128, 173)',
+            datalabels: {
+                color: 'white',
+                anchor: 'end',
+                align: 'start',
+                offset: 4,
+            },
+            font: {
+                weight: 'bold',
+                size: 16,
+            }
+=======
+>>>>>>> 290dc076cff2f38543931c5b885b6c1a2cd0bcfc
 
         }]
     },
@@ -129,8 +344,13 @@ function setChart(){
     plugins: [ChartDataLabels]
     });
 
+<<<<<<< HEAD
+    var petron_chart = new Chart(ctx4, {
+    type: 'bar',
+=======
     var plate_chart = new Chart(ctx2, {
     type: 'doughnut',
+>>>>>>> 290dc076cff2f38543931c5b885b6c1a2cd0bcfc
     data: {
         datasets: [
         {
@@ -248,8 +468,31 @@ function setChart(){
 </script>
 
 {% block content %}
+<<<<<<< HEAD
+ <!-- Content Wrapper. Contains page content -->
+    <!-- Content Header (Page header) -->
+<!-- <div class="content-wrapper"> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@1.0.0"></script>
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6 float-sm-right">
+            <h1 class="m-0 float-sm-right">Dashboard</h1>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+=======
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@1.0.0"></script>
+>>>>>>> 290dc076cff2f38543931c5b885b6c1a2cd0bcfc
         <div class="row">
           <div class="col-md-12">
             <div class="card">
@@ -692,6 +935,45 @@ function setChart(){
               </div>
               <!-- /.col -->
             </div>
+<<<<<<< HEAD
+            <!-- /.card -->
+            <!-- /.card -->
+          </section>
+          <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+        <div class="card " hidden>
+          <div class="card-header">
+            <h3 class="card-title">
+              <i class="fas fa-chart-pie mr-1"></i>
+              Completed For the Month of <u>{{month}}</u>
+            </h3>
+          </div><!-- /.card-header -->
+          <div class="card-body">
+            <div class="tab-content p-0">
+              <!-- Morris chart - Sales -->
+              <div class="card-body">
+                  <canvas id="completed" style="height: 500px; max-width: 100%;"></canvas>
+               </div>
+            </div>
+          </div><!-- /.card-body -->
+        </div>
+
+        <div class="card ">
+          <div class="card-header">
+            <h3 class="card-title">
+              <i class="fas fa-chart-pie mr-1"></i>
+              Progress
+            </h3>
+          </div><!-- /.card-header -->
+        <div class="card-body">
+            <div class="tab-content p-0">
+                <div class="card-body">
+                    <div class="tab-content p-0">
+                        <canvas id="prog" style="height: 800px; max-width: 100%;"></canvas>
+                    </div>  
+=======
             <!-- /.row -->
 
             <!-- TABLE: LATEST ORDERS -->
@@ -770,6 +1052,7 @@ function setChart(){
                     </tr>
                     </tbody>
                   </table>
+>>>>>>> 290dc076cff2f38543931c5b885b6c1a2cd0bcfc
                 </div>
                 <!-- /.table-responsive -->
               </div>
@@ -780,7 +1063,20 @@ function setChart(){
               </div>
               <!-- /.card-footer -->
             </div>
+<<<<<<< HEAD
+        </div>
+
+        <div class="card ">
+            <br><br>
+          <div class="card-header">
+            <h3 class="card-title">
+              <i class="fas fa-chart-pie mr-1"></i>
+              Vehicle Registration<br><br>
+              <button id="download">Save As Image</button>
+            </h3>
+=======
             <!-- /.card -->
+>>>>>>> 290dc076cff2f38543931c5b885b6c1a2cd0bcfc
           </div>
           <!-- /.col -->
           <!---------###########----------->
@@ -809,6 +1105,23 @@ function setChart(){
                   </div> -->
                   <!-- /.col -->
                 </div>
+<<<<<<< HEAD
+            </div>
+        </div>
+
+        <div class="card ">
+          <div class="card-header">
+            <h3 class="card-title">
+              <i class="fas fa-chart-pie mr-1"></i>
+              Fuel Supplier Monthly Report <u>{{month_supplier}}</u>
+            </h3>
+            <div class="card-tools">
+                <ul class="nav nav-pills ml-auto" role="tablist">
+                    <li role="presentation" class="nav-item active">
+                        <a href="#petron" aria-controls="home" role="tab" data-toggle="tab" class="nav-link active" style="color: white;">PETRON</a></li>
+                    <li role="presentation" class="nav-item active">
+                        <a href="#shell" aria-controls="profile" role="tab" data-toggle="tab" class="nav-link " style="color: white;">SHELL</a></li>
+=======
                 <!-- /.row -->
               </div>
               <!-- /.card-body -->
@@ -830,6 +1143,7 @@ function setChart(){
                       </span>
                     </a>
                   </li>
+>>>>>>> 290dc076cff2f38543931c5b885b6c1a2cd0bcfc
                 </ul>
               </div>
             </div>
@@ -973,5 +1287,3 @@ function setChart(){
 
 
 {% endblock %}
-
-
