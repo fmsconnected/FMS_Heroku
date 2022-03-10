@@ -274,7 +274,7 @@ class unreg(APIView):
         year2 = datetime.datetime.now().year - 2
         date_now = datetime.datetime.now().date()
         exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
-        unjan = VehicleMasterList.objects.filter(PLATE_ENDING="1", Last_Registration_Date="").count()
+        unjan = VehicleMasterList.objects.filter(PLATE_ENDING="1", Last_Registration_Date="").exclude(exc).count()
         unfeb = VehicleMasterList.objects.filter(PLATE_ENDING="2", Last_Registration_Date="").exclude(exc).count()
         unmar = VehicleMasterList.objects.filter(PLATE_ENDING="3", Last_Registration_Date="").exclude(exc).count()
         unapr = VehicleMasterList.objects.filter(PLATE_ENDING="4", Last_Registration_Date="").exclude(exc).count()
