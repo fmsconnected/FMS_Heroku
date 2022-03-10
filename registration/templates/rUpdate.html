@@ -8,9 +8,9 @@
 
 <form method="POST">
 {% csrf_token %}
-    <div class="col-sm-4">
+    {% comment %} <div class="col-sm-4">
         <label>Plate Release Date</label>{{ form.PLATE_NUMBER_RELEASE_DATE }}
-    </div>
+    </div> {% endcomment %}
     <div class="col-sm-4">
       <label><b>Last Registration Date</b></label>{{form.Last_Registration_Date}}
     </div>

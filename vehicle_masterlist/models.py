@@ -73,11 +73,7 @@ class VehicleMasterList(models.Model):
 			('MG','MG')
             )
 	remarks = (
-            ('Without Last Registration Date','Without Last Registration Date'),
-            ('Without Smoke Emission Date','Without Smoke Emission Date'),
-            ('Without COC Date','Without COC Date'),
-            ('No Smoke and COC', 'No Smoke and COC'),
-            ('For Registration', 'For Registration'),
+            ('Ongoing', 'Ongoing'),
             ('Complete','Complete'),
             )
 
