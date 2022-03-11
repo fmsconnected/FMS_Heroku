@@ -28,6 +28,7 @@ class CS_form(forms.ModelForm):
             ('Princess Concepsion', 'Princess Concepsion'),
             ('Stephanie Warde', 'Stephanie Warde'),
             ('Dennis Alonzo', 'Dennis Alonzo'),
+            ('Jerald Perez', 'Jerald Perez'),
         )
         trans_type = (
             ('Accident Report', 'Accident Report'),
@@ -79,6 +80,7 @@ class CS_formupdate(forms.ModelForm):
             ('Princess Concepsion', 'Princess Concepsion'),
             ('Stephanie Warde', 'Stephanie Warde'),
             ('Dennis Alonzo', 'Dennis Alonzo'),
+            ('Jerald Perez', 'Jerald Perez'),
         )
         trans_type = (
             ('Accident Report', 'Accident Report'),
