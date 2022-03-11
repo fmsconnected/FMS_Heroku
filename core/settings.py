@@ -10,8 +10,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'xm#bo4qsr2hahkrtiaga=@xa2xvi7ecrj1utnsramtbu-4g1&3'
-#SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = 'xm#bo4qsr2hahkrtiaga=@xa2xvi7ecrj1utnsramtbu-4g1&3'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -61,7 +61,7 @@ INSTALLED_APPS = [
     'new_vehicle_payment.apps.NewVehiclePaymentConfig',
     'fleet_card_driver.apps.FleetCardDriverConfig',
     'fuel_supplier_payment.apps.FuelSupplierPaymentConfig',
-    
+
 
 ]
 # AUTHENTICATION_BACKENDS = (
@@ -81,7 +81,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'simple_history.middleware.HistoryRequestMiddleware',
-    
+
 ]
 
 # opional, as this will log you out when browser is closed
@@ -118,11 +118,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'FMS',
-        'USER': 'postgres',
-        'PASSWORD': 'root',
+        'NAME': 'fleet_jxmtsi_repo',
+        'USER': 'fleet',
+        'PASSWORD': 'fleet',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '5433',
     }
 }
 
@@ -188,7 +188,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_PASSWORD = "FMS@2241"
 
-SESSION_ENGINE= 'django.contrib.sessions.backends.cached_db'
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 SESSION_TIMEOUT_REDIRECT = '/logout/'
 # sSESSION_EXPIRE_SECONDS = 10
 SESSION_COOKIE_AGE = 3600
