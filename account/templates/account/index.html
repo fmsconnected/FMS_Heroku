@@ -124,6 +124,24 @@ $.ajax({
     }
 })
 
+//Registration - Total//
+var endpointunreg_total = 'api/Plate/Total/'
+var total_reglabels = []
+var total_regdefault = []
+$.ajax({
+    method: "GET",
+    url: endpointunreg_total,
+    success: function(total_regdata){
+        total_reglabels = total_regdata.total_reglabels
+        total_regdefault = total_regdata.total_regdefault
+        setChart()
+    },
+    error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+    }
+})
+
 
 function setChart(){
     var ctx1 = document.getElementById("fleet_card");
@@ -273,7 +291,7 @@ function setChart(){
             fill: true,
             //data: [20,15,30,10,22,52,67,44,30,59],
             data: current_reg_data,
-            backgroundColor:'rgba(252,194,0)',
+            backgroundColor:'rgba(255, 222, 0)',
             datalabels: {
                 color: 'white',
                 anchor: 'end',
@@ -290,7 +308,7 @@ function setChart(){
             fill: true,
             //data:[30,58,39,34,29,72,67,74,49,39],
             data: current_unreg_data,
-            backgroundColor:'rgba(0,128,128)',
+            backgroundColor:'rgba(9, 112, 84)',
             datalabels: {
                 color: 'white',
                 anchor: 'end',
@@ -302,7 +320,26 @@ function setChart(){
                 size: 16,
             }
 
-        }]
+        },
+        {
+            label: 'Total',
+            fill: true,
+            //data:[30,58,39,34,29,72,67,74,49,39],
+            data: total_regdefault,
+            backgroundColor:'rgb(101, 153, 255)',
+            datalabels: {
+                color: 'white',
+                anchor: 'end',
+                align: 'start',
+                offset: 10
+            },
+            font: {
+                weight: 'bold',
+                size: 16,
+            }
+
+        }
+        ]
     },
     options: {
         scales: {
