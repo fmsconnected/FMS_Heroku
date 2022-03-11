@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Fri Mar 11 2022 14:42:23 GMT+0800 (Philippine Standard Time)
+------------------------------------------------------
+
+Modified files:
+* account/__pycache__/views.cpython-37.pyc
+* account/views.py
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:

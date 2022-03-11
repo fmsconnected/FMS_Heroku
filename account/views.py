@@ -241,7 +241,7 @@ class reg(APIView):
         year1 = datetime.datetime.now().year - 1
         year2 = datetime.datetime.now().year - 2
         date_now = datetime.datetime.now().date()
-        exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2) | Q(Last_Registration_Date=last)
+        exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2) | Q(Last_Registration_Date__exact='')
         jan = VehicleMasterList.objects.filter(PLATE_ENDING="1", vehicle_status__contains="Active").exclude(exc).count()
         feb = VehicleMasterList.objects.filter(PLATE_ENDING="2", vehicle_status__contains="Active").exclude(exc).count()
         mar = VehicleMasterList.objects.filter(PLATE_ENDING="3", vehicle_status__contains="Active").exclude(exc).count()
@@ -260,7 +260,6 @@ class reg(APIView):
                 "reglabels": reglabels,
                 "regdefault": regdefault_items,
         }
-        print("reg",regdefault_items)
         return Response(regdata)
 class reg_total(APIView):
     authentication_classes = []
