@@ -209,7 +209,7 @@ function setChart(){
     var masterlist_chart = new Chart(ctx3, {
     type: 'line',
     data: {
-        labels: ["Employee","Vehicle Sold","Vehicle Active",'Vehicle Leasing'],
+        labels: ["Vehicle Active",'Vehicle Leasing'],
         datasets: [{
             data: Data,
             //data: [8248,3690,5720,4021],
@@ -217,8 +217,6 @@ function setChart(){
             backgroundColor: [
                 'rgb(0,100,0)',
                 'rgb(255,0,0)',
-                'rgb(65,105,225)',
-                'rgb(255,255,0)',
             ],
             borderColor: 'rgb(242,122,0)',
             borderWidth: 3,
@@ -625,23 +623,6 @@ function setChart(){
                         <div class="progress-bar bg-primary" style="width: 85%"></div>
                       </div>
                     </div>
-                    <div class="progress-group">
-                      Vehicle Sold
-                      <span class="float-right"><b>{{ sold }}</b> - Vehicle</span>
-                      <div class="progress progress-sm">
-                        <div class="progress-bar bg-danger" style="width: 85%"></div>
-                      </div>
-                    </div>
-                    <!-- /.progress-group -->
-
-                    <div class="progress-group">
-                      Employee
-                      <span class="float-right"><b>{{ emp }}</b> - Employee</span>
-                      <div class="progress progress-sm">
-                        <div class="progress-bar bg-success" style="width: 85%"></div>
-                      </div>
-                    </div>
-
                     <!-- /.progress-group -->
                     <div class="progress-group">
                       <span class="progress-text">Leasing</span>
