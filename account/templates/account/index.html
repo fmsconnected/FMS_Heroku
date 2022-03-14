@@ -91,13 +91,13 @@ $.ajax({
 //Registration - Jan-May//
 var endpointreg = 'api/monitoring/Reg/'
 var reglabels = []
-var current_reg_data = []
+var reg_list = []
 $.ajax({
     method: "GET",
     url: endpointreg,
     success: function(regdata){
         reglabels = regdata.reglabels
-        current_reg_data = regdata.regdefault
+        reg_list = regdata.reg_list
         setChart()
     },
     error: function(error_data){
@@ -109,13 +109,13 @@ $.ajax({
 //unRegistration - Jan-May//
 var endpointunreg = 'api/monitoring/unReg/'
 var unreglabels = []
-var current_unreg_data = []
+var unreg_list = []
 $.ajax({
     method: "GET",
     url: endpointunreg,
     success: function(unregdata){
         unreglabels = unregdata.unreglabels
-        current_unreg_data = unregdata.unregdefault
+        unreg_list = unregdata.unreg_list
         setChart()
     },
     error: function(error_data){
@@ -290,7 +290,7 @@ function setChart(){
             label: 'Registered',
             fill: true,
             //data: [20,15,30,10,22,52,67,44,30,59],
-            data: current_reg_data,
+            data: reg_list,
             backgroundColor:'rgba(255, 222, 0)',
             datalabels: {
                 color: 'white',
@@ -307,7 +307,7 @@ function setChart(){
             label: 'UnRegistered',
             fill: true,
             //data:[30,58,39,34,29,72,67,74,49,39],
-            data: current_unreg_data,
+            data: unreg_list,
             backgroundColor:'rgba(9, 112, 84)',
             datalabels: {
                 color: 'white',
