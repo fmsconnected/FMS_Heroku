@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Mon Mar 14 2022 15:09:09 GMT+0800 (Philippine Standard Time)
+------------------------------------------------------
+
+Modified files:
+* fuel_supplier_payment/forms.py
+* fuel_supplier_payment/templates/fuel_supplier.html
+* registration/templates/regJan_monitoring.html
+
+
+Created files:
+* .autogit/logs/log-14-2-2022-14-39-0.txt
+
+
+Deleted files:
+
+
+Renamed files:
