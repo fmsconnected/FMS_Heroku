@@ -13,10 +13,21 @@ th, td {
   text-align: left;
   padding: 8px;
 }
-
+.green { 
+    background: green;
+}
 tr:nth-child(even){background-color: #f2f2f2}
 </style>
-
+<script>
+$(function(){
+  $("td").each(function(){
+    var col_val = $(this).find("td:eq(13)").text();
+    if (col_val == "Complete"){
+      $(this).addClass('green');  //the selected class colors the row green//
+    }
+  });
+});
+</script>
 <div class="breadcrumbs">
     <div class="col-sm-12">
         <h3><b>Registration Monitoring</b></h3>
