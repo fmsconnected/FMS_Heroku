@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Mon Mar 14 2022 14:39:00 GMT+0800 (Philippine Standard Time)
+------------------------------------------------------
+
+Modified files:
+* registration/templates/regJan_monitoring.html
+
+
+Created files:
+* .autogit/logs/log-14-2-2022-14-8-50.txt
+
+
+Deleted files:
+
+
+Renamed files:
