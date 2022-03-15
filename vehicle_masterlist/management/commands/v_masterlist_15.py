@@ -26,57 +26,98 @@ sched = BlockingScheduler()
 @sched.scheduled_job('interval', minutes=1)
 def account_email():
     given_date = datetime.datetime.now().date()
-    sec_week_of_month = given_date.replace(day=17)
+    sec_week_of_month = given_date.replace(day=15)
     month = datetime.datetime.now().month
     year = datetime.datetime.now().year
     year1 = datetime.datetime.now().year - 1
     year2 = datetime.datetime.now().year - 2
     date_now = datetime.datetime.now().date()
     sent_status = VehicleMasterList.objects.all()
-    # if month == 2:
-    #     if sec_week_of_month == given_date:
-    #         print("2nd Email Account Confirmation")
-    #         exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
-    #         car_status = VehicleMasterList.objects.filter(confirmation="No", smoke="Yes", PLATE_ENDING="3").exclude(exc)[:80]
-    #         print(car_status)
-    #         plate = ""
-    #         for carreg in car_status:
-    #                 # print(carreg.plate_no)
-    #                 plate = carreg.PLATE_NO
-    #                 print(plate)
-    #         if car_status != "":
-    #             for item in car_status:
-    #                 data ={
-    #                     'plate':item.PLATE_NO,
-    #                     'cs':item.CS_NO,
-    #                     'cr_name':item.CR_NAME,
-    #                     'model':item.MODEL,
-    #                     'brand':item.BRAND,
-    #                     'make':item.VEHICLE_MAKE,
-    #                     'type':item.VEHICLE_TYPE,
-    #                     'lname':item.ASSIGNEE_LAST_NAME,
-    #                     'fname':item.ASSIGNEE_FIRST_NAME,
-    #                     'emp_id':item.Employee,
-    #                     'band':item.BAND_LEVEL,
-    #                     'cost':item.COST_CENTER,
-    #                     'group':item.GROUP,
-    #                     'acq_date':item.ACQ_DATE,
-    #                     'acq_cost':item.ACQ_COST,
-    #                 }
-    #                 subject = 'Reminder for Vehicle Confirmation - ' + "(" +(item.PLATE_NO) + ")"
-    #                 html_message = render_to_string('account_template.html',data)
-    #                 plain_message = item.PLATE_NO
-    #                 recipient_list = [item.EMAIL]
-    #                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-    #                 cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zsbwarde@globe.com.ph']
-    #                 toaddrs = recipient_list + cc_email
-    #                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
-    #                 print("2nd Email Account Confirmation Send")
-    if month == 2:
+    if month == 3:
+        if sec_week_of_month == given_date:
+            print("2nd Email VehicleMasterList")
+            exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
+                car_status = VehicleMasterList.objects.filter(confirmation="No", smoke="No", PLATE_ENDING="3").exclude(exc)[:80]
+                print(car_status)
+            plate = ""
+            for carreg in car_status:
+                    # print(carreg.plate_no)
+                    plate = carreg.PLATE_NO
+                    print(plate)
+            if car_status != "":
+                for item in car_status:
+                    data ={
+                        'plate':item.PLATE_NO,
+                        'cs':item.CS_NO,
+                        'cr_name':item.CR_NAME,
+                        'model':item.MODEL,
+                        'brand':item.BRAND,
+                        'make':item.VEHICLE_MAKE,
+                        'type':item.VEHICLE_TYPE,
+                        'lname':item.ASSIGNEE_LAST_NAME,
+                        'fname':item.ASSIGNEE_FIRST_NAME,
+                        'emp_id':item.Employee,
+                        'band':item.BAND_LEVEL,
+                        'cost':item.COST_CENTER,
+                        'group':item.GROUP,
+                        'acq_date':item.ACQ_DATE,
+                        'acq_cost':item.ACQ_COST,
+                    }
+                    subject = 'Reminder for Annual Vehicle Registration and Vehicle Confirmation - ' + "(" +(item.PLATE_NO) + ")"
+                    html_message = render_to_string('email_template.html',data)
+                    plain_message = item.PLATE_NO
+                    recipient_list = [item.EMAIL]
+                    from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
+                    mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
+                    VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
+                    print("2nd Email VehicleMasterList Send")
+    if month == 3:
+        if sec_week_of_month == given_date:
+            print("2nd Email Account Confirmation")
+            exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
+            car_status = VehicleMasterList.objects.filter(confirmation="No", smoke="Yes", PLATE_ENDING="3").exclude(exc)[:80]
+            print(car_status)
+            plate = ""
+            for carreg in car_status:
+                    # print(carreg.plate_no)
+                    plate = carreg.PLATE_NO
+                    print(plate)
+            if car_status != "":
+                for item in car_status:
+                    data ={
+                        'plate':item.PLATE_NO,
+                        'cs':item.CS_NO,
+                        'cr_name':item.CR_NAME,
+                        'model':item.MODEL,
+                        'brand':item.BRAND,
+                        'make':item.VEHICLE_MAKE,
+                        'type':item.VEHICLE_TYPE,
+                        'lname':item.ASSIGNEE_LAST_NAME,
+                        'fname':item.ASSIGNEE_FIRST_NAME,
+                        'emp_id':item.Employee,
+                        'band':item.BAND_LEVEL,
+                        'cost':item.COST_CENTER,
+                        'group':item.GROUP,
+                        'acq_date':item.ACQ_DATE,
+                        'acq_cost':item.ACQ_COST,
+                    }
+                    subject = 'Reminder for Vehicle Confirmation - ' + "(" +(item.PLATE_NO) + ")"
+                    html_message = render_to_string('account_template.html',data)
+                    plain_message = item.PLATE_NO
+                    recipient_list = [item.EMAIL]
+                    from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zsbwarde@globe.com.ph']
+                    toaddrs = recipient_list + cc_email
+                    mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
+                    print("2nd Email Account Confirmation Send")
+
+    if month == 3:
         if sec_week_of_month == given_date:
             print("2nd Email Registration")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
-            car_status = VehicleMasterList.objects.filter(smoke="No",confirmation="Yes",PLATE_ENDING="3").exclude(exc)[:80]
+            car_status = VehicleMasterList.objects.filter(confirmation="Yes",smoke="No", PLATE_ENDING="3").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
