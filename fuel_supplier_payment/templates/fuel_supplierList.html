@@ -41,6 +41,7 @@
                     <thead>
                         <tr>
                             <th>Activity ID</th>
+                            <th>Cost Center<th>
                             <th>Fuel Provider</th>
                             <th>Current Amount</th>
                             <th>Oustanding Balance</th>
@@ -56,10 +57,11 @@
                         {% for Fuel_supplier in object_list %}
                         <tr class="odd gradeX">
                             <td><a href="{% url 'Fuel-summary' Fuel_supplier.id %}">{{ Fuel_supplier.Activity_id }}</a></td>
+                            <td>{{ Fuel_supplier.Cost_Center}}</td>
                             <td>{{ Fuel_supplier.Fuel_provider }} </td>
-                            <td>(₱){{ Fuel_supplier.SOA_current_amount }}</td>
+                            <td>{{ Fuel_supplier.SOA_current_amount }}</td>
                             <td>{{ Fuel_supplier.SOA_outstanding_amount }}</td>
-                            <td>{{ Fuel_supplier.F_SLA }}/Days</td>
+                            <td>{{ Fuel_supplier.F_SLA }}</td>
                             <td>{{ Fuel_supplier.Date_initiated | date:'D d M Y'}}</td>
                             <td>{{ Fuel_supplier.Deadline | date:'D d M Y'}}</td>
                             <td>{{ Fuel_supplier.Date_forwarded | date:'D d M Y'}}</td>
