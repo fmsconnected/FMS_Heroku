@@ -358,13 +358,13 @@ function setChart(){
     data: {
         datasets: [
         {
-            data: tmg_total,
+            data: [],
             fill: true,
             backgroundColor:'rbg(252,194,0)',
             borderWidth: 3,
             weight:1,
         },{
-            data: tmg_completed,
+            data: [],
             fill: true,
             backgroundColor:'rgb(255,36,0)',
             borderWidth: 3,
@@ -820,8 +820,46 @@ function setChart(){
               </div>
               <!-- /.footer -->
             </div>
-            <!-- /.card -->
-          </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Billing</h3>
+                </div>
+                  <!-- /.card-header -->
+                <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <div class="chart-responsive">
+                          <canvas id="lto_tmg" height="150" ></canvas>
+                        </div>
+                        <!-- ./chart-responsive -->
+                      </div>
+                    </div>
+                    <!-- /.row -->
+                </div>
+                  <!-- /.card-body -->
+                <div class="card-footer bg-white p-0">
+                    <ul class="nav nav-pills flex-column">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link">
+                          Total Request
+                          <span class="float-right text-danger">
+                            <i class="text-m"></i>
+                            <b></b> </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                          Total Request Completed
+                          <span class="float-right text-success">
+                            <i class="text-sm"></i><b></b>
+                          </span>
+                        </a>
+                      </li>
+                    </ul>
+                </div>
+                  <!-- /.footer -->
+            </div>
+        </div>
           <!-- /.col -->
         </div>
         <!-- /.row -->
