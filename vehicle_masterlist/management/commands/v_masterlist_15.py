@@ -37,8 +37,8 @@ def account_email():
         if sec_week_of_month == given_date:
             print("2nd Email VehicleMasterList")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
-                car_status = VehicleMasterList.objects.filter(confirmation="No", smoke="No", PLATE_ENDING="4").exclude(exc)[:80]
-                print(car_status)
+            car_status = VehicleMasterList.objects.filter(confirmation="No", smoke="No", PLATE_ENDING="4").exclude(exc)[:80]
+            print(car_status)
             plate = ""
             for carreg in car_status:
                     # print(carreg.plate_no)
