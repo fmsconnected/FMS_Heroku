@@ -119,8 +119,9 @@ class plate_moniroting(APIView):
     permission_classes = []
     
     def get(self, request, format=None):
-        total = VehicleMasterList.objects.filter(PLATE_NO__isnull=True,vehicle_status="Active").count()
-        completed = VehicleMasterList.objects.filter(PLATE_NO__isnull=False, vehicle_status="Active").count()
+        year = datetime.datetime.now().year
+        total = VehicleMasterList.objects.filter(PLATE_NO__isnull=True).filter(vehicle_status="Active").filter(ACQ_DATE__year=year).count()
+        completed = VehicleMasterList.objects.filter(PLATE_NO__isnull=False).filter(vehicle_status="Active").filter(ACQ_DATE__year=year).count()
         completed = [completed]
         total = [total]
 
