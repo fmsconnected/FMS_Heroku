@@ -23,7 +23,7 @@ sched = BlockingScheduler()
 ######## 2nd Email ########
 ### Status Confirmation ###
 ###########################
-@sched.scheduled_job('interval', minutes=1)
+@sched.scheduled_job('interval', minutes=2)
 def account_email():
     given_date = datetime.datetime.now().date()
     sec_week_of_month = given_date.replace(day=15)
@@ -37,7 +37,7 @@ def account_email():
         if sec_week_of_month == given_date:
             print("2nd Email VehicleMasterList")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
-                car_status = VehicleMasterList.objects.filter(confirmation="No", smoke="No", PLATE_ENDING="3").exclude(exc)[:80]
+                car_status = VehicleMasterList.objects.filter(confirmation="No", smoke="No", PLATE_ENDING="4").exclude(exc)[:80]
                 print(car_status)
             plate = ""
             for carreg in car_status:
@@ -77,7 +77,7 @@ def account_email():
         if sec_week_of_month == given_date:
             print("2nd Email Account Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
-            car_status = VehicleMasterList.objects.filter(confirmation="No", smoke="Yes", PLATE_ENDING="3").exclude(exc)[:80]
+            car_status = VehicleMasterList.objects.filter(confirmation="No", smoke="Yes", PLATE_ENDING="4").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -117,7 +117,7 @@ def account_email():
         if sec_week_of_month == given_date:
             print("2nd Email Registration")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
-            car_status = VehicleMasterList.objects.filter(confirmation="Yes",smoke="No", PLATE_ENDING="3").exclude(exc)[:80]
+            car_status = VehicleMasterList.objects.filter(confirmation="Yes",smoke="No", PLATE_ENDING="4").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
