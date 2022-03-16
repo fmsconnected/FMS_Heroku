@@ -47,7 +47,7 @@ class Fuel_supplier(models.Model):
 	SOA_Date_received = models.CharField(max_length=100,null=True, blank=True)
 	Fuel_provider = models.CharField(max_length=50, null=True, blank=True)
 	Cost_Center = models.CharField(max_length=100, null=True, blank=True)
-	SOA_billdate = models.CharField(max_length=100,null=True, blank=True)
+	SOA_billdate = models.DateField(auto_now=False,auto_now_add=False,null=True, blank=True)
 	SOA_current_amount = models.CharField(max_length=50, null=True, blank=True)
 	SOA_outstanding_amount = models.CharField(max_length=50, null=True, blank=True)
 	Payee = models.CharField(max_length=10, null=True, choices=PAYEE, blank=True)

@@ -17,6 +17,7 @@ class FuelsupplierForm(forms.ModelForm):
         self.fields['F_SLA'].required = False
         self.fields['status'].required = True
         self.fields['Cost_Center'].required = True
+        self.fields['SOA_billdate'].required = True
 
     class Meta:
         model = Fuel_supplier

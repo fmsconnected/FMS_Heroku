@@ -46,8 +46,8 @@
                             <th>Current Amount</th>
                             <th>Oustanding Balance</th>
                             <th>SLA</th>
-                            <th>Date Initiated</th>
-                            <th>Date Deadline:</th>
+                            <th>Date Bill</th>
+                            <th>Date Received:</th>
                             <th>Completed Date</th>
                             <th>Status</th>
                             <th></th>
@@ -62,8 +62,8 @@
                             <td>{{ Fuel_supplier.SOA_current_amount }}</td>
                             <td>{{ Fuel_supplier.SOA_outstanding_amount }}</td>
                             <td>{{ Fuel_supplier.F_SLA }}</td>
-                            <td>{{ Fuel_supplier.Date_initiated | date:'D d M Y'}}</td>
-                            <td>{{ Fuel_supplier.Deadline | date:'D d M Y'}}</td>
+                            <td>{{ Fuel_supplier.SOA_billdate}}</td>
+                            <td>{{ Fuel_supplier.SOA_Date_received}}</td>
                             <td>{{ Fuel_supplier.Date_forwarded | date:'D d M Y'}}</td>
                             <td>{{ Fuel_supplier.status }}</td>
                             <td>
