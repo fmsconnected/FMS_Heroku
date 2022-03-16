@@ -8,7 +8,7 @@ from .models import (
 class FuelsupplierForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(FuelsupplierForm, self).__init__(*args, **kwargs)
-        self.fields['Fuel_provider'].required = False
+        self.fields['Fuel_provider'].required = True
         self.fields['SOA_current_amount'].required = False
         self.fields['SOA_outstanding_amount'].required = False
         self.fields['Payee'].required = False
@@ -16,7 +16,7 @@ class FuelsupplierForm(forms.ModelForm):
         self.fields['Date_forwarded'].required = False
         self.fields['F_SLA'].required = False
         self.fields['status'].required = True
-        self.fields['Cost_Center'].required = False
+        self.fields['Cost_Center'].required = True
 
     class Meta:
         model = Fuel_supplier
