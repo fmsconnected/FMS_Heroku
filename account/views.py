@@ -428,6 +428,13 @@ class Lmasterlist(APIView):
                 "default": default_items,
         }
         return Response(data)
+class fuel_10(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        
+        return Response()
 
 class monthly_report_jan_summary(APIView):
     date = datetime.datetime.today()
