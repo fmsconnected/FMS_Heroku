@@ -36,8 +36,7 @@ class Fuel_supplier(models.Model):
 
 	fuelpro = (
 		('SHELL','SHELL'),
-		('Petron Corporation','Petron Corporation'),
-		('Pilipinas Shell Petroleum Corp.','Pilipinas Shell Petroleum Corp.')
+		('PETRON','PETRON'),
 		)
 	status=(
 		('Ongoing','Ongoing'),
