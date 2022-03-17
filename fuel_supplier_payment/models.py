@@ -19,11 +19,11 @@ from simple_history.models import HistoricalRecords
 def increment_Activity_id():
 	last_in = Fuel_supplier.objects.all().order_by('id').last()
 	if not last_in:
-	    return 'SOA' + str(datetime.datetime.today().strftime('%Y')) + '-' + '000001'
+	    return 'FSP' + str(datetime.datetime.today().strftime('%Y')) + '-' + '000001'
 	in_id = last_in.Activity_id
 	in_int = int(in_id[10:])
 	new_in_int = in_int + 1
-	new_in_id = 'SOA' + str(datetime.datetime.today().strftime('%Y')) + '-' + str(new_in_int).zfill(6)
+	new_in_id = 'FSP' + str(datetime.datetime.today().strftime('%Y')) + '-' + str(new_in_int).zfill(6)
 	return new_in_id
 
 
@@ -54,21 +54,22 @@ class Fuel_supplier(models.Model):
 	SOA_attached = models.CharField(max_length=100, null=True, blank=True)
 	Date_initiated = models.DateField(auto_now=True, null=True, blank=True)
 	Date_forwarded = models.CharField(max_length=100, null=True, blank=True)
-	F_SLA = models.CharField(max_length=10, null=True, blank=True)
+	# F_SLA = models.CharField(max_length=10, null=True, blank=True)
 	status = models.CharField(max_length=100, null=True, blank=True, choices=status)
+	liters= models.CharField(max_length=100,null=True,blank=True)
 	history = HistoricalRecords()
-	Deadline = models.DateTimeField()
+	# Deadline = models.DateTimeField()
 
-	def save(self, *args, **kwargs):
-		if self.Deadline is None:
-			now = datetime.datetime.today()
-			num_days = 0
-			while num_days < 15:
-				now = now + timedelta(days=1)
-				if now.isoweekday() not in [6,7]:
-					num_days+=1
-			self.Deadline = now
-		super().save(*args, **kwargs)
+	# def save(self, *args, **kwargs):
+	# 	if self.Deadline is None:
+	# 		now = datetime.datetime.today()
+	# 		num_days = 0
+	# 		while num_days < 15:
+	# 			now = now + timedelta(days=1)
+	# 			if now.isoweekday() not in [6,7]:
+	# 				num_days+=1
+	# 		self.Deadline = now
+	# 	super().save(*args, **kwargs)
 
 	def __str__(self):
 		return self.Activity_id

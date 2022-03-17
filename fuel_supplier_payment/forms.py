@@ -14,7 +14,6 @@ class FuelsupplierForm(forms.ModelForm):
         self.fields['Payee'].required = False
         self.fields['SOA_attached'].required = False
         self.fields['Date_forwarded'].required = False
-        self.fields['F_SLA'].required = False
         self.fields['status'].required = True
         self.fields['Cost_Center'].required = True
         self.fields['SOA_billdate'].required = True
@@ -22,7 +21,7 @@ class FuelsupplierForm(forms.ModelForm):
     class Meta:
         model = Fuel_supplier
         fields = [
-            'SOA_Date_received', 'Fuel_provider', 'SOA_billdate', 'SOA_current_amount', 'SOA_outstanding_amount', 'Payee', 'SOA_attached', 'Date_forwarded', 'F_SLA', 'status', 'Cost_Center'
+            'SOA_Date_received', 'Fuel_provider', 'SOA_billdate', 'SOA_current_amount', 'SOA_outstanding_amount', 'Payee', 'SOA_attached', 'Date_forwarded', 'status', 'Cost_Center'
         ]
 
         CHOICES = (
@@ -49,7 +48,7 @@ class FuelsupplierForm(forms.ModelForm):
             'Payee': forms.Select(attrs={'class': 'form-control', 'choices': 'CHOICES'}),
             'SOA_attached': forms.Textarea(attrs={'cols': 80, 'rows': 5}),
             'Date_forwarded': forms.TextInput(attrs={'class': 'form-control', 'type': 'date'}),
-            'F_SLA': forms.TextInput(attrs={'class': 'form-control', 'type': 'number', 'value': '15', 'hidden': 'True'}),
+            # 'F_SLA': forms.TextInput(attrs={'class': 'form-control', 'type': 'number', 'value': '15', 'hidden': 'True'}),
             'status': forms.Select(attrs={'class': 'form-control', 'choices': 'status'}),
             'Cost_Center': forms.TextInput(attrs={'class': 'form-control'}),
         }
