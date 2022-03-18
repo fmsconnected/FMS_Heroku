@@ -428,7 +428,7 @@ class Lmasterlist(APIView):
                 "default": default_items,
         }
         return Response(data)
-class fuel_consumpltion(APIView):
+class fuel_consumption(APIView):
     authentication_classes = []
     permission_classes = []
 
@@ -445,6 +445,26 @@ class fuel_consumpltion(APIView):
         fuel_data = {
                 "fuel_data_overall": fuel_data_overall,
                 "fuel_data_volume": fuel_data_volume,
+        }
+        return Response(fuel_data)
+
+class fuel_volume_monthly(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        date = datetime.datetime.today()
+        shell_overall_total =Fuel_supplier.objects.filter(SOA_billdate__year=date.year,Fuel_provider__contains="SHELL").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        shell_volume_total = Fuel_supplier.objects.filter(SOA_billdate__year=date.year, Fuel_provider__contains="SHELL").aggregate(Sum('liters'))['liters__sum']
+        
+        petron_overall_total =Fuel_supplier.objects.filter(SOA_billdate__year=date.year,Fuel_provider__contains="PETRON").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        petron_volume_total = Fuel_supplier.objects.filter(SOA_billdate__year=date.year, Fuel_provider__contains="PETRON").aggregate(Sum('liters'))['liters__sum']
+        
+        fuel_data_overall = [petron_volume_total,shell_volume_total]
+        fuel_data_volume = [petron_overall_total,shell_overall_total]
+        fuel_data = {
+            "fuel_data_overall": fuel_data_overall,
+            "fuel_data_volume": fuel_data_volume,
         }
         return Response(fuel_data)
 
