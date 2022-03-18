@@ -143,14 +143,14 @@ $.ajax({
 })
 //fuel cpmsumption//
 var fuel_cpmsumption = 'api/Fuel-Consumption/'
-var shell_fuel_data_overall = []
-var petron_fuel_data_overall = []
+var fuel_data_volume = []
+var fuel_data_overall = []
 $.ajax({
     method: "GET",
     url: fuel_cpmsumption,
     success: function(fuel_data){
-        shell_fuel_data_overall = fuel_data.shell_fuel_data_overall
-        petron_fuel_data_overall = fuel_data.petron_fuel_data_overall
+        fuel_data_volume = fuel_data.fuel_data_volume
+        fuel_data_overall = fuel_data.fuel_data_overall
         setChart()
     },
     error: function(error_data){
@@ -407,11 +407,11 @@ function setChart(){
     var fuel_chart = new Chart(ctx6, {
     type: 'bar',
     data: {
-        labels:["Volume", "Amount"],
+        labels:["Petron", "Shell"],
         datasets: [
         {
-            label:'Petron',
-            data: petron_fuel_data_overall,
+            label:'Volume',
+            data: fuel_data_overall,
             fill: false,
             backgroundColor:'rgba(252,194,0)',
             datalabels: {
@@ -425,8 +425,8 @@ function setChart(){
                 size: 16,
             }
         },{
-            label:'Shell',
-            data: shell_fuel_data_overall,
+            label:'Amount',
+            data: fuel_data_volume,
             fill: true,
             backgroundColor:'rgba(0,128,128)',
             datalabels: {
