@@ -141,7 +141,23 @@ $.ajax({
         console.log(error_data)
     }
 })
-
+//fuel cpmsumption//
+var fuel_cpmsumption = 'api/Fuel-Consumption/'
+var shell_fuel_data_overall = []
+var petron_fuel_data_overall = []
+$.ajax({
+    method: "GET",
+    url: fuel_cpmsumption,
+    success: function(fuel_data){
+        shell_fuel_data_overall = fuel_data.shell_fuel_data_overall
+        petron_fuel_data_overall = fuel_data.petron_fuel_data_overall
+        setChart()
+    },
+    error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+    }
+})
 
 function setChart(){
     var ctx1 = document.getElementById("fleet_card");
@@ -395,7 +411,7 @@ function setChart(){
         datasets: [
         {
             label:'Petron',
-            data: [104,90],
+            data: petron_fuel_data_overall,
             fill: false,
             backgroundColor:'rgba(252,194,0)',
             datalabels: {
@@ -410,7 +426,7 @@ function setChart(){
             }
         },{
             label:'Shell',
-            data: [60,108],
+            data: shell_fuel_data_overall,
             fill: true,
             backgroundColor:'rgba(0,128,128)',
             datalabels: {

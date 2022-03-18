@@ -55,7 +55,7 @@ class Fuel_supplier(models.Model):
 	Date_forwarded = models.CharField(max_length=100, null=True, blank=True)
 	# F_SLA = models.CharField(max_length=10, null=True, blank=True)
 	status = models.CharField(max_length=100, null=True, blank=True, choices=status)
-	liters= models.CharField(max_length=100,null=True,blank=True)
+	liters = models.FloatField(max_length=50, null=True, blank=True)
 	history = HistoricalRecords()
 	# Deadline = models.DateTimeField()
 
