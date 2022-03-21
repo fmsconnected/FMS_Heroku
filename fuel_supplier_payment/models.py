@@ -8,8 +8,6 @@ from vehicle_masterlist.models import VehicleMasterList
 # History
 from simple_history.models import HistoricalRecords
 
-
-
 							########################################
 						   ##########################################
 						  #######    Fuel Supplier Table      ########
@@ -75,3 +73,22 @@ class Fuel_supplier(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('Fuel_supplierList')
+
+class Fuel_supplier_dummy(models.Model):
+
+	Activity_id = models.CharField(max_length=20,null=True)
+	SOA_Date_received = models.CharField(max_length=100,null=True, blank=True)
+	Fuel_provider = models.CharField(max_length=50, null=True, blank=True)
+	Cost_Center = models.CharField(max_length=100, null=True, blank=True)
+	SOA_billdate = models.DateField(auto_now=False,auto_now_add=False,null=True, blank=True)
+	SOA_current_amount = models.FloatField(max_length=50, null=True, blank=True)
+	SOA_outstanding_amount = models.CharField(max_length=50, null=True, blank=True)
+	Payee = models.CharField(max_length=10, null=True, blank=True)
+	SOA_attached = models.CharField(max_length=100, null=True, blank=True)
+	Date_initiated = models.DateField(auto_now=True, null=True, blank=True)
+	Date_forwarded = models.CharField(max_length=100, null=True, blank=True)
+	status = models.CharField(max_length=100, null=True, blank=True,)
+	liters = models.FloatField(max_length=50, null=True, blank=True)
+
+	def __str__(self):
+		return self.Activity_id
