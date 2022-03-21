@@ -76,6 +76,7 @@ $.ajax({
 ////masterlist////
 var masterlist = 'api/Masterlist/'
 var m__items = []
+var Data = []
 $.ajax({
     method: "GET",
     url: masterlist,
@@ -159,15 +160,19 @@ $.ajax({
     }
 })
 //fuel cosumption - Monthly//
-var fuel_monthly = 'api/Fuel-Monthly/'
-var fuel_volume = []
-var fuel_amount = []
+var fuel_monthly_endpoint = 'api/Fuel-Monthly/'
+var jan_shell_amount = []
+var jan_petron_amount = []
+var jan_shell_volume = []
+var jan_petron_volume = []
 $.ajax({
     method: "GET",
-    url: fuel_monthly,
+    url: fuel_monthly_endpoint,
     success: function(fuel_monthly){
-        fuel_volume = fuel_monthly.fuel_volume
-        fuel_amount = fuel_monthly.fuel_amount
+        jan_shell_amount = fuel_monthly.jan_shell_amount
+        jan_petron_amount = fuel_monthly.jan_petron_amount
+        jan_shell_volume = fuel_monthly.jan_shell_volume
+        jan_petron_volume = fuel_monthly.jan_petron_volume
         setChart()
     },
     error: function(error_data){
@@ -486,7 +491,7 @@ function setChart(){
         datasets: [
         {
             label:'Petron',
-            data: fuel_volume,
+            data: jan_petron_volume,
             fill: false,
             backgroundColor:'rgba(252,194,0)',
             datalabels: {
@@ -501,7 +506,7 @@ function setChart(){
             }
         },{
             label:'Shell',
-            data: fuel_amount,
+            data: jan_shell_volume,
             fill: true,
             backgroundColor:'rgba(0,128,128)',
             datalabels: {
@@ -537,8 +542,8 @@ function setChart(){
         datasets: [
         {
             label:'Petron',
-            data: [104,90],
-            fill: false,
+            data: jan_petron_amount,
+            fill: true,
             backgroundColor:'rgba(252,194,0)',
             datalabels: {
                 color: 'white',
@@ -552,7 +557,7 @@ function setChart(){
             }
         },{
             label:'Shell',
-            data: [60,108],
+            data: jan_shell_amount,
             fill: true,
             backgroundColor:'rgba(0,128,128)',
             datalabels: {
