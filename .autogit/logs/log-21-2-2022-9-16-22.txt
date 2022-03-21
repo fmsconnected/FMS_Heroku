@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Mon Mar 21 2022 09:16:22 GMT+0800 (Philippine Standard Time)
+------------------------------------------------------
+
+Modified files:
+* fuel_supplier_payment/models.py
+
+
+Created files:
+* .autogit/logs/log-18-2-2022-13-52-35.txt
+* fuel_supplier_payment/migrations/0011_fuel_supplier_dummy.py
+
+
+Deleted files:
+
+
+Renamed files:
