@@ -141,7 +141,7 @@ $.ajax({
         console.log(error_data)
     }
 })
-//fuel cpmsumption//
+//fuel cosumption//
 var fuel_cpmsumption = 'api/Fuel-Consumption/'
 var fuel_data_volume = []
 var fuel_data_overall = []
@@ -151,6 +151,23 @@ $.ajax({
     success: function(fuel_data){
         fuel_data_volume = fuel_data.fuel_data_volume
         fuel_data_overall = fuel_data.fuel_data_overall
+        setChart()
+    },
+    error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+    }
+})
+//fuel cosumption - Monthly//
+var fuel_monthly = 'api/Fuel-Monthly/'
+var fuel_volume = []
+var fuel_amount = []
+$.ajax({
+    method: "GET",
+    url: fuel_monthly,
+    success: function(fuel_monthly){
+        fuel_volume = fuel_monthly.fuel_volume
+        fuel_amount = fuel_monthly.fuel_amount
         setChart()
     },
     error: function(error_data){
@@ -469,7 +486,7 @@ function setChart(){
         datasets: [
         {
             label:'Petron',
-            data: [104,90],
+            data: fuel_volume,
             fill: false,
             backgroundColor:'rgba(252,194,0)',
             datalabels: {
@@ -484,7 +501,7 @@ function setChart(){
             }
         },{
             label:'Shell',
-            data: [60,108],
+            data: fuel_amount,
             fill: true,
             backgroundColor:'rgba(0,128,128)',
             datalabels: {

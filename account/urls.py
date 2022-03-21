@@ -29,4 +29,5 @@ urlpatterns = [
     path('api/TMG/', views.lto_tmg.as_view()),
     path('api/Plate/Total/', views.reg_total.as_view()),
     path("api/Fuel-Consumption/", views.fuel_consumption.as_view()),
+    path('api/Fuel-Monthly/', views.fuel_volume_monthly.as_view())
 ]
