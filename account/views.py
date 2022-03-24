@@ -440,8 +440,8 @@ class fuel_consumption(APIView):
         petron_overall_total =Fuel_supplier.objects.filter(SOA_billdate__year=date.year,Fuel_provider__contains="PETRON").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
         petron_volume_total = Fuel_supplier.objects.filter(SOA_billdate__year=date.year, Fuel_provider__contains="PETRON").aggregate(Sum('liters'))['liters__sum']
         
-        fuel_data_overall = [petron_volume_total,shell_volume_total]
-        fuel_data_volume = [petron_overall_total,shell_overall_total]
+        fuel_data_overall = [petron_volume_total,petron_overall_total]
+        fuel_data_volume = [shell_volume_total,shell_overall_total]
         fuel_data = {
                 "fuel_data_overall": fuel_data_overall,
                 "fuel_data_volume": fuel_data_volume,

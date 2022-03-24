@@ -429,10 +429,10 @@ function setChart(){
     var fuel_chart = new Chart(ctx6, {
     type: 'bar',
     data: {
-        labels:["Petron", "Shell"],
+        labels:["Volume", "Amount"],
         datasets: [
         {
-            label:'Volume',
+            label:'Petron',
             data: fuel_data_overall,
             fill: false,
             backgroundColor:'rgba(252,194,0)',
@@ -447,7 +447,7 @@ function setChart(){
                 size: 16,
             }
         },{
-            label:'Amount',
+            label:'Shell',
             data: fuel_data_volume,
             fill: true,
             backgroundColor:'rgba(0,128,128)',
