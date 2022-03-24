@@ -168,11 +168,11 @@ var jan_petron_volume = []
 $.ajax({
     method: "GET",
     url: fuel_monthly_endpoint,
-    success: function(fuel_monthly){
-        jan_shell_amount = fuel_monthly.jan_shell_amount
-        jan_petron_amount = fuel_monthly.jan_petron_amount
-        jan_shell_volume = fuel_monthly.jan_shell_volume
-        jan_petron_volume = fuel_monthly.jan_petron_volume
+    success: function(fm){
+        jan_shell_amount = fm.jan_shell_amount
+        jan_petron_amount = fm.jan_petron_amount
+        jan_shell_volume = fm.jan_shell_volume
+        jan_petron_volume = fm.jan_petron_volume
         setChart()
     },
     error: function(error_data){

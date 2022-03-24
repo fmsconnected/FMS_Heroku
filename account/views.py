@@ -461,13 +461,13 @@ class fuel_volume_monthly(APIView):
         jan_petron_amount =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(Fuel_provider__contains="PETRON").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
         jan_petron_volume = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(Fuel_provider__contains="PETRON").aggregate(Sum('liters'))['liters__sum']
         
-        fuel_monthly = {
+        fm = {
             "jan_shell_amount": jan_shell_amount,
             "jan_petron_amount": jan_petron_amount,
             "jan_shell_volume": jan_shell_volume,
             "jan_petron_volume": jan_petron_volume,
         }
-        return Response(fuel_monthly)
+        return Response(fm)
 
 class monthly_report_jan_summary(APIView):
     date = datetime.datetime.today()
