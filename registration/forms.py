@@ -130,9 +130,9 @@ class reg_update_Form(forms.ModelForm):
 
 
         remarks = (
-            ('Without Last Registration Date','Without Last Registration Date'),
-            ('Without Smoke Emission Date','Without Smoke Emission Date'),
-            ('Without COC Date','Without COC Date'),
+            ('Not Due','Not Due'),
+            ('For Retrieval','For Retrieval'),
+            ('Ongoing','Ongoing'),
             ('Complete','Complete')
             )
 

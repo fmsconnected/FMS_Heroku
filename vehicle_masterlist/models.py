@@ -73,8 +73,10 @@ class VehicleMasterList(models.Model):
 			('MG','MG')
             )
 	remarks = (
-            ('Ongoing', 'Ongoing'),
-            ('Complete','Complete'),
+            ('Not Due','Not Due'),
+            ('For Retrieval','For Retrieval'),
+            ('Ongoing','Ongoing'),
+            ('Complete','Complete')
             )
 
 	status = (
