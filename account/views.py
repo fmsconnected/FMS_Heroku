@@ -242,16 +242,16 @@ class reg(APIView):
         year2 = datetime.datetime.now().year - 2
         date_now = datetime.datetime.now().date()
         exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
-        jan = VehicleMasterList.objects.filter(PLATE_ENDING="1").filter(Last_Registration_Date__isnull=False).filter(Remarks__contains="For Retrieval").filter(Remarks__contains="Not Due").filter(vehicle_status__contains="Active").exclude(exc).count()
-        feb = VehicleMasterList.objects.filter(PLATE_ENDING="2").filter(Last_Registration_Date__isnull=False).filter(Remarks__contains="For Retrieval").filter(Remarks__contains="Not Due").filter(vehicle_status__contains="Active").exclude(exc).count()
-        mar = VehicleMasterList.objects.filter(PLATE_ENDING="3").filter(Last_Registration_Date__isnull=False).filter(Remarks__contains="For Retrieval").filter(Remarks__contains="Not Due").filter(vehicle_status__contains="Active").exclude(exc).count()
-        apr = VehicleMasterList.objects.filter(PLATE_ENDING="4").filter(Last_Registration_Date__isnull=False).filter(Remarks__contains="For Retrieval").filter(Remarks__contains="Not Due").filter(vehicle_status__contains="Active").exclude(exc).count()
-        may = VehicleMasterList.objects.filter(PLATE_ENDING="5").filter(Last_Registration_Date__isnull=False).filter(Remarks__contains="For Retrieval").filter(Remarks__contains="Not Due").filter(vehicle_status__contains="Active").exclude(exc).count()
-        jun = VehicleMasterList.objects.filter(PLATE_ENDING="6").filter(Last_Registration_Date__isnull=False).filter(Remarks__contains="For Retrieval").filter(Remarks__contains="Not Due").filter(vehicle_status__contains="Active").exclude(exc).count()
-        jul = VehicleMasterList.objects.filter(PLATE_ENDING="7").filter(Last_Registration_Date__isnull=False).filter(Remarks__contains="For Retrieval").filter(Remarks__contains="Not Due").filter(vehicle_status__contains="Active").exclude(exc).count()
-        aug = VehicleMasterList.objects.filter(PLATE_ENDING="8").filter(Last_Registration_Date__isnull=False).filter(Remarks__contains="For Retrieval").filter(Remarks__contains="Not Due").filter(vehicle_status__contains="Active").exclude(exc).count()
-        sep = VehicleMasterList.objects.filter(PLATE_ENDING="9").filter(Last_Registration_Date__isnull=False).filter(Remarks__contains="For Retrieval").filter(Remarks__contains="Not Due").filter(vehicle_status__contains="Active").exclude(exc).count()
-        octb = VehicleMasterList.objects.filter(PLATE_ENDING="0").filter(Last_Registration_Date__isnull=False).filter(Remarks__contains="For Retrieval").filter(Remarks__contains="Not Due").filter(vehicle_status__contains="Active").exclude(exc).count()
+        jan = VehicleMasterList.objects.filter(PLATE_ENDING="1").filter(Last_Registration_Date__isnull=False).filter(vehicle_status__contains="Active").exclude(exc).count()
+        feb = VehicleMasterList.objects.filter(PLATE_ENDING="2").filter(Last_Registration_Date__isnull=False).filter(vehicle_status__contains="Active").exclude(exc).count()
+        mar = VehicleMasterList.objects.filter(PLATE_ENDING="3").filter(Last_Registration_Date__isnull=False).filter(vehicle_status__contains="Active").exclude(exc).count()
+        apr = VehicleMasterList.objects.filter(PLATE_ENDING="4").filter(Last_Registration_Date__isnull=False).filter(vehicle_status__contains="Active").exclude(exc).count()
+        may = VehicleMasterList.objects.filter(PLATE_ENDING="5").filter(Last_Registration_Date__isnull=False).filter(vehicle_status__contains="Active").exclude(exc).count()
+        jun = VehicleMasterList.objects.filter(PLATE_ENDING="6").filter(Last_Registration_Date__isnull=False).filter(vehicle_status__contains="Active").exclude(exc).count()
+        jul = VehicleMasterList.objects.filter(PLATE_ENDING="7").filter(Last_Registration_Date__isnull=False).filter(vehicle_status__contains="Active").exclude(exc).count()
+        aug = VehicleMasterList.objects.filter(PLATE_ENDING="8").filter(Last_Registration_Date__isnull=False).filter(vehicle_status__contains="Active").exclude(exc).count()
+        sep = VehicleMasterList.objects.filter(PLATE_ENDING="9").filter(Last_Registration_Date__isnull=False).filter(vehicle_status__contains="Active").exclude(exc).count()
+        octb = VehicleMasterList.objects.filter(PLATE_ENDING="0").filter(Last_Registration_Date__isnull=False).filter(vehicle_status__contains="Active").exclude(exc).count()
 
         
         reglabels = ["January","February", "March", "April", "May"]
