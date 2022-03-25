@@ -133,7 +133,9 @@ class reg_update_Form(forms.ModelForm):
             ('Not Due','Not Due'),
             ('For Retrieval','For Retrieval'),
             ('Ongoing','Ongoing'),
-            ('Complete','Complete')
+            ('Complete', 'Complete'),
+            ('For DISPOSAL', 'For DISPOSAL'),
+			('SOLD','SOLD')
             )
 
 

@@ -76,7 +76,9 @@ class VehicleMasterList(models.Model):
             ('Not Due','Not Due'),
             ('For Retrieval','For Retrieval'),
             ('Ongoing','Ongoing'),
-            ('Complete','Complete')
+            ('Complete', 'Complete'),
+			('For DISPOSAL', 'For DISPOSAL'),
+			('SOLD','SOLD')
             )
 
 	status = (
