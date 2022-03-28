@@ -493,7 +493,7 @@ function setChart(){
         datasets: [
         {
             label:'Petron',
-            data: jan_petron_volume,
+            data: [3643323.31],
             fill: false,
             backgroundColor:'rgba(252,194,0)',
             datalabels: {
@@ -508,7 +508,7 @@ function setChart(){
             }
         },{
             label:'Shell',
-            data: jan_shell_volume,
+            data: [4963091.68],
             fill: true,
             backgroundColor:'rgba(0,128,128)',
             datalabels: {
@@ -526,22 +526,14 @@ function setChart(){
         
         },
         options: {
-          scales: {
-            xAxes: [{
-              stacked: true
-            }],
+        scales: {
             yAxes: [{
-              stacked: true,
-              ticks: {
-                autoSkip: false,
-                maxRotation: 90,
-                minRotation: 90
-              }
-              
+                ticks: {
+                    reverse: false
+                }
             }]
-          }
-        },
-    plugins: [ChartDataLabels]
+        }
+    },
     });
 
     var fuel_chart_amount = new Chart(ctx8, {
@@ -551,12 +543,12 @@ function setChart(){
         datasets: [
         {
             label:'Petron',
-            data: jan_petron_amount,
+            data: [4963091.68],
             fill: true,
             backgroundColor:'rgba(252,194,0)'
         },{
             label:'Shell',
-            data: jan_shell_amount,
+            data: [4963091.68],
             fill: true,
             backgroundColor:'rgba(0,128,128)',
             },
