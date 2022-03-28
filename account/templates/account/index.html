@@ -174,6 +174,8 @@ $.ajax({
         jan_shell_volume = fm.jan_shell_volume
         jan_petron_volume = fm.jan_petron_volume
         setChart()
+        console.log("shell",jan_shell_amount)
+        console.log("petron",jan_petron_amount)
     },
     error: function(error_data){
         console.log("error")
@@ -492,7 +494,7 @@ function setChart(){
         {
             label:'Petron',
             data: jan_petron_volume,
-            fill: true,
+            fill: false,
             backgroundColor:'rgba(252,194,0)',
             datalabels: {
                 color: 'white',
@@ -524,14 +526,21 @@ function setChart(){
         
         },
         options: {
-        scales: {
+          scales: {
+            xAxes: [{
+              stacked: true
+            }],
             yAxes: [{
-                ticks: {
-                    reverse: false
-                }
+              stacked: true,
+              ticks: {
+                autoSkip: false,
+                maxRotation: 90,
+                minRotation: 90
+              }
+              
             }]
-        }
-    },
+          }
+        },
     plugins: [ChartDataLabels]
     });
 
@@ -544,32 +553,12 @@ function setChart(){
             label:'Petron',
             data: jan_petron_amount,
             fill: true,
-            backgroundColor:'rgba(252,194,0)',
-            datalabels: {
-                color: 'white',
-                anchor: 'end',
-                align: 'start',
-                offset: 10
-            },
-            font: {
-                weight: 'bold',
-                size: 16,
-            }
+            backgroundColor:'rgba(252,194,0)'
         },{
             label:'Shell',
             data: jan_shell_amount,
             fill: true,
             backgroundColor:'rgba(0,128,128)',
-            datalabels: {
-                color: 'white',
-                anchor: 'end',
-                align: 'start',
-                offset: 10
-            },
-            font: {
-                weight: 'bold',
-                size: 16,
-            }
             },
         ],
         
@@ -583,7 +572,6 @@ function setChart(){
             }]
         }
     },
-    plugins: [ChartDataLabels]
     });
 
     window.onload = function(){
