@@ -455,17 +455,63 @@ class fuel_volume_monthly(APIView):
     def get(self, request, format=None):
         date = datetime.datetime.today()
         month = datetime.datetime.now().year
-        jan_shell_amount =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=1).filter(Fuel_provider__contains="SHELL").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
-        jan_shell_volume = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=1).filter(Fuel_provider__contains="SHELL").aggregate(Sum('liters'))['liters__sum']
+        shell_amount1 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=1).filter(Fuel_provider__contains="SHELL").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        shell_amount2 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=2).filter(Fuel_provider__contains="SHELL").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        shell_amount3 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=3).filter(Fuel_provider__contains="SHELL").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        shell_amount4 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=4).filter(Fuel_provider__contains="SHELL").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        shell_amount5 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=5).filter(Fuel_provider__contains="SHELL").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        shell_amount6 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=6).filter(Fuel_provider__contains="SHELL").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        shell_amount7 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=7).filter(Fuel_provider__contains="SHELL").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        shell_amount8 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=8).filter(Fuel_provider__contains="SHELL").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        shell_amount9 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=9).filter(Fuel_provider__contains="SHELL").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        shell_amount10 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=10).filter(Fuel_provider__contains="SHELL").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        shell_amount11 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=11).filter(Fuel_provider__contains="SHELL").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        shell_amount12 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=12).filter(Fuel_provider__contains="SHELL").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        petron_amount1 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=1).filter(Fuel_provider__contains="PETRON").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        petron_amount2 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=2).filter(Fuel_provider__contains="PETRON").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        petron_amount3 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=3).filter(Fuel_provider__contains="PETRON").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        petron_amount4 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=4).filter(Fuel_provider__contains="PETRON").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        petron_amount5 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=5).filter(Fuel_provider__contains="PETRON").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        petron_amount6 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=6).filter(Fuel_provider__contains="PETRON").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        petron_amount7 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=7).filter(Fuel_provider__contains="PETRON").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        petron_amount8 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=8).filter(Fuel_provider__contains="PETRON").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        petron_amount9 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=9).filter(Fuel_provider__contains="PETRON").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        petron_amount10 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=10).filter(Fuel_provider__contains="PETRON").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        petron_amount11 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=11).filter(Fuel_provider__contains="PETRON").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+        petron_amount12 =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=12).filter(Fuel_provider__contains="PETRON").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
+
+        shell_volume1 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=1).filter(Fuel_provider__contains="SHELL").aggregate(Sum('liters'))['liters__sum']
+        shell_volume2 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=2).filter(Fuel_provider__contains="SHELL").aggregate(Sum('liters'))['liters__sum']
+        shell_volume3 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=3).filter(Fuel_provider__contains="SHELL").aggregate(Sum('liters'))['liters__sum']
+        shell_volume4 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=4).filter(Fuel_provider__contains="SHELL").aggregate(Sum('liters'))['liters__sum']
+        shell_volume5 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=5).filter(Fuel_provider__contains="SHELL").aggregate(Sum('liters'))['liters__sum']
+        shell_volume6 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=6).filter(Fuel_provider__contains="SHELL").aggregate(Sum('liters'))['liters__sum']
+        shell_volume7 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=7).filter(Fuel_provider__contains="SHELL").aggregate(Sum('liters'))['liters__sum']
+        shell_volume8 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=8).filter(Fuel_provider__contains="SHELL").aggregate(Sum('liters'))['liters__sum']
+        shell_volume9 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=9).filter(Fuel_provider__contains="SHELL").aggregate(Sum('liters'))['liters__sum']
+        shell_volume10 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=10).filter(Fuel_provider__contains="SHELL").aggregate(Sum('liters'))['liters__sum']
+        shell_volume11 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=11).filter(Fuel_provider__contains="SHELL").aggregate(Sum('liters'))['liters__sum']
+        shell_volume12 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=12).filter(Fuel_provider__contains="SHELL").aggregate(Sum('liters'))['liters__sum']
+        petron_volume1 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=1).filter(Fuel_provider__contains="PETRON").aggregate(Sum('liters'))['liters__sum']
+        petron_volume2 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=2).filter(Fuel_provider__contains="PETRON").aggregate(Sum('liters'))['liters__sum']
+        petron_volume3 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=3).filter(Fuel_provider__contains="PETRON").aggregate(Sum('liters'))['liters__sum']
+        petron_volume4 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=4).filter(Fuel_provider__contains="PETRON").aggregate(Sum('liters'))['liters__sum']
+        petron_volume5 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=5).filter(Fuel_provider__contains="PETRON").aggregate(Sum('liters'))['liters__sum']
+        petron_volume6 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=6).filter(Fuel_provider__contains="PETRON").aggregate(Sum('liters'))['liters__sum']
+        petron_volume7 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=7).filter(Fuel_provider__contains="PETRON").aggregate(Sum('liters'))['liters__sum']
+        petron_volume8 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=8).filter(Fuel_provider__contains="PETRON").aggregate(Sum('liters'))['liters__sum']
+        petron_volume9 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=9).filter(Fuel_provider__contains="PETRON").aggregate(Sum('liters'))['liters__sum']
+        petron_volume10 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=10).filter(Fuel_provider__contains="PETRON").aggregate(Sum('liters'))['liters__sum']
+        petron_volume11 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=11).filter(Fuel_provider__contains="PETRON").aggregate(Sum('liters'))['liters__sum']
+        petron_volume12 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=12).filter(Fuel_provider__contains="PETRON").aggregate(Sum('liters'))['liters__sum']
         
-        jan_petron_amount =Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=1).filter(Fuel_provider__contains="PETRON").aggregate(Sum('SOA_current_amount'))['SOA_current_amount__sum']
-        jan_petron_volume = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=1).filter(Fuel_provider__contains="PETRON").aggregate(Sum('liters'))['liters__sum']
-        
+        amount = [shell_amount1, shell_amount2, shell_amount3, shell_amount4, shell_amount5, shell_amount6, shell_amount7,
+        petron_amount1, petron_amount2, petron_amount3, petron_amount4, petron_amount5, petron_amount6, petron_amount7]
+        volume = [shell_volume1, shell_volume2, shell_volume3, shell_volume4, shell_volume5, shell_volume6, shell_volume7,
+        petron_volume1, petron_volume2, petron_volume3, petron_volume4, petron_volume5, petron_volume6, petron_volume7]
         fm = {
-            "jan_shell_amount": jan_shell_amount,
-            "jan_petron_amount": jan_petron_amount,
-            "jan_shell_volume": jan_shell_volume,
-            "jan_petron_volume": jan_petron_volume,
+            "amount": amount,
+            "volume":volume
         }
         return Response(fm)
 
