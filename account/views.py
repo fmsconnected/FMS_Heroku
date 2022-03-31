@@ -505,13 +505,15 @@ class fuel_volume_monthly(APIView):
         petron_volume11 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=11).filter(Fuel_provider__contains="PETRON").aggregate(Sum('liters'))['liters__sum']
         petron_volume12 = Fuel_supplier.objects.filter(SOA_billdate__year=date.year).filter(SOA_billdate__month=12).filter(Fuel_provider__contains="PETRON").aggregate(Sum('liters'))['liters__sum']
         
-        amount = [shell_amount1, shell_amount2, shell_amount3, shell_amount4, shell_amount5, shell_amount6, shell_amount7,
-        petron_amount1, petron_amount2, petron_amount3, petron_amount4, petron_amount5, petron_amount6, petron_amount7]
-        volume = [shell_volume1, shell_volume2, shell_volume3, shell_volume4, shell_volume5, shell_volume6, shell_volume7,
-        petron_volume1, petron_volume2, petron_volume3, petron_volume4, petron_volume5, petron_volume6, petron_volume7]
+        shell_amount = [shell_amount1, shell_amount2, shell_amount3, shell_amount4, shell_amount5, shell_amount6, shell_amount7]
+        petron_amount = [petron_amount1, petron_amount2, petron_amount3, petron_amount4, petron_amount5, petron_amount6, petron_amount7]
+        shell_volume = [shell_volume1, shell_volume2, shell_volume3, shell_volume4, shell_volume5, shell_volume6, shell_volume7]
+        petron_volume = [petron_volume1, petron_volume2, petron_volume3, petron_volume4, petron_volume5, petron_volume6, petron_volume7]
         fm = {
-            "amount": amount,
-            "volume":volume
+            "shell_amount": shell_amount,
+            "petron_amount": petron_amount,
+            "shell_volume": shell_volume,
+            "petron_volume":petron_volume
         }
         return Response(fm)
 

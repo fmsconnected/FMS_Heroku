@@ -161,16 +161,20 @@ $.ajax({
 })
 //fuel cosumption - Monthly//
 var fuel_monthly_endpoint = 'api/Fuel-Monthly/'
-var jan_amount = []
+var shell_amount = []
+var petron_amount = []
+var shell_volume = []
+var petron_volume = []
 
 $.ajax({
     method: "GET",
     url: fuel_monthly_endpoint,
     success: function(fm){
-        jan_amount = fm.jan_amount
+        shell_amount = fm.shell_amount
+        petron_amount = fm.petron_amount
+        shell_volume = fm.shell_volume
+        petron_volume = fm.petron_volume
         setChart()
-        console.log("shell",jan_shell_amount)
-        console.log("petron",jan_petron_amount)
     },
     error: function(error_data){
         console.log("error")
@@ -488,7 +492,7 @@ function setChart(){
         datasets: [
         {
             label:'Petron',
-            data: jan_amount,
+            data: petron_volume,
             fill: false,
             backgroundColor:'rgba(252,194,0)',
             datalabels: {
@@ -503,7 +507,7 @@ function setChart(){
             }
         },{
             label:'Shell',
-            data: [],
+            data: shell_volume,
             fill: true,
             backgroundColor:'rgba(0,128,128)',
             datalabels: {
@@ -538,13 +542,13 @@ function setChart(){
         datasets: [
         {
             label:'Petron',
-            data: [],
-            fill: false,
+            data: petron_amount,
+            fill: true,
             backgroundColor:'rgba(252,194,0)'
         },{
             label:'Shell',
-            data: [],
-            fill: false,
+            data: shell_amount,
+            fill: true,
             backgroundColor:'rgba(0,128,128)',
             },
         ],
