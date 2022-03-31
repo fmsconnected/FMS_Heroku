@@ -525,14 +525,18 @@ function setChart(){
         
         },
         options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    reverse: false
-                }
-            }]
-        }
+          tooltips: {
+              callbacks: {
+                  label: function (tooltipItem, data) {
+                      return Number(tooltipItem.yLabel).toFixed(2);
+                  }
+              }
+          },
+          legend: {
+            position: 'right'
+        },
     },
+    plugins: [ChartDataLabels]
     });
 
     var fuel_chart_amount = new Chart(ctx8, {
@@ -555,14 +559,18 @@ function setChart(){
         
         },
         options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    reverse: false
-                }
-            }]
-        }
+          tooltips: {
+              callbacks: {
+                  label: function (tooltipItem, data) {
+                      return Number(tooltipItem.yLabel).toFixed(2);
+                  }
+              }
+          },
+          legend: {
+            position: 'right'
+        },
     },
+    plugins: [ChartDataLabels]
     });
 
     window.onload = function(){
