@@ -514,7 +514,8 @@ function setChart(){
                 color: 'white',
                 anchor: 'end',
                 align: 'start',
-                offset: 10
+                offset: 10,
+                indexAxis: 'y',
             },
             font: {
                 weight: 'bold',
@@ -532,9 +533,7 @@ function setChart(){
                   }
               }
           },
-          legend: {
-            position: 'right'
-        },
+          
     },
     plugins: [ChartDataLabels]
     });
@@ -548,13 +547,52 @@ function setChart(){
             label:'Petron',
             data: petron_amount,
             fill: true,
-            backgroundColor:'rgba(252,194,0)'
+            backgroundColor:'rgba(252,194,0)',
+            datalabels: {
+                color: 'white',
+                anchor: 'end',
+                align: 'start',
+                offset: 10
+            },
+            font: {
+                weight: 'bold',
+                size: 16,
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  autoSkip: false,
+                  maxRotation: 90,
+                  minRotation: 90
+                }
+              }]
+            } 
         },{
             label:'Shell',
             data: shell_amount,
             fill: true,
             backgroundColor:'rgba(0,128,128)',
+            datalabels: {
+                color: 'white',
+                anchor: 'end',
+                align: 'start',
+                offset: 10,
+                indexAxis: 'y',
             },
+            font: {
+                weight: 'bold',
+                size: 16,
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  autoSkip: false,
+                  maxRotation: 50,
+                  minRotation: 50
+                }
+              }]
+            } 
+          },
         ],
         
         },
@@ -566,9 +604,7 @@ function setChart(){
                   }
               }
           },
-          legend: {
-            position: 'right'
-        },
+          
     },
     plugins: [ChartDataLabels]
     });
