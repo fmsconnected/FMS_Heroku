@@ -27,8 +27,6 @@ def send_masterlist_email():
     year2 = datetime.datetime.now().year - 2
     date_now = datetime.datetime.now().date()
     sent_status = VehicleMasterList.objects.all()
-    print("given_date",given_date)
-    print("sec_week_of_month",sec_week_of_month)
                     ###########################
                     ######## 1st Email ########
                     ###########################
