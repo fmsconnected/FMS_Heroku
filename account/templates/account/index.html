@@ -467,6 +467,13 @@ function setChart(){
         
         },
         options: {
+          tooltips: {
+              callbacks: {
+                  label: function (tooltipItem, data) {
+                      return Number(tooltipItem.yLabel).toFixed(2);
+                  }
+              }
+          },
           scales: {
             xAxes: [{
               stacked: true
@@ -535,7 +542,6 @@ function setChart(){
           },
           
     },
-    plugins: [ChartDataLabels]
     });
 
     var fuel_chart_amount = new Chart(ctx8, {
@@ -558,6 +564,14 @@ function setChart(){
                 weight: 'bold',
                 size: 16,
             },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  autoSkip: false,
+                  maxRotation: 90,
+                  minRotation: 90
+                }
+              }]
             } 
         },{
             label:'Shell',
@@ -575,6 +589,15 @@ function setChart(){
                 weight: 'bold',
                 size: 16,
             },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  autoSkip: false,
+                  maxRotation: 50,
+                  minRotation: 50
+                }
+              }]
+            } 
           },
         ],
         
@@ -589,7 +612,6 @@ function setChart(){
           },
           
     },
-    plugins: [ChartDataLabels]
     });
 
     window.onload = function(){
