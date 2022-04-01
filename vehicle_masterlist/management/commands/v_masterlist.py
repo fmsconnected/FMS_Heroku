@@ -231,7 +231,7 @@ def send_masterlist_email():
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
-                print("1st Email VehicleMasterList Send")
+                print("Email Sent",item.PLATE_NO)
     if month == 5:
         print("1st Email VehicleMasterList")
         exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
