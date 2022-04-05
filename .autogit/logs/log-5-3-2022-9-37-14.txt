@@ -1,0 +1,15 @@
+-------------------- Auto-Git Log --------------------
+		Tue Apr 05 2022 09:37:14 GMT+0800 (Philippine Standard Time)
+------------------------------------------------------
+
+Modified files:
+* vehicle_masterlist/management/commands/v_masterlist.py
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:
