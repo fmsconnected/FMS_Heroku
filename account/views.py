@@ -74,7 +74,6 @@ def index(request):
     reg_months = datetime.datetime.now().month
     if reg_months == 10:
         regs_months = 0
-    
     count11 = Corrective.objects.count()
     emp = EmployeeMasterlist.objects.count()
     v_active = VehicleMasterList.objects.filter(vehicle_status="Active").count()
