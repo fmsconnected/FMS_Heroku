@@ -18,7 +18,7 @@ from vehicle_masterlist.models import VehicleMasterList
 
 django.setup()
 sched = BlockingScheduler()
-@sched.scheduled_job('interval', minutes=5)
+@sched.scheduled_job('interval', minutes=1)
 def send_masterlist_email():
     given_date = datetime.datetime.now().date()
     month = datetime.datetime.now().month
@@ -60,6 +60,8 @@ def send_masterlist_email():
                     'group':item.GROUP,
                     'acq_date':item.ACQ_DATE,
                     'acq_cost':item.ACQ_COST,
+                    'location':item.LOCATION,
+                    'area':item.AREA
                 }
                 subject = 'Reminder for Annual Vehicle Registration and Vehicle Confirmation - ' + "(" +(item.PLATE_NO) + ")"
                 html_message = render_to_string('email_template.html',data)
@@ -100,6 +102,8 @@ def send_masterlist_email():
                     'group':item.GROUP,
                     'acq_date':item.ACQ_DATE,
                     'acq_cost':item.ACQ_COST,
+                    'location':item.LOCATION,
+                    'area':item.AREA
                 }
                 subject = 'Reminder for Annual Vehicle Registration and Vehicle Confirmation - ' + "(" +(item.PLATE_NO) + ")"
                 html_message = render_to_string('email_template.html',data)
@@ -140,6 +144,8 @@ def send_masterlist_email():
                     'group':item.GROUP,
                     'acq_date':item.ACQ_DATE,
                     'acq_cost':item.ACQ_COST,
+                    'location':item.LOCATION,
+                    'area':item.AREA
                 }
                 subject = 'Reminder for Annual Vehicle Registration and Vehicle Confirmation - ' + "(" +(item.PLATE_NO) + ")"
                 html_message = render_to_string('email_template.html',data)
@@ -180,6 +186,8 @@ def send_masterlist_email():
                     'group':item.GROUP,
                     'acq_date':item.ACQ_DATE,
                     'acq_cost':item.ACQ_COST,
+                    'location':item.LOCATION,
+                    'area':item.AREA
                 }
                 subject = 'Reminder for Annual Vehicle Registration and Vehicle Confirmation - ' + "(" +(item.PLATE_NO) + ")"
                 html_message = render_to_string('email_template.html',data)
@@ -220,6 +228,8 @@ def send_masterlist_email():
                     'group':item.GROUP,
                     'acq_date':item.ACQ_DATE,
                     'acq_cost':item.ACQ_COST,
+                    'location':item.LOCATION,
+                    'area':item.AREA
                 }
                 subject = 'Reminder for Annual Vehicle Registration and Vehicle Confirmation - ' + "(" +(item.PLATE_NO) + ")"
                 html_message = render_to_string('email_template.html',data)
@@ -260,6 +270,8 @@ def send_masterlist_email():
                     'group':item.GROUP,
                     'acq_date':item.ACQ_DATE,
                     'acq_cost':item.ACQ_COST,
+                    'location':item.LOCATION,
+                    'area':item.AREA
                 }
                 subject = 'Reminder for Annual Vehicle Registration and Vehicle Confirmation - ' + "(" +(item.PLATE_NO) + ")"
                 html_message = render_to_string('email_template.html',data)
@@ -300,6 +312,8 @@ def send_masterlist_email():
                     'group':item.GROUP,
                     'acq_date':item.ACQ_DATE,
                     'acq_cost':item.ACQ_COST,
+                    'location':item.LOCATION,
+                    'area':item.AREA
                 }
                 subject = 'Reminder for Annual Vehicle Registration and Vehicle Confirmation - ' + "(" +(item.PLATE_NO) + ")"
                 html_message = render_to_string('email_template.html',data)
@@ -340,6 +354,8 @@ def send_masterlist_email():
                     'group':item.GROUP,
                     'acq_date':item.ACQ_DATE,
                     'acq_cost':item.ACQ_COST,
+                    'location':item.LOCATION,
+                    'area':item.AREA
                 }
                 subject = 'Reminder for Annual Vehicle Registration and Vehicle Confirmation - ' + "(" +(item.PLATE_NO) + ")"
                 html_message = render_to_string('email_template.html',data)
@@ -380,6 +396,8 @@ def send_masterlist_email():
                     'group':item.GROUP,
                     'acq_date':item.ACQ_DATE,
                     'acq_cost':item.ACQ_COST,
+                    'location':item.LOCATION,
+                    'area':item.AREA
                 }
                 subject = 'Reminder for Annual Vehicle Registration and Vehicle Confirmation - ' + "(" +(item.PLATE_NO) + ")"
                 html_message = render_to_string('email_template.html',data)
@@ -420,6 +438,8 @@ def send_masterlist_email():
                     'group':item.GROUP,
                     'acq_date':item.ACQ_DATE,
                     'acq_cost':item.ACQ_COST,
+                    'location':item.LOCATION,
+                    'area':item.AREA
                 }
                 subject = 'Reminder for Annual Vehicle Registration and Vehicle Confirmation - ' + "(" +(item.PLATE_NO) + ")"
                 html_message = render_to_string('email_template.html',data)
