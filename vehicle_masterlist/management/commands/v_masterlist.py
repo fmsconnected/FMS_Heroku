@@ -18,7 +18,7 @@ from vehicle_masterlist.models import VehicleMasterList
 
 django.setup()
 sched = BlockingScheduler()
-@sched.scheduled_job('interval', minutes=1)
+@sched.scheduled_job('interval', minutes=5)
 def send_masterlist_email():
     given_date = datetime.datetime.now().date()
     month = datetime.datetime.now().month
@@ -219,10 +219,7 @@ def send_masterlist_email():
                     'cost':item.COST_CENTER,
                     'group':item.GROUP,
                     'acq_date':item.ACQ_DATE,
-                    'acq_cost': item.ACQ_COST,
-                    'loc': item.LOCATION,
-                    'area':item.AREA
-                    
+                    'acq_cost':item.ACQ_COST,
                 }
                 subject = 'Reminder for Annual Vehicle Registration and Vehicle Confirmation - ' + "(" +(item.PLATE_NO) + ")"
                 html_message = render_to_string('email_template.html',data)
