@@ -76,6 +76,7 @@ $.ajax({
 ////masterlist////
 var masterlist = 'api/Masterlist/'
 var m__items = []
+var Data = []
 $.ajax({
     method: "GET",
     url: masterlist,
@@ -141,7 +142,45 @@ $.ajax({
         console.log(error_data)
     }
 })
+//fuel cosumption//
+var fuel_cpmsumption = 'api/Fuel-Consumption/'
+var fuel_data_volume = []
+var fuel_data_overall = []
+$.ajax({
+    method: "GET",
+    url: fuel_cpmsumption,
+    success: function(fuel_data){
+        fuel_data_volume = fuel_data.fuel_data_volume
+        fuel_data_overall = fuel_data.fuel_data_overall
+        setChart()
+    },
+    error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+    }
+})
+//fuel cosumption - Monthly//
+var fuel_monthly_endpoint = 'api/Fuel-Monthly/'
+var shell_amount = []
+var petron_amount = []
+var shell_volume = []
+var petron_volume = []
 
+$.ajax({
+    method: "GET",
+    url: fuel_monthly_endpoint,
+    success: function(fm){
+        shell_amount = fm.shell_amount
+        petron_amount = fm.petron_amount
+        shell_volume = fm.shell_volume
+        petron_volume = fm.petron_volume
+        setChart()
+    },
+    error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+    }
+})
 
 function setChart(){
     var ctx1 = document.getElementById("fleet_card");
@@ -395,7 +434,7 @@ function setChart(){
         datasets: [
         {
             label:'Petron',
-            data: [104,90],
+            data: fuel_data_overall,
             fill: false,
             backgroundColor:'rgba(252,194,0)',
             datalabels: {
@@ -410,7 +449,7 @@ function setChart(){
             }
         },{
             label:'Shell',
-            data: [60,108],
+            data: fuel_data_volume,
             fill: true,
             backgroundColor:'rgba(0,128,128)',
             datalabels: {
@@ -428,6 +467,13 @@ function setChart(){
         
         },
         options: {
+          tooltips: {
+              callbacks: {
+                  label: function (tooltipItem, data) {
+                      return Number(tooltipItem.yLabel).toFixed(2);
+                  }
+              }
+          },
           scales: {
             xAxes: [{
               stacked: true
@@ -453,7 +499,7 @@ function setChart(){
         datasets: [
         {
             label:'Petron',
-            data: [104,90],
+            data: petron_volume,
             fill: false,
             backgroundColor:'rgba(252,194,0)',
             datalabels: {
@@ -468,14 +514,15 @@ function setChart(){
             }
         },{
             label:'Shell',
-            data: [60,108],
+            data: shell_volume,
             fill: true,
             backgroundColor:'rgba(0,128,128)',
             datalabels: {
                 color: 'white',
                 anchor: 'end',
                 align: 'start',
-                offset: 10
+                offset: 10,
+                indexAxis: 'y',
             },
             font: {
                 weight: 'bold',
@@ -486,15 +533,15 @@ function setChart(){
         
         },
         options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    reverse: false
-                }
-            }]
-        }
+          tooltips: {
+              callbacks: {
+                  label: function (tooltipItem, data) {
+                      return Number(tooltipItem.yLabel).toFixed(2);
+                  }
+              }
+          },
+          
     },
-    plugins: [ChartDataLabels]
     });
 
     var fuel_chart_amount = new Chart(ctx8, {
@@ -504,8 +551,8 @@ function setChart(){
         datasets: [
         {
             label:'Petron',
-            data: [104,90],
-            fill: false,
+            data: petron_amount,
+            fill: true,
             backgroundColor:'rgba(252,194,0)',
             datalabels: {
                 color: 'white',
@@ -516,36 +563,55 @@ function setChart(){
             font: {
                 weight: 'bold',
                 size: 16,
-            }
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  autoSkip: false,
+                  maxRotation: 90,
+                  minRotation: 90
+                }
+              }]
+            } 
         },{
             label:'Shell',
-            data: [60,108],
+            data: shell_amount,
             fill: true,
             backgroundColor:'rgba(0,128,128)',
             datalabels: {
                 color: 'white',
                 anchor: 'end',
                 align: 'start',
-                offset: 10
+                offset: 10,
+                indexAxis: 'y',
             },
             font: {
                 weight: 'bold',
                 size: 16,
-            }
             },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  autoSkip: false,
+                  maxRotation: 50,
+                  minRotation: 50
+                }
+              }]
+            } 
+          },
         ],
         
         },
         options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    reverse: false
-                }
-            }]
-        }
+          tooltips: {
+              callbacks: {
+                  label: function (tooltipItem, data) {
+                      return Number(tooltipItem.yLabel).toFixed(2);
+                  }
+              }
+          },
+          
     },
-    plugins: [ChartDataLabels]
     });
 
     window.onload = function(){
@@ -610,45 +676,33 @@ function setChart(){
                     </p>
 
                     <div class="chart" >
-                      <!-- Sales Chart Canvas -->
                       <canvas id="reg" height="80" style="height: 80px;" ></canvas>
                     </div>
-                    <!-- /.chart-responsive -->
                   </div>
                 </div>
-                <!-- /.row -->
               </div>
-
-              <!-- /.card-footer -->
             </div>
-            <!-- /.card -->
           </div>
-          <!-- /.col -->
         </div>
-        <!-- /.row -->
           <!---------###########----------->
           <!---------Left Corner----------->
           <!---------###########----------->
         <!-- Main row -->
         <div class="row">
-          <!-- Left col -->
           <div class="col-md-9">
             <!-- MAP & BOX PANE -->
               <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Masterlist</h3>
               </div>
-              <!-- /.card-header -->
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-8">
                     <div class="chart-responsive">
                       <canvas id="masterlist" height="150"></canvas>
                     </div>
-                    <!-- ./chart-responsive -->
                   </div>
-                  <!-- /.col -->
-                                    <div class="col-md-4">
+                   <div class="col-md-4">
                     <p class="text-center">
                       <strong>Masterlist</strong>
                     </p>
@@ -669,8 +723,6 @@ function setChart(){
                       </div>
                     </div>
                   </div>
-                  <!-- /.col -->
-                  <!-- /.col -->
                 </div>
                 <!-- /.row -->
               </div>
@@ -715,21 +767,13 @@ function setChart(){
                             <!-- ./chart-responsive -->
                           </div>
                         </div>
-                        <!-- /.row -->
                       </div>
                     </div>
                   </div>
-                  <!-- /.col -->
-                  <!-- /.col -->
                 </div>
-                <!-- /.row -->
               </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.row -->
-            <!-- /.card -->
           </div>
-          <!-- /.col -->
           <!---------###########----------->
           <!---------Right Corner----------->
           <!---------###########----------->

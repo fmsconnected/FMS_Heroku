@@ -26,9 +26,8 @@ def send_masterlist_email():
     year1 = datetime.datetime.now().year - 1
     year2 = datetime.datetime.now().year - 2
     date_now = datetime.datetime.now().date()
+    print(given_date)
     sent_status = VehicleMasterList.objects.all()
-    print("given_date",given_date)
-    print("sec_week_of_month",sec_week_of_month)
                     ###########################
                     ######## 1st Email ########
                     ###########################
@@ -67,7 +66,7 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
@@ -107,7 +106,7 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
@@ -147,7 +146,7 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
@@ -187,7 +186,7 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
@@ -227,11 +226,11 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
-                print("1st Email VehicleMasterList Send")
+                print("Email Sent",item.PLATE_NO)
     if month == 5:
         print("1st Email VehicleMasterList")
         exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
@@ -267,7 +266,7 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
@@ -307,7 +306,7 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
@@ -347,7 +346,7 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
@@ -387,7 +386,7 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
@@ -427,7 +426,7 @@ def send_masterlist_email():
                 plain_message = item.PLATE_NO
                 recipient_list = [item.EMAIL]
                 from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+                cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
                 toaddrs = recipient_list + cc_email
                 mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                 VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
@@ -483,7 +482,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Account Confirmation Send")  
@@ -523,7 +522,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Account Confirmation Send")
@@ -563,7 +562,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Account Confirmation Send")
@@ -604,7 +603,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Account Confirmation Send")
@@ -644,7 +643,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Account Confirmation Send")
@@ -684,7 +683,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Account Confirmation Send")
@@ -724,7 +723,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Account Confirmation Send")
@@ -764,7 +763,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Account Confirmation Send")
@@ -804,7 +803,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Account Confirmation Send")
@@ -844,7 +843,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Account Confirmation Send")
@@ -899,7 +898,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Registration Send")
@@ -939,7 +938,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Registration Send")      
@@ -979,7 +978,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Registration Send")          
@@ -1019,7 +1018,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Registration Send")           
@@ -1059,7 +1058,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Registration Send")         
@@ -1099,7 +1098,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Registration Send")      
@@ -1139,7 +1138,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Registration Send")    
@@ -1179,7 +1178,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Registration Send")            
@@ -1219,7 +1218,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Registration Send")           
@@ -1259,7 +1258,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Registration Send")
@@ -1314,7 +1313,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Registration and Confirmation Send")
@@ -1354,7 +1353,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Registration and Confirmation Send")      
@@ -1394,7 +1393,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Registration and Confirmation Send")          
@@ -1434,7 +1433,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Registration and Confirmation Send")           
@@ -1474,7 +1473,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Registration Send")         
@@ -1514,7 +1513,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Registration Send")      
@@ -1554,7 +1553,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Registration and Confirmation Send")    
@@ -1594,7 +1593,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Registration Send")            
@@ -1634,7 +1633,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Registration and Confirmation Send")           
@@ -1674,7 +1673,7 @@ def send_masterlist_email():
 #                     plain_message = item.PLATE_NO
 #                     recipient_list = [item.EMAIL]
 #                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','zsbwarde@globe.com.ph']
+#                     cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','cristina.dominguez@globe.com.ph']
 #                     toaddrs = recipient_list + cc_email
 #                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
 #                     print("2nd Email Registration and Confirmation Send")

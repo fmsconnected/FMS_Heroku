@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Thu Mar 17 2022 11:49:30 GMT+0800 (Philippine Standard Time)
+------------------------------------------------------
+
+Modified files:
+* fuel_supplier_payment/forms.py
+* fuel_supplier_payment/models.py
+* fuel_supplier_payment/templates/fuel_supplier.html
+
+
+Created files:
+* fuel_supplier_payment/migrations/0006_auto_20220317_1124.py
+* fuel_supplier_payment/migrations/0007_auto_20220317_1133.py
+
+
+Deleted files:
+
+
+Renamed files:

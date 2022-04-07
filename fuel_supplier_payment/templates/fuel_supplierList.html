@@ -49,6 +49,7 @@
                             <th>Date Bill</th>
                             <th>Date Received:</th>
                             <th>Completed Date</th>
+                            <th>Liters</th>
                             <th>Status</th>
                             <th></th>
                         </tr>
@@ -65,7 +66,9 @@
                             <td>{{ Fuel_supplier.SOA_billdate}}</td>
                             <td>{{ Fuel_supplier.SOA_Date_received}}</td>
                             <td>{{ Fuel_supplier.Date_forwarded | date:'D d M Y'}}</td>
+                            <td>{{Fuel_supplier.liters}}</td>
                             <td>{{ Fuel_supplier.status }}</td>
+                            
                             <td>
                                 <button type="button" class="delete-inventory btn-sm btn-danger rounded" data-id="{% url 'Fuel_delete' Fuel_supplier.pk %}">
                                 <span class="fa fa-trash"></span>
