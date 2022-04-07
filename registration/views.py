@@ -183,7 +183,7 @@ def trailerRegView(request):
 def janRegView(request):
     exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__startswith="JAN",vehicle_status="Active").exclude(exc)
+            'jan_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__startswith="JAN",vehicle_status__contains="Active").exclude(exc)
         }
 
     return render(request, 'regJan_monitoring.html', context)
@@ -191,7 +191,7 @@ def janRegView(request):
 def febRegView(request):
     exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'feb_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="FEB",vehicle_status="Active").exclude(exc)
+            'feb_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="FEB",vehicle_status__contains="Active").exclude(exc)
         }
 
     return render(request, 'regFeb_monitoring.html', context)
@@ -199,7 +199,7 @@ def febRegView(request):
 def marRegView(request):
     exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'mar_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="MAR",vehicle_status="Active").exclude(exc)
+            'mar_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="MAR",vehicle_status__contains="Active").exclude(exc)
         }
 
     return render(request, 'regMar_monitoring.html', context)
@@ -207,7 +207,7 @@ def marRegView(request):
 def aprRegView(request):
     exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'apr_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="APR",vehicle_status="Active").exclude(exc)
+            'apr_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="APR",vehicle_status__contains="Active").exclude(exc)
 
         }
 
@@ -216,7 +216,7 @@ def aprRegView(request):
 def mayRegView(request):
     exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'may_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="MAY",vehicle_status="Active").exclude(exc)
+            'may_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="MAY",vehicle_status__contains="Active").exclude(exc)
         }
 
     return render(request, 'regMay_monitoring.html', context)
@@ -224,21 +224,21 @@ def mayRegView(request):
 def junRegView(request):
     exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'jun_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JUN",vehicle_status="Active").exclude(exc)
+            'jun_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JUN",vehicle_status__contains="Active").exclude(exc)
             }
     return render(request, 'regJun_monitoring.html', context)
 
 def julRegView(request):
     exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'jul_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JUL",vehicle_status="Active").exclude(exc)
+            'jul_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="JUL",vehicle_status__contains="Active").exclude(exc)
         }
     return render(request, 'regJul_monitoring.html', context)
 
 def augRegView(request):
     exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'aug_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="AUG",vehicle_status="Active").exclude(exc)
+            'aug_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="AUG",vehicle_status__contains="Active").exclude(exc)
         }
 
     return render(request, 'regAug_monitoring.html', context)
@@ -246,7 +246,7 @@ def augRegView(request):
 def sepRegView(request):
     exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'sep_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="SEP",vehicle_status="Active").exclude(exc)
+            'sep_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="SEP",vehicle_status__contains="Active").exclude(exc)
         }
 
     return render(request, 'regSep_monitoring.html', context)
@@ -254,7 +254,7 @@ def sepRegView(request):
 def octRegView(request):
     exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
     context = {
-            'oct_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="OCT",vehicle_status="Active").exclude(exc)
+            'oct_list': VehicleMasterList.objects.filter(REGISTRATION_MONTH__contains="OCT",vehicle_status__contains="Active").exclude(exc)
         }
 
     return render(request, 'regOct_monitoring.html', context)

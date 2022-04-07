@@ -44,7 +44,7 @@
     </tr>
 </table>
     <div class="card-footer">
-      <a data-toggle="modal" data-target="#updateModal" class="button">UPDATE</a>
+      <a data-toggle="modal" data-target="#updateModal" class="buttonsubmit">UPDATE</a>
       <a href="{% url 'CS_List' %}" class="btn">CLOSE</a>
     </div>
 <!--Update Modal--->
@@ -54,14 +54,14 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h2>Update Car Rental</h2>
+          <h2>Update Customer Log</h2>
         </div>
         <div class="modal-body">
         <div class="tab-content">
         <div class="row">
         <div class="col-sm-4">
             <label>Date Received</label>
-            <input style= "text-transform:" type="text" name="date_received" id="date_received" class="form-control" value="{{ object.Date_received | date:'Y-m-d'}}" readonly>
+            <input style= "text-transform:" type="Date" name="date_received" id="date_received" class="form-control" value="{{ object.Date_received | date:'Y-m-d'}}">
         </div>
         {% comment %} <label>Fleet Member</label>
             <select style= "text-transform:" type="text" name="Fleet_member" id="Fleet_member" class="form-control" value="{{ object.Fleet_member }}">
@@ -77,7 +77,7 @@
             </select> {% endcomment %}
         <div class="col-sm-4">
             <label>Fleet Member</label>
-            <input style= "text-transform:" type="text" name="Fleet_member" id="Fleet_member" class="form-control" value="{{ object.Fleet_member }}" readonly>
+            <input style= "text-transform:" type="text" name="Fleet_member" id="Fleet_member" class="form-control" value="{{ object.Fleet_member }}">
         </div>
         <div class="col-sm-4">
             <label>Client Name</label>
@@ -89,11 +89,11 @@
         </div>
         <div class="col-sm-4">
             <label>Mobile Number</label>
-            <input style="text-transform:" type="text" name="Mobile_no" id="Mobile_no" class="form-control" value="{{ object.Mobile_no }}" readonly>
+            <input style="text-transform:" type="text" name="Mobile_no" id="Mobile_no" class="form-control" value="{{ object.Mobile_no }}">
         </div>
         <div class="col-sm-4">
             <label>Transaction Type</label>
-            <input style="text-transform:" type="text" name="Transaction_type" id="Transaction_type" class="form-control" value="{{ object.Transaction_type }}" readonly>
+            <input style="text-transform:" type="text" name="Transaction_type" id="Transaction_type" class="form-control" value="{{ object.Transaction_type }}">
         </div>
 
         <div class="col-sm-4">
@@ -116,7 +116,7 @@
         <div class="col-lg-12">
         </div>
             <div class="modal-footer">
-            <button type="Submit" class="buttonsubmit btn-secondary" >UPDATE</button>
+            <button type="Submit" class="buttonsubmit" >UPDATE</button>
           </div>
         </div>
       </div>

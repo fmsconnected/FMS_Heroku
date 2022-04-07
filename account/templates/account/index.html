@@ -91,13 +91,13 @@ $.ajax({
 //Registration - Jan-May//
 var endpointreg = 'api/monitoring/Reg/'
 var reglabels = []
-var current_reg_data = []
+var reg_list = []
 $.ajax({
     method: "GET",
     url: endpointreg,
     success: function(regdata){
         reglabels = regdata.reglabels
-        current_reg_data = regdata.regdefault
+        reg_list = regdata.reg_list
         setChart()
     },
     error: function(error_data){
@@ -109,13 +109,31 @@ $.ajax({
 //unRegistration - Jan-May//
 var endpointunreg = 'api/monitoring/unReg/'
 var unreglabels = []
-var current_unreg_data = []
+var unreg_list = []
 $.ajax({
     method: "GET",
     url: endpointunreg,
     success: function(unregdata){
         unreglabels = unregdata.unreglabels
-        current_unreg_data = unregdata.unregdefault
+        unreg_list = unregdata.unreg_list
+        setChart()
+    },
+    error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+    }
+})
+
+//Registration - Total//
+var endpointunreg_total = 'api/Plate/Total/'
+var total_reglabels = []
+var total_regdefault = []
+$.ajax({
+    method: "GET",
+    url: endpointunreg_total,
+    success: function(total_regdata){
+        total_reglabels = total_regdata.total_reglabels
+        total_regdefault = total_regdata.total_regdefault
         setChart()
     },
     error: function(error_data){
@@ -209,7 +227,7 @@ function setChart(){
     var masterlist_chart = new Chart(ctx3, {
     type: 'line',
     data: {
-        labels: ["Employee","Vehicle Sold","Vehicle Active",'Vehicle Leasing'],
+        labels: ["Vehicle Active",'Vehicle Leasing'],
         datasets: [{
             data: Data,
             //data: [8248,3690,5720,4021],
@@ -217,8 +235,6 @@ function setChart(){
             backgroundColor: [
                 'rgb(0,100,0)',
                 'rgb(255,0,0)',
-                'rgb(65,105,225)',
-                'rgb(255,255,0)',
             ],
             borderColor: 'rgb(242,122,0)',
             borderWidth: 3,
@@ -274,8 +290,8 @@ function setChart(){
             label: 'Registered',
             fill: true,
             //data: [20,15,30,10,22,52,67,44,30,59],
-            data: current_reg_data,
-            backgroundColor:'rgba(252,194,0)',
+            data: reg_list,
+            backgroundColor:'rgba(255, 222, 0)',
             datalabels: {
                 color: 'white',
                 anchor: 'end',
@@ -291,8 +307,8 @@ function setChart(){
             label: 'UnRegistered',
             fill: true,
             //data:[30,58,39,34,29,72,67,74,49,39],
-            data: current_unreg_data,
-            backgroundColor:'rgba(0,128,128)',
+            data: unreg_list,
+            backgroundColor:'rgba(9, 112, 84)',
             datalabels: {
                 color: 'white',
                 anchor: 'end',
@@ -304,7 +320,26 @@ function setChart(){
                 size: 16,
             }
 
-        }]
+        },
+        {
+            label: 'Total',
+            fill: true,
+            //data:[30,58,39,34,29,72,67,74,49,39],
+            data: total_regdefault,
+            backgroundColor:'rgb(101, 153, 255)',
+            datalabels: {
+                color: 'white',
+                anchor: 'end',
+                align: 'start',
+                offset: 10
+            },
+            font: {
+                weight: 'bold',
+                size: 16,
+            }
+
+        }
+        ]
     },
     options: {
         scales: {
@@ -323,13 +358,13 @@ function setChart(){
     data: {
         datasets: [
         {
-            data: tmg_total,
+            data: [],
             fill: true,
             backgroundColor:'rbg(252,194,0)',
             borderWidth: 3,
             weight:1,
         },{
-            data: tmg_completed,
+            data: [],
             fill: true,
             backgroundColor:'rgb(255,36,0)',
             borderWidth: 3,
@@ -625,23 +660,6 @@ function setChart(){
                         <div class="progress-bar bg-primary" style="width: 85%"></div>
                       </div>
                     </div>
-                    <div class="progress-group">
-                      Vehicle Sold
-                      <span class="float-right"><b>{{ sold }}</b> - Vehicle</span>
-                      <div class="progress progress-sm">
-                        <div class="progress-bar bg-danger" style="width: 85%"></div>
-                      </div>
-                    </div>
-                    <!-- /.progress-group -->
-
-                    <div class="progress-group">
-                      Employee
-                      <span class="float-right"><b>{{ emp }}</b> - Employee</span>
-                      <div class="progress progress-sm">
-                        <div class="progress-bar bg-success" style="width: 85%"></div>
-                      </div>
-                    </div>
-
                     <!-- /.progress-group -->
                     <div class="progress-group">
                       <span class="progress-text">Leasing</span>
@@ -802,49 +820,46 @@ function setChart(){
               </div>
               <!-- /.footer -->
             </div>
-            <!-- /.card -->
-
-            <!-- Vehicle Maintenance -->
             <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">LTO-TMG Activities</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-8">
-                    <div class="chart-responsive">
-                      <canvas id="lto_tmg" height="150" ></canvas>
-                    </div>
-                  </div>
+                <div class="card-header">
+                    <h3 class="card-title">Billing</h3>
                 </div>
-                <!-- /.row -->
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer bg-white p-0">
-                <ul class="nav nav-pills flex-column">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      Total Request
-                      <span class="float-right text-success">
-                        <i class="text-sm"></i>
-                        <b>{{ tmg_total }}</b></span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      Total Request Completed
-                      <span class="float-right text-success">
-                        <i class="text-sm"></i> <b> {{ tmg_completed }}
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <!-- /.footer -->
+                  <!-- /.card-header -->
+                <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <div class="chart-responsive">
+                          <canvas id="lto_tmg" height="150" ></canvas>
+                        </div>
+                        <!-- ./chart-responsive -->
+                      </div>
+                    </div>
+                    <!-- /.row -->
+                </div>
+                  <!-- /.card-body -->
+                <div class="card-footer bg-white p-0">
+                    <ul class="nav nav-pills flex-column">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link">
+                          Total Request
+                          <span class="float-right text-danger">
+                            <i class="text-m"></i>
+                            <b></b> </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                          Total Request Completed
+                          <span class="float-right text-success">
+                            <i class="text-sm"></i><b></b>
+                          </span>
+                        </a>
+                      </li>
+                    </ul>
+                </div>
+                  <!-- /.footer -->
             </div>
-            <!-- /.card -->
-          </div>
+        </div>
           <!-- /.col -->
         </div>
         <!-- /.row -->
