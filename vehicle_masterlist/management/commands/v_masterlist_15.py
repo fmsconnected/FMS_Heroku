@@ -74,7 +74,7 @@ def account_email():
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     VehicleMasterList.objects.filter(PLATE_NO__in=list(car_status)).update(Status="Yes")
-                   print("Email Sent",item.PLATE_NO)
+                    print("Email Sent",item.PLATE_NO)
     if month == 4:
         if sec_week_of_month == given_date:
             print("2nd Email Account Confirmation")
