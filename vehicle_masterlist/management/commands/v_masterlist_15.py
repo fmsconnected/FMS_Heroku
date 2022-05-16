@@ -26,7 +26,7 @@ sched = BlockingScheduler()
 @sched.scheduled_job('interval', minutes=1)
 def account_email():
     given_date = datetime.datetime.now().date()
-    sec_week_of_month = given_date.replace(day=15)
+    sec_week_of_month = given_date.replace(day=16)
     month = datetime.datetime.now().month
     year = datetime.datetime.now().year
     year1 = datetime.datetime.now().year - 1
@@ -38,7 +38,7 @@ def account_email():
     #     if sec_week_of_month == given_date:
     #         print("2nd Email Account Confirmation")
     #         exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
-    #         car_status = VehicleMasterList.objects.filter(vehicle_status__contains="Active",confirmation="No", smoke="Yes", PLATE_ENDING="5").exclude(exc)[:80]
+    #         car_status = VehicleMasterList.objects.filter(vehicle_status__contains="Active",confirmation="No", smoke="Yes", PLATE_ENDING="4").exclude(exc)[:80]
     #         print(car_status)
     #         plate = ""
     #         for carreg in car_status:
@@ -80,7 +80,7 @@ def account_email():
     #     if sec_week_of_month == given_date:
     #         print("2nd Email Registration")
     #         exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
-    #         car_status = VehicleMasterList.objects.filter(vehicle_status__contains="Active",confirmation="Yes",smoke="No", PLATE_ENDING="5").exclude(exc)[:80]
+    #         car_status = VehicleMasterList.objects.filter(vehicle_status__contains="Active",confirmation="Yes",smoke="No", PLATE_ENDING="4").exclude(exc)[:80]
     #         print(car_status)
     #         plate = ""
     #         for carreg in car_status:
@@ -164,7 +164,7 @@ def account_email():
             print("2nd Email Account Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",confirmation="No",smoke="Yes",
-                PLATE_ENDING="2").exclude(exc)[:80]
+                PLATE_ENDING="1").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -204,7 +204,7 @@ def account_email():
             print("2nd Email Account Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",confirmation="No",smoke="Yes",
-                PLATE_ENDING="3", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="2", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -245,7 +245,7 @@ def account_email():
             print("2nd Email Account Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",confirmation="No",smoke="Yes",
-                PLATE_ENDING="4", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="3", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -285,7 +285,7 @@ def account_email():
             print("2nd Email Account Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",confirmation="No",smoke="Yes",
-                PLATE_ENDING="5", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="4", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -325,7 +325,7 @@ def account_email():
             print("2nd Email Account Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",confirmation="No",smoke="Yes",
-                PLATE_ENDING="6", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="5", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -365,7 +365,7 @@ def account_email():
             print("2nd Email Account Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",confirmation="No",smoke="Yes",
-                PLATE_ENDING="7", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="6", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -405,7 +405,7 @@ def account_email():
             print("2nd Email Account Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",confirmation="No",smoke="Yes",
-                PLATE_ENDING="8", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="7", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -445,7 +445,7 @@ def account_email():
             print("2nd Email Account Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",confirmation="No",smoke="Yes",
-                PLATE_ENDING="9", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="8", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -485,7 +485,7 @@ def account_email():
             print("2nd Email Account Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",confirmation="No",smoke="Yes",
-                PLATE_ENDING="0", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="9", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -580,7 +580,7 @@ def reg_email():
             print("2nd Email Registration")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="Yes",
-                PLATE_ENDING="2", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="1", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -620,7 +620,7 @@ def reg_email():
             print("2nd Email Registration")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="Yes",
-                PLATE_ENDING="3", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="2", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -660,7 +660,7 @@ def reg_email():
             print("2nd Email Registration")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="Yes",
-                PLATE_ENDING="4", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="3", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -700,7 +700,7 @@ def reg_email():
             print("2nd Email Registration")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="Yes",
-                PLATE_ENDING="5", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="4", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -740,7 +740,7 @@ def reg_email():
             print("2nd Email Registration")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="Yes",
-                PLATE_ENDING="6", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="5", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -780,7 +780,7 @@ def reg_email():
             print("2nd Email Registration")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="Yes",
-                PLATE_ENDING="7", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="6", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -820,7 +820,7 @@ def reg_email():
             print("2nd Email Registration")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="Yes",
-                PLATE_ENDING="8", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="7", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -860,7 +860,7 @@ def reg_email():
             print("2nd Email Registration")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="Yes",
-                PLATE_ENDING="9", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="8", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -900,7 +900,7 @@ def reg_email():
             print("2nd Email Registration")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="Yes",
-                PLATE_ENDING="0", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="9", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -995,7 +995,7 @@ def reg_email():
             print("2nd Email Registration and Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="No",
-                PLATE_ENDING="2", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="1", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -1035,7 +1035,7 @@ def reg_email():
             print("2nd Email Registration and Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="No",
-                PLATE_ENDING="3", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="2", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -1075,7 +1075,7 @@ def reg_email():
             print("2nd Email Registration and Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="No",
-                PLATE_ENDING="4", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="3", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -1115,7 +1115,7 @@ def reg_email():
             print("2nd Email Registration and Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="No",
-                PLATE_ENDING="5", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="4", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -1155,7 +1155,7 @@ def reg_email():
             print("2nd Email Registration and Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="No",
-                PLATE_ENDING="6", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="5", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -1195,7 +1195,7 @@ def reg_email():
             print("2nd Email Registration and Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="No",
-                PLATE_ENDING="7", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="6", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -1235,7 +1235,7 @@ def reg_email():
             print("2nd Email Registration and Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="No",
-                PLATE_ENDING="8", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="7", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -1275,7 +1275,7 @@ def reg_email():
             print("2nd Email Registration and Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="No",
-                PLATE_ENDING="9", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="8", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
@@ -1315,7 +1315,7 @@ def reg_email():
             print("2nd Email Registration and Confirmation")
             exc = Q(ACQ_DATE__year=year) | Q(ACQ_DATE__year=year1) | Q(ACQ_DATE__year=year2)
             car_status = VehicleMasterList.objects.filter(vehicle_status="Active",smoke="No",confirmation="No",
-                PLATE_ENDING="0", Status="Yes").exclude(exc)[:80]
+                PLATE_ENDING="9", Status="Yes").exclude(exc)[:80]
             print(car_status)
             plate = ""
             for carreg in car_status:
