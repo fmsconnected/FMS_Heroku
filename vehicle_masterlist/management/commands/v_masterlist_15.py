@@ -718,7 +718,7 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph']
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','lalaine.yumul@globe.com.ph','jerald.perez@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration Send")          
@@ -760,7 +760,7 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph']
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','lalaine.yumul@globe.com.ph','jerald.perez@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration Send")           
@@ -802,7 +802,7 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph']
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','lalaine.yumul@globe.com.ph','jerald.perez@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration Send")         
@@ -844,7 +844,7 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph']
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','lalaine.yumul@globe.com.ph','jerald.perez@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration Send")      
@@ -886,7 +886,7 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph']
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','lalaine.yumul@globe.com.ph','jerald.perez@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration Send")    
@@ -928,7 +928,7 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph']
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','lalaine.yumul@globe.com.ph','jerald.perez@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration Send")            
@@ -970,7 +970,7 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph']
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','lalaine.yumul@globe.com.ph','jerald.perez@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration Send")           
@@ -1012,7 +1012,7 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph']
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','lalaine.yumul@globe.com.ph','jerald.perez@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration Send")
@@ -1069,7 +1069,7 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','lalaine.yumul@globe.com.ph']
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','lalaine.yumul@globe.com.ph','jerald.perez@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration and Confirmation Send")
@@ -1111,7 +1111,7 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','lalaine.yumul@globe.com.ph']
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','lalaine.yumul@globe.com.ph','jerald.perez@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration and Confirmation Send")      
@@ -1153,7 +1153,7 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','lalaine.yumul@globe.com.ph']
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','lalaine.yumul@globe.com.ph','jerald.perez@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration and Confirmation Send")          
@@ -1195,7 +1195,7 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','lalaine.yumul@globe.com.ph']
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','lalaine.yumul@globe.com.ph','jerald.perez@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration and Confirmation Send")           
@@ -1237,7 +1237,7 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','lalaine.yumul@globe.com.ph']
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','lalaine.yumul@globe.com.ph','jerald.perez@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration Send")         
@@ -1321,7 +1321,7 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','lalaine.yumul@globe.com.ph']
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','lalaine.yumul@globe.com.ph','jerald.perez@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration and Confirmation Send")    
@@ -1363,7 +1363,7 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','lalaine.yumul@globe.com.ph']
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','lalaine.yumul@globe.com.ph','jerald.perez@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration Send")            
@@ -1405,7 +1405,7 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','lalaine.yumul@globe.com.ph']
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','lalaine.yumul@globe.com.ph','jerald.perez@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration and Confirmation Send")           
@@ -1447,7 +1447,7 @@ def reg_email():
                     plain_message = item.PLATE_NO
                     recipient_list = [item.EMAIL]
                     from_email = 'Fleet Management System <fmsconnected@jxmtsi.com>'
-                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','zjaperez@globe.com.ph','lalaine.yumul@globe.com.ph']
+                    cc_email= ['zscsantos@globe.com.ph','sftaboon@globe.com.ph','lalaine.yumul@globe.com.ph','jerald.perez@globe.com.ph']
                     toaddrs = recipient_list + cc_email
                     mail.send_mail(subject, plain_message, from_email, toaddrs, html_message=html_message, fail_silently=False)
                     print("2nd Email Registration and Confirmation Send")
