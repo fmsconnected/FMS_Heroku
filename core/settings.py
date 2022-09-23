@@ -118,11 +118,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'fmsjxmtsi',
-        'USER': 'postgres',
-        'PASSWORD': 'JXMTSI',
+        'NAME': 'fleet_jxmtsi_repo',
+        'USER': 'fleet',
+        'PASSWORD': 'fleet',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '5433',
     }
 }
 
